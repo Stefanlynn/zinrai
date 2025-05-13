@@ -683,30 +683,47 @@ html, body {
   0% {
     opacity: 1; /* Logo fully visible */
     transform: scale(1);
+    filter: blur(0px);
   }
-  30% {
-    opacity: 1; /* Logo stays visible for 6 seconds (30% of 16s) */
+  28% {
+    opacity: 1; /* Logo stays visible */
     transform: scale(1);
+    filter: blur(0px);
+  }
+  30% { 
+    opacity: 0.9; /* Start fade out */
+    transform: scale(1.01);
+    filter: blur(0px);
   }
   35% { 
     opacity: 0.5; /* Smoother transition out */
     transform: scale(1.02);
+    filter: blur(1px);
   }
   40% {
     opacity: 0; /* Logo fades out */
     transform: scale(1.05);
+    filter: blur(2px);
   }
-  90% {
+  88% {
     opacity: 0; /* Logo stays invisible */
     transform: scale(0.95);
+    filter: blur(2px);
+  }
+  90% {
+    opacity: 0.1; /* Start fade in */
+    transform: scale(0.96);
+    filter: blur(2px);
   }
   95% {
-    opacity: 0.5; /* Smoother transition in */
+    opacity: 0.7; /* Smoother transition in */
     transform: scale(0.98);
+    filter: blur(1px);
   }
   100% {
     opacity: 1; /* Logo fades back in */
     transform: scale(1);
+    filter: blur(0px);
   }
 }
 
@@ -714,30 +731,47 @@ html, body {
   0% {
     opacity: 0; /* Text invisible when logo is visible */
     transform: scale(0.95);
+    filter: blur(2px);
   }
-  30% {
+  28% {
     opacity: 0; /* Text stays invisible */
     transform: scale(0.95);
+    filter: blur(2px);
+  }
+  30% {
+    opacity: 0.1; /* Start fade in */
+    transform: scale(0.96); 
+    filter: blur(2px);
   }
   35% {
-    opacity: 0.5; /* Smoother transition in */
+    opacity: 0.7; /* Smoother transition in */
     transform: scale(0.98);
+    filter: blur(1px);
   }
   40% {
     opacity: 1; /* Text fades in as logo fades out */
     transform: scale(1);
+    filter: blur(0px);
+  }
+  88% {
+    opacity: 1; /* Text stays visible */
+    transform: scale(1);
+    filter: blur(0px);
   }
   90% {
-    opacity: 1; /* Text stays visible for 10 seconds (50% of 16s) */
-    transform: scale(1);
+    opacity: 0.9; /* Start fade out */
+    transform: scale(1.01);
+    filter: blur(0px);
   }
   95% {
     opacity: 0.5; /* Smoother transition out */
     transform: scale(1.02);
+    filter: blur(1px);
   }
   100% {
     opacity: 0; /* Text fades out as logo returns */
     transform: scale(1.05);
+    filter: blur(2px);
   }
 }
 
@@ -749,6 +783,40 @@ html, body {
   50% {
     transform: translateY(-10px);
     opacity: 1;
+  }
+}
+
+/* ZiNRAi logo container styling */
+.zinrai-logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zinrai-logo-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+  animation: logoGlow 16s infinite;
+  animation-delay: 1.0s;
+}
+
+@keyframes logoGlow {
+  0%, 28%, 40%, 88%, 100% {
+    opacity: 0;
+  }
+  33%, 93% {
+    opacity: 0.4;
   }
 }
 

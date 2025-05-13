@@ -617,30 +617,27 @@ export default function Home() {
               </button>
             </div>
             
-            {/* ZiNRAi Circle Logo centered on screen with fade animation */}
-            <div 
-              className="fixed inset-0 flex items-center justify-center pointer-events-none z-[70] transition-all duration-1000 ease-in-out"
-              style={{ 
-                animationDelay: '1.0s',
-                animation: 'logoFade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite' 
-              }}
-            >
-              <img
-                src={zinraiLogoImage}
-                alt="ZiNRAi Logo"
-                className="w-[650px] h-[650px] object-contain transition-transform duration-700"
-              />
+            {/* ZiNRAi Logo and Text stacked in center */}
+            <div className="fixed inset-0 flex flex-col items-center justify-center pointer-events-none z-[70]">
+              {/* Logo above text */}
+              <div className="zinrai-logo-container mb-4">
+                <img
+                  src={zinraiLogoImage}
+                  alt="ZiNRAi Logo"
+                  className="w-[450px] h-[450px] object-contain transition-transform duration-700"
+                />
+              </div>
+              
+              {/* Text below logo */}
+              <h1 
+                className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap transition-all duration-1000 ease-in-out"
+                style={{
+                  textShadow: '0 0 30px rgba(255, 255, 255, 0.3)'
+                }}
+              >
+                ZiNRAi
+              </h1>
             </div>
-            
-            <h1 
-              className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap transition-all duration-1000 ease-in-out"
-              style={{
-                animation: 'textFade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite',
-                animationDelay: '1.0s'
-              }}
-            >
-              ZiNRAi
-            </h1>
           </div>
         </div>
       
