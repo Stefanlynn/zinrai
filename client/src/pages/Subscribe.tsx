@@ -1,0 +1,331 @@
+import React, { useEffect, useState } from "react";
+import { useLocation } from "wouter";
+
+export default function Subscribe() {
+  // State to track if the page is loaded for animations
+  const [pageLoaded, setPageLoaded] = useState(false);
+  // State to track which subscription option is selected
+  const [selectedSubscription, setSelectedSubscription] = useState<string | null>(null);
+  // State to track if independent rep option is selected
+  const [independentRep, setIndependentRep] = useState(false);
+  // Import navigate for navigation
+  const [_, navigate] = useLocation();
+  
+  // Load animations when component mounts
+  useEffect(() => {
+    // Show all UI elements immediately
+    document.querySelectorAll('.horizontal-line, .vertical-line, .border-line')
+      .forEach(element => {
+        element.classList.add('animate-in');
+      });
+    
+    // Set page as loaded for animations
+    setTimeout(() => {
+      setPageLoaded(true);
+    }, 100);
+  }, []);
+
+  // Handle subscription selection
+  const handleSubscriptionSelect = (type: string) => {
+    setSelectedSubscription(type);
+  };
+  
+  // Toggle independent rep add-on
+  const toggleIndependentRep = () => {
+    setIndependentRep(!independentRep);
+  };
+  
+  // Calculate total price
+  const calculateTotal = () => {
+    let total = 0;
+    
+    if (selectedSubscription === 'single') {
+      total += 185;
+    } else if (selectedSubscription === 'all') {
+      total += 250;
+    }
+    
+    if (independentRep) {
+      total += 24.99;
+    }
+    
+    return total.toFixed(2);
+  };
+
+  return (
+    <div className="bg-black min-h-screen w-full overflow-y-auto">
+      {/* Header with back button */}
+      <div className="fixed top-0 left-0 w-full h-8 bg-[#f7f5f0] z-50 flex items-center px-6">
+        <button 
+          className="text-black text-sm flex items-center space-x-1 hover:opacity-70 transition-opacity"
+          onClick={() => navigate('/')}
+        >
+          <span>←</span>
+          <span>Back</span>
+        </button>
+      </div>
+
+      {/* Main content */}
+      <div className="relative pt-8">
+        {/* Grid for visual design */}
+        <div className="fixed inset-0 z-0 pt-8">
+          {/* Grid lines - vertical lines at 50% */}
+          <div className="absolute left-1/2 top-0 w-[1px] h-full bg-white/[0.15] transform -translate-x-[0.5px]"></div>
+          
+          {/* Grid lines - horizontal lines at 25%, 50%, 75% positions */}
+          <div className="absolute top-[25%] left-0 w-full h-[1px] bg-white/[0.15]"></div>
+          <div className="absolute top-[50%] left-0 w-full h-[1px] bg-white/[0.15]"></div>
+          <div className="absolute top-[75%] left-0 w-full h-[1px] bg-white/[0.15]"></div>
+          
+          {/* Border around the grid */}
+          <div className="absolute inset-0 border border-white/[0.15] mt-8"></div>
+        </div>
+        
+        {/* Subscription Content */}
+        <div className={`relative z-10 pt-16 pb-24 px-6 md:px-10 max-w-6xl mx-auto transition-opacity duration-700 ${pageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          {/* Heading with gradient */}
+          <div className="text-center mb-14">
+            <h1 className="text-white text-3xl md:text-5xl font-bold tracking-wider inline-block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
+              SUBSCRIBE
+            </h1>
+            <p className="text-white/70 mt-3 text-sm md:text-base tracking-wide max-w-xl mx-auto">
+              Select your preferred subscription option to begin your journey with ZiNRAi
+            </p>
+          </div>
+          
+          {/* Subscription Options - 3 column layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {/* Single Track Subscription */}
+            <div 
+              className={`bg-black border ${selectedSubscription === 'single' ? 'border-white' : 'border-white/20'} p-6 relative cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
+              onClick={() => handleSubscriptionSelect('single')}
+            >
+              <div className="absolute top-4 right-4">
+                <div className={`w-5 h-5 rounded-full ${selectedSubscription === 'single' ? 'border-2 border-white' : 'border border-white/50'}`}>
+                  {selectedSubscription === 'single' && (
+                    <div className="w-3 h-3 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                  )}
+                </div>
+              </div>
+              
+              <h2 className="text-white text-xl font-medium mb-3 mt-2">Single Track</h2>
+              <div className="text-white/90 text-3xl font-bold mb-6">
+                $185<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+              </div>
+              
+              <p className="text-white/80 text-sm mb-4">Choose one education pack:</p>
+              
+              <ul className="space-y-3 mb-6 flex-grow">
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Foreign Exchange (Forex)</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Stocks & Options</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Cryptocurrency</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>E-Commerce</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Digital Marketing</span>
+                </li>
+              </ul>
+              
+              <p className="text-white/60 text-xs italic mt-auto">Includes access to goLIVE classrooms and real-time training for your selected topic.</p>
+            </div>
+            
+            {/* All Access Subscription */}
+            <div 
+              className={`bg-black border relative ${selectedSubscription === 'all' ? 'border-white' : 'border-white/20'} p-6 cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
+              onClick={() => handleSubscriptionSelect('all')}
+            >
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white text-black px-4 py-1 text-xs font-bold">
+                BEST VALUE
+              </div>
+              
+              <div className="absolute top-4 right-4">
+                <div className={`w-5 h-5 rounded-full ${selectedSubscription === 'all' ? 'border-2 border-white' : 'border border-white/50'}`}>
+                  {selectedSubscription === 'all' && (
+                    <div className="w-3 h-3 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                  )}
+                </div>
+              </div>
+              
+              <h2 className="text-white text-xl font-medium mb-3 mt-2">All Access</h2>
+              <div className="text-white/90 text-3xl font-bold mb-6">
+                $250<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+              </div>
+              
+              <p className="text-white/80 text-sm mb-4">Full access to all education tracks:</p>
+              
+              <ul className="space-y-3 mb-6 flex-grow">
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>All 5 education packs included</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Member perks and discounts</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Early access to future offerings</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Premium tools and resources</span>
+                </li>
+              </ul>
+              
+              <p className="text-white/60 text-xs italic mt-auto">Perfect for those ready to scale or build across multiple areas.</p>
+            </div>
+            
+            {/* Independent Representative Add-On */}
+            <div 
+              className={`bg-black border ${independentRep ? 'border-white' : 'border-white/20'} p-6 relative cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
+              onClick={toggleIndependentRep}
+            >
+              <div className="absolute top-4 right-4">
+                <div className={`w-5 h-5 rounded-full ${independentRep ? 'border-2 border-white' : 'border border-white/50'}`}>
+                  {independentRep && (
+                    <div className="w-3 h-3 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                  )}
+                </div>
+              </div>
+              
+              <h2 className="text-white text-xl font-medium mb-3 mt-2">Independent Rep</h2>
+              <div className="text-white/90 text-3xl font-bold mb-6">
+                $24.99<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+              </div>
+              
+              <p className="text-white/80 text-sm mb-4">Add to either option or select on its own:</p>
+              
+              <ul className="space-y-3 flex-grow">
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Business dashboard</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Commission eligibility</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Marketing tools</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Leadership training</span>
+                </li>
+                <li className="text-white/70 text-sm flex items-start">
+                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                  <span>Private community access</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* Order Summary and Payment Form in 2 columns */}
+          {(selectedSubscription || independentRep) && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Order Summary Column */}
+              <div className="bg-black border border-white/20 p-8">
+                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Order Summary</h2>
+                
+                <div className="space-y-4 mb-6">
+                  {selectedSubscription === 'single' && (
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-white text-base">Single Track Subscription</p>
+                        <p className="text-white/60 text-xs mt-1">Monthly access to 1 education track</p>
+                      </div>
+                      <span className="text-white text-lg">$185.00</span>
+                    </div>
+                  )}
+                  
+                  {selectedSubscription === 'all' && (
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-white text-base">All Access Subscription</p>
+                        <p className="text-white/60 text-xs mt-1">Monthly access to all education tracks</p>
+                      </div>
+                      <span className="text-white text-lg">$250.00</span>
+                    </div>
+                  )}
+                  
+                  {independentRep && (
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-white text-base">Independent Representative</p>
+                        <p className="text-white/60 text-xs mt-1">Monthly access to business tools</p>
+                      </div>
+                      <span className="text-white text-lg">$24.99</span>
+                    </div>
+                  )}
+                </div>
+                
+                <div className="border-t border-white/10 pt-4 flex justify-between items-center">
+                  <span className="text-white font-medium">Total Monthly</span>
+                  <span className="text-white text-2xl font-bold">${calculateTotal()}</span>
+                </div>
+                
+                <div className="mt-8 bg-white/5 p-4">
+                  <p className="text-white/70 text-sm">
+                    Your subscription will renew automatically each month. 
+                    You can cancel or change your plan at any time.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Payment Form Column */}
+              <div className="bg-black border border-white/20 p-8">
+                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Payment Details</h2>
+                
+                {/* Form Placeholder with clear developer instruction */}
+                <div className="bg-white/5 p-8 flex flex-col items-center justify-center border border-dashed border-white/30 min-h-[300px]">
+                  <h3 className="text-white font-medium text-lg mb-4">INSERT CUSTOM FORM HERE</h3>
+                  <p className="text-white/70 text-center mb-6 max-w-md">
+                    Developer: This area is reserved for the payment form integration with Stripe or other payment processor. 
+                    Include fields for customer information and payment details.
+                  </p>
+                  
+                  <div className="flex flex-col items-center space-y-4 w-full max-w-xs">
+                    <div className="w-full h-8 bg-white/10 rounded"></div>
+                    <div className="w-full h-8 bg-white/10 rounded"></div>
+                    <div className="w-full h-8 bg-white/10 rounded"></div>
+                    <div className="w-full h-12 bg-white/10 rounded"></div>
+                  </div>
+                </div>
+                
+                <div className="mt-8">
+                  <button 
+                    className={`w-full bg-black border-2 border-white text-white py-4 px-8 transition-all duration-300 focus:outline-none hover:bg-white hover:text-black text-base font-medium tracking-wide ${
+                      (selectedSubscription || independentRep) ? 'opacity-100' : 'opacity-50 cursor-not-allowed'
+                    }`}
+                    disabled={!selectedSubscription && !independentRep}
+                  >
+                    COMPLETE SUBSCRIPTION
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {/* Show message if no option selected */}
+          {!selectedSubscription && !independentRep && (
+            <div className="mt-8 p-6 border border-white/20 text-center">
+              <p className="text-white/70">Select a subscription option above to continue.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
