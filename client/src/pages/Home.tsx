@@ -600,7 +600,7 @@ export default function Home() {
               {/* Stacked layout with text positioned higher */}
               <div className="flex flex-col items-center mt-[-50px]">
                 {/* Logo */}
-                <div className="zinrai-logo-container mb-[-80px]">
+                <div className="zinrai-logo-container mb-[-150px]">
                   <img
                     src={zinraiLogoImage}
                     alt="ZiNRAi Logo"
