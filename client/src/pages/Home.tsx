@@ -45,6 +45,7 @@ export default function Home() {
   
   // Flicker images state - track multiple active boxes
   const [activeFlickerBoxes, setActiveFlickerBoxes] = useState<Record<number, string>>({});
+  const [isFlickering, setIsFlickering] = useState(false);
   const flickerImages = [beachImage, cryptoImage, runnerImage, womanImage];
   
   // Custom spinning plus component
@@ -357,16 +358,13 @@ export default function Home() {
   useEffect(() => {
     let timers: NodeJS.Timeout[] = [];
     
-    // Track the current state to alternate between flicker mode and black screen mode
-    const flickerMode = { current: true };
-    
     // Function to add multiple flickering images for a 3-4 second sequence
     const startFlickerSequence = () => {
       // Clear any active images first
       setActiveFlickerBoxes({});
       
       // Mark as being in flicker mode
-      flickerMode.current = true;
+      setIsFlickering(true);
       
       // Create a mapping of image index to current box number
       const imageToBoxMap: {[key: number]: number} = {};
@@ -441,7 +439,7 @@ export default function Home() {
         // Use RAF to ensure DOM has updated before removing
         requestAnimationFrame(() => {
           setActiveFlickerBoxes({});
-          flickerMode.current = false;
+          setIsFlickering(false);
           
           // Ensure all flicker boxes are properly reset
           document.querySelectorAll('.flicker-box').forEach(el => {
