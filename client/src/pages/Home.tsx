@@ -701,13 +701,16 @@ export default function Home() {
           );
         })}
         
-        {/* WATCH NOW in the top left square - adjusted to be centered in the box */}
+        {/* Watch Now has been moved from the top left to the bottom left */}
+        
+        {/* Menu icon has been moved to the header bar */}
+        
+        {/* WATCH NOW in the bottom left square */}
         <div 
-          className={`absolute top-0 left-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
+          className={`absolute bottom-0 left-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
           style={{ 
             width: '50vw', 
             height: '25vh',
-            paddingTop: '32px', /* This accounts for the header height */
             transform: 'translate(0, 0)',
             touchAction: 'manipulation'
           }}
@@ -716,7 +719,7 @@ export default function Home() {
             className="watch-now-text text-[12px] tracking-[0.15em] text-white font-medium uppercase text-center cursor-pointer animate-content-glitch hover:scale-110 transition-transform" 
             style={{ 
               padding: '5px',
-              animationDelay: '1.2s',
+              animationDelay: '1.6s',
               textShadow: '0 0 10px rgba(255, 255, 255, 0.4)'
             }}
             onClick={handleWatchClick}
@@ -736,10 +739,6 @@ export default function Home() {
             </svg>
           </div>
         </div>
-        
-        {/* Menu icon has been moved to the header bar */}
-        
-        {/* WATCH and WHY text have been removed from the bottom left */}
         
         
         {/* Start Now text in the bottom right square */}
