@@ -685,7 +685,7 @@ export default function Home() {
           
           {/* Content text - using native HTML anchor */}
           <div 
-            className="product-text text-center cursor-pointer group hover:opacity-90 transition-opacity"
+            className="product-text text-center cursor-pointer group hover:opacity-90 transition-opacity flex flex-col items-center"
             onClick={() => {
               const title = contentItems[currentIndex].title.toLowerCase();
               const path = title === "products" ? "/product" : 
@@ -694,8 +694,8 @@ export default function Home() {
               navigate(path);
             }}
           >
-            <div className="text-[14px] font-bold tracking-wider text-white/90">{contentItems[currentIndex].number}</div>
-            <div className="text-[12px] font-semibold tracking-wide text-white/80">{contentItems[currentIndex].title}</div>
+            <div className="text-[10px] tracking-[0.15em] text-white/70 font-light uppercase">{contentItems[currentIndex].number}</div>
+            <div className="text-[10px] tracking-[0.15em] text-white/70 font-light uppercase mt-1">{contentItems[currentIndex].title}</div>
           </div>
           
           {/* Down arrow below text - navigate to next content item */}
