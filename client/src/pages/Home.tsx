@@ -704,7 +704,11 @@ export default function Home() {
           <div 
             className="menu-icon animate-content-glitch cursor-pointer" 
             onClick={toggleMenu}
-            style={{ animationDelay: '1.4s' }}
+            onTouchStart={toggleMenu} /* Added touchstart for immediate response */
+            style={{ 
+              animationDelay: '1.4s',
+              padding: '15px' /* Added padding for larger touch target */
+            }}
           >
             <div className="menu-line1"></div>
             <div className="menu-line2"></div>
@@ -803,10 +807,18 @@ export default function Home() {
                 changeContent('prev');
               }
             }}
+            onTouchStart={(e) => {
+              // Only allow arrow functionality on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                changeContent('prev');
+              }
+            }}
             style={{ 
               position: 'relative', 
               zIndex: 60,
-              touchAction: 'manipulation'
+              touchAction: 'manipulation',
+              padding: '10px' /* Added padding for larger touch target */
             }}
           >
             <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -872,6 +884,16 @@ export default function Home() {
                 e.stopPropagation();
                 changeContent('next');
               }
+            }}
+            onTouchStart={(e) => {
+              // Only allow arrow functionality on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                changeContent('next');
+              }
+            }}
+            style={{ 
+              padding: '10px' /* Added padding for larger touch target */
             }}
           >
             <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
