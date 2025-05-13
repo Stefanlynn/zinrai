@@ -587,17 +587,18 @@ export default function Home() {
     // Use the helper function to get the route
     const route = getRouteForCurrentIndex();
     
-    // Use window.location for direct navigation
-    window.location.href = route;
+    // Use Wouter navigate function for client-side routing
+    navigate(route);
   };
   
   // We'll use the existing toggleMenu function below
   
-  // Handle returning to home page - now using direct navigation
+  // Handle returning to home page using client-side routing
   const handleReturnToHome = () => {
-    // Use direct navigation for better reliability
-    window.location.href = '/';
-    // setCurrentIndex will be called automatically when the page reloads
+    // Use Wouter navigate for client-side routing
+    navigate('/');
+    // Reset current index for navigation
+    setCurrentIndex(0);
     
     // Make sure navigation is visible when returning to home page
     setTimeout(() => {
