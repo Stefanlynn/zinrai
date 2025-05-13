@@ -593,29 +593,7 @@ export default function Home() {
         {/* zinrai text in the center */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
           <div className="relative inline-block">
-            {/* Switch/Play button above z in zinrai */}
-            <div className="absolute -top-[30px] left-[4%] z-50">
-              <button 
-                onClick={() => setVideoPopupOpen(true)}
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  setIconVariant((prev) => (prev + 1) % videoIcons.length);
-                }}
-                className="text-white/80 cursor-pointer"
-                style={{ touchAction: 'manipulation' }}  
-                aria-label="Open video"
-                title={`Video trigger (${videoIcons[iconVariant].name} icon)`}
-              >
-                {iconVariant === 0 ? (
-                  <SpinningPlus size={18} className="play-button-glow" />
-                ) : (
-                  React.createElement(videoIcons[iconVariant].icon, { 
-                    size: 18, 
-                    className: "play-button-glow"
-                  })
-                )}
-              </button>
-            </div>
+{/* Removed the Plus button as requested */}
             
             {/* ZiNRAi Logo and Text stacked in center */}
             <div className="fixed inset-0 flex flex-col items-center justify-center pointer-events-none z-[70]">
