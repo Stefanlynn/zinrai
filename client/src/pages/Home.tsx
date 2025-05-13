@@ -535,7 +535,9 @@ export default function Home() {
   
   // Simple toggle menu function
   const toggleMenu = () => {
+    console.log("Toggle menu clicked, current state:", menuOpen);
     setMenuOpen(!menuOpen);
+    console.log("Menu should now be:", !menuOpen);
   };
 
   return (
@@ -546,38 +548,25 @@ export default function Home() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Header bar */}
-      <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[900] flex items-center justify-between px-6 shadow-md">
+      <div className="fixed top-0 left-0 right-0 h-[40px] bg-[#f7f5f0] z-[999] flex items-center justify-between px-6 shadow-md">
         {/* ZiNRAi text on left side */}
         <div className="text-black text-sm font-medium">ZiNRAi</div>
         
         {/* Right-side icons */}
         <div className="flex items-center">
-          {/* Menu icon button - with two black lines */}
+          {/* Completely new menu icon */}
           <button 
-            className="menu-header-icon flex flex-col justify-center items-center cursor-pointer mr-4 border-2 border-black rounded px-2 py-1 bg-white hover:bg-gray-100"
+            className="relative z-[999] menu-btn bg-red-500 text-white px-3 py-1 rounded mr-4 cursor-pointer"
             onClick={toggleMenu}
             onTouchStart={toggleMenu}
+            style={{ fontSize: '14px' }}
           >
-            {menuOpen ? (
-              <>
-                {/* X shape when menu is open */}
-                <div className="relative h-4 w-5">
-                  <div className="w-5 h-[2px] bg-black absolute top-1/2 left-0 transform -translate-y-1/2 rotate-45"></div>
-                  <div className="w-5 h-[2px] bg-black absolute top-1/2 left-0 transform -translate-y-1/2 -rotate-45"></div>
-                </div>
-              </>
-            ) : (
-              <>
-                {/* Two parallel lines when menu is closed */}
-                <div className="w-5 h-[2px] bg-black mb-[4px]"></div>
-                <div className="w-5 h-[2px] bg-black"></div>
-              </>
-            )}
+            MENU
           </button>
           
           {/* Profile icon */}
           <div 
-            className="profile-icon w-5 h-5 bg-white rounded-full cursor-pointer"
+            className="profile-icon w-5 h-5 bg-black rounded-full cursor-pointer"
             onClick={() => navigate('/profile')}
             onTouchStart={() => navigate('/profile')}
           ></div>
