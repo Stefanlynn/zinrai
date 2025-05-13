@@ -454,6 +454,27 @@ body.home-is-active {
     z-index: 0 !important;
   }
   
+  /* Individual flicker animation timing classes */
+  .flicker-timing-1 {
+    animation: imageFlicker 3.5s ease-in-out infinite !important;
+    animation-delay: 0s !important;
+  }
+  
+  .flicker-timing-2 {
+    animation: imageFlicker 3s ease-in-out infinite !important;
+    animation-delay: 0.5s !important;
+  }
+  
+  .flicker-timing-3 {
+    animation: imageFlicker 2.8s ease-in-out infinite !important;
+    animation-delay: 1s !important;
+  }
+  
+  .flicker-timing-4 {
+    animation: imageFlicker 4s ease-in-out infinite !important;
+    animation-delay: 1.5s !important;
+  }
+  
   /* Mobile-specific fixes */
   @media screen and (max-width: 767px) {
     .flicker-box {
