@@ -137,12 +137,12 @@ function App() {
             {/* Redesigned Dropdown menu */}
             {menuOpen && (
               <div className="fixed inset-0 bg-black/95 z-[1001] flex items-center justify-center transition-all duration-300 animate-fade-in overflow-y-auto">
-                {/* Close button for menu - positioned to match the header menu */}
+                {/* Close button for menu - positioned at the absolute top right */}
                 <button 
                   onClick={() => setMenuOpen(false)} 
-                  className="absolute top-[16px] right-[16px] text-white/70 hover:text-white transition-colors"
+                  className="absolute top-0 right-0 text-white/70 hover:text-white transition-colors p-3"
                 >
-                  <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden">
+                  <div className="relative h-6 w-6 flex items-center justify-center overflow-hidden">
                     {/* Animated X icon */}
                     <div className="relative">
                       {/* Line 1 - for X */}
