@@ -44,24 +44,19 @@ export default function Home() {
     // Get window dimensions to determine constraints
     const isMobile = window.innerWidth < 768;
     
-    // Use more constrained position ranges on mobile to keep it visible
-    // These values are tighter to ensure the "why" text stays on screen
-    const minLeft = isMobile ? 30 : 20;
-    const maxLeft = isMobile ? 70 : 75;
-    const minTop = isMobile ? 30 : 20;
-    const maxTop = isMobile ? 70 : 75;
+    // More centered position range to keep "why" text in middle area of screen
+    const minLeft = isMobile ? 40 : 40;  // Keep it more centered
+    const maxLeft = isMobile ? 60 : 60;  // Keep it more centered
+    const minTop = isMobile ? 40 : 40;   // Keep it more centered 
+    const maxTop = isMobile ? 60 : 60;   // Keep it more centered
     
-    // Calculate position with padding for safety
+    // Calculate position with small random variation
     const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
     const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
     
-    // Apply additional safety clamps to ensure it's always visible
-    const safeLeft = Math.max(25, Math.min(newLeft, 75)); 
-    const safeTop = Math.max(25, Math.min(newTop, 75));
-    
     return {
-      left: safeLeft + '%',
-      top: safeTop + '%'
+      left: newLeft + '%',
+      top: newTop + '%'
     };
   });
   
@@ -608,20 +603,18 @@ export default function Home() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Small sideways "why" text with strictly constrained positioning - only visible when menu is closed */}
+      {/* Small sideways "why" text with constrained positioning - only visible when menu is closed */}
       {!menuOpen && (
         <div 
           className="fixed z-30 transform -rotate-90 transition-all duration-700 ease-in-out cursor-pointer"
           style={{ 
-            left: `max(20vw, min(${logoPosition.left}, 80vw))`, // Stricter horizontal bounds
-            top: `max(20vh, min(${logoPosition.top}, 80vh))`,   // Stricter vertical bounds
+            left: `max(35vw, min(${logoPosition.left}, 65vw))`, // Keep it in the middle area horizontally
+            top: `max(35vh, min(${logoPosition.top}, 65vh))`,   // Keep it in the middle area vertically
             padding: '10px', // Add padding to make it easier to tap/click
-            backgroundColor: 'rgba(0,0,0,0.3)', // Subtle background to make it more visible
-            borderRadius: '8px',
           }}
           onClick={() => navigate('/logo')}
         >
-          <span className="text-white text-[10px] uppercase tracking-widest font-bold">why</span>
+          <span className="text-white text-[8px] uppercase tracking-widest font-bold">why</span>
         </div>
       )}
       
