@@ -180,6 +180,30 @@ export default function Home() {
     };
   }, []);
   
+  // Ensure mobile elements are clickable (executed once on page load)
+  useEffect(() => {
+    // Add very high z-index and pointer-events to all interactive elements on mobile
+    if (window.innerWidth <= 767) {
+      const makeClickable = (selector: string) => {
+        document.querySelectorAll(selector).forEach((el: HTMLElement) => {
+          el.style.pointerEvents = 'auto';
+          el.style.zIndex = '10000';
+          el.style.position = 'relative';
+          el.style.touchAction = 'manipulation';
+        });
+      };
+      
+      // Apply to all interactive elements
+      makeClickable('.menu-icon, .watch-text, .product-text, .product-arrow, .product-arrow-up, button, a, [role="button"], .cursor-pointer');
+      
+      // Make grid container non-interactive
+      const gridContainer = document.querySelector('.mobile-grid-container') as HTMLElement;
+      if (gridContainer) {
+        gridContainer.style.pointerEvents = 'none';
+      }
+    }
+  }, []);
+  
   const handleTouchEnd = (e: React.TouchEvent) => {
     // Prevent default behavior
     e.preventDefault();

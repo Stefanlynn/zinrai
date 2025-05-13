@@ -551,7 +551,7 @@ a,
 
 /* Mobile-specific fixes */
 @media screen and (max-width: 767px) {
-  /* Make sure the animation container doesn't block interactions */
+  /* Essential: Make entire grid container non-interactive so it doesn't block clicks */
   .mobile-grid-container {
     pointer-events: none !important;
   }
@@ -562,7 +562,6 @@ a,
   .watch-box, button, a, .popup-close, .watch-line,
   .zinrai-logo-text, .header-logo {
     /* Create a solid tap target with higher contrast */
-    position: relative !important;
     z-index: 100 !important;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
@@ -570,23 +569,24 @@ a,
     pointer-events: auto !important;
   }
   
-  /* Specifically ensure these interactive elements are highly visible and tappable */
-  .menu-icon, .watch-text, .product-text, .product-arrow-up, .product-arrow {
-    z-index: 1000 !important;
+  /* Ultra-critical interactive elements need very high z-index and explicit pointer-events */
+  .menu-icon, .watch-text, .product-text, .product-arrow-up, .product-arrow, 
+  [onClick], [role="button"], button, a, .cursor-pointer {
+    z-index: 10000 !important;
     pointer-events: auto !important;
     cursor: pointer !important;
-    /* Add subtle highlight for debug purposes */
-    position: relative !important;
+    touch-action: manipulation !important;
   }
   
-  /* Disable pointer events on non-interactive overlays */
+  /* All non-interactive elements must not block interactions */
   .flicker-box, .horizontal-line, .vertical-line, .grid-line, .border-line,
   .animate-grid-line-horizontal, .animate-grid-line-vertical, .custom-video-overlay,
-  .image-container, .flickering-image, img:not(.button-image) {
+  .image-container, .flickering-image, img:not(.button-image),
+  .absolute:not(.cursor-pointer):not(button):not(a):not([onClick]) {
     pointer-events: none !important;
   }
   
-  /* Fix z-index stacking on mobile */
+  /* Ensure flicker box has low z-index */
   .flicker-box {
     z-index: 5 !important; /* Lower than interactive elements */
   }
