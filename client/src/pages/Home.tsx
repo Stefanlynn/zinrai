@@ -156,19 +156,20 @@ export default function Home() {
         timers.push(moveTimer);
       }
       
-      // End the flicker sequence after 4.5 seconds
+      // End the flicker sequence after 3-5 seconds (randomly chosen time in that range)
+      const flickerDuration = 3000 + Math.floor(Math.random() * 2000); // 3-5 seconds
       const endTimer = setTimeout(() => {
         // Immediately clear all images without any transition - instant cut
         setActiveFlickerBoxes({});
         setIsFlickering(false);
         
-        // Schedule next sequence after 8 seconds of black screen
+        // Schedule next sequence after exactly 8 seconds of black screen (matches reference site)
         const nextSequenceTimer = setTimeout(() => {
           startFlickerSequence();
         }, 8000);
         
         timers.push(nextSequenceTimer);
-      }, 4500);
+      }, flickerDuration);
       
       timers.push(endTimer);
     };
