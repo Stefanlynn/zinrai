@@ -400,34 +400,7 @@ export default function Home() {
       // Initialize the images in boxes
       initializeImages();
       
-      // Move images to new boxes a few times during the flicker sequence
-      for (let moveIdx = 0; moveIdx < 3; moveIdx++) {
-        const moveTimer = setTimeout(() => {
-          if (!isFlickering) return;
-          
-          // Get 4 random unique boxes from 8 possible boxes for the next position
-          const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
-          shuffleArray(availableBoxes);
-          const newBoxes = availableBoxes.slice(0, 4);
-          
-          // Remove current images
-          setActiveFlickerBoxes({});
-          
-          // Update box positions and display images in new boxes
-          for (let i = 0; i < flickerImages.length; i++) {
-            // Update the box for this image
-            imageToBoxMap[i] = newBoxes[i];
-            
-            // Add this box and image to active boxes
-            setActiveFlickerBoxes(prev => ({
-              ...prev,
-              [newBoxes[i]]: flickerImages[i]
-            }));
-          }
-        }, 800 + moveIdx * 800); // Move every 800ms after initial placement
-        
-        timers.push(moveTimer);
-      }
+      // Note: Images stay in their initial boxes and don't move around
       
       // After 3.5 seconds, clear all images and go to black screen mode
       const clearTimer = setTimeout(() => {
