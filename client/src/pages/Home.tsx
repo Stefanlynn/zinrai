@@ -251,7 +251,7 @@ export default function Home() {
                 alt="ZiNRAi Logo" 
                 className="w-[400px] h-[400px] animate-fade-in"
               />
-              <div className="absolute bottom-[40%] left-0 right-0 text-white text-7xl font-bold text-center">
+              <div className="absolute bottom-[22%] left-0 right-0 text-white text-7xl font-bold text-center">
                 ZiNRAi
               </div>
             </div>
