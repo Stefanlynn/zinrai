@@ -114,17 +114,17 @@ export default function Home() {
       // Set initial state
       setActiveFlickerBoxes(initialState);
       
-      // Create more frequent random movements (30+)
-      // This will make images jump between different boxes very frequently
-      const totalMoves = 40;
+      // Create rapid, frequent image movements to match reference site
+      // This will make images jump between different boxes rapidly
+      const totalMoves = 60; // Even more frequent moves
       
       for (let move = 0; move < totalMoves; move++) {
-        // Randomly select which image to move (more random)
+        // Randomly select which image to move
         const imageIndex = Math.floor(Math.random() * 4);
         const image = flickerImages[imageIndex];
         
-        // Schedule this movement - more frequent with shorter intervals
-        const moveTime = 150 + (move * 100); // More rapid movements
+        // Schedule this movement with very short intervals
+        const moveTime = 75 + (move * 60); // Extremely rapid movements
         
         const moveTimer = setTimeout(() => {
           if (!isFlickering) return;
