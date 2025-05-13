@@ -794,6 +794,12 @@ html, body {
   justify-content: center;
 }
 
+/* ZiNRAi text styling */
+.zinrai-logo-text {
+  position: relative;
+  z-index: 2;
+}
+
 .zinrai-logo-container::after {
   content: '';
   position: absolute;
