@@ -567,24 +567,20 @@ export default function Home() {
           return (
             <div 
               key={boxNumber}
-              className={`flicker-box absolute flex items-center justify-center overflow-hidden z-10 ${
-                // Position based on the box number (1-8)
-                boxNumber === 1 ? 'top-0 left-0' : 
-                boxNumber === 2 ? 'top-0 left-[50%]' : 
-                boxNumber === 3 ? 'top-[25vh] left-0' : 
-                boxNumber === 4 ? 'top-[25vh] left-[50%]' : 
-                boxNumber === 5 ? 'top-[50vh] left-0' : 
-                boxNumber === 6 ? 'top-[50vh] left-[50%]' : 
-                boxNumber === 7 ? 'top-[75vh] left-0' : 
-                'top-[75vh] left-[50%]'
-              }`}
+              className="flicker-box"
               style={{
+                top: boxNumber === 1 || boxNumber === 2 ? '0' : 
+                     boxNumber === 3 || boxNumber === 4 ? 'calc(25 * var(--vh))' : 
+                     boxNumber === 5 || boxNumber === 6 ? 'calc(50 * var(--vh))' : 'calc(75 * var(--vh))',
+                left: boxNumber === 1 || boxNumber === 3 || 
+                      boxNumber === 5 || boxNumber === 7 ? '0' : '50%',
                 width: '50%',
-                height: '25vh',
+                height: 'calc(25 * var(--vh))',
                 maxWidth: '50%', 
-                maxHeight: '25vh',
+                maxHeight: 'calc(25 * var(--vh))',
                 boxSizing: 'border-box',
-                position: 'absolute'
+                position: 'absolute',
+                overflow: 'hidden'
               }}
             >
               <div 

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fix for 100vh in mobile browsers */
+:root {
+  --vh: 1vh;
+}
+
+/* Make sure the height is calculated properly on mobile */
+@supports (height: 100dvh) {
+  :root {
+    --vh: 1dvh;
+  }
+}
+
 /* Make links inherit colors and have no underlines */
 a {
   color: inherit !important;
@@ -383,35 +395,94 @@ body.home-is-active {
   
   /* Flicker box styles */
   .flicker-box {
-    width: 50%;
-    height: 25vh;
-    max-width: 50%;
-    max-height: 25vh;
-    overflow: hidden;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 50% !important;
+    height: 25vh !important;
+    max-width: 50% !important;
+    max-height: 25vh !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    /* Fix for iOS Safari */
+    -webkit-transform: translate3d(0,0,0) !important;
+    transform: translate3d(0,0,0) !important;
+    /* Fix for any potential z-index issues */
+    z-index: 10 !important;
   }
   
   /* Image container styles for consistent display */
   .image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: block;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    display: block !important;
+    /* Prevent any potential transformations */
+    transform: none !important;
   }
   
   /* Flicker image styles */
   .flicker-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    /* Ensure proper containing on mobile */
+    max-width: 100% !important;
+    min-height: 100% !important;
+  }
+  
+  /* Mobile-specific fixes */
+  @media screen and (max-width: 767px) {
+    .flicker-box {
+      /* Fixed dimensions for mobile using CSS custom properties for vh */
+      height: calc(25 * var(--vh)) !important;
+      max-height: calc(25 * var(--vh)) !important;
+      /* Explicitly set dimensions and prevent any shifting */
+      width: 50% !important;
+      max-width: 50% !important;
+      /* Force proper positioning */
+      left: 0 !important;
+      right: auto !important;
+      position: fixed !important;
+      /* Force hardware acceleration */
+      transform: translateZ(0) !important;
+      -webkit-transform: translateZ(0) !important;
+    }
+    
+    .flicker-box:nth-child(even) {
+      left: 50% !important;
+    }
+    
+    .image-container {
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+    
+    .flicker-image {
+      /* Force contain on mobile */
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+    }
   }
   
   /* Image overlay for consistent darkness */
