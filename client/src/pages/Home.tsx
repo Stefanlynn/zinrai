@@ -701,26 +701,7 @@ export default function Home() {
           );
         })}
         
-        {/* START NOW in the top left square - centered in the box - hidden when menu is open */}
-        <div className={`absolute top-[12.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
-          <div 
-            className="start-now-text animate-content-glitch cursor-pointer"
-            onClick={() => navigate('/subscribe')}
-            onTouchStart={() => navigate('/subscribe')} /* Added touchstart for immediate response */
-            style={{ 
-              animationDelay: '1.2s',
-              position: 'relative',
-              zIndex: 60,
-              touchAction: 'manipulation',
-              padding: '10px' /* Added padding for larger touch target */
-            }}
-          >
-            <div className="border border-white/30 px-3 py-2 flex flex-col items-center hover:border-white/50 hover:bg-white/5 transition-all duration-300">
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase">Start</div>
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase">Now</div>
-            </div>
-          </div>
-        </div>
+        {/* START NOW in the top left has been removed */}
         
         {/* Menu icon has been moved to the header bar */}
         
@@ -785,7 +766,11 @@ export default function Home() {
           </div>
           
           {/* Modern arrow pointing to the text (above) */}
-          <div className="mt-3 animate-bounce">
+          <div 
+            className="mt-3 animate-bounce cursor-pointer"
+            onClick={() => navigate('/subscribe')}
+            onTouchStart={() => navigate('/subscribe')}
+          >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 4L20 12L12 20M4 12H20" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
