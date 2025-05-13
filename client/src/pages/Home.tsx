@@ -739,41 +739,7 @@ export default function Home() {
         
         {/* Menu icon has been moved to the header bar */}
         
-        {/* WATCH and WHY text in the lower left square - hidden when menu is open */}
-        <div 
-          className={`absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}
-          style={{ 
-            position: 'relative', 
-            zIndex: 60,
-            touchAction: 'manipulation'
-          }}
-        >
-          {/* WATCH and WHY text side by side with horizontal line between */}
-          <div className="flex items-center space-x-4 animate-content-glitch" style={{ animationDelay: '1.6s' }}>
-            {/* WATCH text */}
-            <div 
-              className="watch-text text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
-              style={{ padding: '5px' }} /* Added padding for larger touch target */
-              onClick={handleWatchClick}
-              onTouchStart={handleWatchClick} /* Added touchstart for more responsive mobile handling */
-            >
-              Watch
-            </div>
-            
-            {/* Horizontal line between WATCH and WHY */}
-            <div className="h-[1px] w-[15px] bg-white/40"></div>
-            
-            {/* WHY text */}
-            <div 
-              className="why-text text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
-              style={{ padding: '5px' }} /* Added padding for larger touch target */
-              onClick={() => navigate('/logo')}
-              onTouchStart={() => navigate('/logo')} /* Added touchstart for more responsive mobile handling */
-            >
-              Why
-            </div>
-          </div>
-        </div>
+        {/* WATCH and WHY text have been removed from the bottom left */}
         
         
         {/* Start Now text in the bottom right square */}
