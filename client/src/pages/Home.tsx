@@ -8,6 +8,7 @@ import beachImage from "../assets/flicker-images/beach.jpg";
 import cryptoImage from "../assets/flicker-images/crypto.jpg";
 import runnerImage from "../assets/flicker-images/runner.jpg";
 import womanImage from "../assets/flicker-images/woman.jpg";
+import zinraiLogoImage from "../assets/zinrai-circle-logo.png";
 import { RiFilmLine, RiVideoLine } from "react-icons/ri";
 
 // Define all the content items for swiping
@@ -617,6 +618,16 @@ export default function Home() {
                 )}
               </button>
             </div>
+            
+            {/* ZiNRAi Circle Logo above the text */}
+            <div className="mb-8 animate-content-glitch" style={{ animationDelay: '1.0s' }}>
+              <img
+                src={zinraiLogoImage}
+                alt="ZiNRAi Logo"
+                className="w-[150px] h-[150px] mx-auto object-contain"
+              />
+            </div>
+            
             <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap">
               ZiNRAi
             </h1>
