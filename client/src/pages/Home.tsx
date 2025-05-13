@@ -402,35 +402,56 @@ export default function Home() {
       // Initialize the images in boxes
       initializeImages();
       
-      // Move images to new boxes a few times during the flicker sequence
-      for (let moveIdx = 0; moveIdx < 3; moveIdx++) {
-        const moveTimer = setTimeout(() => {
-          if (!isFlickering) return;
+      // Create individual flickering effects for each image that move between different boxes
+      // We'll create 4 separate timers that operate independently for each image
+      
+      // First, create a range of possible boxes for each image to cycle through
+      const possibleBoxesPerImage = [
+        [1, 5, 3, 7], // Possible boxes for image 0
+        [2, 6, 4, 8], // Possible boxes for image 1
+        [3, 7, 1, 5], // Possible boxes for image 2
+        [4, 8, 2, 6]  // Possible boxes for image 3
+      ];
+      
+      // Each image gets its own independent flickering cycle
+      for (let imageIdx = 0; imageIdx < flickerImages.length; imageIdx++) {
+        // Start with a small delay for each image
+        const initialDelay = imageIdx * 200;
+        
+        // Then create multiple moves for this image
+        for (let moveIdx = 0; moveIdx < 5; moveIdx++) {
+          const boxPosition = possibleBoxesPerImage[imageIdx][moveIdx % possibleBoxesPerImage[imageIdx].length];
           
-          // Get 4 random unique boxes from 8 possible boxes for the next position
-          const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
-          shuffleArray(availableBoxes);
-          const newBoxes = availableBoxes.slice(0, 4);
-          
-          // Remove current images
-          setActiveFlickerBoxes({});
-          
-          // Update box positions and display images in new boxes
-          for (let i = 0; i < flickerImages.length; i++) {
-            // Update the box for this image
-            imageToBoxMap[i] = newBoxes[i];
+          // Schedule when this image appears in a new box
+          const appearTimer = setTimeout(() => {
+            if (!isFlickering) return;
             
-            // Add this box and image to active boxes with staggered timing
+            // First, remove this image from any box it might be in
+            setActiveFlickerBoxes(prev => {
+              const newState = { ...prev };
+              // Find and remove this specific image from any box
+              Object.keys(newState).forEach(boxNum => {
+                if (newState[parseInt(boxNum)] === flickerImages[imageIdx]) {
+                  delete newState[parseInt(boxNum)];
+                }
+              });
+              return newState;
+            });
+            
+            // Then, after a short flicker delay, add it to the new box
             setTimeout(() => {
+              if (!isFlickering) return;
+              
               setActiveFlickerBoxes(prev => ({
                 ...prev,
-                [newBoxes[i]]: flickerImages[i]
+                [boxPosition]: flickerImages[imageIdx]
               }));
-            }, i * 100); // Stagger each image appearance by 100ms
-          }
-        }, 800 + moveIdx * 800); // Move every 800ms after initial placement
-        
-        timers.push(moveTimer);
+            }, 100 + (Math.random() * 100)); // Random slight delay for natural flickering
+            
+          }, initialDelay + (moveIdx * 700) + (Math.random() * 300)); // Add some randomness to timing
+          
+          timers.push(appearTimer);
+        }
       }
       
       // After 3.5 seconds, clear all images and go to black screen mode
