@@ -556,9 +556,25 @@ export default function Home() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* We're removing the moving "why" text and adding it below WATCH */}
-      
-
+      {/* Header bar */}
+      <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[70] flex items-center justify-end px-4 shadow-sm">
+        {/* Menu icon in header - two parallel lines */}
+        <div 
+          className={`menu-header-icon cursor-pointer mr-4 ${menuOpen ? 'hidden' : 'block'}`}
+          onClick={toggleMenu}
+          onTouchStart={toggleMenu}
+          style={{ padding: '4px' }}
+        >
+          <div className="w-5 h-[1px] bg-black/80 mb-[3px]"></div>
+          <div className="w-5 h-[1px] bg-black/80"></div>
+        </div>
+        
+        {/* Profile icon */}
+        <div className={`profile-icon w-5 h-5 bg-black/80 rounded-full cursor-pointer ${menuOpen ? 'hidden' : 'block'}`}
+          onClick={() => navigate('/profile')}
+          onTouchStart={() => navigate('/profile')}
+        ></div>
+      </div>
       
       {/* Home page content */}
       <div className="relative">
@@ -698,22 +714,7 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Menu icon in the top right square - centered in the box */}
-        <div className={`absolute top-[12.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
-          {/* Menu icon for home page */}
-          <div 
-            className="menu-icon animate-content-glitch cursor-pointer" 
-            onClick={toggleMenu}
-            onTouchStart={toggleMenu} /* Added touchstart for immediate response */
-            style={{ 
-              animationDelay: '1.4s',
-              padding: '15px' /* Added padding for larger touch target */
-            }}
-          >
-            <div className="menu-line1"></div>
-            <div className="menu-line2"></div>
-          </div>
-        </div>
+        {/* Menu icon has been moved to the header bar */}
         
         {/* WATCH and WHY text in the lower left square - hidden when menu is open */}
         <div 
