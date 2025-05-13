@@ -830,22 +830,31 @@ export default function Home() {
         
         {/* Dynamic content in the lower right square - hidden when menu is open */}
         <div 
-          className={`fixed flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
+          className={`absolute bottom-0 right-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
           style={{ 
-            position: 'fixed',
-            zIndex: 60,
-            top: 'calc(75vh + 12.5vh)', // Position at the vertical center of the last row
-            left: 'calc(50vw + 25vw)', // Position at the horizontal center of the right column
-            transform: 'translate(-50%, -50%)' // Center perfectly
+            bottom: '12.5vh', // Position at the vertical center of the last row
+            right: '25vw', // Position at the horizontal center of the right column
+            transform: 'translate(50%, 50%)', // Center perfectly
+            width: 'auto', // Let content determine width
+            height: 'auto' // Let content determine height
           }}
           onClick={(e) => {
             // On mobile, clicking anywhere in this box navigates to the page
             if (window.innerWidth <= 768) {
               e.stopPropagation();
-              const title = contentItems[currentIndex].title.toLowerCase();
-              const path = title === "products" ? "/product" : 
-                          title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
-                          `/${title.replace(/\s+/g, '')}`;
+              
+              // Helper function to generate the correct path
+              const getRouteForTitle = (title: string) => {
+                title = title.toLowerCase();
+                return title === "products" ? "/product" : 
+                       title === "zinrai cares" ? "/zinrai-cares" : 
+                       `/${title.replace(/\s+/g, '')}`;
+              };
+              
+              // Get the path for the current index
+              const path = getRouteForTitle(contentItems[currentIndex].title);
+              
+              // Use Wouter's navigate for client-side routing
               navigate(path);
             }
           }}
@@ -889,15 +898,17 @@ export default function Home() {
           <div 
             className="product-text text-center cursor-pointer w-full mx-auto"
             onClick={(e) => {
-              // Prevent click event on desktop from propagating to parent
-              if (window.innerWidth > 768) {
-                e.stopPropagation();
-                const title = contentItems[currentIndex].title.toLowerCase();
-                const path = title === "products" ? "/product" : 
-                            title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
-                            `/${title.replace(/\s+/g, '')}`;
-                navigate(path);
-              }
+              // Prevent propagation and navigate on both mobile and desktop
+              e.stopPropagation();
+              
+              // Get the correct path
+              const title = contentItems[currentIndex].title.toLowerCase();
+              const path = title === "products" ? "/product" : 
+                          title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
+                          `/${title.replace(/\s+/g, '')}`;
+              
+              // Use Wouter's navigate for client-side routing
+              navigate(path);
             }}
           >
             <div className="text-[14px] font-bold tracking-wider text-white/90">{contentItems[currentIndex].number}</div>
