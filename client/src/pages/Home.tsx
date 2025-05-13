@@ -620,11 +620,11 @@ export default function Home() {
             </div>
             
             {/* ZiNRAi Circle Logo above the text */}
-            <div className="mb-8 animate-content-glitch" style={{ animationDelay: '1.0s' }}>
+            <div className="absolute left-1/2 top-[-220px] transform -translate-x-1/2 animate-content-glitch" style={{ animationDelay: '1.0s' }}>
               <img
                 src={zinraiLogoImage}
                 alt="ZiNRAi Logo"
-                className="w-[150px] h-[150px] mx-auto object-contain"
+                className="w-[200px] h-[200px] mx-auto object-contain"
               />
             </div>
             
