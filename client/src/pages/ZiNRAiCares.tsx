@@ -55,7 +55,7 @@ export default function ZiNRAiCares() {
   }, [countersAnimated]);
 
   return (
-    <div className="scrollable-page bg-black text-white pt-[32px]">
+    <div className="scrollable-page bg-black text-white">
       <div className="max-w-6xl mx-auto px-4 py-8 pb-24">
         {/* Main heading */}
         <h1 className="text-4xl md:text-6xl font-bold text-white text-center mb-8">ZiNRAi Cares</h1>
