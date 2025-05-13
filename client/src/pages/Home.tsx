@@ -510,7 +510,7 @@ export default function Home() {
             left: logoPosition.left, 
             top: logoPosition.top 
           }}
-          onClick={() => navigate('/logo')}
+          onClick={() => window.location.href = '/logo'}
         >
           <span className="text-white text-[8px] uppercase tracking-widest font-bold">why</span>
         </div>
@@ -857,7 +857,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer mt-6"
                     onClick={() => {
-                      navigate('/contact');
+                      window.location.href = '/contact';
                       toggleMenu();
                     }}
                   >
@@ -870,27 +870,29 @@ export default function Home() {
             </div>
             
             {/* Footer with social icons and legal content - positioned at bottom */}
-            <div className="w-full border-t border-white/[0.13] py-5 px-4 mt-auto">
-              <div className="container mx-auto flex flex-col items-center animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-                {/* Social Media Icons */}
-                <div className="mb-4">
-                  <div className="flex justify-center space-x-6 social-icons">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
-                      <FaInstagram size={16} />
-                    </a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
-                      <FaYoutube size={16} />
-                    </a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
-                      <FaFacebook size={16} />
-                    </a>
-                  </div>
+            <div className="w-full border-t border-white/10 mt-auto">
+              <div className="container mx-auto flex justify-between items-center px-8 py-6 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+                {/* Copyright and legal info */}
+                <div className="text-white/50 text-[10px]">
+                  © 2023 ZiNRAi. All Rights Reserved.
                 </div>
                 
-                {/* Copyright and legal info */}
-                <div className="text-white/50 text-[10px] text-center">
-                  © 2023 ZiNRAi. All Rights Reserved. <span className="mx-1">|</span> 
-                  <a href="#" className="hover:text-white/70 transition-colors">Terms</a> <span className="mx-1">|</span> 
+                {/* Social Media Icons */}
+                <div className="flex space-x-6 social-icons">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
+                    <FaInstagram size={16} />
+                  </a>
+                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
+                    <FaYoutube size={16} />
+                  </a>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
+                    <FaFacebook size={16} />
+                  </a>
+                </div>
+                
+                {/* Terms and Privacy */}
+                <div className="text-white/50 text-[10px]">
+                  <a href="#" className="hover:text-white/70 transition-colors">Terms</a> <span className="mx-2">|</span> 
                   <a href="#" className="hover:text-white/70 transition-colors">Privacy</a>
                 </div>
               </div>
