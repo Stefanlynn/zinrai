@@ -147,6 +147,14 @@ function App() {
                   </svg>
                 </button>
                 
+                {/* Big X to exit menu - centered with clear visibility */}
+                <button 
+                  onClick={() => setMenuOpen(false)}
+                  className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors duration-300 text-4xl font-light"
+                >
+                  ✕
+                </button>
+                
                 {/* Minimalist menu layout */}
                 <div className="w-full max-w-4xl p-10 my-8">
                   {/* Menu content with animations */}
