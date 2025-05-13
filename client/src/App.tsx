@@ -297,12 +297,12 @@ function App() {
         
         {/* ZiNRAi Cares Modal */}
         {showCaresModal && (
-          <div className="fixed inset-0 bg-black/95 z-[2000] overflow-auto">
+          <div className="fixed inset-0 bg-black/95 z-[2000] overflow-y-auto">
             <div className="min-h-screen bg-black text-white relative">
               {/* Close button for the modal */}
               <button 
                 onClick={() => setShowCaresModal(false)}
-                className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors z-[2100]"
+                className="fixed top-4 right-4 text-white/70 hover:text-white transition-colors z-[2100]"
                 aria-label="Close modal"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

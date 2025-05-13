@@ -55,8 +55,8 @@ export default function ZiNRAiCares() {
   }, [countersAnimated]);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden pt-[32px]">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-black text-white pt-[32px] overflow-y-auto">
+      <div className="max-w-6xl mx-auto px-4 py-8 pb-20">
         {/* Main heading */}
         <h1 className="text-4xl md:text-6xl font-bold text-white text-center mb-8">ZiNRAi Cares</h1>
         
@@ -127,7 +127,7 @@ export default function ZiNRAiCares() {
         <div className="mb-16">
           <h2 className="text-2xl font-semibold mb-6 uppercase tracking-wide text-center">Our Impact</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
             {impactStats.map(stat => (
               <div key={stat.id} className="bg-black/30 p-4 border border-white/30 text-center">
                 <div className="text-3xl font-bold text-white mb-2">
