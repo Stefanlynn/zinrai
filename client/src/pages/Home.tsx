@@ -185,7 +185,8 @@ export default function Home() {
     // Add very high z-index and pointer-events to all interactive elements on mobile
     if (window.innerWidth <= 767) {
       const makeClickable = (selector: string) => {
-        document.querySelectorAll(selector).forEach((el: HTMLElement) => {
+        document.querySelectorAll(selector).forEach((element) => {
+          const el = element as HTMLElement;
           el.style.pointerEvents = 'auto';
           el.style.zIndex = '10000';
           el.style.position = 'relative';

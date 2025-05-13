@@ -578,6 +578,39 @@ a,
     touch-action: manipulation !important;
   }
   
+  /* Specific critical elements - individually targeted for maximum compatibility */
+  .watch-text, div:has(.watch-text) {
+    z-index: 10001 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+  }
+  
+  .product-text, div:has(.product-text) {
+    z-index: 10002 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+  }
+  
+  .product-arrow, .product-arrow-up, 
+  div:has(.product-arrow), div:has(.product-arrow-up) {
+    z-index: 10003 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+  }
+  
+  .menu-icon, div:has(.menu-icon) {
+    z-index: 10004 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+  }
+  
+  /* Make entire boxes containing interactive elements also interactive */
+  [class*='cursor-pointer'], 
+  div:has(button), div:has(a), div:has([onClick]) {
+    pointer-events: auto !important;
+    position: relative !important;
+  }
+  
   /* All non-interactive elements must not block interactions */
   .flicker-box, .horizontal-line, .vertical-line, .grid-line, .border-line,
   .animate-grid-line-horizontal, .animate-grid-line-vertical, .custom-video-overlay,
