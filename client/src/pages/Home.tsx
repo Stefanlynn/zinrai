@@ -567,7 +567,7 @@ export default function Home() {
           return (
             <div 
               key={boxNumber}
-              className={`absolute flex items-center justify-center w-[50%] h-[25vh] overflow-hidden z-10 ${
+              className={`flicker-box absolute flex items-center justify-center overflow-hidden z-10 ${
                 // Position based on the box number (1-8)
                 boxNumber === 1 ? 'top-0 left-0' : 
                 boxNumber === 2 ? 'top-0 left-[50%]' : 
@@ -579,25 +579,52 @@ export default function Home() {
                 'top-[75vh] left-[50%]'
               }`}
               style={{
-                maxWidth: '50%', // Ensure box never exceeds 50% of viewport width
-                maxHeight: '25vh', // Ensure box never exceeds 25% of viewport height
+                width: '50%',
+                height: '25vh',
+                maxWidth: '50%', 
+                maxHeight: '25vh',
+                boxSizing: 'border-box',
+                position: 'absolute'
               }}
             >
-              <div className="image-container relative w-full h-full overflow-hidden">
+              <div 
+                className="image-container" 
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '100%',
+                  overflow: 'hidden'
+                }}
+              >
                 {/* The image with flickering animation */}
                 <img 
                   src={imageSrc} 
                   alt="" 
-                  className="w-full h-full object-cover animate-flicker"
+                  className="flicker-image animate-flicker"
                   style={{
-                    minWidth: '100%', // Ensure image covers the entire container
-                    minHeight: '100%', // Ensure image covers the entire container
-                    display: 'block', // Remove any extra space below the image
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0
                   }}
                 />
                 
                 {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black opacity-50"></div>
+                <div 
+                  className="image-overlay" 
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'black',
+                    opacity: 0.5
+                  }}
+                ></div>
               </div>
             </div>
           );

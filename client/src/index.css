@@ -331,12 +331,67 @@ body.home-is-active {
     100% { opacity: 0; }
   }
   
+  /* Ensure webkit keyframes for Safari */
+  @-webkit-keyframes imageFlicker {
+    0% { opacity: 0; }
+    3% { opacity: 0.5; }
+    6% { opacity: 0.1; }
+    9% { opacity: 0.8; }
+    12% { opacity: 0.4; }
+    15% { opacity: 0.9; }
+    18% { opacity: 0.3; }
+    21% { opacity: 0.7; }
+    24% { opacity: 0.2; }
+    27% { opacity: 0.6; }
+    30% { opacity: 0.9; }
+    33% { opacity: 0.4; }
+    36% { opacity: 0.8; }
+    39% { opacity: 0.5; }
+    42% { opacity: 0.95; }
+    45% { opacity: 0.3; }
+    48% { opacity: 0.7; }
+    51% { opacity: 0.2; }
+    54% { opacity: 1.0; }
+    57% { opacity: 0.6; }
+    60% { opacity: 0.3; }
+    63% { opacity: 0.9; }
+    66% { opacity: 0.5; }
+    69% { opacity: 0.1; }
+    72% { opacity: 0.8; }
+    75% { opacity: 0.4; }
+    78% { opacity: 0.7; }
+    81% { opacity: 0.3; }
+    84% { opacity: 0.6; }
+    87% { opacity: 0.2; }
+    90% { opacity: 0.5; }
+    93% { opacity: 0.3; }
+    96% { opacity: 0.4; }
+    100% { opacity: 0; }
+  }
+  
   .animate-flicker {
+    -webkit-animation: imageFlicker 3s ease-in-out;
     animation: imageFlicker 3s ease-in-out;
     /* Ensure hardware acceleration for smoother animations */
+    -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-font-smoothing: subpixel-antialiased;
+    will-change: opacity; /* Hint to browser about what will animate */
+  }
+  
+  /* Flicker box styles */
+  .flicker-box {
+    width: 50%;
+    height: 25vh;
+    max-width: 50%;
+    max-height: 25vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   /* Image container styles for consistent display */
@@ -345,6 +400,28 @@ body.home-is-active {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    display: block;
+  }
+  
+  /* Flicker image styles */
+  .flicker-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+  }
+  
+  /* Image overlay for consistent darkness */
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
   .animate-delay-100 {
