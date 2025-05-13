@@ -60,29 +60,16 @@ export default function Home() {
     };
   });
   
-  // Effect to change position periodically
+  // Set the position to center and no longer move it periodically
   useEffect(() => {
-    // Function to move the "why" text to a new random position
-    const moveWhyText = () => {
-      const isMobile = window.innerWidth < 768;
-      const minLeft = isMobile ? 15 : 10;
-      const maxLeft = isMobile ? 85 : 90;
-      const minTop = isMobile ? 15 : 10;
-      const maxTop = isMobile ? 85 : 90;
-      
-      const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
-      const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
-      
-      setLogoPosition({
-        left: newLeft + '%',
-        top: newTop + '%'
-      });
-    };
+    // Set "why" text to stay in the middle of the screen
+    setLogoPosition({
+      left: '50%',
+      top: '50%'
+    });
     
-    // Set up interval to change position every 20 seconds
-    const moveInterval = setInterval(moveWhyText, 20000);
-    
-    return () => clearInterval(moveInterval);
+    // No interval needed since we're not moving it anymore
+    return () => {};
   }, []);
   
   // Flicker images state - track multiple active boxes
@@ -628,13 +615,14 @@ export default function Home() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Small sideways "why" text with constrained positioning - only visible when menu is closed */}
+      {/* Small sideways "why" text fixed in the center - only visible when menu is closed */}
       {!menuOpen && (
         <div 
-          className="fixed z-30 transform -rotate-90 transition-all duration-700 ease-in-out cursor-pointer"
+          className="fixed z-30 cursor-pointer"
           style={{ 
-            left: logoPosition.left, // Use direct position, let it move anywhere within safety margins
-            top: logoPosition.top,   // Use direct position, let it move anywhere within safety margins
+            left: logoPosition.left, 
+            top: logoPosition.top,
+            transform: 'translate(-50%, -50%) rotate(-90deg)', // Center perfectly and rotate
             padding: '10px', // Add padding to make it easier to tap/click
           }}
           onClick={() => navigate('/logo')}
