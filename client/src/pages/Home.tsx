@@ -682,11 +682,13 @@ export default function Home() {
           <div 
             className="start-now-text animate-content-glitch cursor-pointer"
             onClick={() => navigate('/subscribe')}
+            onTouchStart={() => navigate('/subscribe')} /* Added touchstart for immediate response */
             style={{ 
               animationDelay: '1.2s',
               position: 'relative',
               zIndex: 60,
-              touchAction: 'manipulation'
+              touchAction: 'manipulation',
+              padding: '10px' /* Added padding for larger touch target */
             }}
           >
             <div className="border border-white/30 px-3 py-2 flex flex-col items-center hover:border-white/50 hover:bg-white/5 transition-all duration-300">
@@ -829,6 +831,7 @@ export default function Home() {
           {/* Content text */}
           <div 
             className="product-text text-center cursor-pointer w-full mx-auto"
+            style={{ padding: '8px' }} /* Added padding for larger touch target */
             onClick={(e) => {
               // Prevent propagation and navigate on both mobile and desktop
               e.stopPropagation();
@@ -837,6 +840,19 @@ export default function Home() {
               const title = contentItems[currentIndex].title.toLowerCase();
               const path = title === "products" ? "/product" : 
                           title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
+                          `/${title.replace(/\s+/g, '')}`;
+              
+              // Use Wouter's navigate for client-side routing
+              navigate(path);
+            }}
+            onTouchStart={(e) => {
+              // For mobile touch, make even more responsive by triggering on first touch
+              e.stopPropagation();
+              
+              // Get the correct path
+              const title = contentItems[currentIndex].title.toLowerCase();
+              const path = title === "products" ? "/product" : 
+                          title === "zinrai cares" ? "/zinrai-cares" : 
                           `/${title.replace(/\s+/g, '')}`;
               
               // Use Wouter's navigate for client-side routing
