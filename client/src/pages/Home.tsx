@@ -619,16 +619,16 @@ export default function Home() {
               </button>
             </div>
             
-            {/* ZiNRAi Circle Logo above the text */}
-            <div className="absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-1/2 animate-content-glitch z-[70]" style={{ animationDelay: '1.0s' }}>
+            {/* ZiNRAi Circle Logo centered on screen */}
+            <div className="fixed inset-0 flex items-center justify-center pointer-events-none animate-content-glitch z-[70]" style={{ animationDelay: '1.0s' }}>
               <img
                 src={zinraiLogoImage}
                 alt="ZiNRAi Logo"
-                className="w-[300px] h-[300px] mx-auto object-contain"
+                className="w-[650px] h-[650px] object-contain"
               />
             </div>
             
-            <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap mt-[150px]">
+            <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap">
               ZiNRAi
             </h1>
           </div>
