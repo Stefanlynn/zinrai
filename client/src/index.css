@@ -678,6 +678,43 @@ html, body {
   text-shadow: 0 0 60px rgba(255, 255, 255, 0.8);
 }
 
+/* Logo fade animation that alternates between the logo and text */
+@keyframes logoFade {
+  0% {
+    opacity: 1; /* Logo fully visible */
+  }
+  30% {
+    opacity: 1; /* Logo stays visible for 6 seconds (30% of 16s) */
+  }
+  40% {
+    opacity: 0; /* Logo fades out */
+  }
+  90% {
+    opacity: 0; /* Logo stays invisible */
+  }
+  100% {
+    opacity: 1; /* Logo fades back in */
+  }
+}
+
+@keyframes textFade {
+  0% {
+    opacity: 0; /* Text invisible when logo is visible */
+  }
+  30% {
+    opacity: 0; /* Text stays invisible */
+  }
+  40% {
+    opacity: 1; /* Text fades in as logo fades out */
+  }
+  90% {
+    opacity: 1; /* Text stays visible for 10 seconds (50% of 16s) */
+  }
+  100% {
+    opacity: 0; /* Text fades out as logo returns */
+  }
+}
+
 @keyframes logoTextFloat {
   0%, 100% {
     transform: translateY(0);

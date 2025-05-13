@@ -619,8 +619,14 @@ export default function Home() {
               </button>
             </div>
             
-            {/* ZiNRAi Circle Logo centered on screen */}
-            <div className="fixed inset-0 flex items-center justify-center pointer-events-none animate-content-glitch z-[70]" style={{ animationDelay: '1.0s' }}>
+            {/* ZiNRAi Circle Logo centered on screen with fade animation */}
+            <div 
+              className="fixed inset-0 flex items-center justify-center pointer-events-none z-[70] transition-opacity duration-1000 ease-in-out"
+              style={{ 
+                animationDelay: '1.0s',
+                animation: 'logoFade 16s infinite' 
+              }}
+            >
               <img
                 src={zinraiLogoImage}
                 alt="ZiNRAi Logo"
@@ -628,7 +634,13 @@ export default function Home() {
               />
             </div>
             
-            <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap">
+            <h1 
+              className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap"
+              style={{
+                animation: 'textFade 16s infinite',
+                animationDelay: '1.0s'
+              }}
+            >
               ZiNRAi
             </h1>
           </div>
