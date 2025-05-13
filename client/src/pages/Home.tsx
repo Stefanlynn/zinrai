@@ -724,28 +724,34 @@ export default function Home() {
             touchAction: 'manipulation'
           }}
         >
-          {/* WATCH text */}
-          <div 
-            className="watch-text animate-content-glitch text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
-            style={{ animationDelay: '1.6s', padding: '5px' }} /* Added padding for larger touch target */
-            onClick={handleWatchClick}
-            onTouchStart={handleWatchClick} /* Added touchstart for more responsive mobile handling */
-          >
-            Watch
+          {/* WATCH and WHY text side by side with horizontal line between */}
+          <div className="flex items-center space-x-4 animate-content-glitch" style={{ animationDelay: '1.6s' }}>
+            {/* WATCH text */}
+            <div 
+              className="watch-text text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
+              style={{ padding: '5px' }} /* Added padding for larger touch target */
+              onClick={handleWatchClick}
+              onTouchStart={handleWatchClick} /* Added touchstart for more responsive mobile handling */
+            >
+              Watch
+            </div>
+            
+            {/* Horizontal line between WATCH and WHY */}
+            <div className="h-[1px] w-[15px] bg-white/40"></div>
+            
+            {/* WHY text */}
+            <div 
+              className="why-text text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
+              style={{ padding: '5px' }} /* Added padding for larger touch target */
+              onClick={() => navigate('/logo')}
+              onTouchStart={() => navigate('/logo')} /* Added touchstart for more responsive mobile handling */
+            >
+              Why
+            </div>
           </div>
           
-          {/* WHY text - directly below WATCH with no line in between */}
-          <div 
-            className="why-text animate-content-glitch text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
-            style={{ animationDelay: '1.8s', marginTop: '8px', padding: '5px' }} /* Added padding for larger touch target */
-            onClick={() => navigate('/logo')}
-            onTouchStart={() => navigate('/logo')} /* Added touchstart for more responsive mobile handling */
-          >
-            Why
-          </div>
-          
-          {/* Vertical line below WHY text only */}
-          <div className="why-line animate-content-glitch h-[15px] w-[1px] bg-white/40 mt-1 mx-auto" style={{ animationDelay: '1.9s' }}></div>
+          {/* Horizontal line below both text elements */}
+          <div className="animate-content-glitch h-[1px] w-[60px] bg-white/40 mt-3 mx-auto" style={{ animationDelay: '1.9s' }}></div>
         </div>
         
         {/* Dynamic content in the lower right square - hidden when menu is open */}
