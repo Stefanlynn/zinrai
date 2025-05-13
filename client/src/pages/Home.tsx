@@ -474,15 +474,24 @@ export default function Home() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     
-    // If closing the menu, make sure the menu icon reappears properly
-    if (menuOpen) {
-      // Short delay to allow for menu transition
-      setTimeout(() => {
-        document.querySelectorAll('.menu-icon').forEach(icon => {
-          icon.classList.add('menu-animate-in');
-          icon.classList.add('animate-in');
-        });
-      }, 300);
+    // Toggle the menu-open class on the menu icon for proper animation
+    const menuIcon = document.querySelector('.menu-icon');
+    if (menuIcon) {
+      if (!menuOpen) {
+        // Opening menu - add the open class for X animation
+        menuIcon.classList.add('menu-open');
+      } else {
+        // Closing menu - remove the open class to revert to lines
+        menuIcon.classList.remove('menu-open');
+        
+        // Short delay to allow for menu transition
+        setTimeout(() => {
+          document.querySelectorAll('.menu-icon').forEach(icon => {
+            icon.classList.add('menu-animate-in');
+            icon.classList.add('animate-in');
+          });
+        }, 300);
+      }
     }
   };
 
