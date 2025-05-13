@@ -675,17 +675,17 @@ export default function Home() {
         >
           {/* Up arrow above text - navigate to previous content item */}
           <div 
-            className="product-arrow-up mb-3 cursor-pointer"
+            className="product-arrow-up mb-5 cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => changeContent('prev')}
           >
             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           
           {/* Content text - using native HTML anchor */}
           <div 
-            className="product-text text-center cursor-pointer"
+            className="product-text text-center cursor-pointer group hover:opacity-90 transition-opacity"
             onClick={() => {
               const title = contentItems[currentIndex].title.toLowerCase();
               const path = title === "products" ? "/product" : 
@@ -694,17 +694,19 @@ export default function Home() {
               navigate(path);
             }}
           >
-            <div className="text-[14px] font-bold tracking-wider text-white/90">{contentItems[currentIndex].number}</div>
-            <div className="text-[12px] font-semibold tracking-wide text-white/80">{contentItems[currentIndex].title}</div>
+            <div className="mb-1">
+              <span className="text-[12px] font-light tracking-widest text-white/70 px-2">{contentItems[currentIndex].number}</span>
+            </div>
+            <div className="text-[13px] font-medium tracking-widest text-white/80 mt-2 uppercase">{contentItems[currentIndex].title}</div>
           </div>
           
           {/* Down arrow below text - navigate to next content item */}
           <div 
-            className="product-arrow mt-3 cursor-pointer"
+            className="product-arrow mt-5 cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => changeContent('next')}
           >
             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </div>
