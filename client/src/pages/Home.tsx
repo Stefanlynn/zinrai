@@ -761,6 +761,29 @@ export default function Home() {
         </div>
         
         
+        {/* Start Now text in the bottom right square */}
+        <div 
+          className={`absolute bottom-0 right-0 flex items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
+          style={{ 
+            width: '50vw', 
+            height: '25vh',
+            transform: 'translate(0, 0)',
+            touchAction: 'manipulation'
+          }}
+        >
+          <div 
+            className="start-now-text text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer animate-content-glitch" 
+            style={{ 
+              padding: '5px',
+              animationDelay: '1.6s'
+            }}
+            onClick={() => navigate('/subscribe')}
+            onTouchStart={() => navigate('/subscribe')}
+          >
+            Start Now
+          </div>
+        </div>
+        
         {/* Simple Menu Overlay - only visible when menu is open */}
         {menuOpen && (
           <div className="fixed inset-0 z-[800] bg-black/95 menu-overlay flex items-center justify-center">
