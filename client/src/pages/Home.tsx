@@ -49,15 +49,22 @@ export default function Home() {
   useEffect(() => {
     // Function to move the "why" text to a new random position
     const moveWhyText = () => {
-      const isMobile = window.innerWidth < 768;
-      const minLeft = isMobile ? 15 : 10;
-      const maxLeft = isMobile ? 85 : 90;
-      const minTop = isMobile ? 15 : 10;
-      const maxTop = isMobile ? 85 : 90;
+      // Get current viewport dimensions
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
       
+      // Safer constraints to ensure text stays visible on all devices
+      // Keep it more centered by using 20-80% range instead of 10-90%
+      const minLeft = 20; // % from left
+      const maxLeft = 80; // % from left
+      const minTop = 20;  // % from top
+      const maxTop = 80;  // % from top
+      
+      // Generate random position within the safe area
       const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
       const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
       
+      // Update position as percentage of viewport
       setLogoPosition({
         left: newLeft + '%',
         top: newTop + '%'
@@ -628,10 +635,11 @@ export default function Home() {
       {/* Small sideways "why" text with constrained positioning - only visible when menu is closed */}
       {!menuOpen && (
         <div 
-          className="fixed z-30 transform -rotate-90 cursor-pointer"
+          className="fixed z-30 transform cursor-pointer"
           style={{ 
-            left: logoPosition.left, // Use direct position, let it move anywhere within safety margins
-            top: logoPosition.top,   // Use direct position, let it move anywhere within safety margins
+            left: logoPosition.left, 
+            top: logoPosition.top,
+            transform: 'translate(-50%, -50%) rotate(-90deg)', // Center perfectly even when moving
             padding: '10px', // Add padding to make it easier to tap/click
             transition: 'left 0.8s cubic-bezier(0.16, 1, 0.3, 1), top 0.8s cubic-bezier(0.16, 1, 0.3, 1)' // Custom spring-like movement
           }}
