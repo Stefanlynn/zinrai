@@ -39,64 +39,8 @@ export default function Home() {
   // For touch events
   const [touchStartY, setTouchStartY] = useState(0);
   const [touchEndY, setTouchEndY] = useState(0);
-  // State for logo position
-  const [logoPosition, setLogoPosition] = useState({
-    left: '50%',
-    top: '50%'
-  });
-  
   // Get current location for navigation-aware behavior
   const [location] = useLocation();
-  
-  // Effect to change position periodically (only on home page)
-  useEffect(() => {
-    // Don't run the animation if not on the home page
-    if (location !== '/') return;
-    
-    // Function to move the "why" text to a new random position within safe center zone
-    const moveWhyText = () => {
-      // Check if we're still on the homepage
-      if (location !== '/') return;
-      
-      // Very tight constraints - keep in the middle 30% of the screen
-      // This should ensure it's always visible on all devices
-      const minLeft = 35; // % from left (was 30)
-      const maxLeft = 65; // % from left (was 70)
-      const minTop = 35;  // % from top (was 30)
-      const maxTop = 65;  // % from top (was 70)
-      
-      // Generate random position within the safe center area
-      const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
-      const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
-      
-      // Update position as percentage of viewport
-      const newPosition = {
-        left: newLeft + '%',
-        top: newTop + '%'
-      };
-      
-      console.log("Moving 'why' text to:", newPosition);
-      setLogoPosition(newPosition);
-    };
-    
-    // Start in exact center
-    setLogoPosition({
-      left: '50%',
-      top: '50%'
-    });
-    
-    // Stay in center for 5 seconds before first move (per user requirement)
-    const initialDelay = setTimeout(moveWhyText, 5000);
-    
-    // Set up interval to change position every 5 seconds after that
-    const moveInterval = setInterval(moveWhyText, 5000);
-    
-    // Clean up timers on component unmount
-    return () => {
-      clearInterval(moveInterval);
-      clearTimeout(initialDelay);
-    };
-  }, [location]); // Re-run effect if location changes
   
   // Flicker images state - track multiple active boxes
   const [activeFlickerBoxes, setActiveFlickerBoxes] = useState<Record<number, string>>({});
@@ -401,37 +345,7 @@ export default function Home() {
     removeOpacityClasses();
   }, []);
   
-  // Effect to move the logo randomly every 5 seconds
-  useEffect(() => {
-    const moveLogoInterval = setInterval(() => {
-      // Get window dimensions to determine constraints
-      const isMobile = window.innerWidth < 768;
-      
-      // Use more constrained position ranges on mobile to keep it visible
-      // Mobile: Keep within 20-80% range to ensure it stays on screen
-      // Desktop: Allow wider range (10-90%)
-      const minLeft = isMobile ? 20 : 10;
-      const maxLeft = isMobile ? 80 : 90;
-      const minTop = isMobile ? 20 : 10;
-      const maxTop = isMobile ? 80 : 90;
-      
-      // Calculate new position with padding for safety
-      const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
-      const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
-      
-      // Apply additional safety clamps to ensure it's visible
-      const safeLeft = Math.max(5, Math.min(newLeft, 95));
-      const safeTop = Math.max(5, Math.min(newTop, 95));
-      
-      setLogoPosition({
-        left: safeLeft + '%',
-        top: safeTop + '%'
-      });
-    }, 5000);
-    
-    // Cleanup interval on component unmount
-    return () => clearInterval(moveLogoInterval);
-  }, []);
+  // Removed the effect that was moving the "why" logo as requested
   
   // No longer need a separate effect for spinning plus icon
   // The animation is now handled directly in the SpinningPlus component
@@ -642,23 +556,7 @@ export default function Home() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Small sideways "why" text with constrained positioning - only visible when menu is closed */}
-      {!menuOpen && (
-        <div 
-          className="fixed z-30 cursor-pointer"
-          style={{ 
-            left: logoPosition.left, 
-            top: logoPosition.top,
-            transform: 'translate(-50%, -50%) rotate(-90deg)', // Center perfectly even when moving
-            padding: '20px', // More padding to ensure visibility and clickability
-            transition: 'left 0.8s cubic-bezier(0.16, 1, 0.3, 1), top 0.8s cubic-bezier(0.16, 1, 0.3, 1)', // Custom spring-like movement
-            background: 'rgba(0, 0, 0, 0.01)' // Nearly invisible background to ensure click area works
-          }}
-          onClick={() => navigate('/logo')}
-        >
-          <span className="text-white text-[8px] uppercase tracking-widest font-bold">why</span>
-        </div>
-      )}
+      {/* We're removing the moving "why" text and adding it below WATCH */}
       
 
       
@@ -811,21 +709,38 @@ export default function Home() {
           </div>
         </div>
         
-        {/* WATCH text in the lower left square - hidden when menu is open */}
+        {/* WATCH and WHY text in the lower left square - hidden when menu is open */}
         <div 
-          className={`absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer z-[60] ${menuOpen ? 'hidden' : 'block'}`}
-          onClick={handleWatchClick}
+          className={`absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}
           style={{ 
             position: 'relative', 
             zIndex: 60,
             touchAction: 'manipulation'
           }}
         >
-          <div className="watch-text animate-content-glitch text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center" style={{ animationDelay: '1.6s' }}>
+          {/* WATCH text */}
+          <div 
+            className="watch-text animate-content-glitch text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
+            style={{ animationDelay: '1.6s' }}
+            onClick={handleWatchClick}
+          >
             Watch
           </div>
+          
           {/* Vertical line below WATCH text */}
-          <div className="watch-line animate-content-glitch h-[15px] w-[1px] bg-white/40 mt-1 mx-auto" style={{ animationDelay: '1.7s' }}></div>
+          <div className="watch-line animate-content-glitch h-[15px] w-[1px] bg-white/40 mt-1 mb-2 mx-auto" style={{ animationDelay: '1.7s' }}></div>
+          
+          {/* WHY text */}
+          <div 
+            className="why-text animate-content-glitch text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
+            style={{ animationDelay: '1.8s' }}
+            onClick={() => navigate('/logo')}
+          >
+            Why
+          </div>
+          
+          {/* Vertical line below WHY text */}
+          <div className="why-line animate-content-glitch h-[15px] w-[1px] bg-white/40 mt-1 mx-auto" style={{ animationDelay: '1.9s' }}></div>
         </div>
         
         {/* Dynamic content in the lower right square - hidden when menu is open */}
