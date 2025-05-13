@@ -409,7 +409,8 @@ body.home-is-active {
     -webkit-transform: translate3d(0,0,0) !important;
     transform: translate3d(0,0,0) !important;
     /* Fix for any potential z-index issues */
-    z-index: 10 !important;
+    z-index: 1 !important; /* Lower z-index so it doesn't block clicks */
+    pointer-events: none !important; /* Prevent flicker boxes from blocking clicks */
   }
   
   /* Image container styles for consistent display */
@@ -421,6 +422,8 @@ body.home-is-active {
     display: block !important;
     /* Prevent any potential transformations */
     transform: none !important;
+    pointer-events: none !important; /* Ensure clicks go through */
+    z-index: 0 !important;
   }
   
   /* Flicker image styles */
@@ -440,6 +443,8 @@ body.home-is-active {
     /* Ensure proper containing on mobile */
     max-width: 100% !important;
     min-height: 100% !important;
+    pointer-events: none !important; /* Prevent images from blocking clicks */
+    z-index: 0 !important;
   }
   
   /* Mobile-specific fixes */
@@ -497,13 +502,28 @@ body.home-is-active {
     pointer-events: none !important;
   }
   
-  /* Extra safety for mobile to ensure boxes stay in place */
+  /* Mobile touch improvements */
   @media screen and (max-width: 767px) {
+    /* Remove fixed positioning that blocks touch events */
     body {
-      position: fixed !important;
+      position: relative !important; 
       width: 100% !important;
       height: 100% !important;
       overflow: hidden !important;
+      touch-action: auto !important; /* Allow default touch actions */
+    }
+    
+    /* Ensure all clickable elements work on mobile */
+    a, button, [role="button"], 
+    [onClick], [onclick],
+    .cursor-pointer, 
+    .menu-icon, .product-link,
+    .start-now-text, .watch-text {
+      z-index: 50 !important; /* High z-index */
+      position: relative !important;
+      cursor: pointer !important;
+      pointer-events: auto !important; /* Force pointer events */
+      -webkit-tap-highlight-color: rgba(0,0,0,0.1) !important; /* Light tap highlight */
     }
     
     /* Fixed grid dimensions for mobile */

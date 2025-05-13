@@ -664,11 +664,16 @@ export default function Home() {
         })}
         
         {/* START NOW in the top left square - centered in the box */}
-        <div className="absolute top-[12.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center">
+        <div className="absolute top-[12.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60]">
           <div 
             className="start-now-text animate-content-glitch cursor-pointer"
             onClick={() => navigate('/subscribe')}
-            style={{ animationDelay: '1.2s' }}
+            style={{ 
+              animationDelay: '1.2s',
+              position: 'relative',
+              zIndex: 60,
+              touchAction: 'manipulation'
+            }}
           >
             <div className="border border-white/30 px-3 py-2 flex flex-col items-center hover:border-white/50 hover:bg-white/5 transition-all duration-300">
               <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase">Start</div>
@@ -692,8 +697,13 @@ export default function Home() {
         
         {/* WATCH text in the lower left square */}
         <div 
-          className="absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer"
+          className="absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer z-[60]"
           onClick={handleWatchClick}
+          style={{ 
+            position: 'relative', 
+            zIndex: 60,
+            touchAction: 'manipulation'
+          }}
         >
           <div className="watch-text animate-content-glitch text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center" style={{ animationDelay: '1.6s' }}>
             Watch
@@ -704,12 +714,21 @@ export default function Home() {
         
         {/* Dynamic content in the lower right square */}
         <div 
-          className="absolute top-[87.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center"
+          className="absolute top-[87.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60]"
+          style={{ 
+            position: 'relative',
+            zIndex: 60
+          }}
         >
           {/* Up arrow above text - navigate to previous content item */}
           <div 
             className="product-arrow-up mb-3 cursor-pointer"
             onClick={() => changeContent('prev')}
+            style={{ 
+              position: 'relative', 
+              zIndex: 60,
+              touchAction: 'manipulation'
+            }}
           >
             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
