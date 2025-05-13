@@ -369,25 +369,23 @@ export default function Home() {
       // Store which image is in which box
       const imageToBoxMap: {[key: number]: number} = {};
       
-      // The original implementation from the reference site
+      // Immediate initialization of all images at once
       const initializeImages = () => {
-        // Define fixed positions for the first appearance of images
-        // Each represents a box number in the grid (1-8)
+        // Define fixed positions for the appearance of images
         const fixedPositions = [1, 4, 6, 8]; // Top-left, top-right, bottom-left, bottom-right
         
-        // Place each image in its initial position
+        // Create initial state for all boxes
+        const initialState: Record<number, string> = {};
+        
+        // Set all images at once with no delay
         for (let i = 0; i < flickerImages.length; i++) {
           const boxNumber = fixedPositions[i];
           imageToBoxMap[i] = boxNumber;
-          
-          // Add this image to its box with a slight delay between each
-          setTimeout(() => {
-            setActiveFlickerBoxes(prev => ({
-              ...prev,
-              [boxNumber]: flickerImages[i]
-            }));
-          }, i * 100); // Small staggered delay
+          initialState[boxNumber] = flickerImages[i];
         }
+        
+        // Update state once with all images
+        setActiveFlickerBoxes(initialState);
       };
       
       // Helper function to shuffle an array
@@ -439,26 +437,21 @@ export default function Home() {
             const currentBox = moveSequences[imageIdx][moveIdx];
             const nextBox = moveSequences[imageIdx][moveIdx + 1];
             
-            // First remove the image from its current box
+            // Remove from current box and immediately place in new box
+            // This creates an instant movement with no transition
+            
+            // Update the image-to-box mapping
+            imageToBoxMap[imageIdx] = nextBox;
+            
+            // Update the active boxes in a single state update
             setActiveFlickerBoxes(prev => {
               const newBoxes = { ...prev };
+              // Remove from current box
               delete newBoxes[currentBox];
+              // Add to new box
+              newBoxes[nextBox] = flickerImages[imageIdx];
               return newBoxes;
             });
-            
-            // Then after a small delay, add it to the new box
-            setTimeout(() => {
-              if (!isFlickering) return;
-              
-              // Update the image-to-box mapping
-              imageToBoxMap[imageIdx] = nextBox;
-              
-              // Add the image to its new box
-              setActiveFlickerBoxes(prev => ({
-                ...prev,
-                [nextBox]: flickerImages[imageIdx]
-              }));
-            }, 50); // Brief flicker effect
             
           }, moveTime);
           
@@ -466,19 +459,11 @@ export default function Home() {
         }
       }
       
-      // After all movements (4.5 seconds total), clear all images and pause
+      // After all movements (4.5 seconds total), clear all images immediately
       const clearTimer = setTimeout(() => {
-        // Remove images with a fade effect for smoother transition
-        document.querySelectorAll('.flicker-image').forEach(el => {
-          (el as HTMLElement).style.opacity = '0';
-          (el as HTMLElement).style.transition = 'opacity 0.3s ease-out';
-        });
-        
-        // After transition, clear the state completely
-        setTimeout(() => {
-          setActiveFlickerBoxes({});
-          setIsFlickering(false);
-        }, 300);
+        // Immediately clear all images without any transition
+        setActiveFlickerBoxes({});
+        setIsFlickering(false);
         
         // Schedule the next flicker sequence after an 8-second pause
         // This gives us a total of 3-5 seconds of flickering followed by 8 seconds of black
@@ -713,7 +698,8 @@ export default function Home() {
                     display: 'block',
                     position: 'absolute',
                     top: 0,
-                    left: 0
+                    left: 0,
+                    transition: 'none' // Ensure no transitions are applied
                   }}
                 />
                 
