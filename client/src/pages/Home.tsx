@@ -711,11 +711,11 @@ export default function Home() {
         
         {/* Redesigned Menu Overlay - only visible when menu is open */}
         {menuOpen && (
-          <div className="fixed inset-0 z-50 bg-black/95 menu-overlay flex flex-col items-center justify-between">
+          <div className="fixed inset-0 z-50 bg-black/95 menu-overlay flex flex-col items-center overflow-y-auto">
             {/* Stylish close button for menu */}
             <button 
               onClick={toggleMenu} 
-              className="absolute top-8 right-8 text-white/70 hover:text-white transition-all z-50 group"
+              className="sticky top-8 right-8 float-right text-white/70 hover:text-white transition-all z-[200] group"
               aria-label="Close menu"
             >
               <div className="relative h-12 w-12 flex items-center justify-center overflow-hidden">
@@ -732,10 +732,10 @@ export default function Home() {
               </div>
             </button>
             
-            {/* Modern minimalist menu layout - centered vertically */}
-            <div className="w-full max-w-4xl p-8 md:p-12 flex-1 flex items-center">
+            {/* Modern minimalist menu layout - scrollable */}
+            <div className="w-full max-w-4xl p-8 md:p-12 flex-1 flex items-start justify-center mt-12 min-h-[90vh]">
               {/* Main menu grid - 3 columns for main pages */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8 w-full">
                 {/* Column 1 */}
                 <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                   <div 
