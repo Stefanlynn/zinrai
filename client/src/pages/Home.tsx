@@ -618,12 +618,12 @@ export default function Home() {
       {/* Small sideways "why" text fixed in the center - only visible when menu is closed */}
       {!menuOpen && (
         <div 
-          className="fixed z-30 cursor-pointer"
+          className="fixed z-30 transform -rotate-90 cursor-pointer"
           style={{ 
             left: logoPosition.left, 
             top: logoPosition.top,
             transform: 'translate(-50%, -50%) rotate(-90deg)', // Center perfectly and rotate
-            padding: '10px', // Add padding to make it easier to tap/click
+            padding: '10px' // Add padding to make it easier to tap/click
           }}
           onClick={() => navigate('/logo')}
         >
