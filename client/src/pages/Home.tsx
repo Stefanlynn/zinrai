@@ -474,24 +474,15 @@ export default function Home() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     
-    // Toggle the menu-open class on the menu icon for proper animation
-    const menuIcon = document.querySelector('.menu-icon');
-    if (menuIcon) {
-      if (!menuOpen) {
-        // Opening menu - add the open class for X animation
-        menuIcon.classList.add('menu-open');
-      } else {
-        // Closing menu - remove the open class to revert to lines
-        menuIcon.classList.remove('menu-open');
-        
-        // Short delay to allow for menu transition
-        setTimeout(() => {
-          document.querySelectorAll('.menu-icon').forEach(icon => {
-            icon.classList.add('menu-animate-in');
-            icon.classList.add('animate-in');
-          });
-        }, 300);
-      }
+    // If closing the menu, make sure the menu icon reappears properly
+    if (menuOpen) {
+      // Short delay to allow for menu transition
+      setTimeout(() => {
+        document.querySelectorAll('.menu-icon').forEach(icon => {
+          icon.classList.add('menu-animate-in');
+          icon.classList.add('animate-in');
+        });
+      }, 300);
     }
   };
 
@@ -510,7 +501,7 @@ export default function Home() {
             left: logoPosition.left, 
             top: logoPosition.top 
           }}
-          onClick={() => window.location.href = '/logo'}
+          onClick={() => navigate('/logo')}
         >
           <span className="text-white text-[8px] uppercase tracking-widest font-bold">why</span>
         </div>
@@ -524,7 +515,7 @@ export default function Home() {
       </div>
         
       {/* UI elements - fixed position */}
-      <div className="fixed inset-0 mobile-grid-container">
+      <div className="fixed inset-0">
         {/* zinrai text in the center */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
           <div className="relative inline-block">
@@ -684,76 +675,47 @@ export default function Home() {
         >
           {/* Up arrow above text - navigate to previous content item */}
           <div 
-            className="product-arrow-up mb-5 cursor-pointer hover:opacity-80 transition-opacity"
+            className="product-arrow-up mb-3 cursor-pointer"
             onClick={() => changeContent('prev')}
           >
             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           
           {/* Content text - using native HTML anchor */}
           <div 
-            className="product-text text-center cursor-pointer group hover:opacity-90 transition-opacity flex flex-col items-center"
+            className="product-text text-center cursor-pointer"
             onClick={() => {
-              // Get current content title and handle special cases
               const title = contentItems[currentIndex].title.toLowerCase();
-              
-              // Explicitly define routes for each content type to ensure consistency
-              let path;
-              switch(title) {
-                case "products":
-                  path = "/product";
-                  break;
-                case "zinrai cares":
-                  path = "/zinrai-cares";
-                  break;
-                case "partner":
-                  path = "/partner";
-                  break;
-                case "culture":
-                  path = "/culture";
-                  break;
-                case "insights":
-                  path = "/insights";
-                  break;
-                case "leadership":
-                  path = "/leadership";
-                  break;
-                case "contact":
-                  path = "/contact";
-                  break;
-                default:
-                  // Fallback to ensure we don't have broken links
-                  path = `/${title.replace(/\s+/g, '')}`;
-              }
-              
-              // Use window.location for more reliable navigation
-              window.location.href = path;
+              const path = title === "products" ? "/product" : 
+                          title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
+                          `/${title.replace(/\s+/g, '')}`;
+              navigate(path);
             }}
           >
-            <div className="text-[10px] tracking-[0.15em] text-white/70 font-light uppercase">{contentItems[currentIndex].number}</div>
-            <div className="text-[10px] tracking-[0.15em] text-white/70 font-light uppercase mt-1">{contentItems[currentIndex].title}</div>
+            <div className="text-[14px] font-bold tracking-wider text-white/90">{contentItems[currentIndex].number}</div>
+            <div className="text-[12px] font-semibold tracking-wide text-white/80">{contentItems[currentIndex].title}</div>
           </div>
           
           {/* Down arrow below text - navigate to next content item */}
           <div 
-            className="product-arrow mt-5 cursor-pointer hover:opacity-80 transition-opacity"
+            className="product-arrow mt-3 cursor-pointer"
             onClick={() => changeContent('next')}
           >
             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </div>
         
         {/* Redesigned Menu Overlay - only visible when menu is open */}
         {menuOpen && (
-          <div className="fixed inset-0 z-50 bg-black/95 menu-overlay flex flex-col items-center overflow-y-auto">
+          <div className="fixed inset-0 z-50 bg-black/95 menu-overlay flex flex-col items-center justify-between">
             {/* Stylish close button for menu */}
             <button 
               onClick={toggleMenu} 
-              className="sticky top-8 right-8 float-right text-white/70 hover:text-white transition-all z-[200] group"
+              className="absolute top-8 right-8 text-white/70 hover:text-white transition-all z-50 group"
               aria-label="Close menu"
             >
               <div className="relative h-12 w-12 flex items-center justify-center overflow-hidden">
@@ -770,16 +732,16 @@ export default function Home() {
               </div>
             </button>
             
-            {/* Modern minimalist menu layout - scrollable */}
-            <div className="w-full max-w-4xl p-8 md:p-12 flex-1 flex items-start justify-center mt-12 min-h-[90vh]">
+            {/* Modern minimalist menu layout - centered vertically */}
+            <div className="w-full max-w-4xl p-8 md:p-12 flex-1 flex items-center">
               {/* Main menu grid - 3 columns for main pages */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
                 {/* Column 1 */}
                 <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      window.location.href = '/product';
+                      navigate('/product');
                       toggleMenu();
                     }}
                   >
@@ -791,7 +753,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      window.location.href = '/partner';
+                      navigate('/partner');
                       toggleMenu();
                     }}
                   >
@@ -806,7 +768,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      window.location.href = '/culture';
+                      navigate('/culture');
                       toggleMenu();
                     }}
                   >
@@ -818,7 +780,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      window.location.href = '/insights';
+                      navigate('/insights');
                       toggleMenu();
                     }}
                   >
@@ -833,19 +795,19 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      window.location.href = '/leadership';
+                      navigate('/leadership');
                       toggleMenu();
                     }}
                   >
-                    <div className="text-white/40 text-sm tracking-wider mb-2 font-light">{contentItems[4].number}</div>
-                    <div className="text-white/80 text-2xl font-light tracking-wide group-hover:text-white transition-colors">{contentItems[4].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-2"></div>
+                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[4].number}</div>
+                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[4].title}</div>
+                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
                   </div>
                   
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      window.location.href = '/zinrai-cares';
+                      navigate('/zinrai-cares');
                       toggleMenu();
                     }}
                   >
@@ -857,7 +819,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer mt-6"
                     onClick={() => {
-                      window.location.href = '/contact';
+                      navigate('/contact');
                       toggleMenu();
                     }}
                   >
@@ -870,29 +832,27 @@ export default function Home() {
             </div>
             
             {/* Footer with social icons and legal content - positioned at bottom */}
-            <div className="w-full border-t border-white/10 mt-auto">
-              <div className="container mx-auto flex justify-between items-center px-8 py-6 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-                {/* Copyright and legal info */}
-                <div className="text-white/50 text-[10px]">
-                  © 2023 ZiNRAi. All Rights Reserved.
-                </div>
-                
+            <div className="w-full border-t border-white/[0.13] py-5 px-4 mt-auto">
+              <div className="container mx-auto flex flex-col items-center animate-fade-in-up" style={{ animationDelay: '500ms' }}>
                 {/* Social Media Icons */}
-                <div className="flex space-x-6 social-icons">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
-                    <FaInstagram size={16} />
-                  </a>
-                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
-                    <FaYoutube size={16} />
-                  </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
-                    <FaFacebook size={16} />
-                  </a>
+                <div className="mb-4">
+                  <div className="flex justify-center space-x-6 social-icons">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
+                      <FaInstagram size={16} />
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
+                      <FaYoutube size={16} />
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
+                      <FaFacebook size={16} />
+                    </a>
+                  </div>
                 </div>
                 
-                {/* Terms and Privacy */}
-                <div className="text-white/50 text-[10px]">
-                  <a href="#" className="hover:text-white/70 transition-colors">Terms</a> <span className="mx-2">|</span> 
+                {/* Copyright and legal info */}
+                <div className="text-white/50 text-[10px] text-center">
+                  © 2023 ZiNRAi. All Rights Reserved. <span className="mx-1">|</span> 
+                  <a href="#" className="hover:text-white/70 transition-colors">Terms</a> <span className="mx-1">|</span> 
                   <a href="#" className="hover:text-white/70 transition-colors">Privacy</a>
                 </div>
               </div>
