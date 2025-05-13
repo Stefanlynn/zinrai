@@ -126,23 +126,22 @@ function App() {
           {/* Menu icon and dropdown */}
           <div className="relative z-10" ref={menuRef}>
             <button 
-              className="ml-4 h-[32px] flex items-center justify-center cursor-pointer group relative border border-black/40 rounded px-2"
+              className="ml-4 h-[32px] flex items-center justify-center cursor-pointer group relative"
               onClick={toggleMenu}
               aria-label="Toggle menu"
-              style={{ marginTop: '4px', marginBottom: '4px' }}
             >
               {/* Two parallel lines for menu icon */}
               {menuOpen ? (
                 // X shape when menu is open
                 <>
-                  <div className="absolute w-5 h-[2px] bg-black top-1/2 left-0 transform -translate-y-1/2 rotate-45"></div>
-                  <div className="absolute w-5 h-[2px] bg-black top-1/2 left-0 transform -translate-y-1/2 -rotate-45"></div>
+                  <div className="absolute w-5 h-[2.5px] bg-black top-1/2 left-0 transform -translate-y-1/2 rotate-45"></div>
+                  <div className="absolute w-5 h-[2.5px] bg-black top-1/2 left-0 transform -translate-y-1/2 -rotate-45"></div>
                 </>
               ) : (
                 // Two parallel lines when menu is closed
                 <div className="flex flex-col justify-center items-center">
-                  <div className="w-5 h-[2px] bg-black mb-[4px]"></div>
-                  <div className="w-5 h-[2px] bg-black"></div>
+                  <div className="w-5 h-[2.5px] bg-black mb-[4px]"></div>
+                  <div className="w-5 h-[2.5px] bg-black"></div>
                 </div>
               )}
             </button>
