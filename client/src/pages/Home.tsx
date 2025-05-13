@@ -763,7 +763,7 @@ export default function Home() {
         
         {/* Start Now text in the bottom right square */}
         <div 
-          className={`absolute bottom-0 right-0 flex items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
+          className={`absolute bottom-0 right-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
           style={{ 
             width: '50vw', 
             height: '25vh',
@@ -772,15 +772,23 @@ export default function Home() {
           }}
         >
           <div 
-            className="start-now-text text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer animate-content-glitch" 
+            className="start-now-text text-[12px] tracking-[0.15em] text-white font-medium uppercase text-center cursor-pointer animate-content-glitch hover:scale-110 transition-transform" 
             style={{ 
               padding: '5px',
-              animationDelay: '1.6s'
+              animationDelay: '1.6s',
+              textShadow: '0 0 10px rgba(255, 255, 255, 0.4)'
             }}
             onClick={() => navigate('/subscribe')}
             onTouchStart={() => navigate('/subscribe')}
           >
             Start Now
+          </div>
+          
+          {/* Modern arrow pointing to the text (above) */}
+          <div className="mt-3 animate-bounce">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 4L20 12L12 20M4 12H20" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
         </div>
         
