@@ -137,22 +137,20 @@ function App() {
             {/* Redesigned Dropdown menu */}
             {menuOpen && (
               <div className="fixed inset-0 bg-black/95 z-[1001] flex items-center justify-center transition-all duration-300 animate-fade-in overflow-y-auto">
-                {/* Close button for menu */}
+                {/* Close button for menu - moved to top right */}
                 <button 
                   onClick={() => setMenuOpen(false)} 
                   className="absolute top-4 right-6 text-white/70 hover:text-white transition-colors"
                 >
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M18 6L6 18M6 6l12 12" />
-                  </svg>
-                </button>
-                
-                {/* Big X to exit menu - centered with clear visibility */}
-                <button 
-                  onClick={() => setMenuOpen(false)}
-                  className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors duration-300 text-4xl font-light"
-                >
-                  ✕
+                  <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden">
+                    {/* Animated X icon */}
+                    <div className="relative">
+                      {/* Line 1 - for X */}
+                      <div className="w-6 h-[1.5px] bg-white/70 hover:bg-white absolute top-0 left-0 transform rotate-45 transition-all duration-300"></div>
+                      {/* Line 2 - for X */}
+                      <div className="w-6 h-[1.5px] bg-white/70 hover:bg-white absolute top-0 left-0 transform -rotate-45 transition-all duration-300"></div>
+                    </div>
+                  </div>
                 </button>
                 
                 {/* Minimalist menu layout */}
