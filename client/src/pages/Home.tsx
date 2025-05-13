@@ -775,10 +775,13 @@ export default function Home() {
         
         {/* Dynamic content in the lower right square - hidden when menu is open */}
         <div 
-          className={`absolute top-[87.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] w-full max-w-[15vw] h-[25vh] ${menuOpen ? 'hidden' : 'block'}`}
+          className={`fixed flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
           style={{ 
-            position: 'relative',
-            zIndex: 60
+            position: 'fixed',
+            zIndex: 60,
+            top: 'calc(75vh + 12.5vh)', // Position at the vertical center of the last row
+            left: 'calc(50vw + 25vw)', // Position at the horizontal center of the right column
+            transform: 'translate(-50%, -50%)' // Center perfectly
           }}
           onClick={(e) => {
             // On mobile, clicking anywhere in this box navigates to the page
