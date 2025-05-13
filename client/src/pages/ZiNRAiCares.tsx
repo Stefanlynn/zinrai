@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
-// Define impact statistics with more concise labels for minimalist design
+// Define impact statistics with original detailed labels
 const impactStats = [
-  { id: 1, value: 75000, prefix: "", suffix: "+", label: "Meals provided" },
-  { id: 2, value: 8, prefix: "", suffix: "", label: "Water projects" },
-  { id: 3, value: 2000, prefix: "", suffix: "+", label: "Families impacted" },
-  { id: 4, value: 100, prefix: "", suffix: "%", label: "Transparency" },
-  { id: 5, value: 1, prefix: "$", suffix: "", label: "Per subscription" }
+  { id: 1, value: 75000, prefix: "", suffix: "+", label: "Meals provided across the U.S. and Pakistan" },
+  { id: 2, value: 8, prefix: "", suffix: "", label: "Clean water projects funded in West Africa" },
+  { id: 3, value: 2000, prefix: "", suffix: "+", label: "Families impacted through decentralized giving" },
+  { id: 4, value: 100, prefix: "", suffix: "%", label: "Transparency powered by blockchain technology" },
+  { id: 5, value: 1, prefix: "$", suffix: "", label: "Donated per active subscription, every month" }
 ];
 
 // Define impact areas
@@ -81,8 +81,11 @@ export default function ZiNRAiCares() {
         
         {/* Impact Statement */}
         <div className="mb-16 text-center">
-          <p className="text-base md:text-lg text-white/90 leading-relaxed font-light tracking-wide max-w-2xl mx-auto">
-            For every active subscription, we donate $1 to sustainable impact projects globally.
+          <p className="text-base md:text-xl text-white/90 leading-relaxed font-light tracking-wide max-w-3xl mx-auto mb-6">
+            At ZiNRAi, we believe technology should be a force for good. For every active subscription, we donate $1 to sustainable impact projects around the globe.
+          </p>
+          <p className="text-base text-white/70 tracking-wide max-w-2xl mx-auto">
+            Our blockchain-powered platform ensures 100% transparency in giving.
           </p>
         </div>
         
@@ -128,9 +131,9 @@ export default function ZiNRAiCares() {
         <div className="mb-16">
           <h2 className="text-xs uppercase tracking-widest mb-10 text-white/70 text-center">Our Impact</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 w-full max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 gap-y-12 w-full max-w-5xl mx-auto">
             {impactStats.map(stat => (
-              <div key={stat.id} className="text-center">
+              <div key={stat.id} className="text-center px-2">
                 <div className="text-2xl md:text-3xl font-light text-white mb-3">
                   <span 
                     className="impact-counter" 
@@ -141,7 +144,7 @@ export default function ZiNRAiCares() {
                     {stat.prefix}0{stat.suffix}
                   </span>
                 </div>
-                <p className="text-[10px] uppercase tracking-wider text-white/60">{stat.label}</p>
+                <p className="text-[10px] uppercase tracking-wider text-white/60 leading-relaxed">{stat.label}</p>
               </div>
             ))}
           </div>
