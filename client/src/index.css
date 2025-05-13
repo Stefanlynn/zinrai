@@ -682,36 +682,62 @@ html, body {
 @keyframes logoFade {
   0% {
     opacity: 1; /* Logo fully visible */
+    transform: scale(1);
   }
   30% {
     opacity: 1; /* Logo stays visible for 6 seconds (30% of 16s) */
+    transform: scale(1);
+  }
+  35% { 
+    opacity: 0.5; /* Smoother transition out */
+    transform: scale(1.02);
   }
   40% {
     opacity: 0; /* Logo fades out */
+    transform: scale(1.05);
   }
   90% {
     opacity: 0; /* Logo stays invisible */
+    transform: scale(0.95);
+  }
+  95% {
+    opacity: 0.5; /* Smoother transition in */
+    transform: scale(0.98);
   }
   100% {
     opacity: 1; /* Logo fades back in */
+    transform: scale(1);
   }
 }
 
 @keyframes textFade {
   0% {
     opacity: 0; /* Text invisible when logo is visible */
+    transform: scale(0.95);
   }
   30% {
     opacity: 0; /* Text stays invisible */
+    transform: scale(0.95);
+  }
+  35% {
+    opacity: 0.5; /* Smoother transition in */
+    transform: scale(0.98);
   }
   40% {
     opacity: 1; /* Text fades in as logo fades out */
+    transform: scale(1);
   }
   90% {
     opacity: 1; /* Text stays visible for 10 seconds (50% of 16s) */
+    transform: scale(1);
+  }
+  95% {
+    opacity: 0.5; /* Smoother transition out */
+    transform: scale(1.02);
   }
   100% {
     opacity: 0; /* Text fades out as logo returns */
+    transform: scale(1.05);
   }
 }
 

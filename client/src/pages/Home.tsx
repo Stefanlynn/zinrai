@@ -403,7 +403,7 @@ export default function Home() {
       // Move images to new boxes a few times during the flicker sequence
       for (let moveIdx = 0; moveIdx < 3; moveIdx++) {
         const moveTimer = setTimeout(() => {
-          if (!flickerMode.current) return;
+          if (!isFlickering) return;
           
           // Get 4 random unique boxes from 8 possible boxes for the next position
           const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
@@ -619,23 +619,23 @@ export default function Home() {
             
             {/* ZiNRAi Circle Logo centered on screen with fade animation */}
             <div 
-              className="fixed inset-0 flex items-center justify-center pointer-events-none z-[70] transition-opacity duration-1000 ease-in-out"
+              className="fixed inset-0 flex items-center justify-center pointer-events-none z-[70] transition-all duration-1000 ease-in-out"
               style={{ 
                 animationDelay: '1.0s',
-                animation: 'logoFade 16s infinite' 
+                animation: 'logoFade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite' 
               }}
             >
               <img
                 src={zinraiLogoImage}
                 alt="ZiNRAi Logo"
-                className="w-[650px] h-[650px] object-contain"
+                className="w-[650px] h-[650px] object-contain transition-transform duration-700"
               />
             </div>
             
             <h1 
-              className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap"
+              className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap transition-all duration-1000 ease-in-out"
               style={{
-                animation: 'textFade 16s infinite',
+                animation: 'textFade 16s cubic-bezier(0.4, 0, 0.2, 1) infinite',
                 animationDelay: '1.0s'
               }}
             >
