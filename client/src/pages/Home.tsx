@@ -619,24 +619,27 @@ export default function Home() {
             
             {/* ZiNRAi Logo and Text stacked in center */}
             <div className="fixed inset-0 flex flex-col items-center justify-center pointer-events-none z-[70]">
-              {/* Logo above text */}
-              <div className="zinrai-logo-container mb-4">
-                <img
-                  src={zinraiLogoImage}
-                  alt="ZiNRAi Logo"
-                  className="w-[450px] h-[450px] object-contain transition-transform duration-700"
-                />
+              {/* Stacked layout with text positioned higher */}
+              <div className="flex flex-col items-center mt-[-50px]">
+                {/* Logo */}
+                <div className="zinrai-logo-container mb-[-80px]">
+                  <img
+                    src={zinraiLogoImage}
+                    alt="ZiNRAi Logo"
+                    className="w-[450px] h-[450px] object-contain transition-transform duration-700"
+                  />
+                </div>
+                
+                {/* Text overlapping with bottom of logo */}
+                <h1 
+                  className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap transition-all duration-1000 ease-in-out"
+                  style={{
+                    textShadow: '0 0 30px rgba(255, 255, 255, 0.3)'
+                  }}
+                >
+                  ZiNRAi
+                </h1>
               </div>
-              
-              {/* Text below logo */}
-              <h1 
-                className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap transition-all duration-1000 ease-in-out"
-                style={{
-                  textShadow: '0 0 30px rgba(255, 255, 255, 0.3)'
-                }}
-              >
-                ZiNRAi
-              </h1>
             </div>
           </div>
         </div>
