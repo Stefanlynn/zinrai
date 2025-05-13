@@ -753,7 +753,7 @@ export default function Home() {
         
         {/* Dynamic content in the lower right square - hidden when menu is open */}
         <div 
-          className={`absolute top-[87.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}
+          className={`absolute top-[87.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] w-full max-w-[15vw] h-[25vh] ${menuOpen ? 'hidden' : 'block'}`}
           style={{ 
             position: 'relative',
             zIndex: 60
