@@ -44,13 +44,13 @@ export default function Home() {
     // Get window dimensions to determine constraints
     const isMobile = window.innerWidth < 768;
     
-    // More centered position range to keep "why" text in middle area of screen
-    const minLeft = isMobile ? 40 : 40;  // Keep it more centered
-    const maxLeft = isMobile ? 60 : 60;  // Keep it more centered
-    const minTop = isMobile ? 40 : 40;   // Keep it more centered 
-    const maxTop = isMobile ? 60 : 60;   // Keep it more centered
+    // Allow wide position range to let it move all over, but with safety margins
+    const minLeft = isMobile ? 15 : 10;  // Minimum left position 
+    const maxLeft = isMobile ? 85 : 90;  // Maximum left position
+    const minTop = isMobile ? 15 : 10;   // Minimum top position
+    const maxTop = isMobile ? 85 : 90;   // Maximum top position
     
-    // Calculate position with small random variation
+    // Calculate position with full random variation
     const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
     const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
     
@@ -59,6 +59,31 @@ export default function Home() {
       top: newTop + '%'
     };
   });
+  
+  // Effect to change position periodically
+  useEffect(() => {
+    // Function to move the "why" text to a new random position
+    const moveWhyText = () => {
+      const isMobile = window.innerWidth < 768;
+      const minLeft = isMobile ? 15 : 10;
+      const maxLeft = isMobile ? 85 : 90;
+      const minTop = isMobile ? 15 : 10;
+      const maxTop = isMobile ? 85 : 90;
+      
+      const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
+      const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
+      
+      setLogoPosition({
+        left: newLeft + '%',
+        top: newTop + '%'
+      });
+    };
+    
+    // Set up interval to change position every 20 seconds
+    const moveInterval = setInterval(moveWhyText, 20000);
+    
+    return () => clearInterval(moveInterval);
+  }, []);
   
   // Flicker images state - track multiple active boxes
   const [activeFlickerBoxes, setActiveFlickerBoxes] = useState<Record<number, string>>({});
@@ -608,8 +633,8 @@ export default function Home() {
         <div 
           className="fixed z-30 transform -rotate-90 transition-all duration-700 ease-in-out cursor-pointer"
           style={{ 
-            left: `max(35vw, min(${logoPosition.left}, 65vw))`, // Keep it in the middle area horizontally
-            top: `max(35vh, min(${logoPosition.top}, 65vh))`,   // Keep it in the middle area vertically
+            left: logoPosition.left, // Use direct position, let it move anywhere within safety margins
+            top: logoPosition.top,   // Use direct position, let it move anywhere within safety margins
             padding: '10px', // Add padding to make it easier to tap/click
           }}
           onClick={() => navigate('/logo')}
