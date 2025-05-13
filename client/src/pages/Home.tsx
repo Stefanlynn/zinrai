@@ -721,25 +721,24 @@ export default function Home() {
           {/* WATCH text */}
           <div 
             className="watch-text animate-content-glitch text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
-            style={{ animationDelay: '1.6s' }}
+            style={{ animationDelay: '1.6s', padding: '5px' }} /* Added padding for larger touch target */
             onClick={handleWatchClick}
+            onTouchStart={handleWatchClick} /* Added touchstart for more responsive mobile handling */
           >
             Watch
           </div>
           
-          {/* Vertical line below WATCH text */}
-          <div className="watch-line animate-content-glitch h-[15px] w-[1px] bg-white/40 mt-1 mb-2 mx-auto" style={{ animationDelay: '1.7s' }}></div>
-          
-          {/* WHY text */}
+          {/* WHY text - directly below WATCH with no line in between */}
           <div 
             className="why-text animate-content-glitch text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
-            style={{ animationDelay: '1.8s' }}
+            style={{ animationDelay: '1.8s', marginTop: '8px', padding: '5px' }} /* Added padding for larger touch target */
             onClick={() => navigate('/logo')}
+            onTouchStart={() => navigate('/logo')} /* Added touchstart for more responsive mobile handling */
           >
             Why
           </div>
           
-          {/* Vertical line below WHY text */}
+          {/* Vertical line below WHY text only */}
           <div className="why-line animate-content-glitch h-[15px] w-[1px] bg-white/40 mt-1 mx-auto" style={{ animationDelay: '1.9s' }}></div>
         </div>
         
@@ -753,8 +752,8 @@ export default function Home() {
             width: 'auto', // Let content determine width
             height: 'auto' // Let content determine height
           }}
-          onClick={(e) => {
-            // On mobile, clicking anywhere in this box navigates to the page
+          onTouchStart={(e) => {
+            // On mobile, make touch events more responsive by handling them on touch start
             if (window.innerWidth <= 768) {
               e.stopPropagation();
               
@@ -772,6 +771,24 @@ export default function Home() {
               // Use Wouter's navigate for client-side routing
               navigate(path);
             }
+          }}
+          onClick={(e) => {
+            // Handle click events for both mobile and desktop
+            e.stopPropagation();
+              
+            // Helper function to generate the correct path
+            const getRouteForTitle = (title: string) => {
+              title = title.toLowerCase();
+              return title === "products" ? "/product" : 
+                     title === "zinrai cares" ? "/zinrai-cares" : 
+                     `/${title.replace(/\s+/g, '')}`;
+            };
+            
+            // Get the path for the current index
+            const path = getRouteForTitle(contentItems[currentIndex].title);
+            
+            // Use Wouter's navigate for client-side routing
+            navigate(path);
           }}
         >
           {/* Up arrow above text - navigate to previous content item (only functional on desktop) */}
