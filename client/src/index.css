@@ -333,6 +333,18 @@ body.home-is-active {
   
   .animate-flicker {
     animation: imageFlicker 3s ease-in-out;
+    /* Ensure hardware acceleration for smoother animations */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+  
+  /* Image container styles for consistent display */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
   
   .animate-delay-100 {

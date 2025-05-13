@@ -578,13 +578,22 @@ export default function Home() {
                 boxNumber === 7 ? 'top-[75vh] left-0' : 
                 'top-[75vh] left-[50%]'
               }`}
+              style={{
+                maxWidth: '50%', // Ensure box never exceeds 50% of viewport width
+                maxHeight: '25vh', // Ensure box never exceeds 25% of viewport height
+              }}
             >
-              <div className="relative w-full h-full">
+              <div className="image-container relative w-full h-full overflow-hidden">
                 {/* The image with flickering animation */}
                 <img 
                   src={imageSrc} 
                   alt="" 
                   className="w-full h-full object-cover animate-flicker"
+                  style={{
+                    minWidth: '100%', // Ensure image covers the entire container
+                    minHeight: '100%', // Ensure image covers the entire container
+                    display: 'block', // Remove any extra space below the image
+                  }}
                 />
                 
                 {/* Dark overlay */}
