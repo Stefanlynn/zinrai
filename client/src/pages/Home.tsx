@@ -557,20 +557,19 @@ export default function Home() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Header bar */}
-      <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[70] flex items-center justify-end px-4 shadow-sm">
+      <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[70] flex items-center justify-end px-6 shadow-sm">
         {/* Menu icon in header - two parallel lines */}
         <div 
-          className={`menu-header-icon cursor-pointer mr-4 ${menuOpen ? 'hidden' : 'block'}`}
+          className="menu-header-icon cursor-pointer mr-6"
           onClick={toggleMenu}
           onTouchStart={toggleMenu}
-          style={{ padding: '4px' }}
         >
-          <div className="w-5 h-[1px] bg-black/80 mb-[3px]"></div>
-          <div className="w-5 h-[1px] bg-black/80"></div>
+          <div className="w-5 h-[2px] bg-black mb-[4px]"></div>
+          <div className="w-5 h-[2px] bg-black"></div>
         </div>
         
         {/* Profile icon */}
-        <div className={`profile-icon w-5 h-5 bg-black/80 rounded-full cursor-pointer ${menuOpen ? 'hidden' : 'block'}`}
+        <div className="profile-icon w-5 h-5 bg-black rounded-full cursor-pointer"
           onClick={() => navigate('/profile')}
           onTouchStart={() => navigate('/profile')}
         ></div>
@@ -915,125 +914,99 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Redesigned Menu Overlay - only visible when menu is open */}
+        {/* Simple Menu Overlay - only visible when menu is open */}
         {menuOpen && (
-          <div className="fixed inset-0 z-50 bg-black/95 menu-overlay flex flex-col items-center justify-between">
-            {/* Stylish close button for menu */}
+          <div className="fixed inset-0 z-50 bg-black/95 menu-overlay flex items-center justify-center">
+            {/* Simple close button */}
             <button 
               onClick={toggleMenu} 
-              className="absolute top-8 right-8 text-white/70 hover:text-white transition-all z-50 group"
+              className="absolute top-4 right-4 text-white z-50"
               aria-label="Close menu"
             >
-              <div className="relative h-12 w-12 flex items-center justify-center overflow-hidden">
-                {/* Circular background that appears on hover */}
-                <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transform scale-0 group-hover:scale-100 transition-all duration-300"></div>
-                
-                {/* Animated X icon */}
-                <div className="relative">
-                  {/* Line 1 - animates to create X */}
-                  <div className="w-6 h-[1.5px] bg-white/70 group-hover:bg-white absolute top-0 left-0 transform rotate-45 transition-all duration-300"></div>
-                  {/* Line 2 - animates to create X */}
-                  <div className="w-6 h-[1.5px] bg-white/70 group-hover:bg-white absolute top-0 left-0 transform -rotate-45 transition-all duration-300"></div>
-                </div>
+              <div className="w-6 h-6 flex items-center justify-center">
+                <div className="w-6 h-[1.5px] bg-white absolute rotate-45"></div>
+                <div className="w-6 h-[1.5px] bg-white absolute -rotate-45"></div>
               </div>
             </button>
             
-            {/* Modern minimalist menu layout - centered vertically */}
-            <div className="w-full max-w-4xl p-8 md:p-12 flex-1 flex items-center">
-              {/* Main menu grid - 3 columns for main pages */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
-                {/* Column 1 */}
-                <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                  <div 
-                    className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => {
-                      navigate('/product');
-                      toggleMenu();
-                    }}
-                  >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[0].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[0].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
-                  </div>
-                  
-                  <div 
-                    className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => {
-                      navigate('/partner');
-                      toggleMenu();
-                    }}
-                  >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[1].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[1].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
-                  </div>
-                </div>
-                
-                {/* Column 2 */}
-                <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                  <div 
-                    className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => {
-                      navigate('/culture');
-                      toggleMenu();
-                    }}
-                  >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[2].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[2].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
-                  </div>
-                  
-                  <div 
-                    className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => {
-                      navigate('/insights');
-                      toggleMenu();
-                    }}
-                  >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[3].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[3].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
-                  </div>
-                </div>
-                
-                {/* Column 3 */}
-                <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                  <div 
-                    className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => {
-                      navigate('/leadership');
-                      toggleMenu();
-                    }}
-                  >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[4].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[4].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
-                  </div>
-                  
-                  <div 
-                    className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => {
-                      navigate('/zinrai-cares');
-                      toggleMenu();
-                    }}
-                  >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[5].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[5].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
-                  </div>
-                  
-                  <div 
-                    className="flex flex-col items-start group cursor-pointer mt-6"
-                    onClick={() => {
-                      navigate('/contact');
-                      toggleMenu();
-                    }}
-                  >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[6].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[6].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
-                  </div>
-                </div>
+            {/* Simple centered menu list */}
+            <div className="flex flex-col items-center space-y-5">
+              {/* All 7 options in a vertical list */}
+              <div 
+                className="cursor-pointer text-center"
+                onClick={() => {
+                  navigate('/product');
+                  toggleMenu();
+                }}
+              >
+                <div className="text-white/50 text-xs">{contentItems[0].number}</div>
+                <div className="text-white text-lg font-light">{contentItems[0].title}</div>
+              </div>
+              
+              <div 
+                className="cursor-pointer text-center"
+                onClick={() => {
+                  navigate('/partner');
+                  toggleMenu();
+                }}
+              >
+                <div className="text-white/50 text-xs">{contentItems[1].number}</div>
+                <div className="text-white text-lg font-light">{contentItems[1].title}</div>
+              </div>
+              
+              <div 
+                className="cursor-pointer text-center"
+                onClick={() => {
+                  navigate('/culture');
+                  toggleMenu();
+                }}
+              >
+                <div className="text-white/50 text-xs">{contentItems[2].number}</div>
+                <div className="text-white text-lg font-light">{contentItems[2].title}</div>
+              </div>
+              
+              <div 
+                className="cursor-pointer text-center"
+                onClick={() => {
+                  navigate('/insights');
+                  toggleMenu();
+                }}
+              >
+                <div className="text-white/50 text-xs">{contentItems[3].number}</div>
+                <div className="text-white text-lg font-light">{contentItems[3].title}</div>
+              </div>
+              
+              <div 
+                className="cursor-pointer text-center"
+                onClick={() => {
+                  navigate('/leadership');
+                  toggleMenu();
+                }}
+              >
+                <div className="text-white/50 text-xs">{contentItems[4].number}</div>
+                <div className="text-white text-lg font-light">{contentItems[4].title}</div>
+              </div>
+              
+              <div 
+                className="cursor-pointer text-center"
+                onClick={() => {
+                  navigate('/contact');
+                  toggleMenu();
+                }}
+              >
+                <div className="text-white/50 text-xs">{contentItems[5].number}</div>
+                <div className="text-white text-lg font-light">{contentItems[5].title}</div>
+              </div>
+              
+              <div 
+                className="cursor-pointer text-center"
+                onClick={() => {
+                  navigate('/zinrai-cares');
+                  toggleMenu();
+                }}
+              >
+                <div className="text-white/50 text-xs">{contentItems[6].number}</div>
+                <div className="text-white text-lg font-light">{contentItems[6].title}</div>
               </div>
             </div>
             
