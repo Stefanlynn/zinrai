@@ -749,9 +749,6 @@ export default function Home() {
               Why
             </div>
           </div>
-          
-          {/* Horizontal line below both text elements */}
-          <div className="animate-content-glitch h-[1px] w-[60px] bg-white/40 mt-3 mx-auto" style={{ animationDelay: '1.9s' }}></div>
         </div>
         
         {/* Dynamic content in the lower right square - hidden when menu is open */}
