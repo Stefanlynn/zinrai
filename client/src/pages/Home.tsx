@@ -1071,25 +1071,15 @@ export default function Home() {
             
             {/* Video container with responsive aspect ratio */}
             <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl border border-white/10">
-              {/* This will be replaced with the actual YouTube iframe when you provide the video ID */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-900 to-black">
-                <div className="text-white/90 text-lg flex flex-col items-center gap-4">
-                  <div className="flex items-center justify-center mb-2">
-                    {iconVariant === 0 ? (
-                      <SpinningPlus size={48} className="text-white/90" />
-                    ) : (
-                      React.createElement(videoIcons[iconVariant].icon, { 
-                        size: 48, 
-                        className: "text-white/90 animate-pulse" 
-                      })
-                    )}
-                  </div>
-                  <span className="font-bold tracking-wide">VIDEO READY</span>
-                  <span className="text-sm text-white/60 max-w-xs text-center">
-                    Your YouTube video will appear here when you provide the video ID.
-                  </span>
-                </div>
-              </div>
+              {/* YouTube iframe - embedded video */}
+              <iframe 
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/RbM2F-cfN0A?autoplay=1"
+                title="ZiNRAi Introduction Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
