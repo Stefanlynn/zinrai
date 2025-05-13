@@ -533,20 +533,9 @@ export default function Home() {
     setVideoPopupOpen(true);
   };
   
-  // Toggle menu open/close
+  // Simple toggle menu function
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    
-    // If closing the menu, make sure the menu icon reappears properly
-    if (menuOpen) {
-      // Short delay to allow for menu transition
-      setTimeout(() => {
-        document.querySelectorAll('.menu-icon').forEach(icon => {
-          icon.classList.add('menu-animate-in');
-          icon.classList.add('animate-in');
-        });
-      }, 300);
-    }
   };
 
   return (
@@ -557,15 +546,35 @@ export default function Home() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Header bar */}
-      <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[70] flex items-center justify-end px-6 shadow-sm">
-        {/* Menu icon in header - two parallel lines */}
+      <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[900] flex items-center justify-end px-6 shadow-sm">
+        {/* Menu icon in header - two parallel lines or X */}
         <div 
           className="menu-header-icon cursor-pointer mr-6"
           onClick={toggleMenu}
           onTouchStart={toggleMenu}
+          style={{ 
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            width: '20px',
+            height: '16px',
+            borderLeft: '1px solid rgba(0,0,0,0.1)',
+            paddingLeft: '12px'
+          }}
         >
-          <div className="w-5 h-[2px] bg-black mb-[4px]"></div>
-          <div className="w-5 h-[2px] bg-black"></div>
+          {menuOpen ? (
+            <>
+              {/* X shape when menu is open */}
+              <div className="w-5 h-[2px] bg-black absolute transform rotate-45"></div>
+              <div className="w-5 h-[2px] bg-black absolute transform -rotate-45"></div>
+            </>
+          ) : (
+            <>
+              {/* Two parallel lines when menu is closed */}
+              <div className="w-5 h-[2px] bg-black mb-[4px]"></div>
+              <div className="w-5 h-[2px] bg-black"></div>
+            </>
+          )}
         </div>
         
         {/* Profile icon */}
@@ -916,18 +925,8 @@ export default function Home() {
         
         {/* Simple Menu Overlay - only visible when menu is open */}
         {menuOpen && (
-          <div className="fixed inset-0 z-50 bg-black/95 menu-overlay flex items-center justify-center">
-            {/* Simple close button */}
-            <button 
-              onClick={toggleMenu} 
-              className="absolute top-4 right-4 text-white z-50"
-              aria-label="Close menu"
-            >
-              <div className="w-6 h-6 flex items-center justify-center">
-                <div className="w-6 h-[1.5px] bg-white absolute rotate-45"></div>
-                <div className="w-6 h-[1.5px] bg-white absolute -rotate-45"></div>
-              </div>
-            </button>
+          <div className="fixed inset-0 z-[800] bg-black/95 menu-overlay flex items-center justify-center">
+            {/* Simple close button - Removed since we'll use the menu icon in the header */}
             
             {/* Simple centered menu list */}
             <div className="flex flex-col items-center space-y-5">
