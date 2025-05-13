@@ -701,7 +701,40 @@ export default function Home() {
           );
         })}
         
-        {/* START NOW in the top left has been removed */}
+        {/* WATCH NOW in the top left square */}
+        <div 
+          className={`absolute top-0 left-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
+          style={{ 
+            width: '50vw', 
+            height: '25vh',
+            transform: 'translate(0, 0)',
+            touchAction: 'manipulation'
+          }}
+        >
+          <div 
+            className="watch-now-text text-[12px] tracking-[0.15em] text-white font-medium uppercase text-center cursor-pointer animate-content-glitch hover:scale-110 transition-transform" 
+            style={{ 
+              padding: '5px',
+              animationDelay: '1.2s',
+              textShadow: '0 0 10px rgba(255, 255, 255, 0.4)'
+            }}
+            onClick={handleWatchClick}
+            onTouchStart={handleWatchClick}
+          >
+            Watch Now
+          </div>
+          
+          {/* Modern arrow pointing to the text (above) */}
+          <div 
+            className="mt-3 animate-bounce cursor-pointer"
+            onClick={handleWatchClick}
+            onTouchStart={handleWatchClick}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 4L20 12L12 20M4 12H20" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
         
         {/* Menu icon has been moved to the header bar */}
         
