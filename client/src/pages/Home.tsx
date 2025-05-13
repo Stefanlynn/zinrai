@@ -40,9 +40,20 @@ export default function Home() {
   const [touchStartY, setTouchStartY] = useState(0);
   const [touchEndY, setTouchEndY] = useState(0);
   // State for logo position
-  const [logoPosition, setLogoPosition] = useState({
-    left: Math.floor(Math.random() * 80) + 10 + '%', 
-    top: Math.floor(Math.random() * 80) + 10 + '%'
+  const [logoPosition, setLogoPosition] = useState(() => {
+    // Get window dimensions to determine constraints
+    const isMobile = window.innerWidth < 768;
+    
+    // Use more constrained position ranges on mobile to keep it visible
+    const minLeft = isMobile ? 30 : 10;
+    const maxLeft = isMobile ? 70 : 90;
+    const minTop = isMobile ? 30 : 10;
+    const maxTop = isMobile ? 70 : 90;
+    
+    return {
+      left: Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft + '%',
+      top: Math.floor(Math.random() * (maxTop - minTop)) + minTop + '%'
+    };
   });
   
   // Flicker images state - track multiple active boxes
@@ -351,9 +362,20 @@ export default function Home() {
   // Effect to move the logo randomly every 5 seconds
   useEffect(() => {
     const moveLogoInterval = setInterval(() => {
+      // Get window dimensions to determine constraints
+      const isMobile = window.innerWidth < 768;
+      
+      // Use more constrained position ranges on mobile to keep it visible
+      // Mobile: Keep within 30-70% range to ensure it stays on screen
+      // Desktop: Allow wider range (10-90%)
+      const minLeft = isMobile ? 30 : 10;
+      const maxLeft = isMobile ? 70 : 90;
+      const minTop = isMobile ? 30 : 10;
+      const maxTop = isMobile ? 70 : 90;
+      
       setLogoPosition({
-        left: Math.floor(Math.random() * 80) + 10 + '%',
-        top: Math.floor(Math.random() * 80) + 10 + '%'
+        left: Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft + '%',
+        top: Math.floor(Math.random() * (maxTop - minTop)) + minTop + '%'
       });
     }, 5000);
     
@@ -772,7 +794,7 @@ export default function Home() {
         >
           {/* Up arrow above text - navigate to previous content item (only functional on desktop) */}
           <div 
-            className="product-arrow-up mb-3 cursor-pointer hidden md:block"
+            className="product-arrow-up mb-3 cursor-pointer hidden md:block w-full text-center"
             onClick={(e) => {
               // Only allow arrow functionality on desktop
               if (window.innerWidth > 768) {
@@ -786,28 +808,28 @@ export default function Home() {
               touchAction: 'manipulation'
             }}
           >
-            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           
           {/* Decorative up arrow for mobile (non-functional) */}
           <div 
-            className="product-arrow-up mb-3 cursor-pointer block md:hidden"
+            className="product-arrow-up mb-3 cursor-pointer block md:hidden w-full text-center"
             style={{ 
               position: 'relative', 
               zIndex: 60,
               touchAction: 'manipulation'
             }}
           >
-            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           
           {/* Content text */}
           <div 
-            className="product-text text-center cursor-pointer"
+            className="product-text text-center cursor-pointer w-full mx-auto"
             onClick={(e) => {
               // Prevent click event on desktop from propagating to parent
               if (window.innerWidth > 768) {
@@ -826,7 +848,7 @@ export default function Home() {
           
           {/* Down arrow below text - navigate to next content item (only functional on desktop) */}
           <div 
-            className="product-arrow mt-3 cursor-pointer hidden md:block"
+            className="product-arrow mt-3 cursor-pointer hidden md:block w-full text-center"
             onClick={(e) => {
               // Only allow arrow functionality on desktop
               if (window.innerWidth > 768) {
@@ -835,16 +857,16 @@ export default function Home() {
               }
             }}
           >
-            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           
           {/* Decorative down arrow for mobile (non-functional) */}
           <div 
-            className="product-arrow mt-3 cursor-pointer block md:hidden"
+            className="product-arrow mt-3 cursor-pointer block md:hidden w-full text-center"
           >
-            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
