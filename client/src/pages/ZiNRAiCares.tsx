@@ -14,6 +14,23 @@ export default function ZiNRAiCares() {
   const [activeTab, setActiveTab] = useState<number | null>(null);
   const [countersAnimated, setCountersAnimated] = useState(false);
   const [_, navigate] = useLocation();
+  
+  // Add effect to enable scrolling on this page
+  useEffect(() => {
+    // Force body to be scrollable
+    document.body.style.overflow = 'auto';
+    document.body.style.height = 'auto';
+    document.documentElement.style.overflow = 'auto';
+    document.documentElement.style.height = 'auto';
+    
+    return () => {
+      // Clean up
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+    };
+  }, []);
 
   // Counter animation
   useEffect(() => {

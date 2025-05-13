@@ -299,7 +299,7 @@ function App() {
         
         {/* ZiNRAi Cares Modal */}
         {showCaresModal && (
-          <div className="scrollable-page fixed inset-0 bg-black/95 z-[2000]">
+          <div style={{overflowY: 'auto', maxHeight: '100vh', height: '100vh'}} className="fixed inset-0 bg-black/95 z-[2000]">
             <div className="bg-black text-white">
               {/* Close button for the modal */}
               <button 
