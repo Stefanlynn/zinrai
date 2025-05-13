@@ -12,7 +12,7 @@ import Partner from "@/pages/Partner";
 import Culture from "@/pages/Culture";
 import Insights from "@/pages/Insights";
 import Leadership from "@/pages/Leadership";
-// Import removed as we'll integrate cares content directly
+import ZiNRAiCares from "@/pages/ZiNRAiCares";
 import Profile from "@/pages/Profile";
 import Contact from "@/pages/Contact";
 import Subscribe from "@/pages/Subscribe";
@@ -49,7 +49,7 @@ function Router() {
       <Route path="/leadership">
         {() => <PageWithHeader><Leadership /></PageWithHeader>}
       </Route>
-      {/* ZiNRAi Cares will be shown as a modal instead of a separate route */}
+      <Route path="/zinrai-cares" component={ZiNRAiCares} />
       <Route path="/profile">
         {() => <PageWithHeader><Profile /></PageWithHeader>}
       </Route>
@@ -298,120 +298,20 @@ function App() {
         {/* ZiNRAi Cares Modal */}
         {showCaresModal && (
           <div className="fixed inset-0 bg-black/95 z-[2000] overflow-auto">
-            <div className="min-h-screen bg-black text-white">
-              {/* Grid lines overlay */}
-              <div className="absolute inset-0 grid grid-cols-2 grid-rows-4 pointer-events-none opacity-70">
-                <div className="border-r border-white/20"></div>
-                <div className="border-l border-white/20"></div>
-                <div className="border-r border-white/20 border-t"></div>
-                <div className="border-l border-white/20 border-t"></div>
-                <div className="border-r border-white/20 border-t"></div>
-                <div className="border-l border-white/20 border-t"></div>
-                <div className="border-r border-white/20 border-t"></div>
-                <div className="border-l border-white/20 border-t"></div>
-              </div>
+            <div className="min-h-screen bg-black text-white relative">
+              {/* Close button for the modal */}
+              <button 
+                onClick={() => setShowCaresModal(false)}
+                className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors z-[2100]"
+                aria-label="Close modal"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
               
-              <div className="grid grid-cols-2 grid-rows-4 min-h-screen">
-                {/* Top Row - Header */}
-                <div className="col-span-2 flex items-center justify-between px-8 py-4">
-                  <h1 className="text-4xl md:text-6xl font-bold text-white">ZiNRAi Cares</h1>
-                  <button 
-                    onClick={() => setShowCaresModal(false)}
-                    className="text-white/70 hover:text-white transition-colors text-xl h-10 w-10 flex items-center justify-center"
-                  >
-                    ✕
-                  </button>
-                </div>
-                
-                {/* Second Row - Intro */}
-                <div className="row-span-1 col-span-2 flex items-center justify-center p-6">
-                  <div className="text-center max-w-4xl">
-                    <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-6">
-                      At ZiNRAi, we believe technology should be a force for good. For every active subscription, we donate $1 to sustainable impact projects around the globe.
-                    </p>
-                    <p className="text-xl text-white/70">
-                      Our blockchain-powered platform ensures 100% transparency in giving.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Center Rows - Content */}
-                <div className="p-6 flex items-center">
-                  <div>
-                    <h2 className="text-2xl font-semibold mb-4 uppercase tracking-wide">Impact Areas</h2>
-                    <ul className="space-y-3">
-                      <li className="p-3 border border-white/30 cursor-pointer transition-all hover:bg-white/5">
-                        <h4 className="text-lg font-medium">Food Security</h4>
-                        <p className="text-white/70 mt-2">
-                          We partner with food banks and community kitchens to combat hunger in urban and rural communities globally.
-                        </p>
-                      </li>
-                      <li className="p-3 border border-white/30 cursor-pointer transition-all hover:bg-white/5">
-                        <h4 className="text-lg font-medium">Clean Water Access</h4>
-                        <p className="text-white/70 mt-2">
-                          Our initiatives focus on building sustainable water infrastructure in water-scarce regions of West Africa.
-                        </p>
-                      </li>
-                      <li className="p-3 border border-white/30 cursor-pointer transition-all hover:bg-white/5">
-                        <h4 className="text-lg font-medium">Tech Education</h4>
-                        <p className="text-white/70 mt-2">
-                          We provide resources and mentorship for underrepresented communities to access quality tech education.
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="p-6 flex items-center">
-                  {/* Testimonial */}
-                  <div className="bg-black/50 p-6 border border-white/30">
-                    <p className="text-lg italic text-white/90 mb-4">
-                      "The water well project funded by ZiNRAi has transformed our village. For the first time, our children don't have to walk miles for clean water."
-                    </p>
-                    <p className="text-white/70">— Community Leader, Burkina Faso</p>
-                  </div>
-                </div>
-                
-                {/* Bottom Row - Stats & CTA */}
-                <div className="col-span-2 p-6">
-                  <h2 className="text-2xl font-semibold mb-6 uppercase tracking-wide text-center">Our Impact</h2>
-                  
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    <div className="bg-black/30 p-4 border border-white/30 text-center">
-                      <div className="text-3xl font-bold text-white mb-2">75,000+</div>
-                      <p className="text-white/70 text-sm">Meals provided across the U.S. and Pakistan</p>
-                    </div>
-                    <div className="bg-black/30 p-4 border border-white/30 text-center">
-                      <div className="text-3xl font-bold text-white mb-2">8</div>
-                      <p className="text-white/70 text-sm">Clean water projects funded in West Africa</p>
-                    </div>
-                    <div className="bg-black/30 p-4 border border-white/30 text-center">
-                      <div className="text-3xl font-bold text-white mb-2">2,000+</div>
-                      <p className="text-white/70 text-sm">Families impacted through decentralized giving</p>
-                    </div>
-                    <div className="bg-black/30 p-4 border border-white/30 text-center">
-                      <div className="text-3xl font-bold text-white mb-2">100%</div>
-                      <p className="text-white/70 text-sm">Transparency powered by blockchain technology</p>
-                    </div>
-                    <div className="bg-black/30 p-4 border border-white/30 text-center">
-                      <div className="text-3xl font-bold text-white mb-2">$1</div>
-                      <p className="text-white/70 text-sm">Donated per active subscription, every month</p>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-10 text-center">
-                    <button 
-                      onClick={() => {
-                        setShowCaresModal(false);
-                        setLocation('/subscribe');
-                      }}
-                      className="px-8 py-3 bg-white text-black font-medium hover:bg-white/90 transition-colors"
-                    >
-                      SUBSCRIBE TO MAKE AN IMPACT
-                    </button>
-                  </div>
-                </div>
-              </div>
+              {/* Use the same component for both modal and route */}
+              <ZiNRAiCares />
             </div>
           </div>
         )}
