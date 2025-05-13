@@ -551,6 +551,11 @@ a,
 
 /* Mobile-specific fixes */
 @media screen and (max-width: 767px) {
+  /* Make sure the animation container doesn't block interactions */
+  .mobile-grid-container {
+    pointer-events: none !important;
+  }
+
   /* Fix interactive elements on mobile */
   .product-text, .product-arrow, .product-arrow-up, 
   .watch-text, .menu-icon, .start-now-text, 
@@ -562,6 +567,16 @@ a,
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+    pointer-events: auto !important;
+  }
+  
+  /* Specifically ensure these interactive elements are highly visible and tappable */
+  .menu-icon, .watch-text, .product-text, .product-arrow-up, .product-arrow {
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    /* Add subtle highlight for debug purposes */
+    position: relative !important;
   }
   
   /* Disable pointer events on non-interactive overlays */
