@@ -771,9 +771,9 @@ export default function Home() {
             </button>
             
             {/* Modern minimalist menu layout - scrollable */}
-            <div className="w-full max-w-4xl p-8 md:p-12 flex-1 flex items-start justify-center mt-12 min-h-[90vh]">
+            <div className="w-full max-w-5xl p-8 md:p-12 flex items-center justify-center mt-4 min-h-[80vh]">
               {/* Main menu grid - 3 columns for main pages */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-12 w-full">
                 {/* Column 1 */}
                 <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                   <div 
@@ -783,9 +783,9 @@ export default function Home() {
                       toggleMenu();
                     }}
                   >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[0].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[0].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
+                    <div className="text-white/40 text-sm tracking-wider mb-2 font-light">{contentItems[0].number}</div>
+                    <div className="text-white/80 text-2xl font-light tracking-wide group-hover:text-white transition-colors">{contentItems[0].title}</div>
+                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-2"></div>
                   </div>
                   
                   <div 
@@ -795,9 +795,9 @@ export default function Home() {
                       toggleMenu();
                     }}
                   >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[1].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[1].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
+                    <div className="text-white/40 text-sm tracking-wider mb-2 font-light">{contentItems[1].number}</div>
+                    <div className="text-white/80 text-2xl font-light tracking-wide group-hover:text-white transition-colors">{contentItems[1].title}</div>
+                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-2"></div>
                   </div>
                 </div>
                 
@@ -810,9 +810,9 @@ export default function Home() {
                       toggleMenu();
                     }}
                   >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[2].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[2].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
+                    <div className="text-white/40 text-sm tracking-wider mb-2 font-light">{contentItems[2].number}</div>
+                    <div className="text-white/80 text-2xl font-light tracking-wide group-hover:text-white transition-colors">{contentItems[2].title}</div>
+                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-2"></div>
                   </div>
                   
                   <div 
@@ -822,9 +822,9 @@ export default function Home() {
                       toggleMenu();
                     }}
                   >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[3].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[3].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
+                    <div className="text-white/40 text-sm tracking-wider mb-2 font-light">{contentItems[3].number}</div>
+                    <div className="text-white/80 text-2xl font-light tracking-wide group-hover:text-white transition-colors">{contentItems[3].title}</div>
+                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-2"></div>
                   </div>
                 </div>
                 
@@ -837,9 +837,9 @@ export default function Home() {
                       toggleMenu();
                     }}
                   >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[4].number}</div>
-                    <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[4].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
+                    <div className="text-white/40 text-sm tracking-wider mb-2 font-light">{contentItems[4].number}</div>
+                    <div className="text-white/80 text-2xl font-light tracking-wide group-hover:text-white transition-colors">{contentItems[4].title}</div>
+                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-2"></div>
                   </div>
                   
                   <div 
