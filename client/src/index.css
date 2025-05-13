@@ -456,23 +456,23 @@ body.home-is-active {
   
   /* Individual flicker animation timing classes */
   .flicker-timing-1 {
-    animation: imageFlicker 3.5s ease-in-out infinite !important;
+    animation: imageFlicker 0.8s ease-in-out infinite !important;
     animation-delay: 0s !important;
   }
   
   .flicker-timing-2 {
-    animation: imageFlicker 3s ease-in-out infinite !important;
-    animation-delay: 0.5s !important;
+    animation: imageFlicker 0.7s ease-in-out infinite !important;
+    animation-delay: 0.1s !important;
   }
   
   .flicker-timing-3 {
-    animation: imageFlicker 2.8s ease-in-out infinite !important;
-    animation-delay: 1s !important;
+    animation: imageFlicker 0.5s ease-in-out infinite !important;
+    animation-delay: 0.2s !important;
   }
   
   .flicker-timing-4 {
-    animation: imageFlicker 4s ease-in-out infinite !important;
-    animation-delay: 1.5s !important;
+    animation: imageFlicker 0.9s ease-in-out infinite !important;
+    animation-delay: 0.3s !important;
   }
   
   /* Mobile-specific fixes */

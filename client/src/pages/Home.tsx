@@ -114,17 +114,17 @@ export default function Home() {
       // Set initial state
       setActiveFlickerBoxes(initialState);
       
-      // Create a series of 15-20 random movements
-      // This will make images jump between different boxes
-      const totalMoves = 18;
+      // Create more frequent random movements (30+)
+      // This will make images jump between different boxes very frequently
+      const totalMoves = 40;
       
       for (let move = 0; move < totalMoves; move++) {
-        // Randomly select which image to move
-        const imageIndex = move % 4;
+        // Randomly select which image to move (more random)
+        const imageIndex = Math.floor(Math.random() * 4);
         const image = flickerImages[imageIndex];
         
-        // Schedule this movement
-        const moveTime = 300 + (move * 200); // Spread movements across 3-5 seconds
+        // Schedule this movement - more frequent with shorter intervals
+        const moveTime = 150 + (move * 100); // More rapid movements
         
         const moveTimer = setTimeout(() => {
           if (!isFlickering) return;
@@ -156,9 +156,9 @@ export default function Home() {
         timers.push(moveTimer);
       }
       
-      // End the flicker sequence after 4 seconds
+      // End the flicker sequence after 4.5 seconds
       const endTimer = setTimeout(() => {
-        // Immediately clear all images without any transition
+        // Immediately clear all images without any transition - instant cut
         setActiveFlickerBoxes({});
         setIsFlickering(false);
         
@@ -168,7 +168,7 @@ export default function Home() {
         }, 8000);
         
         timers.push(nextSequenceTimer);
-      }, 4000);
+      }, 4500);
       
       timers.push(endTimer);
     };
@@ -291,7 +291,7 @@ export default function Home() {
                   <img 
                     src={imageSrc} 
                     alt="" 
-                    className="flicker-image animate-flicker"
+                    className={`flicker-image flicker-timing-${Math.floor(Math.random() * 4) + 1}`}
                     style={{
                       width: '100%',
                       height: '100%',
