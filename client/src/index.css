@@ -553,13 +553,43 @@ a,
 @media screen and (max-width: 767px) {
   /* Fix interactive elements on mobile */
   .product-text, .product-arrow, .product-arrow-up, 
-  .watch-text, .menu-icon, .start-now-text {
+  .watch-text, .menu-icon, .start-now-text, 
+  .watch-box, button, a, .popup-close, .watch-line,
+  .zinrai-logo-text, .header-logo {
     /* Create a solid tap target with higher contrast */
     position: relative !important;
     z-index: 100 !important;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Disable pointer events on non-interactive overlays */
+  .flicker-box, .horizontal-line, .vertical-line, .grid-line, .border-line,
+  .animate-grid-line-horizontal, .animate-grid-line-vertical, .custom-video-overlay,
+  .image-container, .flickering-image, img:not(.button-image) {
+    pointer-events: none !important;
+  }
+  
+  /* Fix z-index stacking on mobile */
+  .flicker-box {
+    z-index: 5 !important; /* Lower than interactive elements */
+  }
+  
+  /* Ensure interactive elements are actually clickable */
+  a, button, .cursor-pointer, [role="button"] {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    position: relative !important;
+    z-index: 150 !important; /* Higher z-index than grid and overlays */
+  }
+  
+  /* Ensure specific interactive elements can be touched */
+  .header-logo, .header-profile-icon, .menu-icon,
+  .watch-text, .product-text, .product-arrow, .product-arrow-up {
+    z-index: 200 !important;
+    pointer-events: auto !important;
   }
   
   /* Main grid container for mobile - ensure proper rendering */
@@ -577,6 +607,8 @@ a,
     /* Hardware acceleration */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    /* Ensure grid container doesn't block interactions */
+    pointer-events: none;
     /* Prevent flickering on some mobile browsers */
     -webkit-perspective: 1000;
     perspective: 1000;
