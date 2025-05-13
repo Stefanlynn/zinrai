@@ -167,7 +167,16 @@ export default function Home() {
   
   // Handle touch events for swiping
   const handleTouchStart = (e: React.TouchEvent) => {
-    // Prevent default behavior
+    // Check if we're touching a clickable element
+    const target = e.target as HTMLElement;
+    const isClickable = target.closest('.cursor-pointer, [role="button"], button, a, .start-now-text, .watch-text, .product-text, .product-arrow, .product-arrow-up, .menu-icon');
+    
+    // Don't prevent default for clickable elements - allow normal touch behavior
+    if (isClickable) {
+      return; // Let the click go through naturally
+    }
+    
+    // Only prevent default for non-interactive elements
     e.preventDefault();
     
     // Don't handle touch events if menu is open
@@ -176,12 +185,21 @@ export default function Home() {
     setTouchStartY(e.touches[0].clientY);
     // Initialize end Y to same as start to prevent false swipes
     setTouchEndY(e.touches[0].clientY);
-    
-    console.log("Touch start at Y =", e.touches[0].clientY);
   };
   
   const handleTouchMove = (e: React.TouchEvent) => {
-    // Prevent default behavior
+    // Check if we're interacting with a clickable element
+    const target = e.target as HTMLElement;
+    const isClickable = target.closest('.cursor-pointer, [role="button"], button, a, .start-now-text, .watch-text, .product-text, .product-arrow, .product-arrow-up, .menu-icon');
+    
+    // Don't prevent default for clickable elements
+    if (isClickable) {
+      // Just track position but don't prevent default
+      setTouchEndY(e.touches[0].clientY);
+      return;
+    }
+    
+    // Prevent default behavior for non-interactive areas
     e.preventDefault();
     
     // Don't handle touch events if menu is open
@@ -190,23 +208,44 @@ export default function Home() {
     setTouchEndY(e.touches[0].clientY);
   };
   
-  // Use useEffect to add passive: false touch event listeners to body
+  // Use useEffect to selectively prevent scrolling but allow clicks
   useEffect(() => {
     const preventTouchDefault = (e: TouchEvent) => {
-      e.preventDefault();
+      // Don't prevent default on elements with the clickable class or role="button"
+      const target = e.target as HTMLElement;
+      const clickableParent = target.closest('.cursor-pointer, [role="button"], button, a, .start-now-text, .watch-text, .product-text, .product-arrow, .product-arrow-up, .menu-icon');
+      
+      if (clickableParent) {
+        // Allow clicks on interactive elements
+        return;
+      }
+      
+      // Only prevent default for page scrolling, not for clicks
+      if (e.touches && e.touches.length > 0) {
+        const touchY = e.touches[0].clientY;
+        const initialY = touchStartY;
+        
+        // Only prevent vertical scrolling, not taps
+        if (Math.abs(touchY - initialY) > 10) {
+          e.preventDefault();
+        }
+      }
     };
     
-    // Add listeners to prevent site movement during touch
+    // Add listeners that only prevent unwanted scrolling
     document.body.addEventListener('touchmove', preventTouchDefault, { passive: false });
     
     return () => {
       document.body.removeEventListener('touchmove', preventTouchDefault);
     };
-  }, []);
+  }, [touchStartY]);
   
   const handleTouchEnd = (e: React.TouchEvent) => {
-    // Prevent default behavior
-    e.preventDefault();
+    // Only prevent default for swipe gestures, not for clicks
+    const deltaY = Math.abs(touchEndY - touchStartY);
+    if (deltaY > 10) {
+      e.preventDefault();
+    }
     
     // Don't handle touch events if menu is open
     if (menuOpen) {
