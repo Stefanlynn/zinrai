@@ -49,7 +49,9 @@ function Router() {
       <Route path="/leadership">
         {() => <PageWithHeader><Leadership /></PageWithHeader>}
       </Route>
-      <Route path="/zinrai-cares" component={ZiNRAiCares} />
+      <Route path="/zinrai-cares">
+        {() => <PageWithHeader><ZiNRAiCares /></PageWithHeader>}
+      </Route>
       <Route path="/profile">
         {() => <PageWithHeader><Profile /></PageWithHeader>}
       </Route>
@@ -297,8 +299,8 @@ function App() {
         
         {/* ZiNRAi Cares Modal */}
         {showCaresModal && (
-          <div className="fixed inset-0 bg-black/95 z-[2000] overflow-y-auto">
-            <div className="min-h-screen bg-black text-white relative">
+          <div className="scrollable-page fixed inset-0 bg-black/95 z-[2000]">
+            <div className="bg-black text-white">
               {/* Close button for the modal */}
               <button 
                 onClick={() => setShowCaresModal(false)}

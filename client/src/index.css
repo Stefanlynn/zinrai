@@ -27,6 +27,13 @@ a {
   touch-action: none;
 }
 
+.scrollable-page {
+  overflow-y: auto;
+  height: auto;
+  overscroll-behavior: auto;
+  touch-action: auto;
+}
+
 /* When home page is active, make the body fixed */
 body.home-is-active {
   overflow: hidden;
