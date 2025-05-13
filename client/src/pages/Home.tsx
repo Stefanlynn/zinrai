@@ -8,7 +8,7 @@ import beachImage from "../assets/flicker-images/beach.jpg";
 import cryptoImage from "../assets/flicker-images/crypto.jpg";
 import runnerImage from "../assets/flicker-images/runner.jpg";
 import womanImage from "../assets/flicker-images/woman.jpg";
-import zinraiLogoImage from "../assets/zinrai-circle-logo.png";
+import zinraiLogoImage from "../assets/zinrai-new-logo.png";
 import { RiFilmLine, RiVideoLine } from "react-icons/ri";
 
 // Define all the content items for swiping
@@ -604,7 +604,8 @@ export default function Home() {
                   <img
                     src={zinraiLogoImage}
                     alt="ZiNRAi Logo"
-                    className="w-[450px] h-[450px] object-contain transition-transform duration-700"
+                    className="w-[400px] h-[400px] object-contain transition-transform duration-700"
+                    style={{ filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.2))' }}
                   />
                 </div>
                 
