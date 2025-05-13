@@ -311,7 +311,9 @@ function App() {
               </button>
               
               {/* Use the same component for both modal and route */}
-              <ZiNRAiCares />
+              <div className="pt-8">
+                <ZiNRAiCares />
+              </div>
             </div>
           </div>
         )}
