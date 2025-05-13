@@ -40,24 +40,9 @@ export default function Home() {
   const [touchStartY, setTouchStartY] = useState(0);
   const [touchEndY, setTouchEndY] = useState(0);
   // State for logo position
-  const [logoPosition, setLogoPosition] = useState(() => {
-    // Get window dimensions to determine constraints
-    const isMobile = window.innerWidth < 768;
-    
-    // Allow wide position range to let it move all over, but with safety margins
-    const minLeft = isMobile ? 15 : 10;  // Minimum left position 
-    const maxLeft = isMobile ? 85 : 90;  // Maximum left position
-    const minTop = isMobile ? 15 : 10;   // Minimum top position
-    const maxTop = isMobile ? 85 : 90;   // Maximum top position
-    
-    // Calculate position with full random variation
-    const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
-    const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
-    
-    return {
-      left: newLeft + '%',
-      top: newTop + '%'
-    };
+  const [logoPosition, setLogoPosition] = useState({
+    left: '50%',
+    top: '50%'
   });
   
   // Effect to change position periodically
@@ -79,10 +64,22 @@ export default function Home() {
       });
     };
     
+    // Initial position in center
+    setLogoPosition({
+      left: '50%',
+      top: '50%'
+    });
+    
+    // Move to a random position after a short delay
+    const initialDelay = setTimeout(moveWhyText, 2000);
+    
     // Set up interval to change position every 20 seconds
     const moveInterval = setInterval(moveWhyText, 20000);
     
-    return () => clearInterval(moveInterval);
+    return () => {
+      clearInterval(moveInterval);
+      clearTimeout(initialDelay);
+    };
   }, []);
   
   // Flicker images state - track multiple active boxes
@@ -631,11 +628,12 @@ export default function Home() {
       {/* Small sideways "why" text with constrained positioning - only visible when menu is closed */}
       {!menuOpen && (
         <div 
-          className="fixed z-30 transform -rotate-90 transition-all duration-700 ease-in-out cursor-pointer"
+          className="fixed z-30 transform -rotate-90 cursor-pointer"
           style={{ 
             left: logoPosition.left, // Use direct position, let it move anywhere within safety margins
             top: logoPosition.top,   // Use direct position, let it move anywhere within safety margins
-            padding: '10px' // Add padding to make it easier to tap/click
+            padding: '10px', // Add padding to make it easier to tap/click
+            transition: 'left 0.8s cubic-bezier(0.16, 1, 0.3, 1), top 0.8s cubic-bezier(0.16, 1, 0.3, 1)' // Custom spring-like movement
           }}
           onClick={() => navigate('/logo')}
         >
