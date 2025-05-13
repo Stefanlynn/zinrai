@@ -701,12 +701,13 @@ export default function Home() {
           );
         })}
         
-        {/* WATCH NOW in the top left square */}
+        {/* WATCH NOW in the top left square - adjusted to be centered in the box */}
         <div 
           className={`absolute top-0 left-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
           style={{ 
             width: '50vw', 
             height: '25vh',
+            paddingTop: '32px', /* This accounts for the header height */
             transform: 'translate(0, 0)',
             touchAction: 'manipulation'
           }}
