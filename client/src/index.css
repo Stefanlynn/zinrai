@@ -392,6 +392,7 @@ body.home-is-active {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none; /* Allow clicks to pass through the boxes */
   }
   
   /* Image container styles for consistent display */
@@ -401,6 +402,7 @@ body.home-is-active {
     height: 100%;
     overflow: hidden;
     display: block;
+    pointer-events: none; /* Allow clicks to pass through the container */
   }
   
   /* Flicker image styles */
@@ -412,6 +414,7 @@ body.home-is-active {
     top: 0;
     left: 0;
     display: block;
+    pointer-events: none; /* Allow clicks to pass through the images */
   }
   
   /* Image overlay for consistent darkness */
@@ -422,6 +425,7 @@ body.home-is-active {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none; /* Allow clicks to pass through the overlay */
   }
   
   .animate-delay-100 {
@@ -512,6 +516,39 @@ html, body {
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+/* Enhance clickable elements on mobile */
+.start-now-text, 
+.menu-icon, 
+.watch-text, 
+.product-text, 
+.product-arrow, 
+.product-arrow-up,
+button,
+a,
+[role="button"],
+.cursor-pointer {
+  position: relative;
+  z-index: 20 !important; /* Ensure higher z-index than non-interactive elements */
+  pointer-events: auto !important; /* Force pointer events to work */
+  cursor: pointer;
+  touch-action: manipulation; /* Optimize for touch */
+}
+
+/* Mobile touch target enhancement for small elements */
+.product-arrow:after,
+.product-arrow-up:after,
+.watch-text:after,
+.menu-icon:after,
+.start-now-text:after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  z-index: -1;
+}
+
 /* Spinning plus icon */
 .spinning-plus {
   animation: spin 1.5s ease-in-out 1;
@@ -521,6 +558,8 @@ html, body {
   color: white !important;
   will-change: transform;
   transform: rotate(0deg);
+  pointer-events: auto !important; /* Make sure it's clickable */
+  z-index: 20 !important; /* Higher z-index */
 }
 
 .play-button-glow {
