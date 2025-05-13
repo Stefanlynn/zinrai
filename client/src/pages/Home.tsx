@@ -45,49 +45,58 @@ export default function Home() {
     top: '50%'
   });
   
-  // Effect to change position periodically
+  // Get current location for navigation-aware behavior
+  const [location] = useLocation();
+  
+  // Effect to change position periodically (only on home page)
   useEffect(() => {
-    // Function to move the "why" text to a new random position
+    // Don't run the animation if not on the home page
+    if (location !== '/') return;
+    
+    // Function to move the "why" text to a new random position within safe center zone
     const moveWhyText = () => {
-      // Get current viewport dimensions
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
+      // Check if we're still on the homepage
+      if (location !== '/') return;
       
-      // Safer constraints to ensure text stays visible on all devices
-      // Keep it more centered by using 20-80% range instead of 10-90%
-      const minLeft = 20; // % from left
-      const maxLeft = 80; // % from left
-      const minTop = 20;  // % from top
-      const maxTop = 80;  // % from top
+      // Very tight constraints - keep in the middle 30% of the screen
+      // This should ensure it's always visible on all devices
+      const minLeft = 35; // % from left (was 30)
+      const maxLeft = 65; // % from left (was 70)
+      const minTop = 35;  // % from top (was 30)
+      const maxTop = 65;  // % from top (was 70)
       
-      // Generate random position within the safe area
+      // Generate random position within the safe center area
       const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
       const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
       
       // Update position as percentage of viewport
-      setLogoPosition({
+      const newPosition = {
         left: newLeft + '%',
         top: newTop + '%'
-      });
+      };
+      
+      console.log("Moving 'why' text to:", newPosition);
+      setLogoPosition(newPosition);
     };
     
-    // Initial position in center
+    // Start in exact center
     setLogoPosition({
       left: '50%',
       top: '50%'
     });
     
-    // Move to a random position after a short delay
-    const initialDelay = setTimeout(moveWhyText, 2000);
+    // Stay in center for 5 seconds before first move (per user requirement)
+    const initialDelay = setTimeout(moveWhyText, 5000);
     
-    // Set up interval to change position every 20 seconds
-    const moveInterval = setInterval(moveWhyText, 20000);
+    // Set up interval to change position every 5 seconds after that
+    const moveInterval = setInterval(moveWhyText, 5000);
     
+    // Clean up timers on component unmount
     return () => {
       clearInterval(moveInterval);
       clearTimeout(initialDelay);
     };
-  }, []);
+  }, [location]); // Re-run effect if location changes
   
   // Flicker images state - track multiple active boxes
   const [activeFlickerBoxes, setActiveFlickerBoxes] = useState<Record<number, string>>({});
@@ -635,13 +644,14 @@ export default function Home() {
       {/* Small sideways "why" text with constrained positioning - only visible when menu is closed */}
       {!menuOpen && (
         <div 
-          className="fixed z-30 transform cursor-pointer"
+          className="fixed z-30 cursor-pointer"
           style={{ 
             left: logoPosition.left, 
             top: logoPosition.top,
             transform: 'translate(-50%, -50%) rotate(-90deg)', // Center perfectly even when moving
-            padding: '10px', // Add padding to make it easier to tap/click
-            transition: 'left 0.8s cubic-bezier(0.16, 1, 0.3, 1), top 0.8s cubic-bezier(0.16, 1, 0.3, 1)' // Custom spring-like movement
+            padding: '20px', // More padding to ensure visibility and clickability
+            transition: 'left 0.8s cubic-bezier(0.16, 1, 0.3, 1), top 0.8s cubic-bezier(0.16, 1, 0.3, 1)', // Custom spring-like movement
+            background: 'rgba(0, 0, 0, 0.01)' // Nearly invisible background to ensure click area works
           }}
           onClick={() => navigate('/logo')}
         >
