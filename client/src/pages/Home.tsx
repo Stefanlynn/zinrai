@@ -734,9 +734,9 @@ export default function Home() {
           </div>
         </div>
         
-        {/* WATCH text in the lower left square */}
+        {/* WATCH text in the lower left square - hidden when menu is open */}
         <div 
-          className="absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer z-[60]"
+          className={`absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer z-[60] ${menuOpen ? 'hidden' : 'block'}`}
           onClick={handleWatchClick}
           style={{ 
             position: 'relative', 
@@ -751,9 +751,9 @@ export default function Home() {
           <div className="watch-line animate-content-glitch h-[15px] w-[1px] bg-white/40 mt-1 mx-auto" style={{ animationDelay: '1.7s' }}></div>
         </div>
         
-        {/* Dynamic content in the lower right square */}
+        {/* Dynamic content in the lower right square - hidden when menu is open */}
         <div 
-          className="absolute top-[87.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60]"
+          className={`absolute top-[87.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}
           style={{ 
             position: 'relative',
             zIndex: 60
