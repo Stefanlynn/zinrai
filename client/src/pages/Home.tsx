@@ -758,11 +758,28 @@ export default function Home() {
             position: 'relative',
             zIndex: 60
           }}
+          onClick={(e) => {
+            // On mobile, clicking anywhere in this box navigates to the page
+            if (window.innerWidth <= 768) {
+              e.stopPropagation();
+              const title = contentItems[currentIndex].title.toLowerCase();
+              const path = title === "products" ? "/product" : 
+                          title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
+                          `/${title.replace(/\s+/g, '')}`;
+              navigate(path);
+            }
+          }}
         >
-          {/* Up arrow above text - navigate to previous content item */}
+          {/* Up arrow above text - navigate to previous content item (only functional on desktop) */}
           <div 
-            className="product-arrow-up mb-3 cursor-pointer"
-            onClick={() => changeContent('prev')}
+            className="product-arrow-up mb-3 cursor-pointer hidden md:block"
+            onClick={(e) => {
+              // Only allow arrow functionality on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                changeContent('prev');
+              }
+            }}
             style={{ 
               position: 'relative', 
               zIndex: 60,
@@ -774,25 +791,58 @@ export default function Home() {
             </svg>
           </div>
           
-          {/* Content text - using native HTML anchor */}
+          {/* Decorative up arrow for mobile (non-functional) */}
+          <div 
+            className="product-arrow-up mb-3 cursor-pointer block md:hidden"
+            style={{ 
+              position: 'relative', 
+              zIndex: 60,
+              touchAction: 'manipulation'
+            }}
+          >
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          
+          {/* Content text */}
           <div 
             className="product-text text-center cursor-pointer"
-            onClick={() => {
-              const title = contentItems[currentIndex].title.toLowerCase();
-              const path = title === "products" ? "/product" : 
-                          title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
-                          `/${title.replace(/\s+/g, '')}`;
-              navigate(path);
+            onClick={(e) => {
+              // Prevent click event on desktop from propagating to parent
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                const title = contentItems[currentIndex].title.toLowerCase();
+                const path = title === "products" ? "/product" : 
+                            title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
+                            `/${title.replace(/\s+/g, '')}`;
+                navigate(path);
+              }
             }}
           >
             <div className="text-[14px] font-bold tracking-wider text-white/90">{contentItems[currentIndex].number}</div>
             <div className="text-[12px] font-semibold tracking-wide text-white/80">{contentItems[currentIndex].title}</div>
           </div>
           
-          {/* Down arrow below text - navigate to next content item */}
+          {/* Down arrow below text - navigate to next content item (only functional on desktop) */}
           <div 
-            className="product-arrow mt-3 cursor-pointer"
-            onClick={() => changeContent('next')}
+            className="product-arrow mt-3 cursor-pointer hidden md:block"
+            onClick={(e) => {
+              // Only allow arrow functionality on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                changeContent('next');
+              }
+            }}
+          >
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          
+          {/* Decorative down arrow for mobile (non-functional) */}
+          <div 
+            className="product-arrow mt-3 cursor-pointer block md:hidden"
           >
             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
