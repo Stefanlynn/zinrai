@@ -45,14 +45,22 @@ export default function Home() {
     const isMobile = window.innerWidth < 768;
     
     // Use more constrained position ranges on mobile to keep it visible
-    const minLeft = isMobile ? 30 : 10;
-    const maxLeft = isMobile ? 70 : 90;
-    const minTop = isMobile ? 30 : 10;
-    const maxTop = isMobile ? 70 : 90;
+    const minLeft = isMobile ? 20 : 10;
+    const maxLeft = isMobile ? 80 : 90;
+    const minTop = isMobile ? 20 : 10;
+    const maxTop = isMobile ? 80 : 90;
+    
+    // Calculate position with padding for safety
+    const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
+    const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
+    
+    // Apply additional safety clamps to ensure it's always visible
+    const safeLeft = Math.max(5, Math.min(newLeft, 95)); 
+    const safeTop = Math.max(5, Math.min(newTop, 95));
     
     return {
-      left: Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft + '%',
-      top: Math.floor(Math.random() * (maxTop - minTop)) + minTop + '%'
+      left: safeLeft + '%',
+      top: safeTop + '%'
     };
   });
   
@@ -366,16 +374,24 @@ export default function Home() {
       const isMobile = window.innerWidth < 768;
       
       // Use more constrained position ranges on mobile to keep it visible
-      // Mobile: Keep within 30-70% range to ensure it stays on screen
+      // Mobile: Keep within 20-80% range to ensure it stays on screen
       // Desktop: Allow wider range (10-90%)
-      const minLeft = isMobile ? 30 : 10;
-      const maxLeft = isMobile ? 70 : 90;
-      const minTop = isMobile ? 30 : 10;
-      const maxTop = isMobile ? 70 : 90;
+      const minLeft = isMobile ? 20 : 10;
+      const maxLeft = isMobile ? 80 : 90;
+      const minTop = isMobile ? 20 : 10;
+      const maxTop = isMobile ? 80 : 90;
+      
+      // Calculate new position with padding for safety
+      const newLeft = Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft;
+      const newTop = Math.floor(Math.random() * (maxTop - minTop)) + minTop;
+      
+      // Apply additional safety clamps to ensure it's visible
+      const safeLeft = Math.max(5, Math.min(newLeft, 95));
+      const safeTop = Math.max(5, Math.min(newTop, 95));
       
       setLogoPosition({
-        left: Math.floor(Math.random() * (maxLeft - minLeft)) + minLeft + '%',
-        top: Math.floor(Math.random() * (maxTop - minTop)) + minTop + '%'
+        left: safeLeft + '%',
+        top: safeTop + '%'
       });
     }, 5000);
     
@@ -591,13 +607,14 @@ export default function Home() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Small sideways "why" text randomly positioned - changes every 5 seconds, only visible when menu is closed */}
+      {/* Small sideways "why" text with constrained positioning - only visible when menu is closed */}
       {!menuOpen && (
         <div 
           className="fixed z-30 transform -rotate-90 transition-all duration-700 ease-in-out cursor-pointer"
           style={{ 
-            left: logoPosition.left, 
-            top: logoPosition.top 
+            left: `max(2vw, min(${logoPosition.left}, 98vw))`, // Ensure it stays within horizontal bounds
+            top: `max(2vh, min(${logoPosition.top}, 98vh))`,   // Ensure it stays within vertical bounds
+            padding: '10px' // Add padding to make it easier to tap/click
           }}
           onClick={() => navigate('/logo')}
         >
