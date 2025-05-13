@@ -696,11 +696,40 @@ export default function Home() {
           <div 
             className="product-text text-center cursor-pointer group hover:opacity-90 transition-opacity flex flex-col items-center"
             onClick={() => {
+              // Get current content title and handle special cases
               const title = contentItems[currentIndex].title.toLowerCase();
-              const path = title === "products" ? "/product" : 
-                          title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
-                          `/${title.replace(/\s+/g, '')}`;
-              navigate(path);
+              
+              // Explicitly define routes for each content type to ensure consistency
+              let path;
+              switch(title) {
+                case "products":
+                  path = "/product";
+                  break;
+                case "zinrai cares":
+                  path = "/zinrai-cares";
+                  break;
+                case "partner":
+                  path = "/partner";
+                  break;
+                case "culture":
+                  path = "/culture";
+                  break;
+                case "insights":
+                  path = "/insights";
+                  break;
+                case "leadership":
+                  path = "/leadership";
+                  break;
+                case "contact":
+                  path = "/contact";
+                  break;
+                default:
+                  // Fallback to ensure we don't have broken links
+                  path = `/${title.replace(/\s+/g, '')}`;
+              }
+              
+              // Use window.location for more reliable navigation
+              window.location.href = path;
             }}
           >
             <div className="text-[10px] tracking-[0.15em] text-white/70 font-light uppercase">{contentItems[currentIndex].number}</div>
