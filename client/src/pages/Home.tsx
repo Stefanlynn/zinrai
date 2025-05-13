@@ -354,7 +354,7 @@ export default function Home() {
   
   // No longer using toggle effect between logo and START NOW
   
-  // Effect for flickering images in grid boxes - with 10 second pause and box movement
+  // Effect for flickering images in grid boxes - recreated to match reference site
   useEffect(() => {
     let timers: NodeJS.Timeout[] = [];
     
@@ -366,27 +366,27 @@ export default function Home() {
       // Mark as being in flicker mode
       setIsFlickering(true);
       
-      // Create a mapping of image index to current box number
+      // Store which image is in which box
       const imageToBoxMap: {[key: number]: number} = {};
       
-      // Initially place each image in a random box with staggered timing
+      // The original implementation from the reference site
       const initializeImages = () => {
-        // Get 4 random unique boxes from 8 possible boxes
-        const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
-        shuffleArray(availableBoxes);
-        const selectedBoxes = availableBoxes.slice(0, 4);
+        // Define fixed positions for the first appearance of images
+        // Each represents a box number in the grid (1-8)
+        const fixedPositions = [1, 4, 6, 8]; // Top-left, top-right, bottom-left, bottom-right
         
-        // Assign each image to one of the selected boxes with staggered timings
+        // Place each image in its initial position
         for (let i = 0; i < flickerImages.length; i++) {
-          imageToBoxMap[i] = selectedBoxes[i];
+          const boxNumber = fixedPositions[i];
+          imageToBoxMap[i] = boxNumber;
           
-          // Add this box and image to active boxes with staggered timing
+          // Add this image to its box with a slight delay between each
           setTimeout(() => {
             setActiveFlickerBoxes(prev => ({
               ...prev,
-              [selectedBoxes[i]]: flickerImages[i]
+              [boxNumber]: flickerImages[i]
             }));
-          }, i * 150); // Stagger initial appearance by 150ms per image
+          }, i * 100); // Small staggered delay
         }
       };
       
@@ -413,76 +413,81 @@ export default function Home() {
         [4, 8, 2, 6]  // Possible boxes for image 3
       ];
       
-      // Create more frequent and random image movements between boxes
-      const totalMoves = 25; // More frequent movement
-      const moveInterval = 150; // Shorter interval between moves
+      // Move images between boxes with a pattern like the reference site
+      // The key is to have a clear sequence with predictable timing
       
-      // Create a series of randomized moves for all images
-      for (let moveIdx = 0; moveIdx < totalMoves; moveIdx++) {
-        // Randomize which image moves at this step
-        const imageIdx = Math.floor(Math.random() * flickerImages.length);
-        
-        // Choose a random box for this image from all 8 possible boxes
-        const allBoxes = Array.from({length: 8}, (_, i) => i + 1);
-        const randomBoxIdx = Math.floor(Math.random() * allBoxes.length);
-        const boxPosition = allBoxes[randomBoxIdx];
-        
-        // Schedule this movement
-        const moveTimer = setTimeout(() => {
-          if (!isFlickering) return;
+      // Define the sequence of box movements for each image
+      const moveSequences = [
+        [1, 5, 2, 8, 1], // First image sequence
+        [4, 7, 3, 5, 4], // Second image sequence
+        [6, 2, 7, 3, 6], // Third image sequence
+        [8, 6, 4, 1, 8]  // Fourth image sequence
+      ];
+      
+      // Add movement for each image at defined intervals
+      for (let imageIdx = 0; imageIdx < flickerImages.length; imageIdx++) {
+        // For each image, move through its sequence
+        for (let moveIdx = 0; moveIdx < moveSequences[imageIdx].length - 1; moveIdx++) {
+          // Calculate when this move should happen - spread out more to fill 3-5 seconds
+          const moveTime = 700 + (imageIdx * 200) + (moveIdx * 650);
           
-          // First, check if any other image is in this box and remove it if needed
-          setActiveFlickerBoxes(prev => {
-            const newState = { ...prev };
+          // Schedule the move
+          const moveTimer = setTimeout(() => {
+            if (!isFlickering) return;
             
-            // If this box is already occupied, remove that image
-            if (newState[boxPosition]) {
-              delete newState[boxPosition];
-            }
+            // Find the current box this image is in
+            const currentBox = moveSequences[imageIdx][moveIdx];
+            const nextBox = moveSequences[imageIdx][moveIdx + 1];
             
-            // Also remove this image from any box it might be in
-            Object.keys(newState).forEach(boxNum => {
-              if (newState[parseInt(boxNum)] === flickerImages[imageIdx]) {
-                delete newState[parseInt(boxNum)];
-              }
+            // First remove the image from its current box
+            setActiveFlickerBoxes(prev => {
+              const newBoxes = { ...prev };
+              delete newBoxes[currentBox];
+              return newBoxes;
             });
             
-            // Then add this image to the new box
-            return {
-              ...newState,
-              [boxPosition]: flickerImages[imageIdx]
-            };
-          });
-        }, moveIdx * moveInterval + (Math.random() * 50)); // Staggered timing with small randomness
-        
-        timers.push(moveTimer);
+            // Then after a small delay, add it to the new box
+            setTimeout(() => {
+              if (!isFlickering) return;
+              
+              // Update the image-to-box mapping
+              imageToBoxMap[imageIdx] = nextBox;
+              
+              // Add the image to its new box
+              setActiveFlickerBoxes(prev => ({
+                ...prev,
+                [nextBox]: flickerImages[imageIdx]
+              }));
+            }, 50); // Brief flicker effect
+            
+          }, moveTime);
+          
+          timers.push(moveTimer);
+        }
       }
       
-      // After 3.5 seconds, clear all images and go to black screen mode
+      // After all movements (4.5 seconds total), clear all images and pause
       const clearTimer = setTimeout(() => {
-        // Force cleanup of any possible lingering images
+        // Remove images with a fade effect for smoother transition
         document.querySelectorAll('.flicker-image').forEach(el => {
           (el as HTMLElement).style.opacity = '0';
+          (el as HTMLElement).style.transition = 'opacity 0.3s ease-out';
         });
         
-        // Use RAF to ensure DOM has updated before removing
-        requestAnimationFrame(() => {
+        // After transition, clear the state completely
+        setTimeout(() => {
           setActiveFlickerBoxes({});
           setIsFlickering(false);
-          
-          // Ensure all flicker boxes are properly reset
-          document.querySelectorAll('.flicker-box').forEach(el => {
-            (el as HTMLElement).style.overflow = 'hidden';
-          });
-        });
+        }, 300);
         
-        // Schedule the next flicker sequence after 10 seconds of black screen
+        // Schedule the next flicker sequence after an 8-second pause
+        // This gives us a total of 3-5 seconds of flickering followed by 8 seconds of black
         const nextSequenceTimer = setTimeout(() => {
           startFlickerSequence();
-        }, 10000);
+        }, 8000);
         
         timers.push(nextSequenceTimer);
-      }, 3500);
+      }, 4500);
       
       timers.push(clearTimer);
     };
@@ -696,11 +701,11 @@ export default function Home() {
                   overflow: 'hidden'
                 }}
               >
-                {/* The image with flickering animation - using timing classes */}
+                {/* The image with flickering animation - matching the reference site */}
                 <img 
                   src={imageSrc} 
                   alt="" 
-                  className={`flicker-image flicker-timing-${1 + Math.floor(Math.random() * 4)}`}
+                  className="flicker-image animate-flicker"
                   style={{
                     width: '100%',
                     height: '100%',
