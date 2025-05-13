@@ -535,9 +535,7 @@ export default function Home() {
   
   // Simple toggle menu function
   const toggleMenu = () => {
-    console.log("Toggle menu clicked, current state:", menuOpen);
     setMenuOpen(!menuOpen);
-    console.log("Menu should now be:", !menuOpen);
   };
 
   return (
@@ -548,26 +546,38 @@ export default function Home() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Header bar */}
-      <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[999] flex items-center justify-between px-6 shadow-md">
+      <div className="fixed top-0 left-0 right-0 h-[32px] bg-black z-[900] flex items-center justify-between px-6 shadow-sm">
         {/* ZiNRAi text on left side */}
-        <div className="text-black text-sm font-medium">ZiNRAi</div>
+        <div className="text-white text-sm font-medium">ZiNRAi</div>
         
         {/* Right-side icons */}
         <div className="flex items-center">
-          {/* Menu icon with two black lines */}
+          {/* Menu icon button - black background with white lines */}
           <button 
-            className="menu-icon flex flex-col justify-center items-center mr-4 cursor-pointer"
+            className="menu-header-icon flex flex-col justify-center items-center cursor-pointer mr-4 border border-white/40 rounded px-2 py-1"
             onClick={toggleMenu}
             onTouchStart={toggleMenu}
-            style={{ height: '20px', width: '20px', position: 'relative' }}
           >
-            <div style={{ height: '2px', width: '16px', backgroundColor: 'black', marginBottom: '4px' }}></div>
-            <div style={{ height: '2px', width: '16px', backgroundColor: 'black' }}></div>
+            {menuOpen ? (
+              <>
+                {/* X shape when menu is open */}
+                <div className="relative h-4 w-5">
+                  <div className="w-5 h-[2px] bg-white absolute top-1/2 left-0 transform -translate-y-1/2 rotate-45"></div>
+                  <div className="w-5 h-[2px] bg-white absolute top-1/2 left-0 transform -translate-y-1/2 -rotate-45"></div>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Two parallel lines when menu is closed */}
+                <div className="w-5 h-[2px] bg-white mb-[4px]"></div>
+                <div className="w-5 h-[2px] bg-white"></div>
+              </>
+            )}
           </button>
           
           {/* Profile icon */}
           <div 
-            className="profile-icon w-5 h-5 bg-white rounded-full cursor-pointer border border-black"
+            className="profile-icon w-5 h-5 bg-white rounded-full cursor-pointer"
             onClick={() => navigate('/profile')}
             onTouchStart={() => navigate('/profile')}
           ></div>

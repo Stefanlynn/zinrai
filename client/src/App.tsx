@@ -122,18 +122,29 @@ function App() {
       <TooltipProvider>
         <Toaster />
         {/* Larger header bar with menu */}
-        <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[1000] flex items-center">
+        <div className="fixed top-0 left-0 right-0 h-[36px] bg-[#f7f5f0] z-[1000] flex items-center shadow-sm">
           {/* Menu icon and dropdown */}
           <div className="relative z-10" ref={menuRef}>
             <button 
-              className="ml-4 h-[32px] flex items-center justify-center cursor-pointer group relative"
+              className="ml-4 h-[32px] flex items-center justify-center cursor-pointer group relative border border-black/40 rounded px-2"
               onClick={toggleMenu}
               aria-label="Toggle menu"
+              style={{ marginTop: '4px', marginBottom: '4px' }}
             >
-              {/* Asymmetric hamburger menu with offset top line */}
-              <div className={`w-4 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5' : '-translate-y-1 -translate-x-[3px] group-hover:bg-black'}`}></div>
-              <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-black'}`}></div>
-              <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5' : 'translate-y-1 group-hover:bg-black'}`}></div>
+              {/* Two parallel lines for menu icon */}
+              {menuOpen ? (
+                // X shape when menu is open
+                <>
+                  <div className="absolute w-5 h-[2px] bg-black top-1/2 left-0 transform -translate-y-1/2 rotate-45"></div>
+                  <div className="absolute w-5 h-[2px] bg-black top-1/2 left-0 transform -translate-y-1/2 -rotate-45"></div>
+                </>
+              ) : (
+                // Two parallel lines when menu is closed
+                <div className="flex flex-col justify-center items-center">
+                  <div className="w-5 h-[2px] bg-black mb-[4px]"></div>
+                  <div className="w-5 h-[2px] bg-black"></div>
+                </div>
+              )}
             </button>
             
             {/* Redesigned Dropdown menu */}
