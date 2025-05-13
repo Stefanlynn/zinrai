@@ -551,77 +551,35 @@ a,
 
 /* Mobile-specific fixes */
 @media screen and (max-width: 767px) {
-  /* Essential: Make entire grid container non-interactive so it doesn't block clicks */
-  .mobile-grid-container {
-    pointer-events: none !important;
-  }
-
   /* Fix interactive elements on mobile */
   .product-text, .product-arrow, .product-arrow-up, 
-  .watch-text, .menu-icon, .start-now-text, 
-  .watch-box, button, a, .popup-close, .watch-line,
-  .zinrai-logo-text, .header-logo {
+  .watch-text, .menu-icon, .start-now-text {
     /* Create a solid tap target with higher contrast */
+    position: relative !important;
     z-index: 100 !important;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
-    pointer-events: auto !important;
   }
   
-  /* Ultra-critical interactive elements need very high z-index and explicit pointer-events */
-  .menu-icon, .watch-text, .product-text, .product-arrow-up, .product-arrow, 
-  [onClick], [role="button"], button, a, .cursor-pointer {
-    z-index: 10000 !important;
-    pointer-events: auto !important;
-    cursor: pointer !important;
-    touch-action: manipulation !important;
-  }
-  
-  /* Specific critical elements - individually targeted for maximum compatibility */
-  .watch-text, div:has(.watch-text) {
-    z-index: 10001 !important;
-    pointer-events: auto !important;
-    position: relative !important;
-  }
-  
-  .product-text, div:has(.product-text) {
-    z-index: 10002 !important;
-    pointer-events: auto !important;
-    position: relative !important;
-  }
-  
-  .product-arrow, .product-arrow-up, 
-  div:has(.product-arrow), div:has(.product-arrow-up) {
-    z-index: 10003 !important;
-    pointer-events: auto !important;
-    position: relative !important;
-  }
-  
-  .menu-icon, div:has(.menu-icon) {
-    z-index: 10004 !important;
-    pointer-events: auto !important;
-    position: relative !important;
-  }
-  
-  /* Make entire boxes containing interactive elements also interactive */
-  [class*='cursor-pointer'], 
-  div:has(button), div:has(a), div:has([onClick]) {
-    pointer-events: auto !important;
-    position: relative !important;
-  }
-  
-  /* All non-interactive elements must not block interactions */
-  .flicker-box, .horizontal-line, .vertical-line, .grid-line, .border-line,
-  .animate-grid-line-horizontal, .animate-grid-line-vertical, .custom-video-overlay,
-  .image-container, .flickering-image, img:not(.button-image),
-  .absolute:not(.cursor-pointer):not(button):not(a):not([onClick]) {
-    pointer-events: none !important;
-  }
-  
-  /* Ensure flicker box has low z-index */
-  .flicker-box {
-    z-index: 5 !important; /* Lower than interactive elements */
+  /* Main grid container for mobile - ensure proper rendering */
+  .mobile-grid-container {
+    height: 100vh !important;
+    width: 100vw !important;
+    position: fixed !important;
+    overflow: hidden !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    /* Prevent flickering on some mobile browsers */
+    -webkit-perspective: 1000;
+    perspective: 1000;
   }
   
   /* Menu overlay scrolling fix for mobile */
