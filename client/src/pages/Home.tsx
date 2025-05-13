@@ -779,7 +779,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      navigate('/product');
+                      window.location.href = '/product';
                       toggleMenu();
                     }}
                   >
@@ -791,7 +791,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      navigate('/partner');
+                      window.location.href = '/partner';
                       toggleMenu();
                     }}
                   >
@@ -806,7 +806,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      navigate('/culture');
+                      window.location.href = '/culture';
                       toggleMenu();
                     }}
                   >
@@ -818,7 +818,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      navigate('/insights');
+                      window.location.href = '/insights';
                       toggleMenu();
                     }}
                   >
@@ -833,7 +833,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      navigate('/leadership');
+                      window.location.href = '/leadership';
                       toggleMenu();
                     }}
                   >
@@ -845,7 +845,7 @@ export default function Home() {
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
-                      navigate('/zinrai-cares');
+                      window.location.href = '/zinrai-cares';
                       toggleMenu();
                     }}
                   >
