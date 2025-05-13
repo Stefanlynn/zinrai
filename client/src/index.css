@@ -1599,11 +1599,12 @@ a,
 /* Menu open/close transformation */
 .menu-icon {
   position: relative;
-  width: 24px;
+  width: 20px;
   height: 18px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
 .menu-line1, .menu-line2 {
@@ -1667,22 +1668,24 @@ a,
 }
 
 .menu-icon:hover .menu-line1 {
-  width: 22px !important;
+  width: 60% !important;
+  opacity: 1;
 }
 
 .menu-icon:hover .menu-line2 {
-  width: 16px !important;
+  width: 90% !important;
+  opacity: 1;
 }
 
 .menu-line1 {
-  top: 5px;
-  width: 20px;
-  right: 0;
+  top: 6px;
+  width: 70%; /* Shorter first line for asymmetric look */
+  left: 0;
 }
 
 .menu-line2 {
-  top: 13px;
-  width: 14px;
+  bottom: 5px;
+  width: 100%;
   left: 0;
 }
 

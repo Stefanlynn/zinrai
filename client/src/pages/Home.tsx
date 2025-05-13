@@ -694,10 +694,8 @@ export default function Home() {
               navigate(path);
             }}
           >
-            <div className="mb-1">
-              <span className="text-[12px] font-light tracking-widest text-white/70 px-2">{contentItems[currentIndex].number}</span>
-            </div>
-            <div className="text-[13px] font-medium tracking-widest text-white/80 mt-2 uppercase">{contentItems[currentIndex].title}</div>
+            <div className="text-[14px] font-bold tracking-wider text-white/90">{contentItems[currentIndex].number}</div>
+            <div className="text-[12px] font-semibold tracking-wide text-white/80">{contentItems[currentIndex].title}</div>
           </div>
           
           {/* Down arrow below text - navigate to next content item */}
