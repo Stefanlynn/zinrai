@@ -702,8 +702,8 @@ export default function Home() {
           );
         })}
         
-        {/* START NOW in the top left square - centered in the box */}
-        <div className="absolute top-[12.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60]">
+        {/* START NOW in the top left square - centered in the box - hidden when menu is open */}
+        <div className={`absolute top-[12.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
           <div 
             className="start-now-text animate-content-glitch cursor-pointer"
             onClick={() => navigate('/subscribe')}
