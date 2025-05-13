@@ -548,25 +548,26 @@ export default function Home() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Header bar */}
-      <div className="fixed top-0 left-0 right-0 h-[40px] bg-[#f7f5f0] z-[999] flex items-center justify-between px-6 shadow-md">
+      <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[999] flex items-center justify-between px-6 shadow-md">
         {/* ZiNRAi text on left side */}
         <div className="text-black text-sm font-medium">ZiNRAi</div>
         
         {/* Right-side icons */}
         <div className="flex items-center">
-          {/* Completely new menu icon */}
+          {/* Menu icon with two black lines */}
           <button 
-            className="relative z-[999] menu-btn bg-red-500 text-white px-3 py-1 rounded mr-4 cursor-pointer"
+            className="menu-icon flex flex-col justify-center items-center mr-4 cursor-pointer"
             onClick={toggleMenu}
             onTouchStart={toggleMenu}
-            style={{ fontSize: '14px' }}
+            style={{ height: '20px', width: '20px', position: 'relative' }}
           >
-            MENU
+            <div style={{ height: '2px', width: '16px', backgroundColor: 'black', marginBottom: '4px' }}></div>
+            <div style={{ height: '2px', width: '16px', backgroundColor: 'black' }}></div>
           </button>
           
           {/* Profile icon */}
           <div 
-            className="profile-icon w-5 h-5 bg-black rounded-full cursor-pointer"
+            className="profile-icon w-5 h-5 bg-white rounded-full cursor-pointer border border-black"
             onClick={() => navigate('/profile')}
             onTouchStart={() => navigate('/profile')}
           ></div>
