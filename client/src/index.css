@@ -528,7 +528,7 @@ a,
 [role="button"],
 .cursor-pointer {
   position: relative;
-  z-index: 20 !important; /* Ensure higher z-index than non-interactive elements */
+  z-index: 50 !important; /* Significantly higher z-index than other elements */
   pointer-events: auto !important; /* Force pointer events to work */
   cursor: pointer;
   touch-action: manipulation; /* Optimize for touch */
@@ -547,6 +547,124 @@ a,
   right: -15px;
   bottom: -15px;
   z-index: -1;
+}
+
+/* Mobile-specific fixes */
+@media screen and (max-width: 767px) {
+  /* Fix interactive elements on mobile */
+  .product-text, .product-arrow, .product-arrow-up, 
+  .watch-text, .menu-icon, .start-now-text {
+    /* Create a solid tap target with higher contrast */
+    position: relative !important;
+    z-index: 100 !important;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Main grid container for mobile - ensure proper rendering */
+  .mobile-grid-container {
+    height: 100vh !important;
+    width: 100vw !important;
+    position: fixed !important;
+    overflow: hidden !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    /* Prevent flickering on some mobile browsers */
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+  
+  /* Ensure images stay in their grid boxes on mobile */
+  .flicker-box {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 50% !important;
+    height: 25vh !important;
+    max-height: 25vh !important;
+    max-width: 50% !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Apply fixed height to image containers */
+  .flicker-box[class*="top-0"] {
+    top: 0 !important;
+    height: 25vh !important;
+  }
+  
+  .flicker-box[class*="top-[25vh]"] {
+    top: 25vh !important;
+    height: 25vh !important;
+  }
+  
+  .flicker-box[class*="top-[50vh]"] {
+    top: 50vh !important;
+    height: 25vh !important;
+  }
+  
+  .flicker-box[class*="top-[75vh]"] {
+    top: 75vh !important;
+    height: 25vh !important;
+  }
+  
+  /* Apply fixed width to image containers */
+  .flicker-box[class*="left-0"] {
+    left: 0 !important;
+    width: 50% !important;
+  }
+  
+  .flicker-box[class*="left-[50%]"] {
+    left: 50% !important;
+    width: 50% !important;
+  }
+  
+  /* Increase touch area for all clickable elements */
+  [onClick], [onclick], .cursor-pointer, button, a {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Double-ensure the fixed header stays fixed on mobile */
+  .fixed-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+  
+  /* Prevent scroll events from being captured by animation elements */
+  body, html {
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Force hardware acceleration for all animations on mobile */
+  .animate-flicker,
+  .animate-content-glitch,
+  .animate-grid-line-horizontal,
+  .animate-grid-line-vertical,
+  .animate-border {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
 }
 
 /* Spinning plus icon */
