@@ -94,6 +94,30 @@ export default function Home() {
     { icon: FiCircle, name: "Circle" }
   ];
   
+  // Add viewport height calculation for mobile browsers
+  useEffect(() => {
+    // Function to set the viewport height variable
+    const setViewportHeight = () => {
+      // Get the viewport height and multiply it by 1% to get a value for a vh unit
+      const vh = window.innerHeight * 0.01;
+      // Set the value in the --vh custom property
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    // Set the height initially
+    setViewportHeight();
+    
+    // Update the height on window resize and orientation change
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', setViewportHeight);
+      window.removeEventListener('orientationchange', setViewportHeight);
+    };
+  }, []);
+  
   // Add scroll event listener to update content
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -383,8 +407,21 @@ export default function Home() {
       
       // After 3.5 seconds, clear all images and go to black screen mode
       const clearTimer = setTimeout(() => {
-        setActiveFlickerBoxes({});
-        flickerMode.current = false;
+        // Force cleanup of any possible lingering images
+        document.querySelectorAll('.flicker-image').forEach(el => {
+          (el as HTMLElement).style.opacity = '0';
+        });
+        
+        // Use RAF to ensure DOM has updated before removing
+        requestAnimationFrame(() => {
+          setActiveFlickerBoxes({});
+          flickerMode.current = false;
+          
+          // Ensure all flicker boxes are properly reset
+          document.querySelectorAll('.flicker-box').forEach(el => {
+            (el as HTMLElement).style.overflow = 'hidden';
+          });
+        });
         
         // Schedule the next flicker sequence after 10 seconds of black screen
         const nextSequenceTimer = setTimeout(() => {
