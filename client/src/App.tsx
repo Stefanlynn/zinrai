@@ -137,7 +137,7 @@ function App() {
             
             {/* Redesigned Dropdown menu */}
             {menuOpen && (
-              <div className="fixed inset-0 bg-black/95 z-[1001] flex items-center justify-center transition-all duration-300 animate-fade-in overflow-y-auto">
+              <div className="fixed inset-0 bg-black/95 z-[1001] flex items-center justify-center transition-all duration-300 animate-fade-in overflow-y-auto overflow-x-hidden">
                 {/* Close button for menu - positioned at the absolute top right */}
                 <button 
                   onClick={() => setMenuOpen(false)} 
@@ -247,10 +247,12 @@ function App() {
                       onClick={() => {
                         const infoContainer = document.getElementById('info-center-container');
                         if (infoContainer) {
-                          infoContainer.classList.toggle('h-0');
-                          infoContainer.classList.toggle('h-[320px]');
+                          infoContainer.classList.toggle('max-h-0');
+                          infoContainer.classList.toggle('max-h-[600px]');
                           infoContainer.classList.toggle('opacity-0');
                           infoContainer.classList.toggle('opacity-100');
+                          infoContainer.classList.toggle('overflow-hidden');
+                          infoContainer.classList.toggle('overflow-y-auto');
                           
                           // Toggle arrow rotation
                           const arrow = document.getElementById('info-center-arrow');
@@ -267,8 +269,8 @@ function App() {
                     </div>
                     
                     {/* Expandable info content */}
-                    <div id="info-center-container" className="h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 pt-6">
+                    <div id="info-center-container" className="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 pt-6 pb-4">
                         {/* Terms & Policies */}
                         <div>
                           <h3 className="text-white/90 text-sm font-medium mb-3 tracking-wide">Terms & Policies</h3>
