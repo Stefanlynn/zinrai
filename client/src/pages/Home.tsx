@@ -832,8 +832,7 @@ export default function Home() {
               navigate(path);
             }}
           >
-            <div className="text-[14px] font-bold tracking-wider text-white/90">{contentItems[currentIndex].number}</div>
-            <div className="text-[12px] font-semibold tracking-wide text-white/80">{contentItems[currentIndex].title}</div>
+            {/* Navigation text removed but functionality preserved */}
           </div>
           
           {/* Down arrow below text - navigate to next content item (only functional on desktop) */}
