@@ -310,19 +310,19 @@ export default function Home() {
             className="absolute bottom-0 right-0 w-1/2 h-1/4 flex items-center justify-center cursor-pointer z-20"
             onClick={() => handleNavigate('/subscribe')}
           >
-            <div className="flex items-center gap-2 text-white text-xl font-light">
+            <div className="flex items-center gap-2 text-white text-xl font-light tracking-wide">
               <span>START NOW</span>
               <span className="text-2xl ml-1 transform rotate-[45deg]">→</span>
             </div>
           </div>
           
-          {/* Bottom left - WATCH VIDEO */}
+          {/* Bottom left - WATCH NOW */}
           <div 
             className="absolute bottom-0 left-0 w-1/2 h-1/4 flex items-center justify-center cursor-pointer z-20"
             onClick={() => setVideoPopupOpen(true)}
           >
-            <div className="flex items-center gap-2 text-white text-xl font-light">
-              <span>WATCH</span>
+            <div className="flex items-center gap-2 text-white text-xl font-light tracking-wide">
+              <span>WATCH NOW</span>
               <span className="text-xl ml-1 animate-bounce">↓</span>
             </div>
           </div>
