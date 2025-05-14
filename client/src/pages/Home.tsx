@@ -570,8 +570,8 @@ export default function Home() {
         
       {/* UI elements - fixed position */}
       <div className="fixed inset-0">
-        {/* zinrai text in the center with logo behind it */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
+        {/* zinrai text in the center with logo behind it - moved down a bit */}
+        <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
           <div className="relative inline-block">
             {/* Logo positioned behind and slightly above the text */}
             <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-[60%] w-[200px] md:w-[250px] lg:w-[300px]">
