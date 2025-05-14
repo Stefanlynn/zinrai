@@ -136,6 +136,8 @@ export default function Home() {
       // Update last event time
       lastEventTime.current = now;
       
+      console.log("Wheel event: current index =", currentIndex, "direction =", e.deltaY > 0 ? "next" : "prev");
+      
       // Determine scroll direction and change content
       if (e.deltaY > 0) {
         // Scrolling down - increase number (next)
@@ -259,6 +261,10 @@ export default function Home() {
       // Update last event time
       lastEventTime.current = now;
       
+      console.log("Touch swipe: current index =", currentIndex, 
+                  "direction =", touchStartY > touchEndY ? "prev" : "next",
+                  "touchStartY =", touchStartY, "touchEndY =", touchEndY);
+      
       if (touchStartY > touchEndY) {
         // Swiped up - should decrease number (go to previous)
         changeContent('prev');
@@ -268,9 +274,11 @@ export default function Home() {
       }
     }
   };
-  
   // Function to handle content change with animation
   const changeContent = (direction: 'next' | 'prev') => {
+    console.log(`changeContent called with direction: ${direction}`);
+    console.log(`Current index: ${currentIndex}, contentItems length: ${contentItems.length}`);
+    
     // Create animation for content transition - fade and slide (but only for the text)
     const productText = document.querySelector('.product-text');
     const zinraiText = document.querySelector('.zinrai-logo-text'); // Class name preserved for DOM selection
@@ -289,10 +297,13 @@ export default function Home() {
       nextIndex = (currentIndex - 1 + contentItems.length) % contentItems.length;
     }
     
+    console.log(`New index will be: ${nextIndex}, new content: ${contentItems[nextIndex].title}`);
+    
     // After fade out, change content and fade in
     setTimeout(() => {
       // Update current index
       setCurrentIndex(nextIndex);
+      console.log(`Index updated to: ${nextIndex}`);
       
       // Reset fade classes
       setTimeout(() => {
@@ -334,21 +345,19 @@ export default function Home() {
     removeOpacityClasses();
   }, []);
   
+  // Removed the effect that was moving the "why" logo as requested
+  
+  // No longer need a separate effect for spinning plus icon
+  // The animation is now handled directly in the SpinningPlus component
+  
+  // No longer using toggle effect between logo and START NOW
+  
   // Effect for flickering images in grid boxes - with 10 second pause and box movement
   useEffect(() => {
     let timers: NodeJS.Timeout[] = [];
     
     // Track the current state to alternate between flicker mode and black screen mode
     const flickerMode = { current: true };
-    
-    // Helper function to shuffle an array
-    function shuffleArray(array: any[]) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
     
     // Function to add multiple flickering images for a 3-4 second sequence
     const startFlickerSequence = () => {
@@ -361,21 +370,36 @@ export default function Home() {
       // Create a mapping of image index to current box number
       const imageToBoxMap: {[key: number]: number} = {};
       
-      // Initialize the images in random boxes
-      const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
-      shuffleArray(availableBoxes);
-      const selectedBoxes = availableBoxes.slice(0, 4);
-      
-      // Assign each image to one of the selected boxes
-      for (let i = 0; i < flickerImages.length; i++) {
-        imageToBoxMap[i] = selectedBoxes[i];
+      // Initially place each image in a random box
+      const initializeImages = () => {
+        // Get 4 random unique boxes from 8 possible boxes
+        const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
+        shuffleArray(availableBoxes);
+        const selectedBoxes = availableBoxes.slice(0, 4);
         
-        // Add this box and image to active boxes
-        setActiveFlickerBoxes(prev => ({
-          ...prev,
-          [selectedBoxes[i]]: flickerImages[i]
-        }));
+        // Assign each image to one of the selected boxes
+        for (let i = 0; i < flickerImages.length; i++) {
+          imageToBoxMap[i] = selectedBoxes[i];
+          
+          // Add this box and image to active boxes
+          setActiveFlickerBoxes(prev => ({
+            ...prev,
+            [selectedBoxes[i]]: flickerImages[i]
+          }));
+        }
+      };
+      
+      // Helper function to shuffle an array
+      function shuffleArray(array: any[]) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
       }
+      
+      // Initialize the images in boxes
+      initializeImages();
       
       // Move images to new boxes a few times during the flicker sequence
       for (let moveIdx = 0; moveIdx < 3; moveIdx++) {
@@ -390,20 +414,17 @@ export default function Home() {
           // Remove current images
           setActiveFlickerBoxes({});
           
-          // Wait a tiny bit to ensure state update completes
-          setTimeout(() => {
-            // Update box positions and display images in new boxes
-            for (let i = 0; i < flickerImages.length; i++) {
-              // Update the box for this image
-              imageToBoxMap[i] = newBoxes[i];
-              
-              // Add this box and image to active boxes
-              setActiveFlickerBoxes(prev => ({
-                ...prev,
-                [newBoxes[i]]: flickerImages[i]
-              }));
-            }
-          }, 50);
+          // Update box positions and display images in new boxes
+          for (let i = 0; i < flickerImages.length; i++) {
+            // Update the box for this image
+            imageToBoxMap[i] = newBoxes[i];
+            
+            // Add this box and image to active boxes
+            setActiveFlickerBoxes(prev => ({
+              ...prev,
+              [newBoxes[i]]: flickerImages[i]
+            }));
+          }
         }, 800 + moveIdx * 800); // Move every 800ms after initial placement
         
         timers.push(moveTimer);
@@ -416,236 +437,273 @@ export default function Home() {
           (el as HTMLElement).style.opacity = '0';
         });
         
-        // Clear all active boxes
-        setActiveFlickerBoxes({});
+        // Use RAF to ensure DOM has updated before removing
+        requestAnimationFrame(() => {
+          setActiveFlickerBoxes({});
+          flickerMode.current = false;
+          
+          // Ensure all flicker boxes are properly reset
+          document.querySelectorAll('.flicker-box').forEach(el => {
+            (el as HTMLElement).style.overflow = 'hidden';
+          });
+        });
         
-        // Mark as no longer being in flicker mode
-        flickerMode.current = false;
+        // Schedule the next flicker sequence after 10 seconds of black screen
+        const nextSequenceTimer = setTimeout(() => {
+          startFlickerSequence();
+        }, 10000);
+        
+        timers.push(nextSequenceTimer);
       }, 3500);
       
       timers.push(clearTimer);
     };
     
-    // Function for the master timer that alternates between flicker sequence and black screen
-    const startMasterTimer = () => {
-      // Initial random delay before first flicker sequence (3-6 seconds)
-      const initialDelay = Math.random() * 3000 + 3000;
-      
-      // Start first flicker sequence after initial delay
-      const initialTimer = setTimeout(() => {
-        // Start first flicker sequence
-        startFlickerSequence();
-        
-        // Set up recurring alternating pattern
-        const intervalTimer = setInterval(() => {
-          // If not in flicker mode, start a new flicker sequence
-          if (!flickerMode.current) {
-            startFlickerSequence();
-          }
-        }, 10000); // Check every 10 seconds
-        
-        timers.push(intervalTimer);
-      }, initialDelay);
-      
-      timers.push(initialTimer);
-    };
+    // Start the first flicker sequence
+    const initialTimer = setTimeout(() => {
+      startFlickerSequence();
+    }, 2000);
     
-    // Start the master timer
-    startMasterTimer();
+    timers.push(initialTimer);
     
-    // Cleanup all timers on dismount
+    // Clean up timers on unmount
     return () => {
       timers.forEach(timer => clearTimeout(timer));
     };
   }, []);
-  
-  // Helper function to toggle the menu state
-  const toggleMenu = () => {
-    // When toggling, apply an immediate opacity change to create a smooth fade effect
-    if (!menuOpen) {
-      // Opening menu - fade in immediately
-      document.querySelector('.menu-overlay')?.classList.add('opacity-100');
-    } else {
-      // Closing menu - start fade out
-      const menuOverlay = document.querySelector('.menu-overlay');
-      if (menuOverlay) {
-        menuOverlay.classList.remove('opacity-100');
-        menuOverlay.classList.add('opacity-0');
-      }
+
+  // Helper function to get the route for the current index
+  const getRouteForCurrentIndex = () => {
+    // Get the current item title and convert to lowercase for the route
+    let route = contentItems[currentIndex].title.toLowerCase();
+    
+    // Special case for "ZiNRAi CARES" - use hyphen for URL
+    if (route === "zinrai cares") {
+      route = "zinrai-cares"; // Route kept lowercase for URL consistency
+    } 
+    // Special case for "PRODUCTS" - go to product page
+    else if (route === "products") {
+      route = "product";
+    }
+    else {
+      // Replace any spaces with nothing for other routes
+      route = route.replace(/\s+/g, '');
     }
     
-    // Toggle the menu state
-    setMenuOpen(!menuOpen);
+    // Debug log to see what route is being generated
+    console.log("Route for current index:", route);
+    
+    return `/${route}`;
   };
   
-  // Function to handle the "WATCH" button click to open the YouTube video
+  // Handle navigation item click to go to corresponding page
+  const handleNavigationClick = () => {
+    // Use the helper function to get the route
+    const route = getRouteForCurrentIndex();
+    
+    // Use Wouter navigate function for client-side routing
+    navigate(route);
+  };
+  
+  // We'll use the existing toggleMenu function below
+  
+  // Handle returning to home page using client-side routing
+  const handleReturnToHome = () => {
+    // Use Wouter navigate for client-side routing
+    navigate('/');
+    // Reset current index for navigation
+    setCurrentIndex(0);
+    
+    // Make sure navigation is visible when returning to home page
+    setTimeout(() => {
+      const productText = document.querySelector('.product-text');
+      const productArrow = document.querySelector('.product-arrow');
+      const productArrowUp = document.querySelector('.product-arrow-up');
+      
+      // Ensure these elements are visible
+      productText?.classList.add('animate-in');
+      productArrow?.classList.add('animate-in');
+      productArrowUp?.classList.add('animate-in');
+    }, 50);
+  };
+  
+  // For WATCH text click (open video popup)
   const handleWatchClick = () => {
+    // Open the video popup
     setVideoPopupOpen(true);
   };
   
-  // Update the document title based on current page
-  useEffect(() => {
-    // For all pages, update the title dynamically
-    if (location === '/') {
-      document.title = 'ZiNRAi - Home';
-    } else {
-      const titleCase = (str: string) => {
-        return str
-          .replace('-', ' ')
-          .replace(/^\w|\s\w/g, (letter) => letter.toUpperCase());
-      };
-      
-      // Get the current path without the leading slash and transform
-      const currentPage = location.substring(1);
-      document.title = `ZiNRAi - ${titleCase(currentPage)}`;
+  // Toggle menu open/close
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    
+    // If closing the menu, make sure the menu icon reappears properly
+    if (menuOpen) {
+      // Short delay to allow for menu transition
+      setTimeout(() => {
+        document.querySelectorAll('.menu-icon').forEach(icon => {
+          icon.classList.add('menu-animate-in');
+          icon.classList.add('animate-in');
+        });
+      }, 300);
     }
-  }, [location]);
-  
+  };
+
   return (
     <div 
-      className="relative w-full min-h-screen bg-black overflow-hidden touch-none text-white"
-      style={{ WebkitTapHighlightColor: 'rgba(0,0,0,0)' }}
+      className="bg-black min-h-screen overflow-auto"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
-      {/* Header bar (off-white) with toggle icon */}
-      <div 
-        className="fixed top-0 left-0 w-full h-[32px] bg-[#f7f5f0] z-[80] flex items-center justify-between px-6"
-        onClick={toggleMenu}
-      >
-        {/* Header Text - Alternate between two messages every 5 seconds */}
-        <div className="header-text-container relative h-full flex items-center overflow-hidden">
-          {/* Message 1: Cares - with Emoji */}
-          <div className="header-text-1 text-black text-[11px] tracking-widest absolute inset-0 flex items-center transition-opacity duration-1000 whitespace-nowrap">
-            $1 of every subscription fuels global impact through ❤️ ZiNRAi Cares
-          </div>
-          
-          {/* Message 2: Live/Lead */}
-          <div className="header-text-2 text-black text-[11px] tracking-widest absolute inset-0 flex items-center transition-opacity duration-1000 whitespace-nowrap opacity-0">
-            Live With Passion. Lead With Purpose.
-          </div>
-        </div>
-        
-        {/* Menu icon removed from top right as requested */}
-      </div>
+      {/* We're removing the moving "why" text and adding it below WATCH */}
       
-      {/* Main content container */}
-      <div 
-        className="w-full h-screen pt-[32px] relative"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        {/* Grid lines container */}
-        <div className="grid-container absolute inset-0 grid grid-cols-2 grid-rows-4 z-10">
-          {/* Horizontal grid lines - animate from left to right */}
-          <div className="horizontal-line absolute top-1/4 left-0 w-full h-[1.5px] bg-white/30 animate-line-left-to-right"></div>
-          <div className="horizontal-line absolute top-2/4 left-0 w-full h-[1.5px] bg-white/30 animate-line-left-to-right" style={{ animationDelay: '0.2s' }}></div>
-          <div className="horizontal-line absolute top-3/4 left-0 w-full h-[1.5px] bg-white/30 animate-line-left-to-right" style={{ animationDelay: '0.4s' }}></div>
-          
-          {/* Vertical grid line - animate from top to bottom */}
-          <div className="vertical-line absolute top-0 left-1/2 w-[1.5px] h-full bg-white/30 animate-line-top-to-bottom" style={{ animationDelay: '0.6s' }}></div>
-          
-          {/* Border lines for the entire grid */}
-          <div className="border-line absolute top-0 left-0 w-full h-[1.5px] bg-white/30"></div>
-          <div className="border-line absolute bottom-0 left-0 w-full h-[1.5px] bg-white/30"></div>
-          <div className="border-line absolute top-0 left-0 h-full w-[1.5px] bg-white/30"></div>
-          <div className="border-line absolute top-0 right-0 h-full w-[1.5px] bg-white/30"></div>
-          
-          {/* Flickering images in grid boxes - these appear randomly with the effect */}
-          {Object.entries(activeFlickerBoxes).map(([boxKey, imageSrc]) => {
-            const boxNum = parseInt(boxKey);
-            
-            // Calculate position based on box number (1-8)
-            // Boxes are numbered 1-2 for first row, 3-4 for second row, and so on
-            const row = Math.floor((boxNum - 1) / 2); // 0-3 (4 rows)
-            const col = ((boxNum - 1) % 2); // 0 or 1 (2 columns)
-            
-            return (
-              <div 
-                key={`box-${boxNum}`}
-                className="flicker-image absolute"
-                style={{
-                  top: `${row * 25}vh`,
-                  left: `${col * 50}vw`,
-                  width: '50vw',
-                  height: '25vh',
-                  backgroundImage: `url(${imageSrc})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  opacity: 0.25, // Increased opacity so images are more visible
-                  zIndex: 12, // Increased z-index to make sure images are visible
-                  transition: 'opacity 0.5s ease-in-out',
-                  pointerEvents: 'none' // Ensure the images don't interfere with clicks
+
+      
+      {/* Home page content */}
+      <div className="relative">
+        <div className="h-screen w-full"></div>
+      </div>
+        
+      {/* UI elements - fixed position */}
+      <div className="fixed inset-0">
+        {/* zinrai text in the center */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
+          <div className="relative inline-block">
+            {/* Switch/Play button above z in zinrai */}
+            <div className="absolute -top-[30px] left-[4%] z-50">
+              <button 
+                onClick={() => setVideoPopupOpen(true)}
+                onContextMenu={(e) => {
+                  e.preventDefault();
+                  setIconVariant((prev) => (prev + 1) % videoIcons.length);
                 }}
-              />
-            );
-          })}
-        </div>
-        
-        {/* Logo in the top left square - always visible unless menu is open */}
-        <div 
-          className={`absolute top-0 left-0 w-[50%] h-[25%] flex flex-col items-center justify-center z-50 ${menuOpen ? 'hidden' : 'flex'}`}
-        >
-          <div className="zinrai-logo-text text-[20px] sm:text-[30px] md:text-[40px] font-black tracking-[0.1em] animate-content-glitch" style={{ animationDelay: '1s' }}>
-            ZiNRAi
+                className="text-white/80 cursor-pointer"
+                style={{ touchAction: 'manipulation' }}  
+                aria-label="Open video"
+                title={`Video trigger (${videoIcons[iconVariant].name} icon)`}
+              >
+                {iconVariant === 0 ? (
+                  <SpinningPlus size={18} className="play-button-glow" />
+                ) : (
+                  React.createElement(videoIcons[iconVariant].icon, { 
+                    size: 18, 
+                    className: "play-button-glow"
+                  })
+                )}
+              </button>
+            </div>
+            <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap">
+              ZiNRAi
+            </h1>
           </div>
         </div>
+      
+        {/* Center horizontal line for screen - slides in from left */}
+        <div className="horizontal-line animate-grid-line-horizontal absolute top-1/2 w-0 h-[1px] bg-white/[0.15] transform -translate-y-[0.5px]"></div>
         
-        {/* START NOW in the top right square - always visible unless menu is open */}
-        <div 
-          className={`absolute top-0 right-0 w-[50%] h-[25%] flex items-center justify-center z-50 ${menuOpen ? 'hidden' : 'flex'}`}
-        >
+        {/* Center vertical line for screen - slides in from top */}
+        <div className="vertical-line animate-grid-line-vertical absolute left-1/2 w-[1px] h-0 bg-white/[0.15] transform -translate-x-[0.5px]"></div>
+        
+        {/* Grid lines - horizontal lines at 25%, 50%, 75% positions */}
+        <div className="grid-line animate-grid-line-horizontal absolute top-[25%] left-0 w-0 h-[1px] bg-white/[0.15]" style={{ animationDelay: '0.2s' }}></div>
+        <div className="grid-line animate-grid-line-horizontal absolute top-[75%] left-0 w-0 h-[1px] bg-white/[0.15]" style={{ animationDelay: '0.4s' }}></div>
+        
+        {/* Border around the grid */}
+        <div className="border-line animate-border absolute inset-0 border border-white/[0.15] opacity-0"></div>
+        
+        {/* Flickering images for grid boxes - map through active boxes */}
+        {Object.entries(activeFlickerBoxes).map(([boxNum, imageSrc]) => {
+          const boxNumber = parseInt(boxNum);
+          return (
+            <div 
+              key={boxNumber}
+              className="flicker-box"
+              style={{
+                top: boxNumber === 1 || boxNumber === 2 ? '0' : 
+                     boxNumber === 3 || boxNumber === 4 ? 'calc(25 * var(--vh))' : 
+                     boxNumber === 5 || boxNumber === 6 ? 'calc(50 * var(--vh))' : 'calc(75 * var(--vh))',
+                left: boxNumber === 1 || boxNumber === 3 || 
+                      boxNumber === 5 || boxNumber === 7 ? '0' : '50%',
+                width: '50%',
+                height: 'calc(25 * var(--vh))',
+                maxWidth: '50%', 
+                maxHeight: 'calc(25 * var(--vh))',
+                boxSizing: 'border-box',
+                position: 'absolute',
+                overflow: 'hidden'
+              }}
+            >
+              <div 
+                className="image-container" 
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '100%',
+                  overflow: 'hidden'
+                }}
+              >
+                {/* The image with flickering animation */}
+                <img 
+                  src={imageSrc} 
+                  alt="" 
+                  className="flicker-image animate-flicker"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0
+                  }}
+                />
+                
+                {/* Dark overlay */}
+                <div 
+                  className="image-overlay" 
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'black',
+                    opacity: 0.5
+                  }}
+                ></div>
+              </div>
+            </div>
+          );
+        })}
+        
+        {/* START NOW in the top left square - centered in the box - hidden when menu is open */}
+        <div className={`absolute top-[12.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
           <div 
-            className="start-now-text text-[10px] tracking-[0.2em] text-white/70 font-light cursor-pointer animate-content-glitch"
-            style={{ animationDelay: '1.2s' }}
-            onClick={() => navigate('/product')}
-            onTouchStart={() => navigate('/product')} /* Added touchstart for more responsive mobile */
+            className="start-now-text animate-content-glitch cursor-pointer"
+            onClick={() => navigate('/subscribe')}
+            onTouchStart={() => navigate('/subscribe')} /* Added touchstart for immediate response */
+            style={{ 
+              animationDelay: '1.2s',
+              position: 'relative',
+              zIndex: 60,
+              touchAction: 'manipulation',
+              padding: '10px' /* Added padding for larger touch target */
+            }}
           >
-            START NOW
+            <div className="border border-white/30 px-3 py-2 flex flex-col items-center hover:border-white/50 hover:bg-white/5 transition-all duration-300">
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase">Start</div>
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase">Now</div>
+            </div>
           </div>
         </div>
         
-        {/* Social icons in the left center square */}
+        {/* WATCH and WHY text in the lower left square - hidden when menu is open */}
         <div 
-          className={`absolute top-1/4 left-0 w-[50%] h-[25%] flex items-center justify-center z-50 ${menuOpen ? 'hidden' : 'flex'}`}
-        >
-          <div className="social-icons flex space-x-4 opacity-0">
-            <a 
-              href="https://facebook.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-              aria-label="Facebook"
-              style={{ padding: '8px' }} /* Added padding for larger touch target */
-            >
-              <FaFacebook size={16} />
-            </a>
-            <a 
-              href="https://instagram.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-              aria-label="Instagram"
-              style={{ padding: '8px' }} /* Added padding for larger touch target */
-            >
-              <FaInstagram size={16} />
-            </a>
-            <a 
-              href="https://youtube.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-              aria-label="YouTube"
-              style={{ padding: '8px' }} /* Added padding for larger touch target */
-            >
-              <FaYoutube size={16} />
-            </a>
-          </div>
-        </div>
-        
-        {/* WATCH and WHY text in the bottom left square - always visible unless menu is open */}
-        <div 
-          className={`absolute bottom-0 left-0 w-[50%] h-[25%] flex items-center justify-center z-50 ${menuOpen ? 'hidden' : 'flex'}`}
+          className={`absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}
           style={{ 
+            position: 'relative', 
+            zIndex: 60,
             touchAction: 'manipulation'
           }}
         >
@@ -676,7 +734,168 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Navigation in the bottom right square completely removed as requested */}
+        {/* Dynamic content in the lower right square - hidden when menu is open */}
+        <div 
+          className={`absolute bottom-0 right-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
+          style={{ 
+            bottom: '12.5vh', // Position at the vertical center of the last row
+            right: '25vw', // Position at the horizontal center of the right column
+            transform: 'translate(50%, 50%)', // Center perfectly
+            width: 'auto', // Let content determine width
+            height: 'auto' // Let content determine height
+          }}
+          onTouchStart={(e) => {
+            // On mobile, make touch events more responsive by handling them on touch start
+            if (window.innerWidth <= 768) {
+              e.stopPropagation();
+              
+              // Helper function to generate the correct path
+              const getRouteForTitle = (title: string) => {
+                title = title.toLowerCase();
+                return title === "products" ? "/product" : 
+                       title === "zinrai cares" ? "/zinrai-cares" : 
+                       `/${title.replace(/\s+/g, '')}`;
+              };
+              
+              // Get the path for the current index
+              const path = getRouteForTitle(contentItems[currentIndex].title);
+              
+              // Use Wouter's navigate for client-side routing
+              navigate(path);
+            }
+          }}
+          onClick={(e) => {
+            // Handle click events for both mobile and desktop
+            e.stopPropagation();
+              
+            // Helper function to generate the correct path
+            const getRouteForTitle = (title: string) => {
+              title = title.toLowerCase();
+              return title === "products" ? "/product" : 
+                     title === "zinrai cares" ? "/zinrai-cares" : 
+                     `/${title.replace(/\s+/g, '')}`;
+            };
+            
+            // Get the path for the current index
+            const path = getRouteForTitle(contentItems[currentIndex].title);
+            
+            // Use Wouter's navigate for client-side routing
+            navigate(path);
+          }}
+        >
+          {/* Up arrow above text - navigate to previous content item (only functional on desktop) */}
+          <div 
+            className="product-arrow-up mb-3 cursor-pointer hidden md:block w-full text-center"
+            onClick={(e) => {
+              // Only allow arrow functionality on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                changeContent('prev');
+              }
+            }}
+            onTouchStart={(e) => {
+              // Only allow arrow functionality on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                changeContent('prev');
+              }
+            }}
+            style={{ 
+              position: 'relative', 
+              zIndex: 60,
+              touchAction: 'manipulation',
+              padding: '10px' /* Added padding for larger touch target */
+            }}
+          >
+            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          
+          {/* Decorative up arrow for mobile (non-functional) */}
+          <div 
+            className="product-arrow-up mb-3 cursor-pointer block md:hidden w-full text-center"
+            style={{ 
+              position: 'relative', 
+              zIndex: 60,
+              touchAction: 'manipulation'
+            }}
+          >
+            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          
+          {/* Content text */}
+          <div 
+            className="product-text text-center cursor-pointer w-full mx-auto"
+            style={{ padding: '8px' }} /* Added padding for larger touch target */
+            onClick={(e) => {
+              // Prevent propagation and navigate on both mobile and desktop
+              e.stopPropagation();
+              
+              // Get the correct path
+              const title = contentItems[currentIndex].title.toLowerCase();
+              const path = title === "products" ? "/product" : 
+                          title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
+                          `/${title.replace(/\s+/g, '')}`;
+              
+              // Use Wouter's navigate for client-side routing
+              navigate(path);
+            }}
+            onTouchStart={(e) => {
+              // For mobile touch, make even more responsive by triggering on first touch
+              e.stopPropagation();
+              
+              // Get the correct path
+              const title = contentItems[currentIndex].title.toLowerCase();
+              const path = title === "products" ? "/product" : 
+                          title === "zinrai cares" ? "/zinrai-cares" : 
+                          `/${title.replace(/\s+/g, '')}`;
+              
+              // Use Wouter's navigate for client-side routing
+              navigate(path);
+            }}
+          >
+            <div className="text-[14px] font-bold tracking-wider text-white/90">{contentItems[currentIndex].number}</div>
+            <div className="text-[12px] font-semibold tracking-wide text-white/80">{contentItems[currentIndex].title}</div>
+          </div>
+          
+          {/* Down arrow below text - navigate to next content item (only functional on desktop) */}
+          <div 
+            className="product-arrow mt-3 cursor-pointer hidden md:block w-full text-center"
+            onClick={(e) => {
+              // Only allow arrow functionality on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                changeContent('next');
+              }
+            }}
+            onTouchStart={(e) => {
+              // Only allow arrow functionality on desktop
+              if (window.innerWidth > 768) {
+                e.stopPropagation();
+                changeContent('next');
+              }
+            }}
+            style={{ 
+              padding: '10px' /* Added padding for larger touch target */
+            }}
+          >
+            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          
+          {/* Decorative down arrow for mobile (non-functional) */}
+          <div 
+            className="product-arrow mt-3 cursor-pointer block md:hidden w-full text-center"
+          >
+            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
         
         {/* Redesigned Menu Overlay - only visible when menu is open */}
         {menuOpen && (
@@ -693,30 +912,22 @@ export default function Home() {
                 
                 {/* Animated X icon */}
                 <div className="relative">
-                  <div className="w-6 h-[1px] bg-white/70 group-hover:bg-white transform rotate-45 transition-colors"></div>
-                  <div className="w-6 h-[1px] bg-white/70 group-hover:bg-white transform -rotate-45 -translate-y-[1px] transition-colors"></div>
+                  {/* Line 1 - animates to create X */}
+                  <div className="w-6 h-[1.5px] bg-white/70 group-hover:bg-white absolute top-0 left-0 transform rotate-45 transition-all duration-300"></div>
+                  {/* Line 2 - animates to create X */}
+                  <div className="w-6 h-[1.5px] bg-white/70 group-hover:bg-white absolute top-0 left-0 transform -rotate-45 transition-all duration-300"></div>
                 </div>
               </div>
             </button>
             
-            {/* Menu header with logo */}
-            <div className="pt-16 md:pt-24 w-full px-8 md:px-16">
-              <div className="zinrai-logo-text text-[30px] md:text-[40px] font-black tracking-[0.1em] text-white/90">
-                ZiNRAi
-              </div>
-            </div>
-            
-            {/* Main menu content */}
-            <div className="flex-1 w-full px-8 md:px-16 flex flex-col justify-center">
-              <div className="menu-items-container">
-                <div className="menu-section mb-12">
-                  <div className="menu-section-title text-white/30 text-xs tracking-widest mb-6">
-                    COMPANY
-                  </div>
-                  
-                  {/* Company navigation items */}
+            {/* Modern minimalist menu layout - centered vertically */}
+            <div className="w-full max-w-4xl p-8 md:p-12 flex-1 flex items-center">
+              {/* Main menu grid - 3 columns for main pages */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
+                {/* Column 1 */}
+                <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                   <div 
-                    className="flex flex-col items-start group cursor-pointer mb-6"
+                    className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
                       navigate('/product');
                       toggleMenu();
@@ -728,7 +939,7 @@ export default function Home() {
                   </div>
                   
                   <div 
-                    className="flex flex-col items-start group cursor-pointer mb-6"
+                    className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
                       navigate('/partner');
                       toggleMenu();
@@ -738,9 +949,12 @@ export default function Home() {
                     <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[1].title}</div>
                     <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
                   </div>
-                  
+                </div>
+                
+                {/* Column 2 */}
+                <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                   <div 
-                    className="flex flex-col items-start group cursor-pointer mb-6"
+                    className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
                       navigate('/culture');
                       toggleMenu();
@@ -752,7 +966,7 @@ export default function Home() {
                   </div>
                   
                   <div 
-                    className="flex flex-col items-start group cursor-pointer mb-6"
+                    className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
                       navigate('/insights');
                       toggleMenu();
@@ -762,7 +976,10 @@ export default function Home() {
                     <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[3].title}</div>
                     <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
                   </div>
-                  
+                </div>
+                
+                {/* Column 3 */}
+                <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                   <div 
                     className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
@@ -774,16 +991,9 @@ export default function Home() {
                     <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[4].title}</div>
                     <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
                   </div>
-                </div>
-                
-                <div className="menu-section">
-                  <div className="menu-section-title text-white/30 text-xs tracking-widest mb-6">
-                    CONNECT
-                  </div>
                   
-                  {/* Connect navigation items */}
                   <div 
-                    className="flex flex-col items-start group cursor-pointer mb-6"
+                    className="flex flex-col items-start group cursor-pointer"
                     onClick={() => {
                       navigate('/zinrai-cares');
                       toggleMenu();
@@ -818,30 +1028,42 @@ export default function Home() {
       {videoPopupOpen && (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/95 backdrop-blur-md" onClick={() => setVideoPopupOpen(false)}>
           <div 
-            className="relative w-[90vw] md:w-[80vw] max-w-[1000px] aspect-video" 
+            className="relative w-[90vw] max-w-4xl animate-fadeIn" 
             onClick={(e) => e.stopPropagation()}
+            style={{ animation: 'fadeIn 0.3s ease-out' }}
           >
-            {/* Close button for video */}
+            {/* Stylish close button for video popup */}
             <button 
-              onClick={() => setVideoPopupOpen(false)} 
               className="absolute -top-16 right-0 text-white/80 hover:text-white transition-all group" 
+              onClick={() => setVideoPopupOpen(false)}
               aria-label="Close video"
             >
-              <div className="relative h-12 w-12 flex items-center justify-center">
-                <div className="w-6 h-[1px] bg-white transform rotate-45"></div>
-                <div className="w-6 h-[1px] bg-white transform -rotate-45 -translate-y-[1px]"></div>
+              <div className="relative h-12 w-12 flex items-center justify-center overflow-hidden">
+                {/* Circular background that appears on hover */}
+                <div className="absolute inset-0 rounded-full bg-black/50 backdrop-blur-sm group-hover:bg-black/70 transform scale-75 group-hover:scale-100 transition-all duration-300"></div>
+                
+                {/* Animated X icon */}
+                <div className="relative">
+                  {/* Line 1 - animates to create X */}
+                  <div className="w-6 h-[1.5px] bg-white/70 group-hover:bg-white absolute top-0 left-0 transform rotate-45 transition-all duration-300"></div>
+                  {/* Line 2 - animates to create X */}
+                  <div className="w-6 h-[1.5px] bg-white/70 group-hover:bg-white absolute top-0 left-0 transform -rotate-45 transition-all duration-300"></div>
+                </div>
               </div>
             </button>
             
-            {/* YouTube iframe */}
-            <iframe 
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-              title="YouTube video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            {/* Video container with responsive aspect ratio */}
+            <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl border border-white/10">
+              {/* YouTube iframe - embedded video */}
+              <iframe 
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/RbM2F-cfN0A?autoplay=1"
+                title="ZiNRAi Introduction Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </div>
       )}
