@@ -291,8 +291,8 @@ function App() {
                         </svg>
                       </button>
                       
-                      {/* Info Center Content - Initially hidden */}
-                      <div id="info-content" style={{display: 'none'}} className="py-4">
+                      {/* Info Center Content - Initially hidden with scrollability */}
+                      <div id="info-content" style={{display: 'none'}} className="py-4 max-h-[40vh] md:max-h-60 overflow-y-auto custom-scrollbar">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
                           <div>
                             <h3 className="text-sm font-medium mb-3 text-white/90">Terms & Policies</h3>
