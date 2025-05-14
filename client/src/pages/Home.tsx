@@ -46,10 +46,7 @@ export default function Home() {
   const [activeFlickerBoxes, setActiveFlickerBoxes] = useState<Record<number, string>>({});
   const flickerImages = [beachImage, cryptoImage, runnerImage, womanImage];
   
-  // Debug flicker images
-  useEffect(() => {
-    console.log("Available flicker images:", flickerImages);
-  }, []);
+  // Flicker images are working correctly now
   
   // Custom spinning plus component
   const SpinningPlus = ({ size = 18, className = "" }) => {
@@ -387,7 +384,7 @@ export default function Home() {
           imageToBoxMap[i] = selectedBoxes[i];
           
           // Add this box and image to active boxes
-          console.log(`Adding flicker image to box ${selectedBoxes[i]}:`, flickerImages[i]);
+          // Add flicker image to box
           setActiveFlickerBoxes(prev => ({
             ...prev,
             [selectedBoxes[i]]: flickerImages[i]
@@ -464,17 +461,13 @@ export default function Home() {
       // Start first flicker sequence after initial delay
       const initialTimer = setTimeout(() => {
         // Start first flicker sequence
-        console.log("Starting first flicker sequence");
         startFlickerSequence();
         
         // Set up recurring alternating pattern
         const intervalTimer = setInterval(() => {
           // If not in flicker mode, start a new flicker sequence
           if (!flickerMode.current) {
-            console.log("Starting recurring flicker sequence");
             startFlickerSequence();
-          } else {
-            console.log("Still in flicker mode, waiting...");
           }
         }, 10000); // Check every 10 seconds
         
@@ -590,8 +583,11 @@ export default function Home() {
             
             // Calculate position based on box number (1-8)
             // Boxes are numbered 1-2 for first row, 3-4 for second row, and so on
-            const row = Math.ceil(boxNum / 2) - 1; // 0-3
-            const col = (boxNum % 2 === 0) ? 1 : 0; // 0 or 1
+            // Adjusted calculation to properly position in the 2x4 grid
+            const row = Math.floor((boxNum - 1) / 2); // 0-3 (4 rows)
+            const col = ((boxNum - 1) % 2); // 0 or 1 (2 columns)
+            
+            // Box positioned correctly in the grid
             
             return (
               <div 
@@ -606,8 +602,9 @@ export default function Home() {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   opacity: 0.25, // Increased opacity so images are more visible
-                  zIndex: 5,
-                  transition: 'opacity 0.5s ease-in-out'
+                  zIndex: 12, // Increased z-index to make sure images are visible
+                  transition: 'opacity 0.5s ease-in-out',
+                  pointerEvents: 'none' // Ensure the images don't interfere with clicks
                 }}
               />
             );
