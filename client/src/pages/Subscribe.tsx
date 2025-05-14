@@ -331,17 +331,103 @@ export default function Subscribe() {
                       />
                     </div>
                     
-                    {/* Address Field */}
+                    {/* Address Fields - Split for International Support */}
                     <div className="w-full">
-                      <label htmlFor="address" className="block text-white/80 text-sm mb-2">
-                        Address
-                      </label>
-                      <textarea
-                        id="address"
-                        rows={3}
-                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors resize-none"
-                        placeholder="Enter your full address"
-                      ></textarea>
+                      <h4 className="text-white/80 text-sm mb-4 border-b border-white/10 pb-2">Address Information</h4>
+                      
+                      {/* Street Address */}
+                      <div className="mb-4">
+                        <label htmlFor="street" className="block text-white/80 text-sm mb-2">
+                          Street Address
+                        </label>
+                        <input
+                          type="text"
+                          id="street"
+                          className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                          placeholder="Street address, P.O. box, etc."
+                        />
+                      </div>
+                      
+                      {/* Apartment/Suite/Unit */}
+                      <div className="mb-4">
+                        <label htmlFor="unit" className="block text-white/80 text-sm mb-2">
+                          Apartment / Suite / Unit <span className="text-white/40">(optional)</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="unit"
+                          className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                          placeholder="Apartment, suite, unit, etc."
+                        />
+                      </div>
+                      
+                      {/* City and ZIP/Postal Code - Side by Side */}
+                      <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                        <div className="w-full sm:w-2/3">
+                          <label htmlFor="city" className="block text-white/80 text-sm mb-2">
+                            City
+                          </label>
+                          <input
+                            type="text"
+                            id="city"
+                            className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                            placeholder="City name"
+                          />
+                        </div>
+                        <div className="w-full sm:w-1/3">
+                          <label htmlFor="postal" className="block text-white/80 text-sm mb-2">
+                            ZIP / Postal
+                          </label>
+                          <input
+                            type="text"
+                            id="postal"
+                            className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                            placeholder="Postal code"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* State/Province and Country - Side by Side */}
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="w-full sm:w-1/2">
+                          <label htmlFor="state" className="block text-white/80 text-sm mb-2">
+                            State / Province / Region
+                          </label>
+                          <input
+                            type="text"
+                            id="state"
+                            className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                            placeholder="State or province"
+                          />
+                        </div>
+                        <div className="w-full sm:w-1/2">
+                          <label htmlFor="country" className="block text-white/80 text-sm mb-2">
+                            Country
+                          </label>
+                          <select
+                            id="country"
+                            className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:border-white/60 transition-colors"
+                          >
+                            <option value="" className="bg-black">Select country</option>
+                            <option value="US" className="bg-black">United States</option>
+                            <option value="CA" className="bg-black">Canada</option>
+                            <option value="JP" className="bg-black">Japan</option>
+                            <option value="KR" className="bg-black">South Korea</option>
+                            <option value="AU" className="bg-black">Australia</option>
+                            <option value="GB" className="bg-black">United Kingdom</option>
+                            <option value="DE" className="bg-black">Germany</option>
+                            <option value="FR" className="bg-black">France</option>
+                            <option value="SG" className="bg-black">Singapore</option>
+                            <option value="CN" className="bg-black">China</option>
+                            <option value="IN" className="bg-black">India</option>
+                            <option value="BR" className="bg-black">Brazil</option>
+                            <option value="MX" className="bg-black">Mexico</option>
+                            <option value="ZA" className="bg-black">South Africa</option>
+                            <option value="AE" className="bg-black">United Arab Emirates</option>
+                            <option value="other" className="bg-black">Other</option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
                     
                     {/* Next Button */}
