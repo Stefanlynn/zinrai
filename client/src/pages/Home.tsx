@@ -570,10 +570,18 @@ export default function Home() {
         
       {/* UI elements - fixed position */}
       <div className="fixed inset-0">
-        {/* zinrai text in the center */}
+        {/* zinrai text in the center with logo behind it */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
           <div className="relative inline-block">
-            <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap">
+            {/* Logo positioned behind and slightly above the text */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-[60%] w-[200px] md:w-[250px] lg:w-[300px]">
+              <img 
+                src={ziNRaiLogoImage} 
+                alt="ZiNRAi Logo" 
+                className="w-full h-auto opacity-90"
+              />
+            </div>
+            <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap relative z-10">
               ZiNRAi
             </h1>
           </div>
