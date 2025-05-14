@@ -165,7 +165,7 @@ function App() {
                             }}
                             className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
                           >
-                            PRODUCTS
+                            Products
                           </button>
                         </div>
                       </div>
@@ -180,7 +180,7 @@ function App() {
                             }}
                             className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
                           >
-                            PARTNER
+                            Partner
                           </button>
                         </div>
                       </div>
@@ -195,7 +195,7 @@ function App() {
                             }}
                             className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
                           >
-                            CULTURE
+                            Why ZiNRAi
                           </button>
                         </div>
                       </div>
@@ -210,7 +210,7 @@ function App() {
                             }}
                             className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
                           >
-                            INSIGHTS
+                            Insights
                           </button>
                         </div>
                       </div>
@@ -225,7 +225,7 @@ function App() {
                             }}
                             className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
                           >
-                            LEADERSHIP
+                            Leadership
                           </button>
                         </div>
                       </div>
@@ -240,7 +240,7 @@ function App() {
                             }}
                             className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
                           >
-                            ZiNRAi CARES
+                            ZiNRAi Cares
                           </button>
                         </div>
                       </div>
@@ -255,7 +255,7 @@ function App() {
                             }}
                             className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
                           >
-                            CONTACT
+                            Contact
                           </button>
                         </div>
                       </div>
@@ -280,7 +280,7 @@ function App() {
                           infoArrow.classList.toggle('rotate-180');
                         }
                       }}>
-                        <h2 className="text-xl font-light text-white/90">INFO CENTER</h2>
+                        <h2 className="text-xl font-light text-white/90">Info Center</h2>
                         <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
