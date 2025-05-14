@@ -163,9 +163,9 @@ function App() {
                     </button>
                   </div>
                   
-                  {/* Main menu content with numbered items - more compact layout */}
-                  <div className="flex-1 px-8 md:px-16 pt-8 max-w-3xl mx-auto">
-                    <nav className="space-y-6 md:space-y-8">
+                  {/* Main menu content with numbered items - moved to the left */}
+                  <div className="flex-1 px-8 md:px-16 pt-8">
+                    <nav className="space-y-6 md:space-y-8 max-w-xs">
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
@@ -272,9 +272,9 @@ function App() {
                       </div>
                     </nav>
                     
-                    {/* Large ZiNRAi watermark in background */}
-                    <div className="absolute inset-0 flex items-center justify-center z-[-1] opacity-5 pointer-events-none">
-                      <h1 className="text-[20vw] font-bold tracking-tighter">ZiNRAi</h1>
+                    {/* Large ZiNRAi watermark in background - adjusted position */}
+                    <div className="absolute inset-0 flex items-center z-[-1] opacity-5 pointer-events-none">
+                      <h1 className="text-[20vw] font-bold tracking-tighter ml-[25%]">ZiNRAi</h1>
                     </div>
                   </div>
                   
