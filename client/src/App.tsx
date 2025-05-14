@@ -125,14 +125,16 @@ function App() {
         <Toaster />
         {/* Larger header bar with menu */}
         <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[1000] flex items-center">
-          {/* Menu icon and dropdown */}
-          <div className="relative z-10" ref={menuRef}>
+          {/* Menu icon and dropdown - increased tap target */}
+          <div className="relative z-10 h-[32px] flex items-center" ref={menuRef}>
             <button 
-              className="ml-8 h-[32px] flex items-center justify-center cursor-pointer group relative"
+              className="ml-8 h-[32px] w-[40px] flex items-center justify-center cursor-pointer group relative"
               onClick={toggleMenu}
               aria-label="Toggle menu"
+              style={{ touchAction: 'manipulation' }}
             >
-              {/* Two-line hamburger menu */}
+              {/* Two-line hamburger menu with increased hit area */}
+              <div className="w-full h-full absolute top-0 left-0"></div>
               <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5' : '-translate-y-[2px] group-hover:bg-black'}`}></div>
               <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5' : 'translate-y-[2px] group-hover:bg-black'}`}></div>
             </button>
