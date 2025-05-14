@@ -55,6 +55,13 @@ export default function Checkout() {
                 <span className="font-medium">{subscriptionData.name || "Premium Package"}</span>
               </div>
               
+              {subscriptionData.trackName && (
+                <div className="flex justify-between">
+                  <span className="text-white/70">Selected Track</span>
+                  <span>{subscriptionData.trackName}</span>
+                </div>
+              )}
+              
               <div className="flex justify-between">
                 <span className="text-white/70">Billing Cycle</span>
                 <span>{subscriptionData.cycle || "Monthly"}</span>

@@ -6,6 +6,8 @@ export default function Subscribe() {
   const [pageLoaded, setPageLoaded] = useState(false);
   // State to track which subscription option is selected
   const [selectedSubscription, setSelectedSubscription] = useState<string | null>(null);
+  // State to track selected track for single subscription
+  const [selectedTrack, setSelectedTrack] = useState<string | null>(null);
   // State to track if independent rep option is selected
   const [independentRep, setIndependentRep] = useState(false);
   // Import navigate for navigation
@@ -28,6 +30,16 @@ export default function Subscribe() {
   // Handle subscription selection
   const handleSubscriptionSelect = (type: string) => {
     setSelectedSubscription(type);
+    
+    // If switching away from single track, clear the track selection
+    if (type !== 'single') {
+      setSelectedTrack(null);
+    } else {
+      // If no track is selected yet, default to forex
+      if (!selectedTrack) {
+        setSelectedTrack('forex');
+      }
+    }
   };
   
   // Toggle independent rep add-on
@@ -113,27 +125,70 @@ export default function Subscribe() {
                 $185<span className="text-white/60 text-sm font-normal ml-1">/month</span>
               </div>
               
-              <p className="text-white/80 text-sm mb-4">Choose one education pack:</p>
+              <p className="text-white/80 text-sm mb-4">
+                Choose one education pack: {selectedSubscription === 'single' && !selectedTrack && (
+                  <span className="text-red-400 ml-1">(selection required)</span>
+                )}
+              </p>
               
               <ul className="space-y-3 mb-6 flex-grow">
-                <li className="text-white/70 text-sm flex items-start">
-                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                <li 
+                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
+                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('forex')}
+                >
+                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'forex' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
+                    {selectedTrack === 'forex' && selectedSubscription === 'single' && (
+                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                    )}
+                  </span>
                   <span>Foreign Exchange (Forex)</span>
                 </li>
-                <li className="text-white/70 text-sm flex items-start">
-                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                
+                <li 
+                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
+                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('stocks')}
+                >
+                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'stocks' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
+                    {selectedTrack === 'stocks' && selectedSubscription === 'single' && (
+                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                    )}
+                  </span>
                   <span>Stocks & Options</span>
                 </li>
-                <li className="text-white/70 text-sm flex items-start">
-                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                
+                <li 
+                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
+                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('crypto')}
+                >
+                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'crypto' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
+                    {selectedTrack === 'crypto' && selectedSubscription === 'single' && (
+                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                    )}
+                  </span>
                   <span>Cryptocurrency</span>
                 </li>
-                <li className="text-white/70 text-sm flex items-start">
-                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                
+                <li 
+                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
+                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('ecommerce')}
+                >
+                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'ecommerce' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
+                    {selectedTrack === 'ecommerce' && selectedSubscription === 'single' && (
+                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                    )}
+                  </span>
                   <span>E-Commerce</span>
                 </li>
-                <li className="text-white/70 text-sm flex items-start">
-                  <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                
+                <li 
+                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
+                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('marketing')}
+                >
+                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'marketing' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
+                    {selectedTrack === 'marketing' && selectedSubscription === 'single' && (
+                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                    )}
+                  </span>
                   <span>Digital Marketing</span>
                 </li>
               </ul>
@@ -464,7 +519,12 @@ export default function Subscribe() {
                     {/* Next Button */}
                     <button 
                       type="button"
-                      className="mt-6 w-full bg-black border-2 border-white text-white py-4 px-8 transition-all duration-300 focus:outline-none hover:bg-white hover:text-black text-base font-medium tracking-wide uppercase"
+                      disabled={selectedSubscription === 'single' && !selectedTrack}
+                      className={`mt-6 w-full bg-black border-2 ${
+                        selectedSubscription === 'single' && !selectedTrack 
+                          ? 'border-white/30 text-white/50 cursor-not-allowed' 
+                          : 'border-white text-white hover:bg-white hover:text-black'
+                      } py-4 px-8 transition-all duration-300 focus:outline-none text-base font-medium tracking-wide uppercase`}
                       onClick={() => {
                         // Save form data to localStorage for the checkout page
                         const customerData = {
@@ -485,7 +545,15 @@ export default function Subscribe() {
                                 selectedSubscription === 'all' ? 'All Access' : 
                                 independentRep ? 'Independent Rep' : 'Custom Package',
                           cycle: "Monthly",
-                          price: calculateTotal()
+                          price: calculateTotal(),
+                          // Include the selected track information
+                          track: selectedSubscription === 'single' ? selectedTrack : null,
+                          trackName: selectedSubscription === 'single' ? 
+                            (selectedTrack === 'forex' ? 'Foreign Exchange (Forex)' : 
+                             selectedTrack === 'stocks' ? 'Stocks & Options' :
+                             selectedTrack === 'crypto' ? 'Cryptocurrency' :
+                             selectedTrack === 'ecommerce' ? 'E-Commerce' :
+                             selectedTrack === 'marketing' ? 'Digital Marketing' : null) : null
                         };
                         
                         // Store data in localStorage
