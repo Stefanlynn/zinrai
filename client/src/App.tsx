@@ -122,7 +122,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         {/* Larger header bar with menu */}
-        <div className="fixed top-0 left-0 right-0 h-[36px] bg-[#f7f5f0] z-[1000] flex items-center shadow-sm">
+        <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[1000] flex items-center">
           {/* Menu icon and dropdown */}
           <div className="relative z-10" ref={menuRef}>
             <button 
@@ -130,23 +130,13 @@ function App() {
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
-              {/* Two parallel lines for menu icon */}
-              {menuOpen ? (
-                // X shape when menu is open
-                <>
-                  <div className="absolute w-5 h-[2.5px] bg-black top-1/2 left-0 transform -translate-y-1/2 rotate-45"></div>
-                  <div className="absolute w-5 h-[2.5px] bg-black top-1/2 left-0 transform -translate-y-1/2 -rotate-45"></div>
-                </>
-              ) : (
-                // Two parallel lines when menu is closed
-                <div className="flex flex-col justify-center items-center">
-                  <div className="w-5 h-[2.5px] bg-black mb-[4px]"></div>
-                  <div className="w-5 h-[2.5px] bg-black"></div>
-                </div>
-              )}
+              {/* Asymmetric hamburger menu with offset top line */}
+              <div className={`w-4 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5' : '-translate-y-1 -translate-x-[3px] group-hover:bg-black'}`}></div>
+              <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-black'}`}></div>
+              <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5' : 'translate-y-1 group-hover:bg-black'}`}></div>
             </button>
             
-            {/* Stylish Dropdown menu with new navigation */}
+            {/* Redesigned Dropdown menu */}
             {menuOpen && (
               <div className="fixed inset-0 bg-black/95 z-[1001] flex items-center justify-center transition-all duration-300 animate-fade-in overflow-y-auto">
                 {/* Close button for menu - positioned at the absolute top right */}
@@ -165,128 +155,75 @@ function App() {
                   </div>
                 </button>
                 
-                {/* Main navigation links with a sleek design */}
-                <div className="w-full max-w-xl p-10 my-8">
-                  <div className="flex flex-col items-center justify-center">
-                    {/* Dynamic line above menu */}
-                    <div className="w-12 h-[2px] bg-white/30 mb-10 opacity-0 animate-fade-in animate-delay-100"></div>
+                {/* Minimalist menu layout */}
+                <div className="w-full max-w-4xl p-10 my-8">
+                  {/* Menu content with animations */}
+                  <div className="text-white/90 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                    {/* Terms & Policies */}
+                    <div className="opacity-0 animate-slide-up animate-delay-100">
+                      <h3 className="text-white font-extralight mb-4 text-lg tracking-wide border-b border-white/10 pb-2">Terms & Policies</h3>
+                      <div className="space-y-3 mt-4">
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          IBO Terms
+                        </div>
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Member Terms
+                        </div>
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Policies & Procedures
+                        </div>
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Refund Policy
+                        </div>
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Income Disclosure
+                        </div>
+                      </div>
+                    </div>
                     
-                    {/* Menu items - sleek, modern design */}
-                    <nav className="text-center w-full">
-                      <ul className="space-y-6 relative">
-                        {/* Products */}
-                        <li className="opacity-0 animate-fade-in animate-delay-100">
-                          <a 
-                            href="/product" 
-                            className="group flex flex-col items-center"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setMenuOpen(false);
-                              setLocation('/product');
-                            }}
-                          >
-                            <span className="text-[var(--zinrai-red)] text-xs tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-5">01</span>
-                            <span className="text-2xl sm:text-3xl md:text-4xl text-white/80 hover:text-white transition-all duration-300 tracking-widest font-thin">PRODUCTS</span>
-                            <div className="w-0 group-hover:w-full h-[1px] bg-white/40 mt-1 transition-all duration-300"></div>
-                          </a>
-                        </li>
-                        
-                        {/* Partner */}
-                        <li className="opacity-0 animate-fade-in animate-delay-150">
-                          <a 
-                            href="/partner" 
-                            className="group flex flex-col items-center"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setMenuOpen(false);
-                              setLocation('/partner');
-                            }}
-                          >
-                            <span className="text-[var(--zinrai-red)] text-xs tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-5">02</span>
-                            <span className="text-2xl sm:text-3xl md:text-4xl text-white/80 hover:text-white transition-all duration-300 tracking-widest font-thin">PARTNER</span>
-                            <div className="w-0 group-hover:w-full h-[1px] bg-white/40 mt-1 transition-all duration-300"></div>
-                          </a>
-                        </li>
-                        
-                        {/* Insights */}
-                        <li className="opacity-0 animate-fade-in animate-delay-200">
-                          <a 
-                            href="/insights" 
-                            className="group flex flex-col items-center"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setMenuOpen(false);
-                              setLocation('/insights');
-                            }}
-                          >
-                            <span className="text-[var(--zinrai-red)] text-xs tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-5">03</span>
-                            <span className="text-2xl sm:text-3xl md:text-4xl text-white/80 hover:text-white transition-all duration-300 tracking-widest font-thin">INSIGHTS</span>
-                            <div className="w-0 group-hover:w-full h-[1px] bg-white/40 mt-1 transition-all duration-300"></div>
-                          </a>
-                        </li>
-                        
-                        {/* Leadership */}
-                        <li className="opacity-0 animate-fade-in animate-delay-250">
-                          <a 
-                            href="/leadership" 
-                            className="group flex flex-col items-center"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setMenuOpen(false);
-                              setLocation('/leadership');
-                            }}
-                          >
-                            <span className="text-[var(--zinrai-red)] text-xs tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-5">04</span>
-                            <span className="text-2xl sm:text-3xl md:text-4xl text-white/80 hover:text-white transition-all duration-300 tracking-widest font-thin">LEADERSHIP</span>
-                            <div className="w-0 group-hover:w-full h-[1px] bg-white/40 mt-1 transition-all duration-300"></div>
-                          </a>
-                        </li>
-                        
-                        {/* Why ZiNRAi (Culture) */}
-                        <li className="opacity-0 animate-fade-in animate-delay-300">
-                          <a 
-                            href="/culture" 
-                            className="group flex flex-col items-center"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setMenuOpen(false);
-                              setLocation('/culture');
-                            }}
-                          >
-                            <span className="text-[var(--zinrai-red)] text-xs tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-5">05</span>
-                            <span className="text-2xl sm:text-3xl md:text-4xl text-white/80 hover:text-white transition-all duration-300 tracking-widest font-thin">WHY ZiNRAi</span>
-                            <div className="w-0 group-hover:w-full h-[1px] bg-white/40 mt-1 transition-all duration-300"></div>
-                          </a>
-                        </li>
-                        
-                        {/* ZiNRAi CARES */}
-                        <li className="opacity-0 animate-fade-in animate-delay-350">
-                          <a 
-                            href="/zinrai-cares" 
-                            className="group flex flex-col items-center"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setMenuOpen(false);
-                              setLocation('/zinrai-cares');
-                            }}
-                          >
-                            <span className="text-[var(--zinrai-red)] text-xs tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-5">06</span>
-                            <span className="text-2xl sm:text-3xl md:text-4xl text-white/80 hover:text-white transition-all duration-300 tracking-widest font-thin">ZiNRAi CARES</span>
-                            <div className="w-0 group-hover:w-full h-[1px] bg-white/40 mt-1 transition-all duration-300"></div>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
+                    {/* Legal & Regional Notices */}
+                    <div className="opacity-0 animate-slide-up animate-delay-150">
+                      <h3 className="text-white font-extralight mb-4 text-lg tracking-wide border-b border-white/10 pb-2">Legal & Regional Notices</h3>
+                      <div className="space-y-3 mt-4">
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Japan Information
+                        </div>
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Global Compliance Notice
+                        </div>
+                      </div>
+                    </div>
                     
-                    {/* Dynamic line below menu */}
-                    <div className="w-12 h-[2px] bg-white/30 mt-10 opacity-0 animate-fade-in animate-delay-400"></div>
+                    {/* Privacy & Usage */}
+                    <div className="opacity-0 animate-slide-up animate-delay-200">
+                      <h3 className="text-white font-extralight mb-4 text-lg tracking-wide border-b border-white/10 pb-2">Privacy & Usage</h3>
+                      <div className="space-y-3 mt-4">
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Privacy Policy
+                        </div>
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Terms of Use
+                        </div>
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Employee/Applicant Privacy Notice
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Support */}
+                    <div className="opacity-0 animate-slide-up animate-delay-250">
+                      <h3 className="text-white font-extralight mb-4 text-lg tracking-wide border-b border-white/10 pb-2">Support</h3>
+                      <div className="space-y-3 mt-4">
+                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
+                          Contact Us
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
-                {/* Diagonal accent line */}
-                <div className="absolute left-0 right-0 top-0 bottom-0 opacity-20 pointer-events-none overflow-hidden">
-                  <div className="absolute w-[1px] h-[200%] top-0 left-[35%] transform -translate-x-1/2 -rotate-45 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
-                </div>
+                {/* Minimal design elements - just a single subtle line */}
+                <div className="absolute left-[15%] right-[15%] top-1/2 h-[1px]" style={{background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.07), transparent)'}}></div>
               </div>
             )}
           </div>

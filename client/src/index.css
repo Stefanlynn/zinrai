@@ -312,38 +312,85 @@ body.home-is-active {
   
   /* Original animation styles restored */
   
-  /* Matching exactly zinrai.netlify.app's flickering animation */
-  @keyframes flicker {
-    0% { opacity: 0.85; }
-    10% { opacity: 0.25; }
-    20% { opacity: 0.75; }
-    30% { opacity: 0.15; }
-    40% { opacity: 0.95; }
-    50% { opacity: 0.35; }
-    60% { opacity: 0.65; }
-    70% { opacity: 0.05; }
-    80% { opacity: 0.85; }
-    90% { opacity: 0.25; }
-    100% { opacity: 0.75; }
+  /* Flickering image animation - more rapid for faster effect */
+  @keyframes imageFlicker {
+    0% { opacity: 0; }
+    3% { opacity: 0.5; }
+    6% { opacity: 0.1; }
+    9% { opacity: 0.8; }
+    12% { opacity: 0.4; }
+    15% { opacity: 0.9; }
+    18% { opacity: 0.3; }
+    21% { opacity: 0.7; }
+    24% { opacity: 0.2; }
+    27% { opacity: 0.6; }
+    30% { opacity: 0.9; }
+    33% { opacity: 0.4; }
+    36% { opacity: 0.8; }
+    39% { opacity: 0.5; }
+    42% { opacity: 0.95; }
+    45% { opacity: 0.3; }
+    48% { opacity: 0.7; }
+    51% { opacity: 0.2; }
+    54% { opacity: 1.0; }
+    57% { opacity: 0.6; }
+    60% { opacity: 0.3; }
+    63% { opacity: 0.9; }
+    66% { opacity: 0.5; }
+    69% { opacity: 0.1; }
+    72% { opacity: 0.8; }
+    75% { opacity: 0.4; }
+    78% { opacity: 0.7; }
+    81% { opacity: 0.3; }
+    84% { opacity: 0.6; }
+    87% { opacity: 0.2; }
+    90% { opacity: 0.5; }
+    93% { opacity: 0.3; }
+    96% { opacity: 0.4; }
+    100% { opacity: 0; }
   }
   
-  @-webkit-keyframes flicker {
-    0% { opacity: 0.85; }
-    10% { opacity: 0.25; }
-    20% { opacity: 0.75; }
-    30% { opacity: 0.15; }
-    40% { opacity: 0.95; }
-    50% { opacity: 0.35; }
-    60% { opacity: 0.65; }
-    70% { opacity: 0.05; }
-    80% { opacity: 0.85; }
-    90% { opacity: 0.25; }
-    100% { opacity: 0.75; }
+  /* Ensure webkit keyframes for Safari */
+  @-webkit-keyframes imageFlicker {
+    0% { opacity: 0; }
+    3% { opacity: 0.5; }
+    6% { opacity: 0.1; }
+    9% { opacity: 0.8; }
+    12% { opacity: 0.4; }
+    15% { opacity: 0.9; }
+    18% { opacity: 0.3; }
+    21% { opacity: 0.7; }
+    24% { opacity: 0.2; }
+    27% { opacity: 0.6; }
+    30% { opacity: 0.9; }
+    33% { opacity: 0.4; }
+    36% { opacity: 0.8; }
+    39% { opacity: 0.5; }
+    42% { opacity: 0.95; }
+    45% { opacity: 0.3; }
+    48% { opacity: 0.7; }
+    51% { opacity: 0.2; }
+    54% { opacity: 1.0; }
+    57% { opacity: 0.6; }
+    60% { opacity: 0.3; }
+    63% { opacity: 0.9; }
+    66% { opacity: 0.5; }
+    69% { opacity: 0.1; }
+    72% { opacity: 0.8; }
+    75% { opacity: 0.4; }
+    78% { opacity: 0.7; }
+    81% { opacity: 0.3; }
+    84% { opacity: 0.6; }
+    87% { opacity: 0.2; }
+    90% { opacity: 0.5; }
+    93% { opacity: 0.3; }
+    96% { opacity: 0.4; }
+    100% { opacity: 0; }
   }
   
   .animate-flicker {
-    -webkit-animation: flicker 0.2s ease-in-out infinite;
-    animation: flicker 0.2s ease-in-out infinite;
+    -webkit-animation: imageFlicker 3s ease-in-out;
+    animation: imageFlicker 3s ease-in-out;
     /* Ensure hardware acceleration for smoother animations */
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -353,7 +400,7 @@ body.home-is-active {
     will-change: opacity; /* Hint to browser about what will animate */
   }
   
-  /* Flicker box styles - updated to ensure text is visible */
+  /* Flicker box styles */
   .flicker-box {
     width: 50% !important;
     height: 25vh !important;
@@ -363,7 +410,6 @@ body.home-is-active {
     box-sizing: border-box !important;
     display: flex !important;
     align-items: center !important;
-    pointer-events: none !important; /* Ensure clicks pass through to elements below */
     justify-content: center !important;
     position: absolute !important;
     /* Fix for iOS Safari */
@@ -387,12 +433,11 @@ body.home-is-active {
     z-index: 0 !important;
   }
   
-  /* Flicker image styles - new implementation */
+  /* Flicker image styles */
   .flicker-image {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center !important; /* Center image in box */
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -402,41 +447,11 @@ body.home-is-active {
     margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
-    transition: none !important; /* No transitions for instant movement */
     /* Ensure proper containing on mobile */
     max-width: 100% !important;
     min-height: 100% !important;
     pointer-events: none !important; /* Prevent images from blocking clicks */
     z-index: 0 !important;
-  }
-  
-  /* Exact timing classes from zinrai.netlify.app */
-  .flicker-timing-1 {
-    animation: flicker 0.12s ease-in-out infinite !important;
-    animation-delay: 0s !important;
-    -webkit-animation: flicker 0.12s ease-in-out infinite !important;
-    -webkit-animation-delay: 0s !important;
-  }
-  
-  .flicker-timing-2 {
-    animation: flicker 0.08s ease-in-out infinite !important;
-    animation-delay: 0.03s !important;
-    -webkit-animation: flicker 0.08s ease-in-out infinite !important;
-    -webkit-animation-delay: 0.03s !important;
-  }
-  
-  .flicker-timing-3 {
-    animation: flicker 0.1s ease-in-out infinite !important;
-    animation-delay: 0.05s !important;
-    -webkit-animation: flicker 0.1s ease-in-out infinite !important;
-    -webkit-animation-delay: 0.05s !important;
-  }
-  
-  .flicker-timing-4 {
-    animation: flicker 0.15s ease-in-out infinite !important;
-    animation-delay: 0.02s !important;
-    -webkit-animation: flicker 0.15s ease-in-out infinite !important;
-    -webkit-animation-delay: 0.02s !important;
   }
   
   /* Mobile-specific fixes */
@@ -469,14 +484,13 @@ body.home-is-active {
     }
     
     .flicker-image {
-      /* Force contain on mobile - simplified implementation */
+      /* Force contain on mobile */
       width: 100% !important;
       height: 100% !important;
       max-width: 100% !important;
       max-height: 100% !important;
-      object-fit: cover !important; 
+      object-fit: cover !important;
       object-position: center center !important;
-      transition: none !important; /* No transitions for instant movement */
       position: absolute !important;
       top: 0 !important;
       left: 0 !important;
@@ -664,103 +678,6 @@ html, body {
   text-shadow: 0 0 60px rgba(255, 255, 255, 0.8);
 }
 
-/* Logo fade animation that alternates between the logo and text */
-@keyframes logoFade {
-  0% {
-    opacity: 1; /* Logo fully visible */
-    transform: scale(1);
-    filter: blur(0px);
-  }
-  28% {
-    opacity: 1; /* Logo stays visible */
-    transform: scale(1);
-    filter: blur(0px);
-  }
-  30% { 
-    opacity: 0.9; /* Start fade out */
-    transform: scale(1.01);
-    filter: blur(0px);
-  }
-  35% { 
-    opacity: 0.5; /* Smoother transition out */
-    transform: scale(1.02);
-    filter: blur(1px);
-  }
-  40% {
-    opacity: 0; /* Logo fades out */
-    transform: scale(1.05);
-    filter: blur(2px);
-  }
-  88% {
-    opacity: 0; /* Logo stays invisible */
-    transform: scale(0.95);
-    filter: blur(2px);
-  }
-  90% {
-    opacity: 0.1; /* Start fade in */
-    transform: scale(0.96);
-    filter: blur(2px);
-  }
-  95% {
-    opacity: 0.7; /* Smoother transition in */
-    transform: scale(0.98);
-    filter: blur(1px);
-  }
-  100% {
-    opacity: 1; /* Logo fades back in */
-    transform: scale(1);
-    filter: blur(0px);
-  }
-}
-
-@keyframes textFade {
-  0% {
-    opacity: 0; /* Text invisible when logo is visible */
-    transform: scale(0.95);
-    filter: blur(2px);
-  }
-  28% {
-    opacity: 0; /* Text stays invisible */
-    transform: scale(0.95);
-    filter: blur(2px);
-  }
-  30% {
-    opacity: 0.1; /* Start fade in */
-    transform: scale(0.96); 
-    filter: blur(2px);
-  }
-  35% {
-    opacity: 0.7; /* Smoother transition in */
-    transform: scale(0.98);
-    filter: blur(1px);
-  }
-  40% {
-    opacity: 1; /* Text fades in as logo fades out */
-    transform: scale(1);
-    filter: blur(0px);
-  }
-  88% {
-    opacity: 1; /* Text stays visible */
-    transform: scale(1);
-    filter: blur(0px);
-  }
-  90% {
-    opacity: 0.9; /* Start fade out */
-    transform: scale(1.01);
-    filter: blur(0px);
-  }
-  95% {
-    opacity: 0.5; /* Smoother transition out */
-    transform: scale(1.02);
-    filter: blur(1px);
-  }
-  100% {
-    opacity: 0; /* Text fades out as logo returns */
-    transform: scale(1.05);
-    filter: blur(2px);
-  }
-}
-
 @keyframes logoTextFloat {
   0%, 100% {
     transform: translateY(0);
@@ -769,46 +686,6 @@ html, body {
   50% {
     transform: translateY(-10px);
     opacity: 1;
-  }
-}
-
-/* ZiNRAi logo container styling */
-.zinrai-logo-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ZiNRAi text styling */
-.zinrai-logo-text {
-  position: relative;
-  z-index: 2;
-}
-
-.zinrai-logo-container::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-  z-index: -1;
-  animation: logoGlow 16s infinite;
-  animation-delay: 1.0s;
-}
-
-@keyframes logoGlow {
-  0%, 28%, 40%, 88%, 100% {
-    opacity: 0;
-  }
-  33%, 93% {
-    opacity: 0.4;
   }
 }
 
