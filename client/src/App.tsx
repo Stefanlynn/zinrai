@@ -76,7 +76,7 @@ function App() {
   const [headerTextIndex, setHeaderTextIndex] = useState(0);
   const headerTexts = [
     { 
-      text: "$1 per subscription supports ZiNRAi Cares",
+      text: "$1 per subscription supports",
       showHeart: true,
       showLink: true
     },
@@ -366,7 +366,7 @@ function App() {
                     {header.showLink && (
                       <a 
                         href="#" 
-                        className="font-medium text-black/90 hover:text-[var(--zinrai-red)] transition-colors"
+                        className="font-bold text-black hover:text-[var(--zinrai-red)] transition-colors"
                         onClick={(e) => {
                           e.preventDefault();
                           console.log("Opening ZiNRAi Cares modal");
