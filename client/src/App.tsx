@@ -76,7 +76,7 @@ function App() {
   const [headerTextIndex, setHeaderTextIndex] = useState(0);
   const headerTexts = [
     { 
-      text: "$1 of every subscription fuels global impact through",
+      text: "$1 per subscription supports ZiNRAi Cares",
       showHeart: true,
       showLink: true
     },
