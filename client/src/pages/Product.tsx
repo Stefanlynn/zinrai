@@ -215,8 +215,8 @@ export default function Product() {
           ))}
         </div>
         
-        {/* Action Buttons - Bottom - Styled exactly like Partner page */}
-        <div className="absolute bottom-[5vh] left-0 w-full p-6 md:p-0 md:bottom-[15vh] md:left-auto md:right-[10vw] md:w-auto flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center justify-center md:justify-end">
+        {/* Action Buttons - Moved higher for better mobile visibility */}
+        <div className="absolute bottom-[15vh] left-0 w-full p-6 md:p-0 md:bottom-[15vh] md:left-auto md:right-[10vw] md:w-auto flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center justify-center md:justify-end">
           {/* START NOW button */}
           <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300 bg-white/5 hover:bg-white/10">
             <button 
