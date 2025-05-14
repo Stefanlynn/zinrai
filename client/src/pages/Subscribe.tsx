@@ -465,6 +465,35 @@ export default function Subscribe() {
                     <button 
                       type="button"
                       className="mt-6 w-full bg-black border-2 border-white text-white py-4 px-8 transition-all duration-300 focus:outline-none hover:bg-white hover:text-black text-base font-medium tracking-wide uppercase"
+                      onClick={() => {
+                        // Save form data to localStorage for the checkout page
+                        const customerData = {
+                          firstName: (document.getElementById('firstName') as HTMLInputElement)?.value || '',
+                          lastName: (document.getElementById('lastName') as HTMLInputElement)?.value || '',
+                          email: (document.getElementById('email') as HTMLInputElement)?.value || '',
+                          country: (document.getElementById('country') as HTMLSelectElement)?.value || '',
+                          address1: (document.getElementById('address1') as HTMLInputElement)?.value || '',
+                          address2: (document.getElementById('address2') as HTMLInputElement)?.value || '',
+                          city: (document.getElementById('city') as HTMLInputElement)?.value || '',
+                          state: (document.getElementById('state') as HTMLInputElement)?.value || '',
+                          postal: (document.getElementById('postal') as HTMLInputElement)?.value || '',
+                        };
+                        
+                        // Save subscription data
+                        const subscriptionData = {
+                          name: selectedSubscription,
+                          cycle: "Monthly",
+                          price: selectedSubscription === "Premium" ? "119.99" : 
+                                 selectedSubscription === "Basic" ? "79.99" : "49.99"
+                        };
+                        
+                        // Store data in localStorage
+                        localStorage.setItem('customerData', JSON.stringify(customerData));
+                        localStorage.setItem('subscriptionData', JSON.stringify(subscriptionData));
+                        
+                        // Navigate to checkout
+                        navigate('/checkout');
+                      }}
                     >
                       Next
                     </button>

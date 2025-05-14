@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 
 export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState<"card" | "crypto">("card");
-  const [, setLocation] = useLocation();
+  const [, navigate] = useLocation();
   
   // Get subscription details from localStorage (would typically come from state or context in a real app)
   const subscriptionData = JSON.parse(localStorage.getItem("subscriptionData") || "{}");
@@ -206,7 +206,7 @@ export default function Checkout() {
                 onClick={() => {
                   // In a real app, this would process the payment
                   alert("Thank you for your payment! Your subscription has been activated.");
-                  setLocation("/profile");
+                  navigate("/profile");
                 }}
               >
                 {paymentMethod === "card" ? "Pay Now" : "I've Sent Payment"}
@@ -214,7 +214,7 @@ export default function Checkout() {
               
               <button 
                 className="w-full text-white/60 py-3 text-sm mt-4 hover:text-white/90 transition-colors"
-                onClick={() => setLocation("/subscribe")}
+                onClick={() => navigate("/subscribe")}
               >
                 Return to previous step
               </button>
