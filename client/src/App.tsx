@@ -162,88 +162,79 @@ function App() {
                     <div className="h-[1px] w-24 bg-white/20 mx-auto mt-3"></div>
                   </div>
                   
-                  {/* Main menu container with two-column layout on larger screens */}
-                  <div className="flex-grow flex flex-col md:flex-row">
-                    {/* Main navigation items */}
-                    <div className="md:w-1/2 space-y-8 px-10 md:px-16 flex flex-col justify-center mb-8 md:mb-0">
+                  {/* Main navigation with simpler vertical layout */}
+                  <div className="flex-grow flex justify-center">
+                    <div className="text-center flex flex-col space-y-8 py-8">
                       <a 
                         href="/product" 
-                        className="group text-white/80 text-xl md:text-2xl hover:text-white cursor-pointer transition-colors relative pl-4 overflow-hidden"
+                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
                         onClick={(e) => {
                           e.preventDefault();
                           setLocation('/product');
                           toggleMenu();
                         }}
                       >
-                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-white group-hover:h-4 transition-all duration-300 ease-out"></span>
-                        <span className="relative group-hover:translate-x-1 transition-transform duration-300">Products</span>
+                        Products
                       </a>
                       
                       <a 
                         href="/partner" 
-                        className="group text-white/80 text-xl md:text-2xl hover:text-white cursor-pointer transition-colors relative pl-4 overflow-hidden"
+                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
                         onClick={(e) => {
                           e.preventDefault();
                           setLocation('/partner');
                           toggleMenu();
                         }}
                       >
-                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-white group-hover:h-4 transition-all duration-300 ease-out"></span>
-                        <span className="relative group-hover:translate-x-1 transition-transform duration-300">Partner</span>
+                        Partner
                       </a>
                       
                       <a 
                         href="/culture" 
-                        className="group text-white/80 text-xl md:text-2xl hover:text-white cursor-pointer transition-colors relative pl-4 overflow-hidden"
+                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
                         onClick={(e) => {
                           e.preventDefault();
                           setLocation('/culture');
                           toggleMenu();
                         }}
                       >
-                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-white group-hover:h-4 transition-all duration-300 ease-out"></span>
-                        <span className="relative group-hover:translate-x-1 transition-transform duration-300">Why ZiNRAi</span>
+                        Why ZiNRAi
                       </a>
                       
                       <a 
                         href="/leadership" 
-                        className="group text-white/80 text-xl md:text-2xl hover:text-white cursor-pointer transition-colors relative pl-4 overflow-hidden"
+                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
                         onClick={(e) => {
                           e.preventDefault();
                           setLocation('/leadership');
                           toggleMenu();
                         }}
                       >
-                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-white group-hover:h-4 transition-all duration-300 ease-out"></span>
-                        <span className="relative group-hover:translate-x-1 transition-transform duration-300">Leadership</span>
+                        Leadership
                       </a>
-                    </div>
-                    
-                    <div className="md:w-1/2 space-y-8 px-10 md:px-16 flex flex-col justify-center">
+                      
                       <a 
                         href="/insights" 
-                        className="group text-white/80 text-xl md:text-2xl hover:text-white cursor-pointer transition-colors relative pl-4 overflow-hidden"
+                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
                         onClick={(e) => {
                           e.preventDefault();
                           setLocation('/insights');
                           toggleMenu();
                         }}
                       >
-                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-white group-hover:h-4 transition-all duration-300 ease-out"></span>
-                        <span className="relative group-hover:translate-x-1 transition-transform duration-300">Insights</span>
+                        Insights
                       </a>
                       
                       <a 
                         href="/zinrai-cares" 
-                        className="group text-white/80 text-xl md:text-2xl hover:text-white cursor-pointer transition-colors relative pl-4 overflow-hidden"
+                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
                         onClick={(e) => {
                           e.preventDefault();
                           setLocation('/zinrai-cares');
                           toggleMenu();
                         }}
                       >
-                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-white group-hover:h-4 transition-all duration-300 ease-out"></span>
-                        <span className="relative group-hover:translate-x-1 transition-transform duration-300">ZiNRAi Cares</span>
+                        ZiNRAi Cares
                       </a>
                     </div>
                   </div>
