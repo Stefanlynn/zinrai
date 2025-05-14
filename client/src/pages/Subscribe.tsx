@@ -331,30 +331,18 @@ export default function Subscribe() {
                       />
                     </div>
                     
-                    {/* 3. Phone Field with Country Code */}
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="w-full sm:w-1/3">
-                        <label htmlFor="countryCode" className="block text-white/80 text-sm mb-2">
-                          Country Code
-                        </label>
-                        <input
-                          type="text"
-                          id="countryCode"
-                          className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                          placeholder="+1"
-                        />
-                      </div>
-                      <div className="w-full sm:w-2/3">
-                        <label htmlFor="phone" className="block text-white/80 text-sm mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                          placeholder="Phone number"
-                        />
-                      </div>
+                    {/* 3. Phone Field (with integrated country code) */}
+                    <div className="w-full">
+                      <label htmlFor="phone" className="block text-white/80 text-sm mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                        placeholder="+1 (123) 456-7890"
+                      />
+                      <p className="text-white/40 text-xs mt-1">Include country code (e.g., +1, +44, +81)</p>
                     </div>
                     
                     {/* 4. Country */}
