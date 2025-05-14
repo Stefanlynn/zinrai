@@ -353,7 +353,7 @@ body.home-is-active {
     will-change: opacity; /* Hint to browser about what will animate */
   }
   
-  /* Flicker box styles */
+  /* Flicker box styles - updated to ensure text is visible */
   .flicker-box {
     width: 50% !important;
     height: 25vh !important;
@@ -363,6 +363,7 @@ body.home-is-active {
     box-sizing: border-box !important;
     display: flex !important;
     align-items: center !important;
+    pointer-events: none !important; /* Ensure clicks pass through to elements below */
     justify-content: center !important;
     position: absolute !important;
     /* Fix for iOS Safari */

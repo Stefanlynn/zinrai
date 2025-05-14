@@ -224,7 +224,7 @@ export default function Home() {
       <div className="fixed inset-0 pt-8 flex flex-col">
         <div className="relative flex-1 w-full h-full">
           {/* Static grid lines with animation */}
-          <div className="grid grid-cols-2 grid-rows-4 h-full">
+          <div className="grid grid-cols-2 grid-rows-4 h-full pointer-events-none">
             {/* Horizontal lines */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10 animate-grid-line-horizontal"></div>
             <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-white/10 animate-grid-line-horizontal animate-delay-100"></div>
@@ -305,25 +305,27 @@ export default function Home() {
             );
           })}
           
-          {/* Bottom right - START NOW */}
+          {/* Bottom right - START NOW - Fixed to ensure visibility */}
           <div 
-            className="absolute bottom-0 right-0 w-1/2 h-1/4 flex items-center justify-center cursor-pointer z-20"
+            className="absolute bottom-0 right-0 w-1/2 h-1/4 flex items-center justify-center cursor-pointer z-50"
             onClick={() => handleNavigate('/subscribe')}
+            style={{ pointerEvents: 'auto' }}
           >
-            <div className="flex items-center gap-2 text-white text-xl font-light tracking-wide">
-              <span>START NOW</span>
-              <span className="text-2xl ml-1 transform rotate-[45deg]">→</span>
+            <div className="flex items-center gap-2 text-white text-2xl font-light tracking-wide">
+              <span style={{ textShadow: '0 0 5px rgba(0,0,0,0.7)' }}>START NOW</span>
+              <span className="text-3xl ml-1 transform rotate-[45deg]">→</span>
             </div>
           </div>
           
-          {/* Bottom left - WATCH NOW */}
+          {/* Bottom left - WATCH NOW - Fixed to ensure visibility */}
           <div 
-            className="absolute bottom-0 left-0 w-1/2 h-1/4 flex items-center justify-center cursor-pointer z-20"
+            className="absolute bottom-0 left-0 w-1/2 h-1/4 flex items-center justify-center cursor-pointer z-50"
             onClick={() => setVideoPopupOpen(true)}
+            style={{ pointerEvents: 'auto' }}
           >
-            <div className="flex items-center gap-2 text-white text-xl font-light tracking-wide">
-              <span>WATCH NOW</span>
-              <span className="text-xl ml-1 animate-bounce">↓</span>
+            <div className="flex items-center gap-2 text-white text-2xl font-light tracking-wide">
+              <span style={{ textShadow: '0 0 5px rgba(0,0,0,0.7)' }}>WATCH NOW</span>
+              <span className="text-2xl ml-1 animate-bounce">↓</span>
             </div>
           </div>
         </div>
