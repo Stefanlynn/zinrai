@@ -16,6 +16,7 @@ import ZiNRAiCares from "@/pages/ZiNRAiCares";
 import Profile from "@/pages/Profile";
 import Contact from "@/pages/Contact";
 import Subscribe from "@/pages/Subscribe";
+import Checkout from "@/pages/Checkout";
 import NotFound from "@/pages/not-found";
 
 // Component for pages that need the header
@@ -59,6 +60,7 @@ function Router() {
         {() => <PageWithHeader><Contact /></PageWithHeader>}
       </Route>
       <Route path="/subscribe" component={Subscribe} />
+      <Route path="/checkout" component={Checkout} />
       <Route>
         {() => <PageWithHeader><NotFound /></PageWithHeader>}
       </Route>
