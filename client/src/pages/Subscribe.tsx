@@ -288,32 +288,74 @@ export default function Subscribe() {
               <div className="bg-black border border-white/20 p-8">
                 <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Payment Details</h2>
                 
-                {/* Form Placeholder with clear developer instruction */}
-                <div className="bg-white/5 p-8 flex flex-col items-center justify-center border border-dashed border-white/30 min-h-[300px]">
-                  <h3 className="text-white font-medium text-lg mb-4">INSERT CUSTOM FORM HERE</h3>
-                  <p className="text-white/70 text-center mb-6 max-w-md">
-                    Developer: This area is reserved for the payment form integration with Stripe or other payment processor. 
-                    Include fields for customer information and payment details.
-                  </p>
+                {/* Customer Information Form */}
+                <div className="p-0">
+                  <h3 className="text-white font-medium text-base mb-6">Customer Information</h3>
                   
-                  <div className="flex flex-col items-center space-y-4 w-full max-w-xs">
-                    <div className="w-full h-8 bg-white/10 rounded"></div>
-                    <div className="w-full h-8 bg-white/10 rounded"></div>
-                    <div className="w-full h-8 bg-white/10 rounded"></div>
-                    <div className="w-full h-12 bg-white/10 rounded"></div>
-                  </div>
+                  <form className="space-y-5 w-full">
+                    {/* Name Field */}
+                    <div className="w-full">
+                      <label htmlFor="name" className="block text-white/80 text-sm mb-2">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+                    
+                    {/* Email Field */}
+                    <div className="w-full">
+                      <label htmlFor="email" className="block text-white/80 text-sm mb-2">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                        placeholder="Enter your email address"
+                      />
+                    </div>
+                    
+                    {/* Phone Field */}
+                    <div className="w-full">
+                      <label htmlFor="phone" className="block text-white/80 text-sm mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
+                    
+                    {/* Address Field */}
+                    <div className="w-full">
+                      <label htmlFor="address" className="block text-white/80 text-sm mb-2">
+                        Address
+                      </label>
+                      <textarea
+                        id="address"
+                        rows={3}
+                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors resize-none"
+                        placeholder="Enter your full address"
+                      ></textarea>
+                    </div>
+                    
+                    {/* Next Button */}
+                    <button 
+                      type="button"
+                      className="mt-6 w-full bg-black border-2 border-white text-white py-4 px-8 transition-all duration-300 focus:outline-none hover:bg-white hover:text-black text-base font-medium tracking-wide uppercase"
+                    >
+                      Next
+                    </button>
+                  </form>
                 </div>
                 
-                <div className="mt-8">
-                  <button 
-                    className={`w-full bg-black border-2 border-white text-white py-4 px-8 transition-all duration-300 focus:outline-none hover:bg-white hover:text-black text-base font-medium tracking-wide ${
-                      (selectedSubscription || independentRep) ? 'opacity-100' : 'opacity-50 cursor-not-allowed'
-                    }`}
-                    disabled={!selectedSubscription && !independentRep}
-                  >
-                    COMPLETE SUBSCRIPTION
-                  </button>
-                </div>
+                {/* Note: Replaced the COMPLETE SUBSCRIPTION button with the Next button in the form above */}
               </div>
             </div>
           )}
