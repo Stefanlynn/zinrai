@@ -261,26 +261,34 @@ function App() {
                       </div>
                     </nav>
                     
-                    {/* Info Center Section */}
-                    <div className="mt-16 border-t border-white/20 pt-10">
-                      <div className="flex items-start mb-10">
-                        <div className="text-white/50 text-sm font-light mr-4">08</div>
-                        <div className="flex items-center gap-2 cursor-pointer" onClick={() => {
-                          const infoContent = document.getElementById('info-content');
-                          if (infoContent) {
-                            infoContent.classList.toggle('hidden');
-                          }
-                        }}>
-                          <h2 className="text-xl font-light text-white">INFO CENTER</h2>
-                          <svg className="w-4 h-4 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </div>
+                    {/* Large ZiNRAi watermark in background */}
+                    <div className="absolute inset-0 flex items-center justify-center z-[-1] opacity-5 pointer-events-none">
+                      <h1 className="text-[20vw] font-bold tracking-tighter">ZiNRAi</h1>
+                    </div>
+                  </div>
+                  
+                  {/* Info Center Section at bottom */}
+                  <div className="py-10 border-t border-white/20 mt-auto">
+                    <div className="max-w-screen-xl mx-auto px-16">
+                      <div className="flex justify-center items-center mb-6 cursor-pointer" onClick={() => {
+                        const infoContent = document.getElementById('info-content');
+                        if (infoContent) {
+                          infoContent.classList.toggle('hidden');
+                        }
+                        const infoArrow = document.getElementById('info-arrow');
+                        if (infoArrow) {
+                          infoArrow.classList.toggle('rotate-180');
+                        }
+                      }}>
+                        <h2 className="text-xl font-light text-white/90">INFO CENTER</h2>
+                        <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
                       </div>
                       
                       {/* Info Center Content - Hidden by default */}
-                      <div id="info-content" className="hidden ml-8 pl-4 pb-20">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                      <div id="info-content" className="hidden">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-8">
                           <div>
                             <h3 className="text-base font-medium mb-4 text-white/90">Terms & Policies</h3>
                             <ul className="space-y-3">
@@ -327,11 +335,6 @@ function App() {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    
-                    {/* Large ZiNRAi watermark in background */}
-                    <div className="absolute inset-0 flex items-center justify-center z-[-1] opacity-5 pointer-events-none">
-                      <h1 className="text-[20vw] font-bold tracking-tighter">ZiNRAi</h1>
                     </div>
                   </div>
                 </div>
