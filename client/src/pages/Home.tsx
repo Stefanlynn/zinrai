@@ -583,14 +583,10 @@ export default function Home() {
                 aria-label="Open video"
                 title={`Video trigger (${videoIcons[iconVariant].name} icon)`}
               >
-                {iconVariant === 0 ? (
-                  <SpinningPlus size={18} className="play-button-glow" />
-                ) : (
-                  React.createElement(videoIcons[iconVariant].icon, { 
-                    size: 18, 
-                    className: "play-button-glow"
-                  })
-                )}
+                {React.createElement(videoIcons[iconVariant === 0 ? 1 : iconVariant].icon, { 
+                  size: 18, 
+                  className: "play-button-glow"
+                })}
               </button>
             </div>
             <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap">
@@ -677,8 +673,8 @@ export default function Home() {
           );
         })}
         
-        {/* START NOW in the top left square - centered in the box - hidden when menu is open */}
-        <div className={`absolute top-[12.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
+        {/* START NOW text now in the bottom right box - hidden when menu is open */}
+        <div className={`absolute bottom-[12.5%] left-[75%] transform -translate-x-1/2 translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
           <div 
             className="start-now-text animate-content-glitch cursor-pointer"
             onClick={() => navigate('/subscribe')}
@@ -691,9 +687,12 @@ export default function Home() {
               padding: '10px' /* Added padding for larger touch target */
             }}
           >
-            <div className="border border-white/30 px-3 py-2 flex flex-col items-center hover:border-white/50 hover:bg-white/5 transition-all duration-300">
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase">Start</div>
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase">Now</div>
+            <div className="flex flex-col items-center">
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase mb-2">Start Now</div>
+              {/* Down arrow */}
+              <svg className="animate-bounce" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </div>
           </div>
         </div>
