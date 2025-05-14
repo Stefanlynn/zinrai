@@ -162,7 +162,7 @@ function App() {
                         toggleMenu();
                       }}
                     >
-                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Products</a>
+                      <a className="block text-white font-medium text-xl md:text-2xl cursor-pointer">Products</a>
                     </div>
                     
                     <div 
@@ -172,7 +172,7 @@ function App() {
                         toggleMenu();
                       }}
                     >
-                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Partner</a>
+                      <a className="block text-white font-medium text-xl md:text-2xl cursor-pointer">Partner</a>
                     </div>
                     
                     <div 
@@ -182,7 +182,7 @@ function App() {
                         toggleMenu();
                       }}
                     >
-                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Why ZiNRAi</a>
+                      <a className="block text-white font-medium text-xl md:text-2xl cursor-pointer">Why ZiNRAi</a>
                     </div>
                     
                     <div 
@@ -192,7 +192,7 @@ function App() {
                         toggleMenu();
                       }}
                     >
-                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Leadership</a>
+                      <a className="block text-white font-medium text-xl md:text-2xl cursor-pointer">Leadership</a>
                     </div>
                     
                     <div 
@@ -202,7 +202,7 @@ function App() {
                         toggleMenu();
                       }}
                     >
-                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Insights</a>
+                      <a className="block text-white font-medium text-xl md:text-2xl cursor-pointer">Insights</a>
                     </div>
                     
                     <div 
@@ -212,7 +212,7 @@ function App() {
                         toggleMenu();
                       }}
                     >
-                      <a className="block text-white text-xl md:text-2xl cursor-pointer">ZiNRAi Cares</a>
+                      <a className="block text-white font-medium text-xl md:text-2xl cursor-pointer">ZiNRAi Cares</a>
                     </div>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ function App() {
                 <div className="max-w-xl mx-auto mt-8 px-6 pb-12">
                   <div className="border-t border-white/10 pt-6">
                     <button 
-                      className="flex items-center justify-between w-full text-white/70 hover:text-white transition-colors mb-6"
+                      className="flex items-center justify-between w-full text-white hover:bg-white/10 transition-colors mb-6 p-3 rounded"
                       onClick={() => {
                         const infoContent = document.getElementById('info-content');
                         if (infoContent) {
@@ -239,40 +239,40 @@ function App() {
                       </svg>
                     </button>
                     
-                    {/* Info content - starts hidden */}
-                    <div id="info-content" className="hidden">
+                    {/* Info content - visible by default */}
+                    <div id="info-content" className="">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
                         {/* Terms & Policies */}
                         <div>
-                          <h3 className="text-white/90 text-sm font-medium mb-3 tracking-wide">Terms & Policies</h3>
+                          <h3 className="text-white text-sm font-medium mb-3 tracking-wide">Terms & Policies</h3>
                           <div className="space-y-2">
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">IBO Terms</a>
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Member Terms</a>
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Policies & Procedures</a>
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Refund Policy</a>
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Income Disclosure</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">IBO Terms</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Member Terms</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Policies & Procedures</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Refund Policy</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Income Disclosure</a>
                           </div>
                         </div>
                         
                         <div>
-                          <h3 className="text-white/90 text-sm font-medium mb-3 tracking-wide">Legal & Regional Notices</h3>
+                          <h3 className="text-white text-sm font-medium mb-3 tracking-wide">Legal & Regional Notices</h3>
                           <div className="space-y-2">
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Japan Information</a>
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Global Compliance Notice</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Japan Information</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Global Compliance Notice</a>
                           </div>
                           
-                          <h3 className="text-white/90 text-sm font-medium mt-6 mb-3 tracking-wide">Privacy & Usage</h3>
+                          <h3 className="text-white text-sm font-medium mt-6 mb-3 tracking-wide">Privacy & Usage</h3>
                           <div className="space-y-2">
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Privacy Policy</a>
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Terms of Use</a>
-                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Employee/Applicant Privacy Notice</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Privacy Policy</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Terms of Use</a>
+                            <a href="#" className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded">Employee/Applicant Privacy Notice</a>
                           </div>
                           
-                          <h3 className="text-white/90 text-sm font-medium mt-6 mb-3 tracking-wide">Support</h3>
+                          <h3 className="text-white text-sm font-medium mt-6 mb-3 tracking-wide">Support</h3>
                           <div className="space-y-2">
                             <a 
                               href="/contact" 
-                              className="text-white/60 text-sm hover:text-white transition-colors block py-1"
+                              className="text-white text-sm hover:bg-white/10 transition-colors block py-2 px-3 rounded"
                               onClick={(e) => {
                                 e.preventDefault();
                                 setLocation('/contact');
