@@ -312,21 +312,33 @@ body.home-is-active {
   
   /* Original animation styles restored */
   
-  /* Simple flickering animation that works reliably */
+  /* Matching exactly zinrai.netlify.app's flickering animation */
   @keyframes flicker {
-    0% { opacity: 0.8; }
-    25% { opacity: 0.4; }
-    50% { opacity: 0.6; }
-    75% { opacity: 0.2; }
-    100% { opacity: 0.8; }
+    0% { opacity: 0.85; }
+    10% { opacity: 0.25; }
+    20% { opacity: 0.75; }
+    30% { opacity: 0.15; }
+    40% { opacity: 0.95; }
+    50% { opacity: 0.35; }
+    60% { opacity: 0.65; }
+    70% { opacity: 0.05; }
+    80% { opacity: 0.85; }
+    90% { opacity: 0.25; }
+    100% { opacity: 0.75; }
   }
   
   @-webkit-keyframes flicker {
-    0% { opacity: 0.8; }
-    25% { opacity: 0.4; }
-    50% { opacity: 0.6; }
-    75% { opacity: 0.2; }
-    100% { opacity: 0.8; }
+    0% { opacity: 0.85; }
+    10% { opacity: 0.25; }
+    20% { opacity: 0.75; }
+    30% { opacity: 0.15; }
+    40% { opacity: 0.95; }
+    50% { opacity: 0.35; }
+    60% { opacity: 0.65; }
+    70% { opacity: 0.05; }
+    80% { opacity: 0.85; }
+    90% { opacity: 0.25; }
+    100% { opacity: 0.75; }
   }
   
   .animate-flicker {
@@ -397,25 +409,33 @@ body.home-is-active {
     z-index: 0 !important;
   }
   
-  /* Simplified flicker timing classes */
+  /* Exact timing classes from zinrai.netlify.app */
   .flicker-timing-1 {
-    animation: flicker 0.2s ease-in-out infinite !important;
+    animation: flicker 0.12s ease-in-out infinite !important;
     animation-delay: 0s !important;
+    -webkit-animation: flicker 0.12s ease-in-out infinite !important;
+    -webkit-animation-delay: 0s !important;
   }
   
   .flicker-timing-2 {
-    animation: flicker 0.15s ease-in-out infinite !important;
-    animation-delay: 0.05s !important;
+    animation: flicker 0.08s ease-in-out infinite !important;
+    animation-delay: 0.03s !important;
+    -webkit-animation: flicker 0.08s ease-in-out infinite !important;
+    -webkit-animation-delay: 0.03s !important;
   }
   
   .flicker-timing-3 {
-    animation: flicker 0.25s ease-in-out infinite !important;
-    animation-delay: 0.1s !important;
+    animation: flicker 0.1s ease-in-out infinite !important;
+    animation-delay: 0.05s !important;
+    -webkit-animation: flicker 0.1s ease-in-out infinite !important;
+    -webkit-animation-delay: 0.05s !important;
   }
   
   .flicker-timing-4 {
-    animation: flicker 0.18s ease-in-out infinite !important;
-    animation-delay: 0.07s !important;
+    animation: flicker 0.15s ease-in-out infinite !important;
+    animation-delay: 0.02s !important;
+    -webkit-animation: flicker 0.15s ease-in-out infinite !important;
+    -webkit-animation-delay: 0.02s !important;
   }
   
   /* Mobile-specific fixes */

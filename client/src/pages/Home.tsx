@@ -79,7 +79,7 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
   
-  // Effect for flickering images in grid boxes - completely rebuilt
+  // Effect for flickering images in grid boxes - matching zinrai.netlify.app exactly
   useEffect(() => {
     console.log("Starting flickering sequence"); // Debug log
     let timers: NodeJS.Timeout[] = [];
@@ -104,53 +104,48 @@ export default function Home() {
         return newArray;
       };
       
-      // Choose a random subset of boxes to start with
-      const selectedBoxes = shuffleArray(allBoxes).slice(0, 4);
+      // Initialize with 4 images in 4 random boxes
+      let boxSelection = shuffleArray(allBoxes).slice(0, 4);
+      let currentState: Record<number, string> = {};
       
-      // Assign each image to a unique box - no duplicates
-      let initialState: Record<number, string> = {};
+      // Assign each image to a unique box
       for (let i = 0; i < flickerImages.length; i++) {
-        initialState[selectedBoxes[i]] = flickerImages[i];
+        currentState[boxSelection[i]] = flickerImages[i];
       }
       
       // Set initial state
-      setActiveFlickerBoxes(initialState);
+      setActiveFlickerBoxes(currentState);
       
-      // Schedule many rapid movements between boxes
-      const totalMoves = 40; // Many moves during the flicker period
+      // Move all images together
+      // Using very fast interval for more rapid movement
+      const moveInterval = setInterval(() => {
+        if (!isFlickering) {
+          clearInterval(moveInterval);
+          return;
+        }
+        
+        // Get new random box positions
+        const newBoxes = shuffleArray(allBoxes).slice(0, 4);
+        const newState: Record<number, string> = {};
+        
+        // Move all images at once to new positions
+        for (let i = 0; i < flickerImages.length; i++) {
+          newState[newBoxes[i]] = flickerImages[i];
+        }
+        
+        // Update boxes all at once
+        setActiveFlickerBoxes(newState);
+      }, 100); // Extremely fast movement between boxes
       
-      for (let move = 0; move < totalMoves; move++) {
-        // Schedule movement with progressively increasing times
-        const moveTime = 100 + (move * 75);
-        
-        const moveTimer = setTimeout(() => {
-          if (!isFlickering) return; // Skip if we've ended the sequence
-          
-          // Create a new layout for this move
-          // Step 1: Select 4 random boxes from the 8 total
-          const newBoxSelection = shuffleArray(allBoxes).slice(0, 4);
-          
-          // Step 2: Assign the 4 images to the 4 boxes (1-to-1 mapping)
-          // This ensures no duplicate images are shown
-          const newState: Record<number, string> = {};
-          for (let i = 0; i < flickerImages.length; i++) {
-            newState[newBoxSelection[i]] = flickerImages[i];
-          }
-          
-          // Update the displayed boxes
-          setActiveFlickerBoxes(newState);
-          
-        }, moveTime);
-        
-        timers.push(moveTimer);
-      }
+      timers.push(moveInterval as any);
       
       // Generate a random duration between 3-5 seconds
       const flickerDuration = 3000 + Math.floor(Math.random() * 2000);
       
       // End the flicker sequence after the random duration
       const endTimer = setTimeout(() => {
-        // Clear all images immediately without transitions
+        // Clear all images immediately
+        clearInterval(moveInterval);
         setActiveFlickerBoxes({});
         setIsFlickering(false);
         
@@ -165,16 +160,22 @@ export default function Home() {
       timers.push(endTimer);
     };
     
-    // Start the first sequence after a short delay
+    // Start the first sequence almost immediately
     const initialTimer = setTimeout(() => {
       startFlickerSequence();
-    }, 1000);
+    }, 500);
     
     timers.push(initialTimer);
     
     // Clean up all timers on component unmount
     return () => {
-      timers.forEach(timer => clearTimeout(timer));
+      timers.forEach(timer => {
+        if (typeof timer === 'number') {
+          clearTimeout(timer);
+        } else {
+          clearInterval(timer);
+        }
+      });
     };
   }, []);
   
