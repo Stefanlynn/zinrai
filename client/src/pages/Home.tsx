@@ -451,10 +451,10 @@ export default function Home() {
           });
         });
         
-        // Schedule the next flicker sequence after 10 seconds of black screen
+        // Schedule the next flicker sequence after 7 seconds of black screen
         const nextSequenceTimer = setTimeout(() => {
           startFlickerSequence();
-        }, 10000);
+        }, 7000);
         
         timers.push(nextSequenceTimer);
       }, 3500);
