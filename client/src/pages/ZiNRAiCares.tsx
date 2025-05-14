@@ -162,16 +162,6 @@ export default function ZiNRAiCares() {
             ))}
           </div>
         </div>
-        
-        {/* CTA Button */}
-        <div className="text-center">
-          <button 
-            onClick={() => navigate('/subscribe')}
-            className="px-8 py-3 bg-white text-black font-medium hover:bg-white/90 transition-colors"
-          >
-            SUBSCRIBE TO MAKE AN IMPACT
-          </button>
-        </div>
       </div>
     </div>
   );
