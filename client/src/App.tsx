@@ -400,7 +400,7 @@ function App() {
           <div className="ml-auto">
             <a
               href="/profile"
-              className="flex items-center h-full px-4"
+              className="flex items-center h-full px-4 mr-4"
               onClick={(e) => {
                 e.preventDefault();
                 setLocation('/profile');
