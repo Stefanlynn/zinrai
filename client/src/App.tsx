@@ -135,207 +135,204 @@ function App() {
               <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5' : 'translate-y-[2px] group-hover:bg-black'}`}></div>
             </button>
             
-            {/* Extremely simplified menu with basic HTML styles for maximum visibility */}
+            {/* Menu page exactly matching the reference image */}
             {menuOpen && (
-              <div className="fixed inset-0 bg-white z-[1001] overflow-auto" style={{fontFamily: 'Arial, sans-serif'}}>
-                {/* Ultra-simple header */}
-                <div style={{padding: '20px', backgroundColor: '#000', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                  <div style={{color: '#fff', fontSize: '28px', fontWeight: 'bold'}}>ZiNRAi</div>
-                  <button 
-                    onClick={() => setMenuOpen(false)} 
-                    style={{color: '#fff', padding: '10px', border: 'none', background: 'none', cursor: 'pointer'}}
-                  >
-                    <span style={{fontSize: '24px'}}>✕</span>
-                  </button>
-                </div>
-                
-                {/* Main navigation - pure HTML styling for cross-browser compatibility */}
-                <div style={{padding: '30px', backgroundColor: '#fff'}}>
-                  <h2 style={{color: '#000', fontSize: '24px', fontWeight: 'bold', marginBottom: '30px', paddingBottom: '10px', borderBottom: '2px solid #000'}}>
-                    MAIN MENU
-                  </h2>
-                  
-                  <div style={{display: 'flex', flexDirection: 'column', gap: '15px'}}>
-                    <a 
-                      style={{
-                        backgroundColor: '#000', 
-                        color: '#fff', 
-                        padding: '15px 20px', 
-                        fontSize: '22px', 
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        cursor: 'pointer',
-                        display: 'block',
-                        borderRadius: '5px'
-                      }}
-                      onClick={() => {
-                        setLocation('/product');
-                        toggleMenu();
-                      }}
+              <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
+                <div className="w-full h-full flex flex-col">
+                  {/* Header with ZiNRAi logo and close button */}
+                  <div className="flex justify-between items-center p-6">
+                    <div className="text-white text-2xl font-bold tracking-wide">ZiNRAi</div>
+                    <button 
+                      onClick={() => setMenuOpen(false)}
+                      className="p-2 text-white"
                     >
-                      PRODUCTS
-                    </a>
-                    
-                    <a 
-                      style={{
-                        backgroundColor: '#000', 
-                        color: '#fff', 
-                        padding: '15px 20px', 
-                        fontSize: '22px', 
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        cursor: 'pointer',
-                        display: 'block',
-                        borderRadius: '5px'
-                      }}
-                      onClick={() => {
-                        setLocation('/partner');
-                        toggleMenu();
-                      }}
-                    >
-                      PARTNER
-                    </a>
-                    
-                    <a 
-                      style={{
-                        backgroundColor: '#000', 
-                        color: '#fff', 
-                        padding: '15px 20px', 
-                        fontSize: '22px', 
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        cursor: 'pointer',
-                        display: 'block',
-                        borderRadius: '5px'
-                      }}
-                      onClick={() => {
-                        setLocation('/culture');
-                        toggleMenu();
-                      }}
-                    >
-                      WHY ZiNRAi
-                    </a>
-                    
-                    <a 
-                      style={{
-                        backgroundColor: '#000', 
-                        color: '#fff', 
-                        padding: '15px 20px', 
-                        fontSize: '22px', 
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        cursor: 'pointer',
-                        display: 'block',
-                        borderRadius: '5px'
-                      }}
-                      onClick={() => {
-                        setLocation('/leadership');
-                        toggleMenu();
-                      }}
-                    >
-                      LEADERSHIP
-                    </a>
-                    
-                    <a 
-                      style={{
-                        backgroundColor: '#000', 
-                        color: '#fff', 
-                        padding: '15px 20px', 
-                        fontSize: '22px', 
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        cursor: 'pointer',
-                        display: 'block',
-                        borderRadius: '5px'
-                      }}
-                      onClick={() => {
-                        setLocation('/insights');
-                        toggleMenu();
-                      }}
-                    >
-                      INSIGHTS
-                    </a>
-                    
-                    <a 
-                      style={{
-                        backgroundColor: '#000', 
-                        color: '#fff', 
-                        padding: '15px 20px', 
-                        fontSize: '22px', 
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        cursor: 'pointer',
-                        display: 'block',
-                        borderRadius: '5px'
-                      }}
-                      onClick={() => {
-                        setLocation('/zinrai-cares');
-                        toggleMenu();
-                      }}
-                    >
-                      ZiNRAi CARES
-                    </a>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
                   </div>
-                </div>
-                
-                {/* Info Center - simple HTML styling */}
-                <div style={{backgroundColor: '#f1f1f1', padding: '30px'}}>
-                  <h2 style={{color: '#000', fontSize: '24px', fontWeight: 'bold', marginBottom: '30px', textAlign: 'center'}}>
-                    INFO CENTER
-                  </h2>
                   
-                  <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-                    <div style={{backgroundColor: '#fff', padding: '20px', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)'}}>
-                      <h3 style={{color: '#000', fontSize: '18px', fontWeight: 'bold', marginBottom: '15px'}}>Terms & Policies</h3>
-                      <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>IBO Terms</a>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Member Terms</a>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Policies & Procedures</a>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Refund Policy</a>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Income Disclosure</a>
+                  {/* Main menu content with numbered items */}
+                  <div className="flex-1 pl-16 pt-8 pr-16">
+                    <nav className="space-y-10">
+                      <div>
+                        <div className="flex items-start">
+                          <div className="text-white/50 text-sm font-light mr-4 mt-1">01</div>
+                          <button 
+                            onClick={() => {
+                              setLocation('/product');
+                              toggleMenu();
+                            }}
+                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                          >
+                            PRODUCTS
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-start">
+                          <div className="text-white/50 text-sm font-light mr-4 mt-1">02</div>
+                          <button 
+                            onClick={() => {
+                              setLocation('/partner');
+                              toggleMenu();
+                            }}
+                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                          >
+                            PARTNER
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-start">
+                          <div className="text-white/50 text-sm font-light mr-4 mt-1">03</div>
+                          <button 
+                            onClick={() => {
+                              setLocation('/culture');
+                              toggleMenu();
+                            }}
+                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                          >
+                            CULTURE
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-start">
+                          <div className="text-white/50 text-sm font-light mr-4 mt-1">04</div>
+                          <button 
+                            onClick={() => {
+                              setLocation('/insights');
+                              toggleMenu();
+                            }}
+                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                          >
+                            INSIGHTS
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-start">
+                          <div className="text-white/50 text-sm font-light mr-4 mt-1">05</div>
+                          <button 
+                            onClick={() => {
+                              setLocation('/leadership');
+                              toggleMenu();
+                            }}
+                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                          >
+                            LEADERSHIP
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-start">
+                          <div className="text-white/50 text-sm font-light mr-4 mt-1">06</div>
+                          <button 
+                            onClick={() => {
+                              setLocation('/zinrai-cares');
+                              toggleMenu();
+                            }}
+                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                          >
+                            ZiNRAi CARES
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-start">
+                          <div className="text-white/50 text-sm font-light mr-4 mt-1">07</div>
+                          <button 
+                            onClick={() => {
+                              setLocation('/contact');
+                              toggleMenu();
+                            }}
+                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                          >
+                            CONTACT
+                          </button>
+                        </div>
+                      </div>
+                    </nav>
+                    
+                    {/* Info Center Section */}
+                    <div className="mt-16 border-t border-white/20 pt-10">
+                      <div className="flex items-start mb-10">
+                        <div className="text-white/50 text-sm font-light mr-4">08</div>
+                        <div className="flex items-center gap-2 cursor-pointer" onClick={() => {
+                          const infoContent = document.getElementById('info-content');
+                          if (infoContent) {
+                            infoContent.classList.toggle('hidden');
+                          }
+                        }}>
+                          <h2 className="text-xl font-light text-white">INFO CENTER</h2>
+                          <svg className="w-4 h-4 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+                      
+                      {/* Info Center Content - Hidden by default */}
+                      <div id="info-content" className="hidden ml-8 pl-4 pb-20">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                          <div>
+                            <h3 className="text-base font-medium mb-4 text-white/90">Terms & Policies</h3>
+                            <ul className="space-y-3">
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">IBO Terms</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Member Terms</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Policies & Procedures</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Refund Policy</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Income Disclosure</a></li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-base font-medium mb-4 text-white/90">Legal & Regional</h3>
+                            <ul className="space-y-3">
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Japan Information</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Global Compliance Notice</a></li>
+                            </ul>
+                            
+                            <h3 className="text-base font-medium mb-4 mt-8 text-white/90">Privacy & Usage</h3>
+                            <ul className="space-y-3">
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Privacy Policy</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Terms of Use</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Employee Privacy Notice</a></li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-base font-medium mb-4 text-white/90">Support</h3>
+                            <ul className="space-y-3">
+                              <li>
+                                <a 
+                                  href="/contact" 
+                                  className="text-white/80 text-sm hover:text-white transition-colors"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    setLocation('/contact');
+                                    toggleMenu();
+                                  }}
+                                >
+                                  Contact Us
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
-                    <div style={{backgroundColor: '#fff', padding: '20px', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)'}}>
-                      <h3 style={{color: '#000', fontSize: '18px', fontWeight: 'bold', marginBottom: '15px'}}>Legal & Regional</h3>
-                      <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Japan Information</a>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Global Compliance Notice</a>
-                      </div>
+                    {/* Large ZiNRAi watermark in background */}
+                    <div className="absolute inset-0 flex items-center justify-center z-[-1] opacity-5 pointer-events-none">
+                      <h1 className="text-[20vw] font-bold tracking-tighter">ZiNRAi</h1>
                     </div>
-                    
-                    <div style={{backgroundColor: '#fff', padding: '20px', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)'}}>
-                      <h3 style={{color: '#000', fontSize: '18px', fontWeight: 'bold', marginBottom: '15px'}}>Privacy & Usage</h3>
-                      <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Privacy Policy</a>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Terms of Use</a>
-                        <a href="#" style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}>Employee Privacy</a>
-                      </div>
-                    </div>
-                    
-                    <div style={{backgroundColor: '#fff', padding: '20px', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)'}}>
-                      <h3 style={{color: '#000', fontSize: '18px', fontWeight: 'bold', marginBottom: '15px'}}>Support</h3>
-                      <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                        <a 
-                          href="/contact" 
-                          style={{color: '#000', fontSize: '16px', fontWeight: 'normal', textDecoration: 'none'}}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setLocation('/contact');
-                            toggleMenu();
-                          }}
-                        >
-                          Contact Us
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Simple footer */}
-                <div style={{padding: '20px', borderTop: '1px solid #ddd', backgroundColor: '#fff', textAlign: 'center'}}>
-                  <div style={{color: '#000', fontSize: '14px', marginBottom: '10px'}}>
-                    © 2025 ZiNRAi. All rights reserved.
                   </div>
                 </div>
               </div>
