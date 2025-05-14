@@ -758,49 +758,6 @@ export default function Home() {
             navigate(path);
           }}
         >
-          {/* Up arrow above text - navigate to previous content item (only functional on desktop) */}
-          <div 
-            className="product-arrow-up mb-3 cursor-pointer hidden md:block w-full text-center"
-            onClick={(e) => {
-              // Only allow arrow functionality on desktop
-              if (window.innerWidth > 768) {
-                e.stopPropagation();
-                changeContent('prev');
-              }
-            }}
-            onTouchStart={(e) => {
-              // Only allow arrow functionality on desktop
-              if (window.innerWidth > 768) {
-                e.stopPropagation();
-                changeContent('prev');
-              }
-            }}
-            style={{ 
-              position: 'relative', 
-              zIndex: 60,
-              touchAction: 'manipulation',
-              padding: '10px' /* Added padding for larger touch target */
-            }}
-          >
-            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          
-          {/* Decorative up arrow for mobile (non-functional) */}
-          <div 
-            className="product-arrow-up mb-3 cursor-pointer block md:hidden w-full text-center"
-            style={{ 
-              position: 'relative', 
-              zIndex: 60,
-              touchAction: 'manipulation'
-            }}
-          >
-            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 7L7 1L13 7" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          
           {/* Content text */}
           <div 
             className="product-text text-center cursor-pointer w-full mx-auto"
@@ -835,40 +792,9 @@ export default function Home() {
             {/* Navigation text removed but functionality preserved */}
           </div>
           
-          {/* Down arrow below text - navigate to next content item (only functional on desktop) */}
-          <div 
-            className="product-arrow mt-3 cursor-pointer hidden md:block w-full text-center"
-            onClick={(e) => {
-              // Only allow arrow functionality on desktop
-              if (window.innerWidth > 768) {
-                e.stopPropagation();
-                changeContent('next');
-              }
-            }}
-            onTouchStart={(e) => {
-              // Only allow arrow functionality on desktop
-              if (window.innerWidth > 768) {
-                e.stopPropagation();
-                changeContent('next');
-              }
-            }}
-            style={{ 
-              padding: '10px' /* Added padding for larger touch target */
-            }}
-          >
-            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
+
           
-          {/* Decorative down arrow for mobile (non-functional) */}
-          <div 
-            className="product-arrow mt-3 cursor-pointer block md:hidden w-full text-center"
-          >
-            <svg className="inline-block" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
+
         </div>
         
         {/* Redesigned Menu Overlay - only visible when menu is open */}
