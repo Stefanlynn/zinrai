@@ -154,69 +154,83 @@ function App() {
                   </div>
                 </button>
                 
-                {/* Minimalist menu layout */}
+                {/* Minimalist menu layout with left-aligned navigation */}
                 <div className="w-full max-w-4xl p-10 my-8">
-                  {/* Menu content with animations */}
-                  <div className="text-white/90 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-                    {/* Terms & Policies */}
-                    <div className="opacity-0 animate-slide-up animate-delay-100">
-                      <h3 className="text-white font-extralight mb-4 text-lg tracking-wide border-b border-white/10 pb-2">Terms & Policies</h3>
-                      <div className="space-y-3 mt-4">
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          IBO Terms
-                        </div>
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Member Terms
-                        </div>
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Policies & Procedures
-                        </div>
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Refund Policy
-                        </div>
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Income Disclosure
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Legal & Regional Notices */}
-                    <div className="opacity-0 animate-slide-up animate-delay-150">
-                      <h3 className="text-white font-extralight mb-4 text-lg tracking-wide border-b border-white/10 pb-2">Legal & Regional Notices</h3>
-                      <div className="space-y-3 mt-4">
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Japan Information
-                        </div>
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Global Compliance Notice
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Privacy & Usage */}
-                    <div className="opacity-0 animate-slide-up animate-delay-200">
-                      <h3 className="text-white font-extralight mb-4 text-lg tracking-wide border-b border-white/10 pb-2">Privacy & Usage</h3>
-                      <div className="space-y-3 mt-4">
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Privacy Policy
-                        </div>
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Terms of Use
-                        </div>
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Employee/Applicant Privacy Notice
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Support */}
-                    <div className="opacity-0 animate-slide-up animate-delay-250">
-                      <h3 className="text-white font-extralight mb-4 text-lg tracking-wide border-b border-white/10 pb-2">Support</h3>
-                      <div className="space-y-3 mt-4">
-                        <div className="text-sm text-white/70 hover:text-white cursor-pointer transition-colors hover:translate-x-1 transform duration-300 block">
-                          Contact Us
-                        </div>
-                      </div>
+                  {/* Menu content with simple vertical left-aligned navigation */}
+                  <div className="text-white/90 flex flex-col items-start justify-center h-full pl-10 md:pl-16">
+                    {/* Main navigation items */}
+                    <div className="space-y-6">
+                      <a 
+                        href="/product" 
+                        className="text-white/80 text-lg md:text-xl hover:text-white cursor-pointer transition-colors hover:translate-x-2 transform duration-300 block"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setLocation('/product');
+                          toggleMenu();
+                        }}
+                      >
+                        Products
+                      </a>
+                      
+                      <a 
+                        href="/partner" 
+                        className="text-white/80 text-lg md:text-xl hover:text-white cursor-pointer transition-colors hover:translate-x-2 transform duration-300 block"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setLocation('/partner');
+                          toggleMenu();
+                        }}
+                      >
+                        Partner
+                      </a>
+                      
+                      <a 
+                        href="/culture" 
+                        className="text-white/80 text-lg md:text-xl hover:text-white cursor-pointer transition-colors hover:translate-x-2 transform duration-300 block"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setLocation('/culture');
+                          toggleMenu();
+                        }}
+                      >
+                        Why ZiNRAi
+                      </a>
+                      
+                      <a 
+                        href="/leadership" 
+                        className="text-white/80 text-lg md:text-xl hover:text-white cursor-pointer transition-colors hover:translate-x-2 transform duration-300 block"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setLocation('/leadership');
+                          toggleMenu();
+                        }}
+                      >
+                        Leadership
+                      </a>
+                      
+                      <a 
+                        href="/insights" 
+                        className="text-white/80 text-lg md:text-xl hover:text-white cursor-pointer transition-colors hover:translate-x-2 transform duration-300 block"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setLocation('/insights');
+                          toggleMenu();
+                        }}
+                      >
+                        Insights
+                      </a>
+                      
+                      <a 
+                        href="/zinrai-cares" 
+                        className="text-white/80 text-lg md:text-xl hover:text-white cursor-pointer transition-colors hover:translate-x-2 transform duration-300 block"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setLocation('/zinrai-cares');
+                          toggleMenu();
+                        }}
+                      >
+                        ZiNRAi Cares
+                      </a>
                     </div>
                   </div>
                 </div>
