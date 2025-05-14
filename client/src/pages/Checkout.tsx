@@ -28,7 +28,7 @@ export default function Checkout() {
                   : "border-white/30 hover:border-white/60"
               } transition-colors`}
             >
-              Credit Card (Visa/MC)
+              Credit Card
             </button>
             <button
               onClick={() => setPaymentMethod("debit")}
@@ -251,12 +251,7 @@ export default function Checkout() {
                     </div>
                   </div>
                   
-                  <div className="pt-4">
-                    <div className="flex items-center mb-4">
-                      <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" className="h-8 mr-3 opacity-70" />
-                      <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="MasterCard" className="h-8 opacity-70" />
-                    </div>
-                  </div>
+                  {/* No specific card type logos for debit card section */}
                 </div>
               </>
             )}
