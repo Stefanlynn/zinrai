@@ -141,16 +141,25 @@ function App() {
             {menuOpen && (
               <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
                 <div className="w-full h-full flex flex-col">
-                  {/* Header with ZiNRAi logo and close button */}
+                  {/* Header with ZiNRAi logo and Start Now button */}
                   <div className="flex justify-between items-center p-6">
-                    <div className="text-white text-2xl font-bold tracking-wide">ZiNRAi</div>
-                    <button 
-                      onClick={() => setMenuOpen(false)}
-                      className="p-2 text-white"
+                    <div 
+                      className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        setLocation('/');
+                      }}
                     >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                      ZiNRAi
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setMenuOpen(false);
+                        setLocation('/subscribe');
+                      }}
+                      className="px-4 py-2 border border-white/50 hover:border-white text-white/90 hover:text-white transition-all duration-200 uppercase text-sm tracking-wider font-medium group"
+                    >
+                      <span className="group-hover:font-bold transition-all duration-200">Start Now</span>
                     </button>
                   </div>
                   
