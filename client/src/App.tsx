@@ -411,16 +411,9 @@ function App() {
           
           {/* Profile icon in the far right corner */}
           <div className="ml-auto">
-            <a
-              href="/profile"
-              className="flex items-center h-full px-4 mr-4"
-              onClick={(e) => {
-                e.preventDefault();
-                setLocation('/profile');
-              }}
-            >
+            <div className="flex items-center h-full px-4 mr-4 cursor-pointer">
               <FiUser size={16} className="text-black/80 hover:text-black transition-colors" />
-            </a>
+            </div>
           </div>
         </div>
         

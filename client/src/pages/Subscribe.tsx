@@ -481,10 +481,11 @@ export default function Subscribe() {
                         
                         // Save subscription data
                         const subscriptionData = {
-                          name: selectedSubscription,
+                          name: selectedSubscription === 'single' ? 'Single Track' :
+                                selectedSubscription === 'all' ? 'All Access' : 
+                                independentRep ? 'Independent Rep' : 'Custom Package',
                           cycle: "Monthly",
-                          price: selectedSubscription === "Premium" ? "119.99" : 
-                                 selectedSubscription === "Basic" ? "79.99" : "49.99"
+                          price: calculateTotal()
                         };
                         
                         // Store data in localStorage
