@@ -152,18 +152,18 @@ function App() {
                     </button>
                   </div>
                   
-                  {/* Main menu content with numbered items */}
-                  <div className="flex-1 pl-16 pt-8 pr-16">
-                    <nav className="space-y-10">
+                  {/* Main menu content with numbered items - more compact layout */}
+                  <div className="flex-1 px-8 md:px-16 pt-8 max-w-3xl mx-auto">
+                    <nav className="space-y-6 md:space-y-8">
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-sm font-light mr-4 mt-1">01</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
                           <button 
                             onClick={() => {
                               setLocation('/product');
                               toggleMenu();
                             }}
-                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
                             Products
                           </button>
@@ -172,13 +172,13 @@ function App() {
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-sm font-light mr-4 mt-1">02</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">02</div>
                           <button 
                             onClick={() => {
                               setLocation('/partner');
                               toggleMenu();
                             }}
-                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
                             Partner
                           </button>
@@ -187,13 +187,13 @@ function App() {
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-sm font-light mr-4 mt-1">03</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">03</div>
                           <button 
                             onClick={() => {
                               setLocation('/culture');
                               toggleMenu();
                             }}
-                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
                             Why ZiNRAi
                           </button>
@@ -202,13 +202,13 @@ function App() {
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-sm font-light mr-4 mt-1">04</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">04</div>
                           <button 
                             onClick={() => {
                               setLocation('/insights');
                               toggleMenu();
                             }}
-                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
                             Insights
                           </button>
@@ -217,13 +217,13 @@ function App() {
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-sm font-light mr-4 mt-1">05</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
                           <button 
                             onClick={() => {
                               setLocation('/leadership');
                               toggleMenu();
                             }}
-                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
                             Leadership
                           </button>
@@ -232,13 +232,13 @@ function App() {
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-sm font-light mr-4 mt-1">06</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
                           <button 
                             onClick={() => {
                               setLocation('/zinrai-cares');
                               toggleMenu();
                             }}
-                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
                             ZiNRAi Cares
                           </button>
@@ -247,13 +247,13 @@ function App() {
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-sm font-light mr-4 mt-1">07</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">07</div>
                           <button 
                             onClick={() => {
                               setLocation('/contact');
                               toggleMenu();
                             }}
-                            className="text-white text-xl md:text-2xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
                             Contact
                           </button>
@@ -267,59 +267,64 @@ function App() {
                     </div>
                   </div>
                   
-                  {/* Info Center Section at bottom */}
-                  <div className="py-10 border-t border-white/20 mt-auto">
-                    <div className="max-w-screen-xl mx-auto px-16">
-                      <div className="flex justify-center items-center mb-6 cursor-pointer" onClick={() => {
-                        const infoContent = document.getElementById('info-content');
-                        if (infoContent) {
-                          infoContent.classList.toggle('hidden');
-                        }
-                        const infoArrow = document.getElementById('info-arrow');
-                        if (infoArrow) {
-                          infoArrow.classList.toggle('rotate-180');
-                        }
-                      }}>
-                        <h2 className="text-xl font-light text-white/90">Info Center</h2>
-                        <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {/* Info Center Section at bottom - simplified */}
+                  <div className="py-6 border-t border-white/20 mt-auto">
+                    <div className="max-w-3xl mx-auto px-8 md:px-16">
+                      <button 
+                        className="flex items-center justify-center mb-6 w-full focus:outline-none"
+                        onClick={() => {
+                          const infoContentEl = document.getElementById('info-content');
+                          if (infoContentEl) {
+                            if (infoContentEl.style.display === 'none' || infoContentEl.style.display === '') {
+                              infoContentEl.style.display = 'block';
+                              document.getElementById('info-arrow')?.classList.add('rotate-180');
+                            } else {
+                              infoContentEl.style.display = 'none';
+                              document.getElementById('info-arrow')?.classList.remove('rotate-180');
+                            }
+                          }
+                        }}
+                      >
+                        <h2 className="text-lg font-light text-white/90">Info Center</h2>
+                        <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
-                      </div>
+                      </button>
                       
-                      {/* Info Center Content - Visible by default */}
-                      <div id="info-content" className="">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-8">
+                      {/* Info Center Content - Initially hidden */}
+                      <div id="info-content" style={{display: 'none'}} className="py-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
                           <div>
-                            <h3 className="text-base font-medium mb-4 text-white/90">Terms & Policies</h3>
-                            <ul className="space-y-3">
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">IBO Terms</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Member Terms</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Policies & Procedures</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Refund Policy</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Income Disclosure</a></li>
+                            <h3 className="text-sm font-medium mb-3 text-white/90">Terms & Policies</h3>
+                            <ul className="space-y-2">
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">IBO Terms</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Member Terms</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Policies & Procedures</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Refund Policy</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Income Disclosure</a></li>
                             </ul>
                             
-                            <h3 className="text-base font-medium mb-4 mt-8 text-white/90">Legal & Regional Notices</h3>
-                            <ul className="space-y-3">
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Japan Information</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Global Compliance Notice</a></li>
+                            <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Legal & Regional Notices</h3>
+                            <ul className="space-y-2">
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Japan Information</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Global Compliance Notice</a></li>
                             </ul>
                           </div>
                           
                           <div>
-                            <h3 className="text-base font-medium mb-4 text-white/90">Privacy & Usage</h3>
-                            <ul className="space-y-3">
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Privacy Policy</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Terms of Use</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Employee/Applicant Privacy Notice</a></li>
+                            <h3 className="text-sm font-medium mb-3 text-white/90">Privacy & Usage</h3>
+                            <ul className="space-y-2">
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Privacy Policy</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Terms of Use</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Employee/Applicant Privacy Notice</a></li>
                             </ul>
                             
-                            <h3 className="text-base font-medium mb-4 mt-8 text-white/90">Support</h3>
-                            <ul className="space-y-3">
+                            <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Support</h3>
+                            <ul className="space-y-2">
                               <li>
                                 <a 
                                   href="/contact" 
-                                  className="text-white/80 text-sm hover:text-white transition-colors"
+                                  className="text-white/80 text-xs hover:text-white transition-colors block"
                                   onClick={(e) => {
                                     e.preventDefault();
                                     setLocation('/contact');
