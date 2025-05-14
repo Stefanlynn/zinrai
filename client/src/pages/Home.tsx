@@ -79,7 +79,7 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
   
-  // Effect for flickering images in grid boxes
+  // Effect for flickering images in grid boxes - completely rebuilt
   useEffect(() => {
     let timers: NodeJS.Timeout[] = [];
     
@@ -92,7 +92,7 @@ export default function Home() {
       // All 8 possible grid boxes
       const allBoxes = [1, 2, 3, 4, 5, 6, 7, 8];
       
-      // Helper function to shuffle array
+      // Helper function to shuffle array - ensures randomness
       const shuffleArray = (array: any[]) => {
         const newArray = [...array];
         for (let i = newArray.length - 1; i > 0; i--) {
@@ -102,68 +102,57 @@ export default function Home() {
         return newArray;
       };
       
-      // Initial placement of images
-      const initialBoxes = shuffleArray(allBoxes).slice(0, 4);
-      const initialState: Record<number, string> = {};
+      // Choose a random subset of boxes to start with
+      const selectedBoxes = shuffleArray(allBoxes).slice(0, 4);
       
-      // Place each image in its initial box
+      // Assign each image to a unique box - no duplicates
+      let initialState: Record<number, string> = {};
       for (let i = 0; i < flickerImages.length; i++) {
-        initialState[initialBoxes[i]] = flickerImages[i];
+        initialState[selectedBoxes[i]] = flickerImages[i];
       }
       
       // Set initial state
       setActiveFlickerBoxes(initialState);
       
-      // Create rapid, frequent image movements to match reference site
-      // This will make images jump between different boxes rapidly
-      const totalMoves = 60; // Even more frequent moves
+      // Schedule many rapid movements between boxes
+      const totalMoves = 40; // Many moves during the flicker period
       
       for (let move = 0; move < totalMoves; move++) {
-        // Randomly select which image to move
-        const imageIndex = Math.floor(Math.random() * 4);
-        const image = flickerImages[imageIndex];
-        
-        // Schedule this movement with very short intervals
-        const moveTime = 75 + (move * 60); // Extremely rapid movements
+        // Schedule movement with progressively increasing times
+        const moveTime = 100 + (move * 75);
         
         const moveTimer = setTimeout(() => {
-          if (!isFlickering) return;
+          if (!isFlickering) return; // Skip if we've ended the sequence
           
-          // Find where this image currently is
-          let currentBox: number | null = null;
-          Object.entries(activeFlickerBoxes).forEach(([boxNum, img]) => {
-            if (img === image) {
-              currentBox = parseInt(boxNum);
-            }
-          });
+          // Create a new layout for this move
+          // Step 1: Select 4 random boxes from the 8 total
+          const newBoxSelection = shuffleArray(allBoxes).slice(0, 4);
           
-          if (currentBox === null) return;
+          // Step 2: Assign the 4 images to the 4 boxes (1-to-1 mapping)
+          // This ensures no duplicate images are shown
+          const newState: Record<number, string> = {};
+          for (let i = 0; i < flickerImages.length; i++) {
+            newState[newBoxSelection[i]] = flickerImages[i];
+          }
           
-          // Pick a different random box to move to
-          const availableBoxes = allBoxes.filter(box => box !== currentBox);
-          const newBox = availableBoxes[Math.floor(Math.random() * availableBoxes.length)];
-          
-          // Move the image - remove from current box, add to new box
-          setActiveFlickerBoxes(prev => {
-            const newState = { ...prev };
-            delete newState[currentBox!];
-            newState[newBox] = image;
-            return newState;
-          });
+          // Update the displayed boxes
+          setActiveFlickerBoxes(newState);
           
         }, moveTime);
         
         timers.push(moveTimer);
       }
       
-      // End the flicker sequence after 3-5 seconds (randomly chosen time in that range)
-      const flickerDuration = 3000 + Math.floor(Math.random() * 2000); // 3-5 seconds
+      // Generate a random duration between 3-5 seconds
+      const flickerDuration = 3000 + Math.floor(Math.random() * 2000);
+      
+      // End the flicker sequence after the random duration
       const endTimer = setTimeout(() => {
-        // Immediately clear all images without any transition - instant cut
+        // Clear all images immediately without transitions
         setActiveFlickerBoxes({});
         setIsFlickering(false);
         
-        // Schedule next sequence after exactly 8 seconds of black screen (matches reference site)
+        // Schedule next sequence after exactly 8 seconds of black screen
         const nextSequenceTimer = setTimeout(() => {
           startFlickerSequence();
         }, 8000);
@@ -174,14 +163,14 @@ export default function Home() {
       timers.push(endTimer);
     };
     
-    // Start first sequence after a delay
+    // Start the first sequence after a short delay
     const initialTimer = setTimeout(() => {
       startFlickerSequence();
-    }, 2000);
+    }, 1000);
     
     timers.push(initialTimer);
     
-    // Clean up on unmount
+    // Clean up all timers on component unmount
     return () => {
       timers.forEach(timer => clearTimeout(timer));
     };
@@ -293,16 +282,6 @@ export default function Home() {
                     src={imageSrc} 
                     alt="" 
                     className={`flicker-image flicker-timing-${Math.floor(Math.random() * 4) + 1}`}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      transition: 'none' // Ensure no transitions are applied
-                    }}
                   />
                   
                   {/* Dark overlay */}
