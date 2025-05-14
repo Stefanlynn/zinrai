@@ -46,8 +46,6 @@ export default function Home() {
   const [activeFlickerBoxes, setActiveFlickerBoxes] = useState<Record<number, string>>({});
   const flickerImages = [beachImage, cryptoImage, runnerImage, womanImage];
   
-  // Flicker images are working correctly now
-  
   // Custom spinning plus component
   const SpinningPlus = ({ size = 18, className = "" }) => {
     const [spin, setSpin] = useState(false);
@@ -137,8 +135,6 @@ export default function Home() {
       
       // Update last event time
       lastEventTime.current = now;
-      
-      console.log("Wheel event: current index =", currentIndex, "direction =", e.deltaY > 0 ? "next" : "prev");
       
       // Determine scroll direction and change content
       if (e.deltaY > 0) {
@@ -263,10 +259,6 @@ export default function Home() {
       // Update last event time
       lastEventTime.current = now;
       
-      console.log("Touch swipe: current index =", currentIndex, 
-                  "direction =", touchStartY > touchEndY ? "prev" : "next",
-                  "touchStartY =", touchStartY, "touchEndY =", touchEndY);
-      
       if (touchStartY > touchEndY) {
         // Swiped up - should decrease number (go to previous)
         changeContent('prev');
@@ -276,11 +268,9 @@ export default function Home() {
       }
     }
   };
+  
   // Function to handle content change with animation
   const changeContent = (direction: 'next' | 'prev') => {
-    console.log(`changeContent called with direction: ${direction}`);
-    console.log(`Current index: ${currentIndex}, contentItems length: ${contentItems.length}`);
-    
     // Create animation for content transition - fade and slide (but only for the text)
     const productText = document.querySelector('.product-text');
     const zinraiText = document.querySelector('.zinrai-logo-text'); // Class name preserved for DOM selection
@@ -299,13 +289,10 @@ export default function Home() {
       nextIndex = (currentIndex - 1 + contentItems.length) % contentItems.length;
     }
     
-    console.log(`New index will be: ${nextIndex}, new content: ${contentItems[nextIndex].title}`);
-    
     // After fade out, change content and fade in
     setTimeout(() => {
       // Update current index
       setCurrentIndex(nextIndex);
-      console.log(`Index updated to: ${nextIndex}`);
       
       // Reset fade classes
       setTimeout(() => {
@@ -347,19 +334,21 @@ export default function Home() {
     removeOpacityClasses();
   }, []);
   
-  // Removed the effect that was moving the "why" logo as requested
-  
-  // No longer need a separate effect for spinning plus icon
-  // The animation is now handled directly in the SpinningPlus component
-  
-  // No longer using toggle effect between logo and START NOW
-  
   // Effect for flickering images in grid boxes - with 10 second pause and box movement
   useEffect(() => {
     let timers: NodeJS.Timeout[] = [];
     
     // Track the current state to alternate between flicker mode and black screen mode
     const flickerMode = { current: true };
+    
+    // Helper function to shuffle an array
+    function shuffleArray(array: any[]) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
     
     // Function to add multiple flickering images for a 3-4 second sequence
     const startFlickerSequence = () => {
@@ -372,37 +361,21 @@ export default function Home() {
       // Create a mapping of image index to current box number
       const imageToBoxMap: {[key: number]: number} = {};
       
-      // Initially place each image in a random box
-      const initializeImages = () => {
-        // Get 4 random unique boxes from 8 possible boxes
-        const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
-        shuffleArray(availableBoxes);
-        const selectedBoxes = availableBoxes.slice(0, 4);
+      // Initialize the images in random boxes
+      const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
+      shuffleArray(availableBoxes);
+      const selectedBoxes = availableBoxes.slice(0, 4);
+      
+      // Assign each image to one of the selected boxes
+      for (let i = 0; i < flickerImages.length; i++) {
+        imageToBoxMap[i] = selectedBoxes[i];
         
-        // Assign each image to one of the selected boxes
-        for (let i = 0; i < flickerImages.length; i++) {
-          imageToBoxMap[i] = selectedBoxes[i];
-          
-          // Add this box and image to active boxes
-          // Add flicker image to box
-          setActiveFlickerBoxes(prev => ({
-            ...prev,
-            [selectedBoxes[i]]: flickerImages[i]
-          }));
-        }
-      };
-      
-      // Helper function to shuffle an array
-      function shuffleArray(array: any[]) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+        // Add this box and image to active boxes
+        setActiveFlickerBoxes(prev => ({
+          ...prev,
+          [selectedBoxes[i]]: flickerImages[i]
+        }));
       }
-      
-      // Initialize the images in boxes
-      initializeImages();
       
       // Move images to new boxes a few times during the flicker sequence
       for (let moveIdx = 0; moveIdx < 3; moveIdx++) {
@@ -417,17 +390,20 @@ export default function Home() {
           // Remove current images
           setActiveFlickerBoxes({});
           
-          // Update box positions and display images in new boxes
-          for (let i = 0; i < flickerImages.length; i++) {
-            // Update the box for this image
-            imageToBoxMap[i] = newBoxes[i];
-            
-            // Add this box and image to active boxes
-            setActiveFlickerBoxes(prev => ({
-              ...prev,
-              [newBoxes[i]]: flickerImages[i]
-            }));
-          }
+          // Wait a tiny bit to ensure state update completes
+          setTimeout(() => {
+            // Update box positions and display images in new boxes
+            for (let i = 0; i < flickerImages.length; i++) {
+              // Update the box for this image
+              imageToBoxMap[i] = newBoxes[i];
+              
+              // Add this box and image to active boxes
+              setActiveFlickerBoxes(prev => ({
+                ...prev,
+                [newBoxes[i]]: flickerImages[i]
+              }));
+            }
+          }, 50);
         }, 800 + moveIdx * 800); // Move every 800ms after initial placement
         
         timers.push(moveTimer);
@@ -440,14 +416,11 @@ export default function Home() {
           (el as HTMLElement).style.opacity = '0';
         });
         
-        // Use RAF to ensure DOM has updated before removing
-        requestAnimationFrame(() => {
-          // Clear all active boxes
-          setActiveFlickerBoxes({});
-          
-          // Mark as no longer being in flicker mode
-          flickerMode.current = false;
-        });
+        // Clear all active boxes
+        setActiveFlickerBoxes({});
+        
+        // Mark as no longer being in flicker mode
+        flickerMode.current = false;
       }, 3500);
       
       timers.push(clearTimer);
@@ -583,11 +556,8 @@ export default function Home() {
             
             // Calculate position based on box number (1-8)
             // Boxes are numbered 1-2 for first row, 3-4 for second row, and so on
-            // Adjusted calculation to properly position in the 2x4 grid
             const row = Math.floor((boxNum - 1) / 2); // 0-3 (4 rows)
             const col = ((boxNum - 1) % 2); // 0 or 1 (2 columns)
-            
-            // Box positioned correctly in the grid
             
             return (
               <div 
