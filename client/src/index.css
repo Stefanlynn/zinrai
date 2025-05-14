@@ -312,59 +312,26 @@ body.home-is-active {
   
   /* Original animation styles restored */
   
-  /* TV static flickering effect animation - new implementation */
-  @keyframes imageFlicker {
-    0% { opacity: 0.7; }
-    5% { opacity: 0.2; }
-    10% { opacity: 0.8; }
-    15% { opacity: 0.3; }
-    20% { opacity: 0.9; }
-    25% { opacity: 0.1; }
-    30% { opacity: 0.7; }
-    35% { opacity: 0.4; }
-    40% { opacity: 0.8; }
-    45% { opacity: 0.2; }
-    50% { opacity: 0.9; }
-    55% { opacity: 0.3; }
-    60% { opacity: 0.8; }
-    65% { opacity: 0.5; }
-    70% { opacity: 0.7; }
+  /* Simple flickering animation that works reliably */
+  @keyframes flicker {
+    0% { opacity: 0.8; }
+    25% { opacity: 0.4; }
+    50% { opacity: 0.6; }
     75% { opacity: 0.2; }
-    80% { opacity: 0.9; }
-    85% { opacity: 0.3; }
-    90% { opacity: 0.8; }
-    95% { opacity: 0.1; }
-    100% { opacity: 0.7; }
+    100% { opacity: 0.8; }
   }
   
-  /* Ensure webkit keyframes for Safari */
-  @-webkit-keyframes imageFlicker {
-    0% { opacity: 0.7; }
-    5% { opacity: 0.2; }
-    10% { opacity: 0.8; }
-    15% { opacity: 0.3; }
-    20% { opacity: 0.9; }
-    25% { opacity: 0.1; }
-    30% { opacity: 0.7; }
-    35% { opacity: 0.4; }
-    40% { opacity: 0.8; }
-    45% { opacity: 0.2; }
-    50% { opacity: 0.9; }
-    55% { opacity: 0.3; }
-    60% { opacity: 0.8; }
-    65% { opacity: 0.5; }
-    70% { opacity: 0.7; }
+  @-webkit-keyframes flicker {
+    0% { opacity: 0.8; }
+    25% { opacity: 0.4; }
+    50% { opacity: 0.6; }
     75% { opacity: 0.2; }
-    80% { opacity: 0.9; }
-    85% { opacity: 0.3; }
-    90% { opacity: 0.8; }
-    95% { opacity: 0.1; }
-    100% { opacity: 0.7; }
+    100% { opacity: 0.8; }
   }
   
   .animate-flicker {
-    -webkit-animation: imageFlicker 0.2s ease-in-out infinite;
-    animation: imageFlicker 0.2s ease-in-out infinite;
+    -webkit-animation: flicker 0.2s ease-in-out infinite;
+    animation: flicker 0.2s ease-in-out infinite;
     /* Ensure hardware acceleration for smoother animations */
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -430,24 +397,24 @@ body.home-is-active {
     z-index: 0 !important;
   }
   
-  /* Individual flicker animation timing classes - new implementation */
+  /* Simplified flicker timing classes */
   .flicker-timing-1 {
-    animation: imageFlicker 0.2s ease-in-out infinite !important;
+    animation: flicker 0.2s ease-in-out infinite !important;
     animation-delay: 0s !important;
   }
   
   .flicker-timing-2 {
-    animation: imageFlicker 0.15s ease-in-out infinite !important;
+    animation: flicker 0.15s ease-in-out infinite !important;
     animation-delay: 0.05s !important;
   }
   
   .flicker-timing-3 {
-    animation: imageFlicker 0.25s ease-in-out infinite !important;
+    animation: flicker 0.25s ease-in-out infinite !important;
     animation-delay: 0.1s !important;
   }
   
   .flicker-timing-4 {
-    animation: imageFlicker 0.18s ease-in-out infinite !important;
+    animation: flicker 0.18s ease-in-out infinite !important;
     animation-delay: 0.07s !important;
   }
   
@@ -481,12 +448,12 @@ body.home-is-active {
     }
     
     .flicker-image {
-      /* Force contain on mobile - new implementation */
+      /* Force contain on mobile - simplified implementation */
       width: 100% !important;
       height: 100% !important;
       max-width: 100% !important;
       max-height: 100% !important;
-      object-fit: cover !important;
+      object-fit: cover !important; 
       object-position: center center !important;
       transition: none !important; /* No transitions for instant movement */
       position: absolute !important;
