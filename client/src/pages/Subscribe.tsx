@@ -355,22 +355,65 @@ export default function Subscribe() {
                         className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:border-white/60 transition-colors"
                       >
                         <option value="" className="bg-black">Select country</option>
-                        <option value="US" className="bg-black">United States</option>
-                        <option value="CA" className="bg-black">Canada</option>
-                        <option value="JP" className="bg-black">Japan</option>
-                        <option value="KR" className="bg-black">South Korea</option>
+                        <option value="DZ" className="bg-black">Algeria</option>
+                        <option value="AO" className="bg-black">Angola</option>
+                        <option value="AR" className="bg-black">Argentina</option>
+                        <option value="AM" className="bg-black">Armenia</option>
                         <option value="AU" className="bg-black">Australia</option>
-                        <option value="GB" className="bg-black">United Kingdom</option>
-                        <option value="DE" className="bg-black">Germany</option>
-                        <option value="FR" className="bg-black">France</option>
-                        <option value="SG" className="bg-black">Singapore</option>
-                        <option value="CN" className="bg-black">China</option>
-                        <option value="IN" className="bg-black">India</option>
+                        <option value="AT" className="bg-black">Austria</option>
+                        <option value="BY" className="bg-black">Belarus</option>
+                        <option value="BE" className="bg-black">Belgium</option>
+                        <option value="BO" className="bg-black">Bolivia</option>
                         <option value="BR" className="bg-black">Brazil</option>
+                        <option value="CM" className="bg-black">Cameroon</option>
+                        <option value="CA" className="bg-black">Canada</option>
+                        <option value="CV" className="bg-black">Cape Verde</option>
+                        <option value="CL" className="bg-black">Chile</option>
+                        <option value="CO" className="bg-black">Colombia</option>
+                        <option value="EC" className="bg-black">Ecuador</option>
+                        <option value="EG" className="bg-black">Egypt</option>
+                        <option value="FR" className="bg-black">France</option>
+                        <option value="DE" className="bg-black">Germany</option>
+                        <option value="GT" className="bg-black">Guatemala</option>
+                        <option value="HT" className="bg-black">Haiti</option>
+                        <option value="IN" className="bg-black">India</option>
+                        <option value="IQ" className="bg-black">Iraq</option>
+                        <option value="IE" className="bg-black">Ireland</option>
+                        <option value="IT" className="bg-black">Italy</option>
+                        <option value="CI" className="bg-black">Ivory Coast</option>
+                        <option value="JM" className="bg-black">Jamaica</option>
+                        <option value="JP" className="bg-black">Japan</option>
+                        <option value="JO" className="bg-black">Jordan</option>
+                        <option value="KZ" className="bg-black">Kazakhstan</option>
+                        <option value="KG" className="bg-black">Kyrgyzstan</option>
+                        <option value="LB" className="bg-black">Lebanon</option>
+                        <option value="LI" className="bg-black">Liechtenstein</option>
+                        <option value="LU" className="bg-black">Luxembourg</option>
+                        <option value="MG" className="bg-black">Madagascar</option>
                         <option value="MX" className="bg-black">Mexico</option>
+                        <option value="MA" className="bg-black">Morocco</option>
+                        <option value="MZ" className="bg-black">Mozambique</option>
+                        <option value="NZ" className="bg-black">New Zealand</option>
+                        <option value="NG" className="bg-black">Nigeria</option>
+                        <option value="PE" className="bg-black">Peru</option>
+                        <option value="PH" className="bg-black">Philippines</option>
+                        <option value="PL" className="bg-black">Poland</option>
+                        <option value="PT" className="bg-black">Portugal</option>
+                        <option value="QA" className="bg-black">Qatar</option>
+                        <option value="RU" className="bg-black">Russia</option>
+                        <option value="SM" className="bg-black">San Marino</option>
+                        <option value="SA" className="bg-black">Saudi Arabia</option>
+                        <option value="SN" className="bg-black">Senegal</option>
                         <option value="ZA" className="bg-black">South Africa</option>
+                        <option value="ES" className="bg-black">Spain</option>
+                        <option value="CH" className="bg-black">Switzerland</option>
+                        <option value="TN" className="bg-black">Tunisia</option>
+                        <option value="UA" className="bg-black">Ukraine</option>
                         <option value="AE" className="bg-black">United Arab Emirates</option>
-                        <option value="other" className="bg-black">Other</option>
+                        <option value="GB" className="bg-black">United Kingdom</option>
+                        <option value="US" className="bg-black">United States</option>
+                        <option value="VA" className="bg-black">Vatican City</option>
+                        <option value="VE" className="bg-black">Venezuela</option>
                       </select>
                     </div>
                     
