@@ -331,21 +331,7 @@ export default function Subscribe() {
                       />
                     </div>
                     
-                    {/* 3. Phone Field (with integrated country code) */}
-                    <div className="w-full">
-                      <label htmlFor="phone" className="block text-white/80 text-sm mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                        placeholder="+1 (123) 456-7890"
-                      />
-                      <p className="text-white/40 text-xs mt-1">Include country code (e.g., +1, +44, +81)</p>
-                    </div>
-                    
-                    {/* 4. Country */}
+                    {/* 3. Country */}
                     <div className="w-full">
                       <label htmlFor="country" className="block text-white/80 text-sm mb-2">
                         Country
@@ -417,7 +403,7 @@ export default function Subscribe() {
                       </select>
                     </div>
                     
-                    {/* 5. Street Address */}
+                    {/* 4. Street Address */}
                     <div>
                       <label htmlFor="address1" className="block text-white/80 text-sm mb-2">
                         Street Address
@@ -436,7 +422,7 @@ export default function Subscribe() {
                       />
                     </div>
                     
-                    {/* 6 & 8. City and Postal Code */}
+                    {/* 5 & 7. City and Postal Code */}
                     <div className="flex flex-col sm:flex-row gap-4">
                       <div className="w-full sm:w-2/3">
                         <label htmlFor="city" className="block text-white/80 text-sm mb-2">
@@ -462,7 +448,7 @@ export default function Subscribe() {
                       </div>
                     </div>
                     
-                    {/* 7. State/Province/Region */}
+                    {/* 6. State/Province/Region */}
                     <div className="w-full">
                       <label htmlFor="state" className="block text-white/80 text-sm mb-2">
                         State / Province / Region
