@@ -698,23 +698,6 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Menu icon in the top right square - centered in the box */}
-        <div className={`absolute top-[12.5%] left-[75%] transform -translate-x-1/2 -translate-y-1/2 z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
-          {/* Menu icon for home page */}
-          <div 
-            className="menu-icon animate-content-glitch cursor-pointer" 
-            onClick={toggleMenu}
-            onTouchStart={toggleMenu} /* Added touchstart for immediate response */
-            style={{ 
-              animationDelay: '1.4s',
-              padding: '15px' /* Added padding for larger touch target */
-            }}
-          >
-            <div className="menu-line1"></div>
-            <div className="menu-line2"></div>
-          </div>
-        </div>
-        
         {/* WATCH and WHY text in the lower left square - hidden when menu is open */}
         <div 
           className={`absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}
