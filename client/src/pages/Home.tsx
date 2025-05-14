@@ -697,7 +697,7 @@ export default function Home() {
           </div>
         </div>
         
-        {/* WATCH and WHY text in the lower left square - hidden when menu is open */}
+        {/* WATCH NOW text in the lower left square - hidden when menu is open */}
         <div 
           className={`absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}
           style={{ 
@@ -706,29 +706,24 @@ export default function Home() {
             touchAction: 'manipulation'
           }}
         >
-          {/* WATCH and WHY text side by side with horizontal line between */}
-          <div className="flex items-center space-x-4 animate-content-glitch" style={{ animationDelay: '1.6s' }}>
-            {/* WATCH text */}
-            <div 
-              className="watch-text text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
-              style={{ padding: '5px' }} /* Added padding for larger touch target */
-              onClick={handleWatchClick}
-              onTouchStart={handleWatchClick} /* Added touchstart for more responsive mobile handling */
-            >
-              Watch
-            </div>
-            
-            {/* Horizontal line between WATCH and WHY */}
-            <div className="h-[1px] w-[15px] bg-white/40"></div>
-            
-            {/* WHY text */}
-            <div 
-              className="why-text text-[10px] tracking-[0.15em] text-white/70 font-light uppercase text-center cursor-pointer" 
-              style={{ padding: '5px' }} /* Added padding for larger touch target */
-              onClick={() => navigate('/logo')}
-              onTouchStart={() => navigate('/logo')} /* Added touchstart for more responsive mobile handling */
-            >
-              Why
+          <div 
+            className="watch-now-text animate-content-glitch cursor-pointer"
+            onClick={handleWatchClick}
+            onTouchStart={handleWatchClick} /* Added touchstart for immediate response */
+            style={{ 
+              animationDelay: '1.6s',
+              position: 'relative',
+              zIndex: 60,
+              touchAction: 'manipulation',
+              padding: '10px' /* Added padding for larger touch target */
+            }}
+          >
+            <div className="flex flex-col items-center">
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-light uppercase mb-2">Watch Now</div>
+              {/* Down arrow */}
+              <svg className="animate-bounce" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </div>
           </div>
         </div>
