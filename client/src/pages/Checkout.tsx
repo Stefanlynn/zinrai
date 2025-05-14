@@ -10,7 +10,7 @@ export default function Checkout() {
   const customerData = JSON.parse(localStorage.getItem("customerData") || "{}");
   
   return (
-    <div className="min-h-screen bg-black text-white pt-[32px] overflow-y-auto">
+    <div className="min-h-screen bg-black text-white pt-[32px] form-page">
       <div className="container mx-auto px-4 py-12 pb-32 max-w-6xl">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Complete Your Payment</h1>

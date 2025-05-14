@@ -53,7 +53,7 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="bg-black min-h-screen w-full overflow-y-auto">
+    <div className="bg-black min-h-screen w-full form-page">
       {/* Header with back button */}
       <div className="fixed top-0 left-0 w-full h-8 bg-[#f7f5f0] z-50 flex items-center px-6">
         <button 
