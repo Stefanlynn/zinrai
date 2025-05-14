@@ -583,14 +583,7 @@ export default function Home() {
                 aria-label="Open video"
                 title={`Video trigger (${videoIcons[iconVariant].name} icon)`}
               >
-                {iconVariant === 0 ? (
-                  <SpinningPlus size={18} className="play-button-glow" />
-                ) : (
-                  React.createElement(videoIcons[iconVariant].icon, { 
-                    size: 18, 
-                    className: "play-button-glow"
-                  })
-                )}
+
               </button>
             </div>
             <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap">
