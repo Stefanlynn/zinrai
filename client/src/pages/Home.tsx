@@ -727,7 +727,16 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Removed navigation from bottom right corner */}
+        {/* Dynamic content in the lower right square - hidden when menu is open */}
+        <div 
+          className={`absolute bottom-0 right-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
+          style={{ 
+            bottom: '12.5vh', // Position at the vertical center of the last row
+            right: '25vw', // Position at the horizontal center of the right column
+            transform: 'translate(50%, 50%)', // Center perfectly
+            width: 'auto', // Let content determine width
+            height: 'auto' // Let content determine height
+          }}
           onTouchStart={(e) => {
             // On mobile, make touch events more responsive by handling them on touch start
             if (window.innerWidth <= 768) {
