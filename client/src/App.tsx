@@ -130,10 +130,9 @@ function App() {
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
-              {/* Asymmetric hamburger menu with offset top line */}
-              <div className={`w-4 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5' : '-translate-y-1 -translate-x-[3px] group-hover:bg-black'}`}></div>
-              <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-black'}`}></div>
-              <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5' : 'translate-y-1 group-hover:bg-black'}`}></div>
+              {/* Two-line hamburger menu */}
+              <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5' : '-translate-y-[2px] group-hover:bg-black'}`}></div>
+              <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5' : 'translate-y-[2px] group-hover:bg-black'}`}></div>
             </button>
             
             {/* Redesigned Dropdown menu */}
