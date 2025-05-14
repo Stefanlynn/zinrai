@@ -72,7 +72,7 @@ export default function Culture() {
           </h1>
         </div>
         
-        <div className="absolute top-[15vh] bottom-[15vh] left-[10vw] right-[10vw] overflow-y-auto">
+        <div className="absolute top-[20vh] bottom-[15vh] left-[10vw] right-[10vw] overflow-y-auto">
           {showIntro ? (
             <div className="text-white/80 space-y-6 pr-4">
               <p className="text-base sm:text-lg">
