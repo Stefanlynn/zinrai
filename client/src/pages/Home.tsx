@@ -10,6 +10,9 @@ import runnerImage from "../assets/flicker-images/runner.jpg";
 import womanImage from "../assets/flicker-images/woman.jpg";
 import { RiFilmLine, RiVideoLine } from "react-icons/ri";
 
+// Import the ZiNRAi logo
+import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
+
 // Define all the content items for swiping
 const contentItems = [
   { number: "01", title: "PRODUCTS" },
