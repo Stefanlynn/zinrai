@@ -284,13 +284,12 @@ export default function Subscribe() {
                 </div>
               </div>
               
-              {/* Payment Form Column */}
+              {/* Customer Information Column */}
               <div className="bg-black border border-white/20 p-8">
-                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Payment Details</h2>
+                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Customer Information</h2>
                 
-                {/* Customer Information Form */}
+                {/* Form Fields */}
                 <div className="p-0">
-                  <h3 className="text-white font-medium text-base mb-6">Customer Information</h3>
                   
                   <form className="space-y-5 w-full">
                     {/* Name Field */}
