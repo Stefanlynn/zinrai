@@ -337,22 +337,12 @@ export default function Subscribe() {
                         <label htmlFor="countryCode" className="block text-white/80 text-sm mb-2">
                           Country Code
                         </label>
-                        <select
+                        <input
+                          type="text"
                           id="countryCode"
-                          className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:border-white/60 transition-colors"
-                        >
-                          <option value="+1" className="bg-black">+1 (US/CA)</option>
-                          <option value="+44" className="bg-black">+44 (UK)</option>
-                          <option value="+61" className="bg-black">+61 (AU)</option>
-                          <option value="+81" className="bg-black">+81 (JP)</option>
-                          <option value="+82" className="bg-black">+82 (KR)</option>
-                          <option value="+86" className="bg-black">+86 (CN)</option>
-                          <option value="+91" className="bg-black">+91 (IN)</option>
-                          <option value="+49" className="bg-black">+49 (DE)</option>
-                          <option value="+33" className="bg-black">+33 (FR)</option>
-                          <option value="+65" className="bg-black">+65 (SG)</option>
-                          <option value="+52" className="bg-black">+52 (MX)</option>
-                        </select>
+                          className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
+                          placeholder="+1"
+                        />
                       </div>
                       <div className="w-full sm:w-2/3">
                         <label htmlFor="phone" className="block text-white/80 text-sm mb-2">
