@@ -338,6 +338,17 @@ function App() {
                           </div>
                         </div>
                       </div>
+
+                      {/* Copyright Footer */}
+                      <div className="mt-8 pt-6 border-t border-white/10 text-center">
+                        <p className="text-white/50 text-[10px]">
+                          © 2025 ZiNRAi. All rights reserved. | 
+                          <a href="#" className="hover:text-white/70 transition-colors"> Terms of Use</a> | 
+                          <a href="#" className="hover:text-white/70 transition-colors"> Privacy Policy</a> | 
+                          <a href="#" className="hover:text-white/70 transition-colors"> Income Disclosure</a> | 
+                          <a href="#" className="hover:text-white/70 transition-colors"> Contact</a>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
