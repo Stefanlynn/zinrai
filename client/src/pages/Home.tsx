@@ -46,6 +46,11 @@ export default function Home() {
   const [activeFlickerBoxes, setActiveFlickerBoxes] = useState<Record<number, string>>({});
   const flickerImages = [beachImage, cryptoImage, runnerImage, womanImage];
   
+  // Debug flicker images
+  useEffect(() => {
+    console.log("Available flicker images:", flickerImages);
+  }, []);
+  
   // Custom spinning plus component
   const SpinningPlus = ({ size = 18, className = "" }) => {
     const [spin, setSpin] = useState(false);
@@ -382,6 +387,7 @@ export default function Home() {
           imageToBoxMap[i] = selectedBoxes[i];
           
           // Add this box and image to active boxes
+          console.log(`Adding flicker image to box ${selectedBoxes[i]}:`, flickerImages[i]);
           setActiveFlickerBoxes(prev => ({
             ...prev,
             [selectedBoxes[i]]: flickerImages[i]
@@ -458,13 +464,17 @@ export default function Home() {
       // Start first flicker sequence after initial delay
       const initialTimer = setTimeout(() => {
         // Start first flicker sequence
+        console.log("Starting first flicker sequence");
         startFlickerSequence();
         
         // Set up recurring alternating pattern
         const intervalTimer = setInterval(() => {
           // If not in flicker mode, start a new flicker sequence
           if (!flickerMode.current) {
+            console.log("Starting recurring flicker sequence");
             startFlickerSequence();
+          } else {
+            console.log("Still in flicker mode, waiting...");
           }
         }, 10000); // Check every 10 seconds
         
@@ -595,7 +605,7 @@ export default function Home() {
                   backgroundImage: `url(${imageSrc})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  opacity: 0.05, // Very dark overlay
+                  opacity: 0.25, // Increased opacity so images are more visible
                   zIndex: 5,
                   transition: 'opacity 0.5s ease-in-out'
                 }}
