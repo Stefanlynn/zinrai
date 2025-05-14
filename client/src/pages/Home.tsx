@@ -679,11 +679,11 @@ export default function Home() {
               padding: '10px' /* Added padding for larger touch target */
             }}
           >
-            <div className="flex flex-col items-center">
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase mb-2">Start Now</div>
+            <div className="flex flex-col items-center group">
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-white">Start Now</div>
               {/* Down arrow */}
-              <svg className="animate-bounce" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg className="animate-bounce transition-all duration-200" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-all duration-200"/>
               </svg>
             </div>
           </div>
@@ -710,11 +710,11 @@ export default function Home() {
               padding: '10px' /* Added padding for larger touch target */
             }}
           >
-            <div className="flex flex-col items-center">
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-light uppercase mb-2">Watch Now</div>
+            <div className="flex flex-col items-center group">
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-light uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-white">Watch Now</div>
               {/* Down arrow */}
-              <svg className="animate-bounce" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg className="animate-bounce transition-all duration-200" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-all duration-200"/>
               </svg>
             </div>
           </div>
