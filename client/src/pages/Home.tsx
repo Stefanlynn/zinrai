@@ -81,10 +81,12 @@ export default function Home() {
   
   // Effect for flickering images in grid boxes - completely rebuilt
   useEffect(() => {
+    console.log("Starting flickering sequence"); // Debug log
     let timers: NodeJS.Timeout[] = [];
     
     // Function to handle flickering images sequence
     const startFlickerSequence = () => {
+      console.log("Flickering sequence started"); // Debug log
       // Clear any active images first
       setActiveFlickerBoxes({});
       setIsFlickering(true);
