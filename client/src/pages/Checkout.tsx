@@ -185,9 +185,9 @@ export default function Checkout() {
                   </div>
                   
                   <div className="pt-4">
-                    <div className="flex items-center mb-4">
-                      <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" className="h-8 mr-3 opacity-70" />
-                      <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="MasterCard" className="h-8 opacity-70" />
+                    <div className="flex flex-wrap gap-3 mb-4">
+                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Visa</div>
+                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">MasterCard</div>
                     </div>
                   </div>
                 </div>
@@ -357,19 +357,11 @@ export default function Checkout() {
                   </div>
                   
                   <div className="pt-4">
-                    <div className="flex flex-wrap items-center mb-4 gap-3">
-                      <div className="bg-white/10 p-3 rounded-lg opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174861.png" alt="PayPal" className="h-8" />
-                      </div>
-                      <div className="bg-white/10 p-3 rounded-lg opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968249.png" alt="Apple Pay" className="h-8" />
-                      </div>
-                      <div className="bg-white/10 p-3 rounded-lg opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-                        <img src="https://cdn-icons-png.flaticon.com/512/6124/6124998.png" alt="Google Pay" className="h-8" />
-                      </div>
-                      <div className="bg-white/10 p-3 rounded-lg opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-                        <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" alt="Venmo" className="h-8" />
-                      </div>
+                    <div className="flex flex-wrap gap-3 mb-4">
+                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">PayPal</div>
+                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Apple Pay</div>
+                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Google Pay</div>
+                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Venmo</div>
                     </div>
                   </div>
                   
