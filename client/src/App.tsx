@@ -135,174 +135,144 @@ function App() {
               <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5' : 'translate-y-[2px] group-hover:bg-black'}`}></div>
             </button>
             
-            {/* Redesigned Dropdown menu */}
+            {/* Completely redesigned minimalist menu */}
             {menuOpen && (
-              <div className="fixed inset-0 bg-black/95 z-[1001] flex items-center justify-center transition-all duration-300 animate-fade-in overflow-y-auto overflow-x-hidden">
-                {/* Close button for menu - positioned at the absolute top right */}
-                <button 
-                  onClick={() => setMenuOpen(false)} 
-                  className="absolute top-0 right-0 text-white/70 hover:text-white transition-colors p-3"
-                >
-                  <div className="relative h-6 w-6 flex items-center justify-center overflow-hidden">
-                    {/* Animated X icon */}
-                    <div className="relative">
-                      {/* Line 1 - for X */}
-                      <div className="w-6 h-[1.5px] bg-white/70 hover:bg-white absolute top-0 left-0 transform rotate-45 transition-all duration-300"></div>
-                      {/* Line 2 - for X */}
-                      <div className="w-6 h-[1.5px] bg-white/70 hover:bg-white absolute top-0 left-0 transform -rotate-45 transition-all duration-300"></div>
-                    </div>
-                  </div>
-                </button>
+              <div className="fixed inset-0 bg-black/95 z-[1001] overflow-auto">
+                {/* Header with close button and logo */}
+                <div className="flex justify-between items-center p-6 border-b border-white/10">
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-wider text-white">ZiNRAi</h2>
+                  <button 
+                    onClick={() => setMenuOpen(false)} 
+                    className="text-white/70 hover:text-white transition-colors p-3"
+                    aria-label="Close menu"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
                 
-                {/* Redesigned premium menu layout */}
-                <div className="w-full max-w-5xl p-4 md:p-12 h-full flex flex-col">
-                  {/* ZiNRAi logo at the top */}
-                  <div className="text-center mb-8 md:mb-12 mt-4 md:mt-8">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wider text-white">ZiNRAi</h2>
-                    <div className="h-[1px] w-24 bg-white/20 mx-auto mt-3"></div>
-                  </div>
-                  
-                  {/* Main navigation with simpler vertical layout */}
-                  <div className="flex-grow flex justify-center">
-                    <div className="text-center flex flex-col space-y-8 py-8">
-                      <a 
-                        href="/product" 
-                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setLocation('/product');
-                          toggleMenu();
-                        }}
-                      >
-                        Products
-                      </a>
-                      
-                      <a 
-                        href="/partner" 
-                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setLocation('/partner');
-                          toggleMenu();
-                        }}
-                      >
-                        Partner
-                      </a>
-                      
-                      <a 
-                        href="/culture" 
-                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setLocation('/culture');
-                          toggleMenu();
-                        }}
-                      >
-                        Why ZiNRAi
-                      </a>
-                      
-                      <a 
-                        href="/leadership" 
-                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setLocation('/leadership');
-                          toggleMenu();
-                        }}
-                      >
-                        Leadership
-                      </a>
-                      
-                      <a 
-                        href="/insights" 
-                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setLocation('/insights');
-                          toggleMenu();
-                        }}
-                      >
-                        Insights
-                      </a>
-                      
-                      <a 
-                        href="/zinrai-cares" 
-                        className="text-white text-xl md:text-2xl hover:text-white/80 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setLocation('/zinrai-cares');
-                          toggleMenu();
-                        }}
-                      >
-                        ZiNRAi Cares
-                      </a>
+                {/* Main navigation links */}
+                <div className="max-w-xl mx-auto py-12 px-6">
+                  <div className="space-y-6">
+                    <div 
+                      className="border-b border-white/10 py-3 hover:bg-white/5 transition-colors"
+                      onClick={() => {
+                        setLocation('/product');
+                        toggleMenu();
+                      }}
+                    >
+                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Products</a>
+                    </div>
+                    
+                    <div 
+                      className="border-b border-white/10 py-3 hover:bg-white/5 transition-colors"
+                      onClick={() => {
+                        setLocation('/partner');
+                        toggleMenu();
+                      }}
+                    >
+                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Partner</a>
+                    </div>
+                    
+                    <div 
+                      className="border-b border-white/10 py-3 hover:bg-white/5 transition-colors"
+                      onClick={() => {
+                        setLocation('/culture');
+                        toggleMenu();
+                      }}
+                    >
+                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Why ZiNRAi</a>
+                    </div>
+                    
+                    <div 
+                      className="border-b border-white/10 py-3 hover:bg-white/5 transition-colors"
+                      onClick={() => {
+                        setLocation('/leadership');
+                        toggleMenu();
+                      }}
+                    >
+                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Leadership</a>
+                    </div>
+                    
+                    <div 
+                      className="border-b border-white/10 py-3 hover:bg-white/5 transition-colors"
+                      onClick={() => {
+                        setLocation('/insights');
+                        toggleMenu();
+                      }}
+                    >
+                      <a className="block text-white text-xl md:text-2xl cursor-pointer">Insights</a>
+                    </div>
+                    
+                    <div 
+                      className="border-b border-white/10 py-3 hover:bg-white/5 transition-colors"
+                      onClick={() => {
+                        setLocation('/zinrai-cares');
+                        toggleMenu();
+                      }}
+                    >
+                      <a className="block text-white text-xl md:text-2xl cursor-pointer">ZiNRAi Cares</a>
                     </div>
                   </div>
-                  
-                  {/* Info Center at the bottom */}
-                  <div className="px-6 md:px-10 pt-6 pb-4 border-t border-white/10 mt-6 md:mt-12">
-                    {/* Info Center toggle */}
-                    <div 
-                      className="flex items-center justify-center space-x-2 cursor-pointer group"
+                </div>
+                
+                {/* Info Center section with collapsible content */}
+                <div className="max-w-xl mx-auto mt-8 px-6 pb-12">
+                  <div className="border-t border-white/10 pt-6">
+                    <button 
+                      className="flex items-center justify-between w-full text-white/70 hover:text-white transition-colors mb-6"
                       onClick={() => {
-                        const infoContainer = document.getElementById('info-center-container');
-                        if (infoContainer) {
-                          infoContainer.classList.toggle('max-h-0');
-                          infoContainer.classList.toggle('max-h-[600px]');
-                          infoContainer.classList.toggle('opacity-0');
-                          infoContainer.classList.toggle('opacity-100');
-                          infoContainer.classList.toggle('overflow-hidden');
-                          infoContainer.classList.toggle('overflow-y-auto');
-                          
-                          // Toggle arrow rotation
-                          const arrow = document.getElementById('info-center-arrow');
-                          if (arrow) {
-                            arrow.classList.toggle('rotate-180');
-                          }
+                        const infoContent = document.getElementById('info-content');
+                        if (infoContent) {
+                          infoContent.classList.toggle('hidden');
+                        }
+                        const infoArrow = document.getElementById('info-arrow');
+                        if (infoArrow) {
+                          infoArrow.classList.toggle('rotate-180');
                         }
                       }}
                     >
-                      <p className="text-white/70 text-sm tracking-wider uppercase font-medium group-hover:text-white transition-colors">Info Center</p>
-                      <svg id="info-center-arrow" className="w-4 h-4 text-white/70 group-hover:text-white transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <span className="text-lg font-medium">Info Center</span>
+                      <svg id="info-arrow" className="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                    </div>
+                    </button>
                     
-                    {/* Expandable info content */}
-                    <div id="info-center-container" className="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 pt-6 pb-4">
+                    {/* Info content - starts hidden */}
+                    <div id="info-content" className="hidden">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
                         {/* Terms & Policies */}
                         <div>
                           <h3 className="text-white/90 text-sm font-medium mb-3 tracking-wide">Terms & Policies</h3>
                           <div className="space-y-2">
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">IBO Terms</a>
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Member Terms</a>
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Policies & Procedures</a>
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Refund Policy</a>
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Income Disclosure</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">IBO Terms</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Member Terms</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Policies & Procedures</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Refund Policy</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Income Disclosure</a>
                           </div>
                         </div>
                         
-                        {/* Legal & Regional Notices */}
                         <div>
                           <h3 className="text-white/90 text-sm font-medium mb-3 tracking-wide">Legal & Regional Notices</h3>
                           <div className="space-y-2">
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Japan Information</a>
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Global Compliance Notice</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Japan Information</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Global Compliance Notice</a>
                           </div>
                           
                           <h3 className="text-white/90 text-sm font-medium mt-6 mb-3 tracking-wide">Privacy & Usage</h3>
                           <div className="space-y-2">
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Privacy Policy</a>
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Terms of Use</a>
-                            <a href="#" className="text-white/60 text-xs hover:text-white transition-colors block">Employee/Applicant Privacy Notice</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Privacy Policy</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Terms of Use</a>
+                            <a href="#" className="text-white/60 text-sm hover:text-white transition-colors block py-1">Employee/Applicant Privacy Notice</a>
                           </div>
                           
                           <h3 className="text-white/90 text-sm font-medium mt-6 mb-3 tracking-wide">Support</h3>
                           <div className="space-y-2">
                             <a 
                               href="/contact" 
-                              className="text-white/60 text-xs hover:text-white transition-colors block"
+                              className="text-white/60 text-sm hover:text-white transition-colors block py-1"
                               onClick={(e) => {
                                 e.preventDefault();
                                 setLocation('/contact');
@@ -318,9 +288,6 @@ function App() {
                   </div>
                 </div>
                 
-                {/* Minimal design elements - horizontal lines */}
-                <div className="absolute left-[10%] right-[10%] top-1/3 h-[1px]" style={{background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.03), transparent)'}}></div>
-                <div className="absolute left-[10%] right-[10%] top-2/3 h-[1px]" style={{background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.03), transparent)'}}></div>
               </div>
             )}
           </div>
