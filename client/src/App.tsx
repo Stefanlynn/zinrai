@@ -281,14 +281,14 @@ function App() {
                         }
                       }}>
                         <h2 className="text-xl font-light text-white/90">Info Center</h2>
-                        <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </div>
                       
-                      {/* Info Center Content - Hidden by default */}
-                      <div id="info-content" className="hidden">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-8">
+                      {/* Info Center Content - Visible by default */}
+                      <div id="info-content" className="">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-8">
                           <div>
                             <h3 className="text-base font-medium mb-4 text-white/90">Terms & Policies</h3>
                             <ul className="space-y-3">
@@ -298,25 +298,23 @@ function App() {
                               <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Refund Policy</a></li>
                               <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Income Disclosure</a></li>
                             </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-base font-medium mb-4 text-white/90">Legal & Regional</h3>
+                            
+                            <h3 className="text-base font-medium mb-4 mt-8 text-white/90">Legal & Regional Notices</h3>
                             <ul className="space-y-3">
                               <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Japan Information</a></li>
                               <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Global Compliance Notice</a></li>
                             </ul>
-                            
-                            <h3 className="text-base font-medium mb-4 mt-8 text-white/90">Privacy & Usage</h3>
-                            <ul className="space-y-3">
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Privacy Policy</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Terms of Use</a></li>
-                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Employee Privacy Notice</a></li>
-                            </ul>
                           </div>
                           
                           <div>
-                            <h3 className="text-base font-medium mb-4 text-white/90">Support</h3>
+                            <h3 className="text-base font-medium mb-4 text-white/90">Privacy & Usage</h3>
+                            <ul className="space-y-3">
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Privacy Policy</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Terms of Use</a></li>
+                              <li><a href="#" className="text-white/80 text-sm hover:text-white transition-colors">Employee/Applicant Privacy Notice</a></li>
+                            </ul>
+                            
+                            <h3 className="text-base font-medium mb-4 mt-8 text-white/90">Support</h3>
                             <ul className="space-y-3">
                               <li>
                                 <a 
