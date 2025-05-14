@@ -570,25 +570,6 @@ export default function Home() {
         {/* zinrai text in the center */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
           <div className="relative inline-block">
-            {/* Switch/Play button above z in zinrai */}
-            <div className="absolute -top-[30px] left-[4%] z-50">
-              <button 
-                onClick={() => setVideoPopupOpen(true)}
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  setIconVariant((prev) => (prev + 1) % videoIcons.length);
-                }}
-                className="text-white/80 cursor-pointer"
-                style={{ touchAction: 'manipulation' }}  
-                aria-label="Open video"
-                title={`Video trigger (${videoIcons[iconVariant].name} icon)`}
-              >
-                {React.createElement(videoIcons[iconVariant === 0 ? 1 : iconVariant].icon, { 
-                  size: 18, 
-                  className: "play-button-glow"
-                })}
-              </button>
-            </div>
             <h1 className="zinrai-logo-text animate-content-glitch text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap">
               ZiNRAi
             </h1>
