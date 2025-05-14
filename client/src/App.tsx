@@ -126,7 +126,7 @@ function App() {
           {/* Menu icon and dropdown */}
           <div className="relative z-10" ref={menuRef}>
             <button 
-              className="ml-4 h-[32px] flex items-center justify-center cursor-pointer group relative"
+              className="ml-8 h-[32px] flex items-center justify-center cursor-pointer group relative"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
