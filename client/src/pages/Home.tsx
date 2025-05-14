@@ -734,13 +734,13 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Dynamic content in the lower right square - hidden when menu is open */}
+        {/* Dynamic content in the top right square - hidden when menu is open */}
         <div 
-          className={`absolute bottom-0 right-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
+          className={`absolute top-0 right-0 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'flex'}`}
           style={{ 
-            bottom: '12.5vh', // Position at the vertical center of the last row
+            top: '12.5vh', // Position at the vertical center of the top row
             right: '25vw', // Position at the horizontal center of the right column
-            transform: 'translate(50%, 50%)', // Center perfectly
+            transform: 'translate(50%, -50%)', // Center perfectly
             width: 'auto', // Let content determine width
             height: 'auto' // Let content determine height
           }}
