@@ -132,21 +132,20 @@ export default function Partner() {
             id="partner-learn-more-modal"
             className="relative bg-black border border-white/20 w-[95%] max-w-3xl max-h-[90vh] overflow-y-auto z-50 animate-in slide-up duration-500"
           >
-            {/* Fixed Back button - better positioned and more visible */}
-            <div className="sticky top-0 left-0 w-full bg-black/70 backdrop-blur-md p-4 z-50 flex border-b border-white/10">
-              <button 
-                className="flex items-center text-white/80 hover:text-white transition-all group" 
-                onClick={toggleLearnMoreModal}
-                aria-label="Go back"
-              >
-                <div className="relative h-10 w-10 flex items-center justify-center mr-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white/70 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                  </svg>
-                </div>
-                <span className="text-white/70 group-hover:text-white text-sm font-medium tracking-wide">BACK</span>
-              </button>
-            </div>
+            {/* Back button instead of close X */}
+            <button 
+              className="absolute top-6 left-6 text-white/80 hover:text-white transition-all group z-10 flex items-center" 
+              onClick={toggleLearnMoreModal}
+              aria-label="Go back"
+            >
+              <div className="relative h-10 w-10 flex items-center justify-center mr-2">
+                <div className="absolute inset-0 rounded-full bg-black/50 backdrop-blur-sm group-hover:bg-black/70 transform scale-75 group-hover:scale-100 transition-all duration-300"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 relative text-white/70 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+              </div>
+              <span className="text-white/70 group-hover:text-white text-sm font-light">BACK</span>
+            </button>
             
             {/* Modal Content */}
             <div className="p-10 sm:p-12 pt-20">
