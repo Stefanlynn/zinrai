@@ -87,28 +87,28 @@ export default function Culture() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 gap-3 max-w-2xl mx-auto md:mx-0">
               {cultureValues.map((value, index) => (
                 <div 
                   key={index}
-                  className={`cursor-pointer group transition-all duration-300 border border-transparent hover:border-white/20 p-3 ${activeValue === index ? 'bg-white/5' : ''}`}
+                  className={`cursor-pointer group transition-all duration-300 border border-transparent hover:border-white/20 p-4 ${activeValue === index ? 'bg-white/5' : ''}`}
                   onClick={() => handleValueClick(index)}
                 >
-                  <div className="flex items-center space-x-2">
-                    <span className="text-white text-sm font-bold w-6 h-6 flex items-center justify-center border border-white/30 rounded-full">
+                  <div className="flex items-center space-x-3">
+                    <span className="text-white text-sm font-bold w-7 h-7 flex items-center justify-center border border-white/30 rounded-full group-hover:border-white/50 transition-colors">
                       {value.letter}
                     </span>
-                    <h2 className="text-white text-base font-medium">{value.title}</h2>
+                    <h2 className="text-white text-lg font-medium tracking-wide">{value.title}</h2>
                     {activeValue === index && (
                       <div className="ml-1">
-                        <svg width="10" height="7" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M1 4L5 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg width="12" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 4L5 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </div>
                     )}
                   </div>
                   
-                  <div className={`mt-2 text-white/70 text-xs leading-tight overflow-hidden transition-all duration-300 ${activeValue === index ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className={`mt-3 pl-10 text-white/80 text-sm leading-relaxed overflow-hidden transition-all duration-300 ${activeValue === index ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
                     {value.description}
                   </div>
                 </div>
