@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation } from "wouter";
 
 export default function Checkout() {
-  const [paymentMethod, setPaymentMethod] = useState<"card" | "debit" | "ach" | "ewallet">("card");
+  const [paymentMethod, setPaymentMethod] = useState<"card" | "crypto">("card");
   const [, navigate] = useLocation();
   
   // Get subscription details from localStorage (would typically come from state or context in a real app)
@@ -28,37 +28,17 @@ export default function Checkout() {
                   : "border-white/30 hover:border-white/60"
               } transition-colors`}
             >
-              Credit Card
+              Credit/Debit Card
             </button>
             <button
-              onClick={() => setPaymentMethod("debit")}
+              onClick={() => setPaymentMethod("crypto")}
               className={`px-6 py-3 border ${
-                paymentMethod === "debit"
+                paymentMethod === "crypto"
                   ? "border-white bg-white/10"
                   : "border-white/30 hover:border-white/60"
               } transition-colors`}
             >
-              Debit Card
-            </button>
-            <button
-              onClick={() => setPaymentMethod("ach")}
-              className={`px-6 py-3 border ${
-                paymentMethod === "ach"
-                  ? "border-white bg-white/10"
-                  : "border-white/30 hover:border-white/60"
-              } transition-colors`}
-            >
-              ACH Transfer
-            </button>
-            <button
-              onClick={() => setPaymentMethod("ewallet")}
-              className={`px-6 py-3 border ${
-                paymentMethod === "ewallet"
-                  ? "border-white bg-white/10"
-                  : "border-white/30 hover:border-white/60"
-              } transition-colors`}
-            >
-              E-Wallets
+              Cryptocurrency
             </button>
           </div>
         </div>
@@ -129,7 +109,7 @@ export default function Checkout() {
           <div className="bg-black border border-white/20 p-8">
             {paymentMethod === "card" && (
               <>
-                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Credit Card Payment</h2>
+                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Credit/Debit Card Payment</h2>
                 
                 <div className="space-y-5">
                   {/* Credit Card Number */}
@@ -188,209 +168,74 @@ export default function Checkout() {
                     <div className="flex flex-wrap gap-3 mb-4">
                       <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Visa</div>
                       <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">MasterCard</div>
+                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">American Express</div>
+                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Discover</div>
                     </div>
                   </div>
                 </div>
               </>
             )}
             
-            {paymentMethod === "debit" && (
+            {paymentMethod === "crypto" && (
               <>
-                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Debit Card Payment</h2>
+                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">Cryptocurrency Payment</h2>
                 
                 <div className="space-y-5">
-                  {/* Debit Card Number */}
+                  {/* Cryptocurrency Selection */}
                   <div>
-                    <label htmlFor="debitNumber" className="block text-white/80 text-sm mb-2">
-                      Card Number
-                    </label>
-                    <input
-                      type="text"
-                      id="debitNumber"
-                      className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                      placeholder="1234 5678 9012 3456"
-                    />
-                  </div>
-                  
-                  {/* Card Holder Name */}
-                  <div>
-                    <label htmlFor="debitName" className="block text-white/80 text-sm mb-2">
-                      Cardholder Name
-                    </label>
-                    <input
-                      type="text"
-                      id="debitName"
-                      className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                      placeholder="Name on card"
-                    />
-                  </div>
-                  
-                  {/* Expiry and CVC */}
-                  <div className="flex space-x-4">
-                    <div className="w-1/2">
-                      <label htmlFor="debitExpiry" className="block text-white/80 text-sm mb-2">
-                        Expiration Date
-                      </label>
-                      <input
-                        type="text"
-                        id="debitExpiry"
-                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                        placeholder="MM/YY"
-                      />
-                    </div>
-                    <div className="w-1/2">
-                      <label htmlFor="debitCvc" className="block text-white/80 text-sm mb-2">
-                        CVC
-                      </label>
-                      <input
-                        type="text"
-                        id="debitCvc"
-                        className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                        placeholder="123"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* No specific card type logos for debit card section */}
-                </div>
-              </>
-            )}
-            
-            {paymentMethod === "ach" && (
-              <>
-                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">ACH Bank Transfer</h2>
-                
-                <div className="space-y-5">
-                  {/* Bank Routing Number */}
-                  <div>
-                    <label htmlFor="routingNumber" className="block text-white/80 text-sm mb-2">
-                      Routing Number
-                    </label>
-                    <input
-                      type="text"
-                      id="routingNumber"
-                      className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                      placeholder="123456789"
-                    />
-                  </div>
-                  
-                  {/* Account Number */}
-                  <div>
-                    <label htmlFor="accountNumber" className="block text-white/80 text-sm mb-2">
-                      Account Number
-                    </label>
-                    <input
-                      type="text"
-                      id="accountNumber"
-                      className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                      placeholder="Account number"
-                    />
-                  </div>
-                  
-                  {/* Account Type */}
-                  <div>
-                    <label htmlFor="accountType" className="block text-white/80 text-sm mb-2">
-                      Account Type
+                    <label htmlFor="cryptoType" className="block text-white/80 text-sm mb-2">
+                      Select Cryptocurrency
                     </label>
                     <select
-                      id="accountType"
+                      id="cryptoType"
                       className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:border-white/60 transition-colors"
                     >
-                      <option value="checking" className="bg-black">Checking</option>
-                      <option value="savings" className="bg-black">Savings</option>
-                      <option value="business" className="bg-black">Business</option>
+                      <option value="bitcoin" className="bg-black">Bitcoin (BTC)</option>
+                      <option value="ethereum" className="bg-black">Ethereum (ETH)</option>
+                      <option value="usdt" className="bg-black">Tether (USDT)</option>
+                      <option value="usdc" className="bg-black">USD Coin (USDC)</option>
                     </select>
                   </div>
                   
-                  {/* Account Holder Name */}
-                  <div>
-                    <label htmlFor="achName" className="block text-white/80 text-sm mb-2">
-                      Account Holder Name
-                    </label>
-                    <input
-                      type="text"
-                      id="achName"
-                      className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                      placeholder="Name on account"
-                    />
-                  </div>
-                  
-                  <div className="bg-white/5 p-4 rounded text-white/70 text-sm">
-                    <p>By authorizing this payment, you allow ZiNRAi to debit the account specified for the amount shown. This authorization will remain in effect until canceled.</p>
-                  </div>
-                </div>
-              </>
-            )}
-            
-            {paymentMethod === "ewallet" && (
-              <>
-                <h2 className="text-white text-xl font-medium mb-6 pb-3 border-b border-white/10">E-Wallet Payment</h2>
-                
-                <div className="space-y-6">
-                  {/* E-Wallet Selection */}
-                  <div>
-                    <label htmlFor="walletType" className="block text-white/80 text-sm mb-2">
-                      Select E-Wallet
-                    </label>
-                    <select
-                      id="walletType"
-                      className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:border-white/60 transition-colors"
-                    >
-                      <option value="paypal" className="bg-black">PayPal</option>
-                      <option value="applepay" className="bg-black">Apple Pay</option>
-                      <option value="googlepay" className="bg-black">Google Pay</option>
-                      <option value="venmo" className="bg-black">Venmo</option>
-                    </select>
-                  </div>
-                  
-                  {/* E-Wallet Email */}
-                  <div>
-                    <label htmlFor="walletEmail" className="block text-white/80 text-sm mb-2">
-                      E-Wallet Email/Account
-                    </label>
-                    <input
-                      type="email"
-                      id="walletEmail"
-                      className="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/60 transition-colors"
-                      placeholder="name@example.com"
-                    />
-                  </div>
-                  
-                  <div className="pt-4">
-                    <div className="flex flex-wrap gap-3 mb-4">
-                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">PayPal</div>
-                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Apple Pay</div>
-                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Google Pay</div>
-                      <div className="px-3 py-1.5 border border-white/30 rounded text-sm text-white/70 hover:border-white/60 cursor-pointer transition-colors">Venmo</div>
+                  {/* Wallet Address */}
+                  <div className="mt-6 p-6 border border-white/30 bg-black/40 rounded text-center">
+                    <h3 className="text-lg font-medium text-white mb-2">Scan to Pay</h3>
+                    <div className="w-48 h-48 mx-auto bg-white/10 flex items-center justify-center mb-4">
+                      <div className="text-xs text-white/60">QR Code will appear here</div>
+                    </div>
+                    <div className="text-white/80 text-sm">
+                      <p className="mb-3">Send exact amount: <span className="font-medium">${subscriptionData.price || "79.99"} USD</span></p>
+                      <p className="mb-3">Wallet address:</p>
+                      <p className="font-mono text-xs bg-white/5 p-2 rounded break-all">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</p>
                     </div>
                   </div>
                   
-                  <div className="bg-white/5 p-4 rounded text-white/70 text-sm">
-                    <p>After clicking "Pay Now", you'll be securely redirected to complete your payment with your selected e-wallet provider.</p>
+                  <div className="bg-white/5 p-4 rounded text-white/70 text-sm mt-4">
+                    <p>After sending the payment, click "Complete Payment" below. Your subscription will activate once the transaction is confirmed on the blockchain.</p>
                   </div>
                 </div>
               </>
             )}
             
-            {/* Payment Buttons */}
-            <div className="mt-8">
+            {/* Payment Button - common for all methods */}
+            <div className="pt-8 mt-6 border-t border-white/10">
               <button 
-                className="w-full bg-black border-2 border-white text-white py-4 px-8 transition-all duration-300 focus:outline-none hover:bg-white hover:text-black text-base font-medium tracking-wide uppercase"
                 onClick={() => {
-                  // In a real app, this would process the payment
-                  alert("Thank you for your payment! Your subscription has been activated.");
-                  navigate("/profile");
+                  // Simulate successful payment and redirect
+                  navigate('/');
                 }}
+                className="w-full bg-white hover:bg-white/90 text-black py-4 text-center text-base font-semibold tracking-wide transition-colors"
               >
-                Pay Now
+                Complete Payment
               </button>
-              
-              <button 
-                className="w-full text-white/60 py-3 text-sm mt-4 hover:text-white/90 transition-colors"
-                onClick={() => navigate("/subscribe")}
-              >
-                Return to previous step
-              </button>
+              <div className="mt-4 text-center">
+                <button 
+                  onClick={() => navigate('/subscribe')}
+                  className="text-white/60 hover:text-white text-sm transition-colors"
+                >
+                  Return to subscription selection
+                </button>
+              </div>
             </div>
           </div>
         </div>
