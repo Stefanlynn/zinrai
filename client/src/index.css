@@ -288,6 +288,23 @@ body.home-is-active {
     scrollbar-width: none;  /* Firefox */
   }
   
+  /* Better category selector for desktop */
+  @media (min-width: 768px) {
+    .category-scroll-container div[data-category-id] {
+      position: relative;
+      transition: all 0.2s ease;
+      transform-origin: center;
+    }
+    
+    .category-scroll-container div[data-category-id]:hover {
+      transform: translateY(-1px);
+    }
+    
+    .category-scroll-container div[data-category-id]:active {
+      transform: translateY(0);
+    }
+  }
+  
   /* Animate spin for rotating elements */
   @keyframes spin {
     from {

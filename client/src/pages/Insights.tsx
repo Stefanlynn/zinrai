@@ -171,14 +171,14 @@ export default function Insights() {
       {/* Main content with improved layout */}
       <div className="relative h-screen w-full flex flex-col">
         
-        {/* Category section - horizontal scrolling with touch */}
-        <div className="h-[70px] border-b border-white/10 pt-[30px] pl-[16px] pr-[16px] flex items-center relative">
-          {/* Left shadow indicator for scroll */}
-          <div className="absolute left-0 top-[30px] bottom-0 w-8 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none h-[70px]"></div>
+        {/* Category section - centered on desktop, scrolling on mobile */}
+        <div className="h-[70px] border-b border-white/10 pt-[30px] pl-[16px] pr-[16px] flex items-center justify-center relative">
+          {/* Left shadow indicator for scroll - only on mobile */}
+          <div className="absolute left-0 top-[30px] bottom-0 w-8 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none h-[70px] md:hidden"></div>
           
-          {/* Category tabs with enhanced scrolling container - taking full width */}
+          {/* Category tabs container - centered on desktop, scrollable on mobile */}
           <div className="w-full overflow-x-auto scrollbar-hide px-4 category-scroll-container">
-            <div className="flex py-1 space-x-8 min-w-max">
+            <div className="flex py-1 space-x-8 min-w-max md:justify-center"> {/* Added justify-center for desktop */}
               {videoCategories.map((category, index) => (
                 <div
                   key={category.id}
@@ -206,8 +206,8 @@ export default function Insights() {
             </div>
           </div>
           
-          {/* Right shadow indicator for scroll */}
-          <div className="absolute right-0 top-[30px] bottom-0 w-8 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none h-[70px]"></div>
+          {/* Right shadow indicator for scroll - only on mobile */}
+          <div className="absolute right-0 top-[30px] bottom-0 w-8 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none h-[70px] md:hidden"></div>
         </div>
         
         {/* Videos Grid - Made even smaller to fit without scrolling */}
