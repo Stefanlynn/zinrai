@@ -396,7 +396,7 @@ function App() {
             <div className="absolute left-0 right-0 flex items-center justify-center h-full z-0">
               <a 
                 href="/" 
-                className="text-sm font-semibold text-white/90 hover:text-white transition-colors"
+                className="text-sm font-semibold text-white hover:text-white/90 transition-colors"
                 onClick={(e) => {
                   e.preventDefault();
                   setLocation('/');
