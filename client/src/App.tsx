@@ -22,7 +22,7 @@ import NotFound from "@/pages/not-found";
 // Component for pages that need the header
 function PageWithHeader({ children }: { children: React.ReactNode }) {
   return (
-    <div className="pt-[32px]">
+    <div className="pt-[48px]">
       {children}
     </div>
   );
@@ -124,24 +124,24 @@ function App() {
       <TooltipProvider>
         <Toaster />
         {/* Larger header bar with menu */}
-        <div className="fixed top-0 left-0 right-0 h-[32px] bg-[#f7f5f0] z-[1000] flex items-center">
+        <div className="fixed top-0 left-0 right-0 h-[48px] bg-[#f7f5f0] z-[1000] flex items-center">
           {/* Menu icon and dropdown - increased tap target for mobile and desktop */}
-          <div className="relative z-10 h-[32px] flex items-center" ref={menuRef}>
+          <div className="relative z-10 h-[48px] flex items-center" ref={menuRef}>
             <button 
-              className="ml-4 h-[32px] w-[120px] flex items-center cursor-pointer group relative"
+              className="ml-4 h-[48px] w-[120px] flex items-center cursor-pointer group relative"
               onClick={toggleMenu}
               aria-label="Toggle menu"
               style={{ touchAction: 'manipulation' }}
             >
               {/* Expanded invisible hit area that covers more space */}
               <div className="w-full h-full absolute top-0 left-0 hover:bg-black/5 transition-colors duration-300"></div>
-              {/* The visible hamburger lines stay centered */}
-              <div className="relative w-5 h-5 ml-4 flex items-center justify-center">
-                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5' : '-translate-y-[2px] group-hover:bg-black'}`}></div>
-                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5' : 'translate-y-[2px] group-hover:bg-black'}`}></div>
+              {/* The visible hamburger lines (3 lines) stay centered */}
+              <div className="relative w-5 h-6 ml-4 flex items-center justify-center">
+                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[5px] group-hover:bg-black'}`}></div>
+                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-black'}`}></div>
+                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[5px] group-hover:bg-black'}`}></div>
               </div>
-              {/* Optional text label for desktop - hidden on very small screens */}
-              <span className="text-xs text-black/70 ml-2 hidden sm:inline">Menu</span>
+              {/* No text label */}
             </button>
             
             {/* Menu page exactly matching the reference image */}
