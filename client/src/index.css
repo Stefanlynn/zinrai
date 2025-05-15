@@ -39,8 +39,18 @@
 
 /* Make links inherit colors and have no underlines */
 a {
-  color: inherit !important;
+  color: inherit;
   text-decoration: none !important;
+}
+
+/* Header specific styles for dark background */
+.fixed.top-0.left-0.right-0.h-\[48px\].bg-\[\#222222\] a {
+  color: white !important;
+}
+
+/* ZiNRAi logo text in header */
+.header-logo {
+  color: white !important;
 }
 
 /* Styles for fixed vs scrollable pages */
