@@ -376,16 +376,16 @@ function App() {
           
           {/* Conditional Content: Impact text on home page or ZiNRAi on other pages */}
           {isHomePage ? (
-            /* Alternating header texts - only on home page */
-            <div className="flex-1 flex items-center justify-center h-full text-center px-4 relative">
+            /* Alternating header texts - only on home page - centered in the entire header */
+            <div className="absolute left-0 right-0 flex items-center justify-center h-full text-center px-4 z-0">
               {headerTexts.map((header, index) => (
                 <div 
                   key={index} 
-                  className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${
+                  className={`w-full flex items-center justify-center transition-opacity duration-1000 ${
                     index === headerTextIndex ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
-                  <div className="flex items-center text-[10px] text-black/80 whitespace-nowrap">
+                  <div className="flex items-center text-[10px] text-black/80 whitespace-nowrap mx-auto">
                     <span>{header.text}</span>
                     {header.showHeart && (
                       <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
@@ -410,8 +410,8 @@ function App() {
               ))}
             </div>
           ) : (
-            /* ZiNRAi text on other pages */
-            <div className="flex-1 flex justify-center">
+            /* ZiNRAi text on other pages - absolutely centered */
+            <div className="absolute left-0 right-0 flex items-center justify-center h-full z-0">
               <a 
                 href="/" 
                 className="text-sm font-semibold text-black/90 hover:text-black transition-colors"
