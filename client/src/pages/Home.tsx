@@ -963,17 +963,17 @@ export default function Home() {
               </div>
             </button>
             
-            {/* Video container with responsive aspect ratio */}
+            {/* Black screen placeholder instead of YouTube video */}
             <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl border border-white/10">
-              {/* YouTube iframe - embedded video */}
-              <iframe 
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/RbM2F-cfN0A?autoplay=1"
-                title="ZiNRAi Introduction Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              {/* Simple black background div */}
+              <div 
+                className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
+              >
+                {/* Optional subtle play icon overlay */}
+                <div className="text-white/10">
+                  <FiPlay size={64} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
