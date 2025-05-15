@@ -376,9 +376,9 @@ function App() {
           
           {/* Conditional Content: Impact text on home page or ZiNRAi on other pages */}
           {isHomePage ? (
-            /* Alternating header texts - only on home page - centered with fixed width */
+            /* Alternating header texts - only on home page - centered with fixed position */
             <div className="absolute left-0 right-0 flex items-center justify-center h-full pointer-events-none z-0">
-              <div className="relative w-52 h-4 flex items-center justify-center">
+              <div className="relative w-40 h-4 flex items-center justify-center">
                 {headerTexts.map((header, index) => (
                   <div 
                     key={index} 
