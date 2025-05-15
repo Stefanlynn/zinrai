@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 
 // Define impact statistics
 const impactStats = [
-  { id: 1, value: 75000, prefix: "", suffix: "+", label: "Meals provided across the U.S. and Pakistan" },
+  { id: 1, value: 75000, prefix: "", suffix: "+", label: "Meals provided across the U.S., Pakistan, and Africa" },
   { id: 2, value: 8, prefix: "", suffix: "", label: "Clean water projects funded in West Africa" },
   { id: 3, value: 2000, prefix: "", suffix: "+", label: "Families impacted through decentralized giving" },
   { id: 4, value: 100, prefix: "", suffix: "%", label: "Transparency powered by blockchain technology" },
