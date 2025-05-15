@@ -333,39 +333,19 @@ function App() {
                             <h3 className="text-sm font-medium mb-3 text-white/90">Privacy & Usage</h3>
                             <ul className="space-y-2">
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Privacy Policy</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Terms of Use</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Employee/Applicant Privacy Notice</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Cookie Policy</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Accessibility</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Data Usage Notice</a></li>
                             </ul>
                             
-                            <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Support</h3>
+                            <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Support Resources</h3>
                             <ul className="space-y-2">
-                              <li>
-                                <a 
-                                  href="/contact" 
-                                  className="text-white/80 text-xs hover:text-white transition-colors block"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    setLocation('/contact');
-                                    toggleMenu();
-                                  }}
-                                >
-                                  Contact Us
-                                </a>
-                              </li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">FAQs</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Help Center</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Contact Support</a></li>
                             </ul>
                           </div>
                         </div>
-                      </div>
-
-                      {/* Copyright Footer */}
-                      <div className="mt-8 pt-6 border-t border-white/10 text-center">
-                        <p className="text-white/50 text-[10px]">
-                          © 2025 ZiNRAi. All rights reserved. | 
-                          <a href="#" className="hover:text-white/70 transition-colors"> Terms of Use</a> | 
-                          <a href="#" className="hover:text-white/70 transition-colors"> Privacy Policy</a> | 
-                          <a href="#" className="hover:text-white/70 transition-colors"> Income Disclosure</a> | 
-                          <a href="#" className="hover:text-white/70 transition-colors"> Contact</a>
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -376,40 +356,39 @@ function App() {
           
           {/* Conditional Content: Impact text on home page or ZiNRAi on other pages */}
           {isHomePage ? (
-            /* Alternating header texts - only on home page - centered with fixed width */
+            /* Alternating header texts - only on home page - fixed width to prevent shifting */
             <div className="absolute left-0 right-0 flex items-center justify-center h-full pointer-events-none z-0">
-              <div className="relative w-52 h-4 flex items-center justify-center">
+              <div className="w-52 flex items-center justify-center">
                 {headerTexts.map((header, index) => (
                   <div 
                     key={index} 
-                    className={`absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center transition-opacity duration-1000 ${
+                    className={`absolute flex items-center justify-center transition-opacity duration-1000 ${
                       index === headerTextIndex ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
                     <div className="flex items-center text-[10px] text-black/80 whitespace-nowrap">
-                    <span>{header.text}</span>
-                    {header.showHeart && (
-                      <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                      </svg>
-                    )}
-                    {header.showLink && (
-                      <a 
-                        href="#" 
-                        className="font-bold text-black hover:text-[var(--zinrai-red)] transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          console.log("Opening ZiNRAi Cares modal");
-                          setShowCaresModal(true);
-                        }}
-                      >
-                        ZiNRAi Cares
-                      </a>
-                    )}
+                      <span>{header.text}</span>
+                      {header.showHeart && (
+                        <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                      )}
+                      {header.showLink && (
+                        <a 
+                          href="#" 
+                          className="font-bold text-black hover:text-[var(--zinrai-red)] transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            console.log("Opening ZiNRAi Cares modal");
+                            setShowCaresModal(true);
+                          }}
+                        >
+                          ZiNRAi Cares
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  </div>
-                </div>
-              ))}
+                ))}
               </div>
             </div>
           ) : (
@@ -428,25 +407,28 @@ function App() {
             </div>
           )}
           
-          {/* Profile icon in the far right corner */}
-          <div className="ml-auto">
-            <div className="flex items-center h-full px-4 mr-4 cursor-pointer">
-              <FiUser size={16} className="text-black/80 hover:text-black transition-colors" />
-            </div>
+          {/* Profile icon on the right side - same for all pages */}
+          <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
+            <button
+              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-black/5 transition-colors duration-300"
+              aria-label="Profile"
+              onClick={() => setLocation('/profile')}
+            >
+              <FiUser className="text-black/80 h-4 w-4" />
+            </button>
           </div>
         </div>
         
-        {/* No grain effect for minimalist look */}
+        {/* Router Content */}
         <Router />
         
         {/* ZiNRAi Cares Modal */}
         {showCaresModal && (
-          <div style={{overflowY: 'auto', maxHeight: '100vh', height: '100vh'}} className="fixed inset-0 bg-black/95 z-[2000]">
-            <div className="bg-black text-white">
-              {/* Close button for the modal */}
+          <div className="fixed inset-0 bg-black/90 z-[1100] overflow-y-auto flex items-start justify-center p-4 sm:p-8">
+            <div className="bg-black border border-white/20 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
               <button 
+                className="absolute top-4 right-4 text-white/80 hover:text-white p-2 z-10"
                 onClick={() => setShowCaresModal(false)}
-                className="fixed top-4 right-4 text-white/70 hover:text-white transition-colors z-[2100]"
                 aria-label="Close modal"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
