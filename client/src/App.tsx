@@ -123,8 +123,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        {/* Larger header bar with menu */}
-        <div className="fixed top-0 left-0 right-0 h-[48px] bg-[#f7f5f0] z-[1000] flex items-center">
+        {/* Larger header bar with menu - changed to dark gray */}
+        <div className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center">
           {/* Menu icon and dropdown - increased tap target for mobile and desktop */}
           <div className="relative z-10 h-[48px] flex items-center" ref={menuRef}>
             <button 
@@ -134,12 +134,12 @@ function App() {
               style={{ touchAction: 'manipulation' }}
             >
               {/* Expanded invisible hit area that covers more space */}
-              <div className="w-full h-full absolute top-0 left-0 hover:bg-black/5 transition-colors duration-300"></div>
+              <div className="w-full h-full absolute top-0 left-0 hover:bg-white/5 transition-colors duration-300"></div>
               {/* The visible hamburger lines (3 lines) stay centered */}
               <div className="relative w-5 h-6 ml-4 flex items-center justify-center">
-                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[5px] group-hover:bg-black'}`}></div>
-                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-black'}`}></div>
-                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[5px] group-hover:bg-black'}`}></div>
+                <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[5px] group-hover:bg-white'}`}></div>
+                <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-white'}`}></div>
+                <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[5px] group-hover:bg-white'}`}></div>
               </div>
               {/* No text label */}
             </button>
@@ -366,7 +366,7 @@ function App() {
                       index === headerTextIndex ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
-                    <div className="flex items-center text-[10px] text-black/80 whitespace-nowrap">
+                    <div className="flex items-center text-[10px] text-white/80 whitespace-nowrap">
                       <span>{header.text}</span>
                       {header.showHeart && (
                         <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
@@ -376,7 +376,7 @@ function App() {
                       {header.showLink && (
                         <a 
                           href="#" 
-                          className="font-bold text-black hover:text-[var(--zinrai-red)] transition-colors"
+                          className="font-bold text-white hover:text-[var(--zinrai-red)] transition-colors"
                           onClick={(e) => {
                             e.preventDefault();
                             console.log("Opening ZiNRAi Cares modal");
@@ -396,7 +396,7 @@ function App() {
             <div className="absolute left-0 right-0 flex items-center justify-center h-full z-0">
               <a 
                 href="/" 
-                className="text-sm font-semibold text-black/90 hover:text-black transition-colors"
+                className="text-sm font-semibold text-white/90 hover:text-white transition-colors"
                 onClick={(e) => {
                   e.preventDefault();
                   setLocation('/');
@@ -410,11 +410,11 @@ function App() {
           {/* Profile icon on the right side - same for all pages */}
           <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
             <button
-              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-black/5 transition-colors duration-300"
+              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300"
               aria-label="Profile"
               onClick={() => setLocation('/profile')}
             >
-              <FiUser className="text-black/80 h-4 w-4" />
+              <FiUser className="text-white/80 h-4 w-4" />
             </button>
           </div>
         </div>
