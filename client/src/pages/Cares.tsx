@@ -182,14 +182,7 @@ export default function Cares() {
             ))}
           </div>
           
-          <div className="mt-10 text-center">
-            <button 
-              onClick={() => navigate('/subscribe')}
-              className="px-8 py-3 bg-white text-black font-medium hover:bg-white/90 transition-colors"
-            >
-              SUBSCRIBE TO MAKE AN IMPACT
-            </button>
-          </div>
+          {/* Subscribe button removed as requested */}
         </div>
       </div>
     </div>
