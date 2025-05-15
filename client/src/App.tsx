@@ -163,215 +163,14 @@ function App() {
                 )}
               </div>
             ) : (
-              "ZiNRAi"
+              <div 
+                className="cursor-pointer" 
+                onClick={() => setLocation('/')}
+              >
+                ZiNRAi
+              </div>
             )}
           </div>
-          
-          {/* Menu page exactly matching the reference image */}
-          {menuOpen && (
-            <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
-              <div className="w-full h-full flex flex-col">
-                {/* Header with ZiNRAi logo and Start Now button */}
-                <div className="flex justify-between items-center p-6">
-                  <div 
-                    className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
-                    onClick={() => {
-                      setMenuOpen(false);
-                      setLocation('/');
-                    }}
-                  >
-                    ZiNRAi
-                  </div>
-                  <button 
-                    onClick={() => {
-                      setMenuOpen(false);
-                      setLocation('/subscribe');
-                    }}
-                    className="px-4 py-2 border border-white/50 hover:border-white text-white/90 hover:text-white transition-all duration-200 uppercase text-sm tracking-wider font-medium group"
-                  >
-                    <span className="group-hover:font-bold transition-all duration-200">Start Now</span>
-                  </button>
-                </div>
-                
-                {/* Main menu content with numbered items - moved to the left */}
-                <div className="flex-1 px-8 md:px-16 pt-8">
-                  <nav className="space-y-6 md:space-y-8 max-w-xs">
-                    <div>
-                      <div className="flex items-start">
-                        <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
-                        <button 
-                          onClick={() => {
-                            setLocation('/product');
-                            toggleMenu();
-                          }}
-                          className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                        >
-                          Products
-                        </button>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex items-start">
-                        <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">02</div>
-                        <button 
-                          onClick={() => {
-                            setLocation('/partner');
-                            toggleMenu();
-                          }}
-                          className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                        >
-                          Partner
-                        </button>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex items-start">
-                        <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">03</div>
-                        <button 
-                          onClick={() => {
-                            setLocation('/culture');
-                            toggleMenu();
-                          }}
-                          className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                        >
-                          Why ZiNRAi
-                        </button>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex items-start">
-                        <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">04</div>
-                        <button 
-                          onClick={() => {
-                            setLocation('/insights');
-                            toggleMenu();
-                          }}
-                          className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                        >
-                          Insights
-                        </button>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex items-start">
-                        <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
-                        <button 
-                          onClick={() => {
-                            setLocation('/leadership');
-                            toggleMenu();
-                          }}
-                          className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                        >
-                          Leadership
-                        </button>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex items-start">
-                        <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
-                        <button 
-                          onClick={() => {
-                            setLocation('/zinrai-cares');
-                            toggleMenu();
-                          }}
-                          className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                        >
-                          ZiNRAi Cares
-                        </button>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex items-start">
-                        <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">07</div>
-                        <button 
-                          onClick={() => {
-                            setLocation('/contact');
-                            toggleMenu();
-                          }}
-                          className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                        >
-                          Contact
-                        </button>
-                      </div>
-                    </div>
-                  </nav>
-                  
-                  {/* Large ZiNRAi watermark in background - adjusted position */}
-                  <div className="absolute inset-0 flex items-center z-[-1] opacity-5 pointer-events-none">
-                    <h1 className="text-[20vw] font-bold tracking-tighter ml-[25%]">ZiNRAi</h1>
-                  </div>
-                </div>
-                
-                {/* Info Center Section at bottom - simplified */}
-                <div className="py-6 border-t border-white/20 mt-auto">
-                  <div className="max-w-3xl mx-auto px-8 md:px-16">
-                    <button 
-                      className="flex items-center justify-center mb-6 w-full focus:outline-none"
-                      onClick={() => {
-                        const infoContentEl = document.getElementById('info-content');
-                        if (infoContentEl) {
-                          if (infoContentEl.style.display === 'none' || infoContentEl.style.display === '') {
-                            infoContentEl.style.display = 'block';
-                            document.getElementById('info-arrow')?.classList.add('rotate-180');
-                          } else {
-                            infoContentEl.style.display = 'none';
-                            document.getElementById('info-arrow')?.classList.remove('rotate-180');
-                          }
-                        }
-                      }}
-                    >
-                      <h2 className="text-lg font-light text-white/90">Info Center</h2>
-                      <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    
-                    {/* Info Center Content - Initially hidden with scrollability */}
-                    <div id="info-content" style={{display: 'none'}} className="py-4 max-h-[40vh] md:max-h-60 overflow-y-auto custom-scrollbar">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
-                        <div>
-                          <h3 className="text-sm font-medium mb-3 text-white/90">Terms & Policies</h3>
-                          <ul className="space-y-2">
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">IBO Terms</a></li>
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Member Terms</a></li>
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Policies & Procedures</a></li>
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Refund Policy</a></li>
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Income Disclosure</a></li>
-                          </ul>
-                          
-                          <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Legal & Regional Notices</h3>
-                          <ul className="space-y-2">
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Japan Information</a></li>
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Global Compliance Notice</a></li>
-                          </ul>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-sm font-medium mb-3 text-white/90">Privacy & Usage</h3>
-                          <ul className="space-y-2">
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Privacy Policy</a></li>
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Terms of Use</a></li>
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Employee/Applicant Privacy Notice</a></li>
-                          </ul>
-                          
-                          <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Support</h3>
-                          <ul className="space-y-2">
-                            <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Contact Us</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
           
           {/* Profile icon in the far right corner */}
           <div className="ml-auto">
@@ -380,6 +179,212 @@ function App() {
             </div>
           </div>
         </div>
+
+        {/* Menu page exactly matching the reference image */}
+        {menuOpen && (
+          <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
+            <div className="w-full h-full flex flex-col">
+              {/* Header with ZiNRAi logo and Start Now button */}
+              <div className="flex justify-between items-center p-6">
+                <div 
+                  className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setLocation('/');
+                  }}
+                >
+                  ZiNRAi
+                </div>
+                <button 
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setLocation('/subscribe');
+                  }}
+                  className="px-4 py-2 border border-white/50 hover:border-white text-white/90 hover:text-white transition-all duration-200 uppercase text-sm tracking-wider font-medium group"
+                >
+                  <span className="group-hover:font-bold transition-all duration-200">Start Now</span>
+                </button>
+              </div>
+              
+              {/* Main menu content with numbered items - moved to the left */}
+              <div className="flex-1 px-8 md:px-16 pt-8">
+                <nav className="space-y-6 md:space-y-8 max-w-xs">
+                  <div>
+                    <div className="flex items-start">
+                      <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
+                      <button 
+                        onClick={() => {
+                          setLocation('/product');
+                          toggleMenu();
+                        }}
+                        className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                      >
+                        Products
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-start">
+                      <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">02</div>
+                      <button 
+                        onClick={() => {
+                          setLocation('/partner');
+                          toggleMenu();
+                        }}
+                        className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                      >
+                        Partner
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-start">
+                      <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">03</div>
+                      <button 
+                        onClick={() => {
+                          setLocation('/culture');
+                          toggleMenu();
+                        }}
+                        className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                      >
+                        Why ZiNRAi
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-start">
+                      <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">04</div>
+                      <button 
+                        onClick={() => {
+                          setLocation('/insights');
+                          toggleMenu();
+                        }}
+                        className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                      >
+                        Insights
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-start">
+                      <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
+                      <button 
+                        onClick={() => {
+                          setLocation('/leadership');
+                          toggleMenu();
+                        }}
+                        className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                      >
+                        Leadership
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-start">
+                      <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
+                      <button 
+                        onClick={() => {
+                          setLocation('/zinrai-cares');
+                          toggleMenu();
+                        }}
+                        className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                      >
+                        ZiNRAi Cares
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-start">
+                      <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">07</div>
+                      <button 
+                        onClick={() => {
+                          setLocation('/contact');
+                          toggleMenu();
+                        }}
+                        className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                      >
+                        Contact
+                      </button>
+                    </div>
+                  </div>
+                </nav>
+                
+                {/* Large ZiNRAi watermark in background - adjusted position */}
+                <div className="absolute inset-0 flex items-center z-[-1] opacity-5 pointer-events-none">
+                  <h1 className="text-[20vw] font-bold tracking-tighter ml-[25%]">ZiNRAi</h1>
+                </div>
+              </div>
+              
+              {/* Info Center Section at bottom - simplified */}
+              <div className="py-6 border-t border-white/20 mt-auto">
+                <div className="max-w-3xl mx-auto px-8 md:px-16">
+                  <button 
+                    className="flex items-center justify-center mb-6 w-full focus:outline-none"
+                    onClick={() => {
+                      const infoContentEl = document.getElementById('info-content');
+                      if (infoContentEl) {
+                        if (infoContentEl.style.display === 'none' || infoContentEl.style.display === '') {
+                          infoContentEl.style.display = 'block';
+                          document.getElementById('info-arrow')?.classList.add('rotate-180');
+                        } else {
+                          infoContentEl.style.display = 'none';
+                          document.getElementById('info-arrow')?.classList.remove('rotate-180');
+                        }
+                      }
+                    }}
+                  >
+                    <h2 className="text-lg font-light text-white/90">Info Center</h2>
+                    <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Info Center Content - Initially hidden with scrollability */}
+                  <div id="info-content" style={{display: 'none'}} className="py-4 max-h-[40vh] md:max-h-60 overflow-y-auto custom-scrollbar">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+                      <div>
+                        <h3 className="text-sm font-medium mb-3 text-white/90">Terms & Policies</h3>
+                        <ul className="space-y-2">
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">IBO Terms</a></li>
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Member Terms</a></li>
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Policies & Procedures</a></li>
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Refund Policy</a></li>
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Income Disclosure</a></li>
+                        </ul>
+                        
+                        <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Legal & Regional Notices</h3>
+                        <ul className="space-y-2">
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Japan Information</a></li>
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Global Compliance Notice</a></li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-sm font-medium mb-3 text-white/90">Privacy & Usage</h3>
+                        <ul className="space-y-2">
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Privacy Policy</a></li>
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Terms of Use</a></li>
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Employee/Applicant Privacy Notice</a></li>
+                        </ul>
+                        
+                        <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Support</h3>
+                        <ul className="space-y-2">
+                          <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Contact Us</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* No grain effect for minimalist look */}
         <Router />
