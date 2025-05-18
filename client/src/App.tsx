@@ -309,9 +309,9 @@ function App() {
                         </svg>
                       </button>
                       
-                      {/* Info Center Content - Initially hidden with scrollability */}
+                      {/* Info Center Content - Horizontal layout on desktop */}
                       <div id="info-content" style={{display: 'none'}} className="py-4 max-h-[40vh] md:max-h-60 overflow-y-auto custom-scrollbar">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8">
                           <div>
                             <h3 className="text-sm font-medium mb-3 text-white/90">Terms & Policies</h3>
                             <ul className="space-y-2">
@@ -321,8 +321,10 @@ function App() {
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Refund Policy</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Income Disclosure</a></li>
                             </ul>
-                            
-                            <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Legal & Regional Notices</h3>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-sm font-medium mb-3 text-white/90">Legal & Regional Notices</h3>
                             <ul className="space-y-2">
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Japan Information</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Global Compliance Notice</a></li>
@@ -337,8 +339,10 @@ function App() {
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Accessibility</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Data Usage Notice</a></li>
                             </ul>
-                            
-                            <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Support Resources</h3>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-sm font-medium mb-3 text-white/90">Support Resources</h3>
                             <ul className="space-y-2">
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">FAQs</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Help Center</a></li>
