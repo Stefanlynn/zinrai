@@ -308,6 +308,55 @@ body.home-is-active {
       box-shadow: 0 0 25px rgba(104, 172, 255, 0.8), 0 0 50px rgba(104, 172, 255, 0.5);
     }
   }
+  
+  /* Recurring grid animations */
+  .animate-grid-recurring {
+    animation: gridRecurring 7s infinite;
+  }
+  
+  @keyframes gridRecurring {
+    0%, 85%, 100% {
+      opacity: 0.1;
+    }
+    5% {
+      opacity: 0.8;
+    }
+    75% {
+      opacity: 0.6;
+    }
+  }
+  
+  /* Horizontal line animation - recurring */
+  .animate-horizontal-recurring {
+    animation: horizontalRecurring 7s infinite;
+    background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.6));
+    height: 2px !important;
+  }
+  
+  @keyframes horizontalRecurring {
+    0%, 5%, 100% {
+      width: 0%;
+    }
+    45%, 75% {
+      width: 100%;
+    }
+  }
+  
+  /* Vertical line animation - recurring */
+  .animate-vertical-recurring {
+    animation: verticalRecurring 7s infinite;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.6));
+    width: 2px !important;
+  }
+  
+  @keyframes verticalRecurring {
+    0%, 5%, 100% {
+      height: 0%;
+    }
+    45%, 75% {
+      height: 100%;
+    }
+  }
 }
 
 @layer utilities {
