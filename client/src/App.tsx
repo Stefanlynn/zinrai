@@ -76,6 +76,7 @@ function App() {
   const isHomePage = isHome;
   const [, setLocation] = useLocation();
   const [headerTextIndex, setHeaderTextIndex] = useState(0);
+  const isMobile = useIsMobile();
   const headerTexts = [
     { 
       text: "$1 per subscription supports",
@@ -125,10 +126,64 @@ function App() {
         <Toaster />
         {/* Larger header bar with menu - changed to dark gray */}
         <div className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center">
-          {/* Menu icon and dropdown - increased tap target for mobile and desktop */}
-          <div className="relative z-10 h-[48px] flex items-center" ref={menuRef}>
+          {/* Brand logo */}
+          <div 
+            className="ml-4 mr-6 cursor-pointer"
+            onClick={() => setLocation('/')}
+          >
+            <span className="text-white font-medium">ZiNRAi</span>
+          </div>
+          
+          {/* Desktop navigation links */}
+          <div className="hidden md:flex items-center space-x-6">
             <button 
-              className="ml-4 h-[48px] w-[120px] flex items-center cursor-pointer group relative"
+              onClick={() => setLocation('/product')}
+              className="text-white/80 text-sm hover:text-white transition-colors"
+            >
+              Products
+            </button>
+            <button 
+              onClick={() => setLocation('/partner')}
+              className="text-white/80 text-sm hover:text-white transition-colors"
+            >
+              Brand Promoter
+            </button>
+            <button 
+              onClick={() => setLocation('/culture')}
+              className="text-white/80 text-sm hover:text-white transition-colors"
+            >
+              Why ZiNRAi
+            </button>
+            <button 
+              onClick={() => setLocation('/leadership')}
+              className="text-white/80 text-sm hover:text-white transition-colors"
+            >
+              Leadership
+            </button>
+            <button 
+              onClick={() => setLocation('/insights')}
+              className="text-white/80 text-sm hover:text-white transition-colors"
+            >
+              Insights
+            </button>
+            <button 
+              onClick={() => setLocation('/zinrai-cares')}
+              className="text-white/80 text-sm hover:text-white transition-colors"
+            >
+              ZiNRAi Cares
+            </button>
+            <button 
+              onClick={() => setLocation('/contact')}
+              className="text-white/80 text-sm hover:text-white transition-colors"
+            >
+              Contact
+            </button>
+          </div>
+          
+          {/* Mobile menu icon */}
+          <div className="md:hidden relative z-10 h-[48px] flex items-center" ref={menuRef}>
+            <button 
+              className="ml-4 h-[48px] w-[48px] flex items-center cursor-pointer group relative"
               onClick={toggleMenu}
               aria-label="Toggle menu"
               style={{ touchAction: 'manipulation' }}
@@ -136,12 +191,11 @@ function App() {
               {/* Expanded invisible hit area that covers more space */}
               <div className="w-full h-full absolute top-0 left-0 hover:bg-white/5 transition-colors duration-300"></div>
               {/* The visible hamburger lines (3 lines) stay centered */}
-              <div className="relative w-5 h-6 ml-4 flex items-center justify-center">
+              <div className="relative w-5 h-6 flex items-center justify-center">
                 <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[5px] group-hover:bg-white'}`}></div>
                 <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-white'}`}></div>
                 <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[5px] group-hover:bg-white'}`}></div>
               </div>
-              {/* No text label */}
             </button>
             
             {/* Menu page exactly matching the reference image */}
@@ -430,18 +484,18 @@ function App() {
             </div>
           )}
           
-          {/* Profile icon and Start Now button on the right side - only visible when menu is closed */}
-          {!menuOpen && (
-            <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
-              {isHomePage && (
-                <button
-                  className="h-[32px] px-4 mr-3 bg-[var(--zinrai-blue-glow)] rounded-sm flex items-center justify-center cursor-pointer hover:bg-[var(--zinrai-blue-glow)]/80 transition-colors duration-300 shadow-[0_0_10px_rgba(104,172,255,0.7)]"
-                  aria-label="Start Now"
-                  onClick={() => setLocation('/subscribe')}
-                >
-                  <span className="text-white text-sm font-medium">Start Now</span>
-                </button>
-              )}
+          {/* Profile icon and Start Now button on the right side */}
+          <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
+            {(!menuOpen || !isMobile) && isHomePage && (
+              <button
+                className="h-[32px] px-4 mr-3 bg-[var(--zinrai-blue-glow)] rounded-sm flex items-center justify-center cursor-pointer hover:bg-[var(--zinrai-blue-glow)]/80 transition-colors duration-300 shadow-[0_0_10px_rgba(104,172,255,0.7)]"
+                aria-label="Start Now"
+                onClick={() => setLocation('/subscribe')}
+              >
+                <span className="text-white text-sm font-medium">Start Now</span>
+              </button>
+            )}
+            {(!menuOpen || !isMobile) && (
               <button
                 className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300"
                 aria-label="Profile"
@@ -449,8 +503,8 @@ function App() {
               >
                 <FiUser className="text-white/80 h-4 w-4" />
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
         
         {/* Router Content */}
