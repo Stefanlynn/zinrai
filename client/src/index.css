@@ -346,6 +346,13 @@ body.home-is-active {
       0 0 40px #68ACFF;
   }
   
+  /* Blue text shadow effect */
+  .text-shadow-blue {
+    text-shadow: 
+      0 0 5px #68ACFF,
+      0 0 10px #68ACFF;
+  }
+  
   @keyframes pulseGlow {
     0% {
       box-shadow: 0 0 15px rgba(104, 172, 255, 0.6), 0 0 30px rgba(104, 172, 255, 0.3);

@@ -370,8 +370,12 @@ function App() {
                       index === headerTextIndex ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
-                    <div className="flex items-center text-[10px] text-white/80 whitespace-nowrap">
-                      <span>{header.text}</span>
+                    <div className="flex items-center text-[10px] whitespace-nowrap">
+                      <span className={`${
+                        index === 1 ? 'text-white text-shadow-blue' : 'text-white/80'
+                      }`}>
+                        {header.text}
+                      </span>
                       {header.showHeart && (
                         <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -416,7 +420,7 @@ function App() {
             <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
               {isHomePage && (
                 <button
-                  className="h-[32px] px-4 mr-3 bg-[var(--zinrai-red)] rounded-sm flex items-center justify-center cursor-pointer hover:bg-[var(--zinrai-red)]/80 transition-colors duration-300"
+                  className="h-[32px] px-4 mr-3 bg-[var(--zinrai-blue-glow)] rounded-sm flex items-center justify-center cursor-pointer hover:bg-[var(--zinrai-blue-glow)]/80 transition-colors duration-300 shadow-[0_0_10px_rgba(104,172,255,0.7)]"
                   aria-label="Start Now"
                   onClick={() => setLocation('/product')}
                 >
