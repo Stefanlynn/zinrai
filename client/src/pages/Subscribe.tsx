@@ -296,10 +296,7 @@ export default function Subscribe() {
                       <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
                       <span>VIP-only events</span>
                     </li>
-                    <li className="text-white/70 text-sm flex items-start">
-                      <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                      <span>Priority support</span>
-                    </li>
+
                   </ul>
                 </div>
               </div>
