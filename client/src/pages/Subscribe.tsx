@@ -176,7 +176,7 @@ export default function Subscribe() {
                 </li>
               </ul>
               
-              <p className="text-white/60 text-xs italic mt-auto">Perfect for those ready to scale or build across multiple areas.</p>
+
             </div>
             
             {/* Brand Promoter */}
