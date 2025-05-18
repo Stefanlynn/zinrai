@@ -209,9 +209,19 @@ export default function Product() {
       
       {/* Main Content */}
       <div className="w-full min-h-screen flex flex-col relative z-10">
+      
+        {/* Product Title - matching the Partner page header */}
+        <div className="absolute top-[10vh] left-[10vw]">
+          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-light tracking-wide">
+            OUR PRODUCTS
+          </h1>
+          <p className="text-white/80 text-base sm:text-lg mt-2 font-light">
+            Starting at $49.99<span className="text-sm text-white/60">/month</span>
+          </p>
+        </div>
         
-        {/* Services List - now with adjusted positioning for desktop */}
-        <div className={`absolute top-[20vh] sm:top-[25vh] md:top-[35vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
+        {/* Services List - adjusted positioning for header */}
+        <div className={`absolute top-[25vh] sm:top-[30vh] md:top-[38vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
           {services.map((service, index) => (
             <div 
               key={index}
