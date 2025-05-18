@@ -14,7 +14,7 @@ const services = [
 // Define detailed product information for Learn More modal
 const productDetails = [
   {
-    title: "Foreign Exchange (Forex) Course + goLIVE Classrooms",
+    title: "Foreign Exchange (Forex) Course + Learn Now",
     description: "Master the global currency market with real-time strategies, expert insights, and interactive learning. Whether you're brand new or ready to scale, our Forex program equips you to trade with clarity and confidence."
   },
   {
