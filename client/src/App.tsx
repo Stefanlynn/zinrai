@@ -228,8 +228,24 @@ function App() {
             </div>
           )}
           
+          {/* Start Now button for mobile */}
+          {isHomePage && (
+            <div className="md:hidden flex items-center z-10 ml-auto">
+              <a 
+                className="h-[32px] px-4 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300 mr-4"
+                href="/subscribe"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation('/subscribe');
+                }}
+              >
+                <span className="text-white/90 text-xs font-light tracking-wide hover:text-white">Start Now</span>
+              </a>
+            </div>
+          )}
+            
           {/* Mobile menu toggle */}
-          <div className="md:hidden ml-auto mr-4 relative z-10 h-[48px] flex items-center" ref={menuRef}>
+          <div className="md:hidden mr-4 relative z-10 h-[48px] flex items-center" ref={menuRef}>
             <button 
               className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer"
               onClick={toggleMenu}
