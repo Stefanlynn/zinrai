@@ -258,16 +258,16 @@ export default function Partner() {
           ))}
         </div>
         
-        {/* Benefit Description - Only visible on desktop */}
+        {/* Benefit Description - With blue box background to match Product page */}
         {!isMobile && (
           <div className="hidden md:block absolute top-[33vh] right-[10vw] w-[40vw] transition-opacity duration-500">
-            <div className="animate-fadeIn">
+            <div className="animate-fadeIn bg-[#455A6B] p-6 border border-[#455A6B]/30">
               <h3 className="text-white text-xl font-medium mb-4">{partnerDetails[activeIndex].title}</h3>
-              <p className="text-white/80 leading-relaxed">{partnerDetails[activeIndex].description}</p>
+              <p className="text-white/90 leading-relaxed">{partnerDetails[activeIndex].description}</p>
               
               {/* Extra info for partnership */}
               {activeIndex === 0 && (
-                <div className="mt-6 text-white/70 border-t border-white/10 pt-4">
+                <div className="mt-6 text-white/90 border-t border-white/20 pt-4">
                   <p className="mb-2">Becoming a ZiNRAi Independent Representative means you're stepping into leadership with purpose, backed by powerful tools, training, and a global community.</p>
                   <p className="italic">This is more than a role—it's a platform to lead, earn, and make an impact while being part of something that matters.</p>
                 </div>

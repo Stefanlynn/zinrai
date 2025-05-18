@@ -242,12 +242,12 @@ export default function Product() {
           ))}
         </div>
         
-        {/* Product Description - Only visible on desktop */}
+        {/* Product Description - With blue box background */}
         {!isMobile && (
           <div className="hidden md:block absolute top-[33vh] right-[10vw] w-[40vw] transition-opacity duration-500">
-            <div className="animate-fadeIn">
+            <div className="animate-fadeIn bg-[#455A6B] p-6 border border-[#455A6B]/30">
               <h3 className="text-white text-xl font-medium mb-4">{productDetails[activeIndex].title}</h3>
-              <p className="text-white/80 leading-relaxed">{productDetails[activeIndex].description}</p>
+              <p className="text-white/90 leading-relaxed">{productDetails[activeIndex].description}</p>
             </div>
           </div>
         )}
