@@ -123,56 +123,147 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        {/* Larger header bar with menu */}
-        <div className="fixed top-0 left-0 right-0 h-[48px] bg-[#f7f5f0] z-[1000] flex items-center">
-          {/* Menu icon and dropdown - increased tap target for mobile and desktop */}
-          <div className="relative z-10 h-[48px] flex items-center" ref={menuRef}>
+        
+        {/* Header - Minimal sleek design */}
+        <header className="fixed top-0 left-0 right-0 h-[48px] bg-black z-[1000] flex items-center border-b border-white/10">
+          {/* Brand logo */}
+          <a 
+            className="ml-6 cursor-pointer flex items-center"
+            onClick={(e) => {
+              e.preventDefault();
+              setLocation('/');
+            }}
+            href="/"
+          >
+            <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
+          </a>
+          
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex items-center space-x-8 mx-auto">
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/product"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/product');
+              }}
+            >
+              Products
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/partner"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/partner');
+              }}
+            >
+              Brand Promoter
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/leadership"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/leadership');
+              }}
+            >
+              Leadership
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/insights"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/insights');
+              }}
+            >
+              Insights
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/contact');
+              }}
+            >
+              Contact
+            </a>
+          </nav>
+          
+          {/* Profile & Start Now for desktop */}
+          <div className="hidden md:flex items-center mr-6">
+            {isHomePage && (
+              <a 
+                className="h-[32px] px-5 mr-4 bg-black border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
+                href="/subscribe"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation('/subscribe');
+                }}
+              >
+                <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Start Now</span>
+              </a>
+            )}
+            <a
+              className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
+              href="/profile"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/profile');
+              }}
+            >
+              <FiUser className="text-white/70 h-4 w-4" />
+            </a>
+          </div>
+          
+          {/* Mobile menu toggle */}
+          <div className="md:hidden ml-auto mr-4 relative z-10 h-[48px] flex items-center" ref={menuRef}>
             <button 
-              className="ml-4 h-[48px] w-[120px] flex items-center cursor-pointer group relative"
+              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer"
               onClick={toggleMenu}
               aria-label="Toggle menu"
-              style={{ touchAction: 'manipulation' }}
             >
-              {/* Expanded invisible hit area that covers more space */}
-              <div className="w-full h-full absolute top-0 left-0 hover:bg-black/5 transition-colors duration-300"></div>
-              {/* The visible hamburger lines (3 lines) stay centered */}
-              <div className="relative w-5 h-6 ml-4 flex items-center justify-center">
-                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[5px] group-hover:bg-black'}`}></div>
-                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-black'}`}></div>
-                <div className={`w-5 h-[1.5px] bg-black/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[5px] group-hover:bg-black'}`}></div>
+              <div className="relative w-5 h-5 flex items-center justify-center">
+                <div className={`w-5 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[4px]'}`}></div>
+                <div className={`w-4 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+                <div className={`w-5 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[4px]'}`}></div>
               </div>
-              {/* No text label */}
             </button>
-            
-            {/* Menu page exactly matching the reference image */}
-            {menuOpen && (
-              <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
-                <div className="w-full h-full flex flex-col">
-                  {/* Header with ZiNRAi logo and Start Now button */}
-                  <div className="flex justify-between items-center p-6">
-                    <div 
-                      className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
-                      onClick={() => {
-                        setMenuOpen(false);
-                        setLocation('/');
-                      }}
-                    >
-                      ZiNRAi
-                    </div>
-                    <button 
-                      onClick={() => {
-                        setMenuOpen(false);
-                        setLocation('/subscribe');
-                      }}
-                      className="px-4 py-2 border border-white/50 hover:border-white text-white/90 hover:text-white transition-all duration-200 uppercase text-sm tracking-wider font-medium group"
-                    >
-                      <span className="group-hover:font-bold transition-all duration-200">Start Now</span>
-                    </button>
-                  </div>
+          </div>
+        </header>
+        
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
+            <div className="w-full h-full flex flex-col">
+              {/* Header with logo and Start Now button */}
+              <div className="flex justify-between items-center p-6">
+                <div 
+                  className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setLocation('/');
+                  }}
+                >
+                  ZiNRAi
+                </div>
+                <button 
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setLocation('/subscribe');
+                  }}
+                  className="px-4 py-2 border border-white/50 hover:border-white text-white/90 hover:text-white transition-all duration-200 uppercase text-sm tracking-wider font-medium group"
+                >
+                  <span className="group-hover:font-bold transition-all duration-200">Start Now</span>
+                </button>
+              </div>
                   
-                  {/* Main menu content with numbered items - moved to the left */}
-                  <div className="flex-1 px-8 md:px-16 pt-8">
-                    <nav className="space-y-6 md:space-y-8 max-w-xs">
+                  {/* Main menu content with numbered items on left, video space on right */}
+                  <div className="flex-1 px-8 md:px-16 pt-8 flex flex-col md:flex-row">
+                    {/* Left side: Navigation */}
+                    <nav className="space-y-6 md:space-y-8 max-w-xs flex-shrink-0">
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
@@ -198,7 +289,7 @@ function App() {
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            Partner
+                            Brand Promoter
                           </button>
                         </div>
                       </div>
@@ -279,6 +370,20 @@ function App() {
                       </div>
                     </nav>
                     
+                    {/* Right side: Video area - only visible on desktop */}
+                    <div className="hidden md:flex flex-1 items-center justify-center ml-12">
+                      <div className="w-full max-w-xl h-[400px] bg-zinc-900 border border-white/20 rounded-sm flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="w-16 h-16 rounded-full bg-black/50 border border-white/30 flex items-center justify-center mx-auto mb-4">
+                            <svg className="w-8 h-8 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                          <p className="text-white/70 text-sm">Video will be loaded later</p>
+                        </div>
+                      </div>
+                    </div>
+                    
                     {/* Large ZiNRAi watermark in background - adjusted position */}
                     <div className="absolute inset-0 flex items-center z-[-1] opacity-5 pointer-events-none">
                       <h1 className="text-[20vw] font-bold tracking-tighter ml-[25%]">ZiNRAi</h1>
@@ -309,20 +414,22 @@ function App() {
                         </svg>
                       </button>
                       
-                      {/* Info Center Content - Initially hidden with scrollability */}
+                      {/* Info Center Content - Horizontal layout on desktop */}
                       <div id="info-content" style={{display: 'none'}} className="py-4 max-h-[40vh] md:max-h-60 overflow-y-auto custom-scrollbar">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8">
                           <div>
                             <h3 className="text-sm font-medium mb-3 text-white/90">Terms & Policies</h3>
                             <ul className="space-y-2">
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">IBO Terms</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Brand Promoter Terms</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Member Terms</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Policies & Procedures</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Refund Policy</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Income Disclosure</a></li>
                             </ul>
-                            
-                            <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Legal & Regional Notices</h3>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-sm font-medium mb-3 text-white/90">Legal & Regional Notices</h3>
                             <ul className="space-y-2">
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Japan Information</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Global Compliance Notice</a></li>
@@ -333,39 +440,21 @@ function App() {
                             <h3 className="text-sm font-medium mb-3 text-white/90">Privacy & Usage</h3>
                             <ul className="space-y-2">
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Privacy Policy</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Terms of Use</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Employee/Applicant Privacy Notice</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Cookie Policy</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Accessibility</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Data Usage Notice</a></li>
                             </ul>
-                            
-                            <h3 className="text-sm font-medium mb-3 mt-6 text-white/90">Support</h3>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-sm font-medium mb-3 text-white/90">Support Resources</h3>
                             <ul className="space-y-2">
-                              <li>
-                                <a 
-                                  href="/contact" 
-                                  className="text-white/80 text-xs hover:text-white transition-colors block"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    setLocation('/contact');
-                                    toggleMenu();
-                                  }}
-                                >
-                                  Contact Us
-                                </a>
-                              </li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">FAQs</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Help Center</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Contact Support</a></li>
                             </ul>
                           </div>
                         </div>
-                      </div>
-
-                      {/* Copyright Footer */}
-                      <div className="mt-8 pt-6 border-t border-white/10 text-center">
-                        <p className="text-white/50 text-[10px]">
-                          © 2025 ZiNRAi. All rights reserved. | 
-                          <a href="#" className="hover:text-white/70 transition-colors"> Terms of Use</a> | 
-                          <a href="#" className="hover:text-white/70 transition-colors"> Privacy Policy</a> | 
-                          <a href="#" className="hover:text-white/70 transition-colors"> Income Disclosure</a> | 
-                          <a href="#" className="hover:text-white/70 transition-colors"> Contact</a>
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -376,40 +465,43 @@ function App() {
           
           {/* Conditional Content: Impact text on home page or ZiNRAi on other pages */}
           {isHomePage ? (
-            /* Alternating header texts - only on home page - centered with fixed position */
+            /* Alternating header texts - only on home page - fixed width to prevent shifting */
             <div className="absolute left-0 right-0 flex items-center justify-center h-full pointer-events-none z-0">
-              <div className="relative w-40 h-4 flex items-center justify-center">
+              <div className="w-52 flex items-center justify-center">
                 {headerTexts.map((header, index) => (
                   <div 
                     key={index} 
-                    className={`absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center transition-opacity duration-1000 ${
+                    className={`absolute flex items-center justify-center transition-opacity duration-1000 ${
                       index === headerTextIndex ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
-                    <div className="flex items-center text-[10px] text-black/80 whitespace-nowrap">
-                    <span>{header.text}</span>
-                    {header.showHeart && (
-                      <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                      </svg>
-                    )}
-                    {header.showLink && (
-                      <a 
-                        href="#" 
-                        className="font-bold text-black hover:text-[var(--zinrai-red)] transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          console.log("Opening ZiNRAi Cares modal");
-                          setShowCaresModal(true);
-                        }}
-                      >
-                        ZiNRAi Cares
-                      </a>
-                    )}
+                    <div className="flex items-center text-[10px] whitespace-nowrap">
+                      <span className={`${
+                        index === 1 ? 'text-white text-shadow-blue' : 'text-white/80'
+                      }`}>
+                        {header.text}
+                      </span>
+                      {header.showHeart && (
+                        <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                      )}
+                      {header.showLink && (
+                        <a 
+                          href="#" 
+                          className="font-bold text-white hover:text-[var(--zinrai-red)] transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            console.log("Opening ZiNRAi Cares modal");
+                            setShowCaresModal(true);
+                          }}
+                        >
+                          ZiNRAi Cares
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  </div>
-                </div>
-              ))}
+                ))}
               </div>
             </div>
           ) : (
@@ -417,7 +509,7 @@ function App() {
             <div className="absolute left-0 right-0 flex items-center justify-center h-full z-0">
               <a 
                 href="/" 
-                className="text-sm font-semibold text-black/90 hover:text-black transition-colors"
+                className="text-sm font-semibold text-white hover:text-white/90 transition-colors header-logo"
                 onClick={(e) => {
                   e.preventDefault();
                   setLocation('/');
@@ -428,25 +520,40 @@ function App() {
             </div>
           )}
           
-          {/* Profile icon in the far right corner */}
-          <div className="ml-auto">
-            <div className="flex items-center h-full px-4 mr-4 cursor-pointer">
-              <FiUser size={16} className="text-black/80 hover:text-black transition-colors" />
-            </div>
+          {/* Profile icon and Start Now button on the right side */}
+          <div className="hidden md:flex h-[48px] mr-6 items-center z-10">
+            {/* Start Now button - only on desktop and only on home page */}
+            {isHomePage && (
+              <button
+                className="h-[32px] px-5 mr-4 bg-black border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
+                aria-label="Start Now"
+                onClick={() => setLocation('/subscribe')}
+              >
+                <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Start Now</span>
+              </button>
+            )}
+            
+            {/* Profile icon */}
+            <button
+              className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
+              aria-label="Profile"
+              onClick={() => setLocation('/profile')}
+            >
+              <FiUser className="text-white/70 h-4 w-4" />
+            </button>
           </div>
         </div>
         
-        {/* No grain effect for minimalist look */}
+        {/* Router Content */}
         <Router />
         
         {/* ZiNRAi Cares Modal */}
         {showCaresModal && (
-          <div style={{overflowY: 'auto', maxHeight: '100vh', height: '100vh'}} className="fixed inset-0 bg-black/95 z-[2000]">
-            <div className="bg-black text-white">
-              {/* Close button for the modal */}
+          <div className="fixed inset-0 bg-black/90 z-[1100] overflow-y-auto flex items-start justify-center p-4 sm:p-8">
+            <div className="bg-black border border-white/20 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
               <button 
+                className="absolute top-4 right-4 text-white/80 hover:text-white p-2 z-10"
                 onClick={() => setShowCaresModal(false)}
-                className="fixed top-4 right-4 text-white/70 hover:text-white transition-colors z-[2100]"
                 aria-label="Close modal"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

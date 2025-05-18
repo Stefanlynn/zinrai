@@ -31,7 +31,9 @@ function PageWithHeader({ children }: { children: React.ReactNode }) {
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/">
+        {() => <Home />}
+      </Route>
       <Route path="/logo">
         {() => <PageWithHeader><Logo /></PageWithHeader>}
       </Route>
@@ -98,12 +100,11 @@ function App() {
     }
     
     document.addEventListener("mousedown", handleClickOutside);
-    
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  
+
   // Header text rotation effect
   useEffect(() => {
     if (isHomePage) {
@@ -123,85 +124,120 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        {/* Larger header bar with menu - changed to dark gray */}
-        <div className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center">
+        
+        {/* Header - Clean minimal design */}
+        <header className="fixed top-0 left-0 right-0 h-[48px] bg-black z-[1000] flex items-center border-b border-white/10">
           {/* Brand logo */}
-          <div 
-            className="ml-4 mr-6 cursor-pointer"
-            onClick={() => setLocation('/')}
+          <a 
+            className="ml-6 cursor-pointer flex items-center"
+            onClick={(e) => {
+              e.preventDefault();
+              setLocation('/');
+            }}
+            href="/"
           >
-            <span className="text-white font-medium">ZiNRAi</span>
-          </div>
+            <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
+          </a>
           
-          {/* Desktop navigation links */}
-          <div className="hidden md:flex items-center space-x-6">
-            <button 
-              onClick={() => setLocation('/product')}
-              className="text-white/80 text-sm hover:text-white transition-colors"
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex items-center space-x-8 mx-auto">
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/product"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/product');
+              }}
             >
               Products
-            </button>
-            <button 
-              onClick={() => setLocation('/partner')}
-              className="text-white/80 text-sm hover:text-white transition-colors"
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/partner"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/partner');
+              }}
             >
               Brand Promoter
-            </button>
-            <button 
-              onClick={() => setLocation('/culture')}
-              className="text-white/80 text-sm hover:text-white transition-colors"
-            >
-              Why ZiNRAi
-            </button>
-            <button 
-              onClick={() => setLocation('/leadership')}
-              className="text-white/80 text-sm hover:text-white transition-colors"
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/leadership"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/leadership');
+              }}
             >
               Leadership
-            </button>
-            <button 
-              onClick={() => setLocation('/insights')}
-              className="text-white/80 text-sm hover:text-white transition-colors"
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/insights"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/insights');
+              }}
             >
               Insights
-            </button>
-            <button 
-              onClick={() => setLocation('/zinrai-cares')}
-              className="text-white/80 text-sm hover:text-white transition-colors"
-            >
-              ZiNRAi Cares
-            </button>
-            <button 
-              onClick={() => setLocation('/contact')}
-              className="text-white/80 text-sm hover:text-white transition-colors"
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/contact');
+              }}
             >
               Contact
-            </button>
+            </a>
+          </nav>
+          
+          {/* Profile & Start Now for desktop */}
+          <div className="hidden md:flex items-center mr-6">
+            {isHomePage && (
+              <a 
+                className="h-[32px] px-5 mr-4 bg-black border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
+                href="/subscribe"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation('/subscribe');
+                }}
+              >
+                <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Start Now</span>
+              </a>
+            )}
+            <a
+              className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
+              href="/profile"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/profile');
+              }}
+            >
+              <FiUser className="text-white/70 h-4 w-4" />
+            </a>
           </div>
           
-          {/* Mobile menu icon */}
-          <div className="md:hidden relative z-10 h-[48px] flex items-center" ref={menuRef}>
+          {/* Mobile menu toggle */}
+          <div className="md:hidden ml-auto mr-4 relative z-10 h-[48px] flex items-center" ref={menuRef}>
             <button 
-              className="ml-4 h-[48px] w-[48px] flex items-center cursor-pointer group relative"
+              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer"
               onClick={toggleMenu}
               aria-label="Toggle menu"
-              style={{ touchAction: 'manipulation' }}
             >
-              {/* Expanded invisible hit area that covers more space */}
-              <div className="w-full h-full absolute top-0 left-0 hover:bg-white/5 transition-colors duration-300"></div>
-              {/* The visible hamburger lines (3 lines) stay centered */}
-              <div className="relative w-5 h-6 flex items-center justify-center">
-                <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[5px] group-hover:bg-white'}`}></div>
-                <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100 group-hover:bg-white'}`}></div>
-                <div className={`w-5 h-[1.5px] bg-white/80 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[5px] group-hover:bg-white'}`}></div>
+              <div className="relative w-5 h-5 flex items-center justify-center">
+                <div className={`w-5 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[4px]'}`}></div>
+                <div className={`w-4 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+                <div className={`w-5 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[4px]'}`}></div>
               </div>
             </button>
             
-            {/* Menu page exactly matching the reference image */}
+            {/* Mobile menu */}
             {menuOpen && (
               <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
                 <div className="w-full h-full flex flex-col">
-                  {/* Header with ZiNRAi logo and Start Now button - removed profile icon */}
+                  {/* Header with logo and Start Now button */}
                   <div className="flex justify-between items-center p-6">
                     <div 
                       className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
@@ -277,21 +313,6 @@ function App() {
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">04</div>
                           <button 
                             onClick={() => {
-                              setLocation('/insights');
-                              toggleMenu();
-                            }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                          >
-                            Insights
-                          </button>
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <div className="flex items-start">
-                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
-                          <button 
-                            onClick={() => {
                               setLocation('/leadership');
                               toggleMenu();
                             }}
@@ -304,22 +325,22 @@ function App() {
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
                           <button 
                             onClick={() => {
-                              setLocation('/zinrai-cares');
+                              setLocation('/insights');
                               toggleMenu();
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            ZiNRAi Cares
+                            Insights
                           </button>
                         </div>
                       </div>
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">07</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
                           <button 
                             onClick={() => {
                               setLocation('/contact');
@@ -377,46 +398,41 @@ function App() {
                         </svg>
                       </button>
                       
-                      {/* Info Center Content - Horizontal layout on desktop */}
-                      <div id="info-content" style={{display: 'none'}} className="py-4 max-h-[40vh] md:max-h-60 overflow-y-auto custom-scrollbar">
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8">
-                          <div>
-                            <h3 className="text-sm font-medium mb-3 text-white/90">Terms & Policies</h3>
-                            <ul className="space-y-2">
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Brand Promoter Terms</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Member Terms</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Policies & Procedures</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Refund Policy</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Income Disclosure</a></li>
-                            </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-sm font-medium mb-3 text-white/90">Legal & Regional Notices</h3>
-                            <ul className="space-y-2">
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Japan Information</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Global Compliance Notice</a></li>
-                            </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-sm font-medium mb-3 text-white/90">Privacy & Usage</h3>
-                            <ul className="space-y-2">
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Privacy Policy</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Cookie Policy</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Accessibility</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Data Usage Notice</a></li>
-                            </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-sm font-medium mb-3 text-white/90">Support Resources</h3>
-                            <ul className="space-y-2">
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">FAQs</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Help Center</a></li>
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Contact Support</a></li>
-                            </ul>
-                          </div>
+                      <div id="info-content" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" style={{ display: 'none' }}>
+                        <div>
+                          <h3 className="text-white/90 text-sm font-medium mb-4">Legal</h3>
+                          <ul className="space-y-3">
+                            <li><button className="text-white/70 text-xs hover:text-white">Terms & Conditions</button></li>
+                            <li><button className="text-white/70 text-xs hover:text-white">Privacy Policy</button></li>
+                            <li><button className="text-white/70 text-xs hover:text-white">Brand Promoter Terms</button></li>
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-white/90 text-sm font-medium mb-4">Support</h3>
+                          <ul className="space-y-3">
+                            <li><button className="text-white/70 text-xs hover:text-white">FAQ</button></li>
+                            <li><button className="text-white/70 text-xs hover:text-white">Help Center</button></li>
+                            <li><button className="text-white/70 text-xs hover:text-white">Contact Support</button></li>
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-white/90 text-sm font-medium mb-4">Company</h3>
+                          <ul className="space-y-3">
+                            <li><button className="text-white/70 text-xs hover:text-white">About Us</button></li>
+                            <li><button className="text-white/70 text-xs hover:text-white">Our Mission</button></li>
+                            <li><button className="text-white/70 text-xs hover:text-white">Careers</button></li>
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-white/90 text-sm font-medium mb-4">Connect</h3>
+                          <ul className="space-y-3">
+                            <li><button className="text-white/70 text-xs hover:text-white">Instagram</button></li>
+                            <li><button className="text-white/70 text-xs hover:text-white">Twitter</button></li>
+                            <li><button className="text-white/70 text-xs hover:text-white">LinkedIn</button></li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -425,88 +441,48 @@ function App() {
               </div>
             )}
           </div>
-          
-          {/* Conditional Content: Impact text on home page or ZiNRAi on other pages */}
-          {isHomePage ? (
-            /* Alternating header texts - only on home page - fixed width to prevent shifting */
-            <div className="absolute left-0 right-0 flex items-center justify-center h-full pointer-events-none z-0">
-              <div className="w-52 flex items-center justify-center">
-                {headerTexts.map((header, index) => (
-                  <div 
-                    key={index} 
-                    className={`absolute flex items-center justify-center transition-opacity duration-1000 ${
-                      index === headerTextIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    <div className="flex items-center text-[10px] whitespace-nowrap">
-                      <span className={`${
-                        index === 1 ? 'text-white text-shadow-blue' : 'text-white/80'
-                      }`}>
-                        {header.text}
-                      </span>
-                      {header.showHeart && (
-                        <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                        </svg>
-                      )}
-                      {header.showLink && (
-                        <a 
-                          href="#" 
-                          className="font-bold text-white hover:text-[var(--zinrai-red)] transition-colors"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            console.log("Opening ZiNRAi Cares modal");
-                            setShowCaresModal(true);
-                          }}
-                        >
-                          ZiNRAi Cares
-                        </a>
-                      )}
-                    </div>
+        </header>
+        
+        {/* Centered header text content */}
+        {isHomePage && (
+          <div className="fixed top-0 left-0 right-0 h-[48px] flex items-center justify-center pointer-events-none z-0">
+            <div className="w-52 flex items-center justify-center">
+              {headerTexts.map((header, index) => (
+                <div 
+                  key={index} 
+                  className={`absolute flex items-center justify-center transition-opacity duration-1000 ${
+                    index === headerTextIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <div className="flex items-center text-[10px] whitespace-nowrap">
+                    <span className={`${
+                      index === 1 ? 'text-white text-shadow-blue' : 'text-white/80'
+                    }`}>
+                      {header.text}
+                    </span>
+                    {header.showHeart && (
+                      <svg className="w-2.5 h-2.5 text-[var(--zinrai-red)] mx-1" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                      </svg>
+                    )}
+                    {header.showLink && (
+                      <a 
+                        href="#" 
+                        className="font-bold text-white hover:text-[var(--zinrai-red)] transition-colors"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setShowCaresModal(true);
+                        }}
+                      >
+                        ZiNRAi Cares
+                      </a>
+                    )}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          ) : (
-            /* ZiNRAi text on other pages - absolutely centered */
-            <div className="absolute left-0 right-0 flex items-center justify-center h-full z-0">
-              <a 
-                href="/" 
-                className="text-sm font-semibold text-white hover:text-white/90 transition-colors header-logo"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setLocation('/');
-                }}
-              >
-                ZiNRAi
-              </a>
-            </div>
-          )}
-          
-          {/* Profile icon and Start Now button on the right side */}
-          <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
-            {/* Start Now button - only on desktop and only on home page */}
-            {isHomePage && (
-              <button
-                className="hidden md:flex h-[32px] px-4 mr-3 bg-[var(--zinrai-blue-glow)] rounded-sm items-center justify-center cursor-pointer hover:bg-[var(--zinrai-blue-glow)]/80 transition-colors duration-300 shadow-[0_0_10px_rgba(104,172,255,0.7)]"
-                aria-label="Start Now"
-                onClick={() => setLocation('/subscribe')}
-              >
-                <span className="text-white text-sm font-medium">Start Now</span>
-              </button>
-            )}
-            {/* Profile icon - always visible when menu is closed */}
-            {!menuOpen && (
-              <button
-                className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300"
-                aria-label="Profile"
-                onClick={() => setLocation('/profile')}
-              >
-                <FiUser className="text-white/80 h-4 w-4" />
-              </button>
-            )}
           </div>
-        </div>
+        )}
         
         {/* Router Content */}
         <Router />
