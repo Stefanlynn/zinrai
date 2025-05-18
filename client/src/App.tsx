@@ -422,7 +422,7 @@ function App() {
                 <button
                   className="h-[32px] px-4 mr-3 bg-[var(--zinrai-blue-glow)] rounded-sm flex items-center justify-center cursor-pointer hover:bg-[var(--zinrai-blue-glow)]/80 transition-colors duration-300 shadow-[0_0_10px_rgba(104,172,255,0.7)]"
                   aria-label="Start Now"
-                  onClick={() => setLocation('/product')}
+                  onClick={() => setLocation('/subscribe')}
                 >
                   <span className="text-white text-sm font-medium">Start Now</span>
                 </button>
