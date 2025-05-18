@@ -244,7 +244,7 @@ export default function Product() {
         
         {/* Product Description - With blue box background and fixed size */}
         {!isMobile && (
-          <div className="hidden md:block absolute top-[33vh] right-[10vw] w-[40vw] transition-opacity duration-500">
+          <div className="hidden md:block absolute top-[33vh] right-[15vw] w-[40vw] max-w-[600px] mx-auto transition-opacity duration-500">
             <div className="animate-fadeIn neon-blue-box p-6 h-[300px] overflow-y-auto">
               <h3 className="text-white text-xl font-medium mb-4">{productDetails[activeIndex].title}</h3>
               <p className="text-white/90 leading-relaxed">{productDetails[activeIndex].description}</p>
