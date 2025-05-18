@@ -198,7 +198,7 @@ function App() {
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            Partner
+                            Brand Promoter
                           </button>
                         </div>
                       </div>
