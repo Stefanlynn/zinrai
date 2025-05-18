@@ -237,17 +237,17 @@ function App() {
             {menuOpen && (
               <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
                 <div className="w-full h-full flex flex-col">
-                  {/* Header with logo and Start Now button */}
+                  {/* Header with close button and Start Now button */}
                   <div className="flex justify-between items-center p-6">
-                    <div 
-                      className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
-                      onClick={() => {
-                        setMenuOpen(false);
-                        setLocation('/');
-                      }}
+                    <button 
+                      className="text-white/80 hover:text-white transition-colors"
+                      onClick={() => setMenuOpen(false)}
+                      aria-label="Close menu"
                     >
-                      ZiNRAi
-                    </div>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
                     <button 
                       onClick={() => {
                         setMenuOpen(false);
