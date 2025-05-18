@@ -214,7 +214,7 @@ function App() {
           
           {/* Start Now for desktop - moved to left side for home page only */}
           {isHomePage && (
-            <div className="hidden md:flex absolute left-[120px]">
+            <div className="hidden md:flex absolute left-[20px]">
               <a 
                 className="h-[32px] px-5 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
                 href="/subscribe"
