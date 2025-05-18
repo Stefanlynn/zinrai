@@ -411,9 +411,18 @@ function App() {
             </div>
           )}
           
-          {/* Profile icon on the right side - only visible when menu is closed */}
+          {/* Profile icon and Start Now button on the right side - only visible when menu is closed */}
           {!menuOpen && (
             <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
+              {isHomePage && (
+                <button
+                  className="h-[32px] px-4 mr-3 bg-[var(--zinrai-red)] rounded-sm flex items-center justify-center cursor-pointer hover:bg-[var(--zinrai-red)]/80 transition-colors duration-300"
+                  aria-label="Start Now"
+                  onClick={() => setLocation('/product')}
+                >
+                  <span className="text-white text-sm font-medium">Start Now</span>
+                </button>
+              )}
               <button
                 className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300"
                 aria-label="Profile"
