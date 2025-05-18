@@ -43,6 +43,23 @@ export default function Product() {
   const [_, navigate] = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [showLearnMoreModal, setShowLearnMoreModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if screen is mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is typical md breakpoint
+    };
+    
+    // Initial check
+    handleResize();
+    
+    // Listen for window resize
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   // Handle service item click
   const handleServiceClick = (index: number) => {
@@ -193,8 +210,8 @@ export default function Product() {
       {/* Main Content */}
       <div className="w-full min-h-screen flex flex-col relative z-10">
         
-        {/* Services List */}
-        <div className="absolute top-[20vh] sm:top-[25vh] md:top-[35vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 max-w-[90vw] sm:max-w-[80vw] md:max-w-[60vw]">
+        {/* Services List - now with adjusted positioning for desktop */}
+        <div className={`absolute top-[20vh] sm:top-[25vh] md:top-[35vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
           {services.map((service, index) => (
             <div 
               key={index}
@@ -215,7 +232,17 @@ export default function Product() {
           ))}
         </div>
         
-        {/* Action Buttons - Moved higher for better mobile visibility */}
+        {/* Product Description - Only visible on desktop */}
+        {!isMobile && (
+          <div className="hidden md:block absolute top-[33vh] right-[10vw] w-[40vw] transition-opacity duration-500">
+            <div className="animate-fadeIn">
+              <h3 className="text-white text-xl font-medium mb-4">{productDetails[activeIndex].title}</h3>
+              <p className="text-white/80 leading-relaxed">{productDetails[activeIndex].description}</p>
+            </div>
+          </div>
+        )}
+        
+        {/* Action Buttons - Show Learn More only on mobile */}
         <div className="absolute bottom-[15vh] left-0 w-full p-6 md:p-0 md:bottom-[15vh] md:left-auto md:right-[10vw] md:w-auto flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center justify-center md:justify-end">
           {/* START NOW button */}
           <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300 bg-white/5 hover:bg-white/10">
@@ -227,15 +254,17 @@ export default function Product() {
             </button>
           </div>
           
-          {/* LEARN MORE button */}
-          <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300">
-            <button 
-              className="w-full px-6 py-3 text-white text-sm tracking-wide learn-more-btn"
-              onClick={toggleLearnMoreModal}
-            >
-              LEARN MORE
-            </button>
-          </div>
+          {/* LEARN MORE button - only visible on mobile */}
+          {isMobile && (
+            <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300">
+              <button 
+                className="w-full px-6 py-3 text-white text-sm tracking-wide learn-more-btn"
+                onClick={toggleLearnMoreModal}
+              >
+                LEARN MORE
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
