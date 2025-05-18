@@ -111,41 +111,21 @@ export default function Product() {
 
   return (
     <div className="bg-black min-h-screen w-full overflow-hidden">
-      {/* Grid Lines with periodic animations */}
-      <div className="fixed inset-0 z-[5] pointer-events-none animate-grid-recurring">
-        {/* Horizontal grid lines with animation */}
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-horizontal-recurring" style={{ animationDelay: '0s' }}></div>
-        </div>
-        <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-horizontal-recurring" style={{ animationDelay: '0.2s' }}></div>
-        </div>
-        <div className="absolute top-2/4 left-0 right-0 h-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-horizontal-recurring" style={{ animationDelay: '0.4s' }}></div>
-        </div>
-        <div className="absolute top-3/4 left-0 right-0 h-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-horizontal-recurring" style={{ animationDelay: '0.6s' }}></div>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-horizontal-recurring" style={{ animationDelay: '0.8s' }}></div>
-        </div>
+      {/* Grid Lines */}
+      <div className="fixed inset-0 z-[5] pointer-events-none">
+        {/* Horizontal grid lines */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10"></div>
+        <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-white/10"></div>
+        <div className="absolute top-2/4 left-0 right-0 h-[1px] bg-white/10"></div>
+        <div className="absolute top-3/4 left-0 right-0 h-[1px] bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/10"></div>
         
-        {/* Vertical grid lines with animation */}
-        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-vertical-recurring" style={{ animationDelay: '1.0s' }}></div>
-        </div>
-        <div className="absolute top-0 bottom-0 left-1/4 w-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-vertical-recurring" style={{ animationDelay: '1.2s' }}></div>
-        </div>
-        <div className="absolute top-0 bottom-0 left-2/4 w-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-vertical-recurring" style={{ animationDelay: '1.4s' }}></div>
-        </div>
-        <div className="absolute top-0 bottom-0 left-3/4 w-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-vertical-recurring" style={{ animationDelay: '1.6s' }}></div>
-        </div>
-        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-white/10">
-          <div className="absolute inset-0 bg-white/30 animate-vertical-recurring" style={{ animationDelay: '1.8s' }}></div>
-        </div>
+        {/* Vertical grid lines */}
+        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white/10"></div>
+        <div className="absolute top-0 bottom-0 left-1/4 w-[1px] bg-white/10"></div>
+        <div className="absolute top-0 bottom-0 left-2/4 w-[1px] bg-white/10"></div>
+        <div className="absolute top-0 bottom-0 left-3/4 w-[1px] bg-white/10"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-white/10"></div>
       </div>
       
       {/* Learn More Modal - Redesigned to match site style */}
