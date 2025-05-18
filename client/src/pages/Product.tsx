@@ -216,7 +216,7 @@ export default function Product() {
             OUR PRODUCTS
           </h1>
           <p className="text-white/80 text-base sm:text-lg mt-2 font-light">
-            Starting at $49.99<span className="text-sm text-white/60">/month</span>
+            $185<span className="text-sm text-white/60">/month</span>
           </p>
         </div>
         
