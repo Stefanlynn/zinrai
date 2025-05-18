@@ -315,7 +315,7 @@ function App() {
                           <div>
                             <h3 className="text-sm font-medium mb-3 text-white/90">Terms & Policies</h3>
                             <ul className="space-y-2">
-                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">IBO Terms</a></li>
+                              <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Brand Promoter Terms</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Member Terms</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Policies & Procedures</a></li>
                               <li><a href="#" className="text-white/80 text-xs hover:text-white transition-colors block">Refund Policy</a></li>
