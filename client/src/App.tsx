@@ -18,6 +18,7 @@ import Contact from "@/pages/Contact";
 import Subscribe from "@/pages/Subscribe";
 import Checkout from "@/pages/Checkout";
 import NotFound from "@/pages/not-found";
+import ConfirmationPage from "@/pages/ConfirmationPage";
 
 // Component for pages that need the header
 function PageWithHeader({ children }: { children: React.ReactNode }) {
@@ -63,6 +64,7 @@ function Router() {
       </Route>
       <Route path="/subscribe" component={Subscribe} />
       <Route path="/checkout" component={Checkout} />
+      <Route path="/confirmation" component={ConfirmationPage} />
       <Route>
         {() => <PageWithHeader><NotFound /></PageWithHeader>}
       </Route>
@@ -127,8 +129,20 @@ function App() {
         
         {/* Header - Clean minimal design with dark gray background */}
         <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10">
-          {/* Empty space instead of brand logo */}
-          <div className="ml-6 w-8"></div>
+          {/* Brand logo - only shown on inner pages for navigation back to home */}
+          {!isHomePage && (
+            <a 
+              className="ml-6 cursor-pointer flex items-center"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/');
+              }}
+              href="/"
+            >
+              <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
+            </a>
+          )}
+          {isHomePage && <div className="ml-6 w-8"></div>}
           
           {/* Desktop navigation */}
           <nav className="hidden md:flex items-center space-x-8 mx-auto">
