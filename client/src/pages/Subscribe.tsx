@@ -112,9 +112,7 @@ export default function Subscribe() {
               className={`bg-black border relative ${selectedSubscription === 'all' ? 'border-white' : 'border-white/20'} p-6 cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
               onClick={() => handleSubscriptionSelect('all')}
             >
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white text-black px-4 py-1 text-xs font-bold">
-                BEST VALUE
-              </div>
+
               
               <div className="absolute top-4 right-4">
                 <div className={`w-5 h-5 rounded-full ${selectedSubscription === 'all' ? 'border-2 border-white' : 'border border-white/50'}`}>
