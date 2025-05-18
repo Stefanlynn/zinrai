@@ -129,8 +129,8 @@ function App() {
         
         {/* Header - Clean minimal design with dark gray background */}
         <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10">
-          {/* Brand logo - shown on all pages except when menu is open */}
-          {!menuOpen && (
+          {/* Brand logo - shown on all pages except home page and when menu is open */}
+          {!menuOpen && !isHomePage && (
             <a 
               className="ml-6 cursor-pointer flex items-center"
               onClick={(e) => {
@@ -142,7 +142,7 @@ function App() {
               <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
             </a>
           )}
-          {menuOpen && <div className="ml-6 w-8"></div>}
+          {(menuOpen || isHomePage) && <div className="ml-6 w-8"></div>}
           
           {/* Desktop navigation */}
           <nav className="hidden md:flex items-center space-x-8 mx-auto">
@@ -198,20 +198,8 @@ function App() {
             </a>
           </nav>
           
-          {/* Profile & Start Now for desktop */}
+          {/* Profile icon for desktop */}
           <div className="hidden md:flex items-center mr-6">
-            {isHomePage && (
-              <a 
-                className="h-[32px] px-5 mr-4 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
-                href="/subscribe"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setLocation('/subscribe');
-                }}
-              >
-                <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Start Now</span>
-              </a>
-            )}
             <a
               className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
               href="/profile"
@@ -223,6 +211,22 @@ function App() {
               <FiUser className="text-white/70 h-4 w-4" />
             </a>
           </div>
+          
+          {/* Start Now for desktop - moved to left side for home page only */}
+          {isHomePage && (
+            <div className="hidden md:flex absolute left-[120px]">
+              <a 
+                className="h-[32px] px-5 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
+                href="/subscribe"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation('/subscribe');
+                }}
+              >
+                <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Start Now</span>
+              </a>
+            </div>
+          )}
           
           {/* Mobile menu toggle */}
           <div className="md:hidden ml-auto mr-4 relative z-10 h-[48px] flex items-center" ref={menuRef}>
