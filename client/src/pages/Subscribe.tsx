@@ -566,13 +566,13 @@ export default function Subscribe() {
                         
                         // Save subscription data
                         const subscriptionData = {
-                          name: selectedSubscription === 'single' ? 'Single Track' :
-                                selectedSubscription === 'all' ? 'All Access' : 
-                                independentRep ? 'Independent Rep' : 'Custom Package',
-                          cycle: "Monthly",
+                          name: selectedSubscription === 'all' ? 
+                                  (selectedMonthlyPlan === 'standard' ? 'All Access Standard' : 
+                                   selectedMonthlyPlan === 'vip' ? 'All Access VIP' : 'All Access') : 
+                                independentRep ? 'Brand Promoter' : 'Custom Package',
+                          cycle: selectedSubscription === 'all' ? "Monthly starting in 28 days" : "Monthly",
                           price: calculateTotal(),
-                          // Include the selected track information
-                          track: selectedSubscription === 'single' ? selectedTrack : null,
+                          monthlyAmount: selectedSubscription === 'all' ? getMonthlyRecurring() : calculateTotal(),
                           trackName: selectedSubscription === 'single' ? 
                             (selectedTrack === 'forex' ? 'Foreign Exchange (Forex)' : 
                              selectedTrack === 'stocks' ? 'Stocks & Options' :
