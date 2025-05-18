@@ -229,10 +229,10 @@ export default function Partner() {
         {/* Partnership Title */}
         <div className="absolute top-[10vh] left-[10vw]">
           <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-light tracking-wide">
-            INDEPENDENT REPRESENTATIVE
+            BRAND PROMOTER
           </h1>
           <p className="text-white/80 text-base sm:text-lg mt-2 font-light">
-            $24.99<span className="text-sm text-white/60">/month</span>
+            $24.95<span className="text-sm text-white/60">/month</span>
           </p>
         </div>
         
