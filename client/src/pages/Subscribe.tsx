@@ -105,97 +105,8 @@ export default function Subscribe() {
             </p>
           </div>
           
-          {/* Subscription Options - 3 column layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {/* Single Track Subscription */}
-            <div 
-              className={`bg-black border ${selectedSubscription === 'single' ? 'border-white' : 'border-white/20'} p-6 relative cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
-              onClick={() => handleSubscriptionSelect('single')}
-            >
-              <div className="absolute top-4 right-4">
-                <div className={`w-5 h-5 rounded-full ${selectedSubscription === 'single' ? 'border-2 border-white' : 'border border-white/50'}`}>
-                  {selectedSubscription === 'single' && (
-                    <div className="w-3 h-3 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                  )}
-                </div>
-              </div>
-              
-              <h2 className="text-white text-xl font-medium mb-3 mt-2">Single Track</h2>
-              <div className="text-white/90 text-3xl font-bold mb-6">
-                $185<span className="text-white/60 text-sm font-normal ml-1">/month</span>
-              </div>
-              
-              <p className="text-white/80 text-sm mb-4">
-                Choose one education pack: {selectedSubscription === 'single' && !selectedTrack && (
-                  <span className="text-red-400 ml-1">(selection required)</span>
-                )}
-              </p>
-              
-              <ul className="space-y-3 mb-6 flex-grow">
-                <li 
-                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
-                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('forex')}
-                >
-                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'forex' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
-                    {selectedTrack === 'forex' && selectedSubscription === 'single' && (
-                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
-                    )}
-                  </span>
-                  <span>Foreign Exchange (Forex)</span>
-                </li>
-                
-                <li 
-                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
-                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('stocks')}
-                >
-                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'stocks' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
-                    {selectedTrack === 'stocks' && selectedSubscription === 'single' && (
-                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
-                    )}
-                  </span>
-                  <span>Stocks & Options</span>
-                </li>
-                
-                <li 
-                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
-                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('crypto')}
-                >
-                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'crypto' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
-                    {selectedTrack === 'crypto' && selectedSubscription === 'single' && (
-                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
-                    )}
-                  </span>
-                  <span>Cryptocurrency</span>
-                </li>
-                
-                <li 
-                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
-                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('ecommerce')}
-                >
-                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'ecommerce' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
-                    {selectedTrack === 'ecommerce' && selectedSubscription === 'single' && (
-                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
-                    )}
-                  </span>
-                  <span>E-Commerce</span>
-                </li>
-                
-                <li 
-                  className={`text-white/70 text-sm flex items-start cursor-pointer ${selectedSubscription === 'single' ? 'hover:text-white' : ''}`}
-                  onClick={() => selectedSubscription === 'single' && setSelectedTrack('marketing')}
-                >
-                  <span className={`w-4 h-4 rounded-full border ${selectedSubscription === 'single' ? (selectedTrack === 'marketing' ? 'border-white' : 'border-white/50') : 'border-white/30'} mt-0.5 mr-2 flex-shrink-0 relative`}>
-                    {selectedTrack === 'marketing' && selectedSubscription === 'single' && (
-                      <span className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
-                    )}
-                  </span>
-                  <span>Digital Marketing</span>
-                </li>
-              </ul>
-              
-              <p className="text-white/60 text-xs italic mt-auto">Includes access to goLIVE classrooms and real-time training for your selected topic.</p>
-            </div>
-            
+          {/* Subscription Options - 2 column layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             {/* All Access Subscription */}
             <div 
               className={`bg-black border relative ${selectedSubscription === 'all' ? 'border-white' : 'border-white/20'} p-6 cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
@@ -215,7 +126,7 @@ export default function Subscribe() {
               
               <h2 className="text-white text-xl font-medium mb-3 mt-2">All Access</h2>
               <div className="text-white/90 text-3xl font-bold mb-6">
-                $250<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                $249.95<span className="text-white/60 text-sm font-normal ml-1">/month</span>
               </div>
               
               <p className="text-white/80 text-sm mb-4">Full access to all education tracks:</p>
@@ -242,7 +153,7 @@ export default function Subscribe() {
               <p className="text-white/60 text-xs italic mt-auto">Perfect for those ready to scale or build across multiple areas.</p>
             </div>
             
-            {/* Independent Representative Add-On */}
+            {/* Brand Promoter */}
             <div 
               className={`bg-black border ${independentRep ? 'border-white' : 'border-white/20'} p-6 relative cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
               onClick={toggleIndependentRep}
@@ -255,12 +166,12 @@ export default function Subscribe() {
                 </div>
               </div>
               
-              <h2 className="text-white text-xl font-medium mb-3 mt-2">Independent Rep</h2>
+              <h2 className="text-white text-xl font-medium mb-3 mt-2">Brand Promoter</h2>
               <div className="text-white/90 text-3xl font-bold mb-6">
-                $24.99<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                $24.95<span className="text-white/60 text-sm font-normal ml-1">/month</span>
               </div>
               
-              <p className="text-white/80 text-sm mb-4">Add to either option or select on its own:</p>
+              <p className="text-white/80 text-sm mb-4">Add to All Access or select on its own:</p>
               
               <ul className="space-y-3 flex-grow">
                 <li className="text-white/70 text-sm flex items-start">
