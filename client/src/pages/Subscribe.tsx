@@ -81,7 +81,7 @@ export default function Subscribe() {
       if (selectedMonthlyPlan === 'standard') {
         monthlyTotal += 185;
       } else if (selectedMonthlyPlan === 'vip') {
-        monthlyTotal += 225;
+        monthlyTotal += 249.95;
       }
     }
     
@@ -280,7 +280,7 @@ export default function Subscribe() {
                   
                   <h2 className="text-white text-xl font-medium mb-3 mt-2">VIP</h2>
                   <div className="text-white/90 text-3xl font-bold mb-6">
-                    $225<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                    $249.95<span className="text-white/60 text-sm font-normal ml-1">/month</span>
                   </div>
                   
                   <ul className="space-y-3 mb-6 flex-grow">
