@@ -6,8 +6,10 @@ export default function Subscribe() {
   const [pageLoaded, setPageLoaded] = useState(false);
   // State to track which subscription option is selected
   const [selectedSubscription, setSelectedSubscription] = useState<string | null>(null);
-  // State to track selected track for single subscription
-  const [selectedTrack, setSelectedTrack] = useState<string | null>(null);
+  // State to track monthly plan selection after choosing All Access
+  const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState<string | null>(null);
+  // State to track if monthly plan selection is shown
+  const [showMonthlyOptions, setShowMonthlyOptions] = useState(false);
   // State to track if independent rep option is selected
   const [independentRep, setIndependentRep] = useState(false);
   // Import navigate for navigation
@@ -31,14 +33,17 @@ export default function Subscribe() {
   const handleSubscriptionSelect = (type: string) => {
     setSelectedSubscription(type);
     
-    // If switching away from single track, clear the track selection
-    if (type !== 'single') {
-      setSelectedTrack(null);
-    } else {
-      // If no track is selected yet, default to forex
-      if (!selectedTrack) {
-        setSelectedTrack('forex');
+    if (type === 'all') {
+      // Show monthly options when All Access is selected
+      setShowMonthlyOptions(true);
+      // Set default monthly plan if none selected
+      if (!selectedMonthlyPlan) {
+        setSelectedMonthlyPlan('standard');
       }
+    } else {
+      // Hide monthly options for other selections
+      setShowMonthlyOptions(false);
+      setSelectedMonthlyPlan(null);
     }
   };
   
@@ -51,17 +56,40 @@ export default function Subscribe() {
   const calculateTotal = () => {
     let total = 0;
     
-    if (selectedSubscription === 'single') {
-      total += 185;
-    } else if (selectedSubscription === 'all') {
-      total += 250;
+    if (selectedSubscription === 'all') {
+      // One-time fee
+      total += 249.95;
+      
+      // Add monthly plan cost if selected
+      if (showMonthlyOptions && selectedMonthlyPlan) {
+        // Not added to initial total, shown separately
+      }
     }
     
     if (independentRep) {
-      total += 24.99;
+      total += 24.95;
     }
     
     return total.toFixed(2);
+  };
+  
+  // Get monthly recurring cost
+  const getMonthlyRecurring = () => {
+    let monthlyTotal = 0;
+    
+    if (selectedSubscription === 'all' && selectedMonthlyPlan) {
+      if (selectedMonthlyPlan === 'standard') {
+        monthlyTotal += 185;
+      } else if (selectedMonthlyPlan === 'vip') {
+        monthlyTotal += 225;
+      }
+    }
+    
+    if (independentRep) {
+      monthlyTotal += 24.95;
+    }
+    
+    return monthlyTotal > 0 ? monthlyTotal.toFixed(2) : '0.00';
   };
 
   return (
@@ -124,7 +152,7 @@ export default function Subscribe() {
               
               <h2 className="text-white text-xl font-medium mb-3 mt-2">All Access</h2>
               <div className="text-white/90 text-3xl font-bold mb-6">
-                $249.95<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                $249.95<span className="text-white/60 text-sm font-normal ml-1">one-time</span>
               </div>
               
               <p className="text-white/80 text-sm mb-4">Full access to all education tracks:</p>
@@ -195,6 +223,88 @@ export default function Subscribe() {
               </ul>
             </div>
           </div>
+          
+          {/* Monthly Options - appears only when All Access is selected */}
+          {showMonthlyOptions && selectedSubscription === 'all' && (
+            <div className="mb-10">
+              <h3 className="text-white text-xl font-medium mb-6">Choose Your Monthly Plan</h3>
+              <p className="text-white/70 mb-6">After your one-time setup fee, select your preferred monthly membership option:</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Standard Monthly Option */}
+                <div 
+                  className={`bg-black border ${selectedMonthlyPlan === 'standard' ? 'border-white' : 'border-white/20'} p-6 relative cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
+                  onClick={() => setSelectedMonthlyPlan('standard')}
+                >
+                  <div className="absolute top-4 right-4">
+                    <div className={`w-5 h-5 rounded-full ${selectedMonthlyPlan === 'standard' ? 'border-2 border-white' : 'border border-white/50'}`}>
+                      {selectedMonthlyPlan === 'standard' && (
+                        <div className="w-3 h-3 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <h2 className="text-white text-xl font-medium mb-3 mt-2">Standard</h2>
+                  <div className="text-white/90 text-3xl font-bold mb-6">
+                    $185<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                  </div>
+                  
+                  <ul className="space-y-3 mb-6 flex-grow">
+                    <li className="text-white/70 text-sm flex items-start">
+                      <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>All education tracks included</span>
+                    </li>
+                    <li className="text-white/70 text-sm flex items-start">
+                      <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Live training sessions</span>
+                    </li>
+                    <li className="text-white/70 text-sm flex items-start">
+                      <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Community forum access</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* VIP Monthly Option */}
+                <div 
+                  className={`bg-black border ${selectedMonthlyPlan === 'vip' ? 'border-white' : 'border-white/20'} p-6 relative cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
+                  onClick={() => setSelectedMonthlyPlan('vip')}
+                >
+                  <div className="absolute top-4 right-4">
+                    <div className={`w-5 h-5 rounded-full ${selectedMonthlyPlan === 'vip' ? 'border-2 border-white' : 'border border-white/50'}`}>
+                      {selectedMonthlyPlan === 'vip' && (
+                        <div className="w-3 h-3 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <h2 className="text-white text-xl font-medium mb-3 mt-2">VIP</h2>
+                  <div className="text-white/90 text-3xl font-bold mb-6">
+                    $225<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                  </div>
+                  
+                  <ul className="space-y-3 mb-6 flex-grow">
+                    <li className="text-white/70 text-sm flex items-start">
+                      <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Everything in Standard</span>
+                    </li>
+                    <li className="text-white/70 text-sm flex items-start">
+                      <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Premium travel benefits</span>
+                    </li>
+                    <li className="text-white/70 text-sm flex items-start">
+                      <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>VIP-only events</span>
+                    </li>
+                    <li className="text-white/70 text-sm flex items-start">
+                      <span className="w-1.5 h-1.5 bg-white/70 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Priority support</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
           
           {/* Order Summary and Payment Form in 2 columns */}
           {(selectedSubscription || independentRep) && (
