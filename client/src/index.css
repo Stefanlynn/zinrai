@@ -353,6 +353,11 @@ body.home-is-active {
       0 0 10px #68ACFF;
   }
   
+  /* Shadow glow effect for colored circles */
+  .shadow-glow {
+    box-shadow: 0 0 8px currentColor;
+  }
+  
   @keyframes pulseGlow {
     0% {
       box-shadow: 0 0 15px rgba(104, 172, 255, 0.6), 0 0 30px rgba(104, 172, 255, 0.3);

@@ -230,14 +230,14 @@ export default function Product() {
             >
               <div className="mr-3 flex-shrink-0">
                 <div 
-                  className={`w-3 h-3 rounded-full ${
+                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full ${
                     index === 0 ? 'bg-red-500' : 
                     index === 1 ? 'bg-blue-500' : 
                     index === 2 ? 'bg-green-500' : 
                     index === 3 ? 'bg-yellow-500' : 
                     index === 4 ? 'bg-purple-500' : 
                     'bg-orange-500'
-                  } ${activeIndex === index ? 'opacity-100' : 'opacity-40'}`}
+                  } ${activeIndex === index ? 'opacity-100 shadow-glow' : 'opacity-60'}`}
                 ></div>
               </div>
               <h2 className={`text-white text-base sm:text-lg md:text-xl ${activeIndex === index ? 'font-medium' : 'font-light'}`}>

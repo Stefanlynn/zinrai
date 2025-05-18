@@ -246,14 +246,14 @@ export default function Partner() {
             >
               <div className="mr-3 flex-shrink-0">
                 <div 
-                  className={`w-3 h-3 rounded-full ${
+                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full ${
                     index === 0 ? 'bg-teal-500' : 
                     index === 1 ? 'bg-pink-500' : 
                     index === 2 ? 'bg-cyan-500' : 
                     index === 3 ? 'bg-amber-500' : 
                     index === 4 ? 'bg-emerald-500' : 
                     'bg-indigo-500'
-                  } ${activeIndex === index ? 'opacity-100' : 'opacity-40'}`}
+                  } ${activeIndex === index ? 'opacity-100 shadow-glow' : 'opacity-60'}`}
                 ></div>
               </div>
               <h2 className={`text-white text-base sm:text-lg md:text-xl ${activeIndex === index ? 'font-medium' : 'font-light'}`}>
