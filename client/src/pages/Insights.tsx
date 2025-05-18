@@ -186,7 +186,7 @@ export default function Insights() {
                   onClick={() => handleCategoryChange(category.id)}
                   className={`px-5 py-2 transition-all duration-300 relative min-w-max cursor-pointer z-20 ${
                     activeCategory === category.id 
-                      ? 'neon-text-glow bg-black/40 rounded-sm font-medium' 
+                      ? 'neon-text-static bg-black/40 rounded-sm font-medium' 
                       : 'text-white/60 hover:text-white/90 hover:bg-black/20 hover:rounded-sm'
                   }`}
                 >
