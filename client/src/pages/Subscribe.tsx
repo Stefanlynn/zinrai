@@ -349,16 +349,16 @@ export default function Subscribe() {
                 
                 {(selectedSubscription === 'all' && selectedMonthlyPlan) && (
                   <div className="border-t border-white/10 mt-4 pt-4">
-                    <div className="text-white/90 text-sm">
-                      Will automatically renew each month, 28 days from today, in the amount of ${getMonthlyRecurring()}.
-                    </div>
+                    <p className="text-white/90 text-sm mt-4">
+                      Your first payment includes the one-time setup fee plus any add-ons selected.
+                    </p>
                   </div>
                 )}
                 
-                <div className="mt-8 bg-white/5 p-4">
-                  <p className="text-white/70 text-sm">
-                    Your subscription will renew automatically each month. 
-                    You can cancel or change your plan at any time.
+                <div className="mt-6 bg-white/5 p-4">
+                  <p className="text-white/80 text-sm">
+                    Starting 28 days from today, your account will be billed ${getMonthlyRecurring()} monthly.
+                    You may cancel or modify your subscription at any time through your account settings.
                   </p>
                 </div>
               </div>
