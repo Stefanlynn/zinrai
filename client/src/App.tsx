@@ -129,20 +129,17 @@ function App() {
         
         {/* Header - Clean minimal design with dark gray background */}
         <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10">
-          {/* Brand logo - only shown on inner pages for navigation back to home */}
-          {!isHomePage && (
-            <a 
-              className="ml-6 cursor-pointer flex items-center"
-              onClick={(e) => {
-                e.preventDefault();
-                setLocation('/');
-              }}
-              href="/"
-            >
-              <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
-            </a>
-          )}
-          {isHomePage && <div className="ml-6 w-8"></div>}
+          {/* Brand logo - shown on all pages for navigation to home */}
+          <a 
+            className="ml-6 cursor-pointer flex items-center"
+            onClick={(e) => {
+              e.preventDefault();
+              setLocation('/');
+            }}
+            href="/"
+          >
+            <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
+          </a>
           
           {/* Desktop navigation */}
           <nav className="hidden md:flex items-center space-x-8 mx-auto">
