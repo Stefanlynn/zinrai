@@ -27,7 +27,7 @@ const partnerDetails = [
   },
   {
     title: "Training & Development",
-    description: "Ongoing access to leadership calls, growth strategies, launch trainings, and mentorship from top leaders."
+    description: "Ongoing access to leadership calls, growth strategies, launch trainings, compliance training, and mentorship from top leaders."
   },
   {
     title: "Private Community Access",
