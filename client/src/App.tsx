@@ -76,7 +76,6 @@ function App() {
   const isHomePage = isHome;
   const [, setLocation] = useLocation();
   const [headerTextIndex, setHeaderTextIndex] = useState(0);
-  const isMobile = useIsMobile();
   const headerTexts = [
     { 
       text: "$1 per subscription supports",
@@ -486,16 +485,18 @@ function App() {
           
           {/* Profile icon and Start Now button on the right side */}
           <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
-            {(!menuOpen || !isMobile) && isHomePage && (
+            {/* Start Now button - only on desktop and only on home page */}
+            {isHomePage && (
               <button
-                className="h-[32px] px-4 mr-3 bg-[var(--zinrai-blue-glow)] rounded-sm flex items-center justify-center cursor-pointer hover:bg-[var(--zinrai-blue-glow)]/80 transition-colors duration-300 shadow-[0_0_10px_rgba(104,172,255,0.7)]"
+                className="hidden md:flex h-[32px] px-4 mr-3 bg-[var(--zinrai-blue-glow)] rounded-sm items-center justify-center cursor-pointer hover:bg-[var(--zinrai-blue-glow)]/80 transition-colors duration-300 shadow-[0_0_10px_rgba(104,172,255,0.7)]"
                 aria-label="Start Now"
                 onClick={() => setLocation('/subscribe')}
               >
                 <span className="text-white text-sm font-medium">Start Now</span>
               </button>
             )}
-            {(!menuOpen || !isMobile) && (
+            {/* Profile icon - always visible when menu is closed */}
+            {!menuOpen && (
               <button
                 className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300"
                 aria-label="Profile"
