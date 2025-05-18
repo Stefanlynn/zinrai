@@ -170,9 +170,10 @@ function App() {
                     </button>
                   </div>
                   
-                  {/* Main menu content with numbered items - moved to the left */}
-                  <div className="flex-1 px-8 md:px-16 pt-8">
-                    <nav className="space-y-6 md:space-y-8 max-w-xs">
+                  {/* Main menu content with numbered items on left, video space on right */}
+                  <div className="flex-1 px-8 md:px-16 pt-8 flex flex-col md:flex-row">
+                    {/* Left side: Navigation */}
+                    <nav className="space-y-6 md:space-y-8 max-w-xs flex-shrink-0">
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
@@ -278,6 +279,20 @@ function App() {
                         </div>
                       </div>
                     </nav>
+                    
+                    {/* Right side: Video area - only visible on desktop */}
+                    <div className="hidden md:flex flex-1 items-center justify-center ml-12">
+                      <div className="w-full max-w-xl h-[400px] bg-zinc-900 border border-white/20 rounded-sm flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="w-16 h-16 rounded-full bg-black/50 border border-white/30 flex items-center justify-center mx-auto mb-4">
+                            <svg className="w-8 h-8 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                          <p className="text-white/70 text-sm">Video will be loaded later</p>
+                        </div>
+                      </div>
+                    </div>
                     
                     {/* Large ZiNRAi watermark in background - adjusted position */}
                     <div className="absolute inset-0 flex items-center z-[-1] opacity-5 pointer-events-none">
