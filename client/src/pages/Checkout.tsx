@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 
 export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState<"card" | "crypto">("card");
+  const [termsAgreed, setTermsAgreed] = useState(false);
   const [, navigate] = useLocation();
   
   // Get subscription details from localStorage (would typically come from state or context in a real app)
@@ -224,14 +225,44 @@ export default function Checkout() {
               </>
             )}
             
-            {/* Payment Button - common for all methods */}
-            <div className="pt-8 mt-6 border-t border-white/10">
+            {/* Recurring Billing Agreement and Terms Checkbox */}
+            <div className="pt-6 mt-6 border-t border-white/10">
+              <div className="bg-white/5 p-4 mb-6 rounded">
+                <p className="text-white/80 text-sm">
+                  By completing this purchase, you authorize recurring payments. Your subscription will automatically 
+                  renew every 28 days in the amount of ${subscriptionData.monthlyAmount || subscriptionData.price}. You may cancel anytime.
+                </p>
+              </div>
+              
+              {/* Required Terms Checkbox */}
+              <div className="flex items-start mb-6">
+                <div className="flex h-5 items-center">
+                  <input
+                    id="terms"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-white/30 bg-transparent focus:ring-1 focus:ring-white/50"
+                    onChange={(e) => setTermsAgreed(e.target.checked)}
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label htmlFor="terms" className="text-white/80">
+                    I agree to the <a href="#" className="text-white underline hover:text-white/80">Terms & Conditions</a> and understand this includes recurring billing.
+                  </label>
+                </div>
+              </div>
+              
+              {/* Payment Button */}
               <button 
                 onClick={() => {
                   // Simulate successful payment and redirect
                   navigate('/');
                 }}
-                className="w-full bg-white hover:bg-white/90 text-black py-4 text-center text-base font-semibold tracking-wide transition-colors"
+                disabled={!termsAgreed}
+                className={`w-full ${
+                  termsAgreed 
+                    ? "bg-white hover:bg-white/90 text-black" 
+                    : "bg-white/30 cursor-not-allowed text-black/50"
+                } py-4 text-center text-base font-semibold tracking-wide transition-colors`}
               >
                 Complete Payment
               </button>
