@@ -357,7 +357,8 @@ export default function Subscribe() {
                 
                 <div className="mt-6 bg-white/5 p-4">
                   <p className="text-white/80 text-sm">
-                    Starting 28 days from today, your account will be billed ${getMonthlyRecurring()} monthly.
+                    Starting 28 days from today, your account will be billed ${getMonthlyRecurring()} monthly for your 
+                    <span className="font-medium"> {selectedMonthlyPlan === 'standard' ? 'Standard' : 'VIP'}</span> plan.
                     You may cancel or modify your subscription at any time through your account settings.
                   </p>
                 </div>
