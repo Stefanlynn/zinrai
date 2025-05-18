@@ -254,8 +254,8 @@ export default function Checkout() {
               {/* Payment Button */}
               <button 
                 onClick={() => {
-                  // Simulate successful payment and redirect
-                  navigate('/');
+                  // Simulate successful payment and redirect to confirmation page
+                  navigate('/confirmation');
                 }}
                 disabled={!termsAgreed}
                 className={`w-full ${

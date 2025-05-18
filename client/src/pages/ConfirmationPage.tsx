@@ -62,7 +62,7 @@ export default function ConfirmationPage() {
         {/* Next button */}
         <div className="flex justify-center mb-10">
           <button 
-            onClick={() => setLocation('/dashboard')}
+            onClick={() => setLocation('/')}
             className="px-8 py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm hover:bg-[var(--zinrai-blue-glow)]/80 transition-colors duration-300 shadow-[0_0_15px_rgba(104,172,255,0.5)]"
           >
             <div className="flex items-center">
