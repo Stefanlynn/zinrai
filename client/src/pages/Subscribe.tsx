@@ -346,9 +346,17 @@ export default function Subscribe() {
                 </div>
                 
                 <div className="border-t border-white/10 pt-4 flex justify-between items-center">
-                  <span className="text-white font-medium">Total Monthly</span>
+                  <span className="text-white font-medium">Total</span>
                   <span className="text-white text-2xl font-bold">${calculateTotal()}</span>
                 </div>
+                
+                {(selectedSubscription === 'all' && selectedMonthlyPlan) && (
+                  <div className="border-t border-white/10 mt-4 pt-4">
+                    <div className="text-white/90 text-sm">
+                      Will automatically renew each month, 28 days from today, in the amount of ${getMonthlyRecurring()}.
+                    </div>
+                  </div>
+                )}
                 
                 <div className="mt-8 bg-white/5 p-4">
                   <p className="text-white/70 text-sm">
