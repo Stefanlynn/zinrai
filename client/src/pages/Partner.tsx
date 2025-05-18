@@ -43,6 +43,23 @@ export default function Partner() {
   const [_, navigate] = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [showLearnMoreModal, setShowLearnMoreModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if screen is mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is typical md breakpoint
+    };
+    
+    // Initial check
+    handleResize();
+    
+    // Listen for window resize
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   // Handle benefit item click
   const handleBenefitClick = (index: number) => {
@@ -219,8 +236,8 @@ export default function Partner() {
           </p>
         </div>
         
-        {/* Benefits List */}
-        <div className="absolute top-[25vh] sm:top-[30vh] md:top-[38vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 max-w-[90vw] sm:max-w-[80vw] md:max-w-[60vw]">
+        {/* Benefits List - adjusted width for desktop */}
+        <div className={`absolute top-[25vh] sm:top-[30vh] md:top-[38vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
           {benefits.map((benefit, index) => (
             <div 
               key={index}
@@ -241,8 +258,25 @@ export default function Partner() {
           ))}
         </div>
         
+        {/* Benefit Description - Only visible on desktop */}
+        {!isMobile && (
+          <div className="hidden md:block absolute top-[33vh] right-[10vw] w-[40vw] transition-opacity duration-500">
+            <div className="animate-fadeIn">
+              <h3 className="text-white text-xl font-medium mb-4">{partnerDetails[activeIndex].title}</h3>
+              <p className="text-white/80 leading-relaxed">{partnerDetails[activeIndex].description}</p>
+              
+              {/* Extra info for partnership */}
+              {activeIndex === 0 && (
+                <div className="mt-6 text-white/70 border-t border-white/10 pt-4">
+                  <p className="mb-2">Becoming a ZiNRAi Independent Representative means you're stepping into leadership with purpose, backed by powerful tools, training, and a global community.</p>
+                  <p className="italic">This is more than a role—it's a platform to lead, earn, and make an impact while being part of something that matters.</p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
-        {/* Action Buttons - Moved higher for better mobile visibility */}
+        {/* Action Buttons - Show Learn More only on mobile */}
         <div className="absolute bottom-[15vh] left-0 w-full p-6 md:p-0 md:bottom-[15vh] md:left-auto md:right-[10vw] md:w-auto flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center justify-center md:justify-end">
           {/* JOIN NOW button */}
           <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300 bg-white/5 hover:bg-white/10">
@@ -254,15 +288,17 @@ export default function Partner() {
             </button>
           </div>
           
-          {/* LEARN MORE button */}
-          <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300">
-            <button 
-              className="w-full px-6 py-3 text-white text-sm tracking-wide partner-learn-more-btn"
-              onClick={toggleLearnMoreModal}
-            >
-              LEARN MORE
-            </button>
-          </div>
+          {/* LEARN MORE button - only visible on mobile */}
+          {isMobile && (
+            <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300">
+              <button 
+                className="w-full px-6 py-3 text-white text-sm tracking-wide partner-learn-more-btn"
+                onClick={toggleLearnMoreModal}
+              >
+                LEARN MORE
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
