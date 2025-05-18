@@ -148,7 +148,7 @@ function App() {
             {menuOpen && (
               <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
                 <div className="w-full h-full flex flex-col">
-                  {/* Header with ZiNRAi logo and Start Now button */}
+                  {/* Header with ZiNRAi logo and Start Now button - removed profile icon */}
                   <div className="flex justify-between items-center p-6">
                     <div 
                       className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
@@ -407,16 +407,18 @@ function App() {
             </div>
           )}
           
-          {/* Profile icon on the right side - same for all pages */}
-          <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
-            <button
-              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300"
-              aria-label="Profile"
-              onClick={() => setLocation('/profile')}
-            >
-              <FiUser className="text-white/80 h-4 w-4" />
-            </button>
-          </div>
+          {/* Profile icon on the right side - only visible when menu is closed */}
+          {!menuOpen && (
+            <div className="ml-auto h-[48px] mr-4 flex items-center z-10">
+              <button
+                className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300"
+                aria-label="Profile"
+                onClick={() => setLocation('/profile')}
+              >
+                <FiUser className="text-white/80 h-4 w-4" />
+              </button>
+            </div>
+          )}
         </div>
         
         {/* Router Content */}
