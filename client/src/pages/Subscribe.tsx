@@ -12,6 +12,8 @@ export default function Subscribe() {
   const [showMonthlyOptions, setShowMonthlyOptions] = useState(false);
   // State to track if independent rep option is selected
   const [independentRep, setIndependentRep] = useState(false);
+  // State to track selected course track (for single course selection)
+  const [selectedTrack, setSelectedTrack] = useState<string | null>(null);
   // Import navigate for navigation
   const [_, navigate] = useLocation();
   
@@ -270,6 +272,11 @@ export default function Subscribe() {
                   className={`bg-black border ${selectedMonthlyPlan === 'vip' ? 'border-white' : 'border-white/20'} p-6 relative cursor-pointer transition-all duration-300 hover:border-white/70 h-full flex flex-col`}
                   onClick={() => setSelectedMonthlyPlan('vip')}
                 >
+                  {/* Best Value tag */}
+                  <div className="absolute -top-3 -left-2 bg-[var(--zinrai-blue-glow)] text-white text-xs font-bold px-3 py-1 shadow-[0_0_10px_rgba(104,172,255,0.7)]">
+                    BEST VALUE
+                  </div>
+                
                   <div className="absolute top-4 right-4">
                     <div className={`w-5 h-5 rounded-full ${selectedMonthlyPlan === 'vip' ? 'border-2 border-white' : 'border border-white/50'}`}>
                       {selectedMonthlyPlan === 'vip' && (
