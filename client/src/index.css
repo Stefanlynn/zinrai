@@ -302,8 +302,17 @@ body.home-is-active {
   
   /* Neon text glow effect for ZiNRAi */
   .neon-text-glow {
-    text-shadow: 0 0 10px rgba(104, 172, 255, 0.7), 0 0 20px rgba(104, 172, 255, 0.5);
-    animation: pulseTextGlow 2s infinite alternate;
+    color: #68ACFF;
+    text-shadow: 
+      0 0 10px #68ACFF,
+      0 0 20px #68ACFF,
+      0 0 30px #68ACFF,
+      0 0 40px #68ACFF,
+      0 0 50px #68ACFF,
+      0 0 60px #68ACFF,
+      0 0 70px #68ACFF,
+      0 0 80px #68ACFF;
+    animation: flicker 3s infinite alternate;
   }
   
   @keyframes pulseGlow {
@@ -315,12 +324,31 @@ body.home-is-active {
     }
   }
   
-  @keyframes pulseTextGlow {
-    0% {
-      text-shadow: 0 0 10px rgba(104, 172, 255, 0.6), 0 0 20px rgba(104, 172, 255, 0.3);
+  /* Flickering effect for the neon text */
+  @keyframes flicker {
+    0%, 100% {
+      color: #68ACFF;
+      text-shadow: 
+        0 0 10px #68ACFF,
+        0 0 20px #68ACFF,
+        0 0 30px #68ACFF,
+        0 0 40px #68ACFF,
+        0 0 50px #68ACFF,
+        0 0 60px #68ACFF,
+        0 0 70px #68ACFF,
+        0 0 80px #68ACFF;
     }
-    100% {
-      text-shadow: 0 0 15px rgba(104, 172, 255, 0.8), 0 0 30px rgba(104, 172, 255, 0.5);
+    50% {
+      color: #3781d6;
+      text-shadow: 
+        0 0 5px #3781d6,
+        0 0 10px #3781d6,
+        0 0 15px #3781d6,
+        0 0 20px #3781d6,
+        0 0 25px #3781d6,
+        0 0 30px #3781d6,
+        0 0 35px #3781d6,
+        0 0 40px #3781d6;
     }
   }
   
