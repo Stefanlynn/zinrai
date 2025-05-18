@@ -244,13 +244,18 @@ export default function Partner() {
               className={`cursor-pointer transition-all duration-300 transform flex items-center ${activeIndex === index ? 'translate-x-4 opacity-100' : 'opacity-60 hover:opacity-80'}`}
               onClick={() => handleBenefitClick(index)}
             >
-              {activeIndex === index && (
-                <div className="mr-2">
-                  <svg width="12" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 4L5 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              )}
+              <div className="mr-3 flex-shrink-0">
+                <div 
+                  className={`w-3 h-3 rounded-full ${
+                    index === 0 ? 'bg-teal-500' : 
+                    index === 1 ? 'bg-pink-500' : 
+                    index === 2 ? 'bg-cyan-500' : 
+                    index === 3 ? 'bg-amber-500' : 
+                    index === 4 ? 'bg-emerald-500' : 
+                    'bg-indigo-500'
+                  } ${activeIndex === index ? 'opacity-100' : 'opacity-40'}`}
+                ></div>
+              </div>
               <h2 className={`text-white text-base sm:text-lg md:text-xl ${activeIndex === index ? 'font-medium' : 'font-light'}`}>
                 {benefit}
               </h2>
