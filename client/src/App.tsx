@@ -125,8 +125,8 @@ function App() {
       <TooltipProvider>
         <Toaster />
         
-        {/* Header - Clean minimal design */}
-        <header className="fixed top-0 left-0 right-0 h-[48px] bg-black z-[1000] flex items-center border-b border-white/10">
+        {/* Header - Clean minimal design with dark gray background */}
+        <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10">
           {/* Brand logo */}
           <a 
             className="ml-6 cursor-pointer flex items-center"
@@ -197,7 +197,7 @@ function App() {
           <div className="hidden md:flex items-center mr-6">
             {isHomePage && (
               <a 
-                className="h-[32px] px-5 mr-4 bg-black border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
+                className="h-[32px] px-5 mr-4 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
                 href="/subscribe"
                 onClick={(e) => {
                   e.preventDefault();
