@@ -98,7 +98,7 @@ export default function Culture() {
                     <span className="text-white text-sm font-bold w-7 h-7 flex items-center justify-center border border-white/30 rounded-full group-hover:border-white/50 transition-colors">
                       {value.letter}
                     </span>
-                    <h2 className="text-white text-lg font-medium tracking-wide">{value.title}</h2>
+                    <h2 className={`text-lg font-medium tracking-wide ${activeValue === index ? 'neon-text-glow' : 'text-white'}`}>{value.title}</h2>
                     {activeValue === index && (
                       <div className="ml-1">
                         <svg width="12" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
