@@ -283,6 +283,30 @@ body.home-is-active {
     --zinrai-red: #FF3D3D; /* CSS variable name kept for consistency */
     --zinrai-red-light: #FF5959;
     --zinrai-red-dark: #D63030;
+    --zinrai-blue: #455A6B;
+    --zinrai-blue-glow: #68ACFF;
+  }
+
+  /* Neon glow effect for blue boxes */
+  .neon-blue-box {
+    background: linear-gradient(135deg, #3781d6 0%, #455A6B 50%, #6290b3 100%);
+    border: 1px solid rgba(104, 172, 255, 0.7);
+    box-shadow: 0 0 20px rgba(104, 172, 255, 0.7), 0 0 40px rgba(104, 172, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    animation: pulseGlow 2s infinite alternate;
+  }
+
+  .neon-blue-box:hover {
+    box-shadow: 0 0 25px rgba(104, 172, 255, 0.8), 0 0 50px rgba(104, 172, 255, 0.5);
+  }
+  
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 15px rgba(104, 172, 255, 0.6), 0 0 30px rgba(104, 172, 255, 0.3);
+    }
+    100% {
+      box-shadow: 0 0 25px rgba(104, 172, 255, 0.8), 0 0 50px rgba(104, 172, 255, 0.5);
+    }
   }
 }
 
