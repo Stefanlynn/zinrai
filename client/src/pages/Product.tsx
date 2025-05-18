@@ -111,21 +111,21 @@ export default function Product() {
 
   return (
     <div className="bg-black min-h-screen w-full overflow-hidden">
-      {/* Grid Lines */}
+      {/* Grid Lines with Animation */}
       <div className="fixed inset-0 z-[5] pointer-events-none">
         {/* Horizontal grid lines */}
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10"></div>
-        <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-white/10"></div>
-        <div className="absolute top-2/4 left-0 right-0 h-[1px] bg-white/10"></div>
-        <div className="absolute top-3/4 left-0 right-0 h-[1px] bg-white/10"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/10"></div>
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.1s' }}></div>
+        <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.2s' }}></div>
+        <div className="absolute top-2/4 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.3s' }}></div>
+        <div className="absolute top-3/4 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.4s' }}></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.5s' }}></div>
         
         {/* Vertical grid lines */}
-        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white/10"></div>
-        <div className="absolute top-0 bottom-0 left-1/4 w-[1px] bg-white/10"></div>
-        <div className="absolute top-0 bottom-0 left-2/4 w-[1px] bg-white/10"></div>
-        <div className="absolute top-0 bottom-0 left-3/4 w-[1px] bg-white/10"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-white/10"></div>
+        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '0.6s' }}></div>
+        <div className="absolute top-0 bottom-0 left-1/4 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '0.7s' }}></div>
+        <div className="absolute top-0 bottom-0 left-2/4 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '0.8s' }}></div>
+        <div className="absolute top-0 bottom-0 left-3/4 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '0.9s' }}></div>
+        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '1.0s' }}></div>
       </div>
       
       {/* Learn More Modal - Redesigned to match site style */}
