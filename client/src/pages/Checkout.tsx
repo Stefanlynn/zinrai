@@ -55,10 +55,17 @@ export default function Checkout() {
                 <span className="font-medium">{subscriptionData.name || "Premium Package"}</span>
               </div>
               
-              {subscriptionData.trackName && (
+              {/* Show initial payment */}
+              <div className="flex justify-between">
+                <span className="text-white/70">Initial Payment</span>
+                <span>${subscriptionData.price || "249.95"}</span>
+              </div>
+              
+              {/* Show recurring payment if it's different */}
+              {subscriptionData.monthlyAmount && subscriptionData.monthlyAmount !== subscriptionData.price && (
                 <div className="flex justify-between">
-                  <span className="text-white/70">Selected Track</span>
-                  <span>{subscriptionData.trackName}</span>
+                  <span className="text-white/70">Monthly Renewal</span>
+                  <span>${subscriptionData.monthlyAmount}</span>
                 </div>
               )}
               
@@ -68,8 +75,8 @@ export default function Checkout() {
               </div>
               
               <div className="flex justify-between text-lg font-medium pt-4 border-t border-white/10">
-                <span>Total</span>
-                <span>${subscriptionData.price || "79.99"}</span>
+                <span>Total Due Today</span>
+                <span>${subscriptionData.price || "249.95"}</span>
               </div>
             </div>
             
