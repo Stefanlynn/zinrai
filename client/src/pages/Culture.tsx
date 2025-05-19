@@ -5,33 +5,33 @@ import { useLocation } from "wouter";
 const cultureValues = [
   {
     letter: "Z",
-    title: "Zenith",
-    description: "We pursue the highest standard in everything we do. Excellence isn't optional—it's our baseline."
+    title: "Zeal",
+    description: "We pursue purpose with energy and urgency. Passion fuels our progress."
   },
   {
     letter: "I",
     title: "Integrity",
-    description: "We choose what's right over what's easy. Character leads every decision."
+    description: "We do what's right—especially when it's hard. Trust is our currency."
   },
   {
     letter: "N",
-    title: "Network",
-    description: "We grow by connecting, collaborating, and championing one another."
+    title: "Nobility",
+    description: "We elevate others with honor. Leadership is rooted in dignity and service."
   },
   {
     letter: "R",
-    title: "Respect",
-    description: "We honor every person—every voice, every story—regardless of title or background."
+    title: "Resilience",
+    description: "We rise through challenge. Setbacks shape strength and long-term success."
   },
   {
     letter: "A",
-    title: "Accountability",
-    description: "We take ownership of our growth, our decisions, and the future we're building."
+    title: "Abundance",
+    description: "We operate from overflow, not scarcity. There's always more to give, grow, and become."
   },
   {
     letter: "I",
-    title: "Impact",
-    description: "We don't just show up—we leave a mark. Everything we build is meant to last."
+    title: "Innovation",
+    description: "We adapt, evolve, and pioneer. Creativity unlocks new opportunity."
   }
 ];
 
@@ -74,17 +74,35 @@ export default function Culture() {
         
         <div className="absolute top-[20vh] bottom-[15vh] left-[10vw] right-[10vw] overflow-y-auto">
           {showIntro ? (
-            <div className="text-white/80 space-y-6 pr-4">
-              <p className="text-base sm:text-lg">
-                We're not just building a brand—we're shaping a culture. At ZiNRAi, how we move matters just as much as where we're going. Our community is built on more than vision—it's built on values.
-              </p>
-              <p className="text-base sm:text-lg">
-                The letters in ZiNRAi represent the principles we live by. These values guide how we lead, serve, collaborate, and grow—individually and together. They define our decisions, shape our environment, and anchor our movement in something deeper than hype.
-              </p>
-              <p className="text-base sm:text-lg">
-                Because at the end of the day, culture isn't just a page on a website.
-                It's how people feel when they show up, contribute, and belong.
-              </p>
+            <div className="text-white/80 space-y-10 pr-4 max-w-3xl">
+              {/* Vision Section */}
+              <div>
+                <h2 className="text-white text-2xl font-medium mb-4">Vision</h2>
+                <p className="text-base sm:text-lg">
+                  To help ordinary people become extraordinary leaders by mastering daily disciplines and timeless principles.
+                </p>
+                <div className="my-6 w-12 h-[1px] bg-white/30"></div>
+              </div>
+              
+              {/* Mission Section */}
+              <div>
+                <h2 className="text-white text-2xl font-medium mb-4">Mission</h2>
+                <p className="text-base sm:text-lg">
+                  ZiNRAi exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment.
+                </p>
+                <div className="my-8 w-12 h-[1px] bg-white/30"></div>
+              </div>
+              
+              {/* Core Values Intro */}
+              <div>
+                <h2 className="text-white text-2xl font-medium mb-4">Core Values</h2>
+                <p className="text-base sm:text-lg mb-4">
+                  Each letter of ZiNRAi reflects a foundational value that shapes our culture and leadership DNA:
+                </p>
+                <p className="text-base sm:text-lg">
+                  The letters in ZiNRAi represent the principles we live by. These values guide how we lead, serve, collaborate, and grow—individually and together. They define our decisions, shape our environment, and anchor our movement in something deeper than hype.
+                </p>
+              </div>
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-3 max-w-2xl mx-auto md:mx-0">
