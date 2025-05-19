@@ -60,7 +60,7 @@ export default function Culture() {
       {/* Page Content */}
       <div className="container mx-auto pt-[8vh] pb-32 px-4 relative z-10">
         {/* Video Section */}
-        <div className="mb-16 w-full">
+        <div className="mb-12 w-full">
           <div className="w-full aspect-video bg-black border border-white/20 flex items-center justify-center relative overflow-hidden">
             <div className="absolute inset-0 bg-black/90"></div>
             <div className="relative z-10 text-center">
@@ -71,6 +71,48 @@ export default function Culture() {
               </div>
               <p className="text-white/70 text-sm">Video will be added soon</p>
             </div>
+          </div>
+        </div>
+        
+        {/* Why ZiNRAi Section */}
+        <div className="mb-16 w-full max-w-3xl mx-auto">
+          <h2 className="text-white text-2xl font-light mb-6 neon-text-glow text-center">Why ZiNRAi</h2>
+          
+          <div className="text-white/90 space-y-4 text-center">
+            <p className="text-base">
+              In a world full of noise, hype, and hustle, ZiNRAi exists to bring something different—something deeper.
+            </p>
+            
+            <p className="text-base">
+              We're not just building another platform. We're creating a space where purpose-driven people can come to grow, lead, and live with clarity.
+            </p>
+            
+            <p className="text-base font-medium mt-6">
+              Most companies sell products.<br/>
+              We build people.
+            </p>
+            
+            <p className="text-base">
+              ZiNRAi is for the builders. The dreamers. The leaders who care more about long-term impact than short-term gain.
+              We exist to help people master their mindset, grow in their craft, and align with a community that actually cares.
+            </p>
+            
+            <p className="text-base">
+              Whether you're here to start something new, scale something meaningful, or become someone worth following—ZiNRAi is your launch point.
+            </p>
+            
+            <p className="text-base">
+              Because we believe that when people live with intention and lead with integrity, they don't just change their lives—they change the world around them.
+            </p>
+            
+            <p className="text-base font-medium mt-6">
+              This is more than a subscription.<br/>
+              It's a signal. A standard. A shift.
+            </p>
+            
+            <p className="text-base font-medium">
+              This is ZiNRAi.
+            </p>
           </div>
         </div>
         
