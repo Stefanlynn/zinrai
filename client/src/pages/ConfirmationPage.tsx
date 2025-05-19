@@ -39,7 +39,7 @@ export default function ConfirmationPage() {
         {/* ZiNRAi logo */}
         <div className="flex justify-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold tracking-wide text-white">
-            ZiN<span className="neon-text-static">RAi</span>
+            ZiNRAi
           </h1>
         </div>
         
@@ -57,6 +57,11 @@ export default function ConfirmationPage() {
         {/* Confirmation paragraph */}
         <p className="text-white/80 text-center mb-10">
           Thank you for joining ZiNRAi. Your subscription has been successfully processed, and your account is now active. You'll receive an email confirmation shortly with additional details about your membership.
+        </p>
+        
+        {/* Backoffice setup instruction */}
+        <p className="text-white/80 text-center mb-6">
+          Click next to setup your backoffice
         </p>
         
         {/* Next button */}
