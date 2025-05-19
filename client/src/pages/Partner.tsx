@@ -234,7 +234,7 @@ export default function Partner() {
         </div>
         
         {/* Benefits List - adjusted width for desktop */}
-        <div className={`absolute top-[25vh] sm:top-[30vh] md:top-[38vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
+        <div className={`absolute top-[20vh] sm:top-[25vh] md:top-[28vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
           {benefits.map((benefit, index) => (
             <div 
               key={index}
