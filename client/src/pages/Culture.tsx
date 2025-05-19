@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
 // Define culture values
@@ -42,9 +42,22 @@ export default function Culture() {
   const handleValueClick = (index: number) => {
     setActiveValue(index === activeValue ? null : index);
   };
+  
+  // Ensure the page is scrollable on mobile
+  useEffect(() => {
+    // Force document body to be scrollable
+    document.body.style.overflow = 'auto';
+    document.body.style.height = 'auto';
+    
+    return () => {
+      // Reset when unmounting
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+    };
+  }, []);
 
   return (
-    <div className="bg-black min-h-screen overflow-y-auto overscroll-contain">
+    <div className="bg-black min-h-screen">
       {/* Grid Lines */}
       <div className="fixed inset-0 z-[1] pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-white/10"></div>
@@ -58,7 +71,7 @@ export default function Culture() {
       </div>
       
       {/* Page Content */}
-      <div className="container mx-auto pt-[8vh] pb-32 px-4 relative z-10 overflow-visible">
+      <div className="container mx-auto pt-[8vh] pb-32 px-4 relative z-10">
         {/* Video Section */}
         <div className="mb-12 w-full">
           <div className="w-full aspect-video bg-black border border-white/20 flex items-center justify-center relative overflow-hidden">
