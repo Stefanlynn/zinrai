@@ -14,28 +14,28 @@ const benefits = [
 // Define detailed partner information for Learn More modal
 const partnerDetails = [
   {
-    title: "Business Dashboard",
-    description: "A personalized portal where you can track your referrals, earnings, customer activity, and rank progress in real time."
+    title: "Business Tools",
+    description: "Everything you need to launch and grow—at your fingertips. From your personal back office to smart tracking systems, we equip you with tools that simplify your business and amplify your results. No guesswork. Just clarity, control, and momentum."
   },
   {
-    title: "Commission Eligibility",
-    description: "Unlock the ability to earn from both product referrals and team growth through ZiNRAi's structured compensation model."
+    title: "Branded Assets",
+    description: "You'll get instant access to high-quality, on-brand visuals designed to help you promote with professionalism. Social graphics, presentation templates, logos, videos—everything is done for you so you can focus on showing up and sharing confidently."
   },
   {
-    title: "Marketing Tools & Assets",
-    description: "Professionally designed graphics, videos, and templates to help you share the brand with excellence—online and in person."
+    title: "Compensation",
+    description: "We believe great work deserves great reward. Our compensation plan is designed to be simple, generous, and sustainable—whether you're just getting started or building a global team. Earn through customer referrals, team growth, rank bonuses, and more."
   },
   {
-    title: "Training & Development",
-    description: "Ongoing access to leadership calls, growth strategies, launch trainings, compliance training, and mentorship from top leaders."
+    title: "Ongoing Training",
+    description: "You're never left to figure it out alone. From your first day, you'll have access to expert-led education designed to help you grow with confidence. Our training includes weekly calls, business playbooks, personal development sessions, and essential compliance training—so you can build with clarity, integrity, and excellence. Whether you're launching your business or leading a team, we've got the support you need every step of the way."
   },
   {
-    title: "Private Community Access",
-    description: "Connect with like-minded builders in private group chats, team events, and leadership forums."
+    title: "Mentorship",
+    description: "The best part? You don't have to do this by yourself. You'll be surrounded by mentors who have walked the path before you—leaders who believe in your potential and are invested in your growth. This isn't just business; it's personal development with a compass."
   },
   {
-    title: "Early Access Opportunities",
-    description: "Be the first to hear about product releases, promotions, and upcoming campaigns."
+    title: "Global Community",
+    description: "When you partner with ZiNRAi, you join a movement that stretches across borders. Our community is filled with like-minded leaders, dreamers, and doers—from all over the world—who are building, growing, and rising together. This is connection that multiplies impact."
   }
 ];
 
