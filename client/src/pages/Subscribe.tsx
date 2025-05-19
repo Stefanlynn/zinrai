@@ -130,8 +130,13 @@ export default function Subscribe() {
             <h1 className="text-white text-3xl md:text-5xl font-bold tracking-wider inline-block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
               SUBSCRIBE
             </h1>
+            <div className="mt-3 mb-3">
+              <span className="bg-[var(--zinrai-blue-glow)] text-white text-sm font-bold px-4 py-1 rounded-sm shadow-[0_0_10px_rgba(104,172,255,0.7)]">
+                FREE UNTIL JUNE 1ST, 2025
+              </span>
+            </div>
             <p className="text-white/70 mt-3 text-sm md:text-base tracking-wide max-w-xl mx-auto">
-              Select your preferred subscription option to begin your journey with ZiNRAi
+              Select your preferred subscription option to begin your journey with ZiNRAi - No credit card required now
             </p>
           </div>
           
@@ -362,11 +367,11 @@ export default function Subscribe() {
                   </div>
                 )}
                 
-                <div className="mt-6 bg-white/5 p-4">
-                  <p className="text-white/80 text-sm">
-                    Starting 28 days from today, your account will be billed ${getMonthlyRecurring()} monthly for your 
+                <div className="mt-6 bg-[var(--zinrai-blue-glow)]/10 p-4 border border-[var(--zinrai-blue-glow)]/30">
+                  <p className="text-white text-sm">
+                    <span className="font-medium">FREE UNTIL JUNE 1ST, 2025</span> - After June 1st, your account will be billed ${getMonthlyRecurring()} monthly for your
                     <span className="font-medium"> {selectedMonthlyPlan === 'standard' ? 'Standard' : 'VIP'}</span> plan.
-                    You may cancel or modify your subscription at any time through your account settings.
+                    No credit card required now. You'll be notified before any charges begin.
                   </p>
                 </div>
               </div>
