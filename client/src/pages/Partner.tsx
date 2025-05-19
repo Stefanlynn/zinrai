@@ -149,19 +149,16 @@ export default function Partner() {
             id="partner-learn-more-modal"
             className="relative bg-black border border-white/20 w-[95%] max-w-3xl max-h-[90vh] overflow-y-auto z-50 animate-in slide-up duration-500"
           >
-            {/* Back button instead of close X */}
+            {/* Back button with improved visibility */}
             <button 
-              className="absolute top-6 left-6 text-white/80 hover:text-white transition-all group z-10 flex items-center" 
+              className="fixed top-6 left-6 text-white hover:text-white transition-all group z-[60] flex items-center bg-black/90 px-4 py-2 border border-white/30 hover:border-white/70" 
               onClick={toggleLearnMoreModal}
               aria-label="Go back"
             >
-              <div className="relative h-10 w-10 flex items-center justify-center mr-2">
-                <div className="absolute inset-0 rounded-full bg-black/50 backdrop-blur-sm group-hover:bg-black/70 transform scale-75 group-hover:scale-100 transition-all duration-300"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 relative text-white/70 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-              </div>
-              <span className="text-white/70 group-hover:text-white text-sm font-light">BACK</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 relative text-white mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              <span className="text-white font-medium">BACK</span>
             </button>
             
             {/* Modal Content */}
