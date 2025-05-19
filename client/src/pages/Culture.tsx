@@ -47,24 +47,31 @@ export default function Culture() {
     <div className="bg-black min-h-screen">
       {/* Grid Lines */}
       <div className="fixed inset-0 z-[5] pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-white/70"></div>
-        <div className="absolute top-1/4 left-0 right-0 h-[1.5px] bg-white/70"></div>
-        <div className="absolute top-2/4 left-0 right-0 h-[1.5px] bg-white/70"></div>
-        <div className="absolute top-3/4 left-0 right-0 h-[1.5px] bg-white/70"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-white/70"></div>
-        <div className="absolute top-0 bottom-0 left-0 w-[1.5px] bg-white/70"></div>
-        <div className="absolute top-0 bottom-0 left-1/2 w-[1.5px] bg-white/70"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-[1.5px] bg-white/70"></div>
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-white/10"></div>
+        <div className="absolute top-1/4 left-0 right-0 h-[1.5px] bg-white/10"></div>
+        <div className="absolute top-2/4 left-0 right-0 h-[1.5px] bg-white/10"></div>
+        <div className="absolute top-3/4 left-0 right-0 h-[1.5px] bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-white/10"></div>
+        <div className="absolute top-0 bottom-0 left-0 w-[1.5px] bg-white/10"></div>
+        <div className="absolute top-0 bottom-0 left-1/2 w-[1.5px] bg-white/10"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-[1.5px] bg-white/10"></div>
       </div>
       
       {/* Page Content */}
-      <div className="container mx-auto py-16 px-4 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-light tracking-wide mb-2">
-            OUR CULTURE
-          </h1>
-          <div className="h-[1px] w-20 bg-[var(--zinrai-blue-glow)] mx-auto mt-4"></div>
+      <div className="container mx-auto pt-[8vh] pb-16 px-4 relative z-10">
+        {/* Video Section */}
+        <div className="mb-16 w-full">
+          <div className="w-full aspect-video bg-black border border-white/20 flex items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-black/90"></div>
+            <div className="relative z-10 text-center">
+              <div className="w-16 h-16 rounded-full bg-black/50 border border-white/30 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <p className="text-white/70 text-sm">Video will be added soon</p>
+            </div>
+          </div>
         </div>
         
         {/* Vision & Mission Section */}
