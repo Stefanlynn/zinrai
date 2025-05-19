@@ -48,16 +48,22 @@ export default function ConfirmationPage() {
           Welcome to ZiNRAi
         </h2>
         
-        {/* Payment confirmation */}
+        {/* Free enrollment confirmation */}
         <div className="flex items-center justify-center mb-6">
-          <div className="w-4 h-4 rounded-full bg-green-500 mr-3"></div>
-          <p className="text-lg md:text-xl font-medium">Payment Complete. You're In.</p>
+          <div className="w-4 h-4 rounded-full bg-[var(--zinrai-blue-glow)] mr-3"></div>
+          <p className="text-lg md:text-xl font-medium">Enrollment Complete. You're In.</p>
         </div>
         
-        {/* Confirmation paragraph */}
-        <p className="text-white/80 text-center mb-10">
-          Thank you for joining ZiNRAi. Your subscription has been successfully processed, and your account is now active. You'll receive an email confirmation shortly with additional details about your membership.
+        {/* Confirmation paragraph with free until June 1st message */}
+        <p className="text-white/80 text-center mb-6">
+          Thank you for joining ZiNRAi. Your free enrollment has been successfully processed, and your account is now active. You'll receive an email confirmation shortly with additional details.
         </p>
+        
+        <div className="bg-[var(--zinrai-blue-glow)]/10 border border-[var(--zinrai-blue-glow)]/30 p-4 rounded-sm mb-8">
+          <p className="text-white/90 text-center text-sm">
+            <span className="font-medium">FREE UNTIL JUNE 1ST, 2025</span> - No credit card required. You'll be notified before any paid subscription begins.
+          </p>
+        </div>
         
         {/* Backoffice setup instruction */}
         <p className="text-white/80 text-center mb-6">

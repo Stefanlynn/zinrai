@@ -553,17 +553,17 @@ export default function Subscribe() {
                       />
                     </div>
                     
-                    {/* Next Button */}
+                    {/* Free Enrollment Button */}
                     <button 
                       type="button"
                       disabled={selectedSubscription === 'single' && !selectedTrack}
-                      className={`mt-6 w-full bg-black border-2 ${
+                      className={`mt-6 w-full bg-[var(--zinrai-blue-glow)] border-2 ${
                         selectedSubscription === 'single' && !selectedTrack 
-                          ? 'border-white/30 text-white/50 cursor-not-allowed' 
-                          : 'border-white text-white hover:bg-white hover:text-black'
-                      } py-4 px-8 transition-all duration-300 focus:outline-none text-base font-medium tracking-wide uppercase`}
+                          ? 'opacity-50 text-white/50 cursor-not-allowed' 
+                          : 'text-white hover:bg-[var(--zinrai-blue-glow)]/80'
+                      } py-4 px-8 transition-all duration-300 focus:outline-none text-base font-medium tracking-wide uppercase shadow-[0_0_15px_rgba(104,172,255,0.3)]`}
                       onClick={() => {
-                        // Save form data to localStorage for the checkout page
+                        // Save form data to localStorage for the free enrollment confirmation
                         const customerData = {
                           firstName: (document.getElementById('firstName') as HTMLInputElement)?.value || '',
                           lastName: (document.getElementById('lastName') as HTMLInputElement)?.value || '',
@@ -582,9 +582,9 @@ export default function Subscribe() {
                                   (selectedMonthlyPlan === 'standard' ? 'All Access Standard' : 
                                    selectedMonthlyPlan === 'vip' ? 'All Access VIP' : 'All Access') : 
                                 independentRep ? 'Brand Promoter' : 'Custom Package',
-                          cycle: selectedSubscription === 'all' ? "Monthly starting in 28 days" : "Monthly",
-                          price: calculateTotal(),
-                          monthlyAmount: selectedSubscription === 'all' ? getMonthlyRecurring() : calculateTotal(),
+                          cycle: "Free until June 1st, 2025",
+                          price: "0.00",
+                          futureMonthlyAmount: selectedSubscription === 'all' ? getMonthlyRecurring() : calculateTotal(),
                           trackName: selectedSubscription === 'single' ? 
                             (selectedTrack === 'forex' ? 'Foreign Exchange (Forex)' : 
                              selectedTrack === 'stocks' ? 'Stocks & Options' :
@@ -597,8 +597,8 @@ export default function Subscribe() {
                         localStorage.setItem('customerData', JSON.stringify(customerData));
                         localStorage.setItem('subscriptionData', JSON.stringify(subscriptionData));
                         
-                        // Navigate to checkout
-                        navigate('/checkout');
+                        // Navigate directly to confirmation for free enrollment
+                        navigate('/confirmation');
                       }}
                     >
                       Next
