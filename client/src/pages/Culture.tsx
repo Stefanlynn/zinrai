@@ -37,11 +37,16 @@ const cultureValues = [
 
 export default function Culture() {
   const [_, navigate] = useLocation();
+  const [activeSection, setActiveSection] = useState<'vision' | 'mission' | 'values'>('vision');
   const [activeValue, setActiveValue] = useState<number | null>(null);
-  const [showIntro, setShowIntro] = useState(true);
   
-  const toggleView = () => {
-    setShowIntro(!showIntro);
+  // Function to scroll to element
+  const scrollToSection = (section: 'vision' | 'mission' | 'values') => {
+    setActiveSection(section);
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handleValueClick = (index: number) => {
@@ -65,85 +70,109 @@ export default function Culture() {
       </div>
       
       {/* Main Content */}
-      <div className="w-full min-h-screen flex flex-col relative z-10">
-        <div className="absolute top-[10vh] left-[10vw]">
-          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-light tracking-wide">
+      <div className="w-full min-h-screen flex flex-col items-center pt-[15vh] pb-[10vh] px-[5vw] md:px-[10vw] relative z-10 overflow-hidden">
+        {/* Header */}
+        <div className="w-full text-center mb-14">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-light tracking-wide mb-6">
             OUR CULTURE
           </h1>
+          <div className="h-[1px] w-20 bg-[var(--zinrai-blue-glow)] mx-auto"></div>
         </div>
         
-        <div className="absolute top-[20vh] bottom-[15vh] left-[10vw] right-[10vw] overflow-y-auto">
-          {showIntro ? (
-            <div className="text-white/80 space-y-10 pr-4 max-w-3xl">
-              {/* Vision Section */}
-              <div>
-                <h2 className="text-white text-2xl font-medium mb-4">Vision</h2>
-                <p className="text-base sm:text-lg">
-                  To help ordinary people become extraordinary leaders by mastering daily disciplines and timeless principles.
-                </p>
-                <div className="my-6 w-12 h-[1px] bg-white/30"></div>
+        {/* Navigation Tabs */}
+        <div className="w-full max-w-4xl mx-auto mb-12 flex justify-center">
+          <div className="inline-flex border border-white/20 p-1 bg-white/5 backdrop-blur-sm">
+            <button 
+              onClick={() => scrollToSection('vision')}
+              className={`px-5 py-3 text-sm font-medium transition-all duration-300 ${activeSection === 'vision' ? 'bg-white/10 text-white shadow-[0_0_10px_rgba(104,172,255,0.3)]' : 'text-white/70 hover:text-white'}`}
+            >
+              VISION
+            </button>
+            <button 
+              onClick={() => scrollToSection('mission')}
+              className={`px-5 py-3 text-sm font-medium transition-all duration-300 ${activeSection === 'mission' ? 'bg-white/10 text-white shadow-[0_0_10px_rgba(104,172,255,0.3)]' : 'text-white/70 hover:text-white'}`}
+            >
+              MISSION
+            </button>
+            <button 
+              onClick={() => scrollToSection('values')}
+              className={`px-5 py-3 text-sm font-medium transition-all duration-300 ${activeSection === 'values' ? 'bg-white/10 text-white shadow-[0_0_10px_rgba(104,172,255,0.3)]' : 'text-white/70 hover:text-white'}`}
+            >
+              VALUES
+            </button>
+          </div>
+        </div>
+        
+        {/* Content Container */}
+        <div className="w-full max-w-4xl mx-auto overflow-y-auto">
+          {/* Vision Section */}
+          <section id="vision" className={`mb-20 ${activeSection === 'vision' ? 'block' : 'hidden'}`}>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full border border-white/30 flex items-center justify-center mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
               </div>
-              
-              {/* Mission Section */}
-              <div>
-                <h2 className="text-white text-2xl font-medium mb-4">Mission</h2>
-                <p className="text-base sm:text-lg">
-                  ZiNRAi exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment.
-                </p>
-                <div className="my-8 w-12 h-[1px] bg-white/30"></div>
-              </div>
-              
-              {/* Core Values Intro */}
-              <div>
-                <h2 className="text-white text-2xl font-medium mb-4">Core Values</h2>
-                <p className="text-base sm:text-lg mb-4">
-                  Each letter of ZiNRAi reflects a foundational value that shapes our culture and leadership DNA:
-                </p>
-                <p className="text-base sm:text-lg">
-                  The letters in ZiNRAi represent the principles we live by. These values guide how we lead, serve, collaborate, and grow—individually and together. They define our decisions, shape our environment, and anchor our movement in something deeper than hype.
-                </p>
-              </div>
+              <h2 className="text-white text-3xl font-light mb-8">Vision</h2>
+              <p className="text-white/90 text-xl leading-relaxed max-w-2xl font-light">
+                To help ordinary people become extraordinary leaders by mastering daily disciplines and timeless principles.
+              </p>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 gap-3 max-w-2xl mx-auto md:mx-0">
+          </section>
+          
+          {/* Mission Section */}
+          <section id="mission" className={`mb-20 ${activeSection === 'mission' ? 'block' : 'hidden'}`}>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full border border-white/30 flex items-center justify-center mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h2 className="text-white text-3xl font-light mb-8">Mission</h2>
+              <p className="text-white/90 text-xl leading-relaxed max-w-2xl font-light">
+                ZiNRAi exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment.
+              </p>
+            </div>
+          </section>
+          
+          {/* Values Section */}
+          <section id="values" className={`${activeSection === 'values' ? 'block' : 'hidden'}`}>
+            <div className="text-center mb-12">
+              <div className="w-24 h-24 rounded-full border border-white/30 flex items-center justify-center mb-8 mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <h2 className="text-white text-3xl font-light mb-6">Core Values</h2>
+              <p className="text-white/90 text-lg leading-relaxed max-w-2xl mx-auto font-light mb-4">
+                Each letter of ZiNRAi reflects a foundational value that shapes our culture and leadership DNA.
+              </p>
+            </div>
+            
+            {/* Core Values Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {cultureValues.map((value, index) => (
                 <div 
                   key={index}
-                  className={`cursor-pointer group transition-all duration-300 border border-transparent hover:border-white/20 p-4 ${activeValue === index ? 'bg-white/5' : ''}`}
+                  className="bg-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 rounded-sm overflow-hidden cursor-pointer"
                   onClick={() => handleValueClick(index)}
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-white text-sm font-bold w-7 h-7 flex items-center justify-center border border-white/30 rounded-full group-hover:border-white/50 transition-colors">
-                      {value.letter}
-                    </span>
-                    <h2 className={`text-lg font-medium tracking-wide ${activeValue === index ? 'neon-text-glow' : 'text-white'}`}>{value.title}</h2>
-                    {activeValue === index && (
-                      <div className="ml-1">
-                        <svg width="12" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M1 4L5 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                  
-                  <div className={`mt-3 pl-10 text-white/80 text-sm leading-relaxed overflow-hidden transition-all duration-300 ${activeValue === index ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    {value.description}
+                  <div className="p-6">
+                    <div className="flex items-center mb-4">
+                      <span className="w-10 h-10 bg-[var(--zinrai-blue-glow)]/10 text-white rounded-full flex items-center justify-center mr-3 font-bold text-lg shadow-[0_0_15px_rgba(104,172,255,0.15)]">
+                        {value.letter}
+                      </span>
+                      <h3 className="text-white text-xl font-medium">{value.title}</h3>
+                    </div>
+                    <p className="text-white/80 leading-relaxed text-sm">
+                      {value.description}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-          )}
-        </div>
-        
-        <div className="absolute bottom-[5vh] left-0 w-full p-6 md:p-0 md:bottom-[15vh] md:left-auto md:right-[10vw] md:w-auto flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center justify-center md:justify-end">
-          <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300">
-            <button 
-              className="w-full px-6 py-3 text-white text-sm tracking-wide"
-              onClick={toggleView}
-            >
-              {showIntro ? "EXPLORE OUR VALUES" : "BACK TO INTRODUCTION"}
-            </button>
-          </div>
+          </section>
         </div>
       </div>
     </div>
