@@ -44,7 +44,7 @@ export default function Culture() {
   };
 
   return (
-    <div className="bg-black min-h-screen overflow-y-auto">
+    <div className="bg-black min-h-screen overflow-y-auto overscroll-contain">
       {/* Grid Lines */}
       <div className="fixed inset-0 z-[1] pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-white/10"></div>
