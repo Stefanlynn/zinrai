@@ -168,6 +168,16 @@ function App() {
             </a>
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/culture"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/culture');
+              }}
+            >
+              Why ZiNRAi
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
               href="/leadership"
               onClick={(e) => {
                 e.preventDefault();
