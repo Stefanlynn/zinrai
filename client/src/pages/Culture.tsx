@@ -76,9 +76,9 @@ export default function Culture() {
         
         {/* Why ZiNRAi Section */}
         <div className="mb-16 w-full max-w-3xl mx-auto">
-          <h2 className="text-white text-2xl font-light mb-6 neon-text-glow text-center">Why ZiNRAi</h2>
+          <h2 className="text-white text-2xl font-light mb-6 neon-text-glow text-left">Why ZiNRAi</h2>
           
-          <div className="text-white/90 space-y-4 text-center">
+          <div className="text-white/90 space-y-4 text-left">
             <p className="text-base">
               In a world full of noise, hype, and hustle, ZiNRAi exists to bring something different—something deeper.
             </p>
@@ -87,10 +87,9 @@ export default function Culture() {
               We're not just building another platform. We're creating a space where purpose-driven people can come to grow, lead, and live with clarity.
             </p>
             
-            <p className="text-base font-medium mt-6">
-              Most companies sell products.<br/>
-              We build people.
-            </p>
+            <div className="text-base font-medium my-6">
+              Most companies sell products. We build people.
+            </div>
             
             <p className="text-base">
               ZiNRAi is for the builders. The dreamers. The leaders who care more about long-term impact than short-term gain.
@@ -105,10 +104,9 @@ export default function Culture() {
               Because we believe that when people live with intention and lead with integrity, they don't just change their lives—they change the world around them.
             </p>
             
-            <p className="text-base font-medium mt-6">
-              This is more than a subscription.<br/>
-              It's a signal. A standard. A shift.
-            </p>
+            <div className="text-base font-medium my-6">
+              This is more than a subscription. It's a signal. A standard. A shift.
+            </div>
             
             <p className="text-base font-medium">
               This is ZiNRAi.
