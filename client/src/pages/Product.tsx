@@ -223,7 +223,7 @@ export default function Product() {
         </div>
         
         {/* Services List - adjusted positioning for header */}
-        <div className={`absolute top-[25vh] sm:top-[30vh] md:top-[38vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
+        <div className={`absolute top-[20vh] sm:top-[25vh] md:top-[28vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
           {services.map((service, index) => (
             <div 
               key={index}
@@ -238,6 +238,7 @@ export default function Product() {
                     index === 2 ? 'bg-green-500' : 
                     index === 3 ? 'bg-yellow-500' : 
                     index === 4 ? 'bg-purple-500' : 
+                    index === 5 ? 'bg-pink-500' : 
                     'bg-orange-500'
                   } ${activeIndex === index ? 'opacity-100 shadow-glow' : 'opacity-60'}`}
                 ></div>
