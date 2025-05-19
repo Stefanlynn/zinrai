@@ -159,7 +159,9 @@ export default function Subscribe() {
               
               <h2 className="text-white text-xl font-medium mb-3 mt-2">All Access</h2>
               <div className="text-white/90 text-3xl font-bold mb-6">
-                $249.95<span className="text-white/60 text-sm font-normal ml-1">one-time</span>
+                <span className="line-through opacity-40">$249.95</span> 
+                <span className="text-[var(--zinrai-blue-glow)] ml-2">FREE</span>
+                <span className="text-white/60 text-sm font-normal ml-1">until June 1st</span>
               </div>
               
               <p className="text-white/80 text-sm mb-4">Full access to all education tracks:</p>
@@ -201,7 +203,9 @@ export default function Subscribe() {
               
               <h2 className="text-white text-xl font-medium mb-3 mt-2">Brand Promoter</h2>
               <div className="text-white/90 text-3xl font-bold mb-6">
-                $24.95<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                <span className="line-through opacity-40">$24.95</span> 
+                <span className="text-[var(--zinrai-blue-glow)] ml-2">FREE</span>
+                <span className="text-white/60 text-sm font-normal ml-1">until June 1st</span>
               </div>
               
               <p className="text-white/80 text-sm mb-4">Add to All Access or select on its own:</p>
