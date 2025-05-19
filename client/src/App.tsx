@@ -75,7 +75,9 @@ function Router() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCaresModal, setShowCaresModal] = useState(false);
+  const [showInfoCenter, setShowInfoCenter] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const infoCenterRef = useRef<HTMLDivElement>(null);
   const [isHome] = useRoute("/");
   const isHomePage = isHome;
   const [, setLocation] = useLocation();
@@ -120,12 +122,79 @@ function App() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    if (showInfoCenter) setShowInfoCenter(false);
+  };
+  
+  const toggleInfoCenter = () => {
+    setShowInfoCenter(!showInfoCenter);
+    if (menuOpen) setMenuOpen(false);
   };
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        
+        {/* Info Center Modal */}
+        {showInfoCenter && (
+          <div className="fixed inset-0 z-[1002] overflow-auto bg-black flex flex-col">
+            <div className="relative flex-1" ref={infoCenterRef}>
+              {/* Close button */}
+              <button 
+                className="absolute top-6 right-6 text-white/70 hover:text-white z-20"
+                onClick={toggleInfoCenter}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              
+              {/* Title */}
+              <div className="p-6 sm:p-10">
+                <h2 className="text-white text-xl sm:text-2xl font-light mb-10">INFO CENTER</h2>
+              </div>
+              
+              {/* Content - 4 columns on desktop, stacked on mobile */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-6 sm:p-10 pt-0">
+                <div>
+                  <h3 className="text-white/90 text-sm font-medium mb-4">About</h3>
+                  <ul className="space-y-3">
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Our Story</button></li>
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Leadership Team</button></li>
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">ZiNRAi Cares</button></li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="text-white/90 text-sm font-medium mb-4">Legal</h3>
+                  <ul className="space-y-3">
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Terms & Conditions</button></li>
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Privacy Policy</button></li>
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Brand Promoter Terms</button></li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="text-white/90 text-sm font-medium mb-4">Support</h3>
+                  <ul className="space-y-3">
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">FAQ</button></li>
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Help Center</button></li>
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Contact Support</button></li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="text-white/90 text-sm font-medium mb-4">Connect</h3>
+                  <ul className="space-y-3">
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Contact Us</button></li>
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Careers</button></li>
+                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Media Inquiries</button></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         
         {/* Header - Clean minimal design with dark gray background */}
         <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10">
@@ -208,8 +277,23 @@ function App() {
             </a>
           </nav>
           
-          {/* Profile icon for desktop */}
-          <div className="hidden md:flex items-center mr-6">
+          {/* Profile and Info icons for desktop */}
+          <div className="hidden md:flex items-center mr-6 space-x-2">
+            <a
+              className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleInfoCenter();
+              }}
+              title="Info Center"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="text-white/70 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </a>
             <a
               className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
               href="/profile"
