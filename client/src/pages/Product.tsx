@@ -14,28 +14,32 @@ const services = [
 // Define detailed product information for Learn More modal
 const productDetails = [
   {
-    title: "Foreign Exchange (Forex) Course + Learn Now",
-    description: "Master the global currency market with real-time strategies, expert insights, and interactive learning. Whether you're brand new or ready to scale, our Forex program equips you to trade with clarity and confidence."
+    title: "Forex Mastery",
+    description: "Master the largest financial market in the world. Our Forex education walks you through foundational principles, live market strategies, and risk management—so you can trade with clarity, not guesswork. Whether you're brand new or looking to sharpen your edge, we'll show you how to navigate currencies like a pro."
   },
   {
-    title: "Stocks & Options Course + goLIVE Education",
-    description: "Learn to navigate the stock market and leverage the power of options. From long-term investing to short-term strategies, this course simplifies complex concepts and shows you how to grow wealth on your terms."
+    title: "Stocks & Education",
+    description: "Learn how to invest with strategy, not speculation. This course covers everything from stock market basics to options trading and technical analysis. With live sessions and real-time breakdowns, you'll gain the confidence and tools to build a portfolio that works for you."
   },
   {
-    title: "Cryptocurrency Course + goLIVE Education",
-    description: "Understand the future of finance. This course breaks down blockchain, crypto assets, and real-time market movements—so you can make informed decisions in a fast-moving space."
+    title: "Cryptocurrency",
+    description: "Go beyond the hype and understand the world of digital assets. From Bitcoin to blockchain, this course simplifies crypto and helps you discover how to engage the future of finance with wisdom, safety, and skill."
   },
   {
-    title: "E-Commerce Course + goLIVE Education",
-    description: "Launch, scale, or streamline your own online business. Our E-Commerce track covers product sourcing, brand building, and marketing automation—giving you everything you need to build a digital storefront that sells."
+    title: "E-Commerce",
+    description: "Build an online store, launch a brand, and generate income from anywhere. This track covers the essentials of product selection, store setup, marketing, and fulfillment—empowering you to turn ideas into income through modern digital retail."
   },
   {
-    title: "Digital Marketing Course + goLIVE Education",
-    description: "From content strategy to paid ads, learn how to grow a brand and convert attention into income. This course teaches modern marketing skills that are relevant, repeatable, and ready to use."
+    title: "Social Media",
+    description: "Transform your scroll time into strategy. Learn how to grow your personal brand, monetize content, and build community on platforms like Instagram, TikTok, and YouTube. Whether you're a beginner or a builder, this course gives you the playbook to show up and stand out."
   },
   {
-    title: "Member Perks Access",
-    description: "Get exclusive benefits like discounts, partner tools, and early access to future offerings. Member Perks are designed to reward your growth and keep you connected to what's next."
+    title: "Learn Now",
+    description: "Our digital learning hub with live and on-demand education from top-tier instructors, entrepreneurs, and experts across every industry we teach. It's your all-access pass to growth—available anytime, anywhere. From trading to marketing to leadership, this is where the learning never stops."
+  },
+  {
+    title: "Member Perks",
+    description: "Being a part of ZiNRAi comes with its advantages. Enjoy exclusive discounts, partner offers, and special access to tools and experiences that support your growth, lifestyle, and everyday success. More than just value—it's our way of investing back into your journey."
   }
 ];
 
