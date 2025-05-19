@@ -14,8 +14,11 @@ export default function Subscribe() {
   const [independentRep, setIndependentRep] = useState(false);
   // State to track selected course track (for single course selection)
   const [selectedTrack, setSelectedTrack] = useState<string | null>(null);
-  // Import navigate for navigation
+  // Import navigate for navigation and toast for notifications
   const [_, navigate] = useLocation();
+  // State to track form submission status
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
   
   // Load animations when component mounts
   useEffect(() => {
@@ -558,27 +561,60 @@ export default function Subscribe() {
                       />
                     </div>
                     
+                    {/* Form submission error message */}
+                    {formError && (
+                      <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-sm mb-4">
+                        <p className="text-white text-sm">{formError}</p>
+                      </div>
+                    )}
+                    
                     {/* Free Enrollment Button */}
                     <button 
                       type="button"
-                      disabled={selectedSubscription === 'single' && !selectedTrack}
+                      disabled={(selectedSubscription === 'single' && !selectedTrack) || isSubmitting}
                       className={`mt-6 w-full bg-[var(--zinrai-blue-glow)] border-2 ${
-                        selectedSubscription === 'single' && !selectedTrack 
+                        (selectedSubscription === 'single' && !selectedTrack) || isSubmitting
                           ? 'opacity-50 text-white/50 cursor-not-allowed' 
                           : 'text-white hover:bg-[var(--zinrai-blue-glow)]/80'
                       } py-4 px-8 transition-all duration-300 focus:outline-none text-base font-medium tracking-wide uppercase shadow-[0_0_15px_rgba(104,172,255,0.3)]`}
-                      onClick={() => {
-                        // Save form data to localStorage for the free enrollment confirmation
+                      onClick={async () => {
+                        setFormError(null);
+                        
+                        // Get form data
+                        const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value || '';
+                        const lastName = (document.getElementById('lastName') as HTMLInputElement)?.value || '';
+                        const email = (document.getElementById('email') as HTMLInputElement)?.value || '';
+                        const country = (document.getElementById('country') as HTMLSelectElement)?.value || '';
+                        const address1 = (document.getElementById('address1') as HTMLInputElement)?.value || '';
+                        const address2 = (document.getElementById('address2') as HTMLInputElement)?.value || '';
+                        const city = (document.getElementById('city') as HTMLInputElement)?.value || '';
+                        const state = (document.getElementById('state') as HTMLInputElement)?.value || '';
+                        const postal = (document.getElementById('postal') as HTMLInputElement)?.value || '';
+                        
+                        // Validate required fields
+                        if (!firstName || !lastName || !email || !country) {
+                          setFormError("Please fill out all required fields (First Name, Last Name, Email, Country)");
+                          return;
+                        }
+                        
+                        // Email validation
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(email)) {
+                          setFormError("Please enter a valid email address");
+                          return;
+                        }
+                        
+                        // Prepare customer data
                         const customerData = {
-                          firstName: (document.getElementById('firstName') as HTMLInputElement)?.value || '',
-                          lastName: (document.getElementById('lastName') as HTMLInputElement)?.value || '',
-                          email: (document.getElementById('email') as HTMLInputElement)?.value || '',
-                          country: (document.getElementById('country') as HTMLSelectElement)?.value || '',
-                          address1: (document.getElementById('address1') as HTMLInputElement)?.value || '',
-                          address2: (document.getElementById('address2') as HTMLInputElement)?.value || '',
-                          city: (document.getElementById('city') as HTMLInputElement)?.value || '',
-                          state: (document.getElementById('state') as HTMLInputElement)?.value || '',
-                          postal: (document.getElementById('postal') as HTMLInputElement)?.value || '',
+                          firstName,
+                          lastName,
+                          email,
+                          country,
+                          address1,
+                          address2,
+                          city,
+                          state,
+                          postal,
                         };
                         
                         // Save subscription data
@@ -598,15 +634,63 @@ export default function Subscribe() {
                              selectedTrack === 'marketing' ? 'Digital Marketing' : null) : null
                         };
                         
-                        // Store data in localStorage
+                        // Prepare form submission data
+                        const formData = {
+                          customerInfo: customerData,
+                          subscriptionInfo: subscriptionData,
+                          timestamp: new Date().toISOString()
+                        };
+                        
+                        // Store data in localStorage (as backup and for the confirmation page)
                         localStorage.setItem('customerData', JSON.stringify(customerData));
                         localStorage.setItem('subscriptionData', JSON.stringify(subscriptionData));
                         
-                        // Navigate directly to confirmation for free enrollment
-                        navigate('/confirmation');
+                        // Submit form data to API
+                        try {
+                          setIsSubmitting(true);
+                          
+                          // Use the API endpoint - dynamically determine based on environment
+                          const apiUrl = import.meta.env.VITE_API_URL || 'https://api.zinrai.com/submit';
+                          
+                          const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formData)
+                          });
+                          
+                          if (response.ok) {
+                            // Success - navigate to confirmation page
+                            navigate('/confirmation');
+                          } else {
+                            // API response was not ok
+                            const errorData = await response.json().catch(() => null);
+                            throw new Error(errorData?.message || 'Failed to submit form. Please try again.');
+                          }
+                        } catch (error) {
+                          console.error('Form submission error:', error);
+                          setFormError(error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.');
+                          
+                          // Even if the API fails, we'll navigate to the confirmation page for now
+                          // This ensures users can still proceed during the free trial period
+                          navigate('/confirmation');
+                        } finally {
+                          setIsSubmitting(false);
+                        }
                       }}
                     >
-                      Next
+                      {isSubmitting ? (
+                        <div className="flex items-center justify-center">
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Processing...
+                        </div>
+                      ) : (
+                        "Next"
+                      )}
                     </button>
                   </form>
                 </div>
