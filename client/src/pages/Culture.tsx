@@ -122,7 +122,7 @@ export default function Culture() {
           <div className="bg-black border border-white/20 p-8">
             <h2 className="text-white text-2xl font-light mb-4 neon-text-glow">Vision</h2>
             <p className="text-white/90 text-base leading-relaxed">
-              To help ordinary people become extraordinary leaders by mastering daily disciplines and timeless principles.
+              To help ordinary people become extraordinary leaders—by unlocking purpose, building character, and creating meaningful impact.
             </p>
           </div>
           
