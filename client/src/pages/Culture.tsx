@@ -58,7 +58,7 @@ export default function Culture() {
       </div>
       
       {/* Page Content */}
-      <div className="container mx-auto pt-[8vh] pb-32 px-4 relative z-10">
+      <div className="container mx-auto pt-[8vh] pb-32 px-4 relative z-10 overflow-visible">
         {/* Video Section */}
         <div className="mb-12 w-full">
           <div className="w-full aspect-video bg-black border border-white/20 flex items-center justify-center relative overflow-hidden">
