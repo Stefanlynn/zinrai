@@ -61,7 +61,7 @@ export default function ConfirmationPage() {
         
         <div className="bg-[var(--zinrai-blue-glow)]/10 border border-[var(--zinrai-blue-glow)]/30 p-4 rounded-sm mb-8">
           <p className="text-white/90 text-center text-sm">
-            <span className="font-medium">FREE UNTIL JUNE 1ST, 2025</span> - No credit card required. You'll be notified before any paid subscription begins.
+            <span className="font-medium">FREE UNTIL JUNE 1ST, 2025</span> - On June 1st, a one-time activation fee of $200 will be charged. Then 28 days later, your monthly subscription will begin. No credit card required now. You'll be notified before any charges begin.
           </p>
         </div>
         

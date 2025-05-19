@@ -374,7 +374,7 @@ export default function Subscribe() {
                 
                 <div className="mt-6 bg-[var(--zinrai-blue-glow)]/10 p-4 border border-[var(--zinrai-blue-glow)]/30">
                   <p className="text-white text-sm">
-                    <span className="font-medium">FREE UNTIL JUNE 1ST, 2025</span> - After June 1st, your account will be billed ${getMonthlyRecurring()} monthly for your
+                    <span className="font-medium">FREE UNTIL JUNE 1ST, 2025</span> - On June 1st, a one-time activation fee of $200 will be charged. Then 28 days later, your account will be billed ${getMonthlyRecurring()} monthly for your
                     <span className="font-medium"> {selectedMonthlyPlan === 'standard' ? 'Standard' : 'VIP'}</span> plan.
                     No credit card required now. You'll be notified before any charges begin.
                   </p>
