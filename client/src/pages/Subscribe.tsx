@@ -329,7 +329,7 @@ export default function Subscribe() {
                         <p className="text-white text-base">Single Track Subscription</p>
                         <p className="text-white/60 text-xs mt-1">Monthly access to 1 education track</p>
                       </div>
-                      <span className="text-white text-lg">$185.00</span>
+                      <span className="text-white text-lg"><span className="line-through opacity-50">$185.00</span> <span className="text-[var(--zinrai-blue-glow)] font-bold">FREE</span></span>
                     </div>
                   )}
                   
@@ -339,7 +339,7 @@ export default function Subscribe() {
                         <p className="text-white text-base">All Access Subscription</p>
                         <p className="text-white/60 text-xs mt-1">Monthly access to all education tracks</p>
                       </div>
-                      <span className="text-white text-lg">$250.00</span>
+                      <span className="text-white text-lg"><span className="line-through opacity-50">$250.00</span> <span className="text-[var(--zinrai-blue-glow)] font-bold">FREE</span></span>
                     </div>
                   )}
                   
@@ -349,14 +349,17 @@ export default function Subscribe() {
                         <p className="text-white text-base">Independent Representative</p>
                         <p className="text-white/60 text-xs mt-1">Monthly access to business tools</p>
                       </div>
-                      <span className="text-white text-lg">$24.99</span>
+                      <span className="text-white text-lg"><span className="line-through opacity-50">$24.99</span> <span className="text-[var(--zinrai-blue-glow)] font-bold">FREE</span></span>
                     </div>
                   )}
                 </div>
                 
                 <div className="border-t border-white/10 pt-4 flex justify-between items-center">
                   <span className="text-white font-medium">Total</span>
-                  <span className="text-white text-2xl font-bold">${calculateTotal()}</span>
+                  <div className="flex flex-col items-end">
+                    <span className="text-white/40 text-sm line-through">${calculateTotal()}</span>
+                    <span className="text-[var(--zinrai-blue-glow)] text-2xl font-bold shadow-sm shadow-[var(--zinrai-blue-glow)]/20">FREE</span>
+                  </div>
                 </div>
                 
                 {(selectedSubscription === 'all' && selectedMonthlyPlan) && (
