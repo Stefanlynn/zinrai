@@ -239,7 +239,7 @@ export default function Subscribe() {
           {showMonthlyOptions && selectedSubscription === 'all' && (
             <div className="mb-10">
               <h3 className="text-white text-xl font-medium mb-6">Choose Your Monthly Plan</h3>
-              <p className="text-white/70 mb-6">After your one-time setup fee, select your preferred monthly membership option:</p>
+              <p className="text-white/70 mb-6">Select your preferred monthly membership option:</p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Standard Monthly Option */}
@@ -257,7 +257,9 @@ export default function Subscribe() {
                   
                   <h2 className="text-white text-xl font-medium mb-3 mt-2">Standard</h2>
                   <div className="text-white/90 text-3xl font-bold mb-6">
-                    $185<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                    <span className="line-through opacity-40">$185</span>
+                    <span className="text-[var(--zinrai-blue-glow)] ml-2">FREE</span>
+                    <span className="text-white/60 text-sm font-normal ml-1">until June 1st</span>
                   </div>
                   
                   <ul className="space-y-3 mb-6 flex-grow">
@@ -296,7 +298,9 @@ export default function Subscribe() {
                   
                   <h2 className="text-white text-xl font-medium mb-3 mt-2">VIP</h2>
                   <div className="text-white/90 text-3xl font-bold mb-6">
-                    $249.95<span className="text-white/60 text-sm font-normal ml-1">/month</span>
+                    <span className="line-through opacity-40">$249.95</span>
+                    <span className="text-[var(--zinrai-blue-glow)] ml-2">FREE</span>
+                    <span className="text-white/60 text-sm font-normal ml-1">until June 1st</span>
                   </div>
                   
                   <ul className="space-y-3 mb-6 flex-grow">
@@ -366,13 +370,7 @@ export default function Subscribe() {
                   </div>
                 </div>
                 
-                {(selectedSubscription === 'all' && selectedMonthlyPlan) && (
-                  <div className="border-t border-white/10 mt-4 pt-4">
-                    <p className="text-white/90 text-sm mt-4">
-                      Your first payment includes the one-time setup fee plus any add-ons selected.
-                    </p>
-                  </div>
-                )}
+
                 
                 <div className="mt-6 bg-[var(--zinrai-blue-glow)]/10 p-4 border border-[var(--zinrai-blue-glow)]/30">
                   <p className="text-white text-sm">
