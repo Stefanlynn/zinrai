@@ -204,13 +204,14 @@ export default function Product() {
           ></div>
           
           <div className="relative z-[51] bg-black/80 rounded-sm border border-white/20 w-[92%] max-w-lg max-h-[85vh] overflow-y-auto">
-            {/* Close button */}
+            {/* Close button - improved positioning and styling */}
             <button 
-              className="absolute top-4 right-4 text-white/60 hover:text-white p-2"
+              className="absolute top-4 right-4 text-white/60 hover:text-white bg-black/50 backdrop-blur-sm rounded-full p-1.5 transition-colors border border-white/10 hover:border-white/30"
               onClick={closeProductDetail}
+              aria-label="Close details"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
             
