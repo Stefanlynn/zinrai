@@ -6,7 +6,7 @@ const services = [
   "FOREIGN EXCHANGE COURSE + LEARN NOW LIVE CLASSROOM",
   "DIGITAL MARKETING COURSE + LEARN NOW LIVE CLASSROOM",
   "CRYPTOCURRENCY",
-  "E-COMMERCE",
+  "E-COMMERCE COURSE + LEARN NOW LIVE CLASSES",
   "SOCIAL MEDIA",
   "LEARN NOW",
   "MEMBER PERKS"
@@ -27,8 +27,8 @@ const productDetails = [
     description: "Go beyond the hype and understand the world of digital assets. From Bitcoin to blockchain, this course simplifies crypto and helps you discover how to engage the future of finance with wisdom, safety, and skill."
   },
   {
-    title: "E-Commerce",
-    description: "Build an online store, launch a brand, and generate income from anywhere. This track covers the essentials of product selection, store setup, marketing, and fulfillment—empowering you to turn ideas into income through modern digital retail."
+    title: "E-Commerce Course + Learn Now Live Classes",
+    description: "Ready to turn your product idea into a thriving online business? This comprehensive eCommerce course takes you from zero to sales—guiding you through every step of launching and scaling a successful online store. Whether you're starting from scratch or looking to optimize an existing store, you'll learn the tools, strategies, and insider tactics used by top-performing eCommerce brands. What You'll Learn: Choosing the right product and niche, setting up your store, crafting high-converting product pages, payment gateways, shipping, and logistics, email marketing, SEO, and paid advertising, social media and influencer marketing, conversion optimization and customer retention. Who It's For: Aspiring entrepreneurs, small business owners, or anyone ready to build a scalable online business with real-world results. No tech skills or prior experience required—just your determination to succeed."
   },
   {
     title: "Social Media",
