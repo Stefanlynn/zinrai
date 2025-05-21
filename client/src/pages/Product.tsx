@@ -245,7 +245,7 @@ export default function Product() {
                       <span className="inline-block w-6 h-6 flex items-center justify-center border border-white/30 rounded-full text-sm mr-3">{index + 1}</span>
                       {product.title}
                     </h3>
-                    <p className="text-white/70 text-sm sm:text-base leading-relaxed pl-9">{product.description}</p>
+                    <div className="text-white/70 text-sm sm:text-base leading-relaxed pl-9 whitespace-pre-line">{product.description}</div>
                   </div>
                 ))}
               </div>
