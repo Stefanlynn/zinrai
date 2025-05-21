@@ -166,14 +166,14 @@ export default function Product() {
   };
 
   return (
-    <div className="bg-black h-auto min-h-screen w-full relative">
-      {/* Animated background gradient */}
+    <div className="bg-black min-h-screen">
+      {/* Background elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
         <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-black to-transparent"></div>
       </div>
       
-      {/* Grid Lines with Animation */}
+      {/* Grid Lines */}
       <div className="fixed inset-0 z-[1] pointer-events-none opacity-20">
         {/* Horizontal grid lines */}
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/30 animate-grid-horizontal" style={{ animationDelay: '0.1s' }}></div>
@@ -189,7 +189,7 @@ export default function Product() {
         <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-white/30 animate-grid-vertical" style={{ animationDelay: '0.9s' }}></div>
       </div>
       
-      {/* Animated glow effects */}
+      {/* Glow effects */}
       <div className="fixed inset-0 z-[2] pointer-events-none overflow-hidden">
         <div className="absolute top-[20%] left-[10%] w-[30vw] h-[30vh] bg-[var(--zinrai-blue-glow)]/5 rounded-full filter blur-[100px] animate-pulse opacity-30"></div>
         <div className="absolute bottom-[10%] right-[5%] w-[25vw] h-[25vh] bg-red-500/5 rounded-full filter blur-[80px] animate-pulse opacity-20" style={{animationDelay: '1s'}}></div>
@@ -252,9 +252,9 @@ export default function Product() {
         </div>
       )}
       
-      {/* Main Content */}
-      <div className="relative z-10 h-auto">
-        <div className="flex flex-col md:flex-row">
+      {/* Content area - IMPORTANT: This div allows scrolling! */}
+      <div className="relative z-10 pb-16 overflow-auto" style={{ height: "100vh" }}>
+        <div className="flex flex-col md:flex-row p-4">
           {/* Left Side - Products List */}
           <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
@@ -337,9 +337,6 @@ export default function Product() {
           </div>
         </div>
       </div>
-      
-      {/* Extra space at bottom for scrolling room */}
-      <div className="h-20"></div>
     </div>
   );
 }
