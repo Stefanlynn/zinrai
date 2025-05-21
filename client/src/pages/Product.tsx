@@ -111,17 +111,21 @@ Join the club and elevate every trip with unmatched value, access, and adventure
 export default function Product() {
   const [_, navigate] = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showLearnMoreModal, setShowLearnMoreModal] = useState(false);
+  const [showProductDetail, setShowProductDetail] = useState(false);
+  const [animatedIn, setAnimatedIn] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   
   // Check if screen is mobile
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // 768px is typical md breakpoint
+      setIsMobile(window.innerWidth < 768);
     };
     
-    // Initial check
+    // Initial check and animation trigger
     handleResize();
+    setTimeout(() => {
+      setAnimatedIn(true);
+    }, 100);
     
     // Listen for window resize
     window.addEventListener('resize', handleResize);
@@ -130,143 +134,114 @@ export default function Product() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  // Handle service item click
-  const handleServiceClick = (index: number) => {
+  const handleProductClick = (index: number) => {
     setActiveIndex(index);
+    if (isMobile) {
+      setShowProductDetail(true);
+    }
   };
   
-  // Handle close button click - using direct navigation for better reliability
-  const handleClose = () => {
-    window.location.href = '/';
+  const closeProductDetail = () => {
+    setShowProductDetail(false);
   };
 
-  // Toggle Learn More modal
-  const toggleLearnMoreModal = () => {
-    setShowLearnMoreModal(!showLearnMoreModal);
+  const getProductColorClass = (index: number) => {
+    switch(index) {
+      case 0: return 'from-red-500/20 to-red-500/5 border-red-500/30';
+      case 1: return 'from-blue-500/20 to-blue-500/5 border-blue-500/30';
+      case 2: return 'from-green-500/20 to-green-500/5 border-green-500/30';
+      case 3: return 'from-orange-500/20 to-orange-500/5 border-orange-500/30';
+      default: return 'from-[var(--zinrai-blue-glow)]/20 to-[var(--zinrai-blue-glow)]/5 border-[var(--zinrai-blue-glow)]/30';
+    }
   };
-
-  // Close modal when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const modal = document.getElementById('learn-more-modal');
-      if (modal && !modal.contains(event.target as Node) && showLearnMoreModal) {
-        if (!(event.target as HTMLElement).closest('.learn-more-btn')) {
-          setShowLearnMoreModal(false);
-        }
-      }
-    };
-    
-    document.addEventListener('mousedown', handleClickOutside);
-    
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [showLearnMoreModal]);
-
-  // Close modal on ESC key
-  useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && showLearnMoreModal) {
-        setShowLearnMoreModal(false);
-      }
-    };
-    
-    document.addEventListener('keydown', handleEsc);
-    
-    return () => {
-      document.removeEventListener('keydown', handleEsc);
-    };
-  }, [showLearnMoreModal]);
+  
+  const getProductIconColor = (index: number) => {
+    switch(index) {
+      case 0: return 'bg-red-500';
+      case 1: return 'bg-blue-500';
+      case 2: return 'bg-green-500';
+      case 3: return 'bg-orange-500';
+      default: return 'bg-white';
+    }
+  };
 
   return (
-    <div className="bg-black min-h-screen w-full overflow-hidden">
-      {/* Grid Lines with Animation */}
-      <div className="fixed inset-0 z-[5] pointer-events-none">
-        {/* Horizontal grid lines */}
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.1s' }}></div>
-        <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.2s' }}></div>
-        <div className="absolute top-2/4 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.3s' }}></div>
-        <div className="absolute top-3/4 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.4s' }}></div>
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/10 animate-grid-horizontal" style={{ animationDelay: '0.5s' }}></div>
-        
-        {/* Vertical grid lines */}
-        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '0.6s' }}></div>
-        <div className="absolute top-0 bottom-0 left-1/4 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '0.7s' }}></div>
-        <div className="absolute top-0 bottom-0 left-2/4 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '0.8s' }}></div>
-        <div className="absolute top-0 bottom-0 left-3/4 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '0.9s' }}></div>
-        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-white/10 animate-grid-vertical" style={{ animationDelay: '1.0s' }}></div>
+    <div className="bg-black min-h-screen w-full overflow-hidden relative">
+      {/* Animated background gradient */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-black to-transparent"></div>
       </div>
       
-      {/* Learn More Modal - Redesigned to match site style */}
-      {showLearnMoreModal && (
+      {/* Grid Lines with Animation */}
+      <div className="fixed inset-0 z-[1] pointer-events-none opacity-20">
+        {/* Horizontal grid lines */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/30 animate-grid-horizontal" style={{ animationDelay: '0.1s' }}></div>
+        <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-white/30 animate-grid-horizontal" style={{ animationDelay: '0.2s' }}></div>
+        <div className="absolute top-2/4 left-0 right-0 h-[1px] bg-white/30 animate-grid-horizontal" style={{ animationDelay: '0.3s' }}></div>
+        <div className="absolute top-3/4 left-0 right-0 h-[1px] bg-white/30 animate-grid-horizontal" style={{ animationDelay: '0.4s' }}></div>
+        
+        {/* Vertical grid lines */}
+        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white/30 animate-grid-vertical" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-0 bottom-0 left-1/4 w-[1px] bg-white/30 animate-grid-vertical" style={{ animationDelay: '0.6s' }}></div>
+        <div className="absolute top-0 bottom-0 left-2/4 w-[1px] bg-white/30 animate-grid-vertical" style={{ animationDelay: '0.7s' }}></div>
+        <div className="absolute top-0 bottom-0 left-3/4 w-[1px] bg-white/30 animate-grid-vertical" style={{ animationDelay: '0.8s' }}></div>
+        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-white/30 animate-grid-vertical" style={{ animationDelay: '0.9s' }}></div>
+      </div>
+      
+      {/* Animated glow effects */}
+      <div className="fixed inset-0 z-[2] pointer-events-none overflow-hidden">
+        <div className="absolute top-[20%] left-[10%] w-[30vw] h-[30vh] bg-[var(--zinrai-blue-glow)]/5 rounded-full filter blur-[100px] animate-pulse opacity-30"></div>
+        <div className="absolute bottom-[10%] right-[5%] w-[25vw] h-[25vh] bg-red-500/5 rounded-full filter blur-[80px] animate-pulse opacity-20" style={{animationDelay: '1s'}}></div>
+      </div>
+      
+      {/* Mobile Product Detail Modal */}
+      {showProductDetail && isMobile && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Overlay with grid lines matching the site*/}
-          <div className="absolute inset-0 bg-black/95">
-            {/* Grid lines in modal background */}
-            <div className="absolute inset-0 z-0 grid grid-cols-2 grid-rows-4 pointer-events-none opacity-30">
-              <div className="border-r border-white/20"></div>
-              <div className="border-l border-white/20"></div>
-              <div className="border-b border-white/20 col-span-2"></div>
-              <div className="border-b border-white/20 col-span-2"></div>
-              <div className="border-b border-white/20 col-span-2"></div>
-              <div className="col-span-2"></div>
-            </div>
-          </div>
-          
-          {/* Modal Container */}
           <div 
-            id="learn-more-modal"
-            className="relative bg-black border border-white/20 w-[95%] max-w-3xl max-h-[90vh] overflow-y-auto z-50 animate-in slide-up duration-500"
-          >
-            {/* Back button with improved visibility */}
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+            onClick={closeProductDetail}
+          ></div>
+          
+          <div className="relative z-[51] bg-black/80 rounded-sm border border-white/20 w-[92%] max-w-lg max-h-[85vh] overflow-y-auto">
+            {/* Close button */}
             <button 
-              className="fixed top-6 left-6 text-white hover:text-white transition-all group z-[60] flex items-center bg-black/90 px-4 py-2 border border-white/30 hover:border-white/70" 
-              onClick={toggleLearnMoreModal}
-              aria-label="Go back"
+              className="absolute top-4 right-4 text-white/60 hover:text-white p-2"
+              onClick={closeProductDetail}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 relative text-white mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
               </svg>
-              <span className="text-white font-medium">BACK</span>
             </button>
             
-            {/* Modal Content */}
-            <div className="p-10 sm:p-12 pt-20">
-              <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-light tracking-wider mb-10 animate-in fade-in duration-300" style={{ animationDelay: '150ms', animationFillMode: 'forwards' }}>OUR PRODUCTS</h2>
-              
-              <div className="space-y-10">
-                {productDetails.map((product, index) => (
-                  <div 
-                    key={index} 
-                    className="border-b border-white/10 pb-10 last:border-b-0 animate-in fade-in duration-300" 
-                    style={{ animationDelay: `${200 + index * 100}ms`, animationFillMode: 'forwards' }}
-                  >
-                    <h3 className="text-white text-lg sm:text-xl font-medium mb-4 flex items-center">
-                      <span className="inline-block w-6 h-6 flex items-center justify-center border border-white/30 rounded-full text-sm mr-3">{index + 1}</span>
-                      {product.title}
-                    </h3>
-                    <div className="text-white/70 text-sm sm:text-base leading-relaxed pl-9 whitespace-pre-line">{product.description}</div>
-                  </div>
-                ))}
+            <div className="p-6 pt-12">
+              {/* Product title with icon */}
+              <div className="flex items-center mb-6">
+                <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
+                <h2 className="text-white text-xl font-medium">{productDetails[activeIndex].title}</h2>
               </div>
               
-              {/* START NOW button - original styling with white text */}
-              <div 
-                className="mt-12 flex justify-center animate-in fade-in duration-300"
-                style={{ animationDelay: `${200 + productDetails.length * 100}ms`, animationFillMode: 'forwards' }}
-              >
-                <div className="border border-white/40 hover:border-white/90 transition-all duration-300 bg-black hover:bg-black hover:translate-y-[-2px] transform hover:scale-[1.02]">
-                  <a 
-                    href="/subscribe"
-                    className="block px-12 py-3 text-white text-sm tracking-wider no-underline font-medium font-bold !text-white"
-                    style={{ color: 'white !important' }}
-                    onClick={() => {
-                      setShowLearnMoreModal(false);
-                    }}
-                  >
-                    START NOW
-                  </a>
-                </div>
+              {/* Product description */}
+              <div className="text-white/80 text-sm leading-relaxed mb-8 whitespace-pre-line">
+                {productDetails[activeIndex].description}
+              </div>
+              
+              {/* Sign up button */}
+              <div className="flex justify-center">
+                <button
+                  onClick={() => {
+                    closeProductDetail();
+                    navigate('/subscribe');
+                  }}
+                  className={`px-10 py-3 bg-gradient-to-r ${
+                    activeIndex === 0 ? 'from-red-600 to-red-500' : 
+                    activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
+                    activeIndex === 2 ? 'from-green-600 to-green-500' : 
+                    'from-orange-600 to-orange-500'
+                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg`}
+                >
+                  START NOW
+                </button>
               </div>
             </div>
           </div>
@@ -274,79 +249,86 @@ export default function Product() {
       )}
       
       {/* Main Content */}
-      <div className="w-full min-h-screen flex flex-col relative z-10">
-      
-        {/* Product Title - matching the Partner page header */}
-        <div className="absolute top-[10vh] left-[10vw]">
-          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-light tracking-wide">
+      <div className="relative z-10 min-h-screen flex flex-col md:flex-row">
+        {/* Left Side - Products List */}
+        <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
+          <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
             OUR PRODUCTS
           </h1>
-          <p className="text-white/80 text-base sm:text-lg mt-2 font-light">
-            $185<span className="text-sm text-white/60">/month</span>
+          <p className="text-white/70 text-lg mb-12 max-w-md">
+            Discover our comprehensive suite of products designed to elevate your personal and financial growth.
           </p>
-        </div>
-        
-        {/* Services List - adjusted positioning for header */}
-        <div className={`absolute top-[20vh] sm:top-[25vh] md:top-[28vh] left-[5vw] sm:left-[10vw] space-y-4 sm:space-y-6 ${isMobile ? 'max-w-[90vw] sm:max-w-[80vw]' : 'max-w-[35vw]'}`}>
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className={`cursor-pointer transition-all duration-300 transform flex items-center ${activeIndex === index ? 'translate-x-4 opacity-100' : 'opacity-60 hover:opacity-80'}`}
-              onClick={() => handleServiceClick(index)}
-            >
-              <div className="mr-3 flex-shrink-0">
-                <div 
-                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full ${
-                    index === 0 ? 'bg-red-500' : 
-                    index === 1 ? 'bg-blue-500' : 
-                    index === 2 ? 'bg-green-500' : 
-                    index === 3 ? 'bg-yellow-500' : 
-                    index === 4 ? 'bg-purple-500' : 
-                    index === 5 ? 'bg-pink-500' : 
-                    'bg-orange-500'
-                  } ${activeIndex === index ? 'opacity-100 shadow-glow' : 'opacity-60'}`}
-                ></div>
+          
+          <div className="space-y-8 max-w-md">
+            {services.map((service, index) => (
+              <div 
+                key={index}
+                onClick={() => handleProductClick(index)}
+                className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 ${
+                  activeIndex === index ? `bg-gradient-to-r ${getProductColorClass(index)} shadow-lg` : 'bg-white/5 hover:bg-white/10'
+                }`}
+              >
+                <div className="flex items-start">
+                  <div className={`w-4 h-4 rounded-full mt-1 ${getProductIconColor(index)} mr-3 flex-shrink-0`}></div>
+                  <div>
+                    <h2 className={`text-white text-lg font-medium mb-1`}>
+                      {service}
+                    </h2>
+                    <p className="text-white/60 text-sm line-clamp-2">
+                      {productDetails[index].description.split('\n')[0]}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h2 className={`text-white text-base sm:text-lg md:text-xl ${activeIndex === index ? 'font-medium' : 'font-light'}`}>
-                {service}
-              </h2>
-            </div>
-          ))}
-        </div>
-        
-        {/* Product Description - With blue box background and fixed size */}
-        {!isMobile && (
-          <div className="hidden md:block absolute top-[33vh] right-[15vw] w-[40vw] max-w-[600px] mx-auto transition-opacity duration-500">
-            <div className="animate-fadeIn neon-blue-box p-6 h-[300px] overflow-y-auto">
-              <h3 className="text-white text-xl font-medium mb-4">{productDetails[activeIndex]?.title || ""}</h3>
-              <p className="text-white/90 leading-relaxed">{productDetails[activeIndex]?.description || ""}</p>
-            </div>
+            ))}
           </div>
-        )}
-        
-        {/* Action Buttons - Show Learn More only on mobile */}
-        <div className="absolute bottom-[15vh] left-0 w-full p-6 md:p-0 md:bottom-[15vh] md:left-auto md:right-[10vw] md:w-auto flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center justify-center md:justify-end">
-          {/* START NOW button */}
-          <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300 bg-white/5 hover:bg-white/10">
-            <button 
-              className="w-full px-6 py-3 text-white text-sm tracking-wide"
+          
+          {/* Mobile action button */}
+          <div className={`mt-8 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
+            <button
               onClick={() => navigate('/subscribe')}
+              className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors"
             >
               START NOW
             </button>
           </div>
-          
-          {/* LEARN MORE button - only visible on mobile */}
-          {isMobile && (
-            <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300">
-              <button 
-                className="w-full px-6 py-3 text-white text-sm tracking-wide learn-more-btn"
-                onClick={toggleLearnMoreModal}
-              >
-                LEARN MORE
-              </button>
+        </div>
+        
+        {/* Right Side - Product Detail (Desktop Only) */}
+        <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
+          <div className={`h-full rounded border ${getProductColorClass(activeIndex)} overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95`}>
+            <div className="p-10 h-full overflow-y-auto">
+              {/* Product header with animated dot */}
+              <div className="flex items-center mb-6">
+                <div className={`relative w-5 h-5 rounded-full ${getProductIconColor(activeIndex)} mr-4 shadow-glow`}>
+                  <div className={`absolute inset-0 ${getProductIconColor(activeIndex)} rounded-full animate-ping opacity-50`}></div>
+                </div>
+                <h2 className="text-white text-2xl lg:text-3xl font-medium">
+                  {productDetails[activeIndex].title}
+                </h2>
+              </div>
+              
+              {/* Product description with formatted content */}
+              <div className="text-white/90 leading-relaxed whitespace-pre-line">
+                {productDetails[activeIndex].description}
+              </div>
+              
+              {/* Action button */}
+              <div className="mt-10 flex justify-center">
+                <button
+                  onClick={() => navigate('/subscribe')}
+                  className={`px-12 py-3 bg-gradient-to-r ${
+                    activeIndex === 0 ? 'from-red-600 to-red-500' : 
+                    activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
+                    activeIndex === 2 ? 'from-green-600 to-green-500' : 
+                    'from-orange-600 to-orange-500'
+                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg transform hover:scale-105 transition-transform duration-300`}
+                >
+                  START NOW
+                </button>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
