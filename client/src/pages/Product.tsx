@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 
 // Define services
 const services = [
-  "FOREX MASTERY",
+  "FOREIGN EXCHANGE COURSE + LEARN NOW LIVE CLASSROOM",
   "STOCK & EDUCATION",
   "CRYPTOCURRENCY",
   "E-COMMERCE",
@@ -15,8 +15,8 @@ const services = [
 // Define detailed product information for Learn More modal
 const productDetails = [
   {
-    title: "Forex Mastery",
-    description: "Master the largest financial market in the world. Our Forex education walks you through foundational principles, live market strategies, and risk management—so you can trade with clarity, not guesswork. Whether you're brand new or looking to sharpen your edge, we'll show you how to navigate currencies like a pro."
+    title: "Foreign Exchange Course + Learn Now Live Classroom",
+    description: "Understand the global financial markets and learn how to analyze currencies with confidence. This Forex course is designed to give you a solid foundation in the world's largest and most liquid financial market—whether you're a complete beginner or looking to refine your strategy. Through practical lessons, live chart analysis, and proven techniques, you'll gain the skills needed to understand market movements, manage risk, and develop a trading plan that suits your goals and lifestyle. What You'll Learn: Introduction to the Forex market and how it works, understanding currency pairs, pips, and leverage, fundamental and technical analysis, chart patterns, indicators, and trading tools, risk management and trading psychology, creating a personal trading strategy. Who This Course Is For: Aspiring traders looking to enter the Forex market, beginners seeking a clear, structured learning path, anyone looking to understand how global currencies are traded. No prior experience required—just a willingness to learn and a passion for the markets."
   },
   {
     title: "Stocks & Education",
