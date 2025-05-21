@@ -166,9 +166,9 @@ export default function Product() {
   };
 
   return (
-    <div className="bg-black min-h-screen w-full overflow-hidden relative">
+    <div className="bg-black min-h-screen w-full overflow-auto relative">
       {/* Animated background gradient */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
         <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-black to-transparent"></div>
       </div>
@@ -203,19 +203,20 @@ export default function Product() {
             onClick={closeProductDetail}
           ></div>
           
-          <div className="relative z-[51] bg-black/80 rounded-sm border border-white/20 w-[92%] max-w-lg max-h-[85vh] overflow-y-auto">
-            {/* Close button - improved positioning and styling */}
-            <button 
-              className="absolute top-4 right-4 text-white/60 hover:text-white bg-black/50 backdrop-blur-sm rounded-full p-1.5 transition-colors border border-white/10 hover:border-white/30"
-              onClick={closeProductDetail}
-              aria-label="Close details"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            
-            <div className="p-6 pt-12">
+          <div className="relative z-[51] bg-black/80 rounded-sm border border-white/20 w-[90%] max-w-lg max-h-[80vh] overflow-y-auto">
+            <div className="p-6 pt-14">
+              {/* Back button instead of X */}
+              <button 
+                className="absolute top-3 left-3 text-white/70 hover:text-white flex items-center space-x-2 transition-colors py-1 px-3 border border-white/10 hover:border-white/30 bg-black/40 backdrop-blur-sm rounded-sm"
+                onClick={closeProductDetail}
+                aria-label="Go back"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span className="text-sm font-medium">BACK</span>
+              </button>
+              
               {/* Product title with icon */}
               <div className="flex items-center mb-6">
                 <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
@@ -228,7 +229,7 @@ export default function Product() {
               </div>
               
               {/* Sign up button */}
-              <div className="flex justify-center">
+              <div className="flex justify-center mb-4">
                 <button
                   onClick={() => {
                     closeProductDetail();
@@ -250,7 +251,7 @@ export default function Product() {
       )}
       
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen w-full overflow-y-auto">
+      <div className="relative z-10 min-h-screen w-full pb-20">
         <div className="flex flex-col md:flex-row">
           {/* Left Side - Products List */}
           <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
