@@ -249,83 +249,85 @@ export default function Product() {
       )}
       
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex flex-col md:flex-row">
-        {/* Left Side - Products List */}
-        <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
-          <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-            OUR PRODUCTS
-          </h1>
-          <p className="text-white/70 text-lg mb-12 max-w-md">
-            Discover our comprehensive suite of products designed to elevate your personal and financial growth.
-          </p>
-          
-          <div className="space-y-8 max-w-md">
-            {services.map((service, index) => (
-              <div 
-                key={index}
-                onClick={() => handleProductClick(index)}
-                className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 ${
-                  activeIndex === index ? `bg-gradient-to-r ${getProductColorClass(index)} shadow-lg` : 'bg-white/5 hover:bg-white/10'
-                }`}
-              >
-                <div className="flex items-start">
-                  <div className={`w-4 h-4 rounded-full mt-1 ${getProductIconColor(index)} mr-3 flex-shrink-0`}></div>
-                  <div>
-                    <h2 className={`text-white text-lg font-medium mb-1`}>
-                      {service}
-                    </h2>
-                    <p className="text-white/60 text-sm line-clamp-2">
-                      {productDetails[index].description.split('\n')[0]}
-                    </p>
+      <div className="relative z-10 min-h-screen w-full overflow-y-auto">
+        <div className="flex flex-col md:flex-row">
+          {/* Left Side - Products List */}
+          <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+              OUR PRODUCTS
+            </h1>
+            <p className="text-white/70 text-lg mb-12 max-w-md">
+              Discover our comprehensive suite of products designed to elevate your personal and financial growth.
+            </p>
+            
+            <div className="space-y-8 max-w-md mb-16">
+              {services.map((service, index) => (
+                <div 
+                  key={index}
+                  onClick={() => handleProductClick(index)}
+                  className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 ${
+                    activeIndex === index ? `bg-gradient-to-r ${getProductColorClass(index)} shadow-lg` : 'bg-white/5 hover:bg-white/10'
+                  }`}
+                >
+                  <div className="flex items-start">
+                    <div className={`w-4 h-4 rounded-full mt-1 ${getProductIconColor(index)} mr-3 flex-shrink-0`}></div>
+                    <div>
+                      <h2 className={`text-white text-lg font-medium mb-1`}>
+                        {service}
+                      </h2>
+                      <p className="text-white/60 text-sm line-clamp-2">
+                        {productDetails[index].description.split('\n')[0]}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            
+            {/* Mobile action button */}
+            <div className={`mt-8 mb-16 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
+              <button
+                onClick={() => navigate('/subscribe')}
+                className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors"
+              >
+                START NOW
+              </button>
+            </div>
           </div>
           
-          {/* Mobile action button */}
-          <div className={`mt-8 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
-            <button
-              onClick={() => navigate('/subscribe')}
-              className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors"
-            >
-              START NOW
-            </button>
-          </div>
-        </div>
-        
-        {/* Right Side - Product Detail (Desktop Only) */}
-        <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
-          <div className={`h-full rounded border ${getProductColorClass(activeIndex)} overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95`}>
-            <div className="p-10 h-full overflow-y-auto">
-              {/* Product header with animated dot */}
-              <div className="flex items-center mb-6">
-                <div className={`relative w-5 h-5 rounded-full ${getProductIconColor(activeIndex)} mr-4 shadow-glow`}>
-                  <div className={`absolute inset-0 ${getProductIconColor(activeIndex)} rounded-full animate-ping opacity-50`}></div>
+          {/* Right Side - Product Detail (Desktop Only) */}
+          <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
+            <div className={`rounded border ${getProductColorClass(activeIndex)} overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95`}>
+              <div className="p-10 overflow-y-auto">
+                {/* Product header with animated dot */}
+                <div className="flex items-center mb-6">
+                  <div className={`relative w-5 h-5 rounded-full ${getProductIconColor(activeIndex)} mr-4 shadow-glow`}>
+                    <div className={`absolute inset-0 ${getProductIconColor(activeIndex)} rounded-full animate-ping opacity-50`}></div>
+                  </div>
+                  <h2 className="text-white text-2xl lg:text-3xl font-medium">
+                    {productDetails[activeIndex].title}
+                  </h2>
                 </div>
-                <h2 className="text-white text-2xl lg:text-3xl font-medium">
-                  {productDetails[activeIndex].title}
-                </h2>
-              </div>
-              
-              {/* Product description with formatted content */}
-              <div className="text-white/90 leading-relaxed whitespace-pre-line">
-                {productDetails[activeIndex].description}
-              </div>
-              
-              {/* Action button */}
-              <div className="mt-10 flex justify-center">
-                <button
-                  onClick={() => navigate('/subscribe')}
-                  className={`px-12 py-3 bg-gradient-to-r ${
-                    activeIndex === 0 ? 'from-red-600 to-red-500' : 
-                    activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
-                    activeIndex === 2 ? 'from-green-600 to-green-500' : 
-                    'from-orange-600 to-orange-500'
-                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg transform hover:scale-105 transition-transform duration-300`}
-                >
-                  START NOW
-                </button>
+                
+                {/* Product description with formatted content */}
+                <div className="text-white/90 leading-relaxed whitespace-pre-line">
+                  {productDetails[activeIndex].description}
+                </div>
+                
+                {/* Action button */}
+                <div className="mt-10 flex justify-center mb-8">
+                  <button
+                    onClick={() => navigate('/subscribe')}
+                    className={`px-12 py-3 bg-gradient-to-r ${
+                      activeIndex === 0 ? 'from-red-600 to-red-500' : 
+                      activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
+                      activeIndex === 2 ? 'from-green-600 to-green-500' : 
+                      'from-orange-600 to-orange-500'
+                    } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg transform hover:scale-105 transition-transform duration-300`}
+                  >
+                    START NOW
+                  </button>
+                </div>
               </div>
             </div>
           </div>
