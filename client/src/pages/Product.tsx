@@ -9,7 +9,7 @@ const services = [
   "E-COMMERCE COURSE + LEARN NOW LIVE CLASSES",
   "SOCIAL MEDIA",
   "LEARN NOW",
-  "MEMBER PERKS"
+  "ZINRAI TRAVEL CLUB MEMBERSHIP"
 ];
 
 // Define detailed product information for Learn More modal
@@ -39,8 +39,8 @@ const productDetails = [
     description: "Our digital learning hub with live and on-demand education from top-tier instructors, entrepreneurs, and experts across every industry we teach. It's your all-access pass to growth—available anytime, anywhere. From trading to marketing to leadership, this is where the learning never stops."
   },
   {
-    title: "Member Perks",
-    description: "Being a part of ZiNRAi comes with its advantages. Enjoy exclusive discounts, partner offers, and special access to tools and experiences that support your growth, lifestyle, and everyday success. More than just value—it's our way of investing back into your journey."
+    title: "ZiNRAi Travel Club Membership",
+    description: "Unlock the world with exclusive perks, luxury experiences, and unbeatable savings. ZiNRAi Travel Club Membership is your all-access pass to curated adventures, VIP treatment, and members-only discounts—designed for travelers who want more than just a getaway. Whether you're booking a five-star hotel, setting sail on a dream cruise, or joining a transformative retreat, our membership turns ordinary travel into extraordinary journeys. Membership Benefits Include: Up to 70% off luxury hotels and resorts worldwide, exclusive cruise deals with premium lines and itineraries, access to private retreats and immersive excursions curated for ZiNRAi members only!, invites to VIP events and travel experiences you won't find anywhere else, priority customer support, insider travel tips, and surprise upgrades. Perfect For: Frequent travelers, digital nomads, couples, families, and experience-seekers who want to explore more—and pay less. Join the club and elevate every trip with unmatched value, access, and adventure."
   }
 ];
 
