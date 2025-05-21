@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 // Define services
 const services = [
   "FOREIGN EXCHANGE COURSE + LEARN NOW LIVE CLASSROOM",
-  "STOCK & EDUCATION",
+  "DIGITAL MARKETING COURSE + LEARN NOW LIVE CLASSROOM",
   "CRYPTOCURRENCY",
   "E-COMMERCE",
   "SOCIAL MEDIA",
@@ -19,8 +19,8 @@ const productDetails = [
     description: "Understand the global financial markets and learn how to analyze currencies with confidence. This Forex course is designed to give you a solid foundation in the world's largest and most liquid financial market—whether you're a complete beginner or looking to refine your strategy. Through practical lessons, live chart analysis, and proven techniques, you'll gain the skills needed to understand market movements, manage risk, and develop a trading plan that suits your goals and lifestyle. What You'll Learn: Introduction to the Forex market and how it works, understanding currency pairs, pips, and leverage, fundamental and technical analysis, chart patterns, indicators, and trading tools, risk management and trading psychology, creating a personal trading strategy. Who This Course Is For: Aspiring traders looking to enter the Forex market, beginners seeking a clear, structured learning path, anyone looking to understand how global currencies are traded. No prior experience required—just a willingness to learn and a passion for the markets."
   },
   {
-    title: "Stocks & Education",
-    description: "Learn how to invest with strategy, not speculation. This course covers everything from stock market basics to options trading and technical analysis. With live sessions and real-time breakdowns, you'll gain the confidence and tools to build a portfolio that works for you."
+    title: "Digital Marketing Course + Learn Now Live Classroom",
+    description: "In today's digital world, marketing is no longer optional—it's essential. This all-in-one Digital Marketing course is designed to equip you with the skills, tools, and strategies to grow your brand, attract the right audience, and drive consistent sales across major online channels. Whether you're building a personal brand, launching a startup, or scaling an existing business, this course covers everything you need to become a confident and capable digital marketer. What You'll Learn: Digital marketing strategy and campaign planning, social media marketing (Instagram, Facebook, TikTok, LinkedIn), paid advertising (Google Ads, Meta Ads), how to monetize social media with UGC (user generated content), SEO fundamentals & content marketing, analytics, tracking, and performance optimization, tools like Canva, ChatGPT, Meta Business Suite, Google Analytics, and more. Who This Course Is For: Entrepreneurs, business owners, and freelancers, marketing beginners looking to break into the field, content creators, influencers, and personal brands, anyone who wants to master digital marketing and drive measurable results. No experience required. Just bring your ambition—this course will help you turn it into impact."
   },
   {
     title: "Cryptocurrency",
