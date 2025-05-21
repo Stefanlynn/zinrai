@@ -5,10 +5,7 @@ import { useLocation } from "wouter";
 const services = [
   "FOREIGN EXCHANGE COURSE + LEARN NOW LIVE CLASSROOM",
   "DIGITAL MARKETING COURSE + LEARN NOW LIVE CLASSROOM",
-  "CRYPTOCURRENCY",
   "E-COMMERCE COURSE + LEARN NOW LIVE CLASSES",
-  "SOCIAL MEDIA",
-  "LEARN NOW",
   "ZINRAI TRAVEL CLUB MEMBERSHIP"
 ];
 
@@ -23,20 +20,8 @@ const productDetails = [
     description: "In today's digital world, marketing is no longer optional—it's essential. This all-in-one Digital Marketing course is designed to equip you with the skills, tools, and strategies to grow your brand, attract the right audience, and drive consistent sales across major online channels. Whether you're building a personal brand, launching a startup, or scaling an existing business, this course covers everything you need to become a confident and capable digital marketer. What You'll Learn: Digital marketing strategy and campaign planning, social media marketing (Instagram, Facebook, TikTok, LinkedIn), paid advertising (Google Ads, Meta Ads), how to monetize social media with UGC (user generated content), SEO fundamentals & content marketing, analytics, tracking, and performance optimization, tools like Canva, ChatGPT, Meta Business Suite, Google Analytics, and more. Who This Course Is For: Entrepreneurs, business owners, and freelancers, marketing beginners looking to break into the field, content creators, influencers, and personal brands, anyone who wants to master digital marketing and drive measurable results. No experience required. Just bring your ambition—this course will help you turn it into impact."
   },
   {
-    title: "Cryptocurrency",
-    description: "Go beyond the hype and understand the world of digital assets. From Bitcoin to blockchain, this course simplifies crypto and helps you discover how to engage the future of finance with wisdom, safety, and skill."
-  },
-  {
     title: "E-Commerce Course + Learn Now Live Classes",
     description: "Ready to turn your product idea into a thriving online business? This comprehensive eCommerce course takes you from zero to sales—guiding you through every step of launching and scaling a successful online store. Whether you're starting from scratch or looking to optimize an existing store, you'll learn the tools, strategies, and insider tactics used by top-performing eCommerce brands. What You'll Learn: Choosing the right product and niche, setting up your store, crafting high-converting product pages, payment gateways, shipping, and logistics, email marketing, SEO, and paid advertising, social media and influencer marketing, conversion optimization and customer retention. Who It's For: Aspiring entrepreneurs, small business owners, or anyone ready to build a scalable online business with real-world results. No tech skills or prior experience required—just your determination to succeed."
-  },
-  {
-    title: "Social Media",
-    description: "Transform your scroll time into strategy. Learn how to grow your personal brand, monetize content, and build community on platforms like Instagram, TikTok, and YouTube. Whether you're a beginner or a builder, this course gives you the playbook to show up and stand out."
-  },
-  {
-    title: "Learn Now",
-    description: "Our digital learning hub with live and on-demand education from top-tier instructors, entrepreneurs, and experts across every industry we teach. It's your all-access pass to growth—available anytime, anywhere. From trading to marketing to leadership, this is where the learning never stops."
   },
   {
     title: "ZiNRAi Travel Club Membership",
