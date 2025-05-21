@@ -166,7 +166,7 @@ export default function Product() {
   };
 
   return (
-    <div className="bg-black min-h-screen w-full overflow-auto relative">
+    <div className="bg-black h-auto min-h-screen w-full relative">
       {/* Animated background gradient */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
@@ -204,10 +204,10 @@ export default function Product() {
           ></div>
           
           <div className="relative z-[51] bg-black/80 rounded-sm border border-white/20 w-[90%] max-w-lg max-h-[80vh] overflow-y-auto">
-            <div className="p-6 pt-14">
-              {/* Back button instead of X */}
+            {/* Back button in top bar */}
+            <div className="sticky top-0 left-0 right-0 z-[52] bg-black/80 backdrop-blur-sm border-b border-white/10 px-4 py-3 flex items-center">
               <button 
-                className="absolute top-3 left-3 text-white/70 hover:text-white flex items-center space-x-2 transition-colors py-1 px-3 border border-white/10 hover:border-white/30 bg-black/40 backdrop-blur-sm rounded-sm"
+                className="text-white/70 hover:text-white flex items-center space-x-2 transition-colors py-1 px-3 border border-white/10 hover:border-white/30 bg-black/40 backdrop-blur-sm rounded-sm"
                 onClick={closeProductDetail}
                 aria-label="Go back"
               >
@@ -216,7 +216,9 @@ export default function Product() {
                 </svg>
                 <span className="text-sm font-medium">BACK</span>
               </button>
-              
+            </div>
+            
+            <div className="p-6">
               {/* Product title with icon */}
               <div className="flex items-center mb-6">
                 <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
@@ -251,7 +253,7 @@ export default function Product() {
       )}
       
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen w-full pb-20">
+      <div className="relative z-10 h-auto">
         <div className="flex flex-col md:flex-row">
           {/* Left Side - Products List */}
           <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
@@ -287,7 +289,7 @@ export default function Product() {
             </div>
             
             {/* Mobile action button */}
-            <div className={`mt-8 mb-16 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`mt-8 mb-20 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
               <button
                 onClick={() => navigate('/subscribe')}
                 className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors"
@@ -300,7 +302,7 @@ export default function Product() {
           {/* Right Side - Product Detail (Desktop Only) */}
           <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
             <div className={`rounded border ${getProductColorClass(activeIndex)} overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95`}>
-              <div className="p-10 overflow-y-auto">
+              <div className="p-10 overflow-y-auto max-h-[70vh]">
                 {/* Product header with animated dot */}
                 <div className="flex items-center mb-6">
                   <div className={`relative w-5 h-5 rounded-full ${getProductIconColor(activeIndex)} mr-4 shadow-glow`}>
@@ -335,6 +337,9 @@ export default function Product() {
           </div>
         </div>
       </div>
+      
+      {/* Extra space at bottom for scrolling room */}
+      <div className="h-20"></div>
     </div>
   );
 }
