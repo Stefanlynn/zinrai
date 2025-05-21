@@ -13,19 +13,98 @@ const services = [
 const productDetails = [
   {
     title: "Foreign Exchange Course + Learn Now Live Classroom",
-    description: "Understand the global financial markets and learn how to analyze currencies with confidence. This Forex course is designed to give you a solid foundation in the world's largest and most liquid financial market—whether you're a complete beginner or looking to refine your strategy. Through practical lessons, live chart analysis, and proven techniques, you'll gain the skills needed to understand market movements, manage risk, and develop a trading plan that suits your goals and lifestyle. What You'll Learn: Introduction to the Forex market and how it works, understanding currency pairs, pips, and leverage, fundamental and technical analysis, chart patterns, indicators, and trading tools, risk management and trading psychology, creating a personal trading strategy. Who This Course Is For: Aspiring traders looking to enter the Forex market, beginners seeking a clear, structured learning path, anyone looking to understand how global currencies are traded. No prior experience required—just a willingness to learn and a passion for the markets."
+    description: `Understand the global financial markets and learn how to analyze currencies with confidence. 
+
+This Forex course is designed to give you a solid foundation in the world's largest and most liquid financial market—whether you're a complete beginner or looking to refine your strategy.
+
+Through practical lessons, live chart analysis, and proven techniques, you'll gain the skills needed to understand market movements, manage risk, and develop a trading plan that suits your goals and lifestyle.
+
+✦ What You'll Learn:
+• Introduction to the Forex market and how it works
+• Understanding currency pairs, pips, and leverage
+• Fundamental and technical analysis
+• Chart patterns, indicators, and trading tools
+• Risk management and trading psychology
+• Creating a personal trading strategy
+
+✦ Who This Course Is For:
+• Aspiring traders looking to enter the Forex market
+• Beginners seeking a clear, structured learning path
+• Anyone looking to understand how global currencies are traded
+
+No prior experience required—just a willingness to learn and a passion for the markets.`
   },
   {
     title: "Digital Marketing Course + Learn Now Live Classroom",
-    description: "In today's digital world, marketing is no longer optional—it's essential. This all-in-one Digital Marketing course is designed to equip you with the skills, tools, and strategies to grow your brand, attract the right audience, and drive consistent sales across major online channels. Whether you're building a personal brand, launching a startup, or scaling an existing business, this course covers everything you need to become a confident and capable digital marketer. What You'll Learn: Digital marketing strategy and campaign planning, social media marketing (Instagram, Facebook, TikTok, LinkedIn), paid advertising (Google Ads, Meta Ads), how to monetize social media with UGC (user generated content), SEO fundamentals & content marketing, analytics, tracking, and performance optimization, tools like Canva, ChatGPT, Meta Business Suite, Google Analytics, and more. Who This Course Is For: Entrepreneurs, business owners, and freelancers, marketing beginners looking to break into the field, content creators, influencers, and personal brands, anyone who wants to master digital marketing and drive measurable results. No experience required. Just bring your ambition—this course will help you turn it into impact."
+    description: `In today's digital world, marketing is no longer optional—it's essential. 
+
+This all-in-one Digital Marketing course is designed to equip you with the skills, tools, and strategies to grow your brand, attract the right audience, and drive consistent sales across major online channels.
+
+Whether you're building a personal brand, launching a startup, or scaling an existing business, this course covers everything you need to become a confident and capable digital marketer.
+
+✦ What You'll Learn:
+• Digital marketing strategy and campaign planning
+• Social media marketing (Instagram, Facebook, TikTok, LinkedIn)
+• Paid advertising (Google Ads, Meta Ads)
+• How to monetize social media with UGC (user generated content)
+• SEO fundamentals & content marketing
+• Analytics, tracking, and performance optimization
+• Tools like Canva, ChatGPT, Meta Business Suite, Google Analytics, and more
+
+✦ Who This Course Is For:
+• Entrepreneurs, business owners, and freelancers
+• Marketing beginners looking to break into the field
+• Content creators, influencers, and personal brands
+• Anyone who wants to master digital marketing and drive measurable results
+
+No experience required. Just bring your ambition—this course will help you turn it into impact.`
   },
   {
     title: "E-Commerce Course + Learn Now Live Classes",
-    description: "Ready to turn your product idea into a thriving online business? This comprehensive eCommerce course takes you from zero to sales—guiding you through every step of launching and scaling a successful online store. Whether you're starting from scratch or looking to optimize an existing store, you'll learn the tools, strategies, and insider tactics used by top-performing eCommerce brands. What You'll Learn: Choosing the right product and niche, setting up your store, crafting high-converting product pages, payment gateways, shipping, and logistics, email marketing, SEO, and paid advertising, social media and influencer marketing, conversion optimization and customer retention. Who It's For: Aspiring entrepreneurs, small business owners, or anyone ready to build a scalable online business with real-world results. No tech skills or prior experience required—just your determination to succeed."
+    description: `Ready to turn your product idea into a thriving online business? 
+
+This comprehensive eCommerce course takes you from zero to sales—guiding you through every step of launching and scaling a successful online store.
+
+Whether you're starting from scratch or looking to optimize an existing store, you'll learn the tools, strategies, and insider tactics used by top-performing eCommerce brands.
+
+✦ What You'll Learn:
+• Choosing the right product and niche
+• Setting up your store
+• Crafting high-converting product pages
+• Payment gateways, shipping, and logistics
+• Email marketing, SEO, and paid advertising
+• Social media and influencer marketing
+• Conversion optimization and customer retention
+
+✦ Who It's For:
+• Aspiring entrepreneurs
+• Small business owners
+• Anyone ready to build a scalable online business with real-world results
+
+No tech skills or prior experience required—just your determination to succeed.`
   },
   {
     title: "ZiNRAi Travel Club Membership",
-    description: "Unlock the world with exclusive perks, luxury experiences, and unbeatable savings. ZiNRAi Travel Club Membership is your all-access pass to curated adventures, VIP treatment, and members-only discounts—designed for travelers who want more than just a getaway. Whether you're booking a five-star hotel, setting sail on a dream cruise, or joining a transformative retreat, our membership turns ordinary travel into extraordinary journeys. Membership Benefits Include: Up to 70% off luxury hotels and resorts worldwide, exclusive cruise deals with premium lines and itineraries, access to private retreats and immersive excursions curated for ZiNRAi members only!, invites to VIP events and travel experiences you won't find anywhere else, priority customer support, insider travel tips, and surprise upgrades. Perfect For: Frequent travelers, digital nomads, couples, families, and experience-seekers who want to explore more—and pay less. Join the club and elevate every trip with unmatched value, access, and adventure."
+    description: `Unlock the world with exclusive perks, luxury experiences, and unbeatable savings.
+
+ZiNRAi Travel Club Membership is your all-access pass to curated adventures, VIP treatment, and members-only discounts—designed for travelers who want more than just a getaway.
+
+Whether you're booking a five-star hotel, setting sail on a dream cruise, or joining a transformative retreat, our membership turns ordinary travel into extraordinary journeys.
+
+✦ Membership Benefits Include:
+• Up to 70% off luxury hotels and resorts worldwide
+• Exclusive cruise deals with premium lines and itineraries
+• Access to private retreats and immersive excursions curated for ZiNRAi members only!
+• Invites to VIP events and travel experiences you won't find anywhere else
+• Priority customer support, insider travel tips, and surprise upgrades
+
+✦ Perfect For:
+• Frequent travelers
+• Digital nomads
+• Couples and families
+• Experience-seekers who want to explore more—and pay less
+
+Join the club and elevate every trip with unmatched value, access, and adventure.`
   }
 ];
 
