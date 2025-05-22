@@ -404,7 +404,7 @@ export default function Home() {
       // Initialize the images in boxes
       initializeImages();
       
-      // Move images to new boxes a few times during the flicker sequence
+      // Move images to new boxes with the smooth fade animation
       for (let moveIdx = 0; moveIdx < 3; moveIdx++) {
         const moveTimer = setTimeout(() => {
           if (!flickerMode.current) return;
@@ -428,12 +428,12 @@ export default function Home() {
               [newBoxes[i]]: flickerImages[i]
             }));
           }
-        }, 800 + moveIdx * 800); // Move every 800ms after initial placement
+        }, 4000 + moveIdx * 4000); // Move every 4 seconds to allow full fade in, hold for 3s, and fade out
         
         timers.push(moveTimer);
       }
       
-      // After 3.5 seconds, clear all images and go to black screen mode
+      // After 16 seconds (initial 4s + 3 transitions of 4s each), clear all images and go to black screen mode
       const clearTimer = setTimeout(() => {
         // Force cleanup of any possible lingering images
         document.querySelectorAll('.flicker-image').forEach(el => {
@@ -457,7 +457,7 @@ export default function Home() {
         }, 10000);
         
         timers.push(nextSequenceTimer);
-      }, 3500);
+      }, 16000);
       
       timers.push(clearTimer);
     };
