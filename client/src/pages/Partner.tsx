@@ -220,13 +220,14 @@ export default function Partner() {
                 <div className="border border-white/40 hover:border-white/90 transition-all duration-300 bg-black hover:bg-black hover:translate-y-[-2px] transform hover:scale-[1.02]">
                   <a 
                     href="/subscribe"
-                    className="block px-12 py-3 text-white text-sm tracking-wider no-underline font-medium font-bold !text-white"
+                    className="block px-12 py-3 text-white text-sm tracking-wider no-underline font-medium font-bold !text-white focus:outline-none focus:ring-2 focus:ring-white/40"
                     style={{ color: 'white !important' }}
                     onClick={(e) => {
                       e.preventDefault();
                       setShowLearnMoreModal(false);
                       navigate('/subscribe');
                     }}
+                    aria-label="Join now as a ZiNRAi Brand Promoter"
                   >
                     JOIN NOW
                   </a>
@@ -257,6 +258,15 @@ export default function Partner() {
               key={index}
               className={`cursor-pointer transition-all duration-300 transform flex items-center ${activeIndex === index ? 'translate-x-4 opacity-100' : 'opacity-60 hover:opacity-80'}`}
               onClick={() => handleBenefitClick(index)}
+              role="button"
+              tabIndex={0}
+              aria-pressed={activeIndex === index}
+              aria-label={`${benefit} - ${activeIndex === index ? 'selected' : 'click to select'}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleBenefitClick(index);
+                }
+              }}
             >
               <div className="mr-3 flex-shrink-0">
                 <div 
@@ -268,6 +278,7 @@ export default function Partner() {
                     index === 4 ? 'bg-emerald-500' : 
                     'bg-indigo-500'
                   } ${activeIndex === index ? 'opacity-100 shadow-glow' : 'opacity-60'}`}
+                  aria-hidden="true"
                 ></div>
               </div>
               <h2 className={`text-white text-base sm:text-lg md:text-xl ${activeIndex === index ? 'font-medium' : 'font-light'}`}>
@@ -280,8 +291,14 @@ export default function Partner() {
         {/* Benefit Description - With blue box background and fixed size to match Product page */}
         {!isMobile && (
           <div className="hidden md:block absolute top-[33vh] right-[15vw] w-[40vw] max-w-[600px] mx-auto transition-opacity duration-500">
-            <div className="animate-fadeIn neon-blue-box p-6 h-[300px] overflow-y-auto">
-              <h3 className="text-white text-xl font-medium mb-4">{partnerDetails[activeIndex].title}</h3>
+            <div 
+              className="animate-fadeIn neon-blue-box p-6 h-[300px] overflow-y-auto" 
+              role="region" 
+              aria-live="polite"
+              aria-labelledby={`benefit-heading-${activeIndex}`}
+              tabIndex={0}
+            >
+              <h3 id={`benefit-heading-${activeIndex}`} className="text-white text-xl font-medium mb-4">{partnerDetails[activeIndex].title}</h3>
               <p className="text-white/90 leading-relaxed">{partnerDetails[activeIndex].description}</p>
               
               {/* Extra info for partnership */}
@@ -300,8 +317,9 @@ export default function Partner() {
           {/* JOIN NOW button */}
           <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300 bg-white/5 hover:bg-white/10">
             <button 
-              className="w-full px-6 py-3 text-white text-sm tracking-wide"
+              className="w-full px-6 py-3 text-white text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-white/40"
               onClick={() => navigate('/subscribe')}
+              aria-label="Join now as a ZiNRAi Brand Promoter"
             >
               JOIN NOW
             </button>
@@ -311,8 +329,9 @@ export default function Partner() {
           {isMobile && (
             <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300">
               <button 
-                className="w-full px-6 py-3 text-white text-sm tracking-wide partner-learn-more-btn"
+                className="w-full px-6 py-3 text-white text-sm tracking-wide partner-learn-more-btn focus:outline-none focus:ring-2 focus:ring-white/40"
                 onClick={toggleLearnMoreModal}
+                aria-label="Learn more about becoming a ZiNRAi Brand Promoter"
               >
                 LEARN MORE
               </button>
