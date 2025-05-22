@@ -355,25 +355,23 @@ export default function Home() {
   
   // No longer using toggle effect between logo and START NOW
   
-  // Effect for flickering images in grid boxes - with 10 second pause and box movement
+  // Effect for continuous image fading in grid boxes - no black screens or gaps
   useEffect(() => {
     let timers: NodeJS.Timeout[] = [];
+    let animationInterval: NodeJS.Timeout | null = null;
     
-    // Track the current state to alternate between flicker mode and black screen mode
-    const flickerMode = { current: true };
+    // Helper function to shuffle an array
+    function shuffleArray(array: any[]) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
     
-    // Function to add multiple flickering images for a 3-4 second sequence
-    const startFlickerSequence = () => {
-      // Clear any active images first
-      setActiveFlickerBoxes({});
-      
-      // Mark as being in flicker mode
-      flickerMode.current = true;
-      
-      // Create a mapping of image index to current box number
-      const imageToBoxMap: {[key: number]: number} = {};
-      
-      // Initially place each image in a random box
+    // Function to start the continuous image animation
+    const startContinuousAnimation = () => {
+      // Set up initial display of all 4 images
       const initializeImages = () => {
         // Get 4 random unique boxes from 8 possible boxes
         const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
@@ -382,9 +380,6 @@ export default function Home() {
         
         // Assign each image to one of the selected boxes
         for (let i = 0; i < flickerImages.length; i++) {
-          imageToBoxMap[i] = selectedBoxes[i];
-          
-          // Add this box and image to active boxes
           setActiveFlickerBoxes(prev => ({
             ...prev,
             [selectedBoxes[i]]: flickerImages[i]
@@ -392,86 +387,58 @@ export default function Home() {
         }
       };
       
-      // Helper function to shuffle an array
-      function shuffleArray(array: any[]) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-      }
-      
-      // Initialize the images in boxes
+      // Initialize with first set of images
       initializeImages();
       
-      // Move images to new boxes with the smooth fade animation
-      for (let moveIdx = 0; moveIdx < 3; moveIdx++) {
-        const moveTimer = setTimeout(() => {
-          if (!flickerMode.current) return;
-          
-          // Get 4 random unique boxes from 8 possible boxes for the next position
-          const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
-          shuffleArray(availableBoxes);
-          const newBoxes = availableBoxes.slice(0, 4);
-          
-          // Remove current images
-          setActiveFlickerBoxes({});
-          
-          // Update box positions and display images in new boxes
-          for (let i = 0; i < flickerImages.length; i++) {
-            // Update the box for this image
-            imageToBoxMap[i] = newBoxes[i];
-            
-            // Add this box and image to active boxes
-            setActiveFlickerBoxes(prev => ({
-              ...prev,
-              [newBoxes[i]]: flickerImages[i]
-            }));
-          }
-        }, 4000 + moveIdx * 4000); // Move every 4 seconds to allow full fade in, hold for 3s, and fade out
+      // Set up continuous shifting of images to new boxes
+      // Images will smoothly fade in and out with CSS animation
+      animationInterval = setInterval(() => {
+        // Get current active boxes
+        const currentBoxes = Object.keys(activeFlickerBoxes).map(Number);
         
-        timers.push(moveTimer);
+        // Get boxes that are not currently active
+        const availableBoxes = Array.from({length: 8}, (_, i) => i + 1)
+          .filter(boxNum => !currentBoxes.includes(boxNum));
+        
+        // If we don't have enough available boxes, we'll reuse some current ones
+        if (availableBoxes.length < flickerImages.length) {
+          const neededExtraBoxes = flickerImages.length - availableBoxes.length;
+          const extraBoxes = shuffleArray([...currentBoxes]).slice(0, neededExtraBoxes);
+          availableBoxes.push(...extraBoxes);
+        }
+        
+        // Shuffle available boxes and select new ones for this round
+        shuffleArray(availableBoxes);
+        const newBoxes = availableBoxes.slice(0, flickerImages.length);
+        
+        // Create a new mapping for images to boxes
+        const newActiveBoxes: Record<number, string> = {};
+        for (let i = 0; i < flickerImages.length; i++) {
+          newActiveBoxes[newBoxes[i]] = flickerImages[i];
+        }
+        
+        // Smoothly transition to the new box configuration
+        setActiveFlickerBoxes(newActiveBoxes);
+      }, 4000); // Change every 4 seconds to allow for fade animation
+      
+      if (animationInterval) {
+        timers.push(animationInterval as unknown as NodeJS.Timeout);
       }
-      
-      // After 16 seconds (initial 4s + 3 transitions of 4s each), clear all images and go to black screen mode
-      const clearTimer = setTimeout(() => {
-        // Force cleanup of any possible lingering images
-        document.querySelectorAll('.flicker-image').forEach(el => {
-          (el as HTMLElement).style.opacity = '0';
-        });
-        
-        // Use RAF to ensure DOM has updated before removing
-        requestAnimationFrame(() => {
-          setActiveFlickerBoxes({});
-          flickerMode.current = false;
-          
-          // Ensure all flicker boxes are properly reset
-          document.querySelectorAll('.flicker-box').forEach(el => {
-            (el as HTMLElement).style.overflow = 'hidden';
-          });
-        });
-        
-        // Schedule the next flicker sequence after 10 seconds of black screen
-        const nextSequenceTimer = setTimeout(() => {
-          startFlickerSequence();
-        }, 10000);
-        
-        timers.push(nextSequenceTimer);
-      }, 16000);
-      
-      timers.push(clearTimer);
     };
     
-    // Start the first flicker sequence
+    // Start the continuous animation after a short delay
     const initialTimer = setTimeout(() => {
-      startFlickerSequence();
+      startContinuousAnimation();
     }, 2000);
     
     timers.push(initialTimer);
     
-    // Clean up timers on unmount
+    // Clean up timers and intervals on unmount
     return () => {
       timers.forEach(timer => clearTimeout(timer));
+      if (animationInterval) {
+        clearInterval(animationInterval);
+      }
     };
   }, []);
 
