@@ -409,13 +409,13 @@ export default function Culture() {
           {/* Core Values Section - 2-column layout on desktop */}
           <div className="mt-8 mb-20 flex flex-col md:flex-row p-4">
             {/* Left Side - Values List */}
-            <div className={`w-full md:w-1/2 p-6 pt-0 md:p-16 md:pt-10 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
-              <h2 className="text-white text-2xl font-light mb-8">Core Values</h2>
-              <p className="text-white/80 text-base leading-relaxed mb-8 max-w-xl">
+            <div className={`w-full md:w-1/2 p-6 pt-0 md:p-16 md:pt-0 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
+              <h2 className="text-white text-2xl font-light mb-6">Core Values</h2>
+              <p className="text-white/80 text-base leading-relaxed mb-6 max-w-xl">
                 Each letter of ZiNRAi represents a foundational value that shapes our culture and leadership DNA.
               </p>
               
-              <div className="space-y-6 max-w-xl">
+              <div className="space-y-4 max-w-xl">
                 {cultureValues.map((value, index) => (
                   <div 
                     key={index}
@@ -460,9 +460,9 @@ export default function Culture() {
             </div>
             
             {/* Right Side - Value Detail (Desktop Only) */}
-            <div className={`hidden md:block w-1/2 p-16 py-20 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
-              <div className="rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 border-white/20">
-                <div className="p-10 overflow-y-auto max-h-[80vh]">
+            <div className={`hidden md:block w-1/2 p-16 py-0 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
+              <div className="rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 border-white/20 h-full">
+                <div className="p-10 overflow-y-auto h-full">
                   {/* Value header with animated dot */}
                   <div className="flex items-center mb-8">
                     <div className={`w-3 h-3 rounded-full ${getColorClass(cultureValues[activeValue].color, 'bg')} mr-3`}></div>
