@@ -490,6 +490,9 @@ export default function Home() {
             <h1 className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap relative z-10 neon-text-glow">
               ZiNRAi
             </h1>
+            <div className="tagline-text text-white text-[2vw] md:text-[1.8vw] lg:text-[1.4vw] xl:text-[18px] tracking-wider whitespace-nowrap relative z-10 text-center mt-[-1vw] md:mt-[-1vh] neon-text-glow-subtle">
+              LIVE WITH PASSION. LEAD WITH PURPOSE
+            </div>
           </div>
         </div>
       
