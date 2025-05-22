@@ -43,21 +43,28 @@ export default function Culture() {
     setActiveValue(index === activeValue ? null : index);
   };
   
-  // Ensure the page is scrollable on mobile
+  // Ensure the page is scrollable
   useEffect(() => {
     // Force document body to be scrollable
     document.body.style.overflow = 'auto';
     document.body.style.height = 'auto';
+    document.documentElement.style.overflow = 'auto';
+    document.documentElement.style.height = 'auto';
+    
+    // Force immediate scroll to top
+    window.scrollTo(0, 0);
     
     return () => {
       // Reset when unmounting
       document.body.style.overflow = '';
       document.body.style.height = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
     };
   }, []);
 
   return (
-    <div className="bg-black min-h-screen h-auto w-full overflow-y-auto">
+    <div className="absolute inset-0 bg-black overflow-y-auto">
       {/* Grid Lines */}
       <div className="fixed inset-0 z-[1] pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-white/10"></div>
@@ -70,7 +77,7 @@ export default function Culture() {
         <div className="absolute top-0 bottom-0 right-0 w-[1.5px] bg-white/10"></div>
       </div>
       
-      {/* Page Content - added styles to ensure scrollability */}
+      {/* Page Content - using a scrollable container approach */}
       <div className="container mx-auto pt-[8vh] pb-32 px-4 relative z-10">
         {/* Video Section */}
         <div className="mb-12 w-full">
