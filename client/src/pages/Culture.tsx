@@ -341,7 +341,7 @@ export default function Culture() {
         <div className="flex flex-col p-4">
           {/* Why ZiNRAi Section - Full width for both mobile and desktop */}
           <div className={`w-full mb-12 pt-[8vh] p-6 md:p-16 md:pt-[10vh] transition-all duration-700 ${animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-6 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-6 tracking-wide">
               WHY ZiNRAi
             </h1>
             
@@ -388,7 +388,7 @@ export default function Culture() {
               className="bg-black/30 border border-white/20 p-8 hover:border-[var(--zinrai-blue-glow)] hover:shadow-[0_0_15px_rgba(104,172,255,0.15)] focus-within:border-[var(--zinrai-blue-glow)] focus-within:shadow-[0_0_15px_rgba(104,172,255,0.15)] transition-all duration-300 backdrop-blur-sm"
               tabIndex={0}
             >
-              <h2 id="vision-title" className="text-white text-2xl font-light mb-4 neon-text-glow">Vision</h2>
+              <h2 id="vision-title" className="text-white text-2xl font-light mb-4">Vision</h2>
               <p className="text-white/90 text-base leading-relaxed" aria-labelledby="vision-title">
                 To help ordinary people become extraordinary leaders—by unlocking purpose, building character, and creating meaningful impact.
               </p>
@@ -399,7 +399,7 @@ export default function Culture() {
               className="bg-black/30 border border-white/20 p-8 hover:border-[var(--zinrai-blue-glow)] hover:shadow-[0_0_15px_rgba(104,172,255,0.15)] focus-within:border-[var(--zinrai-blue-glow)] focus-within:shadow-[0_0_15px_rgba(104,172,255,0.15)] transition-all duration-300 backdrop-blur-sm"
               tabIndex={0}
             >
-              <h2 id="mission-title" className="text-white text-2xl font-light mb-4 neon-text-glow">Mission</h2>
+              <h2 id="mission-title" className="text-white text-2xl font-light mb-4">Mission</h2>
               <p className="text-white/90 text-base leading-relaxed" aria-labelledby="mission-title">
                 ZiNRAi exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment.
               </p>
@@ -410,7 +410,7 @@ export default function Culture() {
           <div className="mt-8 mb-20 flex flex-col md:flex-row p-4">
             {/* Left Side - Values List */}
             <div className={`w-full md:w-1/2 p-6 pt-0 md:p-16 md:pt-10 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
-              <h2 className="text-white text-2xl font-light mb-8 neon-text-glow">Core Values</h2>
+              <h2 className="text-white text-2xl font-light mb-8">Core Values</h2>
               <p className="text-white/80 text-base leading-relaxed mb-8 max-w-xl">
                 Each letter of ZiNRAi represents a foundational value that shapes our culture and leadership DNA.
               </p>
@@ -499,7 +499,7 @@ export default function Culture() {
           
           {/* Video Section */}
           <div className="mt-8 mx-6 md:mx-16 mb-20">
-            <h2 className="text-white text-2xl font-light mb-4 neon-text-glow">Our Story</h2>
+            <h2 className="text-white text-2xl font-light mb-4">Our Story</h2>
             <div 
               className="w-full aspect-video bg-black border border-white/20 flex items-center justify-center relative overflow-hidden rounded-sm shadow-lg"
               role="img" 
