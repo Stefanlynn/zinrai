@@ -516,7 +516,8 @@ export default function Home() {
               style={{
                 top: boxNumber === 1 || boxNumber === 2 ? '0' : 
                      boxNumber === 3 || boxNumber === 4 ? 'calc(25 * var(--vh))' : 
-                     boxNumber === 5 || boxNumber === 6 ? 'calc(50 * var(--vh))' : 'calc(75 * var(--vh))',
+                     boxNumber === 5 || boxNumber === 6 ? 'calc(50 * var(--vh))' : 
+                     boxNumber === 7 || boxNumber === 8 ? 'calc(75 * var(--vh))' : '0',
                 left: boxNumber === 1 || boxNumber === 3 || 
                       boxNumber === 5 || boxNumber === 7 ? '0' : '50%',
                 width: '50%',
