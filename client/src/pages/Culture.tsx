@@ -81,11 +81,16 @@ export default function Culture() {
       <div className="container mx-auto pt-[8vh] pb-32 px-4 relative z-10">
         {/* Video Section */}
         <div className="mb-12 w-full">
-          <div className="w-full aspect-video bg-black border border-white/20 flex items-center justify-center relative overflow-hidden">
+          <div 
+            className="w-full aspect-video bg-black border border-white/20 flex items-center justify-center relative overflow-hidden"
+            role="img" 
+            aria-label="Video about ZiNRAi culture - coming soon"
+            tabIndex={0}
+          >
             <div className="absolute inset-0 bg-black/90"></div>
             <div className="relative z-10 text-center">
-              <div className="w-16 h-16 rounded-full bg-black/50 border border-white/30 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 rounded-full bg-black/50 border border-white/30 flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+                <svg className="w-8 h-8 text-white/80" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
@@ -96,7 +101,7 @@ export default function Culture() {
         
         {/* Why ZiNRAi Section */}
         <div className="mb-16 w-full max-w-3xl mx-auto">
-          <h2 className="text-white text-2xl font-light mb-6 neon-text-glow text-left">Why ZiNRAi</h2>
+          <h2 id="why-zinrai-heading" className="text-white text-2xl font-light mb-6 neon-text-glow text-left">Why ZiNRAi</h2>
           
           <div className="text-white/90 space-y-4 text-left">
             <p className="text-base">
@@ -137,17 +142,23 @@ export default function Culture() {
         {/* Vision & Mission Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Vision */}
-          <div className="bg-black border border-white/20 p-8">
-            <h2 className="text-white text-2xl font-light mb-4 neon-text-glow">Vision</h2>
-            <p className="text-white/90 text-base leading-relaxed">
+          <div 
+            className="bg-black border border-white/20 p-8 focus-within:border-[var(--zinrai-blue-glow)] focus-within:shadow-[0_0_15px_rgba(104,172,255,0.15)] transition-all duration-300"
+            tabIndex={0}
+          >
+            <h2 id="vision-title" className="text-white text-2xl font-light mb-4 neon-text-glow">Vision</h2>
+            <p className="text-white/90 text-base leading-relaxed" aria-labelledby="vision-title">
               To help ordinary people become extraordinary leaders—by unlocking purpose, building character, and creating meaningful impact.
             </p>
           </div>
           
           {/* Mission */}
-          <div className="bg-black border border-white/20 p-8">
-            <h2 className="text-white text-2xl font-light mb-4 neon-text-glow">Mission</h2>
-            <p className="text-white/90 text-base leading-relaxed">
+          <div 
+            className="bg-black border border-white/20 p-8 focus-within:border-[var(--zinrai-blue-glow)] focus-within:shadow-[0_0_15px_rgba(104,172,255,0.15)] transition-all duration-300"
+            tabIndex={0}
+          >
+            <h2 id="mission-title" className="text-white text-2xl font-light mb-4 neon-text-glow">Mission</h2>
+            <p className="text-white/90 text-base leading-relaxed" aria-labelledby="mission-title">
               ZiNRAi exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment.
             </p>
           </div>
@@ -163,14 +174,19 @@ export default function Culture() {
           </div>
           
           {/* Core Values Grid */}
-          <div className="flex flex-col gap-6 overflow-visible">
+          <div className="flex flex-col gap-6 overflow-visible" role="list" aria-label="ZiNRAi Core Values">
             {cultureValues.map((value, index) => (
               <div 
                 key={index}
-                className="bg-black border border-white/20 hover:border-[var(--zinrai-blue-glow)] transition-all duration-300 overflow-hidden p-6"
+                className="bg-black border border-white/20 hover:border-[var(--zinrai-blue-glow)] transition-all duration-300 overflow-hidden p-6 focus-within:border-[var(--zinrai-blue-glow)] focus-within:shadow-[0_0_15px_rgba(104,172,255,0.15)]"
+                role="listitem"
+                tabIndex={0}
               >
                 <div className="flex items-center mb-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--zinrai-blue-glow)]/10 border border-white/30 flex items-center justify-center mr-3 text-white shadow-[0_0_15px_rgba(104,172,255,0.15)]">
+                  <div 
+                    className="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--zinrai-blue-glow)]/10 border border-white/30 flex items-center justify-center mr-3 text-white shadow-[0_0_15px_rgba(104,172,255,0.15)]"
+                    aria-hidden="true"
+                  >
                     {value.letter}
                   </div>
                   <h3 className="text-white text-xl font-medium">{value.title}</h3>
