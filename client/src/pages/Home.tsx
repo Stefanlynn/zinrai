@@ -411,13 +411,18 @@ export default function Home() {
         shuffleArray(availableBoxes);
         const newBoxes = availableBoxes.slice(0, flickerImages.length);
         
-        // Create a new mapping for images to boxes
+        // First prepare new boxes with current images
+        // This ensures we always have exactly 4 images visible at all times
         const newActiveBoxes: Record<number, string> = {};
+        
+        // Use the same 4 images, just move them to new boxes
+        // This guarantees 4 images are showing at all times
         for (let i = 0; i < flickerImages.length; i++) {
           newActiveBoxes[newBoxes[i]] = flickerImages[i];
         }
         
-        // Smoothly transition to the new box configuration
+        // This update will ensure all 4 images are always visible
+        // CSS will handle the smooth fade transition
         setActiveFlickerBoxes(newActiveBoxes);
       }, 4000); // Change every 4 seconds to allow for fade animation
       
