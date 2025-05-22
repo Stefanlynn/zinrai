@@ -322,7 +322,7 @@ export default function Product() {
           </div>
           
           {/* Right Side - Product Detail (Desktop Only) */}
-          <div className={`hidden md:block w-1/2 p-16 py-20 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
+          <div className={`hidden md:block w-1/2 p-16 pt-[180px] pb-20 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
             <div className="rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 border-white/20">
               <div className="p-10 overflow-y-auto max-h-[70vh]">
                 {/* Product header with animated dot */}
