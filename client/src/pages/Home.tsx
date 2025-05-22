@@ -357,36 +357,20 @@ export default function Home() {
   
   // Effect for static, non-moving images - all 4 images displayed in fixed positions
   useEffect(() => {
-    let timers: NodeJS.Timeout[] = [];
+    // Immediately display all 4 images in fixed positions
+    const fixedBoxes = [1, 4, 5, 8]; // Top-left, top-right, bottom-left, bottom-right
+    const newActiveBoxes: Record<number, string> = {};
     
-    // Function to display all images in fixed positions
-    const displayFixedImages = () => {
-      // Fixed boxes for our 4 images
-      // Using a visually balanced layout with one image in each quadrant
-      const fixedBoxes = [1, 4, 5, 8]; // Top-left, top-right, bottom-left, bottom-right
-      const newActiveBoxes: Record<number, string> = {};
-      
-      // Place each image in its designated box
-      for (let i = 0; i < flickerImages.length; i++) {
-        const boxNumber = fixedBoxes[i];
-        newActiveBoxes[boxNumber] = flickerImages[i];
-      }
-      
-      // Set the images once (no animation or movement)
-      setActiveFlickerBoxes(newActiveBoxes);
-    };
+    // Place each image in its designated box
+    for (let i = 0; i < flickerImages.length; i++) {
+      const boxNumber = fixedBoxes[i];
+      newActiveBoxes[boxNumber] = flickerImages[i];
+    }
     
-    // Start with a short delay to allow page to fully render
-    const initialTimer = setTimeout(() => {
-      displayFixedImages();
-    }, 1000);
+    // Set the images once (no animation or movement)
+    setActiveFlickerBoxes(newActiveBoxes);
     
-    timers.push(initialTimer);
-    
-    // Clean up timers on unmount
-    return () => {
-      timers.forEach(timer => clearTimeout(timer));
-    };
+    // No cleanup needed - static display with no timers
   }, []);
 
   // Helper function to get the route for the current index
