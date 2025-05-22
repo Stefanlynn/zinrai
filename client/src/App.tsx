@@ -344,22 +344,8 @@ function App() {
             </div>
           )}
             
-          {/* Mobile menu toggle and info icon */}
+          {/* Mobile menu toggle */}
           <div className="md:hidden ml-auto mr-4 relative z-10 h-[48px] flex items-center" ref={menuRef}>
-            {/* Info icon for mobile */}
-            <button
-              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer mr-1"
-              onClick={toggleInfoCenter}
-              aria-label="Open Info Center"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="text-white/70 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              <span className="sr-only">Info Center</span>
-            </button>
-            
             {/* Menu toggle button */}
             <button 
               className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer"
