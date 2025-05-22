@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 
 // Define partner benefits
@@ -11,7 +11,7 @@ const benefits = [
   "GLOBAL COMMUNITY"
 ];
 
-// Define detailed partner information for Learn More modal
+// Define detailed partner information
 const partnerDetails = [
   {
     title: "Business Tools",
@@ -42,7 +42,7 @@ const partnerDetails = [
 export default function Partner() {
   const [_, navigate] = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showProductDetail, setShowProductDetail] = useState(false);
+  const [showDetailModal, setShowDetailModal] = useState(false);
   const [animatedIn, setAnimatedIn] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   
@@ -65,24 +65,24 @@ export default function Partner() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  // Handle benefit item click (similar to product click in Product page)
+  // Handle benefit item click
   const handleBenefitClick = (index: number) => {
     setActiveIndex(index);
     if (isMobile) {
-      setShowProductDetail(true);
+      setShowDetailModal(true);
     }
   };
   
-  // Close product detail modal
-  const closeProductDetail = () => {
-    setShowProductDetail(false);
+  // Close detail modal
+  const closeDetailModal = () => {
+    setShowDetailModal(false);
   };
 
   // Close modal on ESC key
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && showProductDetail) {
-        setShowProductDetail(false);
+      if (event.key === 'Escape' && showDetailModal) {
+        setShowDetailModal(false);
       }
     };
     
@@ -91,7 +91,7 @@ export default function Partner() {
     return () => {
       document.removeEventListener('keydown', handleEsc);
     };
-  }, [showProductDetail]);
+  }, [showDetailModal]);
 
   return (
     <div className="bg-black min-h-screen">
@@ -124,7 +124,7 @@ export default function Partner() {
       </div>
       
       {/* Mobile Benefit Detail Modal */}
-      {showProductDetail && isMobile && (
+      {showDetailModal && isMobile && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center"
           role="dialog"
@@ -133,7 +133,7 @@ export default function Partner() {
         >
           <div 
             className="absolute inset-0 bg-black/90 backdrop-blur-sm"
-            onClick={closeProductDetail}
+            onClick={closeDetailModal}
           ></div>
           
           <div className="relative z-[51] bg-black/80 rounded-sm border border-white/20 w-[90%] max-w-lg max-h-[80vh] overflow-y-auto">
@@ -141,7 +141,7 @@ export default function Partner() {
             <div className="sticky top-0 left-0 right-0 z-[52] bg-black/80 backdrop-blur-sm border-b border-white/10 px-4 py-3 flex items-center">
               <button 
                 className="text-white/70 hover:text-white flex items-center space-x-2 transition-colors py-1 px-3 border border-white/10 hover:border-white/30 bg-black/40 backdrop-blur-sm rounded-sm"
-                onClick={closeProductDetail}
+                onClick={closeDetailModal}
                 aria-label="Go back"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -174,7 +174,7 @@ export default function Partner() {
               <div className="flex justify-center mb-4">
                 <button
                   onClick={() => {
-                    closeProductDetail();
+                    closeDetailModal();
                     navigate('/subscribe');
                   }}
                   className={`px-10 py-3 bg-gradient-to-r ${
@@ -199,7 +199,7 @@ export default function Partner() {
       <div className="relative z-10 pb-16 overflow-auto" style={{ height: "100vh" }}>
         <div className="flex flex-col md:flex-row p-4">
           {/* Left Side - Benefits List */}
-          <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${true ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
+          <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
               BRAND PROMOTER
             </h1>
@@ -225,10 +225,15 @@ export default function Partner() {
                   aria-label={`Learn more about ${partnerDetails[index].title}`}
                   className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 ${
                     activeIndex === index ? 
-                    `bg-gradient-to-r from-${index === 0 ? 'teal' : index === 1 ? 'pink' : index === 2 ? 'cyan' : index === 3 ? 'amber' : index === 4 ? 'emerald' : 'indigo'}-500/20 
-                    to-${index === 0 ? 'teal' : index === 1 ? 'pink' : index === 2 ? 'cyan' : index === 3 ? 'amber' : index === 4 ? 'emerald' : 'indigo'}-500/5 
-                    border-${index === 0 ? 'teal' : index === 1 ? 'pink' : index === 2 ? 'cyan' : index === 3 ? 'amber' : index === 4 ? 'emerald' : 'indigo'}-500/30 shadow-lg` 
-                    : 'bg-white/5 hover:bg-white/10'
+                    'bg-gradient-to-r shadow-lg' : 
+                    'bg-white/5 hover:bg-white/10'
+                  } ${
+                    activeIndex === 0 && index === 0 ? 'from-teal-500/20 to-teal-500/5 border-teal-500/30' : 
+                    activeIndex === 1 && index === 1 ? 'from-pink-500/20 to-pink-500/5 border-pink-500/30' : 
+                    activeIndex === 2 && index === 2 ? 'from-cyan-500/20 to-cyan-500/5 border-cyan-500/30' : 
+                    activeIndex === 3 && index === 3 ? 'from-amber-500/20 to-amber-500/5 border-amber-500/30' : 
+                    activeIndex === 4 && index === 4 ? 'from-emerald-500/20 to-emerald-500/5 border-emerald-500/30' : 
+                    activeIndex === 5 && index === 5 ? 'from-indigo-500/20 to-indigo-500/5 border-indigo-500/30' : ''
                   }`}
                 >
                   <div className="flex items-start">
@@ -257,7 +262,7 @@ export default function Partner() {
             </div>
             
             {/* Mobile action button */}
-            <div className={`mt-8 mb-20 md:hidden transition-opacity duration-700 delay-300 opacity-100`}>
+            <div className={`mt-8 mb-20 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
               <button
                 onClick={() => navigate('/subscribe')}
                 className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/40"
@@ -269,15 +274,15 @@ export default function Partner() {
           </div>
           
           {/* Right Side - Benefit Detail (Desktop Only) */}
-          <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 opacity-100 translate-x-0`}>
-            <div className={`rounded border ${
-              activeIndex === 0 ? 'from-teal-500/20 to-teal-500/5 border-teal-500/30' : 
-              activeIndex === 1 ? 'from-pink-500/20 to-pink-500/5 border-pink-500/30' : 
-              activeIndex === 2 ? 'from-cyan-500/20 to-cyan-500/5 border-cyan-500/30' : 
-              activeIndex === 3 ? 'from-amber-500/20 to-amber-500/5 border-amber-500/30' : 
-              activeIndex === 4 ? 'from-emerald-500/20 to-emerald-500/5 border-emerald-500/30' : 
-              'from-indigo-500/20 to-indigo-500/5 border-indigo-500/30'
-            } overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95`}>
+          <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
+            <div className={`rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 ${
+              activeIndex === 0 ? 'border-teal-500/30' : 
+              activeIndex === 1 ? 'border-pink-500/30' : 
+              activeIndex === 2 ? 'border-cyan-500/30' : 
+              activeIndex === 3 ? 'border-amber-500/30' : 
+              activeIndex === 4 ? 'border-emerald-500/30' : 
+              'border-indigo-500/30'
+            }`}>
               <div className="p-10 overflow-y-auto max-h-[70vh]">
                 {/* Product header with animated dot */}
                 <div className="flex items-center mb-8">
@@ -299,55 +304,28 @@ export default function Partner() {
                 
                 {/* Extra partnership info */}
                 <div className="text-white/70 border-t border-white/10 pt-6 mt-6 text-sm italic">
-                  <p>This is more than a role—it's a platform to lead, earn, and make an impact while being part of something that matters.</p>
+                  <p>This is more than a role—it's a platform to lead, earn, and make an impact while representing an innovative brand at the forefront of digital learning.</p>
+                </div>
+                
+                {/* Join Now button */}
+                <div className="mt-10 flex justify-center">
+                  <button
+                    onClick={() => navigate('/subscribe')}
+                    className={`px-10 py-3 bg-gradient-to-r ${
+                      activeIndex === 0 ? 'from-teal-600 to-teal-500' : 
+                      activeIndex === 1 ? 'from-pink-600 to-pink-500' : 
+                      activeIndex === 2 ? 'from-cyan-600 to-cyan-500' : 
+                      activeIndex === 3 ? 'from-amber-600 to-amber-500' : 
+                      activeIndex === 4 ? 'from-emerald-600 to-emerald-500' : 
+                      'from-indigo-600 to-indigo-500'
+                    } text-white font-medium rounded-sm shadow-lg hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-white/40`}
+                  >
+                    JOIN NOW
+                  </button>
                 </div>
               </div>
-              
-              <div className="p-6 bg-black/40 border-t border-white/10 flex justify-end">
-                <button
-                  onClick={() => navigate('/subscribe')}
-                  className={`px-8 py-2 bg-gradient-to-r ${
-                    activeIndex === 0 ? 'from-teal-600 to-teal-500' : 
-                    activeIndex === 1 ? 'from-pink-600 to-pink-500' : 
-                    activeIndex === 2 ? 'from-cyan-600 to-cyan-500' : 
-                    activeIndex === 3 ? 'from-amber-600 to-amber-500' : 
-                    activeIndex === 4 ? 'from-emerald-600 to-emerald-500' : 
-                    'from-indigo-600 to-indigo-500'
-                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-2 focus:ring-white/40`}
-                  aria-label="Join as a Brand Promoter now"
-                >
-                  JOIN NOW
-                </button>
-              </div>
             </div>
           </div>
-        </div>
-
-        {/* Action Buttons - Show Learn More only on mobile */}
-        <div className="absolute bottom-[15vh] left-0 w-full p-6 md:p-0 md:bottom-[15vh] md:left-auto md:right-[10vw] md:w-auto flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center justify-center md:justify-end">
-          {/* JOIN NOW button */}
-          <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300 bg-white/5 hover:bg-white/10">
-            <button 
-              className="w-full px-6 py-3 text-white text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-white/40"
-              onClick={() => navigate('/subscribe')}
-              aria-label="Join now as a ZiNRAi Brand Promoter"
-            >
-              JOIN NOW
-            </button>
-          </div>
-          
-          {/* LEARN MORE button - only visible on mobile */}
-          {isMobile && (
-            <div className="w-full sm:w-auto border border-white/40 hover:border-white/60 transition-colors duration-300">
-              <button 
-                className="w-full px-6 py-3 text-white text-sm tracking-wide partner-learn-more-btn focus:outline-none focus:ring-2 focus:ring-white/40"
-                onClick={toggleLearnMoreModal}
-                aria-label="Learn more about becoming a ZiNRAi Brand Promoter"
-              >
-                LEARN MORE
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </div>
