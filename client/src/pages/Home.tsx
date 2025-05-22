@@ -362,20 +362,23 @@ export default function Home() {
   
   // Effect for displaying videos in the grid
   useEffect(() => {
-    // Display videos in specific grid boxes
-    const boxPositions = [1, 2, 3, 4, 5, 6, 7, 8]; // Using all grid positions for videos
+    // Display videos in all grid boxes
     const newVideoBoxes: Record<number, string> = {};
     
-    // Place each video in its designated box
-    videoSources.forEach((videoSrc, index) => {
-      if (index < boxPositions.length) {
-        const boxNumber = boxPositions[index];
-        newVideoBoxes[boxNumber] = videoSrc;
-      }
-    });
+    // Directly map each position to a video
+    // Making sure all 8 positions are filled
+    newVideoBoxes[1] = videoSources[0]; // top-left
+    newVideoBoxes[2] = videoSources[1]; // top-right
+    newVideoBoxes[3] = videoSources[2]; // center-left
+    newVideoBoxes[4] = videoSources[3]; // center-right
+    newVideoBoxes[5] = videoSources[4]; // bottom-left
+    newVideoBoxes[6] = videoSources[5]; // bottom-right
+    newVideoBoxes[7] = videoSources[6]; // bottom-left-2
+    newVideoBoxes[8] = videoSources[7]; // bottom-right-2
     
     // Set the videos display
     setActiveVideoBoxes(newVideoBoxes);
+    console.log("Video boxes set:", newVideoBoxes);
   }, []);
 
   // Helper function to get the route for the current index
