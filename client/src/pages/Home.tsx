@@ -578,18 +578,18 @@ export default function Home() {
           );
         })}
         
-        {/* START NOW text now in the bottom right box - hidden when menu is open */}
+        {/* PRODUCTS text in the bottom right box - hidden when menu is open */}
         <div className={`absolute bottom-[12.5%] left-[75%] transform -translate-x-1/2 translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
           <div 
-            className="start-now-text animate-content-glitch cursor-pointer"
-            onClick={() => navigate('/subscribe')}
-            onTouchStart={() => navigate('/subscribe')} /* Added touchstart for immediate response */
+            className="products-text animate-content-glitch cursor-pointer"
+            onClick={() => navigate('/product')}
+            onTouchStart={() => navigate('/product')} /* Added touchstart for immediate response */
             role="button"
             tabIndex={0}
-            aria-label="Start your ZiNRAi membership"
+            aria-label="View ZiNRAi products"
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
-                navigate('/subscribe');
+                navigate('/product');
               }
             }}
             style={{ 
@@ -601,7 +601,7 @@ export default function Home() {
             }}
           >
             <div className="flex flex-col items-center group">
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-white focus-visible:text-white">Start Now</div>
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-white focus-visible:text-white">Products</div>
               {/* Down arrow */}
               <svg className="animate-bounce transition-all duration-200" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-all duration-200"/>
