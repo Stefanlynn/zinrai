@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Accessibility Enhancements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus indicators for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--zinrai-blue-glow);
+  outline-offset: 2px;
+}
+
 /* Grid line animations */
 @keyframes gridLineHorizontal {
   0% { width: 0; }

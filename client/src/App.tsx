@@ -197,7 +197,7 @@ function App() {
         )}
         
         {/* Header - Clean minimal design with dark gray background */}
-        <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10">
+        <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10" role="banner">
           {/* Brand logo - shown on all pages except home page and when menu is open */}
           {!menuOpen && !isHomePage && (
             <a 
@@ -207,6 +207,7 @@ function App() {
                 setLocation('/');
               }}
               href="/"
+              aria-label="ZiNRAi Home"
             >
               <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
             </a>
@@ -214,7 +215,7 @@ function App() {
           {(menuOpen || isHomePage) && <div className="ml-6 w-8"></div>}
           
           {/* Desktop navigation */}
-          <nav className="hidden md:flex items-center space-x-8 mx-auto">
+          <nav className="hidden md:flex items-center space-x-8 mx-auto" role="navigation" aria-label="Main Navigation">
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
               href="/product"
@@ -286,13 +287,14 @@ function App() {
                 e.preventDefault();
                 toggleInfoCenter();
               }}
-              title="Info Center"
+              aria-label="Open Info Center"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="text-white/70 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" className="text-white/70 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="12" y1="16" x2="12" y2="12"></line>
                 <line x1="12" y1="8" x2="12.01" y2="8"></line>
               </svg>
+              <span className="sr-only">Info Center</span>
             </a>
             <a
               className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
@@ -301,8 +303,10 @@ function App() {
                 e.preventDefault();
                 setLocation('/profile');
               }}
+              aria-label="Your Profile"
             >
-              <FiUser className="text-white/70 h-4 w-4" />
+              <FiUser className="text-white/70 h-4 w-4" aria-hidden="true" />
+              <span className="sr-only">Profile</span>
             </a>
           </div>
           
@@ -316,6 +320,7 @@ function App() {
                   e.preventDefault();
                   setLocation('/subscribe');
                 }}
+                aria-label="Start your ZiNRAi membership"
               >
                 <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Start Now</span>
               </a>
@@ -332,6 +337,7 @@ function App() {
                   e.preventDefault();
                   setLocation('/subscribe');
                 }}
+                aria-label="Start your ZiNRAi membership"
               >
                 <span className="text-white/90 text-xs font-light tracking-wide hover:text-white">Start Now</span>
               </a>
@@ -344,6 +350,8 @@ function App() {
               className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer"
               onClick={toggleMenu}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen ? "true" : "false"}
+              aria-controls="mobile-menu"
             >
               <div className="relative w-5 h-5 flex items-center justify-center">
                 <div className={`w-5 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[4px]'}`}></div>
@@ -354,7 +362,7 @@ function App() {
             
             {/* Mobile menu */}
             {menuOpen && (
-              <div className="fixed inset-0 bg-black text-white z-[1001] overflow-auto">
+              <div id="mobile-menu" className="fixed inset-0 bg-black text-white z-[1001] overflow-auto" role="dialog" aria-modal="true" aria-label="Main Menu">
                 <div className="w-full h-full flex flex-col">
                   {/* Header with ZiNRAi text and Start Now button */}
                   <div className="flex justify-between items-center p-6">
@@ -363,6 +371,15 @@ function App() {
                       onClick={() => {
                         setMenuOpen(false);
                         setLocation('/');
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label="Go to ZiNRAi home page"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          setMenuOpen(false);
+                          setLocation('/');
+                        }
                       }}
                     >
                       ZiNRAi
@@ -373,6 +390,7 @@ function App() {
                         setLocation('/subscribe');
                       }}
                       className="px-4 py-2 border border-white/50 hover:border-white text-white/90 hover:text-white transition-all duration-200 uppercase text-sm tracking-wider font-medium group"
+                      aria-label="Start your ZiNRAi membership"
                     >
                       <span className="group-hover:font-bold transition-all duration-200">Start Now</span>
                     </button>
