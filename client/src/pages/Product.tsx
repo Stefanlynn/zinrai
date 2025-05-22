@@ -284,7 +284,11 @@ export default function Product() {
                   tabIndex={0}
                   aria-label={`Learn more about ${productDetails[index].title}`}
                   className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 ${
-                    activeIndex === index ? `bg-gradient-to-r ${getProductColorClass(index)} shadow-lg` : 'bg-white/5 hover:bg-white/10'
+                    activeIndex === index ? 
+                    'bg-gradient-to-r shadow-lg' : 
+                    'bg-black/30 hover:bg-black/40 backdrop-blur-sm'
+                  } ${
+                    activeIndex === index ? `${getProductColorClass(index)}` : ''
                   }`}
                 >
                   <div className="flex items-start">
