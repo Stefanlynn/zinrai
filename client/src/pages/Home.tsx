@@ -11,6 +11,7 @@ import runningVideo from "../assets/man-running-in-park-for-fitness-and-healthy-
 import familyTravelVideo from "../assets/finally-travel-happy-family-of-four-in-protective-masks-with-luggage-walking-to-air-SBV-347036154-4K.mp4";
 import coastlineVideo from "../assets/exploring-the-coastline-young-people-in-slow-motion-searching-for-a-path-SBV-316823787-HD.mp4";
 import kayakVideo from "../assets/couple-in-a-kayak-in-the-jungle-of-krabi-thailand-men-and-women-in-a-kayak-in-a-tro-SBV-348822411-4K.mp4";
+import japaneseWomanVideo from "../assets/japanese-woman-gracefully-dancing-with-fans-in-a-blooming-park-SBV-346616982-4K.mp4";
 
 // Import the ZiNRAi logo
 import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
@@ -49,8 +50,8 @@ export default function Home() {
   
   // Video display in grid - track grid box positions
   const [activeVideoBoxes, setActiveVideoBoxes] = useState<Record<number, string>>({});
-  // Video sources - all six videos for the grid
-  const videoSources = [tradingVideo, viennaVideo, runningVideo, familyTravelVideo, coastlineVideo, kayakVideo];
+  // Video sources - all seven videos for the grid
+  const videoSources = [tradingVideo, viennaVideo, runningVideo, familyTravelVideo, coastlineVideo, kayakVideo, japaneseWomanVideo];
   
   // Custom spinning plus component
   const SpinningPlus = ({ size = 18, className = "" }) => {
@@ -361,7 +362,7 @@ export default function Home() {
   // Effect for displaying videos in the grid
   useEffect(() => {
     // Display videos in specific grid boxes
-    const boxPositions = [1, 2, 3, 4, 5, 6]; // Top-left, top-right, center-left, center-right, bottom-left, and bottom-right boxes
+    const boxPositions = [1, 2, 3, 4, 5, 6, 7]; // Using all grid positions for videos
     const newVideoBoxes: Record<number, string> = {};
     
     // Place each video in its designated box
