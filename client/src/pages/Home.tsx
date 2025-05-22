@@ -355,78 +355,31 @@ export default function Home() {
   
   // No longer using toggle effect between logo and START NOW
   
-  // Effect for specific pattern of image animation - 2 images top to bottom, then 4 across
+  // Effect for static, non-moving images - all 4 images displayed in fixed positions
   useEffect(() => {
     let timers: NodeJS.Timeout[] = [];
-    let animationStep = 0; // Track which step of the animation sequence we're on
-    let animationInterval: NodeJS.Timeout | null = null;
     
-    // Function to start the sequence-based image animation
-    const startPatternAnimation = () => {
-      // Patterns for the animation
-      const animationPatterns = [
-        // Pattern 1: Two images at the top (boxes 1 and 2)
-        { boxNumbers: [1, 2], imageCount: 2 },
-        
-        // Pattern 2: Two images in the second row (boxes 3 and 4)
-        { boxNumbers: [3, 4], imageCount: 2 },
-        
-        // Pattern 3: Two images in the third row (boxes 5 and 6)
-        { boxNumbers: [5, 6], imageCount: 2 },
-        
-        // Pattern 4: Two images at the bottom (boxes 7 and 8)
-        { boxNumbers: [7, 8], imageCount: 2 },
-        
-        // Pattern 5: Four images across (e.g., boxes 1, 3, 5, 7 - left column)
-        { boxNumbers: [1, 3, 5, 7], imageCount: 4 },
-        
-        // Pattern 6: Four images across (e.g., boxes 2, 4, 6, 8 - right column)
-        { boxNumbers: [2, 4, 6, 8], imageCount: 4 }
-      ];
+    // Function to display all images in fixed positions
+    const displayFixedImages = () => {
+      // Fixed boxes for our 4 images
+      // Using a visually balanced layout with one image in each quadrant
+      const fixedBoxes = [1, 4, 5, 8]; // Top-left, top-right, bottom-left, bottom-right
+      const newActiveBoxes: Record<number, string> = {};
       
-      // Function to display images in specific boxes according to current pattern
-      const displayImagesInPattern = (patternIndex: number) => {
-        const pattern = animationPatterns[patternIndex];
-        const newActiveBoxes: Record<number, string> = {};
-        
-        // Clear existing boxes first
-        setActiveFlickerBoxes({});
-        
-        // Add images to the specified boxes
-        for (let i = 0; i < pattern.imageCount; i++) {
-          // Use appropriate image from our image array, cycling if needed
-          const imageIndex = i % flickerImages.length;
-          const boxNumber = pattern.boxNumbers[i];
-          
-          // Add this box and image to active boxes
-          newActiveBoxes[boxNumber] = flickerImages[imageIndex];
-        }
-        
-        // Update with the new pattern
-        setActiveFlickerBoxes(newActiveBoxes);
-      };
-      
-      // Initialize with first pattern
-      displayImagesInPattern(0);
-      
-      // Set up interval to cycle through patterns
-      animationInterval = setInterval(() => {
-        // Move to next animation step
-        animationStep = (animationStep + 1) % animationPatterns.length;
-        
-        // Display images according to current pattern
-        displayImagesInPattern(animationStep);
-      }, 4000); // Change every 4 seconds to allow for fade animation
-      
-      if (animationInterval) {
-        timers.push(animationInterval as unknown as NodeJS.Timeout);
+      // Place each image in its designated box
+      for (let i = 0; i < flickerImages.length; i++) {
+        const boxNumber = fixedBoxes[i];
+        newActiveBoxes[boxNumber] = flickerImages[i];
       }
+      
+      // Set the images once (no animation or movement)
+      setActiveFlickerBoxes(newActiveBoxes);
     };
     
-    // Start the pattern animation after a short delay
+    // Start with a short delay to allow page to fully render
     const initialTimer = setTimeout(() => {
-      startPatternAnimation();
-    }, 2000);
+      displayFixedImages();
+    }, 1000);
     
     timers.push(initialTimer);
     
