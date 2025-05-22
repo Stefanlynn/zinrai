@@ -3,9 +3,10 @@ import { useLocation } from "wouter";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiToggleRight, FiPlay, FiPower, FiEye, FiCircle, FiPlus, FiRotateCw } from "react-icons/fi";
 
-// Import video
+// Import videos
 import { RiFilmLine, RiVideoLine } from "react-icons/ri";
 import tradingVideo from "../assets/young-man-trading-online-with-tablet-at-home-SBV-338739703-4K.mp4";
+import viennaVideo from "../assets/vienna-austria-august-2022-slow-motion-footage-of-the-united-nations-headquarters-f-SBV-347184715-4K.mp4";
 
 // Import the ZiNRAi logo
 import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
@@ -44,8 +45,8 @@ export default function Home() {
   
   // Video display in grid - track grid box positions
   const [activeVideoBoxes, setActiveVideoBoxes] = useState<Record<number, string>>({});
-  // Video sources - starting with the trading video
-  const videoSources = [tradingVideo];
+  // Video sources - adding both trading and Vienna videos
+  const videoSources = [tradingVideo, viennaVideo];
   
   // Custom spinning plus component
   const SpinningPlus = ({ size = 18, className = "" }) => {
@@ -353,18 +354,21 @@ export default function Home() {
   
   // No longer using toggle effect between logo and START NOW
   
-  // Effect for displaying video in the middle of the grid
+  // Effect for displaying videos in the grid
   useEffect(() => {
-    // Display the video in the center of the grid (box 4)
-    const centerBox = 4; // Center-right box in the grid
+    // Display videos in specific grid boxes
+    const boxPositions = [4, 5]; // Center-right and bottom-left boxes
     const newVideoBoxes: Record<number, string> = {};
     
-    // Place the video in the center box
-    if (videoSources.length > 0) {
-      newVideoBoxes[centerBox] = videoSources[0];
-    }
+    // Place each video in its designated box
+    videoSources.forEach((videoSrc, index) => {
+      if (index < boxPositions.length) {
+        const boxNumber = boxPositions[index];
+        newVideoBoxes[boxNumber] = videoSrc;
+      }
+    });
     
-    // Set the video display
+    // Set the videos display
     setActiveVideoBoxes(newVideoBoxes);
   }, []);
 
