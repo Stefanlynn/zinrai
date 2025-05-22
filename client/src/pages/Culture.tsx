@@ -460,9 +460,9 @@ export default function Culture() {
             </div>
             
             {/* Right Side - Value Detail (Desktop Only) */}
-            <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
-              <div className={`rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 ${getColorClass(cultureValues[activeValue].color, 'border')}`}>
-                <div className="p-10 overflow-y-auto max-h-[70vh]">
+            <div className={`hidden md:block w-1/2 p-16 py-20 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
+              <div className="rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 border-white/20">
+                <div className="p-10 overflow-y-auto max-h-[80vh]">
                   {/* Value header with animated dot */}
                   <div className="flex items-center mb-8">
                     <div className={`w-3 h-3 rounded-full ${getColorClass(cultureValues[activeValue].color, 'bg')} mr-3`}></div>
