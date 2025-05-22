@@ -275,14 +275,7 @@ export default function Partner() {
           
           {/* Right Side - Benefit Detail (Desktop Only) */}
           <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
-            <div className={`rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 ${
-              activeIndex === 0 ? 'border-teal-500/30' : 
-              activeIndex === 1 ? 'border-pink-500/30' : 
-              activeIndex === 2 ? 'border-cyan-500/30' : 
-              activeIndex === 3 ? 'border-amber-500/30' : 
-              activeIndex === 4 ? 'border-emerald-500/30' : 
-              'border-indigo-500/30'
-            }`}>
+            <div className="rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 border-white/20">
               <div className="p-10 overflow-y-auto max-h-[70vh]">
                 {/* Product header with animated dot */}
                 <div className="flex items-center mb-8">
