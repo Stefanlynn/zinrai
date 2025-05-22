@@ -357,8 +357,8 @@ export default function Home() {
   
   // Effect for static, non-moving images - all 4 images displayed in fixed positions
   useEffect(() => {
-    // Immediately display all 4 images in fixed positions
-    const fixedBoxes = [1, 4, 5, 8]; // Top-left, top-right, bottom-left, bottom-right
+    // Immediately display all 4 images in the middle of the grid
+    const fixedBoxes = [3, 4, 5, 6]; // Middle four boxes in the 2x2 center of the grid
     const newActiveBoxes: Record<number, string> = {};
     
     // Place each image in its designated box
