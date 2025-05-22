@@ -44,6 +44,9 @@ function Router() {
       <Route path="/partner">
         {() => <PageWithHeader><Partner /></PageWithHeader>}
       </Route>
+      <Route path="/brand-promoter">
+        {() => <PageWithHeader><Partner /></PageWithHeader>}
+      </Route>
       <Route path="/culture">
         {() => <PageWithHeader><Culture /></PageWithHeader>}
       </Route>
