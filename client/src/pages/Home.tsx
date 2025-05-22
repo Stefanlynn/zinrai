@@ -3,12 +3,9 @@ import { useLocation } from "wouter";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiToggleRight, FiPlay, FiPower, FiEye, FiCircle, FiPlus, FiRotateCw } from "react-icons/fi";
 
-// Import flicker images
-import beachImage from "../assets/flicker-images/beach.jpg";
-import cryptoImage from "../assets/flicker-images/crypto.jpg";
-import runnerImage from "../assets/flicker-images/runner.jpg";
-import womanImage from "../assets/flicker-images/woman.jpg";
+// Import video
 import { RiFilmLine, RiVideoLine } from "react-icons/ri";
+import tradingVideo from "../assets/young-man-trading-online-with-tablet-at-home-SBV-338739703-4K.mp4";
 
 // Import the ZiNRAi logo
 import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
@@ -45,9 +42,10 @@ export default function Home() {
   // Get current location for navigation-aware behavior
   const [location] = useLocation();
   
-  // Flicker images state - track multiple active boxes
-  const [activeFlickerBoxes, setActiveFlickerBoxes] = useState<Record<number, string>>({});
-  const flickerImages = [beachImage, cryptoImage, runnerImage, womanImage];
+  // Video display in grid - track grid box positions
+  const [activeVideoBoxes, setActiveVideoBoxes] = useState<Record<number, string>>({});
+  // Video sources - starting with the trading video
+  const videoSources = [tradingVideo];
   
   // Custom spinning plus component
   const SpinningPlus = ({ size = 18, className = "" }) => {
@@ -355,22 +353,19 @@ export default function Home() {
   
   // No longer using toggle effect between logo and START NOW
   
-  // Effect for static, non-moving images - all 4 images displayed in fixed positions
+  // Effect for displaying video in the middle of the grid
   useEffect(() => {
-    // Immediately display all 4 images in the middle of the grid
-    const fixedBoxes = [3, 4, 5, 6]; // Middle four boxes in the 2x2 center of the grid
-    const newActiveBoxes: Record<number, string> = {};
+    // Display the video in the center of the grid (box 4)
+    const centerBox = 4; // Center-right box in the grid
+    const newVideoBoxes: Record<number, string> = {};
     
-    // Place each image in its designated box
-    for (let i = 0; i < flickerImages.length; i++) {
-      const boxNumber = fixedBoxes[i];
-      newActiveBoxes[boxNumber] = flickerImages[i];
+    // Place the video in the center box
+    if (videoSources.length > 0) {
+      newVideoBoxes[centerBox] = videoSources[0];
     }
     
-    // Set the images once (no animation or movement)
-    setActiveFlickerBoxes(newActiveBoxes);
-    
-    // No cleanup needed - static display with no timers
+    // Set the video display
+    setActiveVideoBoxes(newVideoBoxes);
   }, []);
 
   // Helper function to get the route for the current index
@@ -498,13 +493,13 @@ export default function Home() {
         {/* Border around the grid */}
         <div className="border-line animate-border absolute inset-0 border border-white/[0.15] opacity-0"></div>
         
-        {/* Flickering images for grid boxes - map through active boxes */}
-        {Object.entries(activeFlickerBoxes).map(([boxNum, imageSrc]) => {
+        {/* Videos in grid boxes - map through active video boxes */}
+        {Object.entries(activeVideoBoxes).map(([boxNum, videoSrc]) => {
           const boxNumber = parseInt(boxNum);
           return (
             <div 
               key={boxNumber}
-              className="flicker-box"
+              className="video-box"
               style={{
                 top: boxNumber === 1 || boxNumber === 2 ? '0' : 
                      boxNumber === 3 || boxNumber === 4 ? 'calc(25 * var(--vh))' : 
@@ -521,7 +516,7 @@ export default function Home() {
               }}
             >
               <div 
-                className="image-container" 
+                className="video-container" 
                 style={{
                   position: 'relative',
                   width: '100%',
@@ -529,11 +524,14 @@ export default function Home() {
                   overflow: 'hidden'
                 }}
               >
-                {/* Static image with no animation */}
-                <img 
-                  src={imageSrc} 
-                  alt="ZiNRAi lifestyle image" 
-                  className="flicker-image"
+                {/* Video element - autoplay, loop, muted */}
+                <video 
+                  src={videoSrc} 
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="grid-video"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -541,14 +539,13 @@ export default function Home() {
                     display: 'block',
                     position: 'absolute',
                     top: 0,
-                    left: 0,
-                    opacity: 1 /* Force images to be visible */
+                    left: 0
                   }}
                 />
                 
-                {/* Dark overlay */}
+                {/* Dark overlay (reduced opacity to better see video) */}
                 <div 
-                  className="image-overlay" 
+                  className="video-overlay" 
                   style={{
                     position: 'absolute',
                     top: 0,
@@ -556,7 +553,7 @@ export default function Home() {
                     right: 0,
                     bottom: 0,
                     backgroundColor: 'black',
-                    opacity: 0.5
+                    opacity: 0.3 /* Reduced opacity for videos */
                   }}
                 ></div>
               </div>
