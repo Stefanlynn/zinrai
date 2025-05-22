@@ -197,7 +197,12 @@ export default function Product() {
       
       {/* Mobile Product Detail Modal */}
       {showProductDetail && isMobile && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="product-detail-title"
+        >
           <div 
             className="absolute inset-0 bg-black/90 backdrop-blur-sm"
             onClick={closeProductDetail}
@@ -221,8 +226,8 @@ export default function Product() {
             <div className="p-6">
               {/* Product title with icon */}
               <div className="flex items-center mb-6">
-                <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
-                <h2 className="text-white text-xl font-medium">{productDetails[activeIndex].title}</h2>
+                <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`} aria-hidden="true"></div>
+                <h2 id="product-detail-title" className="text-white text-xl font-medium">{productDetails[activeIndex].title}</h2>
               </div>
               
               {/* Product description */}
@@ -242,7 +247,8 @@ export default function Product() {
                     activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
                     activeIndex === 2 ? 'from-green-600 to-green-500' : 
                     'from-orange-600 to-orange-500'
-                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg`}
+                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-2 focus:ring-white/40`}
+                  aria-label={`Start your ZiNRAi membership with ${productDetails[activeIndex].title}`}
                 >
                   START NOW
                 </button>
@@ -269,12 +275,23 @@ export default function Product() {
                 <div 
                   key={index}
                   onClick={() => handleProductClick(index)}
-                  className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 ${
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      handleProductClick(index);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Learn more about ${productDetails[index].title}`}
+                  className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 ${
                     activeIndex === index ? `bg-gradient-to-r ${getProductColorClass(index)} shadow-lg` : 'bg-white/5 hover:bg-white/10'
                   }`}
                 >
                   <div className="flex items-start">
-                    <div className={`w-4 h-4 rounded-full mt-1 ${getProductIconColor(index)} mr-3 flex-shrink-0`}></div>
+                    <div 
+                      className={`w-4 h-4 rounded-full mt-1 ${getProductIconColor(index)} mr-3 flex-shrink-0`}
+                      aria-hidden="true"
+                    ></div>
                     <div>
                       <h2 className={`text-white text-lg font-medium mb-1`}>
                         {service}
@@ -292,7 +309,8 @@ export default function Product() {
             <div className={`mt-8 mb-20 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
               <button
                 onClick={() => navigate('/subscribe')}
-                className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors"
+                className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/40"
+                aria-label="Start your ZiNRAi membership now"
               >
                 START NOW
               </button>
