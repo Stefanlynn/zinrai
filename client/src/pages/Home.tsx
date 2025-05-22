@@ -383,12 +383,9 @@ export default function Home() {
     
     timers.push(initialTimer);
     
-    // Clean up timers and intervals on unmount
+    // Clean up timers on unmount
     return () => {
       timers.forEach(timer => clearTimeout(timer));
-      if (animationInterval) {
-        clearInterval(animationInterval);
-      }
     };
   }, []);
 
@@ -548,11 +545,11 @@ export default function Home() {
                   overflow: 'hidden'
                 }}
               >
-                {/* The image with flickering animation */}
+                {/* Static image with no animation */}
                 <img 
                   src={imageSrc} 
                   alt="ZiNRAi lifestyle image" 
-                  className="flicker-image animate-flicker"
+                  className="flicker-image"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -560,7 +557,8 @@ export default function Home() {
                     display: 'block',
                     position: 'absolute',
                     top: 0,
-                    left: 0
+                    left: 0,
+                    opacity: 1 /* Force images to be visible */
                   }}
                 />
                 
