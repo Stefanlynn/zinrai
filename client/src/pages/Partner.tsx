@@ -130,11 +130,19 @@ export default function Partner() {
       
       {/* Learn More Modal */}
       {showLearnMoreModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="partner-modal-title"
+        >
           {/* Overlay with grid lines matching the site*/}
-          <div className="absolute inset-0 bg-black/95">
+          <div 
+            className="absolute inset-0 bg-black/95"
+            onClick={toggleLearnMoreModal}
+          >
             {/* Grid lines in modal background */}
-            <div className="absolute inset-0 z-0 grid grid-cols-2 grid-rows-4 pointer-events-none opacity-30">
+            <div className="absolute inset-0 z-0 grid grid-cols-2 grid-rows-4 pointer-events-none opacity-30" aria-hidden="true">
               <div className="border-r border-white/20"></div>
               <div className="border-l border-white/20"></div>
               <div className="border-b border-white/20 col-span-2"></div>
@@ -151,11 +159,11 @@ export default function Partner() {
           >
             {/* Back button with improved visibility */}
             <button 
-              className="fixed top-6 left-6 text-white hover:text-white transition-all group z-[60] flex items-center bg-black/90 px-4 py-2 border border-white/30 hover:border-white/70" 
+              className="fixed top-6 left-6 text-white hover:text-white transition-all group z-[60] flex items-center bg-black/90 px-4 py-2 border border-white/30 hover:border-white/70 focus:outline-none focus:ring-2 focus:ring-white/40" 
               onClick={toggleLearnMoreModal}
-              aria-label="Go back"
+              aria-label="Close modal and go back"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 relative text-white mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 relative text-white mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               <span className="text-white font-medium">BACK</span>
@@ -163,7 +171,7 @@ export default function Partner() {
             
             {/* Modal Content */}
             <div className="p-10 sm:p-12 pt-20">
-              <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-light tracking-wider mb-10 animate-in fade-in duration-300" style={{ animationDelay: '150ms', animationFillMode: 'forwards' }}>
+              <h2 id="partner-modal-title" className="text-white text-xl sm:text-2xl md:text-3xl font-light tracking-wider mb-10 animate-in fade-in duration-300" style={{ animationDelay: '150ms', animationFillMode: 'forwards' }}>
                 INDEPENDENT REPRESENTATIVE
               </h2>
               
@@ -181,12 +189,21 @@ export default function Partner() {
                     key={index} 
                     className="border-b border-white/10 pb-10 last:border-b-0 animate-in fade-in duration-300" 
                     style={{ animationDelay: `${200 + index * 100}ms`, animationFillMode: 'forwards' }}
+                    tabIndex={0}
                   >
-                    <h3 className="text-white text-lg sm:text-xl font-medium mb-4 flex items-center">
-                      <span className="inline-block w-6 h-6 flex items-center justify-center border border-white/30 rounded-full text-sm mr-3">{index + 1}</span>
+                    <h3 
+                      id={`benefit-title-${index}`} 
+                      className="text-white text-lg sm:text-xl font-medium mb-4 flex items-center"
+                    >
+                      <span className="inline-block w-6 h-6 flex items-center justify-center border border-white/30 rounded-full text-sm mr-3" aria-hidden="true">{index + 1}</span>
                       {benefit.title}
                     </h3>
-                    <p className="text-white/70 text-sm sm:text-base leading-relaxed pl-9">{benefit.description}</p>
+                    <p 
+                      className="text-white/70 text-sm sm:text-base leading-relaxed pl-9"
+                      aria-labelledby={`benefit-title-${index}`}
+                    >
+                      {benefit.description}
+                    </p>
                   </div>
                 ))}
               </div>
