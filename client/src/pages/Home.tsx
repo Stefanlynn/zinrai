@@ -671,6 +671,14 @@ export default function Home() {
             className="start-now-text animate-content-glitch cursor-pointer"
             onClick={() => navigate('/subscribe')}
             onTouchStart={() => navigate('/subscribe')} /* Added touchstart for immediate response */
+            role="button"
+            tabIndex={0}
+            aria-label="Start your ZiNRAi membership"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                navigate('/subscribe');
+              }
+            }}
             style={{ 
               animationDelay: '1.2s',
               position: 'relative',
@@ -680,9 +688,9 @@ export default function Home() {
             }}
           >
             <div className="flex flex-col items-center group">
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-white">Start Now</div>
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-white focus-visible:text-white">Start Now</div>
               {/* Down arrow */}
-              <svg className="animate-bounce transition-all duration-200" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="animate-bounce transition-all duration-200" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-all duration-200"/>
               </svg>
             </div>
@@ -963,7 +971,13 @@ export default function Home() {
 
       {/* YouTube Video Popup */}
       {videoPopupOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/95 backdrop-blur-md" onClick={() => setVideoPopupOpen(false)}>
+        <div 
+          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/95 backdrop-blur-md" 
+          onClick={() => setVideoPopupOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="video-title"
+        >
           <div 
             className="relative w-[90vw] max-w-4xl animate-fadeIn" 
             onClick={(e) => e.stopPropagation()}
@@ -989,14 +1003,19 @@ export default function Home() {
               </div>
             </button>
             
+            {/* Hidden title for screen readers */}
+            <h2 id="video-title" className="sr-only">ZiNRAi Introduction Video</h2>
+            
             {/* Black screen placeholder instead of YouTube video */}
             <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl border border-white/10">
               {/* Simple black background div */}
               <div 
                 className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
+                role="img"
+                aria-label="Video placeholder - actual video will play when available"
               >
                 {/* Optional subtle play icon overlay */}
-                <div className="text-white/10">
+                <div className="text-white/10" aria-hidden="true">
                   <FiPlay size={64} />
                 </div>
               </div>
