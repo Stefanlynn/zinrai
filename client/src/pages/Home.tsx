@@ -355,75 +355,67 @@ export default function Home() {
   
   // No longer using toggle effect between logo and START NOW
   
-  // Effect for continuous image fading in grid boxes - no black screens or gaps
+  // Effect for specific pattern of image animation - 2 images top to bottom, then 4 across
   useEffect(() => {
     let timers: NodeJS.Timeout[] = [];
+    let animationStep = 0; // Track which step of the animation sequence we're on
     let animationInterval: NodeJS.Timeout | null = null;
     
-    // Helper function to shuffle an array
-    function shuffleArray(array: any[]) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-    
-    // Function to start the continuous image animation
-    const startContinuousAnimation = () => {
-      // Set up initial display of all 4 images
-      const initializeImages = () => {
-        // Get 4 random unique boxes from 8 possible boxes
-        const availableBoxes = Array.from({length: 8}, (_, i) => i + 1);
-        shuffleArray(availableBoxes);
-        const selectedBoxes = availableBoxes.slice(0, 4);
+    // Function to start the sequence-based image animation
+    const startPatternAnimation = () => {
+      // Patterns for the animation
+      const animationPatterns = [
+        // Pattern 1: Two images at the top (boxes 1 and 2)
+        { boxNumbers: [1, 2], imageCount: 2 },
         
-        // Assign each image to one of the selected boxes
-        for (let i = 0; i < flickerImages.length; i++) {
-          setActiveFlickerBoxes(prev => ({
-            ...prev,
-            [selectedBoxes[i]]: flickerImages[i]
-          }));
-        }
-      };
+        // Pattern 2: Two images in the second row (boxes 3 and 4)
+        { boxNumbers: [3, 4], imageCount: 2 },
+        
+        // Pattern 3: Two images in the third row (boxes 5 and 6)
+        { boxNumbers: [5, 6], imageCount: 2 },
+        
+        // Pattern 4: Two images at the bottom (boxes 7 and 8)
+        { boxNumbers: [7, 8], imageCount: 2 },
+        
+        // Pattern 5: Four images across (e.g., boxes 1, 3, 5, 7 - left column)
+        { boxNumbers: [1, 3, 5, 7], imageCount: 4 },
+        
+        // Pattern 6: Four images across (e.g., boxes 2, 4, 6, 8 - right column)
+        { boxNumbers: [2, 4, 6, 8], imageCount: 4 }
+      ];
       
-      // Initialize with first set of images
-      initializeImages();
-      
-      // Set up continuous shifting of images to new boxes
-      // Images will smoothly fade in and out with CSS animation
-      animationInterval = setInterval(() => {
-        // Get current active boxes
-        const currentBoxes = Object.keys(activeFlickerBoxes).map(Number);
-        
-        // Get boxes that are not currently active
-        const availableBoxes = Array.from({length: 8}, (_, i) => i + 1)
-          .filter(boxNum => !currentBoxes.includes(boxNum));
-        
-        // If we don't have enough available boxes, we'll reuse some current ones
-        if (availableBoxes.length < flickerImages.length) {
-          const neededExtraBoxes = flickerImages.length - availableBoxes.length;
-          const extraBoxes = shuffleArray([...currentBoxes]).slice(0, neededExtraBoxes);
-          availableBoxes.push(...extraBoxes);
-        }
-        
-        // Shuffle available boxes and select new ones for this round
-        shuffleArray(availableBoxes);
-        const newBoxes = availableBoxes.slice(0, flickerImages.length);
-        
-        // First prepare new boxes with current images
-        // This ensures we always have exactly 4 images visible at all times
+      // Function to display images in specific boxes according to current pattern
+      const displayImagesInPattern = (patternIndex: number) => {
+        const pattern = animationPatterns[patternIndex];
         const newActiveBoxes: Record<number, string> = {};
         
-        // Use the same 4 images, just move them to new boxes
-        // This guarantees 4 images are showing at all times
-        for (let i = 0; i < flickerImages.length; i++) {
-          newActiveBoxes[newBoxes[i]] = flickerImages[i];
+        // Clear existing boxes first
+        setActiveFlickerBoxes({});
+        
+        // Add images to the specified boxes
+        for (let i = 0; i < pattern.imageCount; i++) {
+          // Use appropriate image from our image array, cycling if needed
+          const imageIndex = i % flickerImages.length;
+          const boxNumber = pattern.boxNumbers[i];
+          
+          // Add this box and image to active boxes
+          newActiveBoxes[boxNumber] = flickerImages[imageIndex];
         }
         
-        // This update will ensure all 4 images are always visible
-        // CSS will handle the smooth fade transition
+        // Update with the new pattern
         setActiveFlickerBoxes(newActiveBoxes);
+      };
+      
+      // Initialize with first pattern
+      displayImagesInPattern(0);
+      
+      // Set up interval to cycle through patterns
+      animationInterval = setInterval(() => {
+        // Move to next animation step
+        animationStep = (animationStep + 1) % animationPatterns.length;
+        
+        // Display images according to current pattern
+        displayImagesInPattern(animationStep);
       }, 4000); // Change every 4 seconds to allow for fade animation
       
       if (animationInterval) {
@@ -431,9 +423,9 @@ export default function Home() {
       }
     };
     
-    // Start the continuous animation after a short delay
+    // Start the pattern animation after a short delay
     const initialTimer = setTimeout(() => {
-      startContinuousAnimation();
+      startPatternAnimation();
     }, 2000);
     
     timers.push(initialTimer);
