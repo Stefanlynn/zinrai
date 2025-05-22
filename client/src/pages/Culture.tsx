@@ -57,7 +57,7 @@ export default function Culture() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen h-auto w-full overflow-y-auto">
       {/* Grid Lines */}
       <div className="fixed inset-0 z-[1] pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-white/10"></div>
@@ -70,7 +70,7 @@ export default function Culture() {
         <div className="absolute top-0 bottom-0 right-0 w-[1.5px] bg-white/10"></div>
       </div>
       
-      {/* Page Content */}
+      {/* Page Content - added styles to ensure scrollability */}
       <div className="container mx-auto pt-[8vh] pb-32 px-4 relative z-10">
         {/* Video Section */}
         <div className="mb-12 w-full">
