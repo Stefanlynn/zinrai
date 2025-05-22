@@ -634,7 +634,7 @@ export default function Home() {
                 {/* The image with flickering animation */}
                 <img 
                   src={imageSrc} 
-                  alt="" 
+                  alt="ZiNRAi lifestyle image" 
                   className="flicker-image animate-flicker"
                   style={{
                     width: '100%',
@@ -702,6 +702,14 @@ export default function Home() {
             className="watch-now-text animate-content-glitch cursor-pointer"
             onClick={handleWatchClick}
             onTouchStart={handleWatchClick} /* Added touchstart for immediate response */
+            role="button"
+            tabIndex={0}
+            aria-label="Watch ZiNRAi introduction video"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                handleWatchClick();
+              }
+            }}
             style={{ 
               animationDelay: '1.6s',
               position: 'relative',
@@ -711,9 +719,9 @@ export default function Home() {
             }}
           >
             <div className="flex flex-col items-center group">
-              <div className="text-[11px] tracking-[0.1em] text-white/70 font-light uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-white">Watch Now</div>
+              <div className="text-[11px] tracking-[0.1em] text-white/70 font-light uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-white focus-visible:text-white">Watch Now</div>
               {/* Down arrow */}
-              <svg className="animate-bounce transition-all duration-200" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="animate-bounce transition-all duration-200" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 1L7 7L13 1" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-all duration-200"/>
               </svg>
             </div>
@@ -843,10 +851,19 @@ export default function Home() {
                       navigate('/product');
                       toggleMenu();
                     }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Go to Products page"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        navigate('/product');
+                        toggleMenu();
+                      }
+                    }}
                   >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[0].number}</div>
+                    <div className="text-white/40 text-xs tracking-wider mb-1" aria-hidden="true">{contentItems[0].number}</div>
                     <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[0].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
+                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1" aria-hidden="true"></div>
                   </div>
                   
                   <div 
@@ -855,10 +872,19 @@ export default function Home() {
                       navigate('/partner');
                       toggleMenu();
                     }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Go to Brand Promoter page"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        navigate('/partner');
+                        toggleMenu();
+                      }
+                    }}
                   >
-                    <div className="text-white/40 text-xs tracking-wider mb-1">{contentItems[1].number}</div>
+                    <div className="text-white/40 text-xs tracking-wider mb-1" aria-hidden="true">{contentItems[1].number}</div>
                     <div className="text-white/80 text-base font-light tracking-wide group-hover:text-white transition-colors">{contentItems[1].title}</div>
-                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1"></div>
+                    <div className="h-[1px] w-0 bg-white/30 group-hover:w-full transition-all duration-300 mt-1" aria-hidden="true"></div>
                   </div>
                 </div>
                 
