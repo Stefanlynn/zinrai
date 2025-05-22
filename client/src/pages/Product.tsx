@@ -319,20 +319,16 @@ export default function Product() {
           
           {/* Right Side - Product Detail (Desktop Only) */}
           <div className={`hidden md:block w-1/2 p-16 py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
-            <div className={`rounded border ${getProductColorClass(activeIndex)} overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95`}>
+            <div className={`rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 ${getProductColorClass(activeIndex)}`}>
               <div className="p-10 overflow-y-auto max-h-[70vh]">
                 {/* Product header with animated dot */}
-                <div className="flex items-center mb-6">
-                  <div className={`relative w-5 h-5 rounded-full ${getProductIconColor(activeIndex)} mr-4 shadow-glow`}>
-                    <div className={`absolute inset-0 ${getProductIconColor(activeIndex)} rounded-full animate-ping opacity-50`}></div>
-                  </div>
-                  <h2 className="text-white text-2xl lg:text-3xl font-medium">
-                    {productDetails[activeIndex].title}
-                  </h2>
+                <div className="flex items-center mb-8">
+                  <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
+                  <h3 className="text-white text-xl font-medium tracking-wide">{productDetails[activeIndex].title}</h3>
                 </div>
                 
                 {/* Product description with formatted content */}
-                <div className="text-white/90 leading-relaxed whitespace-pre-line">
+                <div className="text-white/80 text-base leading-relaxed mb-10 whitespace-pre-line">
                   {productDetails[activeIndex].description}
                 </div>
                 
