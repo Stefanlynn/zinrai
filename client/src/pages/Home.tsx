@@ -9,6 +9,7 @@ import tradingVideo from "../assets/young-man-trading-online-with-tablet-at-home
 import viennaVideo from "../assets/vienna-austria-august-2022-slow-motion-footage-of-the-united-nations-headquarters-f-SBV-347184715-4K.mp4";
 import runningVideo from "../assets/man-running-in-park-for-fitness-and-healthy-lifestyle-SBV-346641696-4K.mp4";
 import familyTravelVideo from "../assets/finally-travel-happy-family-of-four-in-protective-masks-with-luggage-walking-to-air-SBV-347036154-4K.mp4";
+import coastlineVideo from "../assets/exploring-the-coastline-young-people-in-slow-motion-searching-for-a-path-SBV-316823787-HD.mp4";
 
 // Import the ZiNRAi logo
 import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
@@ -47,8 +48,8 @@ export default function Home() {
   
   // Video display in grid - track grid box positions
   const [activeVideoBoxes, setActiveVideoBoxes] = useState<Record<number, string>>({});
-  // Video sources - adding all four videos
-  const videoSources = [tradingVideo, viennaVideo, runningVideo, familyTravelVideo];
+  // Video sources - all five videos for the grid
+  const videoSources = [tradingVideo, viennaVideo, runningVideo, familyTravelVideo, coastlineVideo];
   
   // Custom spinning plus component
   const SpinningPlus = ({ size = 18, className = "" }) => {
@@ -359,7 +360,7 @@ export default function Home() {
   // Effect for displaying videos in the grid
   useEffect(() => {
     // Display videos in specific grid boxes
-    const boxPositions = [3, 4, 5, 6]; // Center-left, center-right, bottom-left, and bottom-right boxes
+    const boxPositions = [2, 3, 4, 5, 6]; // Top-right, center-left, center-right, bottom-left, and bottom-right boxes
     const newVideoBoxes: Record<number, string> = {};
     
     // Place each video in its designated box
