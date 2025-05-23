@@ -466,7 +466,7 @@ export default function Product() {
         <div className="fixed inset-0 bg-black/95 z-[1100] overflow-y-auto flex items-center justify-center p-4">
           <div className="bg-gradient-to-br from-[#1a1a1a] to-black border border-white/20 rounded-lg max-w-md w-full relative shadow-2xl">
             <button 
-              className="absolute top-3 right-3 text-white/60 hover:text-white/90 w-8 h-8 flex items-center justify-center z-10 transition-all rounded-full hover:bg-white/10"
+              className="absolute top-4 right-4 text-white/60 hover:text-white/90 w-8 h-8 flex items-center justify-center z-10 transition-all rounded-full hover:bg-white/10 border border-white/20"
               onClick={() => setShowOnboardingModal(false)}
               aria-label="Close modal"
             >
