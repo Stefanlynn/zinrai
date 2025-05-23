@@ -435,7 +435,7 @@ function App() {
             <div className="hidden md:flex absolute left-[20px]">
               <button 
                 className="h-[32px] px-5 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
-                onClick={() => setShowOnboardingModal(true)}
+                onClick={() => setLocation('/subscribe')}
                 aria-label="Start your ZiNRAi membership"
               >
                 <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Start Now</span>
@@ -448,7 +448,7 @@ function App() {
             <div className="md:hidden flex items-center z-10 absolute left-[20px]">
               <button 
                 className="h-[32px] px-4 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
-                onClick={() => setShowOnboardingModal(true)}
+                onClick={() => setLocation('/subscribe')}
                 aria-label="Start your ZiNRAi membership"
               >
                 <span className="text-white/90 text-xs font-light tracking-wide hover:text-white">Start Now</span>

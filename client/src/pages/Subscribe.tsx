@@ -20,6 +20,23 @@ export default function Subscribe() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
   
+  // State for personal information form
+  const [personalInfo, setPersonalInfo] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    country: ''
+  });
+
+  // Handle personal info changes
+  const handlePersonalInfoChange = (field: string, value: string) => {
+    setPersonalInfo(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+  
   // Load animations when component mounts
   useEffect(() => {
     // Show all UI elements immediately
