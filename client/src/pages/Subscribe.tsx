@@ -20,23 +20,6 @@ export default function Subscribe() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
   
-  // State for personal information form
-  const [personalInfo, setPersonalInfo] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    country: ''
-  });
-
-  // Handle personal info changes
-  const handlePersonalInfoChange = (field: string, value: string) => {
-    setPersonalInfo(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-  
   // Load animations when component mounts
   useEffect(() => {
     // Show all UI elements immediately
@@ -651,29 +634,10 @@ export default function Subscribe() {
                              selectedTrack === 'marketing' ? 'Digital Marketing' : null) : null
                         };
                         
-                        // Prepare complete package and personal data for webhook
-                        const webhookData = {
-                          name: `${firstName} ${lastName}`,
-                          email: email,
-                          phone: (document.getElementById('phone') as HTMLInputElement)?.value || '',
-                          selectedPackage: selectedSubscription === 'all' ? 
-                                          (selectedMonthlyPlan === 'standard' ? 'All Access Standard' : 
-                                           selectedMonthlyPlan === 'vip' ? 'All Access VIP' : 'All Access') : 
-                                          independentRep ? 'Brand Promoter' : 'Custom Package',
-                          monthlyPlan: selectedMonthlyPlan,
-                          courseTrack: selectedSubscription === 'single' ? 
-                            (selectedTrack === 'forex' ? 'Foreign Exchange (Forex)' : 
-                             selectedTrack === 'stocks' ? 'Stocks & Options' :
-                             selectedTrack === 'crypto' ? 'Cryptocurrency' :
-                             selectedTrack === 'ecommerce' ? 'E-Commerce' :
-                             selectedTrack === 'marketing' ? 'Digital Marketing' : null) : null,
-                          country: country,
-                          address: `${address1} ${address2}`.trim(),
-                          city: city,
-                          state: state,
-                          postalCode: postal,
-                          subscriptionType: selectedSubscription,
-                          independentRep: independentRep,
+                        // Prepare form submission data
+                        const formData = {
+                          customerInfo: customerData,
+                          subscriptionInfo: subscriptionData,
                           timestamp: new Date().toISOString()
                         };
                         
@@ -681,16 +645,19 @@ export default function Subscribe() {
                         localStorage.setItem('customerData', JSON.stringify(customerData));
                         localStorage.setItem('subscriptionData', JSON.stringify(subscriptionData));
                         
-                        // Submit all data to your developer webhook
+                        // Submit form data to API
                         try {
                           setIsSubmitting(true);
                           
-                          const response = await fetch("https://dev.zinrai.com/api/onboarding?token=zXNN14tzDo2Z0cWqJQWchVg94pXtPSAwCo7EuHrr0581e2db", {
+                          // Use the API endpoint - dynamically determine based on environment
+                          const apiUrl = import.meta.env.VITE_API_URL || 'https://api.zinrai.com/submit';
+                          
+                          const response = await fetch(apiUrl, {
                             method: 'POST',
                             headers: {
                               'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify(webhookData)
+                            body: JSON.stringify(formData)
                           });
                           
                           if (response.ok) {
