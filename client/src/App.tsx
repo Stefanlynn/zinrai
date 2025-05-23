@@ -79,6 +79,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCaresModal, setShowCaresModal] = useState(false);
   const [showInfoCenter, setShowInfoCenter] = useState(false);
+  const [showOnboardingModal, setShowOnboardingModal] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const infoCenterRef = useRef<HTMLDivElement>(null);
   const [isHome] = useRoute("/");
@@ -316,34 +317,26 @@ function App() {
           {/* Start Now for desktop - moved to left side for home page only */}
           {isHomePage && (
             <div className="hidden md:flex absolute left-[20px]">
-              <a 
+              <button 
                 className="h-[32px] px-5 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
-                href="/subscribe"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setLocation('/subscribe');
-                }}
+                onClick={() => setShowOnboardingModal(true)}
                 aria-label="Start your ZiNRAi membership"
               >
                 <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Start Now</span>
-              </a>
+              </button>
             </div>
           )}
           
           {/* Start Now button for mobile - left side */}
           {isHomePage && (
             <div className="md:hidden flex items-center z-10 absolute left-[20px]">
-              <a 
+              <button 
                 className="h-[32px] px-4 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
-                href="/subscribe"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setLocation('/subscribe');
-                }}
+                onClick={() => setShowOnboardingModal(true)}
                 aria-label="Start your ZiNRAi membership"
               >
                 <span className="text-white/90 text-xs font-light tracking-wide hover:text-white">Start Now</span>
-              </a>
+              </button>
             </div>
           )}
             
