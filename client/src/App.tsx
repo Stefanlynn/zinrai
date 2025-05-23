@@ -20,6 +20,110 @@ import Checkout from "@/pages/Checkout";
 import NotFound from "@/pages/not-found";
 import ConfirmationPage from "@/pages/ConfirmationPage";
 
+// Onboarding Form Component
+function OnboardingForm({ onClose }: { onClose: () => void }) {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch("https://dev.zinrai.com/api/onboarding?token=zXNN14tzDo2Z0cWqJQWchVg94pXtPSAwCo7EuHrr0581e2db", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitMessage("Successfully submitted!");
+        setFormData({ name: '', email: '', phone: '' });
+        setTimeout(() => {
+          onClose();
+        }, 2000);
+      } else {
+        setSubmitMessage("Submission failed. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      setSubmitMessage("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label htmlFor="name" className="block text-white/80 text-sm font-medium mb-2">
+          Name *
+        </label>
+        <input
+          type="text"
+          id="name"
+          required
+          value={formData.name}
+          onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+          className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
+          placeholder="Enter your full name"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="email" className="block text-white/80 text-sm font-medium mb-2">
+          Email *
+        </label>
+        <input
+          type="email"
+          id="email"
+          required
+          value={formData.email}
+          onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+          className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
+          placeholder="Enter your email address"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="phone" className="block text-white/80 text-sm font-medium mb-2">
+          Phone
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          value={formData.phone}
+          onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+          className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
+          placeholder="Enter your phone number"
+        />
+      </div>
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(104,172,255,0.3)] focus:outline-none focus:ring-2 focus:ring-[var(--zinrai-blue-glow)]/50"
+      >
+        {isSubmitting ? 'Submitting...' : 'Join ZiNRAi'}
+      </button>
+
+      {submitMessage && (
+        <p className={`text-center text-sm mt-4 ${
+          submitMessage.includes('Successfully') ? 'text-green-400' : 'text-red-400'
+        }`}>
+          {submitMessage}
+        </p>
+      )}
+    </form>
+  );
+}
+
 // Component for pages that need the header
 function PageWithHeader({ children }: { children: React.ReactNode }) {
   return (
@@ -638,6 +742,36 @@ function App() {
               {/* Use the same component for both modal and route */}
               <div className="pt-8">
                 <ZiNRAiCares />
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Onboarding Modal */}
+        {showOnboardingModal && (
+          <div className="fixed inset-0 bg-black/95 z-[1100] overflow-y-auto flex items-center justify-center p-4">
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-black border border-white/20 rounded-lg max-w-md w-full relative shadow-2xl">
+              <button 
+                className="absolute top-4 right-4 text-white/80 hover:text-white p-2 z-10 transition-colors"
+                onClick={() => setShowOnboardingModal(false)}
+                aria-label="Close modal"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl font-light text-white mb-2 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                    Join ZiNRAi
+                  </h2>
+                  <p className="text-white/60 text-sm">
+                    Start your journey with us today
+                  </p>
+                </div>
+                
+                <OnboardingForm onClose={() => setShowOnboardingModal(false)} />
               </div>
             </div>
           </div>
