@@ -651,10 +651,29 @@ export default function Subscribe() {
                              selectedTrack === 'marketing' ? 'Digital Marketing' : null) : null
                         };
                         
-                        // Prepare form submission data
-                        const formData = {
-                          customerInfo: customerData,
-                          subscriptionInfo: subscriptionData,
+                        // Prepare complete package and personal data for webhook
+                        const webhookData = {
+                          name: `${firstName} ${lastName}`,
+                          email: email,
+                          phone: (document.getElementById('phone') as HTMLInputElement)?.value || '',
+                          selectedPackage: selectedSubscription === 'all' ? 
+                                          (selectedMonthlyPlan === 'standard' ? 'All Access Standard' : 
+                                           selectedMonthlyPlan === 'vip' ? 'All Access VIP' : 'All Access') : 
+                                          independentRep ? 'Brand Promoter' : 'Custom Package',
+                          monthlyPlan: selectedMonthlyPlan,
+                          courseTrack: selectedSubscription === 'single' ? 
+                            (selectedTrack === 'forex' ? 'Foreign Exchange (Forex)' : 
+                             selectedTrack === 'stocks' ? 'Stocks & Options' :
+                             selectedTrack === 'crypto' ? 'Cryptocurrency' :
+                             selectedTrack === 'ecommerce' ? 'E-Commerce' :
+                             selectedTrack === 'marketing' ? 'Digital Marketing' : null) : null,
+                          country: country,
+                          address: `${address1} ${address2}`.trim(),
+                          city: city,
+                          state: state,
+                          postalCode: postal,
+                          subscriptionType: selectedSubscription,
+                          independentRep: independentRep,
                           timestamp: new Date().toISOString()
                         };
                         
@@ -662,19 +681,16 @@ export default function Subscribe() {
                         localStorage.setItem('customerData', JSON.stringify(customerData));
                         localStorage.setItem('subscriptionData', JSON.stringify(subscriptionData));
                         
-                        // Submit form data to API
+                        // Submit all data to your developer webhook
                         try {
                           setIsSubmitting(true);
                           
-                          // Use the API endpoint - dynamically determine based on environment
-                          const apiUrl = import.meta.env.VITE_API_URL || 'https://api.zinrai.com/submit';
-                          
-                          const response = await fetch(apiUrl, {
+                          const response = await fetch("https://dev.zinrai.com/api/onboarding?token=zXNN14tzDo2Z0cWqJQWchVg94pXtPSAwCo7EuHrr0581e2db", {
                             method: 'POST',
                             headers: {
                               'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify(formData)
+                            body: JSON.stringify(webhookData)
                           });
                           
                           if (response.ok) {
