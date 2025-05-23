@@ -444,7 +444,7 @@ export default function Product() {
                 {/* Action button */}
                 <div className="mt-10 flex justify-center mb-8">
                   <button
-                    onClick={() => navigate('/subscribe')}
+                    onClick={() => setShowOnboardingModal(true)}
                     className={`px-12 py-3 bg-gradient-to-r ${
                       activeIndex === 0 ? 'from-red-600 to-red-500' : 
                       activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
@@ -460,6 +460,36 @@ export default function Product() {
           </div>
         </div>
       </div>
+      
+      {/* Onboarding Modal for Product page */}
+      {showOnboardingModal && (
+        <div className="fixed inset-0 bg-black/95 z-[1100] overflow-y-auto flex items-center justify-center p-4">
+          <div className="bg-gradient-to-br from-[#1a1a1a] to-black border border-white/20 rounded-lg max-w-md w-full relative shadow-2xl">
+            <button 
+              className="absolute top-4 right-4 text-white/80 hover:text-white p-2 z-10 transition-colors"
+              onClick={() => setShowOnboardingModal(false)}
+              aria-label="Close modal"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            
+            <div className="p-8">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-light text-white mb-2 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                  Join ZiNRAi
+                </h2>
+                <p className="text-white/60 text-sm">
+                  Start with our products today
+                </p>
+              </div>
+              
+              <OnboardingForm onClose={() => setShowOnboardingModal(false)} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

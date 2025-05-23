@@ -488,7 +488,7 @@ function App() {
                     <button 
                       onClick={() => {
                         setMenuOpen(false);
-                        setLocation('/subscribe');
+                        setShowOnboardingModal(true);
                       }}
                       className="px-4 py-2 border border-white/50 hover:border-white text-white/90 hover:text-white transition-all duration-200 uppercase text-sm tracking-wider font-medium group"
                       aria-label="Start your ZiNRAi membership"
