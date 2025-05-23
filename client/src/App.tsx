@@ -752,7 +752,7 @@ function App() {
           <div className="fixed inset-0 bg-black/95 z-[1100] overflow-y-auto flex items-center justify-center p-4">
             <div className="bg-gradient-to-br from-[#1a1a1a] to-black border border-white/20 rounded-lg max-w-md w-full relative shadow-2xl">
               <button 
-                className="absolute top-2 right-2 text-white/70 hover:text-white w-6 h-6 flex items-center justify-center z-10 transition-all"
+                className="absolute top-3 right-3 text-white/60 hover:text-white/90 w-7 h-7 flex items-center justify-center z-10 transition-all rounded-full hover:bg-white/5"
                 onClick={() => setShowOnboardingModal(false)}
                 aria-label="Close modal"
               >
