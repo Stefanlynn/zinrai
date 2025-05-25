@@ -173,7 +173,9 @@ function Router() {
       <Route path="/subscribe" component={Subscribe} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/confirmation" component={ConfirmationPage} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/privacy-policy">
+        {() => <PrivacyPolicy />}
+      </Route>
       <Route>
         {() => <PageWithHeader><NotFound /></PageWithHeader>}
       </Route>
