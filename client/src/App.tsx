@@ -249,8 +249,8 @@ function App() {
         
         {/* Info Center Modal */}
         {showInfoCenter && (
-          <div className="fixed inset-0 z-[1002] overflow-auto bg-black flex flex-col">
-            <div className="relative flex-1" ref={infoCenterRef}>
+          <div className="fixed inset-0 z-[1002] overflow-y-auto bg-black">
+            <div className="relative min-h-screen" ref={infoCenterRef}>
               {/* Close button */}
               <button 
                 className="absolute top-6 right-6 text-white/70 hover:text-white z-20"
@@ -283,12 +283,8 @@ function App() {
                     <li><button className="text-white/70 text-xs hover:text-white transition-colors">Terms & Conditions</button></li>
                     <li><button 
                       className="text-white/70 text-xs hover:text-white transition-colors text-left"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setShowInfoCenter(false);
-                        setTimeout(() => {
-                          setLocation('/privacy-policy');
-                        }, 50);
+                      onClick={() => {
+                        window.location.href = '/privacy-policy';
                       }}
                     >
                       Privacy Policy
