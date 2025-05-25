@@ -20,6 +20,7 @@ import Checkout from "@/pages/Checkout";
 import NotFound from "@/pages/not-found";
 import ConfirmationPage from "@/pages/ConfirmationPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TestPage from "@/pages/TestPage";
 
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
@@ -173,6 +174,9 @@ function Router() {
       <Route path="/subscribe" component={Subscribe} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/confirmation" component={ConfirmationPage} />
+      <Route path="/test">
+        {() => <TestPage />}
+      </Route>
       <Route path="/privacy-policy">
         {() => <PrivacyPolicy />}
       </Route>
@@ -281,6 +285,14 @@ function App() {
                   <h3 className="text-white/90 text-sm font-medium mb-4">Legal</h3>
                   <ul className="space-y-3">
                     <li><button className="text-white/70 text-xs hover:text-white transition-colors">Terms & Conditions</button></li>
+                    <li><button 
+                      className="text-white/70 text-xs hover:text-white transition-colors text-left"
+                      onClick={() => {
+                        window.location.href = '/test';
+                      }}
+                    >
+                      Test Page
+                    </button></li>
                     <li><button 
                       className="text-white/70 text-xs hover:text-white transition-colors text-left"
                       onClick={() => {
