@@ -19,6 +19,7 @@ import Subscribe from "@/pages/Subscribe";
 import Checkout from "@/pages/Checkout";
 import NotFound from "@/pages/not-found";
 import ConfirmationPage from "@/pages/ConfirmationPage";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
