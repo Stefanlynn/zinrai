@@ -284,8 +284,12 @@ function App() {
                     <li><button 
                       className="text-white/70 text-xs hover:text-white transition-colors"
                       onClick={() => {
+                        console.log('Privacy Policy clicked');
                         setShowInfoCenter(false);
-                        setLocation('/privacy-policy');
+                        setTimeout(() => {
+                          console.log('Navigating to privacy policy');
+                          setLocation('/privacy-policy');
+                        }, 100);
                       }}
                     >
                       Privacy Policy
