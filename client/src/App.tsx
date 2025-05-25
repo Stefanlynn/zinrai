@@ -173,6 +173,7 @@ function Router() {
       <Route path="/subscribe" component={Subscribe} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/confirmation" component={ConfirmationPage} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route>
         {() => <PageWithHeader><NotFound /></PageWithHeader>}
       </Route>
@@ -278,7 +279,15 @@ function App() {
                   <h3 className="text-white/90 text-sm font-medium mb-4">Legal</h3>
                   <ul className="space-y-3">
                     <li><button className="text-white/70 text-xs hover:text-white transition-colors">Terms & Conditions</button></li>
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Privacy Policy</button></li>
+                    <li><button 
+                      className="text-white/70 text-xs hover:text-white transition-colors"
+                      onClick={() => {
+                        setInfoCenter(false);
+                        window.location.href = '/privacy-policy';
+                      }}
+                    >
+                      Privacy Policy
+                    </button></li>
                     <li><button className="text-white/70 text-xs hover:text-white transition-colors">Brand Promoter Terms</button></li>
                   </ul>
                 </div>
