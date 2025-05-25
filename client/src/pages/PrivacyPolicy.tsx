@@ -1,14 +1,13 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[var(--zinrai-bg)] text-white">
+    <div className="min-h-screen bg-[var(--zinrai-bg)] text-white overflow-y-auto">
       {/* Header */}
-      <div className="bg-[#222222] h-12 flex items-center px-6">
+      <div className="bg-[#222222] h-12 flex items-center px-6 sticky top-0 z-10">
         <div className="text-lg font-light tracking-wider">ZiNRAi</div>
-        <div className="ml-4 text-sm text-white/60">Privacy Policy Page Loaded Successfully!</div>
       </div>
 
       {/* Privacy Policy Content */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-6 py-12 min-h-screen">
         <div className="space-y-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-light text-white mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
