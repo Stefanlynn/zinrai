@@ -4,6 +4,7 @@ export default function PrivacyPolicy() {
       {/* Header */}
       <div className="bg-[#222222] h-12 flex items-center px-6">
         <div className="text-lg font-light tracking-wider">ZiNRAi</div>
+        <div className="ml-4 text-sm text-white/60">Privacy Policy Page Loaded Successfully!</div>
       </div>
 
       {/* Privacy Policy Content */}

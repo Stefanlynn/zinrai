@@ -281,19 +281,12 @@ function App() {
                   <h3 className="text-white/90 text-sm font-medium mb-4">Legal</h3>
                   <ul className="space-y-3">
                     <li><button className="text-white/70 text-xs hover:text-white transition-colors">Terms & Conditions</button></li>
-                    <li><button 
-                      className="text-white/70 text-xs hover:text-white transition-colors"
-                      onClick={() => {
-                        console.log('Privacy Policy clicked');
-                        setShowInfoCenter(false);
-                        setTimeout(() => {
-                          console.log('Navigating to privacy policy');
-                          setLocation('/privacy-policy');
-                        }, 100);
-                      }}
+                    <li><a 
+                      href="/privacy-policy"
+                      className="text-white/70 text-xs hover:text-white transition-colors block"
                     >
                       Privacy Policy
-                    </button></li>
+                    </a></li>
                     <li><button className="text-white/70 text-xs hover:text-white transition-colors">Brand Promoter Terms</button></li>
                   </ul>
                 </div>
