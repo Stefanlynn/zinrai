@@ -226,10 +226,10 @@ function Router() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCaresModal, setShowCaresModal] = useState(false);
-  const [showLegalModal, setShowLegalModal] = useState(false);
+
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const infoCenterRef = useRef<HTMLDivElement>(null);
+
   const [isHome] = useRoute("/");
   const isHomePage = isHome;
   const [, setLocation] = useLocation();
@@ -274,12 +274,6 @@ function App() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    if (showLegalModal) setShowLegalModal(false);
-  };
-  
-  const toggleLegalModal = () => {
-    setShowLegalModal(!showLegalModal);
-    if (menuOpen) setMenuOpen(false);
   };
 
   return (
@@ -287,30 +281,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         
-        {/* Legal Documents Modal */}
-        {showLegalModal && (
-          <div className="fixed inset-0 bg-blue-900 z-50 flex items-center justify-center">
-            <div className="bg-yellow-400 p-8 rounded-lg max-w-sm w-full mx-4">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-black text-lg font-bold">Legal Documents</h2>
-                <button 
-                  onClick={() => setShowLegalModal(false)}
-                  className="text-black text-2xl hover:text-gray-600"
-                >
-                  ×
-                </button>
-              </div>
-              <div className="space-y-4">
-                <a href="#" className="block text-red-600 hover:text-red-800 underline">IBO Terms & Conditions</a>
-                <a href="#" className="block text-red-600 hover:text-red-800 underline">Cookie Policy</a>
-                <a href="/privacy-policy" className="block text-red-600 hover:text-red-800 underline">Privacy Policy</a>
-                <a href="#" className="block text-red-600 hover:text-red-800 underline">Refund Policy</a>
-                <a href="#" className="block text-red-600 hover:text-red-800 underline">Terms & Conditions</a>
-                <a href="#" className="block text-red-600 hover:text-red-800 underline">Terms of Use</a>
-              </div>
-            </div>
-          </div>
-        )}
+
         
         {/* Header - Clean minimal design with dark gray background */}
         <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10" role="banner">
@@ -406,22 +377,7 @@ function App() {
           
           {/* Profile and Info icons for desktop */}
           <div className="hidden md:flex items-center mr-6 space-x-2">
-            <a
-              className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                toggleLegalModal();
-              }}
-              aria-label="Open Info Center"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="text-white/70 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              <span className="sr-only">Info Center</span>
-            </a>
+
             <a
               className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
               href="/profile"
@@ -630,69 +586,7 @@ function App() {
                     </div>
                   </div>
                   
-                  {/* Info Center Section at bottom - simplified */}
-                  <div className="py-6 border-t border-white/20 mt-auto">
-                    <div className="max-w-3xl mx-auto px-8 md:px-16">
-                      <button 
-                        className="flex items-center justify-center mb-6 w-full focus:outline-none"
-                        onClick={() => {
-                          const infoContentEl = document.getElementById('info-content');
-                          if (infoContentEl) {
-                            if (infoContentEl.style.display === 'none' || infoContentEl.style.display === '') {
-                              infoContentEl.style.display = 'block';
-                              document.getElementById('info-arrow')?.classList.add('rotate-180');
-                            } else {
-                              infoContentEl.style.display = 'none';
-                              document.getElementById('info-arrow')?.classList.remove('rotate-180');
-                            }
-                          }
-                        }}
-                      >
-                        <h2 className="text-lg font-light text-white/90">Info Center</h2>
-                        <svg id="info-arrow" className="w-5 h-5 text-white/70 ml-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                      
-                      <div id="info-content" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" style={{ display: 'none' }}>
-                        <div>
-                          <h3 className="text-white/90 text-sm font-medium mb-4">Legal</h3>
-                          <ul className="space-y-3">
-                            <li><button className="text-white/70 text-xs hover:text-white">Terms & Conditions</button></li>
-                            <li><button className="text-white/70 text-xs hover:text-white">Privacy Policy</button></li>
-                            <li><button className="text-white/70 text-xs hover:text-white">Brand Promoter Terms</button></li>
-                          </ul>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-white/90 text-sm font-medium mb-4">Support</h3>
-                          <ul className="space-y-3">
-                            <li><button className="text-white/70 text-xs hover:text-white">FAQ</button></li>
-                            <li><button className="text-white/70 text-xs hover:text-white">Help Center</button></li>
-                            <li><button className="text-white/70 text-xs hover:text-white">Contact Support</button></li>
-                          </ul>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-white/90 text-sm font-medium mb-4">Company</h3>
-                          <ul className="space-y-3">
-                            <li><button className="text-white/70 text-xs hover:text-white">About Us</button></li>
-                            <li><button className="text-white/70 text-xs hover:text-white">Our Mission</button></li>
-                            <li><button className="text-white/70 text-xs hover:text-white">Careers</button></li>
-                          </ul>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-white/90 text-sm font-medium mb-4">Connect</h3>
-                          <ul className="space-y-3">
-                            <li><button className="text-white/70 text-xs hover:text-white">Instagram</button></li>
-                            <li><button className="text-white/70 text-xs hover:text-white">Twitter</button></li>
-                            <li><button className="text-white/70 text-xs hover:text-white">LinkedIn</button></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             )}
