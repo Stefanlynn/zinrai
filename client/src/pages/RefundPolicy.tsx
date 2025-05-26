@@ -1,7 +1,12 @@
 export default function RefundPolicy() {
   return (
-    <div className="min-h-screen bg-[#1a1a1a] text-white">
-      <div className="container mx-auto px-6 py-20 max-w-4xl">
+    <div className="bg-[#1a1a1a] text-white">
+      {/* Header */}
+      <div className="bg-[#222222] h-12 flex items-center px-6 sticky top-0 z-10">
+        <div className="text-lg font-light tracking-wider">ZiNRAi</div>
+      </div>
+      
+      <div className="container mx-auto px-6 py-12 max-w-4xl">
         <div className="prose prose-invert max-w-none">
           <h1 className="text-4xl font-light text-white mb-8 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
             Refund Policy
