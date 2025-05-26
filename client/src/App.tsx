@@ -285,16 +285,12 @@ function App() {
                   <h3 className="text-white/90 text-sm font-medium mb-4">Legal</h3>
                   <ul className="space-y-3">
                     <li><button className="text-white/70 text-xs hover:text-white transition-colors">Terms & Conditions</button></li>
-                    <li><button 
-                      className="text-white/70 text-xs hover:text-white transition-colors text-left"
-                      onClick={() => {
-                        setLocation('/privacy-policy');
-                        setShowInfoCenter(false);
-                        setMenuOpen(false);
-                      }}
+                    <li><a 
+                      href="/privacy-policy"
+                      className="text-white/70 text-xs hover:text-white transition-colors block"
                     >
                       Privacy Policy
-                    </button></li>
+                    </a></li>
                     <li><button className="text-white/70 text-xs hover:text-white transition-colors">Brand Promoter Terms</button></li>
                   </ul>
                 </div>
