@@ -248,9 +248,11 @@ function Router() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCaresModal, setShowCaresModal] = useState(false);
+  const [showPolicyDropdown, setShowPolicyDropdown] = useState(false);
 
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const policyDropdownRef = useRef<HTMLDivElement>(null);
 
   const [isHome] = useRoute("/");
   const isHomePage = isHome;
@@ -274,6 +276,9 @@ function App() {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
+      }
+      if (policyDropdownRef.current && !policyDropdownRef.current.contains(event.target as Node)) {
+        setShowPolicyDropdown(false);
       }
     }
     
@@ -399,6 +404,85 @@ function App() {
           
           {/* Profile and Info icons for desktop */}
           <div className="hidden md:flex items-center mr-6 space-x-2">
+            {/* Info icon with policy dropdown */}
+            <div className="relative" ref={policyDropdownRef}>
+              <button
+                className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
+                onClick={() => setShowPolicyDropdown(!showPolicyDropdown)}
+                aria-label="Policy Information"
+              >
+                <svg className="text-white/70 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </button>
+              
+              {/* Policy dropdown */}
+              {showPolicyDropdown && (
+                <div className="absolute right-0 top-full mt-2 w-56 bg-black/95 border border-white/20 rounded-lg shadow-xl z-50">
+                  <div className="p-2">
+                    <div className="text-white/80 text-xs font-medium mb-3 px-3 py-2 border-b border-white/10">
+                      Legal Documents
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setLocation('/ibo-terms');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
+                    >
+                      IBO Terms & Conditions
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/cookie-policy');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
+                    >
+                      Cookie Policy
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/privacy-policy');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
+                    >
+                      Privacy Policy
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/refund-policy');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
+                    >
+                      Refund Policy
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/terms-conditions');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
+                    >
+                      Terms & Conditions
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/terms-of-use');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
+                    >
+                      Terms of Use
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
 
             <a
               className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
