@@ -288,15 +288,9 @@ function App() {
                     <li><button 
                       className="text-white/70 text-xs hover:text-white transition-colors text-left"
                       onClick={() => {
-                        window.location.href = '/test';
-                      }}
-                    >
-                      Test Page
-                    </button></li>
-                    <li><button 
-                      className="text-white/70 text-xs hover:text-white transition-colors text-left"
-                      onClick={() => {
-                        window.location.href = '/privacy-policy';
+                        setLocation('/privacy-policy');
+                        setShowInfoCenter(false);
+                        setShowMenu(false);
                       }}
                     >
                       Privacy Policy
