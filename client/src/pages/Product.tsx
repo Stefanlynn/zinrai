@@ -413,13 +413,13 @@ export default function Product() {
             
             {/* Mobile action button */}
             <div className={`mt-8 mb-20 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
-              <button
-                onClick={() => setShowOnboardingModal(true)}
-                className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/40"
+              <a
+                href="/startnow"
+                className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/40 inline-block text-center"
                 aria-label="Start your ZiNRAi membership now"
               >
                 START NOW
-              </button>
+              </a>
             </div>
           </div>
           
@@ -440,17 +440,17 @@ export default function Product() {
                 
                 {/* Action button */}
                 <div className="mt-10 flex justify-center mb-8">
-                  <button
-                    onClick={() => setShowOnboardingModal(true)}
+                  <a
+                    href="/startnow"
                     className={`px-12 py-3 bg-gradient-to-r ${
                       activeIndex === 0 ? 'from-red-600 to-red-500' : 
                       activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
                       activeIndex === 2 ? 'from-green-600 to-green-500' : 
                       'from-orange-600 to-orange-500'
-                    } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg transform hover:scale-105 transition-transform duration-300`}
+                    } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg transform hover:scale-105 transition-transform duration-300 inline-block text-center`}
                   >
                     START NOW
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

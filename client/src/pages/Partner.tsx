@@ -368,13 +368,13 @@ export default function Partner() {
             
             {/* Mobile action button */}
             <div className={`mt-8 mb-20 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
-              <button
-                onClick={() => setShowOnboardingModal(true)}
-                className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/40"
+              <a
+                href="/startnow"
+                className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/40 inline-block text-center"
                 aria-label="Join as a Brand Promoter now"
               >
                 JOIN NOW
-              </button>
+              </a>
             </div>
           </div>
           
