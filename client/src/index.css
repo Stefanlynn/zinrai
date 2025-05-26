@@ -107,20 +107,20 @@ a {
   touch-action: auto;
 }
 
+/* Default body allows scrolling */
+body {
+  overflow: auto;
+  position: static;
+  height: auto;
+  width: auto;
+}
+
 /* When home page is active, make the body fixed */
 body.home-is-active {
   overflow: hidden;
   position: fixed;
   height: 100%;
   width: 100%;
-}
-
-/* Ensure policy pages can scroll */
-body:not(.home-is-active) {
-  overflow: auto;
-  position: static;
-  height: auto;
-  width: auto;
 }
 
 /* Custom utilities */
@@ -640,12 +640,12 @@ body:not(.home-is-active) {
   
   /* Mobile touch improvements */
   @media screen and (max-width: 767px) {
-    /* Remove fixed positioning that blocks touch events */
+    /* Allow normal scrolling on mobile */
     body {
       position: relative !important; 
       width: 100% !important;
-      height: 100% !important;
-      overflow: hidden !important;
+      height: auto !important;
+      overflow: auto !important;
       touch-action: auto !important; /* Allow default touch actions */
     }
     
