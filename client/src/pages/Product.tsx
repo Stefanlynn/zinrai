@@ -342,21 +342,18 @@ export default function Product() {
               
               {/* Sign up button */}
               <div className="flex justify-center mb-4">
-                <button
-                  onClick={() => {
-                    closeProductDetail();
-                    setShowOnboardingModal(true);
-                  }}
+                <a
+                  href="/startnow"
                   className={`px-10 py-3 bg-gradient-to-r ${
                     activeIndex === 0 ? 'from-red-600 to-red-500' : 
                     activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
                     activeIndex === 2 ? 'from-green-600 to-green-500' : 
                     'from-orange-600 to-orange-500'
-                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-2 focus:ring-white/40`}
+                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-2 focus:ring-white/40 inline-block text-center`}
                   aria-label={`Start your ZiNRAi membership with ${productDetails[activeIndex].title}`}
                 >
                   START NOW
-                </button>
+                </a>
               </div>
             </div>
           </div>
