@@ -190,7 +190,7 @@ function Router() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCaresModal, setShowCaresModal] = useState(false);
-  const [showInfoCenter, setShowInfoCenter] = useState(false);
+  const [showLegalModal, setShowLegalModal] = useState(false);
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const infoCenterRef = useRef<HTMLDivElement>(null);
@@ -238,11 +238,11 @@ function App() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    if (showInfoCenter) setShowInfoCenter(false);
+    if (showLegalModal) setShowLegalModal(false);
   };
   
-  const toggleInfoCenter = () => {
-    setShowInfoCenter(!showInfoCenter);
+  const toggleLegalModal = () => {
+    setShowLegalModal(!showLegalModal);
     if (menuOpen) setMenuOpen(false);
   };
 
@@ -251,26 +251,26 @@ function App() {
       <TooltipProvider>
         <Toaster />
         
-        {/* Brand New Info Center */}
-        {showInfoCenter && (
-          <div className="fixed inset-0 bg-red-500 z-50 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg max-w-sm w-full mx-4">
+        {/* Legal Documents Modal */}
+        {showLegalModal && (
+          <div className="fixed inset-0 bg-blue-900 z-50 flex items-center justify-center">
+            <div className="bg-yellow-400 p-8 rounded-lg max-w-sm w-full mx-4">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-black text-lg font-bold">Legal Documents</h2>
                 <button 
-                  onClick={() => setShowInfoCenter(false)}
+                  onClick={() => setShowLegalModal(false)}
                   className="text-black text-2xl hover:text-gray-600"
                 >
                   ×
                 </button>
               </div>
               <div className="space-y-4">
-                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">IBO Terms & Conditions</a>
-                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">Cookie Policy</a>
-                <a href="/privacy-policy" className="block text-blue-600 hover:text-blue-800 underline">Privacy Policy</a>
-                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">Refund Policy</a>
-                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">Terms & Conditions</a>
-                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">Terms of Use</a>
+                <a href="#" className="block text-red-600 hover:text-red-800 underline">IBO Terms & Conditions</a>
+                <a href="#" className="block text-red-600 hover:text-red-800 underline">Cookie Policy</a>
+                <a href="/privacy-policy" className="block text-red-600 hover:text-red-800 underline">Privacy Policy</a>
+                <a href="#" className="block text-red-600 hover:text-red-800 underline">Refund Policy</a>
+                <a href="#" className="block text-red-600 hover:text-red-800 underline">Terms & Conditions</a>
+                <a href="#" className="block text-red-600 hover:text-red-800 underline">Terms of Use</a>
               </div>
             </div>
           </div>
@@ -375,7 +375,7 @@ function App() {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                toggleInfoCenter();
+                toggleLegalModal();
               }}
               aria-label="Open Info Center"
             >
