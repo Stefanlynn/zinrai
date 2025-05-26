@@ -251,59 +251,42 @@ function App() {
       <TooltipProvider>
         <Toaster />
         
-        {/* Brand New Info Center */}
+        {/* Legal Links Info Center */}
         {showInfoCenter && (
-          <div className="fixed inset-0 z-50 bg-black flex items-center justify-center p-4">
-            <div className="bg-black border border-white/20 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-              <div className="p-8">
-                {/* Header with close */}
-                <div className="flex justify-between items-center mb-8">
-                  <h2 className="text-white text-2xl font-light">INFO CENTER</h2>
+          <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
+            <div className="bg-black border border-white/30 w-full max-w-md">
+              <div className="p-6">
+                {/* Header */}
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-white text-xl font-light">Legal Documents</h2>
                   <button 
                     onClick={() => setShowInfoCenter(false)}
-                    className="text-white/70 hover:text-white text-2xl"
+                    className="text-white/70 hover:text-white text-xl"
                   >
                     ×
                   </button>
                 </div>
                 
-                {/* 4 Column Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                  <div>
-                    <h3 className="text-white text-sm font-semibold mb-4">About</h3>
-                    <ul className="space-y-2">
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Our Story</a></li>
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Leadership Team</a></li>
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">ZiNRAi Cares</a></li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-white text-sm font-semibold mb-4">Legal</h3>
-                    <ul className="space-y-2">
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Terms & Conditions</a></li>
-                      <li><a href="/privacy-policy" className="text-white/70 text-xs hover:text-white block">Privacy Policy</a></li>
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Brand Promoter Terms</a></li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-white text-sm font-semibold mb-4">Support</h3>
-                    <ul className="space-y-2">
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">FAQ</a></li>
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Help Center</a></li>
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Contact Support</a></li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-white text-sm font-semibold mb-4">Connect</h3>
-                    <ul className="space-y-2">
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Contact Us</a></li>
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Careers</a></li>
-                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Media Inquiries</a></li>
-                    </ul>
-                  </div>
+                {/* Legal Links List */}
+                <div className="space-y-3">
+                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
+                    IBO Terms & Conditions
+                  </a>
+                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
+                    Cookie Policy
+                  </a>
+                  <a href="/privacy-policy" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
+                    Privacy Policy
+                  </a>
+                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
+                    Refund Policy
+                  </a>
+                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
+                    Terms & Conditions
+                  </a>
+                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2">
+                    Terms of Use
+                  </a>
                 </div>
               </div>
             </div>
