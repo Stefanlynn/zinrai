@@ -21,6 +21,7 @@ import NotFound from "@/pages/not-found";
 import ConfirmationPage from "@/pages/ConfirmationPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TestPage from "@/pages/TestPage";
+import StartNow from "@/pages/StartNow";
 
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
@@ -216,6 +217,7 @@ function Router() {
       <Route path="/privacy-policy">
         {() => <PrivacyPolicy />}
       </Route>
+      <Route path="/startnow" component={StartNow} />
       <Route>
         {() => <PageWithHeader><NotFound /></PageWithHeader>}
       </Route>
