@@ -251,43 +251,26 @@ function App() {
       <TooltipProvider>
         <Toaster />
         
-        {/* Legal Links Info Center */}
+        {/* Brand New Info Center */}
         {showInfoCenter && (
-          <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
-            <div className="bg-black border border-white/30 w-full max-w-md">
-              <div className="p-6">
-                {/* Header */}
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-white text-xl font-light">Legal Documents</h2>
-                  <button 
-                    onClick={() => setShowInfoCenter(false)}
-                    className="text-white/70 hover:text-white text-xl"
-                  >
-                    ×
-                  </button>
-                </div>
-                
-                {/* Legal Links List */}
-                <div className="space-y-3">
-                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
-                    IBO Terms & Conditions
-                  </a>
-                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
-                    Cookie Policy
-                  </a>
-                  <a href="/privacy-policy" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
-                    Privacy Policy
-                  </a>
-                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
-                    Refund Policy
-                  </a>
-                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2 border-b border-white/10">
-                    Terms & Conditions
-                  </a>
-                  <a href="#" className="block text-white/80 hover:text-white text-sm py-2">
-                    Terms of Use
-                  </a>
-                </div>
+          <div className="fixed inset-0 bg-red-500 z-50 flex items-center justify-center">
+            <div className="bg-white p-8 rounded-lg max-w-sm w-full mx-4">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-black text-lg font-bold">Legal Documents</h2>
+                <button 
+                  onClick={() => setShowInfoCenter(false)}
+                  className="text-black text-2xl hover:text-gray-600"
+                >
+                  ×
+                </button>
+              </div>
+              <div className="space-y-4">
+                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">IBO Terms & Conditions</a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">Cookie Policy</a>
+                <a href="/privacy-policy" className="block text-blue-600 hover:text-blue-800 underline">Privacy Policy</a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">Refund Policy</a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">Terms & Conditions</a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 underline">Terms of Use</a>
               </div>
             </div>
           </div>
