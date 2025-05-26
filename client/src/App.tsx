@@ -20,6 +20,11 @@ import Checkout from "@/pages/Checkout";
 import NotFound from "@/pages/not-found";
 import ConfirmationPage from "@/pages/ConfirmationPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import IboTerms from "@/pages/IboTerms";
+import CookiePolicy from "@/pages/CookiePolicy";
+import RefundPolicy from "@/pages/RefundPolicy";
+import TermsConditions from "@/pages/TermsConditions";
+import TermsOfUse from "@/pages/TermsOfUse";
 import TestPage from "@/pages/TestPage";
 import StartNow from "@/pages/StartNow";
 
@@ -216,6 +221,21 @@ function Router() {
       </Route>
       <Route path="/privacy-policy">
         {() => <PrivacyPolicy />}
+      </Route>
+      <Route path="/ibo-terms">
+        {() => <PageWithHeader><IboTerms /></PageWithHeader>}
+      </Route>
+      <Route path="/cookie-policy">
+        {() => <PageWithHeader><CookiePolicy /></PageWithHeader>}
+      </Route>
+      <Route path="/refund-policy">
+        {() => <PageWithHeader><RefundPolicy /></PageWithHeader>}
+      </Route>
+      <Route path="/terms-conditions">
+        {() => <PageWithHeader><TermsConditions /></PageWithHeader>}
+      </Route>
+      <Route path="/terms-of-use">
+        {() => <PageWithHeader><TermsOfUse /></PageWithHeader>}
       </Route>
       <Route path="/startnow" component={StartNow} />
       <Route>
@@ -588,6 +608,67 @@ function App() {
                     </div>
                   </div>
                   
+                  {/* Policy Links at bottom */}
+                  <div className="px-8 md:px-16 pb-8 mt-auto">
+                    <div className="border-t border-white/10 pt-6">
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 text-xs">
+                        <button 
+                          onClick={() => {
+                            setLocation('/ibo-terms');
+                            toggleMenu();
+                          }}
+                          className="text-white/60 hover:text-white/90 transition-colors text-left"
+                        >
+                          IBO Terms & Conditions
+                        </button>
+                        <button 
+                          onClick={() => {
+                            setLocation('/cookie-policy');
+                            toggleMenu();
+                          }}
+                          className="text-white/60 hover:text-white/90 transition-colors text-left"
+                        >
+                          Cookie Policy
+                        </button>
+                        <button 
+                          onClick={() => {
+                            setLocation('/privacy-policy');
+                            toggleMenu();
+                          }}
+                          className="text-white/60 hover:text-white/90 transition-colors text-left"
+                        >
+                          Privacy Policy
+                        </button>
+                        <button 
+                          onClick={() => {
+                            setLocation('/refund-policy');
+                            toggleMenu();
+                          }}
+                          className="text-white/60 hover:text-white/90 transition-colors text-left"
+                        >
+                          Refund Policy
+                        </button>
+                        <button 
+                          onClick={() => {
+                            setLocation('/terms-conditions');
+                            toggleMenu();
+                          }}
+                          className="text-white/60 hover:text-white/90 transition-colors text-left"
+                        >
+                          Terms & Conditions
+                        </button>
+                        <button 
+                          onClick={() => {
+                            setLocation('/terms-of-use');
+                            toggleMenu();
+                          }}
+                          className="text-white/60 hover:text-white/90 transition-colors text-left"
+                        >
+                          Terms of Use
+                        </button>
+                      </div>
+                    </div>
+                  </div>
 
                 </div>
               </div>
