@@ -115,6 +115,14 @@ body.home-is-active {
   width: 100%;
 }
 
+/* Ensure policy pages can scroll */
+body:not(.home-is-active) {
+  overflow: auto;
+  position: static;
+  height: auto;
+  width: auto;
+}
+
 /* Custom utilities */
 @layer utilities {
   /* Hide scrollbar but keep functionality */
