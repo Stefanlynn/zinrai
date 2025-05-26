@@ -290,7 +290,7 @@ function App() {
                       onClick={() => {
                         setLocation('/privacy-policy');
                         setShowInfoCenter(false);
-                        setShowMenu(false);
+                        setMenuOpen(false);
                       }}
                     >
                       Privacy Policy
