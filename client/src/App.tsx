@@ -25,12 +25,31 @@ import TestPage from "@/pages/TestPage";
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
   const [formData, setFormData] = useState({
-    name: '',
+    firstname: '',
+    lastname: '',
     email: '',
-    phone: ''
+    phone: '',
+    refid: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+
+  // Extract referral ID from URL on component mount
+  useEffect(() => {
+    function getParameterByName(name: string, url = window.location.href) {
+      name = name.replace(/[\[\]]/g, '\\$&');
+      const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+      const results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    
+    const refValue = getParameterByName('ref');
+    if (refValue) {
+      setFormData(prev => ({ ...prev, refid: refValue }));
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +65,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
 
       if (response.ok) {
         setSubmitMessage("Successfully submitted!");
-        setFormData({ name: '', email: '', phone: '' });
+        setFormData({ firstname: '', lastname: '', email: '', phone: '', refid: '' });
         setTimeout(() => {
           onClose();
         }, 2000);
@@ -63,18 +82,35 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <input type="hidden" id="refid" name="refid" value={formData.refid} />
+      
       <div>
-        <label htmlFor="name" className="block text-white/80 text-sm font-medium mb-2">
-          Name *
+        <label htmlFor="firstname" className="block text-white/80 text-sm font-medium mb-2">
+          First Name *
         </label>
         <input
           type="text"
-          id="name"
+          id="firstname"
           required
-          value={formData.name}
-          onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+          value={formData.firstname}
+          onChange={(e) => setFormData(prev => ({ ...prev, firstname: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder="Enter your full name"
+          placeholder="Enter your first name"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="lastname" className="block text-white/80 text-sm font-medium mb-2">
+          Last Name *
+        </label>
+        <input
+          type="text"
+          id="lastname"
+          required
+          value={formData.lastname}
+          onChange={(e) => setFormData(prev => ({ ...prev, lastname: e.target.value }))}
+          className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
+          placeholder="Enter your last name"
         />
       </div>
 
@@ -112,7 +148,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
         disabled={isSubmitting}
         className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(104,172,255,0.3)] focus:outline-none focus:ring-2 focus:ring-[var(--zinrai-blue-glow)]/50"
       >
-        {isSubmitting ? 'Submitting...' : 'Join ZiNRAi'}
+        {isSubmitting ? 'Joining...' : 'Join ZiNRAi'}
       </button>
 
       {submitMessage && (
