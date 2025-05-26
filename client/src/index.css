@@ -123,6 +123,13 @@ body:not(.home-is-active) {
   width: auto;
 }
 
+/* Specific fix for policy pages to ensure scrolling works */
+.policy-page-container {
+  overflow-y: auto !important;
+  height: 100vh !important;
+  position: relative !important;
+}
+
 /* Custom utilities */
 @layer utilities {
   /* Hide scrollbar but keep functionality */

@@ -1,6 +1,6 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[var(--zinrai-bg)] text-white">
+    <div className="policy-page-container bg-[var(--zinrai-bg)] text-white">
       {/* Header */}
       <div className="bg-[#222222] h-12 flex items-center px-6 sticky top-0 z-10">
         <div className="text-lg font-light tracking-wider">ZiNRAi</div>

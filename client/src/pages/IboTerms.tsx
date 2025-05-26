@@ -1,6 +1,6 @@
 export default function IboTerms() {
   return (
-    <div className="bg-[#1a1a1a] text-white">
+    <div className="policy-page-container bg-[#1a1a1a] text-white">
       {/* Header */}
       <div className="bg-[#222222] h-12 flex items-center px-6 sticky top-0 z-10">
         <div className="text-lg font-light tracking-wider">ZiNRAi</div>
