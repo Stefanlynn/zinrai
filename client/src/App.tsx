@@ -251,66 +251,59 @@ function App() {
       <TooltipProvider>
         <Toaster />
         
-        {/* Info Center Modal */}
+        {/* Brand New Info Center */}
         {showInfoCenter && (
-          <div className="fixed inset-0 z-[1002] overflow-y-auto bg-black">
-            <div className="relative min-h-screen" ref={infoCenterRef}>
-              {/* Close button */}
-              <button 
-                className="absolute top-6 right-6 text-white/70 hover:text-white z-20"
-                onClick={toggleInfoCenter}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              
-              {/* Title */}
-              <div className="p-6 sm:p-10">
-                <h2 className="text-white text-xl sm:text-2xl font-light mb-10">INFO CENTER</h2>
-              </div>
-              
-              {/* Content - 4 columns on desktop, stacked on mobile */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-6 sm:p-10 pt-0">
-                <div>
-                  <h3 className="text-white/90 text-sm font-medium mb-4">About</h3>
-                  <ul className="space-y-3">
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Our Story</button></li>
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Leadership Team</button></li>
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">ZiNRAi Cares</button></li>
-                  </ul>
+          <div className="fixed inset-0 z-50 bg-black flex items-center justify-center p-4">
+            <div className="bg-black border border-white/20 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+              <div className="p-8">
+                {/* Header with close */}
+                <div className="flex justify-between items-center mb-8">
+                  <h2 className="text-white text-2xl font-light">INFO CENTER</h2>
+                  <button 
+                    onClick={() => setShowInfoCenter(false)}
+                    className="text-white/70 hover:text-white text-2xl"
+                  >
+                    ×
+                  </button>
                 </div>
                 
-                <div>
-                  <h3 className="text-white/90 text-sm font-medium mb-4">Legal</h3>
-                  <ul className="space-y-3">
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Terms & Conditions</button></li>
-                    <li><a 
-                      href="/privacy-policy"
-                      className="text-white/70 text-xs hover:text-white transition-colors block"
-                    >
-                      Privacy Policy
-                    </a></li>
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Brand Promoter Terms</button></li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-white/90 text-sm font-medium mb-4">Support</h3>
-                  <ul className="space-y-3">
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">FAQ</button></li>
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Help Center</button></li>
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Contact Support</button></li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-white/90 text-sm font-medium mb-4">Connect</h3>
-                  <ul className="space-y-3">
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Contact Us</button></li>
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Careers</button></li>
-                    <li><button className="text-white/70 text-xs hover:text-white transition-colors">Media Inquiries</button></li>
-                  </ul>
+                {/* 4 Column Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                  <div>
+                    <h3 className="text-white text-sm font-semibold mb-4">About</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Our Story</a></li>
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Leadership Team</a></li>
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">ZiNRAi Cares</a></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-white text-sm font-semibold mb-4">Legal</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Terms & Conditions</a></li>
+                      <li><a href="/privacy-policy" className="text-white/70 text-xs hover:text-white block">Privacy Policy</a></li>
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Brand Promoter Terms</a></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-white text-sm font-semibold mb-4">Support</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">FAQ</a></li>
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Help Center</a></li>
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Contact Support</a></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-white text-sm font-semibold mb-4">Connect</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Contact Us</a></li>
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Careers</a></li>
+                      <li><a href="#" className="text-white/70 text-xs hover:text-white block">Media Inquiries</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
