@@ -366,7 +366,7 @@ export default function Product() {
           {/* Left Side - Products List */}
           <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-              OUR PRODUCTS
+              Our Courses
             </h1>
             <p className="text-white/70 text-lg mb-12 max-w-md">
               Discover our comprehensive suite of products designed to elevate your personal and financial growth.
