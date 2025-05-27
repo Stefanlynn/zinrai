@@ -405,22 +405,7 @@ export default function Partner() {
                   <p>This is more than a role—it's a platform to lead, earn, and make an impact while representing an innovative brand at the forefront of digital learning.</p>
                 </div>
                 
-                {/* Join Now button */}
-                <div className="mt-10 flex justify-center">
-                  <a
-                    href="/startnow"
-                    className={`px-10 py-3 bg-gradient-to-r ${
-                      activeIndex === 0 ? 'from-teal-600 to-teal-500' : 
-                      activeIndex === 1 ? 'from-pink-600 to-pink-500' : 
-                      activeIndex === 2 ? 'from-cyan-600 to-cyan-500' : 
-                      activeIndex === 3 ? 'from-amber-600 to-amber-500' : 
-                      activeIndex === 4 ? 'from-emerald-600 to-emerald-500' : 
-                      'from-indigo-600 to-indigo-500'
-                    } text-white font-medium rounded-sm shadow-lg hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-white/40 inline-block text-center`}
-                  >
-                    JOIN NOW
-                  </a>
-                </div>
+
               </div>
             </div>
           </div>
