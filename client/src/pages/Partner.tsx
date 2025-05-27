@@ -384,6 +384,25 @@ export default function Partner() {
         </div>
       </div>
       
+      {/* Contact Information Section */}
+      <div className="px-8 md:px-16 pb-16">
+        <div className="text-center max-w-2xl mx-auto">
+          <h3 className="text-white text-xl font-medium mb-4">Ready to get started?</h3>
+          <p className="text-white/80 text-base leading-relaxed mb-2">
+            Connect with the Brand Promoter who introduced you to ZiNRAi to enroll today.
+          </p>
+          <p className="text-white/80 text-base leading-relaxed">
+            If you have any questions, feel free to contact us at{' '}
+            <a 
+              href="mailto:info@zinrai.com" 
+              className="text-[var(--zinrai-blue-glow)] hover:text-white transition-colors"
+            >
+              info@zinrai.com
+            </a>
+          </p>
+        </div>
+      </div>
+      
       {/* Onboarding Modal for Partner page */}
       {showOnboardingModal && (
         <div className="fixed inset-0 bg-black/95 z-[1100] overflow-y-auto flex items-center justify-center p-4">
