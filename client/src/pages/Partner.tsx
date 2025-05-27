@@ -275,26 +275,7 @@ export default function Partner() {
                 {partnerDetails[activeIndex].description}
               </div>
               
-              {/* Join now button */}
-              <div className="flex justify-center mb-4">
-                <button
-                  onClick={() => {
-                    closeDetailModal();
-                    navigate('/subscribe');
-                  }}
-                  className={`px-10 py-3 bg-gradient-to-r ${
-                    activeIndex === 0 ? 'from-teal-600 to-teal-500' : 
-                    activeIndex === 1 ? 'from-pink-600 to-pink-500' : 
-                    activeIndex === 2 ? 'from-cyan-600 to-cyan-500' : 
-                    activeIndex === 3 ? 'from-amber-600 to-amber-500' : 
-                    activeIndex === 4 ? 'from-emerald-600 to-emerald-500' : 
-                    'from-indigo-600 to-indigo-500'
-                  } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-2 focus:ring-white/40`}
-                  aria-label={`Join now with ${partnerDetails[activeIndex].title} benefits`}
-                >
-                  JOIN NOW
-                </button>
-              </div>
+
             </div>
           </div>
         </div>
@@ -366,16 +347,7 @@ export default function Partner() {
               ))}
             </div>
             
-            {/* Mobile action button */}
-            <div className={`mt-8 mb-20 md:hidden transition-opacity duration-700 delay-300 ${animatedIn ? 'opacity-100' : 'opacity-0'}`}>
-              <a
-                href="/startnow"
-                className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm shadow-[0_0_15px_rgba(104,172,255,0.3)] hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/40 inline-block text-center"
-                aria-label="Join as a Brand Promoter now"
-              >
-                JOIN NOW
-              </a>
-            </div>
+
           </div>
           
           {/* Right Side - Benefit Detail (Desktop Only) */}
