@@ -34,15 +34,23 @@ export default function StartNow() {
     setSubmitMessage('');
 
     try {
-      const response = await fetch("https://dev.zinrai.com/api/onboarding?token=zXNN14tzDo2Z0cWqJQWchVg94pXtPSAwCo7EuHrr0581e2db", {
+      const response = await fetch("https://app.zinrai.com/api/onboarding?token=zXNN14tzDo2Z0cWqJQWchVg94pXtPSAwCo7EuHrr0581e2db", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
       if (response.ok) {
-        setSubmitMessage("Successfully submitted!");
-        setFormData({ firstname: '', lastname: '', email: '', phone: '', refid: '' });
+        const result = await response.json();
+        
+        // Check if the response contains a redirect_url
+        if (result.redirect_url) {
+          // Redirect to the ZiNRAi app signup page
+          window.location.href = result.redirect_url;
+        } else {
+          // Fallback redirect to the default ZiNRAi app signup URL
+          window.location.href = "https://app.zinrai.com/user-sign-up/cbffbd3d-cf2c-4e17-b4ef-defc759c7afd";
+        }
       } else {
         setSubmitMessage("Submission failed. Please try again.");
       }
