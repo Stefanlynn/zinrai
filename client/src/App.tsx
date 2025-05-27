@@ -492,7 +492,7 @@ function App() {
 
             
           {/* Mobile menu toggle */}
-          <div className="md:hidden ml-auto mr-4 relative z-10 h-[48px] flex items-center" ref={menuRef}>
+          <div className="md:hidden absolute left-1/2 transform -translate-x-1/2 relative z-10 h-[48px] flex items-center" ref={menuRef}>
             {/* Menu toggle button */}
             <button 
               className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer"
