@@ -390,16 +390,7 @@ function App() {
             >
               Contact
             </a>
-            <a 
-              className="text-white/70 text-sm font-light hover:text-white transition-colors"
-              href="/privacy-policy"
-              onClick={(e) => {
-                e.preventDefault();
-                setLocation('/privacy-policy');
-              }}
-            >
-              Privacy
-            </a>
+
           </nav>
           
           {/* Profile and Info icons for desktop */}
