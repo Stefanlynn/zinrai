@@ -679,7 +679,7 @@ function App() {
                           </svg>
                         </a>
                         <a 
-                          href="https://youtube.com/@zinrai" 
+                          href="https://www.youtube.com/@ZiNRAi.official" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-white/60 hover:text-white/90 transition-colors"
