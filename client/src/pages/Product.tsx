@@ -369,7 +369,7 @@ export default function Product() {
               Our Courses
             </h1>
             <p className="text-white/70 text-lg mb-12 max-w-md">
-              Discover our comprehensive suite of products designed to elevate your personal and financial growth.
+              Discover our comprehensive suite of courses designed to elevate your personal and financial growth.
             </p>
             
             <div className="space-y-8 max-w-md mb-16">
