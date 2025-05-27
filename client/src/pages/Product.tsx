@@ -108,6 +108,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
 // Define services
 const services = [
   "FOREIGN EXCHANGE COURSE + LEARN NOW LIVE CLASSROOM",
+  "CRYPTOCURRENCY COURSE + LEARN NOW LIVE CLASSROOM",
   "DIGITAL MARKETING COURSE + LEARN NOW LIVE CLASSROOM",
   "E-COMMERCE COURSE + LEARN NOW LIVE CLASSES",
   "ZINRAI TRAVEL CLUB MEMBERSHIP"
@@ -137,6 +138,26 @@ Through practical lessons, live chart analysis, and proven techniques, you'll ga
 • Anyone looking to understand how global currencies are traded
 
 No prior experience required—just a willingness to learn and a passion for the markets.`
+  },
+  {
+    title: "Cryptocurrency Course + Learn Now Live Classroom",
+    description: `Dive into the dynamic world of cryptocurrency with this comprehensive course designed to equip you with the knowledge, tools, and strategies needed to navigate confidently in the digital asset markets.
+
+Whether you're a complete beginner or looking to sharpen your skills, this course offers a structured learning path from foundational concepts to advanced technical analysis and risk management.
+
+Through real-world examples, hands-on live insights, you'll learn how to analyze market trends, interpret charts, identify profitable trade setups, and execute trades across major exchanges. You'll also explore the psychological aspects of trading, portfolio management techniques, and how to navigate market volatility.
+
+✦ What You'll Learn:
+• Fundamentals of blockchain
+• Variety of strategies: scalping, swing trading, arbitrage, and DeFi yield strategies
+• How to use trading platforms and decentralized exchanges
+• Psychology of trading: building discipline and avoiding emotional decisions
+
+✦ Who This Course Is For:
+• Anyone interested in understanding the mechanics behind cryptocurrency trading
+• Aspiring traders looking to enter the cryptocurrency market
+
+No prior experience required—just a willingness to learn and a passion for learning!`
   },
   {
     title: "Digital Marketing Course + Learn Now Live Classroom",
@@ -253,9 +274,10 @@ export default function Product() {
   const getProductColorClass = (index: number) => {
     switch(index) {
       case 0: return 'from-red-500/20 to-red-500/5 border-red-500/30';
-      case 1: return 'from-blue-500/20 to-blue-500/5 border-blue-500/30';
-      case 2: return 'from-green-500/20 to-green-500/5 border-green-500/30';
-      case 3: return 'from-orange-500/20 to-orange-500/5 border-orange-500/30';
+      case 1: return 'from-purple-500/20 to-purple-500/5 border-purple-500/30';
+      case 2: return 'from-blue-500/20 to-blue-500/5 border-blue-500/30';
+      case 3: return 'from-green-500/20 to-green-500/5 border-green-500/30';
+      case 4: return 'from-orange-500/20 to-orange-500/5 border-orange-500/30';
       default: return 'from-[var(--zinrai-blue-glow)]/20 to-[var(--zinrai-blue-glow)]/5 border-[var(--zinrai-blue-glow)]/30';
     }
   };
@@ -263,9 +285,10 @@ export default function Product() {
   const getProductIconColor = (index: number) => {
     switch(index) {
       case 0: return 'bg-red-500';
-      case 1: return 'bg-blue-500';
-      case 2: return 'bg-green-500';
-      case 3: return 'bg-orange-500';
+      case 1: return 'bg-purple-500';
+      case 2: return 'bg-blue-500';
+      case 3: return 'bg-green-500';
+      case 4: return 'bg-orange-500';
       default: return 'bg-white';
     }
   };
@@ -346,8 +369,9 @@ export default function Product() {
                   href="/startnow"
                   className={`px-10 py-3 bg-gradient-to-r ${
                     activeIndex === 0 ? 'from-red-600 to-red-500' : 
-                    activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
-                    activeIndex === 2 ? 'from-green-600 to-green-500' : 
+                    activeIndex === 1 ? 'from-purple-600 to-purple-500' : 
+                    activeIndex === 2 ? 'from-blue-600 to-blue-500' : 
+                    activeIndex === 3 ? 'from-green-600 to-green-500' : 
                     'from-orange-600 to-orange-500'
                   } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-2 focus:ring-white/40 inline-block text-center`}
                   aria-label={`Start your ZiNRAi membership with ${productDetails[activeIndex].title}`}
@@ -444,8 +468,9 @@ export default function Product() {
                     href="/startnow"
                     className={`px-12 py-3 bg-gradient-to-r ${
                       activeIndex === 0 ? 'from-red-600 to-red-500' : 
-                      activeIndex === 1 ? 'from-blue-600 to-blue-500' : 
-                      activeIndex === 2 ? 'from-green-600 to-green-500' : 
+                      activeIndex === 1 ? 'from-purple-600 to-purple-500' : 
+                      activeIndex === 2 ? 'from-blue-600 to-blue-500' : 
+                      activeIndex === 3 ? 'from-green-600 to-green-500' : 
                       'from-orange-600 to-orange-500'
                     } text-white font-medium rounded-sm hover:opacity-90 transition-opacity shadow-lg transform hover:scale-105 transition-transform duration-300 inline-block text-center`}
                   >
