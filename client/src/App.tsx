@@ -489,29 +489,7 @@ function App() {
             </a>
           </div>
           
-          {/* Login button for desktop - moved to left side for home page only */}
-          {isHomePage && (
-            <div className="hidden md:flex absolute left-[20px]">
-              <button 
-                className="h-[32px] px-5 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
-                aria-label="Login to your account"
-              >
-                <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Login</span>
-              </button>
-            </div>
-          )}
-          
-          {/* Login button for mobile - left side */}
-          {isHomePage && (
-            <div className="md:hidden flex items-center z-10 absolute left-[20px]">
-              <button 
-                className="h-[32px] px-4 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
-                aria-label="Login to your account"
-              >
-                <span className="text-white/90 text-xs font-light tracking-wide hover:text-white">Login</span>
-              </button>
-            </div>
-          )}
+
             
           {/* Mobile menu toggle */}
           <div className="md:hidden ml-auto mr-4 relative z-10 h-[48px] flex items-center" ref={menuRef}>
@@ -554,12 +532,6 @@ function App() {
                     >
                       ZiNRAi
                     </div>
-                    <button 
-                      className="px-4 py-2 border border-white/50 hover:border-white text-white/90 hover:text-white transition-all duration-200 uppercase text-sm tracking-wider font-medium group"
-                      aria-label="Login to your account"
-                    >
-                      <span className="group-hover:font-bold transition-all duration-200">Login</span>
-                    </button>
                   </div>
                   
                   {/* Main menu content with numbered items on left, video space on right */}
