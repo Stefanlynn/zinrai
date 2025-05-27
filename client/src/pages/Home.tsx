@@ -923,7 +923,7 @@ export default function Home() {
             <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl border border-white/10">
               <iframe
                 className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/Vns1e2V1fXo?autoplay=1&rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/aB19kSzMGxo?autoplay=1&rel=0&modestbranding=1"
                 title="ZiNRAi Introduction Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
