@@ -338,7 +338,7 @@ function App() {
                 setLocation('/product');
               }}
             >
-              Products
+              Courses
             </a>
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
@@ -582,7 +582,7 @@ function App() {
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            Products
+                            Courses
                           </button>
                         </div>
                       </div>

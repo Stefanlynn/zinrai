@@ -601,7 +601,7 @@ export default function Home() {
             }}
           >
             <div className="flex flex-col items-center group">
-              <div className="text-[13px] tracking-[0.1em] text-white font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-[var(--zinrai-blue-glow)] focus-visible:text-[var(--zinrai-blue-glow)] drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">Products</div>
+              <div className="text-[13px] tracking-[0.1em] text-white font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-[var(--zinrai-blue-glow)] focus-visible:text-[var(--zinrai-blue-glow)] drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">Courses</div>
               {/* Down arrow */}
               <svg className="animate-bounce transition-all duration-200" width="16" height="10" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-[var(--zinrai-blue-glow)] transition-all duration-200"/>
