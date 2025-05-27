@@ -919,19 +919,16 @@ export default function Home() {
             {/* Hidden title for screen readers */}
             <h2 id="video-title" className="sr-only">ZiNRAi Introduction Video</h2>
             
-            {/* Black screen placeholder instead of YouTube video */}
+            {/* YouTube video embed */}
             <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl border border-white/10">
-              {/* Simple black background div */}
-              <div 
-                className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
-                role="img"
-                aria-label="Video placeholder - actual video will play when available"
-              >
-                {/* Optional subtle play icon overlay */}
-                <div className="text-white/10" aria-hidden="true">
-                  <FiPlay size={64} />
-                </div>
-              </div>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/Vns1e2V1fXo?autoplay=1&rel=0&modestbranding=1"
+                title="ZiNRAi Introduction Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
