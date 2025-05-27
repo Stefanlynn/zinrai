@@ -19,7 +19,7 @@ import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
 
 // Define all the content items for swiping
 const contentItems = [
-  { number: "01", title: "PRODUCTS" },
+  { number: "01", title: "COURSES" },
   { number: "02", title: "PARTNER" },
   { number: "03", title: "CULTURE" },
   { number: "04", title: "INSIGHTS" },
@@ -390,8 +390,8 @@ export default function Home() {
     if (route === "zinrai cares") {
       route = "zinrai-cares"; // Route kept lowercase for URL consistency
     } 
-    // Special case for "PRODUCTS" - go to product page
-    else if (route === "products") {
+    // Special case for "COURSES" - go to product page
+    else if (route === "courses") {
       route = "product";
     }
     else {
@@ -667,7 +667,7 @@ export default function Home() {
               // Helper function to generate the correct path
               const getRouteForTitle = (title: string) => {
                 title = title.toLowerCase();
-                return title === "products" ? "/product" : 
+                return title === "courses" ? "/product" : 
                        title === "zinrai cares" ? "/zinrai-cares" : 
                        `/${title.replace(/\s+/g, '')}`;
               };
@@ -708,7 +708,7 @@ export default function Home() {
               
               // Get the correct path
               const title = contentItems[currentIndex].title.toLowerCase();
-              const path = title === "products" ? "/product" : 
+              const path = title === "courses" ? "/product" : 
                           title === "zinrai cares" ? "/zinrai-cares" : // URL kept lowercase for consistency
                           `/${title.replace(/\s+/g, '')}`;
               
@@ -774,7 +774,7 @@ export default function Home() {
                     }}
                     role="button"
                     tabIndex={0}
-                    aria-label="Go to Products page"
+                    aria-label="Go to Courses page"
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         navigate('/product');
