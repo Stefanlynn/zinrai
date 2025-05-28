@@ -494,19 +494,18 @@ function App() {
 
             
           {/* Mobile menu toggle - centered */}
-          <div className="md:hidden absolute left-1/2 transform -translate-x-1/2 z-10" ref={menuRef}>
-            {/* Menu toggle button */}
+          <div className="md:hidden" ref={menuRef}>
             <button 
-              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer"
+              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
               onClick={toggleMenu}
               aria-label="Toggle menu"
               aria-expanded={menuOpen ? "true" : "false"}
               aria-controls="mobile-menu"
             >
               <div className="relative w-5 h-5 flex items-center justify-center">
-                <div className={`w-5 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[4px]'}`}></div>
-                <div className={`w-4 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
-                <div className={`w-5 h-[1px] bg-white/90 absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[4px]'}`}></div>
+                <div className={`w-5 h-[1px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[4px]'}`}></div>
+                <div className={`w-4 h-[1px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+                <div className={`w-5 h-[1px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[4px]'}`}></div>
               </div>
             </button>
             
