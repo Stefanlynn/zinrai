@@ -395,8 +395,17 @@ function App() {
 
           </nav>
           
-          {/* Profile and Info icons for desktop */}
-          <div className="hidden md:flex items-center mr-6 space-x-2">
+          {/* Login, Profile and Info icons for desktop */}
+          <div className="hidden md:flex items-center mr-6 space-x-3">
+            <a 
+              href="http://app.zinrai.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-[32px] px-5 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
+              aria-label="Login to ZiNRAi app"
+            >
+              <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Login</span>
+            </a>
             {/* Info icon with policy dropdown */}
             <div className="relative" ref={policyDropdownRef}>
               <button
