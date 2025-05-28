@@ -312,8 +312,8 @@ function App() {
         
         {/* Header - Clean minimal design with dark gray background */}
         <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center justify-between border-b border-white/10" role="banner">
-          {/* Brand logo - shown on all pages except home page and when menu is open */}
-          <div className="flex items-center">
+          {/* Brand logo and Login button - shown on all pages except home page and when menu is open */}
+          <div className="flex items-center space-x-4">
             {!menuOpen && !isHomePage && (
               <a 
                 className="ml-6 cursor-pointer flex items-center"
@@ -328,6 +328,19 @@ function App() {
               </a>
             )}
             {(menuOpen || isHomePage) && <div className="ml-6 w-8"></div>}
+            
+            {/* Login button on left side */}
+            {!menuOpen && (
+              <a 
+                href="http://app.zinrai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-[32px] px-4 bg-blue-600 hover:bg-blue-700 border border-blue-500 rounded-sm flex items-center justify-center cursor-pointer transition-colors duration-300"
+                aria-label="Login to ZiNRAi app"
+              >
+                <span className="text-white text-sm font-medium tracking-wide">Login</span>
+              </a>
+            )}
           </div>
           
           {/* Desktop navigation */}
@@ -395,17 +408,8 @@ function App() {
 
           </nav>
           
-          {/* Login, Profile and Info icons for desktop */}
+          {/* Info icon for desktop */}
           <div className="hidden md:flex items-center mr-6 space-x-3">
-            <a 
-              href="http://app.zinrai.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-[36px] px-6 bg-blue-600 hover:bg-blue-700 border border-blue-500 rounded-sm flex items-center justify-center cursor-pointer transition-colors duration-300"
-              aria-label="Login to ZiNRAi app"
-            >
-              <span className="text-white text-sm font-medium tracking-wide">Login</span>
-            </a>
             {/* Info icon with policy dropdown */}
             <div className="relative" ref={policyDropdownRef}>
               <button
