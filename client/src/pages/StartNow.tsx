@@ -52,7 +52,13 @@ export default function StartNow() {
           window.location.href = "https://app.zinrai.com/user-sign-up/cbffbd3d-cf2c-4e17-b4ef-defc759c7afd";
         }
       } else {
-        setSubmitMessage("Submission failed. Please try again.");
+        // Check if the error is about email already existing
+        const errorText = await response.text();
+        if (errorText.includes("The email has already been taken") || errorText.includes("email has already been taken")) {
+          setSubmitMessage("Your email is already registered with us, please click here to go to the login page. If you cannot remember your password you can follow the \"Forgot Password\" process there");
+        } else {
+          setSubmitMessage("Submission failed. Please try again.");
+        }
       }
     } catch (err) {
       console.error("Error:", err);
@@ -151,11 +157,26 @@ export default function StartNow() {
             </button>
 
             {submitMessage && (
-              <p className={`text-center text-sm mt-4 ${
+              <div className={`text-center text-sm mt-4 ${
                 submitMessage.includes('Successfully') ? 'text-green-400' : 'text-red-400'
               }`}>
-                {submitMessage}
-              </p>
+                {submitMessage.includes('already registered') ? (
+                  <p>
+                    Your email is already registered with us, please{' '}
+                    <a 
+                      href="http://app.zinrai.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[var(--zinrai-blue-glow)] underline hover:text-white transition-colors"
+                    >
+                      click here to go to the login page
+                    </a>
+                    . If you cannot remember your password you can follow the "Forgot Password" process there.
+                  </p>
+                ) : (
+                  <p>{submitMessage}</p>
+                )}
+              </div>
             )}
           </form>
         </div>
