@@ -10,6 +10,7 @@ export default function StartNow() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [hasReferral, setHasReferral] = useState(true);
 
   // Extract referral ID from URL on component mount
   useEffect(() => {
@@ -25,11 +26,22 @@ export default function StartNow() {
     const refValue = getParameterByName('ref');
     if (refValue) {
       setFormData(prev => ({ ...prev, refid: refValue }));
+      setHasReferral(true);
+    } else {
+      setHasReferral(false);
+      setSubmitMessage("OOPS! You don't appear to have a sponsor, please return to the person you received this link from and get a proper signup link");
     }
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Check if referral ID is missing
+    if (!hasReferral || !formData.refid) {
+      setSubmitMessage("OOPS! You don't appear to have a sponsor, please return to the person you received this link from and get a proper signup link");
+      return;
+    }
+    
     setIsSubmitting(true);
     setSubmitMessage('');
 
@@ -150,7 +162,7 @@ export default function StartNow() {
 
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || !hasReferral}
               className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(104,172,255,0.3)] focus:outline-none focus:ring-2 focus:ring-[var(--zinrai-blue-glow)]/50"
             >
               {isSubmitting ? 'Joining...' : 'Join ZiNRAi'}
