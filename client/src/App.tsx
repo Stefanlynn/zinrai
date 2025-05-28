@@ -311,22 +311,24 @@ function App() {
 
         
         {/* Header - Clean minimal design with dark gray background */}
-        <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center border-b border-white/10" role="banner">
+        <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center justify-between border-b border-white/10" role="banner">
           {/* Brand logo - shown on all pages except home page and when menu is open */}
-          {!menuOpen && !isHomePage && (
-            <a 
-              className="ml-6 cursor-pointer flex items-center"
-              onClick={(e) => {
-                e.preventDefault();
-                setLocation('/');
-              }}
-              href="/"
-              aria-label="ZiNRAi Home"
-            >
-              <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
-            </a>
-          )}
-          {(menuOpen || isHomePage) && <div className="ml-6 w-8"></div>}
+          <div className="flex items-center">
+            {!menuOpen && !isHomePage && (
+              <a 
+                className="ml-6 cursor-pointer flex items-center"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation('/');
+                }}
+                href="/"
+                aria-label="ZiNRAi Home"
+              >
+                <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
+              </a>
+            )}
+            {(menuOpen || isHomePage) && <div className="ml-6 w-8"></div>}
+          </div>
           
           {/* Desktop navigation */}
           <nav className="hidden md:flex items-center space-x-8 mx-auto" role="navigation" aria-label="Main Navigation">
@@ -491,8 +493,8 @@ function App() {
           
 
             
-          {/* Mobile menu toggle */}
-          <div className="md:hidden flex items-center justify-center w-full h-full z-10" ref={menuRef}>
+          {/* Mobile menu toggle - centered */}
+          <div className="md:hidden absolute left-1/2 transform -translate-x-1/2 z-10" ref={menuRef}>
             {/* Menu toggle button */}
             <button 
               className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer"
