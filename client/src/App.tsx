@@ -401,10 +401,10 @@ function App() {
               href="http://app.zinrai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="h-[32px] px-5 bg-[#222222] border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors duration-300"
+              className="h-[36px] px-6 bg-blue-600 hover:bg-blue-700 border border-blue-500 rounded-sm flex items-center justify-center cursor-pointer transition-colors duration-300"
               aria-label="Login to ZiNRAi app"
             >
-              <span className="text-white/90 text-sm font-light tracking-wide hover:text-white">Login</span>
+              <span className="text-white text-sm font-medium tracking-wide">Login</span>
             </a>
             {/* Info icon with policy dropdown */}
             <div className="relative" ref={policyDropdownRef}>
