@@ -496,7 +496,7 @@ function App() {
           {/* Mobile menu toggle - left side */}
           <div className="md:hidden" ref={menuRef}>
             <button 
-              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer ml-4 z-10"
+              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer ml-6 z-10"
               onClick={toggleMenu}
               aria-label="Toggle menu"
               aria-expanded={menuOpen ? "true" : "false"}
