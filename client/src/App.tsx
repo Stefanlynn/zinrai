@@ -335,10 +335,10 @@ function App() {
                 href="http://app.zinrai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-[32px] px-4 bg-blue-600 hover:bg-blue-700 border border-blue-500 rounded-sm flex items-center justify-center cursor-pointer transition-colors duration-300"
+                className="h-[32px] px-5 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white text-sm font-medium tracking-wide">Login</span>
+                <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
               </a>
             )}
           </div>
@@ -552,10 +552,10 @@ function App() {
                       href="http://app.zinrai.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="h-[36px] px-6 bg-blue-600 hover:bg-blue-700 border border-blue-500 rounded-sm flex items-center justify-center cursor-pointer transition-colors duration-300"
+                      className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
                       aria-label="Login to ZiNRAi app"
                     >
-                      <span className="text-white text-sm font-medium tracking-wide">Login</span>
+                      <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
                     </a>
                   </div>
                   
