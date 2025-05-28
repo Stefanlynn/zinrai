@@ -492,18 +492,7 @@ function App() {
               )}
             </div>
 
-            <a
-              className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
-              href="/profile"
-              onClick={(e) => {
-                e.preventDefault();
-                setLocation('/profile');
-              }}
-              aria-label="Your Profile"
-            >
-              <FiUser className="text-white/70 h-4 w-4" aria-hidden="true" />
-              <span className="sr-only">Profile</span>
-            </a>
+
           </div>
           
 
