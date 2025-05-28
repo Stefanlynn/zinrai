@@ -312,7 +312,7 @@ function App() {
         
         {/* Header - Clean minimal design with dark gray background */}
         <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center justify-between border-b border-white/10" role="banner">
-          {/* Brand logo and Login button - shown on all pages except home page and when menu is open */}
+          {/* Brand logo and Info icon - shown on all pages except home page and when menu is open */}
           <div className="flex items-center space-x-4">
             {!menuOpen && !isHomePage && (
               <a 
@@ -329,6 +329,85 @@ function App() {
             )}
             {(menuOpen || isHomePage) && <div className="ml-6 w-8"></div>}
             
+            {/* Info icon on left side for desktop */}
+            <div className="hidden md:block relative" ref={policyDropdownRef}>
+              <button
+                className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
+                onClick={() => setShowPolicyDropdown(!showPolicyDropdown)}
+                aria-label="Policy Information"
+              >
+                <svg className="text-white/70 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </button>
+              
+              {/* Policy dropdown */}
+              {showPolicyDropdown && (
+                <div className="absolute left-0 top-full mt-2 w-56 bg-black/95 border border-white/20 rounded-lg shadow-xl z-50">
+                  <div className="p-2">
+                    <div className="text-white/80 text-xs font-medium mb-3 px-3 py-2 border-b border-white/10">
+                      Legal Documents
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setLocation('/ibo-terms');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded transition-colors"
+                    >
+                      Brand Promoter Terms
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/privacy-policy');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded transition-colors"
+                    >
+                      Privacy Policy
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/terms-conditions');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded transition-colors"
+                    >
+                      Terms & Conditions
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/terms-of-use');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded transition-colors"
+                    >
+                      Terms of Use
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/cookie-policy');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded transition-colors"
+                    >
+                      Cookie Policy
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setLocation('/refund-policy');
+                        setShowPolicyDropdown(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded transition-colors"
+                    >
+                      Refund Policy
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
 
           </div>
           
