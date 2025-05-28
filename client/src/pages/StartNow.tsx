@@ -65,11 +65,21 @@ export default function StartNow() {
         }
       } else {
         // Check if the error is about email already existing
-        const errorText = await response.text();
-        if (errorText.includes("The email has already been taken") || errorText.includes("email has already been taken")) {
-          setSubmitMessage("Your email is already registered with us, please click here to go to the login page. If you cannot remember your password you can follow the \"Forgot Password\" process there");
-        } else {
-          setSubmitMessage("Submission failed. Please try again.");
+        try {
+          const errorData = await response.json();
+          if (errorData.errors && errorData.errors.email && errorData.errors.email.includes("The email has already been taken.")) {
+            setSubmitMessage("Your email is already registered with us, please click here to go to the login page. If you cannot remember your password you can follow the \"Forgot Password\" process there");
+          } else {
+            setSubmitMessage("Submission failed. Please try again.");
+          }
+        } catch {
+          // Fallback to text parsing if JSON parsing fails
+          const errorText = await response.text();
+          if (errorText.includes("The email has already been taken") || errorText.includes("email has already been taken")) {
+            setSubmitMessage("Your email is already registered with us, please click here to go to the login page. If you cannot remember your password you can follow the \"Forgot Password\" process there");
+          } else {
+            setSubmitMessage("Submission failed. Please try again.");
+          }
         }
       }
     } catch (err) {
