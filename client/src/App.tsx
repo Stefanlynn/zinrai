@@ -327,7 +327,20 @@ function App() {
                 <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
               </a>
             )}
-            {(menuOpen || isHomePage) && <div className="ml-6 w-8"></div>}
+            {menuOpen && <div className="ml-6 w-8"></div>}
+            
+            {/* Login button on left side for mobile home page */}
+            {isHomePage && !menuOpen && (
+              <a 
+                href="http://app.zinrai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="md:hidden ml-6 h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                aria-label="Login to ZiNRAi app"
+              >
+                <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
+              </a>
+            )}
             
             {/* Info icon on left side for desktop */}
             <div className="hidden md:block relative" ref={policyDropdownRef}>
