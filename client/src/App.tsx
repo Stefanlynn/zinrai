@@ -526,7 +526,7 @@ function App() {
             {menuOpen && (
               <div id="mobile-menu" className="fixed inset-0 bg-black text-white z-[1001] overflow-auto" role="dialog" aria-modal="true" aria-label="Main Menu">
                 <div className="w-full h-full flex flex-col">
-                  {/* Header with ZiNRAi text and Start Now button */}
+                  {/* Header with ZiNRAi text and Login button */}
                   <div className="flex justify-between items-center p-6">
                     <div 
                       className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
@@ -546,6 +546,17 @@ function App() {
                     >
                       ZiNRAi
                     </div>
+                    
+                    {/* Login button on right side of menu */}
+                    <a 
+                      href="http://app.zinrai.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="h-[36px] px-6 bg-blue-600 hover:bg-blue-700 border border-blue-500 rounded-sm flex items-center justify-center cursor-pointer transition-colors duration-300"
+                      aria-label="Login to ZiNRAi app"
+                    >
+                      <span className="text-white text-sm font-medium tracking-wide">Login</span>
+                    </a>
                   </div>
                   
                   {/* Main menu content with numbered items on left, video space on right */}
