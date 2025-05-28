@@ -329,18 +329,7 @@ function App() {
             )}
             {(menuOpen || isHomePage) && <div className="ml-6 w-8"></div>}
             
-            {/* Login button on left side */}
-            {!menuOpen && (
-              <a 
-                href="http://app.zinrai.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-[32px] px-5 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
-                aria-label="Login to ZiNRAi app"
-              >
-                <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
-              </a>
-            )}
+
           </div>
           
           {/* Desktop navigation */}
@@ -408,8 +397,21 @@ function App() {
 
           </nav>
           
-          {/* Info icon for desktop */}
+          {/* Login button and Info icon for desktop */}
           <div className="hidden md:flex items-center mr-6 space-x-3">
+            {/* Login button on right side for desktop */}
+            {!menuOpen && (
+              <a 
+                href="http://app.zinrai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-[32px] px-5 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                aria-label="Login to ZiNRAi app"
+              >
+                <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
+              </a>
+            )}
+            
             {/* Info icon with policy dropdown */}
             <div className="relative" ref={policyDropdownRef}>
               <button
