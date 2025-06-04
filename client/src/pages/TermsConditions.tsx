@@ -1,6 +1,6 @@
 export default function TermsConditions() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-y-auto">
       {/* Header */}
       <div className="bg-[#222222] h-12 flex items-center px-6 sticky top-0 z-10">
         <div className="text-lg font-light tracking-wider">ZiNRAi</div>
