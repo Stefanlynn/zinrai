@@ -123,27 +123,13 @@ export default function Home() {
     };
   }, []);
   
-  // Add scroll event listener to update content - but allow normal scrolling to footer
+  // Only use keyboard navigation for content switching - remove wheel hijacking
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
-    
-    const handleWheel = (e: WheelEvent) => {
-      // Don't handle scroll events if menu is open
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't handle key events if menu is open
       if (menuOpen) {
         return;
       }
-      
-      // Get current scroll position
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
-      // If we've scrolled past the viewport height, allow normal scrolling to footer
-      if (scrollY > windowHeight * 0.5) {
-        return; // Allow normal scrolling to footer
-      }
-      
-      // Only hijack scroll when at the top of the page for content navigation
-      e.preventDefault();
       
       const now = Date.now();
       
@@ -152,43 +138,24 @@ export default function Home() {
         return;
       }
       
-      // Update last event time
-      lastEventTime.current = now;
-      
-      console.log("Wheel event: current index =", currentIndex, "direction =", e.deltaY > 0 ? "next" : "prev");
-      
-      // Determine scroll direction and change content
-      if (e.deltaY > 0) {
-        // Scrolling down - increase number (next)
+      // Handle arrow keys for navigation
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        lastEventTime.current = now;
         changeContent('next');
-      } else if (e.deltaY < 0) {
-        // Scrolling up - decrease number (previous)
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        lastEventTime.current = now;
         changeContent('prev');
       }
     };
     
-    // Add event listener with passive: false to allow preventDefault
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    
-    // Allow normal scrolling after initial navigation
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
-      // If user has scrolled significantly, allow normal scrolling behavior
-      if (scrollY > windowHeight * 0.1) {
-        // Clear any scroll prevention
-        clearTimeout(scrollTimeout);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
+    // Only listen for keyboard events - allow normal scrolling
+    window.addEventListener('keydown', handleKeyDown);
     
     // Cleanup
     return () => {
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(scrollTimeout);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [menuOpen, currentIndex]);
   
