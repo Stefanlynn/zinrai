@@ -1,15 +1,40 @@
 import { useLocation } from "wouter";
+import { useEffect } from "react";
 
 export default function Documents() {
   const [, setLocation] = useLocation();
 
+  useEffect(() => {
+    // Force remove any classes preventing scroll
+    document.body.classList.remove('home-is-active');
+    document.body.style.overflow = 'auto !important';
+    document.body.style.position = 'static !important';
+    document.body.style.height = 'auto !important';
+    document.body.style.width = '100% !important';
+    document.documentElement.style.overflow = 'auto !important';
+    
+    // Remove any global scroll event listeners
+    const allEventListeners = document.body.cloneNode(true);
+    document.body.parentNode?.replaceChild(allEventListeners, document.body);
+    
+    return () => {
+      // Cleanup
+    };
+  }, []);
+
   return (
     <div style={{ 
+      position: 'fixed',
+      top: '48px',
+      left: '0',
+      right: '0',
+      bottom: '0',
       backgroundColor: '#1a1a1a', 
       color: 'white', 
-      minHeight: '100vh', 
-      paddingTop: '48px',
-      overflow: 'auto'
+      overflow: 'auto',
+      overflowY: 'scroll',
+      WebkitOverflowScrolling: 'touch',
+      zIndex: 1
     }}>
       <div style={{ padding: '32px 24px', maxWidth: '1024px', margin: '0 auto' }}>
         <h1 style={{ fontSize: '36px', fontWeight: '300', marginBottom: '16px' }}>
