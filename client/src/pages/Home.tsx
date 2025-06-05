@@ -877,7 +877,7 @@ export default function Home() {
           <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-auto">
             <button
               onClick={() => window.location.href = '/documents'}
-              className="text-white/70 text-xs font-light hover:text-white transition-colors"
+              className="text-white/70 text-xs font-bold hover:text-white transition-colors"
             >
               Documents
             </button>
