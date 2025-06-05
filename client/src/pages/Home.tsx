@@ -933,6 +933,57 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Footer - similar to header design */}
+      <footer className="fixed bottom-0 left-0 right-0 h-[48px] bg-transparent z-[100] pointer-events-none">
+        <div className="relative w-full h-full flex items-center justify-between px-8">
+          {/* Left side - Copyright */}
+          <div className="text-white/70 text-xs font-light pointer-events-auto">
+            © 2025 ZiNRAi
+          </div>
+          
+          {/* Center - Documents link */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-auto">
+            <button
+              onClick={() => window.open('/documents', '_blank')}
+              className="text-white/70 text-xs font-light hover:text-white transition-colors"
+            >
+              Documents
+            </button>
+          </div>
+          
+          {/* Right side - Social links */}
+          <div className="flex items-center space-x-4 pointer-events-auto">
+            <a 
+              href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Follow ZiNRAi on Instagram"
+            >
+              <FaInstagram className="w-3 h-3" />
+            </a>
+            <a 
+              href="https://facebook.com/zinrai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Follow ZiNRAi on Facebook"
+            >
+              <FaFacebook className="w-3 h-3" />
+            </a>
+            <a 
+              href="https://www.youtube.com/@ZiNRAi.official" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Subscribe to ZiNRAi on YouTube"
+            >
+              <FaYoutube className="w-3 h-3" />
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
