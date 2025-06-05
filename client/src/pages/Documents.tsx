@@ -37,8 +37,8 @@ export default function Documents() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a] text-white">
-      <div className="container mx-auto px-6 py-16">
+    <div className="bg-[#1a1a1a] text-white pb-24">
+      <div className="container mx-auto px-6 pt-16 pb-24">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-light text-white mb-4">
             Legal Documents
@@ -47,7 +47,7 @@ export default function Documents() {
             Access all ZiNRAi legal documents and policies in one place.
           </p>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 mb-12">
             {legalDocuments.map((doc, index) => (
               <div
                 key={index}
@@ -70,7 +70,7 @@ export default function Documents() {
             ))}
           </div>
 
-          <div className="mt-12 p-6 bg-black/20 border border-white/10 rounded-lg">
+          <div className="p-6 bg-black/20 border border-white/10 rounded-lg mb-16">
             <h3 className="text-lg font-medium text-white mb-3">
               Need Help?
             </h3>
