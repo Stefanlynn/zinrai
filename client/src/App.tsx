@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useState, useEffect, useRef } from "react";
 import { FiUser } from "react-icons/fi";
+import zinraiLogo from "@assets/zinrai-circle-logo.png";
 import Home from "@/pages/Home";
 import Logo from "@/pages/Logo";
 import Product from "@/pages/Product";
@@ -325,9 +326,9 @@ function App() {
                 aria-label="ZiNRAi Home"
               >
                 <img 
-                  src="/src/assets/zinrai-circle-logo.png" 
+                  src={zinraiLogo} 
                   alt="ZiNRAi Logo" 
-                  className="w-6 h-6"
+                  className="w-6 h-6 object-contain"
                 />
                 <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
               </a>
@@ -338,7 +339,7 @@ function App() {
             {!menuOpen && isHomePage && (
               <button
                 onClick={() => setVideoPopupOpen(true)}
-                className="hidden md:flex h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                className="hidden md:flex ml-6 h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
                 aria-label="Watch ZiNRAi introduction video"
               >
                 <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Watch Now</span>
