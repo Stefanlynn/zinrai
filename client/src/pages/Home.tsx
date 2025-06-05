@@ -935,7 +935,7 @@ export default function Home() {
       )}
 
       {/* Footer - similar to header design */}
-      <footer className="fixed bottom-0 left-0 right-0 h-[48px] bg-transparent z-[100] pointer-events-none">
+      <footer className="fixed bottom-0 left-0 right-0 h-[48px] bg-black/20 backdrop-blur-sm border-t border-white/10 z-[100] pointer-events-none">
         <div className="relative w-full h-full flex items-center justify-between px-8">
           {/* Left side - Copyright */}
           <div className="text-white/70 text-xs font-light pointer-events-auto">
