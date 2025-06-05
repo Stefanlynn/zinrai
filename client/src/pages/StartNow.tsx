@@ -5,7 +5,6 @@ export default function StartNow() {
     firstname: '',
     lastname: '',
     email: '',
-    phone: '',
     refid: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -153,20 +152,6 @@ export default function StartNow() {
                 onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                 className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
                 placeholder="Enter your email address"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="phone" className="block text-white/80 text-sm font-medium mb-2">
-                Phone
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                value={formData.phone}
-                onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-                placeholder="Enter your phone number"
               />
             </div>
 
