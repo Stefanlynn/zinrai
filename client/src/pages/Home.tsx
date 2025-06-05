@@ -202,37 +202,13 @@ export default function Home() {
     setTouchEndY(e.touches[0].clientY);
   };
   
-  // Use useEffect to selectively prevent scrolling but allow clicks
+  // Remove all scroll prevention - allow normal scrolling to footer
   useEffect(() => {
-    const preventTouchDefault = (e: TouchEvent) => {
-      // Don't prevent default on elements with the clickable class or role="button"
-      const target = e.target as HTMLElement;
-      const clickableParent = target.closest('.cursor-pointer, [role="button"], button, a, .start-now-text, .watch-text, .product-text, .product-arrow, .product-arrow-up, .menu-icon');
-      
-      if (clickableParent) {
-        // Allow clicks on interactive elements
-        return;
-      }
-      
-      // Only prevent default for page scrolling, not for clicks
-      if (e.touches && e.touches.length > 0) {
-        const touchY = e.touches[0].clientY;
-        const initialY = touchStartY;
-        
-        // Only prevent vertical scrolling, not taps
-        if (Math.abs(touchY - initialY) > 10) {
-          e.preventDefault();
-        }
-      }
-    };
-    
-    // Add listeners that only prevent unwanted scrolling
-    document.body.addEventListener('touchmove', preventTouchDefault, { passive: false });
-    
+    // No scroll prevention - allow normal page scrolling
     return () => {
-      document.body.removeEventListener('touchmove', preventTouchDefault);
+      // Cleanup if needed
     };
-  }, [touchStartY]);
+  }, []);
   
   const handleTouchEnd = (e: React.TouchEvent) => {
     // Only prevent default for swipe gestures, not for clicks
@@ -448,23 +424,16 @@ export default function Home() {
   };
 
   return (
-    <div 
-      className="bg-black min-h-screen overflow-auto"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      {/* We're removing the moving "why" text and adding it below WATCH */}
-      
-
-      
-      {/* Home page content */}
-      <div className="relative">
-        <div className="h-screen w-full"></div>
-      </div>
-        
-      {/* UI elements - fixed position */}
-      <div className="fixed inset-0">
+    <div className="bg-black">
+      {/* Hero section - fixed height */}
+      <div 
+        className="relative h-screen overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* UI elements - fixed position */}
+        <div className="fixed inset-0">
         {/* zinrai text in the center with logo behind it - moved down a bit */}
         <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
           <div className="relative inline-block">
@@ -922,9 +891,10 @@ export default function Home() {
           </div>
         </div>
       )}
+        </div>
+      </div>
 
-      {/* Footer - appears when scrolling down after hero section */}
-      <footer className="relative bg-black border-t border-white/10" style={{ marginTop: '100vh' }}>
+      <footer className="relative bg-black border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-16">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
