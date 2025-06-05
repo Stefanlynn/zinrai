@@ -126,13 +126,25 @@ export default function Home() {
   // Add scroll event listener to update content
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      // Prevent default scroll behavior
-      e.preventDefault();
-      
       // Don't handle scroll events if menu is open
       if (menuOpen) {
         return;
       }
+      
+      // If we're at the last item and scrolling down, allow normal scrolling to footer
+      if (currentIndex === contentItems.length - 1 && e.deltaY > 0) {
+        // Allow normal scroll to footer
+        return;
+      }
+      
+      // If we're at the first item and scrolling up, allow normal scrolling
+      if (currentIndex === 0 && e.deltaY < 0) {
+        // Allow normal scroll up
+        return;
+      }
+      
+      // Prevent default scroll behavior for navigation
+      e.preventDefault();
       
       const now = Date.now();
       
@@ -159,8 +171,14 @@ export default function Home() {
     // Add event listener with passive: false to allow preventDefault
     window.addEventListener('wheel', handleWheel, { passive: false });
     
-    // Prevent default scroll behavior on the document
-    const preventScroll = (e: Event) => e.preventDefault();
+    // Only prevent scroll when not at navigation boundaries
+    const preventScroll = (e: Event) => {
+      // Allow scrolling if at the last item (to reach footer) or first item
+      if (currentIndex === contentItems.length - 1 || currentIndex === 0) {
+        return;
+      }
+      e.preventDefault();
+    };
     document.addEventListener('scroll', preventScroll, { passive: false });
     
     // Cleanup
