@@ -923,19 +923,13 @@ export default function Home() {
             © 2025 ZiNRAi, All rights reserved.
           </div>
           
-          {/* Center - Documents and Contact buttons */}
-          <div className="flex items-center space-x-4 pointer-events-auto">
+          {/* Center - Documents button */}
+          <div className="flex items-center pointer-events-auto">
             <button
               onClick={() => window.location.href = '/documents'}
               className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
             >
               Documents
-            </button>
-            <button
-              onClick={() => window.location.href = '/contact'}
-              className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
-            >
-              Contact
             </button>
           </div>
           
