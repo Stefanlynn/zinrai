@@ -1,7 +1,22 @@
 import { useLocation } from "wouter";
+import { useEffect } from "react";
 
 export default function Documents() {
   const [, setLocation] = useLocation();
+
+  // Ensure scrolling works on this page
+  useEffect(() => {
+    // Remove any body classes that prevent scrolling
+    document.body.classList.remove('home-is-active');
+    document.body.style.overflow = 'auto';
+    document.body.style.position = 'static';
+    document.body.style.height = 'auto';
+    document.body.style.width = 'auto';
+    
+    return () => {
+      // Clean up if needed
+    };
+  }, []);
 
   const legalDocuments = [
     {
