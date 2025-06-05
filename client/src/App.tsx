@@ -252,12 +252,10 @@ function Router() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCaresModal, setShowCaresModal] = useState(false);
-  const [showPolicyDropdown, setShowPolicyDropdown] = useState(false);
   const [videoPopupOpen, setVideoPopupOpen] = useState(false);
 
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const policyDropdownRef = useRef<HTMLDivElement>(null);
 
   const [isHome] = useRoute("/");
   const isHomePage = isHome;
@@ -281,9 +279,6 @@ function App() {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
-      }
-      if (policyDropdownRef.current && !policyDropdownRef.current.contains(event.target as Node)) {
-        setShowPolicyDropdown(false);
       }
     }
     
@@ -679,7 +674,7 @@ function App() {
                           }}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
-                          IBO Terms & Conditions
+                          BP Terms & Conditions
                         </button>
                         <button 
                           onClick={() => {
