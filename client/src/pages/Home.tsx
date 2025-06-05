@@ -578,76 +578,7 @@ export default function Home() {
           );
         })}
         
-        {/* PRODUCTS text in the bottom right box - hidden when menu is open */}
-        <div className={`absolute bottom-[12.5%] left-[75%] transform -translate-x-1/2 translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}>
-          <div 
-            className="products-text animate-content-glitch cursor-pointer"
-            onClick={() => navigate('/product')}
-            onTouchStart={() => navigate('/product')} /* Added touchstart for immediate response */
-            role="button"
-            tabIndex={0}
-            aria-label="View ZiNRAi products"
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                navigate('/product');
-              }
-            }}
-            style={{ 
-              animationDelay: '1.2s',
-              position: 'relative',
-              zIndex: 60,
-              touchAction: 'manipulation',
-              padding: '10px' /* Added padding for larger touch target */
-            }}
-          >
-            <div className="flex flex-col items-center group">
-              <div className="text-[13px] tracking-[0.1em] text-white font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-[var(--zinrai-blue-glow)] focus-visible:text-[var(--zinrai-blue-glow)] drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">Courses</div>
-              {/* Down arrow */}
-              <svg className="animate-bounce transition-all duration-200" width="16" height="10" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-[var(--zinrai-blue-glow)] transition-all duration-200"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-        
-        {/* WATCH NOW text in the lower left square - hidden when menu is open */}
-        <div 
-          className={`absolute top-[87.5%] left-[25%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-[60] ${menuOpen ? 'hidden' : 'block'}`}
-          style={{ 
-            position: 'relative', 
-            zIndex: 60,
-            touchAction: 'manipulation'
-          }}
-        >
-          <div 
-            className="watch-now-text animate-content-glitch cursor-pointer"
-            onClick={handleWatchClick}
-            onTouchStart={handleWatchClick} /* Added touchstart for immediate response */
-            role="button"
-            tabIndex={0}
-            aria-label="Watch ZiNRAi introduction video"
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                handleWatchClick();
-              }
-            }}
-            style={{ 
-              animationDelay: '1.6s',
-              position: 'relative',
-              zIndex: 60,
-              touchAction: 'manipulation',
-              padding: '10px' /* Added padding for larger touch target */
-            }}
-          >
-            <div className="flex flex-col items-center group">
-              <div className="text-[13px] tracking-[0.1em] text-white font-medium uppercase mb-2 transition-all duration-200 group-hover:font-bold group-hover:text-[var(--zinrai-blue-glow)] focus-visible:text-[var(--zinrai-blue-glow)] drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">Watch Now</div>
-              {/* Down arrow */}
-              <svg className="animate-bounce transition-all duration-200" width="16" height="10" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-[var(--zinrai-blue-glow)] transition-all duration-200"/>
-              </svg>
-            </div>
-          </div>
-        </div>
+
         
         {/* Dynamic content in the top right square - hidden when menu is open */}
         <div 
