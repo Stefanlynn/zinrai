@@ -37,40 +37,38 @@ export default function Documents() {
   ];
 
   return (
-    <div className="bg-[#1a1a1a] text-white min-h-screen overflow-y-auto">
-      <div className="container mx-auto px-6 pt-8 pb-32">
+    <div className="bg-[#1a1a1a] text-white" style={{ minHeight: 'calc(100vh - 48px)' }}>
+      <div className="px-6 py-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-light text-white mb-4">
             Legal Documents
           </h1>
-          <p className="text-white/70 text-lg mb-12">
+          <p className="text-white/70 text-lg mb-8">
             Access all ZiNRAi legal documents and policies in one place.
           </p>
 
-          <div className="grid gap-6 md:grid-cols-2 mb-12">
-            {legalDocuments.map((doc, index) => (
-              <div
-                key={index}
-                onClick={() => setLocation(doc.path)}
-                className="bg-black/40 border border-white/20 rounded-lg p-6 hover:border-white/40 hover:bg-white/5 transition-all duration-300 cursor-pointer group"
-              >
-                <h3 className="text-xl font-medium text-white mb-3 group-hover:text-[var(--zinrai-blue-glow)] transition-colors">
-                  {doc.title}
-                </h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-4">
-                  {doc.description}
-                </p>
-                <div className="flex items-center text-white/50 group-hover:text-white/80 transition-colors">
-                  <span className="text-sm">View Document</span>
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
+          {legalDocuments.map((doc, index) => (
+            <div
+              key={index}
+              onClick={() => setLocation(doc.path)}
+              className="bg-black/40 border border-white/20 rounded-lg p-6 hover:border-white/40 hover:bg-white/5 transition-all duration-300 cursor-pointer group mb-4"
+            >
+              <h3 className="text-xl font-medium text-white mb-3 group-hover:text-[var(--zinrai-blue-glow)] transition-colors">
+                {doc.title}
+              </h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-4">
+                {doc.description}
+              </p>
+              <div className="flex items-center text-white/50 group-hover:text-white/80 transition-colors">
+                <span className="text-sm">View Document</span>
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                </svg>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
 
-          <div className="p-6 bg-black/20 border border-white/10 rounded-lg mb-16">
+          <div className="p-6 bg-black/20 border border-white/10 rounded-lg mt-8 mb-16">
             <h3 className="text-lg font-medium text-white mb-3">
               Need Help?
             </h3>
@@ -83,24 +81,6 @@ export default function Documents() {
             >
               Contact Support →
             </button>
-          </div>
-
-          <div className="p-6 bg-black/10 border border-white/5 rounded-lg mb-16">
-            <h3 className="text-lg font-medium text-white mb-3">
-              Document Updates
-            </h3>
-            <p className="text-white/60 text-sm leading-relaxed mb-4">
-              All legal documents are regularly reviewed and updated to ensure compliance with current regulations and best practices. You will be notified of any significant changes to these policies.
-            </p>
-            <p className="text-white/40 text-xs">
-              Last reviewed: January 2025
-            </p>
-          </div>
-
-          <div className="text-center pt-8 pb-16">
-            <p className="text-white/40 text-sm">
-              © 2025 ZiNRAi. All rights reserved.
-            </p>
           </div>
         </div>
       </div>
