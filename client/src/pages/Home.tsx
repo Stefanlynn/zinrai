@@ -876,7 +876,7 @@ export default function Home() {
           {/* Center - Documents link */}
           <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-auto">
             <button
-              onClick={() => window.open('/documents', '_blank')}
+              onClick={() => window.location.href = '/documents'}
               className="text-white/70 text-xs font-light hover:text-white transition-colors"
             >
               Documents

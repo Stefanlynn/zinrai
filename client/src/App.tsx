@@ -27,6 +27,7 @@ import TermsConditions from "@/pages/TermsConditions";
 import TermsOfUse from "@/pages/TermsOfUse";
 import TestPage from "@/pages/TestPage";
 import StartNow from "@/pages/StartNow";
+import Documents from "@/pages/Documents";
 
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
@@ -237,6 +238,9 @@ function Router() {
       <Route path="/terms-of-use">
         {() => <PageWithHeader><TermsOfUse /></PageWithHeader>}
       </Route>
+      <Route path="/documents">
+        {() => <PageWithHeader><Documents /></PageWithHeader>}
+      </Route>
       <Route path="/startnow" component={StartNow} />
       <Route>
         {() => <PageWithHeader><NotFound /></PageWithHeader>}
@@ -313,7 +317,7 @@ function App() {
         
         {/* Header - Clean minimal design with dark gray background */}
         <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center justify-between border-b border-white/10" role="banner">
-          {/* Brand logo and Info icon - shown on all pages except home page and when menu is open */}
+          {/* Brand logo and Watch Now button - shown on all pages except home page and when menu is open */}
           <div className="flex items-center space-x-4">
             {!menuOpen && !isHomePage && (
               <a 
@@ -329,6 +333,17 @@ function App() {
               </a>
             )}
             {menuOpen && <div className="ml-6 w-8"></div>}
+            
+            {/* Watch Now button for desktop - only on non-home pages */}
+            {!menuOpen && !isHomePage && (
+              <button
+                onClick={() => setVideoPopupOpen(true)}
+                className="hidden md:flex h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                aria-label="Watch ZiNRAi introduction video"
+              >
+                <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Watch Now</span>
+              </button>
+            )}
             
             {/* Login and Watch Now buttons on left side for mobile home page */}
             {isHomePage && !menuOpen && (
@@ -423,9 +438,8 @@ function App() {
 
           </nav>
           
-          {/* Login button and Info icon for desktop */}
-          <div className="hidden md:flex items-center mr-6 space-x-3">
-            {/* Login button on right side for desktop */}
+          {/* Login button for desktop */}
+          <div className="hidden md:flex items-center mr-6">
             {!menuOpen && (
               <a 
                 href="http://app.zinrai.com"
@@ -437,87 +451,6 @@ function App() {
                 <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
               </a>
             )}
-            
-            {/* Info icon with policy dropdown */}
-            <div className="relative" ref={policyDropdownRef}>
-              <button
-                className="h-9 w-9 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors duration-300 rounded-full"
-                onClick={() => setShowPolicyDropdown(!showPolicyDropdown)}
-                aria-label="Policy Information"
-              >
-                <svg className="text-white/70 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="16" x2="12" y2="12"></line>
-                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-              </button>
-              
-              {/* Policy dropdown */}
-              {showPolicyDropdown && (
-                <div className="absolute right-0 top-full mt-2 w-56 bg-black/95 border border-white/20 rounded-lg shadow-xl z-50">
-                  <div className="p-2">
-                    <div className="text-white/80 text-xs font-medium mb-3 px-3 py-2 border-b border-white/10">
-                      Legal Documents
-                    </div>
-                    <button 
-                      onClick={() => {
-                        setLocation('/ibo-terms');
-                        setShowPolicyDropdown(false);
-                      }}
-                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
-                    >
-                      Brand Promoter Terms
-                    </button>
-                    <button 
-                      onClick={() => {
-                        setLocation('/cookie-policy');
-                        setShowPolicyDropdown(false);
-                      }}
-                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
-                    >
-                      Cookie Policy
-                    </button>
-                    <button 
-                      onClick={() => {
-                        setLocation('/privacy-policy');
-                        setShowPolicyDropdown(false);
-                      }}
-                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
-                    >
-                      Privacy Policy
-                    </button>
-                    <button 
-                      onClick={() => {
-                        setLocation('/refund-policy');
-                        setShowPolicyDropdown(false);
-                      }}
-                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
-                    >
-                      Refund Policy
-                    </button>
-                    <button 
-                      onClick={() => {
-                        setLocation('/terms-conditions');
-                        setShowPolicyDropdown(false);
-                      }}
-                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
-                    >
-                      Terms & Conditions
-                    </button>
-                    <button 
-                      onClick={() => {
-                        setLocation('/terms-of-use');
-                        setShowPolicyDropdown(false);
-                      }}
-                      className="w-full text-left px-3 py-2 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm rounded"
-                    >
-                      Terms of Use
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-
           </div>
           
 
