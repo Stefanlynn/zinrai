@@ -123,28 +123,26 @@ export default function Home() {
     };
   }, []);
   
-  // Add scroll event listener to update content
+  // Add scroll event listener to update content - but allow normal scrolling to footer
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+    
     const handleWheel = (e: WheelEvent) => {
       // Don't handle scroll events if menu is open
       if (menuOpen) {
         return;
       }
       
-      // If we're at the last item (index 6 - CONTACT) and scrolling down, allow normal scrolling to footer
-      if (currentIndex >= contentItems.length - 1 && e.deltaY > 0) {
-        // Allow normal scroll to footer
-        console.log("At last item, allowing scroll to footer");
-        return;
+      // Get current scroll position
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // If we've scrolled past the viewport height, allow normal scrolling to footer
+      if (scrollY > windowHeight * 0.5) {
+        return; // Allow normal scrolling to footer
       }
       
-      // If we're at the first item and scrolling up, allow normal scrolling
-      if (currentIndex === 0 && e.deltaY < 0) {
-        // Allow normal scroll up
-        return;
-      }
-      
-      // Prevent default scroll behavior for navigation
+      // Only hijack scroll when at the top of the page for content navigation
       e.preventDefault();
       
       const now = Date.now();
@@ -172,20 +170,25 @@ export default function Home() {
     // Add event listener with passive: false to allow preventDefault
     window.addEventListener('wheel', handleWheel, { passive: false });
     
-    // Only prevent scroll when not at navigation boundaries
-    const preventScroll = (e: Event) => {
-      // Allow scrolling if at the last item (to reach footer) or first item
-      if (currentIndex >= contentItems.length - 1 || currentIndex === 0) {
-        return;
+    // Allow normal scrolling after initial navigation
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // If user has scrolled significantly, allow normal scrolling behavior
+      if (scrollY > windowHeight * 0.1) {
+        // Clear any scroll prevention
+        clearTimeout(scrollTimeout);
       }
-      e.preventDefault();
     };
-    document.addEventListener('scroll', preventScroll, { passive: false });
+    
+    window.addEventListener('scroll', handleScroll);
     
     // Cleanup
     return () => {
       window.removeEventListener('wheel', handleWheel);
-      document.removeEventListener('scroll', preventScroll);
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
     };
   }, [menuOpen, currentIndex]);
   
@@ -954,7 +957,7 @@ export default function Home() {
       )}
 
       {/* Footer - appears when scrolling down after hero section */}
-      <footer className="relative bg-black border-t border-white/10 mt-[100vh]">
+      <footer className="relative bg-black border-t border-white/10" style={{ marginTop: '100vh' }}>
         <div className="max-w-7xl mx-auto px-6 py-16">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
