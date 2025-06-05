@@ -316,7 +316,7 @@ function App() {
           <div className="flex items-center space-x-4">
             {!menuOpen && !isHomePage && (
               <a 
-                className="ml-6 cursor-pointer flex items-center"
+                className="ml-6 cursor-pointer flex items-center space-x-2"
                 onClick={(e) => {
                   e.preventDefault();
                   setLocation('/');
@@ -324,6 +324,11 @@ function App() {
                 href="/"
                 aria-label="ZiNRAi Home"
               >
+                <img 
+                  src="/src/assets/zinrai-circle-logo.png" 
+                  alt="ZiNRAi Logo" 
+                  className="w-6 h-6"
+                />
                 <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
               </a>
             )}
