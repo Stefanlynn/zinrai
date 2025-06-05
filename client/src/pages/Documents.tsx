@@ -37,8 +37,8 @@ export default function Documents() {
   ];
 
   return (
-    <div className="bg-[#1a1a1a] text-white pb-24">
-      <div className="container mx-auto px-6 pt-16 pb-24">
+    <div className="bg-[#1a1a1a] text-white min-h-screen overflow-y-auto">
+      <div className="container mx-auto px-6 pt-8 pb-32">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-light text-white mb-4">
             Legal Documents
@@ -83,6 +83,24 @@ export default function Documents() {
             >
               Contact Support →
             </button>
+          </div>
+
+          <div className="p-6 bg-black/10 border border-white/5 rounded-lg mb-16">
+            <h3 className="text-lg font-medium text-white mb-3">
+              Document Updates
+            </h3>
+            <p className="text-white/60 text-sm leading-relaxed mb-4">
+              All legal documents are regularly reviewed and updated to ensure compliance with current regulations and best practices. You will be notified of any significant changes to these policies.
+            </p>
+            <p className="text-white/40 text-xs">
+              Last reviewed: January 2025
+            </p>
+          </div>
+
+          <div className="text-center pt-8 pb-16">
+            <p className="text-white/40 text-sm">
+              © 2025 ZiNRAi. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
