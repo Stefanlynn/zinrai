@@ -865,9 +865,10 @@ export default function Home() {
         </div>
       )}
 
-      {/* Footer - similar to header design */}
+      {/* Footer - different layouts for mobile and desktop */}
       <footer className="fixed bottom-0 left-0 right-0 h-[48px] bg-black/20 backdrop-blur-sm border-t border-white/10 z-[100] pointer-events-none">
-        <div className="relative w-full h-full flex items-center justify-between px-8">
+        {/* Mobile Footer */}
+        <div className="md:hidden relative w-full h-full flex items-center justify-between px-8">
           {/* Left side - Copyright */}
           <div className="text-white/70 text-xs font-light pointer-events-auto">
             © 2025 ZiNRAi
@@ -880,6 +881,61 @@ export default function Home() {
               className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
             >
               Documents
+            </button>
+          </div>
+          
+          {/* Right side - Social links */}
+          <div className="flex items-center space-x-4 pointer-events-auto">
+            <a 
+              href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Follow ZiNRAi on Instagram"
+            >
+              <FaInstagram className="w-3 h-3" />
+            </a>
+            <a 
+              href="https://facebook.com/zinrai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Follow ZiNRAi on Facebook"
+            >
+              <FaFacebook className="w-3 h-3" />
+            </a>
+            <a 
+              href="https://www.youtube.com/@ZiNRAi.official" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Subscribe to ZiNRAi on YouTube"
+            >
+              <FaYoutube className="w-3 h-3" />
+            </a>
+          </div>
+        </div>
+
+        {/* Desktop Footer */}
+        <div className="hidden md:flex relative w-full h-full items-center justify-between px-8">
+          {/* Left side - Full copyright */}
+          <div className="text-white/70 text-xs font-light pointer-events-auto">
+            © 2025 ZiNRAi, All rights reserved.
+          </div>
+          
+          {/* Center - Documents and Contact buttons */}
+          <div className="flex items-center space-x-4 pointer-events-auto">
+            <button
+              onClick={() => window.location.href = '/documents'}
+              className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
+            >
+              Documents
+            </button>
+            <button
+              onClick={() => window.location.href = '/contact'}
+              className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
+            >
+              Contact
             </button>
           </div>
           
