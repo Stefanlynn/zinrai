@@ -329,17 +329,29 @@ function App() {
             )}
             {menuOpen && <div className="ml-6 w-8"></div>}
             
-            {/* Login button on left side for mobile home page */}
+            {/* Login and Watch Now buttons on left side for mobile home page */}
             {isHomePage && !menuOpen && (
-              <a 
-                href="http://app.zinrai.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="md:hidden ml-6 h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
-                aria-label="Login to ZiNRAi app"
-              >
-                <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
-              </a>
+              <div className="md:hidden ml-6 flex items-center space-x-2">
+                <a 
+                  href="http://app.zinrai.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                  aria-label="Login to ZiNRAi app"
+                >
+                  <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
+                </a>
+                <button
+                  onClick={() => {
+                    // Open YouTube video in new tab
+                    window.open('https://www.youtube.com/watch?v=aB19kSzMGxo', '_blank');
+                  }}
+                  className="h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                  aria-label="Watch ZiNRAi introduction video"
+                >
+                  <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Watch Now</span>
+                </button>
+              </div>
             )}
             
 
