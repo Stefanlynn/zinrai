@@ -1,102 +1,95 @@
 import { useLocation } from "wouter";
-import { useEffect } from "react";
 
 export default function Documents() {
   const [, setLocation] = useLocation();
 
-  // Ensure scrolling works on this page
-  useEffect(() => {
-    // Remove any body classes that prevent scrolling
-    document.body.classList.remove('home-is-active');
-    document.body.style.overflow = 'auto';
-    document.body.style.position = 'static';
-    document.body.style.height = 'auto';
-    document.body.style.width = 'auto';
-    
-    return () => {
-      // Clean up if needed
-    };
-  }, []);
-
-  const legalDocuments = [
-    {
-      title: "BP Terms & Conditions",
-      description: "Brand Promoter terms and conditions for ZiNRAi partnership",
-      path: "/ibo-terms"
-    },
-    {
-      title: "Cookie Policy",
-      description: "Information about how we use cookies on our website",
-      path: "/cookie-policy"
-    },
-    {
-      title: "Privacy Policy",
-      description: "How we collect, use, and protect your personal information",
-      path: "/privacy-policy"
-    },
-    {
-      title: "Refund Policy",
-      description: "Our refund and cancellation policy for services",
-      path: "/refund-policy"
-    },
-    {
-      title: "Terms & Conditions",
-      description: "General terms and conditions for using ZiNRAi services",
-      path: "/terms-conditions"
-    },
-    {
-      title: "Terms of Use",
-      description: "Terms governing the use of our website and platform",
-      path: "/terms-of-use"
-    }
-  ];
-
   return (
-    <div className="bg-[#1a1a1a] text-white" style={{ minHeight: 'calc(100vh - 48px)' }}>
-      <div className="px-6 py-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-light text-white mb-4">
-            Legal Documents
-          </h1>
-          <p className="text-white/70 text-lg mb-8">
-            Access all ZiNRAi legal documents and policies in one place.
+    <div style={{ 
+      backgroundColor: '#1a1a1a', 
+      color: 'white', 
+      minHeight: '100vh', 
+      paddingTop: '48px',
+      overflow: 'auto'
+    }}>
+      <div style={{ padding: '32px 24px', maxWidth: '1024px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '36px', fontWeight: '300', marginBottom: '16px' }}>
+          Legal Documents
+        </h1>
+        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '18px', marginBottom: '32px' }}>
+          Access all ZiNRAi legal documents and policies in one place.
+        </p>
+
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
+             onClick={() => setLocation('/ibo-terms')}>
+          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>BP Terms & Conditions</h3>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+            Business Promoter terms and conditions for partnership with ZiNRAi.
           </p>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+        </div>
 
-          {legalDocuments.map((doc, index) => (
-            <div
-              key={index}
-              onClick={() => setLocation(doc.path)}
-              className="bg-black/40 border border-white/20 rounded-lg p-6 hover:border-white/40 hover:bg-white/5 transition-all duration-300 cursor-pointer group mb-4"
-            >
-              <h3 className="text-xl font-medium text-white mb-3 group-hover:text-[var(--zinrai-blue-glow)] transition-colors">
-                {doc.title}
-              </h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-4">
-                {doc.description}
-              </p>
-              <div className="flex items-center text-white/50 group-hover:text-white/80 transition-colors">
-                <span className="text-sm">View Document</span>
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
-          ))}
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
+             onClick={() => setLocation('/cookie-policy')}>
+          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Cookie Policy</h3>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+            Information about how we use cookies and similar technologies on our website.
+          </p>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+        </div>
 
-          <div className="p-6 bg-black/20 border border-white/10 rounded-lg mt-8 mb-16">
-            <h3 className="text-lg font-medium text-white mb-3">
-              Need Help?
-            </h3>
-            <p className="text-white/60 text-sm leading-relaxed mb-4">
-              If you have questions about any of these documents or need clarification on our policies, please don't hesitate to contact us.
-            </p>
-            <button
-              onClick={() => setLocation('/contact')}
-              className="text-[var(--zinrai-blue-glow)] hover:text-white transition-colors text-sm font-medium"
-            >
-              Contact Support →
-            </button>
-          </div>
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
+             onClick={() => setLocation('/privacy-policy')}>
+          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Privacy Policy</h3>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+            How we collect, use, and protect your personal information.
+          </p>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+        </div>
+
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
+             onClick={() => setLocation('/refund-policy')}>
+          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Refund Policy</h3>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+            Terms and conditions regarding refunds and cancellations.
+          </p>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+        </div>
+
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
+             onClick={() => setLocation('/terms-conditions')}>
+          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Terms and Conditions</h3>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+            General terms and conditions for using ZiNRAi services.
+          </p>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+        </div>
+
+        <div style={{ marginBottom: '32px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
+             onClick={() => setLocation('/terms-of-use')}>
+          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Terms of Use</h3>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+            Specific terms governing the use of our platform and services.
+          </p>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+        </div>
+
+        <div style={{ padding: '24px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', marginBottom: '64px' }}>
+          <h3 style={{ fontSize: '18px', fontWeight: '500', marginBottom: '12px' }}>Need Help?</h3>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+            If you have questions about any of these documents or need clarification on our policies, please don't hesitate to contact us.
+          </p>
+          <button
+            onClick={() => setLocation('/contact')}
+            style={{ color: '#68acff', fontSize: '14px', fontWeight: '500', background: 'none', border: 'none', cursor: 'pointer' }}
+          >
+            Contact Support →
+          </button>
+        </div>
+
+        <div style={{ textAlign: 'center', paddingBottom: '64px' }}>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '14px' }}>
+            © 2025 ZiNRAi. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
