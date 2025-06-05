@@ -249,6 +249,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCaresModal, setShowCaresModal] = useState(false);
   const [showPolicyDropdown, setShowPolicyDropdown] = useState(false);
+  const [videoPopupOpen, setVideoPopupOpen] = useState(false);
 
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -343,8 +344,7 @@ function App() {
                 </a>
                 <button
                   onClick={() => {
-                    // Open YouTube video in new tab
-                    window.open('https://www.youtube.com/watch?v=aB19kSzMGxo', '_blank');
+                    setVideoPopupOpen(true);
                   }}
                   className="h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
                   aria-label="Watch ZiNRAi introduction video"
@@ -904,6 +904,58 @@ function App() {
                 </div>
                 
                 <OnboardingForm onClose={() => setShowOnboardingModal(false)} />
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* YouTube Video Popup - only show on home page */}
+        {isHomePage && videoPopupOpen && (
+          <div 
+            className="fixed inset-0 z-[1500] flex items-center justify-center bg-black/95 backdrop-blur-md" 
+            onClick={() => setVideoPopupOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="video-title"
+          >
+            <div 
+              className="relative w-[90vw] max-w-4xl animate-fadeIn" 
+              onClick={(e) => e.stopPropagation()}
+              style={{ animation: 'fadeIn 0.3s ease-out' }}
+            >
+              {/* Stylish close button for video popup */}
+              <button 
+                className="absolute -top-16 right-0 text-white/80 hover:text-white transition-all group" 
+                onClick={() => setVideoPopupOpen(false)}
+                aria-label="Close video"
+              >
+                <div className="relative h-12 w-12 flex items-center justify-center overflow-hidden">
+                  {/* Circular background that appears on hover */}
+                  <div className="absolute inset-0 rounded-full bg-black/50 backdrop-blur-sm group-hover:bg-black/70 transform scale-75 group-hover:scale-100 transition-all duration-300"></div>
+                  
+                  {/* Animated X icon */}
+                  <div className="relative">
+                    {/* Line 1 - animates to create X */}
+                    <div className="w-6 h-[1.5px] bg-white/70 group-hover:bg-white absolute top-0 left-0 transform rotate-45 transition-all duration-300"></div>
+                    {/* Line 2 - animates to create X */}
+                    <div className="w-6 h-[1.5px] bg-white/70 group-hover:bg-white absolute top-0 left-0 transform -rotate-45 transition-all duration-300"></div>
+                  </div>
+                </div>
+              </button>
+              
+              {/* Hidden title for screen readers */}
+              <h2 id="video-title" className="sr-only">ZiNRAi Introduction Video</h2>
+              
+              {/* YouTube video embed */}
+              <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl border border-white/10">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/aB19kSzMGxo?autoplay=1&rel=0&modestbranding=1"
+                  title="ZiNRAi Introduction Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
