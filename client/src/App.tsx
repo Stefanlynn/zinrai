@@ -329,8 +329,8 @@ function App() {
             )}
             {menuOpen && <div className="ml-6 w-8"></div>}
             
-            {/* Watch Now button for desktop - only on non-home pages */}
-            {!menuOpen && !isHomePage && (
+            {/* Watch Now button for desktop - only on home page */}
+            {!menuOpen && isHomePage && (
               <button
                 onClick={() => setVideoPopupOpen(true)}
                 className="hidden md:flex h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
