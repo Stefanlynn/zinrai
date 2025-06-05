@@ -131,9 +131,10 @@ export default function Home() {
         return;
       }
       
-      // If we're at the last item and scrolling down, allow normal scrolling to footer
-      if (currentIndex === contentItems.length - 1 && e.deltaY > 0) {
+      // If we're at the last item (index 6 - CONTACT) and scrolling down, allow normal scrolling to footer
+      if (currentIndex >= contentItems.length - 1 && e.deltaY > 0) {
         // Allow normal scroll to footer
+        console.log("At last item, allowing scroll to footer");
         return;
       }
       
@@ -174,7 +175,7 @@ export default function Home() {
     // Only prevent scroll when not at navigation boundaries
     const preventScroll = (e: Event) => {
       // Allow scrolling if at the last item (to reach footer) or first item
-      if (currentIndex === contentItems.length - 1 || currentIndex === 0) {
+      if (currentIndex >= contentItems.length - 1 || currentIndex === 0) {
         return;
       }
       e.preventDefault();
