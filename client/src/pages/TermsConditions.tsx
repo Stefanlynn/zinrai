@@ -1,14 +1,24 @@
+import { useLocation } from "wouter";
+
 export default function TermsConditions() {
+  const [, setLocation] = useLocation();
+
   return (
-    <div className="h-screen bg-black text-white flex flex-col">
-      {/* Header */}
-      <div className="bg-[#222222] h-12 flex items-center px-6 flex-shrink-0">
-        <div className="text-lg font-light tracking-wider">ZiNRAi</div>
-      </div>
-      
+    <div className="min-h-screen bg-black text-white flex flex-col">
       {/* Scrollable Content */}
       <div className="flex-1 overflow-y-auto">
         <div className="container mx-auto px-6 py-12 max-w-4xl">
+          {/* Back button */}
+          <button
+            onClick={() => setLocation('/documents')}
+            className="flex items-center text-white/70 hover:text-white transition-colors mb-8"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Documents
+          </button>
+
           <h1 className="text-4xl font-bold mb-8 text-center">ZiNRAi MEMBER TERMS AND CONDITIONS</h1>
           <div className="text-center mb-8">
             <p className="text-white/80">Last Updated: June 1, 2025</p>

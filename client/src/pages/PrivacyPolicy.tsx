@@ -1,9 +1,24 @@
+import { useLocation } from "wouter";
+
 export default function PrivacyPolicy() {
+  const [, setLocation] = useLocation();
+
   return (
     <div className="policy-page-container bg-[var(--zinrai-bg)] text-white min-h-screen">
       {/* Privacy Policy Content */}
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="space-y-8">
+          {/* Back button */}
+          <button
+            onClick={() => setLocation('/documents')}
+            className="flex items-center text-white/70 hover:text-white transition-colors mb-8"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Documents
+          </button>
+
           <div className="text-center mb-12">
             <h1 className="text-4xl font-light text-white mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
               Privacy Policy
