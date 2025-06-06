@@ -918,9 +918,12 @@ export default function Home() {
 
         {/* Desktop Footer */}
         <div className="hidden md:flex relative w-full h-full items-center justify-between px-8">
-          {/* Left side - Full copyright */}
+          {/* Left side - Company info */}
           <div className="text-white/70 text-xs font-light pointer-events-auto">
-            © 2025 ZiNRAi, All rights reserved.
+            <div className="flex flex-col">
+              <span>© 2025 ZiNRAi LLC, All rights reserved.</span>
+              <span className="text-white/50 text-[10px] mt-1">3333 Renaissance Blvd, Suite #209, Bonita Springs, FL 34134</span>
+            </div>
           </div>
           
           {/* Center - Documents button */}
