@@ -868,27 +868,18 @@ export default function Home() {
       {/* Footer - different layouts for mobile and desktop */}
       <footer className="fixed bottom-0 left-0 right-0 h-[48px] bg-black/20 backdrop-blur-sm border-t border-white/10 z-[100] pointer-events-none">
         {/* Mobile Footer */}
-        <div className="md:hidden relative w-full h-full flex items-center justify-between px-4">
-          {/* Left side - Company info */}
-          <div className="text-white/70 text-xs font-light pointer-events-auto">
-            <div className="flex flex-col">
+        <div className="md:hidden relative w-full h-full flex items-center justify-between px-2">
+          {/* Left side - Company info with full address */}
+          <div className="text-white/70 text-[10px] font-light pointer-events-auto">
+            <div className="flex flex-col leading-tight">
               <span>© 2025 ZiNRAi LLC</span>
-              <span className="text-white/50 text-[9px] mt-0.5">Bonita Springs, FL</span>
+              <span className="text-white/50 text-[8px] mt-0.5">3333 Renaissance Blvd #209</span>
+              <span className="text-white/50 text-[8px]">Bonita Springs, FL 34134</span>
             </div>
           </div>
           
-          {/* Center - Documents link */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-auto">
-            <button
-              onClick={() => window.location.href = '/documents'}
-              className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
-            >
-              Documents
-            </button>
-          </div>
-          
-          {/* Right side - Social links */}
-          <div className="flex items-center space-x-3 pointer-events-auto">
+          {/* Center - Social links */}
+          <div className="flex items-center space-x-2 pointer-events-auto">
             <a 
               href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
               target="_blank" 
@@ -896,7 +887,7 @@ export default function Home() {
               className="text-white/70 hover:text-white transition-colors"
               aria-label="Follow ZiNRAi on Instagram"
             >
-              <FaInstagram className="w-3 h-3" />
+              <FaInstagram className="w-2.5 h-2.5" />
             </a>
             <a 
               href="https://facebook.com/zinrai" 
@@ -905,7 +896,7 @@ export default function Home() {
               className="text-white/70 hover:text-white transition-colors"
               aria-label="Follow ZiNRAi on Facebook"
             >
-              <FaFacebook className="w-3 h-3" />
+              <FaFacebook className="w-2.5 h-2.5" />
             </a>
             <a 
               href="https://www.youtube.com/@ZiNRAi.official" 
@@ -914,8 +905,18 @@ export default function Home() {
               className="text-white/70 hover:text-white transition-colors"
               aria-label="Subscribe to ZiNRAi on YouTube"
             >
-              <FaYoutube className="w-3 h-3" />
+              <FaYoutube className="w-2.5 h-2.5" />
             </a>
+          </div>
+          
+          {/* Right side - Documents button */}
+          <div className="flex items-center pointer-events-auto">
+            <button
+              onClick={() => window.location.href = '/documents'}
+              className="text-white text-xs font-bold bg-white/10 px-2 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
+            >
+              Docs
+            </button>
           </div>
         </div>
 
