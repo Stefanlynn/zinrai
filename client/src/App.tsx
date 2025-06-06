@@ -727,16 +727,6 @@ function App() {
                         >
                           Terms of Use
                         </button>
-                        <button 
-                          onClick={() => {
-                            // You can change this to whatever route you want for documents
-                            window.open('/documents', '_blank');
-                            toggleMenu();
-                          }}
-                          className="text-white/60 hover:text-white/90 transition-colors text-left"
-                        >
-                          Documents
-                        </button>
                       </div>
                     </div>
                   </div>
