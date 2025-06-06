@@ -868,10 +868,13 @@ export default function Home() {
       {/* Footer - different layouts for mobile and desktop */}
       <footer className="fixed bottom-0 left-0 right-0 h-[48px] bg-black/20 backdrop-blur-sm border-t border-white/10 z-[100] pointer-events-none">
         {/* Mobile Footer */}
-        <div className="md:hidden relative w-full h-full flex items-center justify-between px-8">
-          {/* Left side - Copyright */}
+        <div className="md:hidden relative w-full h-full flex items-center justify-between px-4">
+          {/* Left side - Company info */}
           <div className="text-white/70 text-xs font-light pointer-events-auto">
-            © 2025 ZiNRAi
+            <div className="flex flex-col">
+              <span>© 2025 ZiNRAi LLC</span>
+              <span className="text-white/50 text-[9px] mt-0.5">Bonita Springs, FL</span>
+            </div>
           </div>
           
           {/* Center - Documents link */}
@@ -885,7 +888,7 @@ export default function Home() {
           </div>
           
           {/* Right side - Social links */}
-          <div className="flex items-center space-x-4 pointer-events-auto">
+          <div className="flex items-center space-x-3 pointer-events-auto">
             <a 
               href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
               target="_blank" 
