@@ -926,17 +926,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Center - Documents button */}
-          <div className="flex items-center pointer-events-auto">
-            <button
-              onClick={() => window.location.href = '/documents'}
-              className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
-            >
-              Documents
-            </button>
-          </div>
-          
-          {/* Right side - Social links */}
+          {/* Center - Social links */}
           <div className="flex items-center space-x-4 pointer-events-auto">
             <a 
               href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
@@ -965,6 +955,16 @@ export default function Home() {
             >
               <FaYoutube className="w-3 h-3" />
             </a>
+          </div>
+          
+          {/* Right side - Documents button */}
+          <div className="flex items-center pointer-events-auto">
+            <button
+              onClick={() => window.location.href = '/documents'}
+              className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
+            >
+              Documents
+            </button>
           </div>
         </div>
       </footer>
