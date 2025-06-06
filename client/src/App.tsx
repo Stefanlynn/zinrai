@@ -741,6 +741,23 @@ function App() {
                     </div>
                   </div>
 
+                  {/* Company Legal Information */}
+                  <div className="px-8 md:px-16 mt-8">
+                    <div className="border-t border-white/10 pt-6">
+                      <div className="text-white/50 text-xs space-y-1">
+                        <div className="font-medium text-white/70">ZiNRAi LLC</div>
+                        <div className="text-white/40 text-[10px] leading-relaxed">
+                          3333 Renaissance Blvd<br />
+                          Suite #209<br />
+                          Bonita Springs, FL 34134
+                        </div>
+                        <div className="text-white/40 text-[10px] mt-2">
+                          © 2025 All rights reserved.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             )}
