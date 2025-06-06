@@ -510,9 +510,9 @@ function App() {
                   </div>
                   
                   {/* Main menu content with numbered items on left, video space on right */}
-                  <div className="flex-1 px-8 md:px-16 pt-8 flex flex-col md:flex-row">
+                  <div className="flex-1 px-6 md:px-16 pt-6 flex flex-col md:flex-row">
                     {/* Left side: Navigation */}
-                    <nav className="space-y-6 md:space-y-8 max-w-xs flex-shrink-0">
+                    <nav className="space-y-4 md:space-y-8 max-w-xs flex-shrink-0">
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
@@ -625,9 +625,9 @@ function App() {
                   </div>
                   
                   {/* Social Media Links */}
-                  <div className="px-8 md:px-16 mt-auto">
-                    <div className="border-t border-white/10 pt-6 pb-6">
-                      <div className="text-white/80 text-xs font-medium mb-4">
+                  <div className="px-6 md:px-16 mt-6">
+                    <div className="border-t border-white/10 pt-4 pb-3">
+                      <div className="text-white/80 text-xs font-medium mb-3">
                         Follow ZiNRAi
                       </div>
                       <div className="flex space-x-4">
@@ -664,15 +664,14 @@ function App() {
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                           </svg>
                         </a>
-
                       </div>
                     </div>
                   </div>
 
                   {/* Policy Links at bottom */}
-                  <div className="px-8 md:px-16 pb-8">
-                    <div className="border-t border-white/10 pt-6">
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 text-xs">
+                  <div className="px-6 md:px-16 pb-4">
+                    <div className="border-t border-white/10 pt-4">
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 text-xs">
                         <button 
                           onClick={() => {
                             setLocation('/ibo-terms');
@@ -732,8 +731,8 @@ function App() {
                   </div>
 
                   {/* Company Legal Information */}
-                  <div className="px-8 md:px-16 mt-8">
-                    <div className="border-t border-white/10 pt-6">
+                  <div className="px-6 md:px-16 pb-6">
+                    <div className="border-t border-white/10 pt-4">
                       <div className="text-white/50 text-xs space-y-1">
                         <div className="font-medium text-white/70">ZiNRAi LLC</div>
                         <div className="text-white/40 text-[10px] leading-relaxed">
