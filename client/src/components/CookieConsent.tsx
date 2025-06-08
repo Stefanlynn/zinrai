@@ -63,19 +63,19 @@ export default function CookieConsent() {
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50" />
       
       {/* Cookie Consent Popup */}
-      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg mx-4 px-4">
-        <div className="bg-gray-900/95 backdrop-blur-md border border-white/20 rounded-lg p-5 md:p-6 shadow-2xl relative">
+      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg px-6">
+        <div className="bg-gray-900/95 backdrop-blur-md border border-white/20 rounded-lg p-6 shadow-2xl relative mx-auto">
           {/* Close button */}
           <button
             onClick={handleClose}
-            className="absolute top-3 right-3 text-white/60 hover:text-white/90 transition-colors p-1 rounded-full hover:bg-white/10"
+            className="absolute top-4 right-4 text-white/60 hover:text-white/90 transition-colors p-1 rounded-full hover:bg-white/10"
             aria-label="Close cookie consent"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
 
           {/* Content */}
-          <div className="pr-12">
+          <div className="pr-10">
             <h3 className="text-white font-medium text-lg mb-3">
               Cookie Consent
             </h3>
