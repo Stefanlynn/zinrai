@@ -4,21 +4,24 @@ import { useEffect } from "react";
 export default function Documents() {
   const [, setLocation] = useLocation();
 
+  const handleDocumentClick = (path: string, docName: string) => {
+    console.log(`Navigating to ${docName}: ${path}`);
+    setLocation(path);
+  };
+
   useEffect(() => {
-    // Force remove any classes preventing scroll
-    document.body.classList.remove('home-is-active');
-    document.body.style.overflow = 'auto !important';
-    document.body.style.position = 'static !important';
-    document.body.style.height = 'auto !important';
-    document.body.style.width = '100% !important';
-    document.documentElement.style.overflow = 'auto !important';
-    
-    // Remove any global scroll event listeners
-    const allEventListeners = document.body.cloneNode(true);
-    document.body.parentNode?.replaceChild(allEventListeners, document.body);
+    // Clean up any interfering styles
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'static';
+    document.body.style.height = '100vh';
+    document.documentElement.style.overflow = 'hidden';
     
     return () => {
-      // Cleanup
+      // Cleanup when leaving page
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.height = '';
+      document.documentElement.style.overflow = '';
     };
   }, []);
 
@@ -45,88 +48,64 @@ export default function Documents() {
           Access all ZiNRAi legal documents and policies in one place.
         </p>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
-             onClick={(e) => {
-               e.preventDefault();
-               e.stopPropagation();
-               console.log('Clicking BP Terms');
-               setLocation('/ibo-terms');
-             }}>
-          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>BP Terms & Conditions</h3>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+        <div 
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={() => handleDocumentClick('/ibo-terms', 'BP Terms & Conditions')}>
+          <h3 className="text-xl font-medium mb-3 text-white">BP Terms & Conditions</h3>
+          <p className="text-white/60 text-sm mb-4">
             Business Promoter terms and conditions for partnership with ZiNRAi.
           </p>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+          <span className="text-white/50 text-sm">View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
-             onClick={(e) => {
-               e.preventDefault();
-               e.stopPropagation();
-               console.log('Clicking Cookie Policy');
-               setLocation('/cookie-policy');
-             }}>
-          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Cookie Policy</h3>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+        <div 
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={() => handleDocumentClick('/cookie-policy', 'Cookie Policy')}>
+          <h3 className="text-xl font-medium mb-3 text-white">Cookie Policy</h3>
+          <p className="text-white/60 text-sm mb-4">
             Information about how we use cookies and similar technologies on our website.
           </p>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+          <span className="text-white/50 text-sm">View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
-             onClick={(e) => {
-               e.preventDefault();
-               e.stopPropagation();
-               console.log('Clicking Privacy Policy');
-               setLocation('/privacy-policy');
-             }}>
-          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Privacy Policy</h3>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+        <div 
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={() => handleDocumentClick('/privacy-policy', 'Privacy Policy')}>
+          <h3 className="text-xl font-medium mb-3 text-white">Privacy Policy</h3>
+          <p className="text-white/60 text-sm mb-4">
             How we collect, use, and protect your personal information.
           </p>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+          <span className="text-white/50 text-sm">View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
-             onClick={(e) => {
-               e.preventDefault();
-               e.stopPropagation();
-               console.log('Clicking Refund Policy');
-               setLocation('/refund-policy');
-             }}>
-          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Refund Policy</h3>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+        <div 
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={() => handleDocumentClick('/refund-policy', 'Refund Policy')}>
+          <h3 className="text-xl font-medium mb-3 text-white">Refund Policy</h3>
+          <p className="text-white/60 text-sm mb-4">
             Terms and conditions regarding refunds and cancellations.
           </p>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+          <span className="text-white/50 text-sm">View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
-             onClick={(e) => {
-               e.preventDefault();
-               e.stopPropagation();
-               console.log('Clicking Terms and Conditions');
-               setLocation('/terms-conditions');
-             }}>
-          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Terms and Conditions</h3>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+        <div 
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={() => handleDocumentClick('/terms-conditions', 'Terms and Conditions')}>
+          <h3 className="text-xl font-medium mb-3 text-white">Terms and Conditions</h3>
+          <p className="text-white/60 text-sm mb-4">
             General terms and conditions for using ZiNRAi services.
           </p>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+          <span className="text-white/50 text-sm">View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '32px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
-             onClick={(e) => {
-               e.preventDefault();
-               e.stopPropagation();
-               console.log('Clicking Terms of Use');
-               setLocation('/terms-of-use');
-             }}>
-          <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Terms of Use</h3>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
+        <div 
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-8 cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={() => handleDocumentClick('/terms-of-use', 'Terms of Use')}>
+          <h3 className="text-xl font-medium mb-3 text-white">Terms of Use</h3>
+          <p className="text-white/60 text-sm mb-4">
             Specific terms governing the use of our platform and services.
           </p>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
+          <span className="text-white/50 text-sm">View Document →</span>
         </div>
 
         <div style={{ padding: '24px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', marginBottom: '64px' }}>
