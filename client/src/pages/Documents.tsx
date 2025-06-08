@@ -34,7 +34,8 @@ export default function Documents() {
       overflow: 'auto',
       overflowY: 'scroll',
       WebkitOverflowScrolling: 'touch',
-      zIndex: 1
+      zIndex: 10,
+      pointerEvents: 'auto'
     }}>
       <div style={{ padding: '32px 24px', maxWidth: '1024px', margin: '0 auto' }}>
         <h1 style={{ fontSize: '36px', fontWeight: '300', marginBottom: '16px' }}>
@@ -44,8 +45,13 @@ export default function Documents() {
           Access all ZiNRAi legal documents and policies in one place.
         </p>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
-             onClick={() => setLocation('/ibo-terms')}>
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
+             onClick={(e) => {
+               e.preventDefault();
+               e.stopPropagation();
+               console.log('Clicking BP Terms');
+               setLocation('/ibo-terms');
+             }}>
           <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>BP Terms & Conditions</h3>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
             Business Promoter terms and conditions for partnership with ZiNRAi.
@@ -53,8 +59,13 @@ export default function Documents() {
           <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
-             onClick={() => setLocation('/cookie-policy')}>
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
+             onClick={(e) => {
+               e.preventDefault();
+               e.stopPropagation();
+               console.log('Clicking Cookie Policy');
+               setLocation('/cookie-policy');
+             }}>
           <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Cookie Policy</h3>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
             Information about how we use cookies and similar technologies on our website.
@@ -62,8 +73,13 @@ export default function Documents() {
           <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
-             onClick={() => setLocation('/privacy-policy')}>
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
+             onClick={(e) => {
+               e.preventDefault();
+               e.stopPropagation();
+               console.log('Clicking Privacy Policy');
+               setLocation('/privacy-policy');
+             }}>
           <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Privacy Policy</h3>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
             How we collect, use, and protect your personal information.
@@ -71,8 +87,13 @@ export default function Documents() {
           <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
-             onClick={() => setLocation('/refund-policy')}>
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
+             onClick={(e) => {
+               e.preventDefault();
+               e.stopPropagation();
+               console.log('Clicking Refund Policy');
+               setLocation('/refund-policy');
+             }}>
           <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Refund Policy</h3>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
             Terms and conditions regarding refunds and cancellations.
@@ -80,8 +101,13 @@ export default function Documents() {
           <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
-             onClick={() => setLocation('/terms-conditions')}>
+        <div style={{ marginBottom: '16px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
+             onClick={(e) => {
+               e.preventDefault();
+               e.stopPropagation();
+               console.log('Clicking Terms and Conditions');
+               setLocation('/terms-conditions');
+             }}>
           <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Terms and Conditions</h3>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
             General terms and conditions for using ZiNRAi services.
@@ -89,8 +115,13 @@ export default function Documents() {
           <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>View Document →</span>
         </div>
 
-        <div style={{ marginBottom: '32px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer' }}
-             onClick={() => setLocation('/terms-of-use')}>
+        <div style={{ marginBottom: '32px', padding: '24px', backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', position: 'relative', zIndex: 20 }}
+             onClick={(e) => {
+               e.preventDefault();
+               e.stopPropagation();
+               console.log('Clicking Terms of Use');
+               setLocation('/terms-of-use');
+             }}>
           <h3 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '12px' }}>Terms of Use</h3>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '16px' }}>
             Specific terms governing the use of our platform and services.
