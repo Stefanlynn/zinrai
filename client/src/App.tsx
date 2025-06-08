@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useState, useEffect, useRef } from "react";
 import { FiUser } from "react-icons/fi";
 import zinraiLogo from "@assets/zinrai-circle-logo.png";
+import CookieConsent from "./components/CookieConsent";
 import Home from "@/pages/Home";
 import Logo from "@/pages/Logo";
 import Product from "@/pages/Product";
@@ -900,6 +901,9 @@ function App() {
             </div>
           </div>
         )}
+        
+        {/* Cookie Consent Popup */}
+        <CookieConsent />
       </TooltipProvider>
     </QueryClientProvider>
   );
