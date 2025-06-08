@@ -68,10 +68,10 @@ export default function CookieConsent() {
           {/* Close button */}
           <button
             onClick={handleClose}
-            className="absolute top-4 right-4 text-white/60 hover:text-white/90 transition-colors p-2 rounded-full hover:bg-white/10"
+            className="absolute top-3 right-3 text-white/60 hover:text-white/90 transition-colors p-1 rounded-full hover:bg-white/10"
             aria-label="Close cookie consent"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
 
           {/* Content */}
