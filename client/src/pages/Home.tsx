@@ -124,28 +124,38 @@ export default function Home() {
     }
   };
 
-  // Scroll wheel navigation for content
+  // Scroll wheel navigation for content - only when at the top of the page
   useEffect(() => {
     let isThrottled = false;
     
     const handleWheel = (e: WheelEvent) => {
-      if (isThrottled) return;
+      if (isThrottled || location !== "/") return;
       
-      // Prevent default scrolling only on the home page
-      if (location === "/" && e.deltaY !== 0) {
+      // Only prevent scrolling if we're at the top of the page (viewport covers the grid)
+      const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      
+      // If we're still in the main grid area, use content navigation
+      if (scrollPosition < viewportHeight * 0.8) {
         e.preventDefault();
         
         isThrottled = true;
         setTimeout(() => { isThrottled = false; }, eventCooldown);
         
         if (e.deltaY > 0) {
-          // Scrolling down
-          setCurrentIndex(prev => (prev + 1) % contentItems.length);
+          // Scrolling down - check if we're at the last content item
+          if (currentIndex === contentItems.length - 1) {
+            // Allow natural scroll to footer
+            window.scrollTo({ top: viewportHeight, behavior: 'smooth' });
+          } else {
+            setCurrentIndex(prev => (prev + 1) % contentItems.length);
+          }
         } else {
           // Scrolling up
           setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
         }
       }
+      // If we're past the grid area, allow normal scrolling
     };
 
     // Only add listener for home page
@@ -156,7 +166,7 @@ export default function Home() {
     return () => {
       document.removeEventListener("wheel", handleWheel);
     };
-  }, [location, eventCooldown]);
+  }, [location, eventCooldown, currentIndex]);
 
   // Touch event handlers for mobile swiping - vertical only
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -167,29 +177,46 @@ export default function Home() {
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (location === "/") {
-      e.preventDefault(); // Prevent scrolling
+      const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      
+      // Only prevent scrolling if we're in the main grid area
+      if (scrollPosition < viewportHeight * 0.8) {
+        e.preventDefault();
+      }
     }
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (location !== "/") return;
     
-    setTouchEndY(e.changedTouches[0].clientY);
+    const scrollPosition = window.scrollY;
+    const viewportHeight = window.innerHeight;
     
-    const deltaY = touchStartY - touchEndY;
-    const minSwipeDistance = 50;
-    
-    if (Math.abs(deltaY) > minSwipeDistance) {
-      const currentTime = Date.now();
-      if (currentTime - lastEventTime.current < eventCooldown) return;
-      lastEventTime.current = currentTime;
+    // Only use content navigation if we're in the main grid area
+    if (scrollPosition < viewportHeight * 0.8) {
+      setTouchEndY(e.changedTouches[0].clientY);
       
-      if (deltaY > 0) {
-        // Swiped up (next content)
-        setCurrentIndex(prev => (prev + 1) % contentItems.length);
-      } else {
-        // Swiped down (previous content)
-        setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
+      const deltaY = touchStartY - touchEndY;
+      const minSwipeDistance = 50;
+      
+      if (Math.abs(deltaY) > minSwipeDistance) {
+        const currentTime = Date.now();
+        if (currentTime - lastEventTime.current < eventCooldown) return;
+        lastEventTime.current = currentTime;
+        
+        if (deltaY > 0) {
+          // Swiped up - check if we're at the last content item
+          if (currentIndex === contentItems.length - 1) {
+            // Scroll to footer
+            window.scrollTo({ top: viewportHeight, behavior: 'smooth' });
+          } else {
+            setCurrentIndex(prev => (prev + 1) % contentItems.length);
+          }
+        } else {
+          // Swiped down (previous content)
+          setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
+        }
       }
     }
   };
@@ -430,19 +457,7 @@ export default function Home() {
             </button>
           </div>
 
-          {/* TOP RIGHT - Menu Toggle */}
-          <div className="absolute top-6 right-6 pointer-events-auto">
-            <button
-              onClick={toggleMenu}
-              className="text-white hover:text-blue-400 transition-colors duration-300 p-2"
-            >
-              <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <div className={`w-5 h-0.5 bg-current transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-1' : ''}`}></div>
-                <div className={`w-5 h-0.5 bg-current mt-1 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`}></div>
-                <div className={`w-5 h-0.5 bg-current mt-1 transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-1' : ''}`}></div>
-              </div>
-            </button>
-          </div>
+
 
           {/* Center Logo and Title */}
           <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center pointer-events-auto">
