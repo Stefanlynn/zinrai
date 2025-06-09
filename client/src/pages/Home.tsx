@@ -165,9 +165,14 @@ export default function Home() {
             setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
           }
         } else if (e.deltaY > 0) {
-          // Ready to scroll to footer, don't prevent default - allow natural scroll
-          console.log("Allowing scroll to footer");
+          // Ready to scroll to footer, force scroll to footer
+          console.log("Forcing scroll to footer");
+          e.preventDefault(); // Prevent default and manually scroll
           setCanScrollToFooter(false); // Reset for future use
+          // Force scroll to footer
+          setTimeout(() => {
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+          }, 100);
         }
       }
     };
@@ -322,7 +327,7 @@ export default function Home() {
     <div className="bg-black">
       {/* Main home page section - full screen with grid */}
       <section 
-        className="h-screen overflow-hidden relative"
+        className="h-screen relative"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
