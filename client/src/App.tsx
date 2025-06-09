@@ -220,14 +220,20 @@ function Router() {
       <Route path="/contact">
         {() => <PageWithHeader><Contact /></PageWithHeader>}
       </Route>
-      <Route path="/subscribe" component={Subscribe} />
-      <Route path="/checkout" component={Checkout} />
-      <Route path="/confirmation" component={ConfirmationPage} />
+      <Route path="/subscribe">
+        {() => <PageWithHeader><Subscribe /></PageWithHeader>}
+      </Route>
+      <Route path="/checkout">
+        {() => <PageWithHeader><Checkout /></PageWithHeader>}
+      </Route>
+      <Route path="/confirmation">
+        {() => <PageWithHeader><ConfirmationPage /></PageWithHeader>}
+      </Route>
       <Route path="/test">
-        {() => <TestPage />}
+        {() => <PageWithHeader><TestPage /></PageWithHeader>}
       </Route>
       <Route path="/privacy-policy">
-        {() => <PrivacyPolicy />}
+        {() => <PageWithHeader><PrivacyPolicy /></PageWithHeader>}
       </Route>
       <Route path="/ibo-terms">
         {() => <PageWithHeader><IboTerms /></PageWithHeader>}
