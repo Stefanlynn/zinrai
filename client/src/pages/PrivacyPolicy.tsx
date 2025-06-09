@@ -4,7 +4,7 @@ export default function PrivacyPolicy() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="policy-page-container bg-black text-white min-h-screen">
+    <div className="policy-page-container bg-black text-white min-h-screen pb-32">
       {/* Privacy Policy Content */}
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="space-y-8">

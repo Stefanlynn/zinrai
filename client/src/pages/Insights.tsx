@@ -13,7 +13,7 @@ export default function Insights() {
   }, []);
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative pb-32">
       {/* Background elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
