@@ -1,8 +1,11 @@
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useLocation } from "wouter";
+import { useState } from "react";
+import CookieSettings from "./CookieSettings";
 
 export default function Footer() {
   const [, setLocation] = useLocation();
+  const [showCookieSettings, setShowCookieSettings] = useState(false);
 
   const handleNavigation = (path: string) => {
     setLocation(path);
