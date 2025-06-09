@@ -459,23 +459,21 @@ export default function Home() {
   };
 
   return (
-    <div 
-      className="bg-black min-h-screen overflow-auto"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      {/* We're removing the moving "why" text and adding it below WATCH */}
-      
-
-      
-      {/* Home page content */}
-      <div className="relative">
-        <div className="h-screen w-full"></div>
-      </div>
+    <div className="bg-black">
+      {/* Main home page section - full screen with grid */}
+      <div 
+        className="h-screen overflow-hidden relative"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Home page content */}
+        <div className="relative">
+          <div className="h-screen w-full"></div>
+        </div>
         
-      {/* UI elements - fixed position */}
-      <div className="fixed inset-0">
+        {/* UI elements - absolute position within this section */}
+        <div className="absolute inset-0">
         {/* zinrai text in the center with logo behind it - moved down a bit */}
         <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center">
           <div className="relative inline-block">
@@ -864,6 +862,8 @@ export default function Home() {
           </div>
         </div>
       )}
+        </div>
+      </div>
 
       {/* Traditional Footer */}
       <footer className="bg-black text-white py-12 mt-16">
