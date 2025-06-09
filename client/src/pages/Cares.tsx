@@ -184,21 +184,21 @@ export default function Cares() {
           
           {/* Subscribe button removed as requested */}
         </div>
-        
-        {/* Video Section */}
-        <div className="col-span-2 p-6 border-t border-white/20">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-6 uppercase tracking-wide text-center">Our Mission in Action</h2>
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-lg border border-white/20"
-                src="https://www.youtube.com/embed/grmGGZjYIN0"
-                title="ZiNRAi Cares Mission Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
+      </div>
+      
+      {/* Video Section - Outside grid to ensure visibility */}
+      <div className="bg-black p-8 border-t border-white/20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold mb-6 uppercase tracking-wide text-center text-white">Our Mission in Action</h2>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+            <iframe
+              className="absolute top-0 left-0 w-full h-full rounded-lg border border-white/20"
+              src="https://www.youtube.com/embed/grmGGZjYIN0"
+              title="ZiNRAi Cares Mission Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </div>
