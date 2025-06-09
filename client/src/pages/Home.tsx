@@ -520,10 +520,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
-              Discover ZiNRAi<span className="text-xs align-super">™</span>
+              We Are the Ones Who Answered the Call
             </h2>
             <p className="text-white/70 text-lg">
-              Watch our introduction video to learn more about our mission
+              Refined by fire. United in purpose. This is more than a brand—it's a movement of integrity, resilience, and global impact.
             </p>
           </div>
           
