@@ -15,13 +15,13 @@ export default function Insights() {
   return (
     <div className="min-h-screen relative pb-32">
       {/* Background elements */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
         <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-black to-transparent"></div>
       </div>
       
       {/* Grid Lines */}
-      <div className="fixed inset-0 z-[1] pointer-events-none opacity-20">
+      <div className="absolute inset-0 z-[1] pointer-events-none opacity-20">
         {/* Horizontal grid lines */}
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/30 animate-grid-horizontal" style={{ animationDelay: '0.1s' }}></div>
         <div className="absolute top-1/4 left-0 right-0 h-[1px] bg-white/30 animate-grid-horizontal" style={{ animationDelay: '0.2s' }}></div>
