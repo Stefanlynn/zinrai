@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FiToggleRight, FiPlay, FiPower, FiEye, FiCircle, FiPlus, FiRotateCw } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 
 // Import videos
 import { RiFilmLine, RiVideoLine } from "react-icons/ri";
+import { FiEye, FiPower, FiCircle } from "react-icons/fi";
 import tradingVideo from "../assets/young-man-trading-online-with-tablet-at-home-SBV-338739703-4K.mp4";
 import viennaVideo from "../assets/vienna-austria-august-2022-slow-motion-footage-of-the-united-nations-headquarters-f-SBV-347184715-4K.mp4";
 import runningVideo from "../assets/man-running-in-park-for-fitness-and-healthy-lifestyle-SBV-346641696-4K.mp4";
@@ -17,27 +18,14 @@ import cryptoInvestorVideo from "../assets/investor-checking-bitcoin-ethereum-an
 // Import the ZiNRAi logo
 import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
 
-// Define all the content items for swiping
-const contentItems = [
-  { number: "01", title: "COURSES" },
-  { number: "02", title: "PARTNER" },
-  { number: "03", title: "CULTURE" },
-  { number: "04", title: "INSIGHTS" },
-  { number: "05", title: "LEADERSHIP" },
-  { number: "06", title: "ZiNRAi CARES" },
-  { number: "07", title: "CONTACT" },
-];
-
 export default function Home() {
-  // State to track the current content index
-  const [currentIndex, setCurrentIndex] = useState(0);
   // State to track whether menu is open
   const [menuOpen, setMenuOpen] = useState(false);
   // State to track which icon to display
   const [iconVariant, setIconVariant] = useState(0);
-  // Import navigate for seamless navigation
+  // Navigate function
   const [_, navigate] = useLocation();
-  // Get current location for navigation-aware behavior
+  // Get current location
   const [location] = useLocation();
   
   // Video display in grid - track grid box positions
@@ -123,45 +111,7 @@ export default function Home() {
     }
   };
 
-  // Auto-cycle through content items
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % contentItems.length);
-    }, 3000); // Change every 3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Handle content navigation when clicking on content items
-  const handleContentClick = (title: string) => {
-    switch (title) {
-      case "COURSES":
-        navigate("/product");
-        break;
-      case "PARTNER":
-        navigate("/partner");
-        break;
-      case "CULTURE":
-        navigate("/culture");
-        break;
-      case "INSIGHTS":
-        navigate("/insights");
-        break;
-      case "LEADERSHIP":
-        navigate("/leadership");
-        break;
-      case "ZiNRAi CARES":
-        navigate("/zinrai-cares");
-        break;
-      case "CONTACT":
-        navigate("/contact");
-        break;
-      default:
-        break;
-    }
-  };
-
-  // Reset scroll state when returning to home
+  // Reset scroll when returning to home
   useEffect(() => {
     if (location === "/") {
       window.scrollTo(0, 0);
@@ -363,24 +313,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* BOTTOM LEFT - Content Navigation */}
-          <div className="absolute bottom-6 left-6 pointer-events-auto">
-            <div className="text-white">
-              <div 
-                className="text-6xl font-bold opacity-20 mb-2 cursor-pointer hover:opacity-40 transition-opacity duration-300"
-                onClick={() => handleContentClick(contentItems[currentIndex].title)}
-              >
-                {contentItems[currentIndex].number}
-              </div>
-              <div 
-                className="text-lg tracking-wider cursor-pointer hover:text-blue-400 transition-colors duration-300"
-                onClick={() => handleContentClick(contentItems[currentIndex].title)}
-              >
-                {contentItems[currentIndex].title}
-              </div>
-            </div>
-          </div>
-
           {/* BOTTOM RIGHT - Social Media Icons */}
           <div className="absolute bottom-6 right-6 pointer-events-auto">
             <div className="flex space-x-4">
@@ -562,7 +494,7 @@ export default function Home() {
                     href="https://www.youtube.com/@ZiNRAi.official" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors duration-300"
+                    className="text-white/70 hover:text-white transition-colors duration-colors duration-300"
                     aria-label="Subscribe to ZiNRAi on YouTube"
                   >
                     <FaYoutube className="w-6 h-6" />
