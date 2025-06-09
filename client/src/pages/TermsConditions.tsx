@@ -4,7 +4,7 @@ export default function TermsConditions() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen bg-black text-white flex flex-col pb-32">
       {/* Scrollable Content */}
       <div className="flex-1 overflow-y-auto">
         <div className="container mx-auto px-6 py-12 max-w-4xl">
