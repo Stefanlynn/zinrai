@@ -545,6 +545,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Courses Section - Unlock Your Growth */}
+      <section className="bg-black py-16 border-t border-gray-800">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
+            Unlock Your Growth
+          </h2>
+          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+            Transform your financial future with our comprehensive investment education courses. 
+            Learn proven strategies, risk management, and market analysis from industry experts 
+            to build wealth and achieve your financial goals.
+          </p>
+          <button
+            onClick={() => navigate('/product')}
+            className="inline-flex items-center px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300 group"
+          >
+            Learn More About Our Courses
+            <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      {/* Brand Promoter Section - Unlock Your Impact */}
+      <section className="bg-black py-16 border-t border-gray-800">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
+            Unlock Your Impact
+          </h2>
+          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+            Join our Brand Promoter program and turn your passion for financial education into 
+            meaningful income. Share ZiNRAi<span className="text-xs align-super">™</span> with your network, 
+            help others grow their wealth, and build your own sustainable business opportunity.
+          </p>
+          <button
+            onClick={() => navigate('/partner')}
+            className="inline-flex items-center px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300 group"
+          >
+            Learn More About Brand Promoter
+            <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </section>
 
       {/* Traditional Footer */}
       <footer className="bg-black text-white py-12">
