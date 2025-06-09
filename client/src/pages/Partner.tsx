@@ -388,17 +388,8 @@ export default function Partner() {
       <div className="w-full min-h-[200px] bg-red-900/20 border-2 border-red-500 p-8 mt-8">
         <div className="text-center">
           <h2 className="text-white text-3xl font-bold mb-6">Ready to get started?</h2>
-          <p className="text-white text-xl mb-4">
-            Connect with the Brand Promoter who introduced you to ZiNRAi to enroll today.
-          </p>
           <p className="text-white text-xl">
-            If you have any questions, feel free to contact us at{' '}
-            <a 
-              href="mailto:info@zinrai.com" 
-              className="text-yellow-400 underline font-bold"
-            >
-              info@zinrai.com
-            </a>
+            Connect with the Brand Promoter who introduced you to ZiNRAi to enroll today.
           </p>
         </div>
       </div>

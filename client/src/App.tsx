@@ -253,7 +253,9 @@ function Router() {
       <Route path="/documents">
         {() => <PageWithHeader><Documents /></PageWithHeader>}
       </Route>
-      <Route path="/startnow" component={StartNow} />
+      <Route path="/startnow">
+        {() => <PageWithHeader><StartNow /></PageWithHeader>}
+      </Route>
       <Route>
         {() => <PageWithHeader><NotFound /></PageWithHeader>}
       </Route>

@@ -305,7 +305,7 @@ export default function Home() {
                 />
               </div>
               <h1 className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap relative z-10 neon-text-glow" style={{ textShadow: "0 0 15px #68ACFF, 0 0 25px #68ACFF, 0 0 35px #68ACFF" }}>
-                ZiNRAi™
+                ZiNRAi<span className="text-[0.4em] align-super">™</span>
               </h1>
               <div className="tagline-text text-white text-[2vw] md:text-[1.8vw] lg:text-[1.4vw] xl:text-[18px] tracking-wider whitespace-nowrap relative z-10 text-center mt-[-3vw] md:mt-[-2.5vh] neon-text-glow-subtle" style={{ textShadow: "0 0 8px #68ACFF, 0 0 15px #68ACFF" }}>
                 LIVE WITH PASSION. LEAD WITH PURPOSE
@@ -513,7 +513,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             {/* Company Info */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">ZiNRAi™</h3>
+              <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
               <p className="text-white/70 text-sm mb-4">
                 Innovative digital learning platform for investment education and strategy analysis.
               </p>

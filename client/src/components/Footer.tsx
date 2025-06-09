@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">ZiNRAi™</h3>
+            <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
             <p className="text-white/70 text-sm mb-4">
               Innovative digital learning platform for investment education and strategy analysis.
             </p>
@@ -173,7 +173,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
-            <p>&copy; 2025 ZiNRAi™ LLC. All rights reserved.</p>
+            <p>&copy; 2025 ZiNRAi<span className="text-xs align-super">™</span> LLC. All rights reserved.</p>
             <div className="mt-4 md:mt-0">
               <p className="text-xs">
                 Disclaimer: Investment education and analysis. Not financial advice.
