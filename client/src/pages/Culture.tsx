@@ -337,7 +337,7 @@ export default function Culture() {
       )}
       
       {/* Content area - IMPORTANT: This div allows scrolling! */}
-      <div className="relative z-10 pb-16 overflow-auto" style={{ height: "100vh" }}>
+      <div className="relative z-10 pb-16 page-content">
         <div className="flex flex-col p-4">
           {/* Why ZiNRAi Section - Full width for both mobile and desktop */}
           <div className={`w-full mb-12 pt-[8vh] p-6 md:p-16 md:pt-[10vh] transition-all duration-700 ${animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
@@ -347,7 +347,7 @@ export default function Culture() {
             
             <div className="text-white/90 space-y-4 text-left max-w-3xl">
               <p className="text-base">
-                In a world full of noise, hype, and hustle, ZiNRAi exists to bring something different—something deeper.
+                In a world full of noise, hype, and hustle, ZiNRAi™ exists to bring something different—something deeper.
               </p>
               
               <p className="text-base">

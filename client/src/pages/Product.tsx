@@ -91,7 +91,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
         disabled={isSubmitting}
         className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(104,172,255,0.3)] focus:outline-none focus:ring-2 focus:ring-[var(--zinrai-blue-glow)]/50"
       >
-        {isSubmitting ? 'Submitting...' : 'Join ZiNRAi'}
+        {isSubmitting ? 'Submitting...' : 'Join ZiNRAi™'}
       </button>
 
       {submitMessage && (

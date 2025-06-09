@@ -42,10 +42,21 @@
   transform-origin: top center;
 }
 
+/* Smooth scrolling for entire site */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Custom scrollbar styling */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* Page content should allow scrolling to footer */
+.page-content {
+  min-height: calc(100vh - 200px);
+  padding-bottom: 2rem;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
