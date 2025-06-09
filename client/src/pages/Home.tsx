@@ -48,6 +48,8 @@ export default function Home() {
   const [touchEndY, setTouchEndY] = useState(0);
   // Get current location for navigation-aware behavior
   const [location] = useLocation();
+  // Track whether we should allow scrolling to footer
+  const [canScrollToFooter, setCanScrollToFooter] = useState(false);
   
   // Video display in grid - track grid box positions
   const [activeVideoBoxes, setActiveVideoBoxes] = useState<Record<number, string>>({});
@@ -141,8 +143,8 @@ export default function Home() {
       
       const scrollPosition = window.scrollY;
       
-      // Only use content navigation when at the very top of the page
-      if (scrollPosition === 0) {
+      // Only use content navigation when at the very top of the page and not ready to scroll to footer
+      if (scrollPosition === 0 && !canScrollToFooter) {
         e.preventDefault();
         
         isThrottled = true;
@@ -151,10 +153,8 @@ export default function Home() {
         if (e.deltaY > 0) {
           // Scrolling down
           if (currentIndex === contentItems.length - 1) {
-            // At CONTACT (last item), scroll to footer
-            document.body.style.overflow = 'auto';
-            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-            return;
+            // At CONTACT (last item), enable scrolling to footer on next scroll
+            setCanScrollToFooter(true);
           } else {
             setCurrentIndex(prev => (prev + 1) % contentItems.length);
           }
@@ -162,8 +162,11 @@ export default function Home() {
           // Scrolling up
           setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
         }
+      } else if (scrollPosition === 0 && canScrollToFooter && e.deltaY > 0) {
+        // Allow natural scroll to footer
+        setCanScrollToFooter(false); // Reset for future use
       }
-      // Allow normal scrolling when not at the top
+      // Allow normal scrolling when not at top or when canScrollToFooter is true
     };
 
     if (location === "/") {
@@ -173,7 +176,7 @@ export default function Home() {
     return () => {
       document.removeEventListener("wheel", handleWheel);
     };
-  }, [location, eventCooldown, currentIndex]);
+  }, [location, eventCooldown, currentIndex, canScrollToFooter]);
 
   // Touch event handlers for mobile swiping - vertical only
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -189,7 +192,7 @@ export default function Home() {
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (location !== "/" || window.scrollY !== 0) return;
+    if (location !== "/" || (window.scrollY !== 0 && !canScrollToFooter)) return;
     
     setTouchEndY(e.changedTouches[0].clientY);
     
@@ -203,9 +206,12 @@ export default function Home() {
       
       if (deltaY > 0) {
         // Swiped up
-        if (currentIndex === contentItems.length - 1) {
-          // At CONTACT, scroll to footer
-          document.body.style.overflow = 'auto';
+        if (currentIndex === contentItems.length - 1 && !canScrollToFooter) {
+          // At CONTACT, enable footer scrolling
+          setCanScrollToFooter(true);
+        } else if (canScrollToFooter) {
+          // Allow scroll to footer
+          setCanScrollToFooter(false);
           window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
         } else {
           setCurrentIndex(prev => (prev + 1) % contentItems.length);
@@ -271,6 +277,14 @@ export default function Home() {
         break;
     }
   };
+
+  // Reset scroll state when returning to home
+  useEffect(() => {
+    if (location === "/") {
+      window.scrollTo(0, 0);
+      setCanScrollToFooter(false);
+    }
+  }, [location]);
 
   // Toggle mobile menu
   const toggleMenu = () => {
@@ -489,6 +503,12 @@ export default function Home() {
               >
                 {contentItems[currentIndex].title}
               </div>
+              {/* Debug info */}
+              {currentIndex === contentItems.length - 1 && (
+                <div className="text-xs text-yellow-400 mt-2">
+                  {canScrollToFooter ? "Ready to scroll to footer" : "Scroll again to reach footer"}
+                </div>
+              )}
             </div>
           </div>
 
