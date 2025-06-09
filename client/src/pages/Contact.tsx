@@ -1,16 +1,12 @@
-import { useRef } from "react";
-
 export default function Contact() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   const handleEmailClick = () => {
     window.location.href = 'mailto:support@zinrai.com';
   };
   
   return (
     <div className="w-full">
-      {/* Main content area */}
-      <div className="relative min-h-[calc(100vh-96px)]">
+      {/* Main content area with grid overlay */}
+      <div className="relative h-[80vh]">
         {/* Grid overlay */}
         <div className="absolute inset-0 grid grid-cols-2 grid-rows-4 w-full">
           <div className="border border-white/[0.03]"></div>
@@ -24,7 +20,7 @@ export default function Contact() {
         </div>
         
         {/* Centered contact content */}
-        <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-96px)]">
+        <div className="relative z-10 flex items-center justify-center h-full">
           <div className="text-center space-y-6">
             <h1 className="text-4xl md:text-6xl font-light text-white">
               Get In Touch
@@ -50,6 +46,9 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      
+      {/* Spacer to ensure footer visibility */}
+      <div className="h-16"></div>
     </div>
   );
 }

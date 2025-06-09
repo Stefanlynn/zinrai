@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "wouter";
 
 // Define impact statistics
 const impactStats = [
@@ -11,16 +10,8 @@ const impactStats = [
 ];
 
 export default function Cares() {
-  console.log("Cares component rendering");
-  const [activeTab, setActiveTab] = useState<number | null>(null);
   const [showLines, setShowLines] = useState(false);
   const [countersAnimated, setCountersAnimated] = useState(false);
-  const [_, navigate] = useLocation();
-
-  // Handle close button click
-  const handleClose = () => {
-    navigate('/');
-  };
 
   // Counter animation
   useEffect(() => {
@@ -31,24 +22,13 @@ export default function Cares() {
         
         counters.forEach((counter, index) => {
           const stat = impactStats[index];
-          const target = stat.value;
-          const prefix = stat.prefix;
-          const suffix = stat.suffix;
-          let current = 0;
-          const increment = target / 50; // Animation duration control
-          
-          const updateCounter = () => {
-            if (current < target) {
-              current += increment;
-              if (current > target) current = target;
-              
-              // Format the final value with commas
-              const formattedValue = target.toLocaleString();
-              counter.textContent = `${prefix}${formattedValue}${suffix}`;
-            }
-          };
-          
-          updateCounter();
+          if (stat) {
+            const target = stat.value;
+            const prefix = stat.prefix;
+            const suffix = stat.suffix;
+            const formattedValue = target.toLocaleString();
+            counter.textContent = `${prefix}${formattedValue}${suffix}`;
+          }
         });
       };
       
@@ -68,7 +48,7 @@ export default function Cares() {
   return (
     <div className="text-white">
       {/* Main grid section */}
-      <div className="relative min-h-[calc(100vh-96px)]">
+      <div className="relative h-[80vh]">
         {/* Grid lines overlay */}
         <div className={`absolute inset-0 grid grid-cols-2 grid-rows-4 pointer-events-none transition-opacity duration-1000 ${showLines ? 'opacity-70' : 'opacity-0'}`}>
           <div className="border-r border-white/20"></div>
@@ -82,7 +62,7 @@ export default function Cares() {
         </div>
 
         {/* Main content centered */}
-        <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-96px)] px-6">
+        <div className="relative z-10 flex items-center justify-center h-full px-6">
           <div className="text-center max-w-4xl mx-auto">
             {/* Header */}
             <div className="mb-12">
@@ -95,7 +75,7 @@ export default function Cares() {
             </div>
 
             {/* Impact Statistics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {impactStats.map((stat, index) => (
                 <div 
                   key={stat.id}
@@ -112,16 +92,6 @@ export default function Cares() {
                 </div>
               ))}
             </div>
-
-            {/* Mission Statement */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-8">
-              <h2 className="text-2xl font-light mb-4">Our Mission</h2>
-              <p className="text-white/80 leading-relaxed">
-                ZiNRAi<span className="text-xs align-super">™</span> Cares represents our commitment to global impact through education 
-                and direct assistance. Every subscription contributes to verified charitable initiatives, 
-                with full transparency powered by blockchain technology.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -131,7 +101,7 @@ export default function Cares() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-light text-center mb-12">Impact Areas</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white/5 border border-white/10 rounded-lg p-6">
               <h3 className="text-xl font-medium mb-4">Food Security</h3>
               <p className="text-white/70">
@@ -159,6 +129,16 @@ export default function Cares() {
                 Using blockchain technology to ensure 100% transparency in fund allocation and impact tracking.
               </p>
             </div>
+          </div>
+
+          {/* Mission Statement */}
+          <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+            <h2 className="text-2xl font-light mb-4 text-center">Our Mission</h2>
+            <p className="text-white/80 leading-relaxed text-center">
+              ZiNRAi<span className="text-xs align-super">™</span> Cares represents our commitment to global impact through education 
+              and direct assistance. Every subscription contributes to verified charitable initiatives, 
+              with full transparency powered by blockchain technology.
+            </p>
           </div>
         </div>
       </div>
