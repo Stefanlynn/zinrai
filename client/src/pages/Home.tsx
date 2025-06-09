@@ -101,11 +101,14 @@ export default function Home() {
   
   // Function to handle video icon click in grid
   const handleVideoIconClick = (boxNumber: number) => {
+    console.log('Video icon clicked for box:', boxNumber);
+    
     // Cycle to next icon variant
     setIconVariant((prev) => (prev + 1) % videoIcons.length);
     
     // Get the current video source
     const videoSource = videoSources[(boxNumber - 1) % videoSources.length];
+    console.log('Video source:', videoSource);
     
     // Toggle video display for this box
     if (activeVideoBoxes[boxNumber]) {
@@ -113,40 +116,45 @@ export default function Home() {
       setActiveVideoBoxes(prev => {
         const newBoxes = { ...prev };
         delete newBoxes[boxNumber];
+        console.log('Removed video from box:', boxNumber);
         return newBoxes;
       });
     } else {
       // Add video to this box
-      setActiveVideoBoxes(prev => ({
-        ...prev,
-        [boxNumber]: videoSource
-      }));
+      setActiveVideoBoxes(prev => {
+        const newState = {
+          ...prev,
+          [boxNumber]: videoSource
+        };
+        console.log('Added video to box:', boxNumber, 'New state:', newState);
+        return newState;
+      });
     }
   };
 
-  // Scroll wheel navigation for content - only when at the top of the page
+  // Scroll wheel navigation for content
   useEffect(() => {
     let isThrottled = false;
     
     const handleWheel = (e: WheelEvent) => {
       if (isThrottled || location !== "/") return;
       
-      // Only prevent scrolling if we're at the top of the page (viewport covers the grid)
       const scrollPosition = window.scrollY;
-      const viewportHeight = window.innerHeight;
       
-      // If we're still in the main grid area, use content navigation
-      if (scrollPosition < viewportHeight * 0.8) {
+      // Only use content navigation when at the very top of the page
+      if (scrollPosition === 0) {
         e.preventDefault();
         
         isThrottled = true;
         setTimeout(() => { isThrottled = false; }, eventCooldown);
         
         if (e.deltaY > 0) {
-          // Scrolling down - check if we're at the last content item
+          // Scrolling down
           if (currentIndex === contentItems.length - 1) {
-            // Allow natural scroll to footer
-            window.scrollTo({ top: viewportHeight, behavior: 'smooth' });
+            // At CONTACT (last item), scroll to footer
+            document.body.style.overflow = 'auto';
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+            return;
           } else {
             setCurrentIndex(prev => (prev + 1) % contentItems.length);
           }
@@ -155,10 +163,9 @@ export default function Home() {
           setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
         }
       }
-      // If we're past the grid area, allow normal scrolling
+      // Allow normal scrolling when not at the top
     };
 
-    // Only add listener for home page
     if (location === "/") {
       document.addEventListener("wheel", handleWheel, { passive: false });
     }
@@ -176,47 +183,36 @@ export default function Home() {
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (location === "/") {
-      const scrollPosition = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      
-      // Only prevent scrolling if we're in the main grid area
-      if (scrollPosition < viewportHeight * 0.8) {
-        e.preventDefault();
-      }
+    if (location === "/" && window.scrollY === 0) {
+      e.preventDefault();
     }
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (location !== "/") return;
+    if (location !== "/" || window.scrollY !== 0) return;
     
-    const scrollPosition = window.scrollY;
-    const viewportHeight = window.innerHeight;
+    setTouchEndY(e.changedTouches[0].clientY);
     
-    // Only use content navigation if we're in the main grid area
-    if (scrollPosition < viewportHeight * 0.8) {
-      setTouchEndY(e.changedTouches[0].clientY);
+    const deltaY = touchStartY - touchEndY;
+    const minSwipeDistance = 50;
+    
+    if (Math.abs(deltaY) > minSwipeDistance) {
+      const currentTime = Date.now();
+      if (currentTime - lastEventTime.current < eventCooldown) return;
+      lastEventTime.current = currentTime;
       
-      const deltaY = touchStartY - touchEndY;
-      const minSwipeDistance = 50;
-      
-      if (Math.abs(deltaY) > minSwipeDistance) {
-        const currentTime = Date.now();
-        if (currentTime - lastEventTime.current < eventCooldown) return;
-        lastEventTime.current = currentTime;
-        
-        if (deltaY > 0) {
-          // Swiped up - check if we're at the last content item
-          if (currentIndex === contentItems.length - 1) {
-            // Scroll to footer
-            window.scrollTo({ top: viewportHeight, behavior: 'smooth' });
-          } else {
-            setCurrentIndex(prev => (prev + 1) % contentItems.length);
-          }
+      if (deltaY > 0) {
+        // Swiped up
+        if (currentIndex === contentItems.length - 1) {
+          // At CONTACT, scroll to footer
+          document.body.style.overflow = 'auto';
+          window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
         } else {
-          // Swiped down (previous content)
-          setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
+          setCurrentIndex(prev => (prev + 1) % contentItems.length);
         }
+      } else {
+        // Swiped down (previous content)
+        setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
       }
     }
   };
