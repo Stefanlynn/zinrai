@@ -71,7 +71,7 @@ export default function Cares() {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="text-white">
       {/* Main grid section */}
       <div className="relative h-screen">
         {/* Grid lines overlay */}
