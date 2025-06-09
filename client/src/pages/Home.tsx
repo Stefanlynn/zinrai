@@ -543,6 +543,142 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ZiNRAi Cards Section */}
+      <section className="bg-black py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
+              ZiNRAi<span className="text-xs align-super">™</span> Cards
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              Sparks of wisdom for your journey forward
+            </p>
+          </div>
+
+          {/* Interactive Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {/* Card 1 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">01</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">The Clarity Code</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                If you feel stuck, start with clarity—not hustle. Your next breakthrough won't come from doing more, but from understanding why you're doing it at all.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">02</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">Discipline Wins When Motivation Fades</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                Motivation is loud. Discipline is loyal. Build your future on the quiet decisions you make when no one's watching.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">03</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">Your Why Is the Fire You Forgot You Needed</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                Every setback gets smaller when you remember what you're fighting for. Revisit your why—it's not optional; it's oxygen.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">04</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">Start With What You Control</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                You don't need to have it all figured out to make a move. Start with your attitude. Your habits. Your focus. That's where the shift begins.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">05</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">The Future Belongs to the Focused</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                Distraction is the enemy of destiny. Say no to what's "urgent" so you can say yes to what's eternal.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">06</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">Pressure Doesn't Break You—It Builds You</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                You weren't buried—you were planted. Pressure is proof that something inside you is worth refining.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 7 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">07</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">Community Is a Growth Strategy</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                Isolation feels safe, but it stunts your growth. Surround yourself with people who speak life, challenge comfort, and call you higher.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 8 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">08</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">Don't Chase Feelings—Chase Formation</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                You won't always feel inspired. But if you show up daily, you'll become someone who inspires others.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 9 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">09</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">Lead Yourself Like Someone Worth Following</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                How you lead yourself behind the scenes determines how much weight your voice carries in the spotlight.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+
+            {/* Card 10 */}
+            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
+              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">10</div>
+              <h3 className="text-white font-medium text-lg mb-3 mt-6">Keep the Promise You Made to Your Future Self</h3>
+              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                Every time you follow through, you're honoring the version of you that's trying to emerge. Don't let comfort steal that promise.
+              </p>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-16">
+            <p className="text-white/60 text-lg mb-6">
+              Ready to transform these insights into action?
+            </p>
+            <a
+              href="http://app.zinrai.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+            >
+              Start Your Journey
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Traditional Footer */}
       <footer className="bg-black text-white py-12">
         <div className="max-w-7xl mx-auto px-6">
