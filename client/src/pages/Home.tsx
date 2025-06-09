@@ -554,44 +554,46 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-500/3 rounded-full blur-2xl animate-pulse delay-500"></div>
         </div>
         
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <div className="space-y-8">
-            <div>
-              <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20 mb-6">
-                <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-blue-300 text-sm font-medium">Investment Education</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
-                Unlock Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Growth</span>
-              </h2>
-              <p className="text-white/70 text-lg leading-relaxed max-w-2xl mx-auto">
-                Transform your financial future with our comprehensive investment education courses. 
-                Learn proven strategies, risk management, and market analysis from industry experts.
-              </p>
-            </div>
-            
-            {/* Features list */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-              {['Expert-Led Curriculum', 'Risk Management Strategies', 'Market Analysis Tools', 'Wealth Building Framework'].map((feature, index) => (
-                <div key={index} className="flex flex-col items-center space-y-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  <span className="text-white/80 text-sm text-center">{feature}</span>
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl">
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20 mb-6">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-blue-300 text-sm font-medium">Investment Education</span>
                 </div>
-              ))}
-            </div>
-            
-            <button
-              onClick={() => navigate('/product')}
-              className="group relative px-8 py-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-              <div className="relative flex items-center justify-center">
-                <span className="font-medium">Learn More</span>
-                <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
+                  Unlock Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Growth</span>
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  Transform your financial future with our comprehensive investment education courses. 
+                  Learn proven strategies, risk management, and market analysis from industry experts.
+                </p>
               </div>
-            </button>
+              
+              {/* Features list */}
+              <div className="space-y-4">
+                {['Expert-Led Curriculum', 'Risk Management Strategies', 'Market Analysis Tools', 'Wealth Building Framework'].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span className="text-white/80">{feature}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => navigate('/product')}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                <div className="relative flex items-center justify-center">
+                  <span className="font-medium">Learn More</span>
+                  <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -605,44 +607,46 @@ export default function Home() {
           <div className="absolute top-1/3 right-1/3 w-40 h-40 bg-pink-500/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
         
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <div className="space-y-8">
-            <div>
-              <div className="inline-flex items-center px-4 py-2 bg-green-500/10 rounded-full border border-green-500/20 mb-6">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-green-300 text-sm font-medium">Business Opportunity</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
-                Unlock Your <span className="text-transparent bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text font-semibold">Impact</span>
-              </h2>
-              <p className="text-white/70 text-lg leading-relaxed max-w-2xl mx-auto">
-                Join our Brand Promoter program and turn your passion for financial education into 
-                meaningful income. Share ZiNRAi<span className="text-xs align-super">™</span> and build your sustainable business.
-              </p>
-            </div>
-            
-            {/* Benefits list */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-              {['Flexible Schedule', 'Unlimited Earning Potential', 'Full Training & Support', 'Make Real Impact'].map((benefit, index) => (
-                <div key={index} className="flex flex-col items-center space-y-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span className="text-white/80 text-sm text-center">{benefit}</span>
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl">
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-4 py-2 bg-green-500/10 rounded-full border border-green-500/20 mb-6">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-green-300 text-sm font-medium">Business Opportunity</span>
                 </div>
-              ))}
-            </div>
-            
-            <button
-              onClick={() => navigate('/partner')}
-              className="group relative px-8 py-4 bg-gradient-to-r from-green-500/20 to-orange-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-orange-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-              <div className="relative flex items-center justify-center">
-                <span className="font-medium">Learn More</span>
-                <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
+                  Unlock Your <span className="text-transparent bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text font-semibold">Impact</span>
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  Join our Brand Promoter program and turn your passion for financial education into 
+                  meaningful income. Share ZiNRAi<span className="text-xs align-super">™</span> and build your sustainable business.
+                </p>
               </div>
-            </button>
+              
+              {/* Benefits list */}
+              <div className="space-y-4">
+                {['Flexible Schedule', 'Unlimited Earning Potential', 'Full Training & Support', 'Make Real Impact'].map((benefit, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span className="text-white/80">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => navigate('/partner')}
+                className="group relative px-8 py-4 bg-gradient-to-r from-green-500/20 to-orange-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-orange-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                <div className="relative flex items-center justify-center">
+                  <span className="font-medium">Learn More</span>
+                  <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </section>
