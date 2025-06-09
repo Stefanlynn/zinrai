@@ -29,24 +29,19 @@ export default function Cares() {
         setCountersAnimated(true);
         const counters = document.querySelectorAll('.impact-counter');
         
-        counters.forEach((counter: any) => {
-          const target = +counter.getAttribute('data-target');
-          const prefix = counter.getAttribute('data-prefix') || '';
-          const suffix = counter.getAttribute('data-suffix') || '';
-          const duration = 1500; // ms
-          const steps = 60;
-          const stepTime = duration / steps;
-          const stepValue = target / steps;
+        counters.forEach((counter, index) => {
+          const stat = impactStats[index];
+          const target = stat.value;
+          const prefix = stat.prefix;
+          const suffix = stat.suffix;
           let current = 0;
+          const increment = target / 50; // Animation duration control
           
           const updateCounter = () => {
-            current += stepValue;
             if (current < target) {
-              // Format the number with commas for thousands
-              const formattedValue = Math.ceil(current).toLocaleString();
-              counter.textContent = `${prefix}${formattedValue}${suffix}`;
-              setTimeout(updateCounter, stepTime);
-            } else {
+              current += increment;
+              if (current > target) current = target;
+              
               // Format the final value with commas
               const formattedValue = target.toLocaleString();
               counter.textContent = `${prefix}${formattedValue}${suffix}`;
@@ -71,141 +66,100 @@ export default function Cares() {
   }, []);
 
   return (
-    <div className="text-white min-h-screen flex flex-col pb-32">
+    <div className="text-white">
       {/* Main grid section */}
-      <div className="relative h-[80vh] flex-shrink-0">
+      <div className="relative min-h-[calc(100vh-96px)]">
         {/* Grid lines overlay */}
         <div className={`absolute inset-0 grid grid-cols-2 grid-rows-4 pointer-events-none transition-opacity duration-1000 ${showLines ? 'opacity-70' : 'opacity-0'}`}>
           <div className="border-r border-white/20"></div>
           <div className="border-l border-white/20"></div>
-          <div className="border-r border-white/20 border-t"></div>
-          <div className="border-l border-white/20 border-t"></div>
-          <div className="border-r border-white/20 border-t"></div>
-          <div className="border-l border-white/20 border-t"></div>
-          <div className="border-r border-white/20 border-t"></div>
-          <div className="border-l border-white/20 border-t"></div>
+          <div className="border-r border-white/20"></div>
+          <div className="border-l border-white/20"></div>
+          <div className="border-r border-white/20"></div>
+          <div className="border-l border-white/20"></div>
+          <div className="border-r border-white/20"></div>
+          <div className="border-l border-white/20"></div>
         </div>
-        
-        <div className="grid grid-cols-2 grid-rows-4 h-screen">
-          {/* Top Row - Header */}
-        <div className="col-span-2 flex items-center justify-between px-8 py-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white">ZiNRAi Cares</h1>
-          <button 
-            onClick={handleClose}
-            className="text-white/70 hover:text-white transition-colors text-xl h-10 w-10 flex items-center justify-center"
-          >
-            ✕
-          </button>
-        </div>
-        
-        {/* Second Row - Intro */}
-        <div className="row-span-1 col-span-2 flex items-center justify-center p-6">
-          <div className="text-center max-w-4xl">
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-6">
-              At ZiNRAi, we believe technology should be a force for good. For every active subscription, we donate $1 to sustainable impact projects around the globe.
-            </p>
-            <p className="text-xl text-white/70">
-              Our blockchain-powered platform ensures 100% transparency in giving.
-            </p>
-          </div>
-        </div>
-        
-        {/* Center Rows - Content */}
-        <div className="p-6 flex items-center">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 uppercase tracking-wide">Impact Areas</h2>
-            <ul className="space-y-3">
-              <li 
-                className={`p-3 border border-white/30 cursor-pointer transition-all ${activeTab === 1 ? 'bg-white/10 border-white' : 'hover:bg-white/5'}`}
-                onClick={() => setActiveTab(activeTab === 1 ? null : 1)}
-              >
-                <h4 className="text-lg font-medium">Food Security</h4>
-                {activeTab === 1 && (
-                  <p className="text-white/70 mt-2 animate-fade-in">
-                    We partner with food banks and community kitchens to combat hunger in urban and rural communities globally.
+
+        {/* Main content centered */}
+        <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-96px)] px-6">
+          <div className="text-center max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="mb-12">
+              <h1 className="text-4xl md:text-6xl font-light mb-6">
+                ZiNRAi<span className="text-xs align-super">™</span> Cares
+              </h1>
+              <p className="text-xl text-white/70 max-w-2xl mx-auto">
+                Making a difference through decentralized giving and transparent impact tracking.
+              </p>
+            </div>
+
+            {/* Impact Statistics Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {impactStats.map((stat, index) => (
+                <div 
+                  key={stat.id}
+                  className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className="text-3xl font-light mb-2">
+                    <span className="impact-counter">
+                      {stat.prefix}0{stat.suffix}
+                    </span>
+                  </div>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    {stat.label}
                   </p>
-                )}
-              </li>
-              <li 
-                className={`p-3 border border-white/30 cursor-pointer transition-all ${activeTab === 2 ? 'bg-white/10 border-white' : 'hover:bg-white/5'}`}
-                onClick={() => setActiveTab(activeTab === 2 ? null : 2)}
-              >
-                <h4 className="text-lg font-medium">Clean Water Access</h4>
-                {activeTab === 2 && (
-                  <p className="text-white/70 mt-2 animate-fade-in">
-                    Our initiatives focus on building sustainable water infrastructure in water-scarce regions of West Africa.
-                  </p>
-                )}
-              </li>
-              <li 
-                className={`p-3 border border-white/30 cursor-pointer transition-all ${activeTab === 3 ? 'bg-white/10 border-white' : 'hover:bg-white/5'}`}
-                onClick={() => setActiveTab(activeTab === 3 ? null : 3)}
-              >
-                <h4 className="text-lg font-medium">Tech Education</h4>
-                {activeTab === 3 && (
-                  <p className="text-white/70 mt-2 animate-fade-in">
-                    We provide resources and mentorship for underrepresented communities to access quality tech education.
-                  </p>
-                )}
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="p-6 flex items-center">
-          {/* Testimonial */}
-          <div className="bg-black/50 p-6 border border-white/30">
-            <p className="text-lg italic text-white/90 mb-4">
-              "The water well project funded by ZiNRAi has transformed our village. For the first time, our children don't have to walk miles for clean water."
-            </p>
-            <p className="text-white/70">— Community Leader, Burkina Faso</p>
-          </div>
-        </div>
-        
-        {/* Bottom Row - Stats & CTA */}
-        <div className="col-span-2 p-6">
-          <h2 className="text-2xl font-semibold mb-6 uppercase tracking-wide text-center">Our Impact</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {impactStats.map(stat => (
-              <div key={stat.id} className="bg-black/30 p-4 border border-white/30 text-center">
-                <div className="text-3xl font-bold text-white mb-2">
-                  <span 
-                    className="impact-counter" 
-                    data-target={stat.value}
-                    data-prefix={stat.prefix}
-                    data-suffix={stat.suffix}
-                  >
-                    {stat.prefix}0{stat.suffix}
-                  </span>
                 </div>
-                <p className="text-white/70 text-sm">{stat.label}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Mission Statement */}
+            <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+              <h2 className="text-2xl font-light mb-4">Our Mission</h2>
+              <p className="text-white/80 leading-relaxed">
+                ZiNRAi<span className="text-xs align-super">™</span> Cares represents our commitment to global impact through education 
+                and direct assistance. Every subscription contributes to verified charitable initiatives, 
+                with full transparency powered by blockchain technology.
+              </p>
+            </div>
           </div>
-          
-          {/* Subscribe button removed as requested */}
-        </div>
         </div>
       </div>
-      
-      {/* Video Section */}
-      <div className="bg-black py-16 px-6 border-t border-white/20">
+
+      {/* Additional Content Section */}
+      <div className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-8 uppercase tracking-wide text-center text-white">Our Mission in Action</h2>
-          <div className="relative w-full bg-gray-900/50 rounded-lg overflow-hidden border border-white/30" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/grmGGZjYIN0"
-              title="ZiNRAi Cares Mission Video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+          <h2 className="text-3xl font-light text-center mb-12">Impact Areas</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-medium mb-4">Food Security</h3>
+              <p className="text-white/70">
+                Supporting meal programs across underserved communities in the U.S., Pakistan, and Africa.
+              </p>
+            </div>
+            
+            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-medium mb-4">Clean Water</h3>
+              <p className="text-white/70">
+                Funding sustainable water projects in West African communities lacking access to clean water.
+              </p>
+            </div>
+            
+            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-medium mb-4">Education Access</h3>
+              <p className="text-white/70">
+                Providing educational resources and technology access to underserved populations.
+              </p>
+            </div>
+            
+            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-medium mb-4">Transparency</h3>
+              <p className="text-white/70">
+                Using blockchain technology to ensure 100% transparency in fund allocation and impact tracking.
+              </p>
+            </div>
           </div>
-          <p className="text-white/70 text-center mt-4 text-sm">
-            Watch how ZiNRAi is making a real difference in communities around the world.
-          </p>
         </div>
       </div>
     </div>
