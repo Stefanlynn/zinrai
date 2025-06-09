@@ -257,16 +257,16 @@ export default function Home() {
   }, [menuOpen]);
 
   return (
-    <div className="bg-black">
+    <div className="bg-black min-h-screen">
       {/* Main home page section - full screen with grid */}
       <section 
-        className="h-screen relative"
+        className="min-h-screen relative"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         {/* Grid layout - 2x4 columns */}
-        <div className="h-full w-full grid grid-cols-2 grid-rows-4">
+        <div className="min-h-screen w-full grid grid-cols-2 grid-rows-4">
           {/* Box 1 - Top Left */}
           <div className="relative border-r border-b border-gray-700 overflow-hidden">
             {activeVideoBoxes[1] && (
