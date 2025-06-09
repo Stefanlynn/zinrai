@@ -186,13 +186,13 @@ export default function Cares() {
         </div>
       </div>
       
-      {/* Video Section - Outside grid to ensure visibility */}
-      <div className="bg-black p-8 border-t border-white/20">
+      {/* Video Section */}
+      <div className="bg-black py-16 px-6 border-t border-white/20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-6 uppercase tracking-wide text-center text-white">Our Mission in Action</h2>
-          <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+          <h2 className="text-3xl font-semibold mb-8 uppercase tracking-wide text-center text-white">Our Mission in Action</h2>
+          <div className="relative w-full bg-gray-900/50 rounded-lg overflow-hidden border border-white/30" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
             <iframe
-              className="absolute top-0 left-0 w-full h-full rounded-lg border border-white/20"
+              className="absolute top-0 left-0 w-full h-full"
               src="https://www.youtube.com/embed/grmGGZjYIN0"
               title="ZiNRAi Cares Mission Video"
               frameBorder="0"
@@ -200,6 +200,9 @@ export default function Cares() {
               allowFullScreen
             ></iframe>
           </div>
+          <p className="text-white/70 text-center mt-4 text-sm">
+            Watch how ZiNRAi is making a real difference in communities around the world.
+          </p>
         </div>
       </div>
     </div>
