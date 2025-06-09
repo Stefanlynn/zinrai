@@ -93,13 +93,7 @@ a {
   color: white !important;
 }
 
-/* Styles for fixed vs scrollable pages */
-.fixed-page {
-  overflow: hidden;
-  overscroll-behavior: none;
-  touch-action: none;
-}
-
+/* Styles for scrollable pages */
 .scrollable-page {
   overflow-y: auto;
   height: auto;

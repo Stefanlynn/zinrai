@@ -10,11 +10,11 @@ export default function Documents() {
   };
 
   useEffect(() => {
-    // Clean up any interfering styles
-    document.body.style.overflow = 'hidden';
+    // Allow normal scrolling behavior
+    document.body.style.overflow = 'auto';
     document.body.style.position = 'static';
-    document.body.style.height = '100vh';
-    document.documentElement.style.overflow = 'hidden';
+    document.body.style.height = 'auto';
+    document.documentElement.style.overflow = 'auto';
     
     return () => {
       // Cleanup when leaving page
