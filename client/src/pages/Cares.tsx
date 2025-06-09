@@ -73,7 +73,7 @@ export default function Cares() {
   return (
     <div className="bg-black text-white">
       {/* Main grid section */}
-      <div className="relative min-h-screen">
+      <div className="relative h-screen">
         {/* Grid lines overlay */}
         <div className={`absolute inset-0 grid grid-cols-2 grid-rows-4 pointer-events-none transition-opacity duration-1000 ${showLines ? 'opacity-70' : 'opacity-0'}`}>
           <div className="border-r border-white/20"></div>
@@ -86,7 +86,7 @@ export default function Cares() {
           <div className="border-l border-white/20 border-t"></div>
         </div>
         
-        <div className="grid grid-cols-2 grid-rows-4 min-h-screen">
+        <div className="grid grid-cols-2 grid-rows-4 h-screen">
           {/* Top Row - Header */}
         <div className="col-span-2 flex items-center justify-between px-8 py-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white">ZiNRAi Cares</h1>
