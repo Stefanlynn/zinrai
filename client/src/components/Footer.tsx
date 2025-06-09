@@ -20,7 +20,7 @@ export default function Footer() {
               Innovative digital learning platform for investment education and strategy analysis.
             </p>
             <div className="text-white/60 text-sm">
-              <p>ZiNRAi LLC</p>
+              <p>ZiNRAi<span className="text-xs align-super">™</span> LLC</p>
               <p>3333 Renaissance Blvd</p>
               <p>Suite #209</p>
               <p>Bonita Springs, FL 34134</p>
@@ -130,7 +130,7 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-white transition-colors"
-                aria-label="Follow ZiNRAi on Instagram"
+                aria-label="Follow ZiNRAi™ on Instagram"
               >
                 <FaInstagram size={20} />
               </a>
@@ -139,7 +139,7 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-white transition-colors"
-                aria-label="Follow ZiNRAi on Facebook"
+                aria-label="Follow ZiNRAi™ on Facebook"
               >
                 <FaFacebook size={20} />
               </a>
@@ -148,7 +148,7 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-white transition-colors"
-                aria-label="Subscribe to ZiNRAi on YouTube"
+                aria-label="Subscribe to ZiNRAi™ on YouTube"
               >
                 <FaYoutube size={20} />
               </a>

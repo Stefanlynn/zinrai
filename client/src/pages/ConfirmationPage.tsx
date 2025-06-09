@@ -13,7 +13,7 @@ export default function ConfirmationPage() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden">
+    <div className="bg-black min-h-screen flex flex-col items-center justify-center text-white relative">
       {/* Animated gradient background */}
       <div className="absolute inset-0 z-0 opacity-30">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-900/20 to-transparent"></div>

@@ -75,12 +75,12 @@ export default function ZiNRAiCares() {
     <div className="scrollable-page bg-black text-white">
       <div className="max-w-6xl mx-auto px-4 py-8 pb-24">
         {/* Main heading */}
-        <h1 className="text-4xl md:text-6xl font-bold text-white text-center mb-8">ZiNRAi Cares</h1>
+        <h1 className="text-4xl md:text-6xl font-bold text-white text-center mb-8">ZiNRAi<span className="text-2xl md:text-3xl align-super">™</span> Cares</h1>
         
         {/* Impact Statement */}
         <div className="mb-16 text-center max-w-4xl mx-auto">
           <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-6">
-            At ZiNRAi, we believe technology should be a force for good. For every active subscription, we donate $1 to sustainable impact projects around the globe.
+            At ZiNRAi™, we believe technology should be a force for good. For every active subscription, we donate $1 to sustainable impact projects around the globe.
           </p>
           <p className="text-xl text-white/70">
             Our blockchain-powered platform ensures 100% transparency in giving.
