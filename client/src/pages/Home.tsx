@@ -586,7 +586,10 @@ export default function Home() {
               </div>
               
               <button
-                onClick={() => navigate('/product')}
+                onClick={() => {
+                  navigate('/product');
+                  window.scrollTo(0, 0);
+                }}
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
@@ -643,7 +646,10 @@ export default function Home() {
               </div>
               
               <button
-                onClick={() => navigate('/partner')}
+                onClick={() => {
+                  navigate('/partner');
+                  window.scrollTo(0, 0);
+                }}
                 className="group relative px-8 py-4 bg-gradient-to-r from-green-500/20 to-orange-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-orange-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
