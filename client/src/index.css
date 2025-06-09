@@ -45,6 +45,14 @@
 /* Smooth scrolling for entire site */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
 }
 
 /* Custom scrollbar styling */

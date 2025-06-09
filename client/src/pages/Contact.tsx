@@ -13,11 +13,11 @@ export default function Contact() {
   };
   
   return (
-    <div className="w-full">
+    <div className="w-full pb-32">
       {/* Single section with contact information */}
-      <section className="relative min-h-screen w-full page-content" ref={sectionRef}>
+      <section className="relative w-full page-content" ref={sectionRef}>
         {/* Grid for section */}
-        <div className="grid grid-cols-2 grid-rows-4 min-h-screen w-full">
+        <div className="grid grid-cols-2 grid-rows-4 h-[80vh] w-full">
           <div className="border border-white/[0.03]"></div>
           <div className="border border-white/[0.03]"></div>
           <div className="border border-white/[0.03]"></div>
