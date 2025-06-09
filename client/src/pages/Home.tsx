@@ -111,6 +111,15 @@ export default function Home() {
     }
   };
 
+  // Initialize all 8 videos on component mount
+  useEffect(() => {
+    const initialVideoBoxes: Record<number, string> = {};
+    videoSources.forEach((videoSource, index) => {
+      initialVideoBoxes[index + 1] = videoSource;
+    });
+    setActiveVideoBoxes(initialVideoBoxes);
+  }, []);
+
   // Reset scroll when returning to home
   useEffect(() => {
     if (location === "/") {
