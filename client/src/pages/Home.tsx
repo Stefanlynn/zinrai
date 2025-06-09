@@ -48,8 +48,6 @@ export default function Home() {
   const [touchEndY, setTouchEndY] = useState(0);
   // Get current location for navigation-aware behavior
   const [location] = useLocation();
-  // Track whether we should allow scrolling to footer
-  const [canScrollToFooter, setCanScrollToFooter] = useState(false);
   
   // Video display in grid - track grid box positions
   const [activeVideoBoxes, setActiveVideoBoxes] = useState<Record<number, string>>({});
@@ -134,107 +132,10 @@ export default function Home() {
     }
   };
 
-  // Scroll wheel navigation for content
-  useEffect(() => {
-    let isThrottled = false;
-    
-    const handleWheel = (e: WheelEvent) => {
-      if (isThrottled || location !== "/") return;
-      
-      const scrollPosition = window.scrollY;
-      
-      // Only intercept scrolling when at the very top of the page
-      if (scrollPosition === 0) {
-        if (!canScrollToFooter) {
-          e.preventDefault();
-          
-          isThrottled = true;
-          setTimeout(() => { isThrottled = false; }, eventCooldown);
-          
-          if (e.deltaY > 0) {
-            // Scrolling down
-            if (currentIndex === contentItems.length - 1) {
-              // At CONTACT (last item), enable scrolling to footer
-              setCanScrollToFooter(true);
-              console.log("Ready to scroll to footer");
-            } else {
-              setCurrentIndex(prev => (prev + 1) % contentItems.length);
-            }
-          } else {
-            // Scrolling up
-            setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
-          }
-        } else if (e.deltaY > 0) {
-          // Ready to scroll to footer, force scroll to footer
-          console.log("Forcing scroll to footer");
-          e.preventDefault(); // Prevent default and manually scroll
-          setCanScrollToFooter(false); // Reset for future use
-          // Force scroll to footer
-          setTimeout(() => {
-            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-          }, 100);
-        }
-      }
-    };
-
-    if (location === "/") {
-      document.addEventListener("wheel", handleWheel, { passive: false });
-    }
-    
-    return () => {
-      document.removeEventListener("wheel", handleWheel);
-    };
-  }, [location, eventCooldown, currentIndex, canScrollToFooter]);
-
-  // Touch event handlers for mobile swiping - vertical only
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (location === "/") {
-      setTouchStartY(e.targetTouches[0].clientY);
-    }
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (location === "/" && window.scrollY === 0) {
-      e.preventDefault();
-    }
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (location !== "/" || (window.scrollY !== 0 && !canScrollToFooter)) return;
-    
-    setTouchEndY(e.changedTouches[0].clientY);
-    
-    const deltaY = touchStartY - touchEndY;
-    const minSwipeDistance = 50;
-    
-    if (Math.abs(deltaY) > minSwipeDistance) {
-      const currentTime = Date.now();
-      if (currentTime - lastEventTime.current < eventCooldown) return;
-      lastEventTime.current = currentTime;
-      
-      if (deltaY > 0) {
-        // Swiped up
-        if (currentIndex === contentItems.length - 1 && !canScrollToFooter) {
-          // At CONTACT, enable footer scrolling
-          setCanScrollToFooter(true);
-        } else if (canScrollToFooter) {
-          // Allow scroll to footer
-          setCanScrollToFooter(false);
-          window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-        } else {
-          setCurrentIndex(prev => (prev + 1) % contentItems.length);
-        }
-      } else {
-        // Swiped down (previous content)
-        setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
-      }
-    }
-  };
-
-  // Keyboard navigation
+  // Simple keyboard navigation for content items (no scroll prevention)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (location !== "/") return;
+      if (location !== "/" || window.scrollY > 0) return;
       
       const currentTime = Date.now();
       if (currentTime - lastEventTime.current < eventCooldown) return;
@@ -247,15 +148,48 @@ export default function Home() {
         e.preventDefault();
         lastEventTime.current = currentTime;
         setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
-      } else if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        handleContentClick(contentItems[currentIndex].title);
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [currentIndex, location]);
+  }, [location, eventCooldown]);
+
+  // Simple touch handlers for mobile content navigation (no scroll prevention)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (location === "/" && window.scrollY === 0) {
+      setTouchStartY(e.targetTouches[0].clientY);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    // Allow normal scrolling
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (location !== "/" || window.scrollY !== 0) return;
+    
+    setTouchEndY(e.changedTouches[0].clientY);
+    
+    const deltaY = touchStartY - touchEndY;
+    const minSwipeDistance = 50;
+    
+    if (Math.abs(deltaY) > minSwipeDistance) {
+      const currentTime = Date.now();
+      if (currentTime - lastEventTime.current < eventCooldown) return;
+      lastEventTime.current = currentTime;
+      
+      if (deltaY > 0) {
+        // Swiped up - next content
+        setCurrentIndex(prev => (prev + 1) % contentItems.length);
+      } else {
+        // Swiped down - previous content
+        setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
+      }
+    }
+  };
+
+
 
   // Handle content navigation when clicking on content items
   const handleContentClick = (title: string) => {
@@ -290,7 +224,6 @@ export default function Home() {
   useEffect(() => {
     if (location === "/") {
       window.scrollTo(0, 0);
-      setCanScrollToFooter(false);
     }
   }, [location]);
 
@@ -511,10 +444,10 @@ export default function Home() {
               >
                 {contentItems[currentIndex].title}
               </div>
-              {/* Debug info */}
+              {/* Info for last item */}
               {currentIndex === contentItems.length - 1 && (
                 <div className="text-xs text-yellow-400 mt-2">
-                  {canScrollToFooter ? "Ready to scroll to footer" : "Scroll again to reach footer"}
+                  Scroll down to see footer
                 </div>
               )}
             </div>
