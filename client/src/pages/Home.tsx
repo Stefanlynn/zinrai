@@ -560,25 +560,29 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20 mb-6">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-blue-300 text-sm font-medium">Investment Education</span>
+                  <span className="text-blue-300 text-sm font-medium">Financial Education</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
                   Unlock Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Growth</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Transform your financial future with our comprehensive investment education courses. 
-                  Learn proven strategies, risk management, and market analysis from industry experts.
+                  Explore financial education across forex, crypto, digital marketing, and e-commerce. Our courses are led by experienced educators and designed to equip you with foundational knowledge, real-world insights, and the confidence to make informed decisions.
                 </p>
               </div>
               
               {/* Features list */}
               <div className="space-y-4">
-                {['Expert-Led Curriculum', 'Risk Management Strategies', 'Market Analysis Tools', 'Wealth Building Framework'].map((feature, index) => (
+                {['Expert-Led Lessons', 'Risk Awareness & Strategy', 'Market Insight & Analysis', 'Entrepreneurial Education Tracks'].map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                     <span className="text-white/80">{feature}</span>
                   </div>
                 ))}
+              </div>
+              
+              {/* Disclaimer */}
+              <div className="text-white/50 text-sm italic">
+                These courses are for educational purposes only. ZiNRAi<span className="text-xs align-super">™</span> does not provide financial advice or guarantee specific outcomes.
               </div>
               
               <button
@@ -613,25 +617,29 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center px-4 py-2 bg-green-500/10 rounded-full border border-green-500/20 mb-6">
                   <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-green-300 text-sm font-medium">Business Opportunity</span>
+                  <span className="text-green-300 text-sm font-medium">Brand Promoter Program</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
-                  Unlock Your <span className="text-transparent bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text font-semibold">Impact</span>
+                  Unlock Your <span className="text-transparent bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text font-semibold">Influence</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Join our Brand Promoter program and turn your passion for financial education into 
-                  meaningful income. Share ZiNRAi<span className="text-xs align-super">™</span> and build your sustainable business.
+                  Become a Brand Promoter and help expand access to financial education, leadership development, and personal growth tools. As a promoter, you'll share the ZiNRAi<span className="text-xs align-super">™</span> vision, connect others to our platform, and grow alongside a values-driven community.
                 </p>
               </div>
               
               {/* Benefits list */}
               <div className="space-y-4">
-                {['Flexible Schedule', 'Unlimited Earning Potential', 'Full Training & Support', 'Make Real Impact'].map((benefit, index) => (
+                {['Flexible Involvement', 'Personal Growth Opportunities', 'Training & Tools Provided', 'Make an Impact Through Education'].map((benefit, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                     <span className="text-white/80">{benefit}</span>
                   </div>
                 ))}
+              </div>
+              
+              {/* Disclaimer */}
+              <div className="text-white/50 text-sm italic">
+                Note: ZiNRAi<span className="text-xs align-super">™</span> Brand Promoters are independent representatives. Results and experiences may vary.
               </div>
               
               <button
