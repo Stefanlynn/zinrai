@@ -107,16 +107,8 @@ a {
   touch-action: auto;
 }
 
-/* When home page is active, make the body fixed */
-body.home-is-active {
-  overflow: hidden;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-}
-
-/* Ensure policy pages can scroll */
-body:not(.home-is-active) {
+/* Allow scrolling on all pages */
+body {
   overflow: auto;
   position: static;
   height: auto;
