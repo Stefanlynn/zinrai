@@ -13,9 +13,9 @@ export default function Contact() {
   };
   
   return (
-    <div className="w-full">
+    <div className="w-full min-h-screen flex flex-col">
       {/* Single section with contact information */}
-      <section className="relative h-screen w-full page-content" ref={sectionRef}>
+      <section className="relative h-screen w-full page-content flex-1" ref={sectionRef}>
         {/* Grid for section */}
         <div className="grid grid-cols-2 grid-rows-4 h-screen w-full">
           <div className="border border-white/[0.03]"></div>
