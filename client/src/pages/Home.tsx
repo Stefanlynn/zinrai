@@ -546,48 +546,166 @@ export default function Home() {
       </section>
 
       {/* Courses Section - Unlock Your Growth */}
-      <section className="bg-black py-16 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
-            Unlock Your Growth
-          </h2>
-          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-            Transform your financial future with our comprehensive investment education courses. 
-            Learn proven strategies, risk management, and market analysis from industry experts 
-            to build wealth and achieve your financial goals.
-          </p>
-          <button
-            onClick={() => navigate('/product')}
-            className="inline-flex items-center px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300 group"
-          >
-            Learn More About Our Courses
-            <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+      <section className="relative bg-black py-20 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/5 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-48 h-48 bg-purple-500/5 rounded-full blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-500/3 rounded-full blur-2xl animate-pulse delay-500"></div>
+        </div>
+        
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left side - Content */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20 mb-6">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-blue-300 text-sm font-medium">Investment Education</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
+                  Unlock Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Growth</span>
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  Transform your financial future with our comprehensive investment education courses. 
+                  Learn proven strategies, risk management, and market analysis from industry experts.
+                </p>
+              </div>
+              
+              {/* Features list */}
+              <div className="space-y-4">
+                {['Expert-Led Curriculum', 'Risk Management Strategies', 'Market Analysis Tools', 'Wealth Building Framework'].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span className="text-white/80">{feature}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => navigate('/product')}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                <div className="relative flex items-center justify-center">
+                  <span className="font-medium">Learn More</span>
+                  <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+            
+            {/* Right side - Visual element */}
+            <div className="relative">
+              <div className="relative w-full h-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 backdrop-blur-sm overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
+                <div className="p-8 h-full flex flex-col justify-center">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-white font-medium">Portfolio Growth</div>
+                        <div className="text-white/60 text-sm">Track your progress</div>
+                      </div>
+                    </div>
+                    <div className="w-full bg-gray-700/50 rounded-full h-2">
+                      <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full w-3/4 animate-pulse"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Brand Promoter Section - Unlock Your Impact */}
-      <section className="bg-black py-16 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
-            Unlock Your Impact
-          </h2>
-          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-            Join our Brand Promoter program and turn your passion for financial education into 
-            meaningful income. Share ZiNRAi<span className="text-xs align-super">™</span> with your network, 
-            help others grow their wealth, and build your own sustainable business opportunity.
-          </p>
-          <button
-            onClick={() => navigate('/partner')}
-            className="inline-flex items-center px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300 group"
-          >
-            Learn More About Brand Promoter
-            <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+      <section className="relative bg-black py-20 overflow-hidden border-t border-gray-800">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-10 w-32 h-32 bg-green-500/5 rounded-full blur-xl animate-pulse delay-300"></div>
+          <div className="absolute bottom-20 left-10 w-48 h-48 bg-orange-500/5 rounded-full blur-xl animate-pulse delay-700"></div>
+          <div className="absolute top-1/3 right-1/3 w-40 h-40 bg-pink-500/3 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left side - Visual element */}
+            <div className="relative order-2 md:order-1">
+              <div className="relative w-full h-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 backdrop-blur-sm overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-orange-500/10"></div>
+                <div className="p-8 h-full flex flex-col justify-center">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="text-white/60 text-sm">Network Growth</div>
+                      <div className="text-green-400 font-semibold">+247%</div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4">
+                      {[1, 2, 3, 4, 5, 6].map((i) => (
+                        <div key={i} className={`h-8 bg-gradient-to-t from-green-500/20 to-green-500/40 rounded ${i <= 4 ? 'animate-pulse' : 'opacity-50'}`}></div>
+                      ))}
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                        <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-white font-medium">Team Building</div>
+                        <div className="text-white/60 text-sm">Expand your reach</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right side - Content */}
+            <div className="space-y-8 order-1 md:order-2">
+              <div>
+                <div className="inline-flex items-center px-4 py-2 bg-green-500/10 rounded-full border border-green-500/20 mb-6">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-green-300 text-sm font-medium">Business Opportunity</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
+                  Unlock Your <span className="text-transparent bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text font-semibold">Impact</span>
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  Join our Brand Promoter program and turn your passion for financial education into 
+                  meaningful income. Share ZiNRAi<span className="text-xs align-super">™</span> and build your sustainable business.
+                </p>
+              </div>
+              
+              {/* Benefits list */}
+              <div className="space-y-4">
+                {['Flexible Schedule', 'Unlimited Earning Potential', 'Full Training & Support', 'Make Real Impact'].map((benefit, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span className="text-white/80">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => navigate('/partner')}
+                className="group relative px-8 py-4 bg-gradient-to-r from-green-500/20 to-orange-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-orange-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                <div className="relative flex items-center justify-center">
+                  <span className="font-medium">Learn More</span>
+                  <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
