@@ -11,11 +11,8 @@ export default function CookieConsent() {
   useEffect(() => {
     // Check if user has already made a choice
     if (!cookieManager.hasConsent()) {
-      // Show popup after a brief delay for better UX
-      const timer = setTimeout(() => {
-        setShowConsent(true);
-      }, 1500);
-      return () => clearTimeout(timer);
+      // Show popup immediately for compliance
+      setShowConsent(true);
     } else {
       // Initialize tracking for existing users
       cookieManager.initializeTracking();
