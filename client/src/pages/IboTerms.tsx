@@ -4,7 +4,7 @@ export default function IboTerms() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="policy-page-container bg-[#1a1a1a] text-white min-h-screen pb-20">
+    <div className="policy-page-container bg-black text-white min-h-screen">
       <div className="container mx-auto px-6 py-12 max-w-4xl">
         <div className="prose prose-invert max-w-none">
           {/* Back button */}

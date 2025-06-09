@@ -73,7 +73,7 @@ export default function Cares() {
   return (
     <div className="text-white min-h-screen flex flex-col">
       {/* Main grid section */}
-      <div className="relative h-screen flex-shrink-0">
+      <div className="relative min-h-screen flex-shrink-0">
         {/* Grid lines overlay */}
         <div className={`absolute inset-0 grid grid-cols-2 grid-rows-4 pointer-events-none transition-opacity duration-1000 ${showLines ? 'opacity-70' : 'opacity-0'}`}>
           <div className="border-r border-white/20"></div>
