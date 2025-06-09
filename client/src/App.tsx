@@ -8,6 +8,8 @@ import { FiUser } from "react-icons/fi";
 import zinraiLogo from "./assets/zinrai-circle-logo.png";
 import CookieConsent from "./components/CookieConsent";
 import Footer from "./components/Footer";
+import { trackingScripts } from "./lib/trackingScripts";
+import { consentMode } from "./lib/consentMode";
 import Home from "@/pages/Home";
 import Logo from "@/pages/Logo";
 import Product from "@/pages/Product";
@@ -289,6 +291,9 @@ function App() {
   ];
 
   useEffect(() => {
+    // Initialize cookie consent and tracking systems
+    consentMode.initialize();
+    
     // Close menu when clicking outside
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
