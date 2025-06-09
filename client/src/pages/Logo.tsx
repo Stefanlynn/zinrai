@@ -30,7 +30,7 @@ export default function Logo() {
       <div className="relative z-10 max-w-3xl px-4">
         {/* Logo and title */}
         <div className={`flex flex-col items-center mb-10 transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-          <img src={logoImage} alt="ZiNRAi Logo" className="w-[140px] mb-4" />
+          <img src={logoImage} alt="ZiNRAi™ Logo" className="w-[140px] mb-4" />
           <h1 className="text-base uppercase font-light tracking-[0.2em] text-white/70">The Brand</h1>
         </div>
         
@@ -43,7 +43,7 @@ export default function Logo() {
             </p>
             
             <p className="text-xs text-white/70 max-w-lg mx-auto mb-6 leading-relaxed">
-              ZiNRAi was created for those who want to grow with clarity, lead with integrity, and build a life that stands for something.
+              ZiNRAi™ was created for those who want to grow with clarity, lead with integrity, and build a life that stands for something.
             </p>
             
             <p className="text-xs text-white/70 max-w-lg mx-auto mb-8 leading-relaxed">

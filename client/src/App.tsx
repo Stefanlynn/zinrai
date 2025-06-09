@@ -336,14 +336,14 @@ function App() {
                   setLocation('/');
                 }}
                 href="/"
-                aria-label="ZiNRAi Home"
+                aria-label="ZiNRAi™ Home"
               >
                 <img 
                   src={zinraiLogo} 
-                  alt="ZiNRAi Logo" 
+                  alt="ZiNRAi™ Logo" 
                   className="w-6 h-6 object-contain"
                 />
-                <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi</span>
+                <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi<span className="text-xs align-super">™</span></span>
               </a>
             )}
             {menuOpen && <div className="ml-6 w-8"></div>}

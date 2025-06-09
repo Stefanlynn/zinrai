@@ -31,7 +31,7 @@ export default function Leadership() {
           </p>
           
           <p className="text-white/50 text-sm md:text-base mt-8 max-w-xl">
-            We're carefully crafting profiles for each of our visionary leaders who are guiding ZiNRAi's transformative journey.
+            We're carefully crafting profiles for each of our visionary leaders who are guiding ZiNRAi™'s transformative journey.
           </p>
           
           {/* Pulsing dot */}
