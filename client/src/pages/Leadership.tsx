@@ -18,7 +18,7 @@ export default function Leadership() {
   return (
     <div className="bg-black min-h-screen w-full">
       {/* Main content */}
-      <div className="relative h-screen w-full flex items-center justify-center">
+      <div className="relative min-h-screen w-full flex items-center justify-center page-content">
         
         {/* Coming Soon Content */}
         <div className={`flex flex-col items-center justify-center text-center px-4 transition-all duration-1000 ${pageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>

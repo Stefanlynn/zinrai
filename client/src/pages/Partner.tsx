@@ -282,7 +282,7 @@ export default function Partner() {
       )}
       
       {/* Content area - IMPORTANT: This div allows scrolling! */}
-      <div className="relative z-10 pb-16 overflow-auto" style={{ height: "100vh" }}>
+      <div className="relative z-10 pb-16 page-content">
         <div className="flex flex-col md:flex-row p-4">
           {/* Left Side - Benefits List */}
           <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>

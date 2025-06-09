@@ -43,7 +43,7 @@ export default function Insights() {
       </div>
       
       {/* Content area - IMPORTANT: This div allows scrolling! */}
-      <div className="relative z-10 pb-16 overflow-auto" style={{ height: "100vh" }}>
+      <div className="relative z-10 pb-16 page-content">
         <div className="flex flex-col justify-center items-center min-h-screen px-4">
           <div className={`text-center max-w-2xl transition-all duration-1000 ${animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             
