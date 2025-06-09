@@ -33,6 +33,63 @@ export default function Home() {
   // Video sources - all eight videos for the grid
   const videoSources = [tradingVideo, viennaVideo, runningVideo, familyTravelVideo, coastlineVideo, kayakVideo, japaneseWomanVideo, cryptoInvestorVideo];
   
+  // Cards state
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  
+  // Card data
+  const cards = [
+    {
+      id: 1,
+      title: "The Clarity Code",
+      content: "If you feel stuck, start with clarity—not hustle. Your next breakthrough won't come from doing more, but from understanding why you're doing it at all."
+    },
+    {
+      id: 2,
+      title: "Discipline Wins When Motivation Fades",
+      content: "Motivation is loud. Discipline is loyal. Build your future on the quiet decisions you make when no one's watching."
+    },
+    {
+      id: 3,
+      title: "Your Why Is the Fire You Forgot You Needed",
+      content: "Every setback gets smaller when you remember what you're fighting for. Revisit your why—it's not optional; it's oxygen."
+    },
+    {
+      id: 4,
+      title: "Start With What You Control",
+      content: "You don't need to have it all figured out to make a move. Start with your attitude. Your habits. Your focus. That's where the shift begins."
+    },
+    {
+      id: 5,
+      title: "The Future Belongs to the Focused",
+      content: "Distraction is the enemy of destiny. Say no to what's \"urgent\" so you can say yes to what's eternal."
+    },
+    {
+      id: 6,
+      title: "Pressure Doesn't Break You—It Builds You",
+      content: "You weren't buried—you were planted. Pressure is proof that something inside you is worth refining."
+    },
+    {
+      id: 7,
+      title: "Community Is a Growth Strategy",
+      content: "Isolation feels safe, but it stunts your growth. Surround yourself with people who speak life, challenge comfort, and call you higher."
+    },
+    {
+      id: 8,
+      title: "Don't Chase Feelings—Chase Formation",
+      content: "You won't always feel inspired. But if you show up daily, you'll become someone who inspires others."
+    },
+    {
+      id: 9,
+      title: "Lead Yourself Like Someone Worth Following",
+      content: "How you lead yourself behind the scenes determines how much weight your voice carries in the spotlight."
+    },
+    {
+      id: 10,
+      title: "Keep the Promise You Made to Your Future Self",
+      content: "Every time you follow through, you're honoring the version of you that's trying to emerge. Don't let comfort steal that promise."
+    }
+  ];
+  
   // Custom spinning plus component
   const SpinningPlus = ({ size = 18, className = "" }) => {
     const [spin, setSpin] = useState(false);
@@ -556,106 +613,86 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Interactive Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-            {/* Card 1 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">01</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">The Clarity Code</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                If you feel stuck, start with clarity—not hustle. Your next breakthrough won't come from doing more, but from understanding why you're doing it at all.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
+          {/* Rotating Cards Stack */}
+          <div className="flex justify-center items-center min-h-[500px] relative">
+            <div className="relative w-80 h-96" id="card-stack">
+              {/* Card Stack - positioned in circular formation */}
+              {cards.map((card, index) => {
+                const isActive = index === currentCardIndex;
+                const isNext = index === (currentCardIndex + 1) % cards.length;
+                const isSecond = index === (currentCardIndex + 2) % cards.length;
+                
+                let transform = 'translateX(400px) scale(0.8)'; // Hidden by default
+                let opacity = 0;
+                let zIndex = 0;
+                
+                if (isActive) {
+                  transform = 'translateX(0px) scale(1)';
+                  opacity = 1;
+                  zIndex = 30;
+                } else if (isNext) {
+                  transform = 'translateX(20px) scale(0.95) rotateY(5deg)';
+                  opacity = 0.8;
+                  zIndex = 20;
+                } else if (isSecond) {
+                  transform = 'translateX(40px) scale(0.9) rotateY(10deg)';
+                  opacity = 0.6;
+                  zIndex = 10;
+                }
+                
+                return (
+                  <div
+                    key={card.id}
+                    className="absolute inset-0 bg-gray-900/80 border border-gray-700 rounded-xl p-8 backdrop-blur-sm transition-all duration-700 ease-in-out cursor-pointer"
+                    style={{
+                      transform,
+                      opacity,
+                      zIndex,
+                    }}
+                    onClick={() => setCurrentCardIndex((currentCardIndex + 1) % cards.length)}
+                  >
+                    <div className="text-white/40 text-sm font-mono mb-2">
+                      {String(card.id).padStart(2, '0')}
+                    </div>
+                    <h3 className="text-white font-semibold text-xl mb-4">{card.title}</h3>
+                    <p className="text-white/80 text-sm leading-relaxed">{card.content}</p>
+                    <div className="absolute bottom-6 right-6 w-3 h-3 bg-blue-400 rounded-full"></div>
+                  </div>
+                );
+              })}
 
-            {/* Card 2 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">02</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">Discipline Wins When Motivation Fades</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                Motivation is loud. Discipline is loyal. Build your future on the quiet decisions you make when no one's watching.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">03</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">Your Why Is the Fire You Forgot You Needed</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                Every setback gets smaller when you remember what you're fighting for. Revisit your why—it's not optional; it's oxygen.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">04</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">Start With What You Control</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                You don't need to have it all figured out to make a move. Start with your attitude. Your habits. Your focus. That's where the shift begins.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
-
-            {/* Card 5 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">05</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">The Future Belongs to the Focused</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                Distraction is the enemy of destiny. Say no to what's "urgent" so you can say yes to what's eternal.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
-
-            {/* Card 6 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">06</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">Pressure Doesn't Break You—It Builds You</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                You weren't buried—you were planted. Pressure is proof that something inside you is worth refining.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
-
-            {/* Card 7 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">07</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">Community Is a Growth Strategy</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                Isolation feels safe, but it stunts your growth. Surround yourself with people who speak life, challenge comfort, and call you higher.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
-
-            {/* Card 8 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">08</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">Don't Chase Feelings—Chase Formation</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                You won't always feel inspired. But if you show up daily, you'll become someone who inspires others.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
-
-            {/* Card 9 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">09</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">Lead Yourself Like Someone Worth Following</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                How you lead yourself behind the scenes determines how much weight your voice carries in the spotlight.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
-            </div>
-
-            {/* Card 10 */}
-            <div className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-white/30 transition-all duration-500 hover:bg-gray-800/50 cursor-pointer">
-              <div className="absolute top-4 left-4 text-white/30 text-sm font-mono">10</div>
-              <h3 className="text-white font-medium text-lg mb-3 mt-6">Keep the Promise You Made to Your Future Self</h3>
-              <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                Every time you follow through, you're honoring the version of you that's trying to emerge. Don't let comfort steal that promise.
-              </p>
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/20 rounded-full group-hover:bg-blue-400 transition-colors duration-300"></div>
+              {/* Navigation Controls */}
+              <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-4">
+                <button 
+                  className="w-12 h-12 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+                  onClick={() => setCurrentCardIndex((currentCardIndex - 1 + cards.length) % cards.length)}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <div className="flex items-center space-x-2 px-4">
+                  {cards.map((_, i) => (
+                    <div 
+                      key={i} 
+                      className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        i === currentCardIndex ? 'bg-blue-400' : 'bg-white/20'
+                      }`}
+                      onClick={() => setCurrentCardIndex(i)}
+                    ></div>
+                  ))}
+                </div>
+                
+                <button 
+                  className="w-12 h-12 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+                  onClick={() => setCurrentCardIndex((currentCardIndex + 1) % cards.length)}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
