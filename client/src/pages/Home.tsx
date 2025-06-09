@@ -488,7 +488,7 @@ export default function Home() {
               />
             </div>
             <h1 className="zinrai-logo-text text-white text-[14vw] md:text-[10vw] lg:text-[8vw] xl:text-[120px] font-bold tracking-wider whitespace-nowrap relative z-10 neon-text-glow" style={{ textShadow: "0 0 15px #68ACFF, 0 0 25px #68ACFF, 0 0 35px #68ACFF" }}>
-              ZiNRAi
+              ZiNRAi™
             </h1>
             <div className="tagline-text text-white text-[2vw] md:text-[1.8vw] lg:text-[1.4vw] xl:text-[18px] tracking-wider whitespace-nowrap relative z-10 text-center mt-[-3vw] md:mt-[-2.5vh] neon-text-glow-subtle" style={{ textShadow: "0 0 8px #68ACFF, 0 0 15px #68ACFF" }}>
               LIVE WITH PASSION. LEAD WITH PURPOSE
@@ -865,79 +865,105 @@ export default function Home() {
         </div>
       )}
 
-      {/* Footer - different layouts for mobile and desktop */}
-      <footer className="fixed bottom-0 left-0 right-0 h-[48px] bg-black/20 backdrop-blur-sm border-t border-white/10 z-[100] pointer-events-none">
-        {/* Mobile Footer */}
-        <div className="md:hidden relative w-full h-full flex items-center justify-between px-4">
-          {/* Left side - Company info with full address */}
-          <div className="text-white/70 text-[10px] font-light pointer-events-auto">
-            <div className="flex flex-col leading-tight">
-              <span>© 2025 ZiNRAi LLC</span>
-              <span className="text-white/50 text-[8px] mt-0.5">3333 Renaissance Blvd #209</span>
-              <span className="text-white/50 text-[8px]">Bonita Springs, FL 34134</span>
+      {/* Traditional Footer */}
+      <footer className="bg-black text-white py-12 mt-16">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Footer Links Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            {/* Company Info */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">ZiNRAi™</h3>
+              <p className="text-white/70 text-sm mb-4">
+                Innovative digital learning platform for investment education and strategy analysis.
+              </p>
+              <div className="text-white/60 text-sm">
+                <p>ZiNRAi™ LLC</p>
+                <p>3333 Renaissance Blvd</p>
+                <p>Suite #209</p>
+                <p>Bonita Springs, FL 34134</p>
+              </div>
             </div>
-          </div>
-          
-          {/* Right side - Documents button */}
-          <div className="flex items-center pointer-events-auto">
-            <button
-              onClick={() => window.location.href = '/documents'}
-              className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
-            >
-              Documents
-            </button>
-          </div>
-        </div>
 
-        {/* Desktop Footer */}
-        <div className="hidden md:flex relative w-full h-full items-center justify-between px-8">
-          {/* Left side - Company info */}
-          <div className="text-white/70 text-xs font-light pointer-events-auto">
-            <div className="flex flex-col">
-              <span>© 2025 ZiNRAi LLC, All rights reserved.</span>
-              <span className="text-white/50 text-[10px] mt-1">3333 Renaissance Blvd, Suite #209, Bonita Springs, FL 34134</span>
+            {/* Legal Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/privacy-policy" className="text-white/70 hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-conditions" className="text-white/70 hover:text-white transition-colors">Terms & Conditions</a></li>
+                <li><a href="/terms-of-use" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
+                <li><a href="/refund-policy" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
+                <li><a href="/cookie-policy" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
+                <li><a href="/ibo-terms" className="text-white/70 hover:text-white transition-colors">BP Terms & Conditions</a></li>
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/product" className="text-white/70 hover:text-white transition-colors">Courses</a></li>
+                <li><a href="/partner" className="text-white/70 hover:text-white transition-colors">Brand Promoter</a></li>
+                <li><a href="/culture" className="text-white/70 hover:text-white transition-colors">Culture</a></li>
+                <li><a href="/insights" className="text-white/70 hover:text-white transition-colors">Insights</a></li>
+                <li><a href="/leadership" className="text-white/70 hover:text-white transition-colors">Leadership</a></li>
+                <li><a href="/contact" className="text-white/70 hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Social Media */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+              <div className="flex space-x-4">
+                <a 
+                  href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                  aria-label="Follow ZiNRAi on Instagram"
+                >
+                  <FaInstagram className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://facebook.com/zinrai" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                  aria-label="Follow ZiNRAi on Facebook"
+                >
+                  <FaFacebook className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.youtube.com/@ZiNRAi.official" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                  aria-label="Subscribe to ZiNRAi on YouTube"
+                >
+                  <FaYoutube className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
-          
-          {/* Center - Social links */}
-          <div className="flex items-center space-x-4 pointer-events-auto">
-            <a 
-              href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-              aria-label="Follow ZiNRAi on Instagram"
-            >
-              <FaInstagram className="w-3 h-3" />
-            </a>
-            <a 
-              href="https://facebook.com/zinrai" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-              aria-label="Follow ZiNRAi on Facebook"
-            >
-              <FaFacebook className="w-3 h-3" />
-            </a>
-            <a 
-              href="https://www.youtube.com/@ZiNRAi.official" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-              aria-label="Subscribe to ZiNRAi on YouTube"
-            >
-              <FaYoutube className="w-3 h-3" />
-            </a>
+
+          {/* Disclaimer */}
+          <div className="border-t border-white/20 pt-8 mb-6">
+            <h4 className="text-base font-bold mb-4">Important Disclaimer</h4>
+            <p className="text-sm font-bold leading-relaxed">
+              ZiNRAi™ products include digital and online interactive training content for analyzing, learning, and discussing general and generic information related to investments and strategies. ZiNRAi™ does not facilitate or offer access to online platforms for investment or online trading in securities, currency (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide any regulated financial services.
+            </p>
+            <p className="text-sm font-bold leading-relaxed mt-4">
+              ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities, or agencies, or financial regulatory body.
+            </p>
+            <p className="text-sm font-bold leading-relaxed mt-4">
+              ZiNRAi™ provides absolutely no guarantee that you will earn any money or achieve a financial goal using the methods, information, and suggestions in the content provided. Any examples or demonstrations provided are in no way a guarantee or promise that an individual will make financial gains of any kind.
+            </p>
           </div>
-          
-          {/* Right side - Documents button */}
-          <div className="flex items-center pointer-events-auto">
-            <button
-              onClick={() => window.location.href = '/documents'}
-              className="text-white text-sm font-bold bg-white/10 px-3 py-1 rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-sm"
-            >
-              Documents
-            </button>
+
+          {/* Copyright */}
+          <div className="border-t border-white/20 pt-6 text-center">
+            <p className="text-white/60 text-sm">
+              © Copyright 2025, ZiNRAi™ LLC. All Rights Reserved. All trademarks displayed on this website, unless otherwise indicated, are the property of ZiNRAi™ LLC.
+            </p>
           </div>
         </div>
       </footer>
