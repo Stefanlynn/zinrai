@@ -436,6 +436,16 @@ function App() {
             </a>
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              href="/zinrai-cares"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/zinrai-cares');
+              }}
+            >
+              ZiNRAi Cares
+            </a>
+            <a 
+              className="text-white/70 text-sm font-light hover:text-white transition-colors"
               href="/insights"
               onClick={(e) => {
                 e.preventDefault();
@@ -596,6 +606,21 @@ function App() {
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
                           <button 
                             onClick={() => {
+                              setLocation('/zinrai-cares');
+                              toggleMenu();
+                            }}
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                          >
+                            ZiNRAi Cares
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-start">
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
+                          <button 
+                            onClick={() => {
                               setLocation('/insights');
                               toggleMenu();
                             }}
@@ -608,7 +633,7 @@ function App() {
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">07</div>
                           <button 
                             onClick={() => {
                               setLocation('/contact');
