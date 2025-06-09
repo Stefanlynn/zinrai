@@ -143,30 +143,33 @@ export default function Home() {
       
       const scrollPosition = window.scrollY;
       
-      // Only use content navigation when at the very top of the page and not ready to scroll to footer
-      if (scrollPosition === 0 && !canScrollToFooter) {
-        e.preventDefault();
-        
-        isThrottled = true;
-        setTimeout(() => { isThrottled = false; }, eventCooldown);
-        
-        if (e.deltaY > 0) {
-          // Scrolling down
-          if (currentIndex === contentItems.length - 1) {
-            // At CONTACT (last item), enable scrolling to footer on next scroll
-            setCanScrollToFooter(true);
+      // Only intercept scrolling when at the very top of the page
+      if (scrollPosition === 0) {
+        if (!canScrollToFooter) {
+          e.preventDefault();
+          
+          isThrottled = true;
+          setTimeout(() => { isThrottled = false; }, eventCooldown);
+          
+          if (e.deltaY > 0) {
+            // Scrolling down
+            if (currentIndex === contentItems.length - 1) {
+              // At CONTACT (last item), enable scrolling to footer
+              setCanScrollToFooter(true);
+              console.log("Ready to scroll to footer");
+            } else {
+              setCurrentIndex(prev => (prev + 1) % contentItems.length);
+            }
           } else {
-            setCurrentIndex(prev => (prev + 1) % contentItems.length);
+            // Scrolling up
+            setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
           }
-        } else {
-          // Scrolling up
-          setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
+        } else if (e.deltaY > 0) {
+          // Ready to scroll to footer, don't prevent default - allow natural scroll
+          console.log("Allowing scroll to footer");
+          setCanScrollToFooter(false); // Reset for future use
         }
-      } else if (scrollPosition === 0 && canScrollToFooter && e.deltaY > 0) {
-        // Allow natural scroll to footer
-        setCanScrollToFooter(false); // Reset for future use
       }
-      // Allow normal scrolling when not at top or when canScrollToFooter is true
     };
 
     if (location === "/") {
