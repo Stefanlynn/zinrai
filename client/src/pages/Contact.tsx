@@ -16,7 +16,7 @@ export default function Contact() {
   };
   
   return (
-    <div className="bg-black min-h-screen w-full overflow-y-auto">
+    <div className="min-h-screen w-full overflow-y-auto">
       <div className="w-full">
         {/* Single section with contact information */}
         <section className="relative min-h-screen w-full page-content">
