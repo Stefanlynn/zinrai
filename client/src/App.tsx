@@ -5,8 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useState, useEffect, useRef } from "react";
 import { FiUser } from "react-icons/fi";
-import zinraiLogo from "@assets/zinrai-circle-logo.png";
+import zinraiLogo from "./assets/zinrai-circle-logo.png";
 import CookieConsent from "./components/CookieConsent";
+import Footer from "./components/Footer";
 import Home from "@/pages/Home";
 import Logo from "@/pages/Logo";
 import Product from "@/pages/Product";
@@ -174,8 +175,11 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
 // Component for pages that need the header
 function PageWithHeader({ children }: { children: React.ReactNode }) {
   return (
-    <div className="pt-[48px]">
-      {children}
+    <div className="pt-[48px] min-h-screen flex flex-col">
+      <div className="flex-1">
+        {children}
+      </div>
+      <Footer />
     </div>
   );
 }
