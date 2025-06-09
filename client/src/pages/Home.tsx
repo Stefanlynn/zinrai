@@ -291,8 +291,11 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Black overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
+
         {/* Fixed UI Elements overlay */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none z-20">
           {/* TOP LEFT - Video Trigger Icon */}
           <div className="absolute top-6 left-6 pointer-events-auto">
             <button
