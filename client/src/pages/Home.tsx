@@ -148,7 +148,7 @@ export default function Home() {
   }, [menuOpen]);
 
   return (
-    <div className="bg-black">
+    <div className="bg-black min-h-screen">
       {/* Hero Section - Grid */}
       <section className="relative h-screen">
         {/* Grid layout - 2x4 columns */}
