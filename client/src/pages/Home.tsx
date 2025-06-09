@@ -515,6 +515,31 @@ export default function Home() {
         )}
       </section>
 
+      {/* YouTube Video Section */}
+      <section className="bg-black py-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
+              Discover ZiNRAi<span className="text-xs align-super">™</span>
+            </h2>
+            <p className="text-white/70 text-lg">
+              Watch our introduction video to learn more about our mission
+            </p>
+          </div>
+          
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+            <iframe
+              className="absolute top-0 left-0 w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/ZkXpGkkPFwM"
+              title="ZiNRAi Introduction Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* Traditional Footer */}
       <footer className="bg-black text-white py-12">
         <div className="max-w-7xl mx-auto px-6">
