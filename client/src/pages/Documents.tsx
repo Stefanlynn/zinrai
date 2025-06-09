@@ -26,20 +26,13 @@ export default function Documents() {
   }, []);
 
   return (
-    <div style={{ 
-      position: 'fixed',
-      top: '48px',
-      left: '0',
-      right: '0',
-      bottom: '0',
-      backgroundColor: '#1a1a1a', 
-      color: 'white', 
-      overflow: 'auto',
-      overflowY: 'scroll',
-      WebkitOverflowScrolling: 'touch',
-      zIndex: 10,
-      pointerEvents: 'auto'
-    }}>
+    <div className="bg-black text-white min-h-screen"
+      style={{ 
+        paddingTop: '48px',
+        overflow: 'auto',
+        overflowY: 'scroll',
+        WebkitOverflowScrolling: 'touch'
+      }}>
       <div style={{ padding: '32px 24px', maxWidth: '1024px', margin: '0 auto' }}>
         <h1 style={{ fontSize: '36px', fontWeight: '300', marginBottom: '16px' }}>
           Legal Documents
