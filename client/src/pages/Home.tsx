@@ -33,19 +33,10 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   // State to track whether menu is open
   const [menuOpen, setMenuOpen] = useState(false);
-  // State to manage the YouTube video popup
-  const [videoPopupOpen, setVideoPopupOpen] = useState(false);
   // State to track which icon to display
   const [iconVariant, setIconVariant] = useState(0);
   // Import navigate for seamless navigation
   const [_, navigate] = useLocation();
-  // Ref to track last event time to prevent too frequent updates
-  const lastEventTime = useRef(0);
-  // Cooldown period for events (ms) - increased to slow down navigation
-  const eventCooldown = 1200;
-  // For touch events
-  const [touchStartY, setTouchStartY] = useState(0);
-  const [touchEndY, setTouchEndY] = useState(0);
   // Get current location for navigation-aware behavior
   const [location] = useLocation();
   
@@ -132,64 +123,14 @@ export default function Home() {
     }
   };
 
-  // Simple keyboard navigation for content items (no scroll prevention)
+  // Auto-cycle through content items
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (location !== "/" || window.scrollY > 0) return;
-      
-      const currentTime = Date.now();
-      if (currentTime - lastEventTime.current < eventCooldown) return;
-      
-      if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-        e.preventDefault();
-        lastEventTime.current = currentTime;
-        setCurrentIndex(prev => (prev + 1) % contentItems.length);
-      } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-        e.preventDefault();
-        lastEventTime.current = currentTime;
-        setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
-      }
-    };
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % contentItems.length);
+    }, 3000); // Change every 3 seconds
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [location, eventCooldown]);
-
-  // Simple touch handlers for mobile content navigation (no scroll prevention)
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (location === "/" && window.scrollY === 0) {
-      setTouchStartY(e.targetTouches[0].clientY);
-    }
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    // Allow normal scrolling
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (location !== "/" || window.scrollY !== 0) return;
-    
-    setTouchEndY(e.changedTouches[0].clientY);
-    
-    const deltaY = touchStartY - touchEndY;
-    const minSwipeDistance = 50;
-    
-    if (Math.abs(deltaY) > minSwipeDistance) {
-      const currentTime = Date.now();
-      if (currentTime - lastEventTime.current < eventCooldown) return;
-      lastEventTime.current = currentTime;
-      
-      if (deltaY > 0) {
-        // Swiped up - next content
-        setCurrentIndex(prev => (prev + 1) % contentItems.length);
-      } else {
-        // Swiped down - previous content
-        setCurrentIndex(prev => (prev - 1 + contentItems.length) % contentItems.length);
-      }
-    }
-  };
-
-
+    return () => clearInterval(interval);
+  }, []);
 
   // Handle content navigation when clicking on content items
   const handleContentClick = (title: string) => {
@@ -258,16 +199,10 @@ export default function Home() {
 
   return (
     <div className="bg-black">
-      {/* Main home page section - grid */}
-      <section 
-        className="relative"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ height: '100vh' }}
-      >
+      {/* Hero Section - Grid */}
+      <section className="relative h-screen">
         {/* Grid layout - 2x4 columns */}
-        <div className="w-full grid grid-cols-2 grid-rows-4" style={{ height: '100vh' }}>
+        <div className="w-full h-full grid grid-cols-2 grid-rows-4">
           {/* Box 1 - Top Left */}
           <div className="relative border-r border-b border-gray-700 overflow-hidden">
             {activeVideoBoxes[1] && (
@@ -409,8 +344,6 @@ export default function Home() {
             </button>
           </div>
 
-
-
           {/* Center Logo and Title */}
           <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-full px-4 text-center pointer-events-auto">
             <div className="relative inline-block">
@@ -445,12 +378,6 @@ export default function Home() {
               >
                 {contentItems[currentIndex].title}
               </div>
-              {/* Info for last item */}
-              {currentIndex === contentItems.length - 1 && (
-                <div className="text-xs text-yellow-400 mt-2">
-                  Scroll down to see footer
-                </div>
-              )}
             </div>
           </div>
 
@@ -648,7 +575,7 @@ export default function Home() {
       </section>
 
       {/* Traditional Footer */}
-      <footer className="bg-black text-white py-12 mt-16">
+      <footer className="bg-black text-white py-12">
         <div className="max-w-7xl mx-auto px-6">
           {/* Footer Links Grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
