@@ -199,7 +199,7 @@ export default function Partner() {
   }, [showDetailModal]);
 
   return (
-    <div className="min-h-screen pb-20">
+    <div className="min-h-screen">
       {/* Background elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>

@@ -26,7 +26,7 @@ export default function Documents() {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen pb-20"
+    <div className="bg-black text-white min-h-screen"
       style={{ 
         paddingTop: '48px',
         overflow: 'auto',

@@ -177,8 +177,8 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
 // Component for pages that need the header
 function PageWithHeader({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-black min-h-screen">
-      <div className="pt-[48px]">
+    <div className="bg-black min-h-screen flex flex-col">
+      <div className="pt-[48px] flex-1">
         {children}
       </div>
       <Footer />

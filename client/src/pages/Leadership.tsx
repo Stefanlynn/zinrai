@@ -16,7 +16,7 @@ export default function Leadership() {
   };
   
   return (
-    <div className="min-h-screen w-full pb-20">
+    <div className="min-h-screen w-full">
       {/* Main content */}
       <div className="relative min-h-screen w-full flex items-center justify-center page-content">
         
