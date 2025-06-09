@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { X, Settings, Shield, BarChart3, Target, Wrench } from 'lucide-react';
 import { cookieManager, CookiePreferences } from '../lib/cookieManager';
+import { consentMode } from '../lib/consentMode';
 
 export default function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false);
@@ -23,18 +24,33 @@ export default function CookieConsent() {
 
   const handleAcceptAll = () => {
     cookieManager.acceptAll();
+    consentMode.updateConsent({
+      analytics: true,
+      marketing: true,
+      functional: true
+    });
     setShowConsent(false);
     setShowSettings(false);
   };
 
   const handleRejectAll = () => {
     cookieManager.rejectAll();
+    consentMode.updateConsent({
+      analytics: false,
+      marketing: false,
+      functional: false
+    });
     setShowConsent(false);
     setShowSettings(false);
   };
 
   const handleSavePreferences = () => {
     cookieManager.setPreferences(preferences);
+    consentMode.updateConsent({
+      analytics: preferences.analytics,
+      marketing: preferences.marketing,
+      functional: preferences.functional
+    });
     setShowConsent(false);
     setShowSettings(false);
   };

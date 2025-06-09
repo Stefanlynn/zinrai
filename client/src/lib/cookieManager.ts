@@ -242,12 +242,29 @@ export class CookieManager {
   initializeTracking(): void {
     if (!this.consentGiven) return;
 
+    // Update analytics consent
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      this.updateConsentState();
+    }
+
     if (this.preferences.analytics) {
       this.loadGoogleAnalytics();
     }
 
     if (this.preferences.marketing) {
       this.loadMarketingScripts();
+    }
+  }
+
+  // Update consent state for all tracking services
+  private updateConsentState(): void {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('consent', 'update', {
+        analytics_storage: this.preferences.analytics ? 'granted' : 'denied',
+        ad_storage: this.preferences.marketing ? 'granted' : 'denied',
+        functionality_storage: this.preferences.functional ? 'granted' : 'denied',
+        personalization_storage: this.preferences.functional ? 'granted' : 'denied'
+      });
     }
   }
 

@@ -115,6 +115,14 @@ export default function Footer() {
               </li>
               <li>
                 <button 
+                  onClick={() => setShowCookieSettings(true)}
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  Cookie Settings
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => handleNavigation("/ibo-terms")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
@@ -185,6 +193,12 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      
+      {/* Cookie Settings Modal */}
+      <CookieSettings 
+        isOpen={showCookieSettings} 
+        onClose={() => setShowCookieSettings(false)} 
+      />
     </footer>
   );
 }
