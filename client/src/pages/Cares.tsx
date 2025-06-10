@@ -144,11 +144,11 @@ export default function Cares() {
           {/* Video Section */}
           <div className="bg-white/5 border border-white/10 rounded-lg p-8">
             <h2 className="text-2xl font-light mb-6 text-center">Our Impact in Action</h2>
-            <div className="relative aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden">
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src="https://www.youtube.com/embed/grmGGZjYIN0"
                 title="ZiNRAi Cares Impact Video"
-                className="w-full h-full"
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
