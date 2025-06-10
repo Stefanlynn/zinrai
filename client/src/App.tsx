@@ -241,6 +241,9 @@ function Router() {
       <Route path="/ibo-terms">
         {() => <PageWithHeader><IboTerms /></PageWithHeader>}
       </Route>
+      <Route path="/bp-terms">
+        {() => <PageWithHeader><IboTerms /></PageWithHeader>}
+      </Route>
       <Route path="/cookie-policy">
         {() => <PageWithHeader><CookiePolicy /></PageWithHeader>}
       </Route>
