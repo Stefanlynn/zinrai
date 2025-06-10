@@ -52,7 +52,7 @@ export default function Partner() {
   };
 
   return (
-    <div className="min-h-screen pb-32">
+    <div className="min-h-screen">
       {/* Background elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
@@ -156,8 +156,8 @@ export default function Partner() {
           <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
             <h2 className="text-3xl font-light text-white mb-6">Investment</h2>
             <div className="mb-6">
-              <span className="text-4xl font-light text-white">$99</span>
-              <span className="text-white/70 text-lg ml-2">one-time</span>
+              <span className="text-4xl font-light text-white">$24.95</span>
+              <span className="text-white/70 text-lg ml-2">/month</span>
             </div>
             <p className="text-white/80 text-lg mb-8">
               Your investment includes complete training, marketing materials, ongoing support, and access to our exclusive community.
