@@ -349,7 +349,7 @@ export default function Product() {
       <div className="relative z-10 page-content">
         <div className="flex flex-col md:flex-row p-0">
           {/* Left Side - Products List */}
-          <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:pb-0 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
+          <div className={`w-full md:w-1/2 p-8 pt-[10vh] pb-2 md:p-16 md:pl-20 md:pb-0 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
               Our Courses
             </h1>
@@ -357,7 +357,7 @@ export default function Product() {
               Discover our comprehensive suite of courses designed to elevate your personal and financial growth.
             </p>
             
-            <div className="space-y-8 max-w-md mb-16">
+            <div className="space-y-8 max-w-md mb-4">
               {services.map((service, index) => (
                 <div 
                   key={index}
