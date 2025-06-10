@@ -421,15 +421,7 @@ export default function Product() {
         </div>
       </div>
       
-      {/* Contact Information Section - Very Prominent */}
-      <div className="w-full min-h-[200px] bg-red-900/20 border-2 border-red-500 p-8 mt-8">
-        <div className="text-center">
-          <h2 className="text-white text-3xl font-bold mb-6">Ready to get started?</h2>
-          <p className="text-white text-xl">
-            Connect with the Brand Promoter who introduced you to ZiNRAi to enroll today.
-          </p>
-        </div>
-      </div>
+
       
       {/* Onboarding Modal for Product page */}
       {showOnboardingModal && (
