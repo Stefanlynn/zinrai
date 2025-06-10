@@ -132,13 +132,28 @@ export default function Cares() {
           </div>
 
           {/* Mission Statement */}
-          <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+          <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-12">
             <h2 className="text-2xl font-light mb-4 text-center">Our Mission</h2>
             <p className="text-white/80 leading-relaxed text-center">
               ZiNRAi<span className="text-xs align-super">™</span> Cares represents our commitment to global impact through education 
               and direct assistance. Every subscription contributes to verified charitable initiatives, 
               with full transparency powered by blockchain technology.
             </p>
+          </div>
+
+          {/* Video Section */}
+          <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+            <h2 className="text-2xl font-light mb-6 text-center">Our Impact in Action</h2>
+            <div className="relative aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/grmGGZjYIN0"
+                title="ZiNRAi Cares Impact Video"
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </div>
