@@ -395,14 +395,12 @@ export default function Product() {
                 </div>
               ))}
             </div>
-            
-
           </div>
           
           {/* Right Side - Product Detail (Desktop Only) */}
           <div className={`hidden md:block w-1/2 p-16 pt-[180px] pb-0 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
             <div className="rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 border-white/20">
-              <div className="p-10 overflow-y-auto max-h-[70vh]">
+              <div className="p-10 pb-0 overflow-y-auto max-h-[70vh]">
                 {/* Product header with animated dot */}
                 <div className="flex items-center mb-8">
                   <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
@@ -410,19 +408,14 @@ export default function Product() {
                 </div>
                 
                 {/* Product description with formatted content */}
-                <div className="text-white/80 text-base leading-relaxed mb-10 whitespace-pre-line">
+                <div className="text-white/80 text-base leading-relaxed mb-0 whitespace-pre-line">
                   {productDetails[activeIndex].description}
                 </div>
-                
-
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-
-      
       {/* Onboarding Modal for Product page */}
       {showOnboardingModal && (
         <div className="fixed inset-0 bg-black/95 z-[1100] overflow-y-auto flex items-center justify-center p-4">
