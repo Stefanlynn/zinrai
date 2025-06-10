@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 export default function Partner() {
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,6 +51,12 @@ export default function Partner() {
 
   const handleBenefitClick = (index: number) => {
     setActiveIndex(index);
+    setModalContent(index);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -99,7 +107,8 @@ export default function Partner() {
                 <div 
                   key={index}
                   onClick={() => handleBenefitClick(index)}
-                  className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 ${
+                  onTouchEnd={() => handleBenefitClick(index)}
+                  className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 active:scale-95 ${
                     activeIndex === index ? 
                     'bg-gradient-to-r from-blue-600/20 to-blue-500/20 shadow-lg' : 
                     'bg-black/30 hover:bg-black/40 backdrop-blur-sm'
@@ -165,6 +174,51 @@ export default function Partner() {
           </p>
         </div>
       </div>
+
+      {/* Modal for benefit details */}
+      {showModal && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-[1100] overflow-y-auto flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <div 
+            className="bg-gradient-to-br from-[#1a1a1a] to-black border border-white/20 rounded-lg max-w-2xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="absolute top-4 right-4 text-white/60 hover:text-white/90 w-8 h-8 flex items-center justify-center z-10 transition-all rounded-full hover:bg-white/5"
+              onClick={closeModal}
+              aria-label="Close modal"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            
+            <div className="p-8">
+              <div className="flex items-center mb-6">
+                <div className={`w-4 h-4 rounded-full ${getColorClasses(benefits[modalContent].color)} mr-3`}></div>
+                <h2 className="text-2xl font-light text-white bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                  {benefits[modalContent].title}
+                </h2>
+              </div>
+              
+              <div className="text-white/80 text-base leading-relaxed whitespace-pre-line">
+                {benefits[modalContent].description}
+              </div>
+
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
+                  className="px-6 py-3 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                >
+                  Join Our Movement
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
