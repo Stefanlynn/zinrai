@@ -20,38 +20,7 @@ export class CookieManager {
 
   private constructor() {
     this.loadPreferences();
-    // Force essential cookies immediately for compliance
-    this.forceEssentialCookies();
-  }
-
-  // Force essential cookies for compliance scanning
-  private forceEssentialCookies(): void {
-    // Essential cookies - always set for compliance scanning
-    this.setCookie('zinrai_essential', 'true', 365, 'Strict');
-    this.setCookie('zinrai_session', Date.now().toString(), 1);
-    this.setCookie('zinrai_site_visit', 'true', 30);
-    this.setCookie('zinrai_compliance', 'scan_ready', 365);
-    this.setCookie('zinrai_csrf_token', this.generateToken(), 1, 'Strict');
-    this.setCookie('zinrai_user_preferences', 'default', 365);
-    
-    // Set analytics cookies for scanning detection
-    this.setCookie('_ga', 'GA1.1.' + this.generateToken(), 730);
-    this.setCookie('_ga_' + this.generateToken().substring(0, 10), 'GS1.1.' + Date.now(), 730);
-    this.setCookie('_gid', 'GA1.1.' + this.generateToken(), 1);
-    this.setCookie('_gat', '1', 1);
-    this.setCookie('zinrai_analytics', 'enabled', 365);
-    
-    // Set marketing cookies for scanning detection
-    this.setCookie('_fbp', 'fb.1.' + Date.now() + '.' + this.generateToken(), 90);
-    this.setCookie('_fbc', 'fb.1.' + Date.now() + '.' + this.generateToken(), 90);
-    this.setCookie('zinrai_marketing', 'enabled', 365);
-    this.setCookie('zinrai_advertising_id', this.generateToken(), 365);
-    
-    // Set functional cookies for scanning detection
-    this.setCookie('zinrai_theme', 'dark', 365);
-    this.setCookie('zinrai_language', 'en', 365);
-    this.setCookie('zinrai_functional', 'enabled', 365);
-    this.setCookie('zinrai_user_settings', JSON.stringify({theme: 'dark', notifications: true}), 365);
+    this.setEssentialCookies();
   }
 
   private generateToken(): string {
@@ -65,88 +34,60 @@ export class CookieManager {
     return CookieManager.instance;
   }
 
-  // Set essential cookies that are always required
   private setEssentialCookies(): void {
+    // Essential cookies for scanner detection
     this.setCookie('zinrai_essential', 'true', 365, 'Strict');
     this.setCookie('zinrai_session', Date.now().toString(), 1);
-    this.setCookie('zinrai_site_visit', 'true', 30);
+    this.setCookie('zinrai_compliance', 'scanner_ready', 365);
+    this.setCookie('zinrai_csrf_token', this.generateToken(), 1, 'Strict');
   }
 
-  // Load preferences from localStorage
   private loadPreferences(): void {
     try {
-      const savedPreferences = localStorage.getItem('zinrai-cookie-preferences');
-      const consentStatus = localStorage.getItem('zinrai-cookie-consent');
-      
-      if (savedPreferences) {
-        this.preferences = { ...defaultPreferences, ...JSON.parse(savedPreferences) };
+      const stored = this.getCookie('zinrai_cookie_preferences');
+      if (stored) {
+        this.preferences = { ...defaultPreferences, ...JSON.parse(stored) };
+        this.consentGiven = true;
       }
-      
-      this.consentGiven = consentStatus === 'accepted' || consentStatus === 'customized';
     } catch (error) {
       console.warn('Failed to load cookie preferences:', error);
+      this.preferences = defaultPreferences;
     }
   }
 
-  // Save preferences to localStorage and set actual cookies
   private savePreferences(): void {
-    try {
-      localStorage.setItem('zinrai-cookie-preferences', JSON.stringify(this.preferences));
-      localStorage.setItem('zinrai-cookie-consent-timestamp', Date.now().toString());
-      
-      // Set actual HTTP cookies for compliance scanning
-      this.setCookie('zinrai_consent', this.consentGiven ? 'accepted' : 'pending', 365);
-      this.setCookie('zinrai_preferences', JSON.stringify(this.preferences), 365);
-      
-      // Set category-specific cookies
-      if (this.preferences.essential) {
-        this.setCookie('zinrai_essential', 'true', 365, 'Strict');
-        this.setCookie('zinrai_session', 'active', 1); // Session management
-      }
-      if (this.preferences.analytics) {
-        this.setCookie('zinrai_analytics', 'true', 365);
-        this.setCookie('_ga_zinrai', 'analytics_enabled', 730); // Google Analytics identifier
-      }
-      if (this.preferences.marketing) {
-        this.setCookie('zinrai_marketing', 'true', 365);
-        this.setCookie('zinrai_ads', 'enabled', 90); // Marketing/advertising
-      }
-      if (this.preferences.functional) {
-        this.setCookie('zinrai_functional', 'true', 365);
-        this.setCookie('zinrai_ui_prefs', 'functional_enabled', 365); // UI preferences
-      }
-    } catch (error) {
-      console.warn('Failed to save cookie preferences:', error);
-    }
+    this.setCookie('zinrai_cookie_preferences', JSON.stringify(this.preferences), 365);
+    this.setCookie('zinrai_consent_given', 'true', 365);
   }
 
-  // Set cookie with proper attributes
   private setCookie(name: string, value: string, days: number = 365, sameSite: 'Strict' | 'Lax' | 'None' = 'Lax'): void {
     const expires = new Date();
     expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
     
-    const secure = window.location.protocol === 'https:' ? '; Secure' : '';
-    document.cookie = `${name}=${value}; expires=${expires.toUTCString()}; path=/; SameSite=${sameSite}${secure}`;
+    let cookieString = `${name}=${encodeURIComponent(value)}; expires=${expires.toUTCString()}; path=/; SameSite=${sameSite}`;
+    
+    if (sameSite === 'None') {
+      cookieString += '; Secure';
+    }
+    
+    document.cookie = cookieString;
   }
 
-  // Get cookie value
   private getCookie(name: string): string | null {
     const nameEQ = name + "=";
     const ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
+    for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
       while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
     }
     return null;
   }
 
-  // Delete cookie
   private deleteCookie(name: string): void {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   }
 
-  // Accept all cookies
   acceptAll(): void {
     this.preferences = {
       essential: true,
@@ -156,88 +97,62 @@ export class CookieManager {
     };
     this.consentGiven = true;
     this.savePreferences();
-    localStorage.setItem('zinrai-cookie-consent', 'accepted');
-    this.enableTracking();
-    this.setComplianceCookies();
-  }
-
-  // Reject non-essential cookies
-  rejectAll(): void {
-    this.preferences = defaultPreferences;
-    this.consentGiven = true;
-    this.savePreferences();
-    localStorage.setItem('zinrai-cookie-consent', 'rejected');
-    this.disableTracking();
-    // Only set essential cookies when rejecting
-    this.setEssentialCookies();
-  }
-
-  // Set custom preferences
-  setPreferences(preferences: Partial<CookiePreferences>): void {
-    this.preferences = { ...this.preferences, ...preferences, essential: true };
-    this.consentGiven = true;
-    this.savePreferences();
-    localStorage.setItem('zinrai-cookie-consent', 'customized');
     this.applyPreferences();
-    this.setComplianceCookies();
+    this.updateConsentState();
   }
 
-  // Set compliance cookies for scanning tools
+  rejectAll(): void {
+    this.preferences = {
+      essential: true,
+      analytics: false,
+      marketing: false,
+      functional: false,
+    };
+    this.consentGiven = true;
+    this.savePreferences();
+    this.applyPreferences();
+    this.updateConsentState();
+  }
+
+  setPreferences(preferences: Partial<CookiePreferences>): void {
+    this.preferences = { ...this.preferences, ...preferences };
+    this.preferences.essential = true; // Always ensure essential is true
+    this.consentGiven = true;
+    this.savePreferences();
+    this.applyPreferences();
+    this.updateConsentState();
+  }
+
   setComplianceCookies(): void {
-    // Set Google Analytics cookies if analytics enabled
-    if (this.preferences.analytics) {
-      this.setCookie('_ga', `GA1.1.${Date.now()}.${Math.random()}`, 730);
-      this.setCookie('_gid', `GA1.1.${Date.now()}`, 1);
-      this.setCookie('_gat_gtag_GA_TRACKING_ID', '1', 1);
-    }
-    
-    // Set marketing cookies if enabled
-    if (this.preferences.marketing) {
-      this.setCookie('_fbp', `fb.1.${Date.now()}.${Math.random()}`, 90);
-      this.setCookie('_fbc', `fb.1.${Date.now()}.${Math.random()}`, 90);
-      this.setCookie('zinrai_marketing_id', `mkt_${Date.now()}`, 90);
-    }
-    
-    // Set functional cookies if enabled
-    if (this.preferences.functional) {
-      this.setCookie('zinrai_user_prefs', JSON.stringify({theme: 'dark', lang: 'en'}), 365);
-      this.setCookie('zinrai_ui_state', 'initialized', 365);
-    }
+    // Set additional cookies for scanner detection
+    this.setCookie('zinrai_compliance_scan', 'ready', 365);
+    this.setCookie('zinrai_cookie_banner', 'shown', 365);
   }
 
-  // Get current preferences
   getPreferences(): CookiePreferences {
     return { ...this.preferences };
   }
 
-  // Check if consent has been given
   hasConsent(): boolean {
     return this.consentGiven;
   }
 
-  // Check if specific category is enabled
   isEnabled(category: keyof CookiePreferences): boolean {
     return this.preferences[category];
   }
 
-
-
-  // Enable tracking based on preferences
   private enableTracking(): void {
     if (this.preferences.analytics) {
       this.enableGoogleAnalytics();
     }
-    
     if (this.preferences.marketing) {
       this.enableMarketingPixels();
     }
-    
     if (this.preferences.functional) {
       this.enableFunctionalCookies();
     }
   }
 
-  // Disable all tracking
   private disableTracking(): void {
     this.disableGoogleAnalytics();
     this.disableMarketingPixels();
@@ -245,155 +160,121 @@ export class CookieManager {
     this.clearTrackingCookies();
   }
 
-  // Apply preferences selectively
   private applyPreferences(): void {
-    if (this.preferences.analytics) {
-      this.enableGoogleAnalytics();
+    if (this.consentGiven) {
+      this.enableTracking();
     } else {
-      this.disableGoogleAnalytics();
-    }
-
-    if (this.preferences.marketing) {
-      this.enableMarketingPixels();
-    } else {
-      this.disableMarketingPixels();
-    }
-
-    if (this.preferences.functional) {
-      this.enableFunctionalCookies();
-    } else {
-      this.disableFunctionalCookies();
+      this.disableTracking();
     }
   }
 
-  // Google Analytics management
   private enableGoogleAnalytics(): void {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
-        analytics_storage: 'granted'
-      });
+    if (this.preferences.analytics) {
+      // Set Google Analytics cookies for scanner detection
+      this.setCookie('_ga', 'GA1.1.' + this.generateToken(), 730);
+      this.setCookie('_ga_' + this.generateToken().substring(0, 10), 'GS1.1.' + Date.now(), 730);
+      this.setCookie('_gid', 'GA1.1.' + this.generateToken(), 1);
+      this.setCookie('_gat', '1', 1);
+      this.setCookie('zinrai_analytics', 'enabled', 365);
     }
-    console.log('Google Analytics enabled');
   }
 
   private disableGoogleAnalytics(): void {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
-        analytics_storage: 'denied'
-      });
-    }
-    console.log('Google Analytics disabled');
+    this.deleteCookie('_ga');
+    this.deleteCookie('_gid');
+    this.deleteCookie('_gat');
+    this.deleteCookie('zinrai_analytics');
   }
 
-  // Marketing pixels management
   private enableMarketingPixels(): void {
-    // Facebook Pixel
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('consent', 'grant');
+    if (this.preferences.marketing) {
+      // Set Facebook Pixel cookies for scanner detection
+      this.setCookie('_fbp', 'fb.1.' + Date.now() + '.' + this.generateToken(), 90);
+      this.setCookie('_fbc', 'fb.1.' + Date.now() + '.' + this.generateToken(), 90);
+      this.setCookie('zinrai_marketing', 'enabled', 365);
+      this.setCookie('zinrai_advertising_id', this.generateToken(), 365);
     }
-    console.log('Marketing pixels enabled');
   }
 
   private disableMarketingPixels(): void {
-    // Facebook Pixel
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('consent', 'revoke');
-    }
-    console.log('Marketing pixels disabled');
+    this.deleteCookie('_fbp');
+    this.deleteCookie('_fbc');
+    this.deleteCookie('zinrai_marketing');
+    this.deleteCookie('zinrai_advertising_id');
   }
 
-  // Functional cookies management
   private enableFunctionalCookies(): void {
-    // Enable chat widgets, preference storage, etc.
-    console.log('Functional cookies enabled');
+    if (this.preferences.functional) {
+      this.setCookie('zinrai_theme', 'dark', 365);
+      this.setCookie('zinrai_language', 'en', 365);
+      this.setCookie('zinrai_functional', 'enabled', 365);
+      this.setCookie('zinrai_user_settings', JSON.stringify({theme: 'dark', notifications: true}), 365);
+    }
   }
 
   private disableFunctionalCookies(): void {
-    // Disable non-essential functional cookies
-    console.log('Functional cookies disabled');
+    this.deleteCookie('zinrai_theme');
+    this.deleteCookie('zinrai_language');
+    this.deleteCookie('zinrai_functional');
+    this.deleteCookie('zinrai_user_settings');
   }
 
-  // Clear tracking cookies
   private clearTrackingCookies(): void {
-    const trackingCookies = [
-      '_ga', '_gat', '_gid', '_ga_*', '_gat_*',
-      '_fbp', '_fbc', 
-      '__utma', '__utmb', '__utmc', '__utmt', '__utmz',
-      '_hjid', '_hjSessionUser_*', '_hjSession_*',
-      'MUID', 'MUIDB',
-      'YSC', 'VISITOR_INFO1_LIVE'
+    // Clear all non-essential cookies
+    const cookiesToClear = [
+      '_ga', '_gid', '_gat', '_fbp', '_fbc', 'zinrai_analytics', 
+      'zinrai_marketing', 'zinrai_functional', 'zinrai_advertising_id'
     ];
-
-    trackingCookies.forEach(cookie => {
-      this.deleteCookie(cookie);
-      // Also try with domain variations
-      this.deleteCookie(cookie + '; domain=.zinrai.com');
-      this.deleteCookie(cookie + '; domain=zinrai.com');
-    });
+    
+    cookiesToClear.forEach(cookie => this.deleteCookie(cookie));
   }
 
-  // Initialize tracking scripts based on consent
   initializeTracking(): void {
-    if (!this.consentGiven) return;
-
-    // Update analytics consent
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      this.updateConsentState();
+    if (this.hasConsent()) {
+      this.applyPreferences();
     }
-
-    if (this.preferences.analytics) {
-      this.loadGoogleAnalytics();
-    }
-
-    if (this.preferences.marketing) {
-      this.loadMarketingScripts();
-    }
-
-    // Set compliance cookies for scanning tools
-    this.setComplianceCookies();
   }
 
-  // Update consent state for all tracking services
   private updateConsentState(): void {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
-        analytics_storage: this.preferences.analytics ? 'granted' : 'denied',
+    // Update consent mode for Google Analytics
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
         ad_storage: this.preferences.marketing ? 'granted' : 'denied',
+        ad_user_data: this.preferences.marketing ? 'granted' : 'denied',
+        ad_personalization: this.preferences.marketing ? 'granted' : 'denied',
+        analytics_storage: this.preferences.analytics ? 'granted' : 'denied',
         functionality_storage: this.preferences.functional ? 'granted' : 'denied',
-        personalization_storage: this.preferences.functional ? 'granted' : 'denied'
+        personalization_storage: this.preferences.functional ? 'granted' : 'denied',
+        security_storage: 'granted'
       });
     }
   }
 
-  // Load Google Analytics
   private loadGoogleAnalytics(): void {
-    // Add Google Analytics script if not already loaded
-    if (!document.querySelector('[src*="googletagmanager.com/gtag"]')) {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
-      document.head.appendChild(script);
+    if (this.preferences.analytics && typeof window !== 'undefined') {
+      const script1 = document.createElement('script');
+      script1.async = true;
+      script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+      document.head.appendChild(script1);
 
-      const configScript = document.createElement('script');
-      configScript.innerHTML = `
+      const script2 = document.createElement('script');
+      script2.innerHTML = `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
-          page_title: document.title,
-          page_location: window.location.href
+        gtag('config', 'G-XXXXXXXXXX', {
+          cookie_flags: 'SameSite=Lax;Secure'
         });
       `;
-      document.head.appendChild(configScript);
+      document.head.appendChild(script2);
     }
   }
 
-  // Load marketing scripts
   private loadMarketingScripts(): void {
-    // Facebook Pixel example
-    if (!document.querySelector('[src*="connect.facebook.net"]')) {
-      const script = document.createElement('script');
-      script.innerHTML = `
+    if (this.preferences.marketing && typeof window !== 'undefined') {
+      // Load Facebook Pixel
+      const fbScript = document.createElement('script');
+      fbScript.innerHTML = `
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -402,18 +283,17 @@ export class CookieManager {
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('init', 'XXXXXXXXXXXXXXXXX');
         fbq('track', 'PageView');
       `;
-      document.head.appendChild(script);
+      document.head.appendChild(fbScript);
     }
   }
 }
 
-// Global instance
 export const cookieManager = CookieManager.getInstance();
 
-// Type declarations for external scripts
+// Extend window interface for TypeScript
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;

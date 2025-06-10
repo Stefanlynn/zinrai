@@ -1,0 +1,48 @@
+Why Does the Cookie Scan for My Website Fail?
+
+Last updated on June 2, 2025
+Understanding and resolving issues with the scanning and categorisation of cookies on your website is necessary for successful cookie management. The cookie scanning process performed by CookieYes may occasionally encounter difficulties that impede its successful completion. If you come across a situation where a cookie scan on your website fails, it’s crucial to identify the underlying issues and implement suitable solutions to ensure accurate cookie management. Below, we list some probable reasons for scan failures and offer corresponding solutions. Once you’ve addressed the issue, initiate a fresh scan to validate the resolution.
+
+Firewall on the website blocking scanner access
+If you have a firewall on your website, it could inadvertently block CookieYes’s IP address from performing scans on your website. Consequently, the cookie scan carried out by CookieYes would be unable to access the website content and collect the required information for the scan.
+
+Solution:
+
+Whitelisting IP Addresses: If your website is registered with CookieYes on an ultimate plan, you can enable Static IP in CookieYes and whitelist the IP Addresses in your firewall’s settings. 
+Temporarily Disable the Firewall: You can temporarily disable the firewall on your website during the cookie scan, which allows CookieYes to access your website without any restriction. However, we do not recommend this option due to the potential risks involved. This approach might expose your site to security vulnerabilities and possible attacks.
+Website blocking headless browsers used by the scanner.
+The CookieYes scanning mechanism uses headless browsers to access and analyse the content of your website.  These headless browsers navigate pages, interact with their elements, and collect information about the cookies used. However, some websites adopt methods that block the functioning of these headless browsers, making it difficult for CookieYes to perform its scan effectively.
+
+Solution: Enabling Headless Browsers 
+
+Configure your website’s security settings to enable headless browsers specifically for scanning purposes. By giving access to headless browsers used by the CookieYes scanning process, you ensure that the analysis of your website’s cookies is accurate and complete.
+
+Blocking AWS Cloud Provider by the Website
+AWS serves as the cloud provider for CookieYes. However, there are instances where the AWS IP addresses are blocked, leading to scan failures. These IP addresses are essential for the scanner to interact with your website and gather information about the cookies in use.
+
+Solution: Whitelist the IP Addresses 
+
+Whitelist the IP addresses used for scanning in your website’s security settings. If your website is registered with CookieYes on a ultimate plan, enable the Static IP scanning for your website.
+
+JavaScript errors on the website interfere with the scanner’s functionality
+JavaScript errors on your website can influence the functioning of the scanner. When the scanner encounters JavaScript errors while navigating your site, it might not be able to properly analyse its content, including identifying and categorising cookies.
+
+Solution: Identify and Fix JavaScript Errors
+
+Identifying and resolving the JavaScript errors that are affecting your website. This ensures that the CookieYes scanner can function properly and accurately assess the cookie usage on your website.
+
+Low website configuration
+Limited resources or capabilities of a website can impact the effectiveness of the scanner. In such cases, the scanning process might fail to proceed smoothly. 
+
+Solution: Adjust the scanning speed
+
+To adjust the scanning speed of your website, Contact us. By reducing the scanning speed, the process becomes more manageable for websites with lower configurations, preventing disruptions that might occur during the scanning process.
+
+The website is not accessible from outside
+When the website is configured in a way that restricts external access, the CookieYes scanner is unable to connect and navigate the website’s content. This hinders the scanner’s ability to analyse the cookies and other aspects of the website’s data effectively.
+
+Solution:
+
+Whitelisting IP Addresses: If your website is registered with CookieYes on an ultimate plan, enable static IP scanning for your website. Once enabled, whitelist these IP addresses in your firewall’s settings to prevent blocking the scanners 3.248.28.214 and 54.77.122.154.
+Configure your website settings: Change/adjust your website’s settings to allow access from outside sources, which involves reconfiguring security settings or access controls that might be currently preventing external entities from interacting with your website.
+If you’re unsure about the cause of the scan failure, consider initiating a re-scan of your website. If the problem continues to persist even after re-scanning, contact us.
