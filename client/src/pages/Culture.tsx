@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function Culture() {
   const [animatedIn, setAnimatedIn] = useState(false);
+  const [activeSection, setActiveSection] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -9,86 +10,95 @@ export default function Culture() {
     }, 100);
   }, []);
 
-  const cultureValues = [
+  const sections = [
     {
-      id: 1,
-      title: "Innovation",
-      subtitle: "Pioneering Excellence",
-      description: "We constantly push boundaries in financial technology and educational platforms.",
+      title: "Our Vision",
+      subtitle: "The Future We're Building",
+      description: "To create a world where everyone has access to the tools, knowledge, and opportunities needed to achieve financial freedom and personal growth. We believe in democratizing success through education and innovation.",
+      details: "ZiNRAi™ envisions a global community where traditional barriers to wealth creation are eliminated through cutting-edge technology and comprehensive education. We're building the bridge between where people are and where they want to be financially.",
       color: "blue"
     },
     {
-      id: 2,
-      title: "Integrity",
-      subtitle: "Transparent Leadership",
-      description: "Every decision is made with complete transparency and ethical consideration.",
+      title: "Our Mission",
+      subtitle: "What Drives Us Daily",
+      description: "To empower individuals through innovative digital learning platforms, strategic investment education, and community-driven growth opportunities that transform lives and build generational wealth.",
+      details: "Every course we create, every platform we build, and every community we foster is designed with one goal: helping people take control of their financial future. We combine proven strategies with modern technology to deliver results.",
       color: "purple"
     },
     {
-      id: 3,
-      title: "Education",
-      subtitle: "Empowering Growth",
-      description: "Knowledge sharing is at the heart of everything we build and deliver.",
-      color: "green"
-    },
-    {
-      id: 4,
-      title: "Community",
-      subtitle: "Building Together",
-      description: "Success is measured by the positive impact we create for our global community.",
+      title: "Zeal",
+      subtitle: "Passionate Pursuit",
+      description: "We approach every challenge with unstoppable enthusiasm and determination. Our passion for excellence drives innovation and inspires others to reach beyond their perceived limitations.",
+      details: "Zeal isn't just excitement—it's sustained energy directed toward meaningful goals. We channel this energy into creating solutions that genuinely impact lives and communities.",
       color: "orange"
     },
     {
-      id: 5,
-      title: "Excellence",
-      subtitle: "Quality Focus",
-      description: "We deliver exceptional results through meticulous attention to detail.",
+      title: "Integrity",
+      subtitle: "Unwavering Ethics",
+      description: "Transparency, honesty, and ethical practices form the foundation of every decision we make. We build trust through consistent actions that align with our values.",
+      details: "Integrity means doing the right thing even when no one is watching. We maintain the highest ethical standards in all our business practices, educational content, and community interactions.",
+      color: "green"
+    },
+    {
+      title: "Nobility",
+      subtitle: "Elevated Purpose",
+      description: "We operate with dignity, honor, and a commitment to uplifting others. Our success is measured by the positive impact we create in people's lives.",
+      details: "Nobility is about elevating not just ourselves, but everyone we encounter. We believe in the inherent worth of every individual and their capacity for greatness.",
       color: "red"
     },
     {
-      id: 6,
-      title: "Impact",
-      subtitle: "Meaningful Change",
-      description: "Every initiative contributes to positive global transformation.",
-      color: "teal"
+      title: "Resilience",
+      subtitle: "Strength Through Adversity",
+      description: "We view challenges as opportunities for growth. Our ability to adapt, persist, and emerge stronger defines our character and ensures long-term success.",
+      details: "Resilience is built through experience and strengthened through community. We teach and embody the mindset that setbacks are setups for comebacks.",
+      color: "yellow"
+    },
+    {
+      title: "Abundance",
+      subtitle: "Limitless Thinking",
+      description: "We believe in unlimited possibilities and work to create value for everyone. Our abundance mindset drives innovation and fosters collaborative success.",
+      details: "Abundance thinking recognizes that success isn't a zero-sum game. When we help others succeed, we all benefit from the expanded opportunities and stronger communities.",
+      color: "cyan"
+    },
+    {
+      title: "Innovation",
+      subtitle: "Forward Momentum",
+      description: "We continuously evolve our methods, technologies, and approaches to stay ahead of industry trends and deliver cutting-edge solutions to our community.",
+      details: "Innovation isn't just about technology—it's about finding better ways to serve our community, deliver education, and create opportunities for growth and success.",
+      color: "indigo"
     }
   ];
 
-  const getColorClasses = (colorName: string, type: 'bg' | 'border' | 'text' = 'bg') => {
-    const colors: Record<string, Record<string, string>> = {
-      blue: {
-        bg: 'bg-blue-500/20',
-        border: 'border-blue-400/30',
-        text: 'text-blue-300'
-      },
-      purple: {
-        bg: 'bg-purple-500/20',
-        border: 'border-purple-400/30',
-        text: 'text-purple-300'
-      },
-      green: {
-        bg: 'bg-green-500/20',
-        border: 'border-green-400/30',
-        text: 'text-green-300'
-      },
-      orange: {
-        bg: 'bg-orange-500/20',
-        border: 'border-orange-400/30',
-        text: 'text-orange-300'
-      },
-      red: {
-        bg: 'bg-red-500/20',
-        border: 'border-red-400/30',
-        text: 'text-red-300'
-      },
-      teal: {
-        bg: 'bg-teal-500/20',
-        border: 'border-teal-400/30',
-        text: 'text-teal-300'
-      }
+  const handleSectionClick = (index: number) => {
+    setActiveSection(index);
+  };
+
+  const getSectionColor = (color: string) => {
+    const colors = {
+      blue: "from-blue-500/20 to-blue-600/10 border-blue-500/30",
+      purple: "from-purple-500/20 to-purple-600/10 border-purple-500/30",
+      orange: "from-orange-500/20 to-orange-600/10 border-orange-500/30",
+      green: "from-green-500/20 to-green-600/10 border-green-500/30",
+      red: "from-red-500/20 to-red-600/10 border-red-500/30",
+      yellow: "from-yellow-500/20 to-yellow-600/10 border-yellow-500/30",
+      cyan: "from-cyan-500/20 to-cyan-600/10 border-cyan-500/30",
+      indigo: "from-indigo-500/20 to-indigo-600/10 border-indigo-500/30"
     };
-    
-    return colors[colorName][type];
+    return colors[color] || colors.blue;
+  };
+
+  const getDotColor = (color: string) => {
+    const colors = {
+      blue: "bg-blue-500",
+      purple: "bg-purple-500",
+      orange: "bg-orange-500",
+      green: "bg-green-500",
+      red: "bg-red-500",
+      yellow: "bg-yellow-500",
+      cyan: "bg-cyan-500",
+      indigo: "bg-indigo-500"
+    };
+    return colors[color] || colors.blue;
   };
 
   return (
@@ -98,188 +108,72 @@ export default function Culture() {
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
         <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-black to-transparent"></div>
       </div>
-      
-      {/* Main content */}
-      <div className="relative z-10">
-        {/* Header Section */}
-        <div className="text-center py-16">
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-6">
-            Why ZiNRAi<span className="text-xs align-super">™</span>
-          </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto px-6">
-            Because the world doesn't just need more products.
-          </p>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto px-6 mt-2">
-            It needs more people who know who they are and what they're here to do.
-          </p>
-        </div>
 
-        {/* Main Content */}
-        <div className="px-6 pb-16">
-          <div className="max-w-4xl mx-auto">
-            {/* Introduction */}
-            <div className="mb-16 text-center">
-              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto">
-                ZiNRAi<span className="text-xs align-super">™</span> isn't just a platform—it's a purpose-driven movement. We exist to awaken leadership, inspire integrity, and build legacy through education, community, and character-based growth.
-              </p>
+      {/* Content area */}
+      <div className="relative z-10 page-content">
+        <div className="flex flex-col md:flex-row p-0">
+          {/* Left Side - Sections List */}
+          <div className={`w-full md:w-1/2 p-8 pt-[10vh] pb-2 md:p-16 md:pl-20 md:pb-0 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+              Why ZiNRAi<span className="text-xs align-super">™</span>
+            </h1>
+            <p className="text-white/70 text-lg mb-12 max-w-md">
+              Discover our vision, mission, and the core principles that drive everything we do.
+            </p>
+            
+            <div className="space-y-6 max-w-md mb-4">
+              {sections.map((section, index) => (
+                <div 
+                  key={index}
+                  onClick={() => handleSectionClick(index)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      handleSectionClick(index);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  className={`cursor-pointer p-6 rounded-lg border transition-all duration-300 hover:scale-[1.02] ${
+                    activeSection === index 
+                      ? `bg-gradient-to-r ${getSectionColor(section.color)} shadow-lg`
+                      : 'bg-gradient-to-r from-black/40 to-black/60 border-white/10 hover:border-white/20'
+                  }`}
+                >
+                  <div className="flex items-center space-x-4">
+                    <div className={`w-3 h-3 rounded-full ${getDotColor(section.color)}`}></div>
+                    <div className="flex-1">
+                      <h3 className="text-white text-xl font-medium mb-1">{section.title}</h3>
+                      <p className="text-white/60 text-sm line-clamp-2">
+                        {section.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-
-            {/* Vision Section */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
-              <h2 className="text-3xl font-light text-white mb-6 text-center flex items-center justify-center">
-                <span className="mr-3">🔭</span>
-                Our Vision
-              </h2>
-              <p className="text-white/80 text-lg leading-relaxed text-center">
-                To help ordinary people become extraordinary leaders—by unlocking purpose, building character, and creating meaningful impact.
-              </p>
-            </div>
-
-            {/* Mission Section */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
-              <h2 className="text-3xl font-light text-white mb-6 text-center flex items-center justify-center">
-                <span className="mr-3">🎯</span>
-                Our Mission
-              </h2>
-              <p className="text-white/80 text-lg leading-relaxed text-center">
-                ZiNRAi<span className="text-xs align-super">™</span> exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment.
-              </p>
-            </div>
-
-            {/* Our Pillars Section */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
-              <h2 className="text-3xl font-light text-white mb-6 text-center flex items-center justify-center">
-                <span className="mr-3">🏛️</span>
-                Our Pillars
-              </h2>
-              <p className="text-white/80 text-lg mb-8 text-center">These aren't just values—they're the foundation of how we move:</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                      <span className="text-blue-400 mr-3 mt-1">•</span>
-                      <div>
-                        <span className="font-semibold">Zeal:</span>
-                        <span className="text-white/70 ml-2">We show up with passion, energy, and urgency.</span>
-                      </div>
-                    </h3>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                      <span className="text-blue-400 mr-3 mt-1">•</span>
-                      <div>
-                        <span className="font-semibold">Integrity:</span>
-                        <span className="text-white/70 ml-2">We do what's right, not what's easy.</span>
-                      </div>
-                    </h3>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                      <span className="text-blue-400 mr-3 mt-1">•</span>
-                      <div>
-                        <span className="font-semibold">Nobility:</span>
-                        <span className="text-white/70 ml-2">We lead with honor, humility, and courage.</span>
-                      </div>
-                    </h3>
-                  </div>
+          </div>
+          
+          {/* Right Side - Section Detail (Desktop Only) */}
+          <div className={`hidden md:block w-1/2 p-16 pt-[180px] pb-0 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
+            <div className="rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 border-white/20">
+              <div className="p-10 pb-0 overflow-y-auto max-h-[70vh]">
+                {/* Section header with animated dot */}
+                <div className="flex items-center mb-8">
+                  <div className={`w-3 h-3 rounded-full ${getDotColor(sections[activeSection].color)} mr-3`}></div>
+                  <h3 className="text-white text-xl font-medium tracking-wide">{sections[activeSection].title}</h3>
                 </div>
                 
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                      <span className="text-blue-400 mr-3 mt-1">•</span>
-                      <div>
-                        <span className="font-semibold">Resilience:</span>
-                        <span className="text-white/70 ml-2">We bounce back stronger and press forward no matter what.</span>
-                      </div>
-                    </h3>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                      <span className="text-blue-400 mr-3 mt-1">•</span>
-                      <div>
-                        <span className="font-semibold">Abundance:</span>
-                        <span className="text-white/70 ml-2">We believe there's more than enough—for you, for others, for the world.</span>
-                      </div>
-                    </h3>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                      <span className="text-blue-400 mr-3 mt-1">•</span>
-                      <div>
-                        <span className="font-semibold">Innovation:</span>
-                        <span className="text-white/70 ml-2">We don't copy culture—we help create it.</span>
-                      </div>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* What Makes Us Different Section */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-8">
-              <h2 className="text-3xl font-light text-white mb-6 text-center flex items-center justify-center">
-                <span className="mr-3">💡</span>
-                What Makes Us Different
-              </h2>
-              <p className="text-white/80 text-lg mb-8 text-center">
-                We're not your typical company—and that's intentional. ZiNRAi<span className="text-xs align-super">™</span> was built to disrupt the norm and raise the standard.
-              </p>
-              
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                    <span className="text-green-400 mr-3 mt-1">•</span>
-                    <div>
-                      <span className="font-semibold">We don't sell hype—we build depth.</span>
-                    </div>
-                  </h3>
-                  <p className="text-white/70 ml-6">We prioritize education, transformation, and long-term value over quick wins.</p>
+                {/* Section subtitle */}
+                <h4 className="text-white/80 text-lg font-medium mb-6">{sections[activeSection].subtitle}</h4>
+                
+                {/* Section description */}
+                <div className="text-white/70 text-base leading-relaxed mb-8">
+                  {sections[activeSection].description}
                 </div>
                 
-                <div>
-                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                    <span className="text-green-400 mr-3 mt-1">•</span>
-                    <div>
-                      <span className="font-semibold">We don't create followers—we empower leaders.</span>
-                    </div>
-                  </h3>
-                  <p className="text-white/70 ml-6">Our focus is helping people discover who they are and lead with clarity and character.</p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                    <span className="text-green-400 mr-3 mt-1">•</span>
-                    <div>
-                      <span className="font-semibold">We don't chase trends—we move with purpose.</span>
-                    </div>
-                  </h3>
-                  <p className="text-white/70 ml-6">Everything we do is rooted in values, not vanity.</p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                    <span className="text-green-400 mr-3 mt-1">•</span>
-                    <div>
-                      <span className="font-semibold">We don't just offer opportunity—we develop identity.</span>
-                    </div>
-                  </h3>
-                  <p className="text-white/70 ml-6">You're not here to fit a mold. You're here to rise in your own unique lane.</p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
-                    <span className="text-green-400 mr-3 mt-1">•</span>
-                    <div>
-                      <span className="font-semibold">We don't just grow businesses—we grow people.</span>
-                    </div>
-                  </h3>
-                  <p className="text-white/70 ml-6">Because when people grow, everything around them changes—homes, communities, and legacies.</p>
+                {/* Section details */}
+                <div className="text-white/60 text-base leading-relaxed mb-0">
+                  {sections[activeSection].details}
                 </div>
               </div>
             </div>
