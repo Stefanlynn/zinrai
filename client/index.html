@@ -31,6 +31,29 @@
     <!-- Cookie Yes Script -->
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/eac5af3f156157363b6d7158/script.js"></script>
     
+    <!-- Debug CookieYes Loading -->
+    <script>
+      // Debug CookieYes loading
+      window.addEventListener('load', function() {
+        console.log('CookieYes script element:', document.getElementById('cookieyes'));
+        console.log('CookieYes object available:', typeof window.cookieyes !== 'undefined');
+        
+        // Check if CookieYes banner is in DOM
+        setTimeout(function() {
+          const banner = document.querySelector('[data-cookieyes="banner"]') || 
+                        document.querySelector('.cookieyes-banner') ||
+                        document.querySelector('#cookieyes-banner');
+          console.log('CookieYes banner found:', banner);
+          
+          // Force show banner for testing if it exists but is hidden
+          if (banner && banner.style.display === 'none') {
+            console.log('CookieYes banner is hidden, attempting to show...');
+            banner.style.display = 'block';
+          }
+        }, 2000);
+      });
+    </script>
+    
     <!-- Essential cookies and data layer initialization -->
     <script>
       // Initialize data layer for scanner detection

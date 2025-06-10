@@ -6,11 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useState, useEffect, useRef } from "react";
 import { FiUser } from "react-icons/fi";
 import zinraiLogo from "./assets/zinrai-circle-logo.png";
-import CookieConsent from "./components/CookieConsent";
+
 import Footer from "./components/Footer";
-import { trackingScripts } from "./lib/trackingScripts";
-import { consentMode } from "./lib/consentMode";
-import { cookieManager } from "./lib/cookieManager";
 import Home from "@/pages/Home";
 import Logo from "@/pages/Logo";
 import Product from "@/pages/Product";
@@ -299,12 +296,6 @@ function App() {
   ];
 
   useEffect(() => {
-    // Initialize cookie consent and tracking systems
-    consentMode.initialize();
-    
-    // Initialize cookie manager to set all cookies for Cookie Yes scanning
-    cookieManager.initializeTracking();
-    
     // Close menu when clicking outside
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -955,8 +946,7 @@ function App() {
           </div>
         )}
         
-        {/* Cookie Consent Popup */}
-        <CookieConsent />
+
       </TooltipProvider>
     </QueryClientProvider>
   );
