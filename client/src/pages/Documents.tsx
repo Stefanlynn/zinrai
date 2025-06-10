@@ -53,6 +53,16 @@ export default function Documents() {
 
         <div 
           className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={() => handleDocumentClick('/brand-promoter-agreement', 'Brand Promoter Agreement')}>
+          <h3 className="text-xl font-medium mb-3 text-white">Brand Promoter Agreement</h3>
+          <p className="text-white/60 text-sm mb-4">
+            Complete legal agreement for ZiNRAi Brand Promoters including arbitration terms and restrictive covenants.
+          </p>
+          <span className="text-white/50 text-sm">View Document →</span>
+        </div>
+
+        <div 
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
           onClick={() => handleDocumentClick('/cookie-policy', 'Cookie Policy')}>
           <h3 className="text-xl font-medium mb-3 text-white">Cookie Policy</h3>
           <p className="text-white/60 text-sm mb-4">

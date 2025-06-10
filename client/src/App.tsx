@@ -34,6 +34,7 @@ import TermsOfUse from "@/pages/TermsOfUse";
 import TestPage from "@/pages/TestPage";
 import StartNow from "@/pages/StartNow";
 import Documents from "@/pages/Documents";
+import BrandPromoterAgreement from "@/pages/BrandPromoterAgreement";
 
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
@@ -243,6 +244,9 @@ function Router() {
       </Route>
       <Route path="/bp-terms">
         {() => <PageWithHeader><IboTerms /></PageWithHeader>}
+      </Route>
+      <Route path="/brand-promoter-agreement">
+        {() => <PageWithHeader><BrandPromoterAgreement /></PageWithHeader>}
       </Route>
       <Route path="/cookie-policy">
         {() => <PageWithHeader><CookiePolicy /></PageWithHeader>}
