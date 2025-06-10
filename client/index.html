@@ -31,12 +31,30 @@
     <!-- Cookie Yes Script -->
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/eac5af3f156157363b6d7158/script.js"></script>
     
-    <!-- Debug CookieYes Loading -->
+    <!-- Cookie Debug Script -->
     <script>
-      // Debug CookieYes loading
+      // Cookie counter and debug script
       window.addEventListener('load', function() {
         console.log('CookieYes script element:', document.getElementById('cookieyes'));
         console.log('CookieYes object available:', typeof window.cookieyes !== 'undefined');
+        
+        // Count and list all cookies
+        function countCookies() {
+          const cookies = document.cookie.split(';').filter(cookie => cookie.trim() !== '');
+          console.log('Total cookies found:', cookies.length);
+          console.log('Cookie list:');
+          cookies.forEach((cookie, index) => {
+            const [name, value] = cookie.trim().split('=');
+            console.log(`${index + 1}. ${name} = ${value ? value.substring(0, 50) + (value.length > 50 ? '...' : '') : 'empty'}`);
+          });
+          return cookies.length;
+        }
+        
+        // Initial count
+        const initialCount = countCookies();
+        
+        // Check periodically for new cookies
+        setInterval(countCookies, 5000);
         
         // Check if CookieYes banner is in DOM
         setTimeout(function() {
@@ -45,7 +63,6 @@
                         document.querySelector('#cookieyes-banner');
           console.log('CookieYes banner found:', banner);
           
-          // Force show banner for testing if it exists but is hidden
           if (banner && banner.style.display === 'none') {
             console.log('CookieYes banner is hidden, attempting to show...');
             banner.style.display = 'block';
