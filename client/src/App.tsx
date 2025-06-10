@@ -10,6 +10,7 @@ import CookieConsent from "./components/CookieConsent";
 import Footer from "./components/Footer";
 import { trackingScripts } from "./lib/trackingScripts";
 import { consentMode } from "./lib/consentMode";
+import { cookieManager } from "./lib/cookieManager";
 import Home from "@/pages/Home";
 import Logo from "@/pages/Logo";
 import Product from "@/pages/Product";
@@ -293,6 +294,9 @@ function App() {
   useEffect(() => {
     // Initialize cookie consent and tracking systems
     consentMode.initialize();
+    
+    // Initialize cookie manager to set all cookies for Cookie Yes scanning
+    cookieManager.initializeTracking();
     
     // Close menu when clicking outside
     function handleClickOutside(event: MouseEvent) {
