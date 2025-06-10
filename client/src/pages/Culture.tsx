@@ -160,23 +160,22 @@ export default function Culture() {
                 Each letter of ZiNRAi represents a foundational value that shapes our culture and leadership DNA.
               </p>
 
-              {/* Values List */}
-              <div className="space-y-8">
+              {/* Values Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {pillarSections.map((pillar, index) => (
-                  <div key={index} className="border-l-2 border-white/20 pl-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
-                        <div className={`w-8 h-8 rounded-full ${getDotColor(pillar.color)} flex items-center justify-center text-black font-bold text-sm`}>
-                          {pillar.letter}
-                        </div>
+                  <div 
+                    key={index} 
+                    className="bg-gradient-to-br from-black/40 to-black/60 border border-white/10 rounded-lg p-6 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className={`w-10 h-10 rounded-full ${getDotColor(pillar.color)} flex items-center justify-center text-black font-bold text-lg`}>
+                        {pillar.letter}
                       </div>
-                      <div>
-                        <h3 className="text-white text-xl font-medium mb-2">{pillar.title}</h3>
-                        <p className="text-white/70 text-base leading-relaxed">
-                          {pillar.description}
-                        </p>
-                      </div>
+                      <h3 className="text-white text-xl font-medium">{pillar.title}</h3>
                     </div>
+                    <p className="text-white/70 text-base leading-relaxed">
+                      {pillar.description}
+                    </p>
                   </div>
                 ))}
               </div>
