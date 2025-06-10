@@ -84,66 +84,120 @@ export default function Partner() {
         {/* Header Section */}
         <div className="text-center py-16">
           <h1 className="text-5xl md:text-7xl font-light text-white mb-6">
-            Partner With Us
+            Brand Promoter
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto px-6">
-            Join the ZiNRAi<span className="text-xs align-super">™</span> ecosystem and grow your business 
-            while helping others achieve financial literacy and independence.
+            Turn your passion for purpose into powerful impact.
           </p>
         </div>
 
-        {/* Partnership Options */}
+        {/* Main Content */}
         <div className="px-6 pb-16">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-              {partnerships.map((partnership, index) => (
-                <div
-                  key={partnership.id}
-                  className={`
-                    ${getColorClasses(partnership.color, 'bg')} 
-                    ${getColorClasses(partnership.color, 'border')}
-                    border rounded-lg p-8
-                    hover:scale-105 transition-all duration-300
-                    transform ${animatedIn ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}
-                  `}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <div className="text-center">
-                    <h3 className="text-2xl font-light text-white mb-2">
-                      {partnership.title}
+          <div className="max-w-4xl mx-auto">
+            {/* Introduction */}
+            <div className="mb-16 text-center">
+              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto">
+                At ZiNRAi<span className="text-xs align-super">™</span>, Brand Promoters are more than marketers—they're movement leaders. 
+                As a promoter, you'll help share educational tools that equip people to grow personally, lead confidently, and live with purpose.
+              </p>
+              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto mt-4">
+                Whether you're building a side passion or pursuing long-term leadership, we offer a flexible path for growth.
+              </p>
+            </div>
+
+            {/* What You'll Gain Section */}
+            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
+              <h2 className="text-3xl font-light text-white mb-8 text-center">What You'll Gain</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-3 flex items-center">
+                      <span className="text-green-400 mr-3">✅</span>
+                      Training & Mentorship
                     </h3>
-                    <p className={`text-sm ${getColorClasses(partnership.color, 'text')} mb-4`}>
-                      {partnership.subtitle}
+                    <p className="text-white/70 leading-relaxed">
+                      You'll get access to exclusive training, content resources, and leadership calls designed to help you grow—personally and professionally.
                     </p>
-                    <p className="text-white/70 text-sm leading-relaxed mb-6">
-                      {partnership.description}
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-3 flex items-center">
+                      <span className="text-green-400 mr-3">✅</span>
+                      Community Support
+                    </h3>
+                    <p className="text-white/70 leading-relaxed">
+                      You'll join a powerful network of like-minded individuals committed to personal growth, financial literacy, and generational impact.
                     </p>
-                    <div className="text-left">
-                      <p className="text-white/50 text-xs mb-2">Key Benefits:</p>
-                      <ul className="text-white/60 text-xs space-y-1">
-                        {partnership.benefits.slice(0, 2).map((benefit, idx) => (
-                          <li key={idx}>• {benefit}</li>
-                        ))}
-                      </ul>
-                    </div>
                   </div>
                 </div>
-              ))}
+                
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-3 flex items-center">
+                      <span className="text-green-400 mr-3">✅</span>
+                      Flexible Path
+                    </h3>
+                    <p className="text-white/70 leading-relaxed">
+                      Work on your schedule. Whether you engage part-time or full-time, your voice makes a difference.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-3 flex items-center">
+                      <span className="text-green-400 mr-3">✅</span>
+                      Tools to Lead
+                    </h3>
+                    <p className="text-white/70 leading-relaxed">
+                      We equip you with creative content, branding assets, and a marketing toolkit to amplify your message and help you reach your goals.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* What You're Not Promising Section */}
+            <div className="bg-amber-900/20 border border-amber-500/30 rounded-lg p-8 mb-16">
+              <h2 className="text-3xl font-light text-white mb-6 text-center">What You're Not Promising</h2>
+              <p className="text-white/80 text-lg leading-relaxed text-center">
+                We're not here to sell hype. ZiNRAi<span className="text-xs align-super">™</span> does not guarantee income or results—your success is based on your own effort, consistency, and leadership.
+              </p>
+            </div>
+
+            {/* Who Should Join Section */}
+            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
+              <h2 className="text-3xl font-light text-white mb-8 text-center">Who Should Join?</h2>
+              <p className="text-white/80 text-lg mb-6 text-center">You might be a great fit if you:</p>
+              
+              <div className="max-w-2xl mx-auto">
+                <ul className="space-y-4 text-white/70">
+                  <li className="flex items-start">
+                    <span className="text-blue-400 mr-3 mt-1">•</span>
+                    <span>Love empowering others with knowledge</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-400 mr-3 mt-1">•</span>
+                    <span>Believe in the value of financial education</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-400 mr-3 mt-1">•</span>
+                    <span>Want to build something meaningful alongside your current commitments</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-400 mr-3 mt-1">•</span>
+                    <span>Are hungry to grow as a leader</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Call to Action */}
-            <div className="max-w-4xl mx-auto bg-white/5 border border-white/10 rounded-lg p-8 text-center">
-              <h2 className="text-3xl font-light text-white mb-6">
-                Ready to Get Started?
-              </h2>
-              <p className="text-white/80 text-lg leading-relaxed mb-8">
-                Join thousands of partners who are already building successful businesses with ZiNRAi<span className="text-xs align-super">™</span>.
-              </p>
+            <div className="text-center">
               <button
-                onClick={() => window.location.href = 'mailto:partnerships@zinrai.com'}
-                className="px-8 py-3 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors text-lg"
+                onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
+                className="px-8 py-4 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium"
               >
-                Contact Us
+                Join Our Movement
               </button>
             </div>
           </div>
