@@ -12,59 +12,59 @@ export default function Culture() {
 
   const sections = [
     {
-      title: "Our Vision",
-      subtitle: "The Future We're Building",
-      description: "To create a world where everyone has access to the tools, knowledge, and opportunities needed to achieve financial freedom and personal growth. We believe in democratizing success through education and innovation.",
-      details: "ZiNRAi™ envisions a global community where traditional barriers to wealth creation are eliminated through cutting-edge technology and comprehensive education. We're building the bridge between where people are and where they want to be financially.",
+      title: "Our Story",
+      subtitle: "Where It All Began",
+      description: "Born from the belief that everyone deserves access to financial education and opportunity. ZiNRAi™ was created to bridge the gap between traditional education and real-world wealth building.",
+      details: "In a world full of noise, we're building something that actually matters. ZiNRAi™ was created by entrepreneurs who understood that the biggest barrier to financial success isn't ability—it's access to the right education and community support.",
       color: "blue"
     },
     {
-      title: "Our Mission",
-      subtitle: "What Drives Us Daily",
-      description: "To empower individuals through innovative digital learning platforms, strategic investment education, and community-driven growth opportunities that transform lives and build generational wealth.",
-      details: "Every course we create, every platform we build, and every community we foster is designed with one goal: helping people take control of their financial future. We combine proven strategies with modern technology to deliver results.",
+      title: "Our Purpose",
+      subtitle: "Why We Exist",
+      description: "To democratize wealth creation through education, technology, and community. We exist to transform how people learn, earn, and build lasting financial success.",
+      details: "We believe financial literacy should be accessible to everyone, regardless of background or starting point. Our purpose is to create pathways to prosperity that were previously available only to a select few.",
       color: "purple"
     },
     {
-      title: "Zeal",
-      subtitle: "Passionate Pursuit",
-      description: "We approach every challenge with unstoppable enthusiasm and determination. Our passion for excellence drives innovation and inspires others to reach beyond their perceived limitations.",
-      details: "Zeal isn't just excitement—it's sustained energy directed toward meaningful goals. We channel this energy into creating solutions that genuinely impact lives and communities.",
+      title: "Z - Zenith Mindset",
+      subtitle: "Peak Performance Thinking",
+      description: "We operate from the highest level of thinking and performance. Every challenge is approached with the mindset of reaching the zenith of possibility.",
+      details: "Zenith thinking means never settling for 'good enough.' We consistently push ourselves and our community to reach new heights of achievement and impact.",
       color: "orange"
     },
     {
-      title: "Integrity",
-      subtitle: "Unwavering Ethics",
-      description: "Transparency, honesty, and ethical practices form the foundation of every decision we make. We build trust through consistent actions that align with our values.",
-      details: "Integrity means doing the right thing even when no one is watching. We maintain the highest ethical standards in all our business practices, educational content, and community interactions.",
+      title: "I - Impactful Action",
+      subtitle: "Meaningful Movement",
+      description: "Every action we take is designed to create meaningful, lasting impact. We don't just talk about change—we create it through deliberate, strategic action.",
+      details: "Impact isn't about grand gestures—it's about consistent, purposeful actions that compound over time. We measure success by the positive changes we create in people's lives.",
       color: "green"
     },
     {
-      title: "Nobility",
-      subtitle: "Elevated Purpose",
-      description: "We operate with dignity, honor, and a commitment to uplifting others. Our success is measured by the positive impact we create in people's lives.",
-      details: "Nobility is about elevating not just ourselves, but everyone we encounter. We believe in the inherent worth of every individual and their capacity for greatness.",
+      title: "N - Nurturing Growth",
+      subtitle: "Cultivating Potential",
+      description: "We create environments where individuals can flourish and reach their full potential. Growth is nurtured through education, mentorship, and community support.",
+      details: "True growth happens when potential meets opportunity in a supportive environment. We provide the soil, sunlight, and nutrients for personal and financial growth to flourish.",
       color: "red"
     },
     {
-      title: "Resilience",
-      subtitle: "Strength Through Adversity",
-      description: "We view challenges as opportunities for growth. Our ability to adapt, persist, and emerge stronger defines our character and ensures long-term success.",
-      details: "Resilience is built through experience and strengthened through community. We teach and embody the mindset that setbacks are setups for comebacks.",
+      title: "R - Relentless Excellence",
+      subtitle: "Unwavering Standards",
+      description: "Excellence isn't a destination—it's a relentless pursuit. We maintain the highest standards in everything we create, teach, and deliver.",
+      details: "Relentless excellence means never compromising on quality. Whether it's our educational content, community support, or platform experience, we pursue perfection in every detail.",
       color: "yellow"
     },
     {
-      title: "Abundance",
-      subtitle: "Limitless Thinking",
-      description: "We believe in unlimited possibilities and work to create value for everyone. Our abundance mindset drives innovation and fosters collaborative success.",
-      details: "Abundance thinking recognizes that success isn't a zero-sum game. When we help others succeed, we all benefit from the expanded opportunities and stronger communities.",
+      title: "A - Authentic Leadership",
+      subtitle: "Genuine Influence",
+      description: "We lead by example with authenticity and transparency. Our influence comes from genuine care for our community and unwavering commitment to their success.",
+      details: "Authentic leadership means being real about challenges while maintaining unwavering optimism about possibilities. We lead with vulnerability, strength, and genuine care.",
       color: "cyan"
     },
     {
-      title: "Innovation",
-      subtitle: "Forward Momentum",
-      description: "We continuously evolve our methods, technologies, and approaches to stay ahead of industry trends and deliver cutting-edge solutions to our community.",
-      details: "Innovation isn't just about technology—it's about finding better ways to serve our community, deliver education, and create opportunities for growth and success.",
+      title: "I - Innovative Solutions",
+      subtitle: "Creative Problem Solving",
+      description: "We approach every challenge with innovative thinking. Our solutions combine proven principles with cutting-edge technology and creative approaches.",
+      details: "Innovation isn't just about technology—it's about finding creative solutions to real problems. We constantly evolve our methods to better serve our community's needs.",
       color: "indigo"
     }
   ];
