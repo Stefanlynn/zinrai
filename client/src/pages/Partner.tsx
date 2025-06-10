@@ -72,9 +72,9 @@ export default function Partner() {
   };
 
   return (
-    <div className="fixed inset-0 bg-black overflow-hidden">
+    <div className="min-h-screen bg-black">
       {/* Grid container - 2x4 grid like home page */}
-      <div className="absolute inset-0 grid grid-cols-2 grid-rows-4 h-screen">
+      <div className="grid grid-cols-2 grid-rows-4 h-screen">
         {/* Top Left - Brand Promoter Title */}
         <div className="relative border-r border-b border-gray-700 flex items-center justify-center p-8">
           <div className="text-center">
@@ -175,7 +175,7 @@ export default function Partner() {
         </div>
       </div>
 
-      {/* Grid lines animation */}
+      {/* Grid lines overlay */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Horizontal lines */}
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/20"></div>
