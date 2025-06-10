@@ -150,8 +150,27 @@ export default function Partner() {
         </div>
       </div>
       
+      {/* Pricing Section */}
+      <div className="px-6 pb-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
+            <h2 className="text-3xl font-light text-white mb-6">Investment</h2>
+            <div className="mb-6">
+              <span className="text-4xl font-light text-white">$99</span>
+              <span className="text-white/70 text-lg ml-2">one-time</span>
+            </div>
+            <p className="text-white/80 text-lg mb-8">
+              Your investment includes complete training, marketing materials, ongoing support, and access to our exclusive community.
+            </p>
+            <p className="text-white/60 text-sm">
+              This is a business investment, not a guarantee of income. Success depends on your effort and dedication.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Contact Information Section - Very Prominent */}
-      <div className="w-full min-h-[200px] bg-red-900/20 border-2 border-red-500 p-8 mt-8">
+      <div className="w-full min-h-[200px] bg-red-900/20 border-2 border-red-500 p-8">
         <div className="text-center">
           <h2 className="text-white text-3xl font-bold mb-6">Ready to get started?</h2>
           <p className="text-white text-xl">
