@@ -48,43 +48,36 @@ export default function Cares() {
   return (
     <div className="text-white">
       {/* Main grid section */}
-      <div className="relative h-[80vh]">
-        {/* Grid lines overlay */}
-        <div className={`absolute inset-0 grid grid-cols-2 grid-rows-4 pointer-events-none transition-opacity duration-1000 ${showLines ? 'opacity-70' : 'opacity-0'}`}>
-          <div className="border-r border-white/20"></div>
-          <div className="border-l border-white/20"></div>
-          <div className="border-r border-white/20"></div>
-          <div className="border-l border-white/20"></div>
-          <div className="border-r border-white/20"></div>
-          <div className="border-l border-white/20"></div>
-          <div className="border-r border-white/20"></div>
-          <div className="border-l border-white/20"></div>
+      <div className="min-h-screen relative">
+        {/* Grid lines */}
+        <div className={`absolute inset-0 transition-opacity duration-1000 ${showLines ? 'opacity-100' : 'opacity-0'}`}>
+          {/* Vertical lines */}
+          <div className="absolute left-1/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute left-3/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+          
+          {/* Horizontal lines */}
+          <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         </div>
 
-        {/* Main content centered */}
-        <div className="relative z-10 flex items-center justify-center h-full px-6">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Header */}
-            <div className="mb-12">
-              <h1 className="text-4xl md:text-6xl font-light mb-6">
-                ZiNRAi<span className="text-xs align-super">™</span> Cares
-              </h1>
-              <p className="text-xl text-white/70 max-w-2xl mx-auto">
-                Making a difference through decentralized giving and transparent impact tracking.
-              </p>
-            </div>
-
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center min-h-screen p-8">
+          <div className="text-center max-w-4xl">
+            <h1 className="text-5xl md:text-6xl font-light mb-8 tracking-wider">
+              ZiNRAi<span className="text-xs align-super">™</span> Cares
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80 mb-12 leading-relaxed">
+              Making a meaningful impact through education and direct assistance
+            </p>
+            
             {/* Impact Statistics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
               {impactStats.map((stat, index) => (
-                <div 
-                  key={stat.id}
-                  className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-all duration-300"
-                >
-                  <div className="text-3xl font-light mb-2">
-                    <span className="impact-counter">
-                      {stat.prefix}0{stat.suffix}
-                    </span>
+                <div key={stat.id} className="bg-white/5 border border-white/20 rounded-lg p-6 backdrop-blur-sm">
+                  <div className="impact-counter text-3xl font-light mb-2 text-white">
+                    {stat.prefix}0{stat.suffix}
                   </div>
                   <p className="text-white/70 text-sm leading-relaxed">
                     {stat.label}
@@ -96,7 +89,7 @@ export default function Cares() {
         </div>
       </div>
 
-      {/* Additional Content Section */}
+      {/* Impact Areas Section */}
       <div className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-light text-center mb-12">Impact Areas</h2>
@@ -144,15 +137,24 @@ export default function Cares() {
           {/* Video Section */}
           <div className="bg-white/5 border border-white/10 rounded-lg p-8">
             <h2 className="text-2xl font-light mb-6 text-center">Our Impact in Action</h2>
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                src="https://www.youtube.com/embed/grmGGZjYIN0"
-                title="ZiNRAi Cares Impact Video"
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+            <div className="w-full max-w-4xl mx-auto">
+              <div style={{ position: 'relative', width: '100%', height: 0, paddingBottom: '56.25%' }}>
+                <iframe
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '8px'
+                  }}
+                  src="https://www.youtube.com/embed/grmGGZjYIN0?rel=0&modestbranding=1"
+                  title="ZiNRAi Cares Impact Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
         </div>
