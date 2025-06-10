@@ -129,15 +129,7 @@ export default function ZiNRAiCares() {
             </ul>
           </div>
           
-          {/* Testimonial */}
-          <div className="w-full md:w-2/5 flex items-center">
-            <div className="bg-black/50 p-6 border border-white/30 w-full">
-              <p className="text-lg italic text-white/90 mb-4">
-                "The water well project funded by ZiNRAi has transformed our village. For the first time, our children don't have to walk miles for clean water."
-              </p>
-              <p className="text-white/70">— Community Leader, Burkina Faso</p>
-            </div>
-          </div>
+
         </div>
         
         {/* Stats Section */}
