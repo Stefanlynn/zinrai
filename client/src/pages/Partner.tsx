@@ -82,10 +82,10 @@ export default function Partner() {
       </div>
 
       {/* Main content - Two Column Layout like Product page */}
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10">
         <div className="flex flex-col md:flex-row p-4">
           {/* Left Side - Brand Promoter Content */}
-          <div className={`w-full md:w-1/2 p-8 pt-[10vh] md:p-16 md:pl-20 md:py-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
+          <div className={`w-full md:w-1/2 p-8 pt-[5vh] md:p-16 md:pl-20 md:pb-8 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
               Brand Promoter
             </h1>
@@ -122,7 +122,7 @@ export default function Partner() {
           </div>
           
           {/* Right Side - Detail Panel (Desktop Only) */}
-          <div className={`hidden md:block w-1/2 p-16 pt-[180px] pb-20 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
+          <div className={`hidden md:block w-1/2 p-16 pt-[120px] pb-8 pr-20 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`}>
             <div className="rounded border overflow-hidden transition-all duration-500 bg-gradient-to-br from-black/80 to-black/95 border-white/20">
               <div className="p-10 overflow-y-auto max-h-[70vh]">
                 {/* Header */}
