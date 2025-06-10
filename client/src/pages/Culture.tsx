@@ -104,53 +104,184 @@ export default function Culture() {
         {/* Header Section */}
         <div className="text-center py-16">
           <h1 className="text-5xl md:text-7xl font-light text-white mb-6">
-            Our Culture
+            Why ZiNRAi<span className="text-xs align-super">™</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto px-6">
-            The values that drive innovation, guide decisions, and shape our impact on the global financial education landscape.
+            Because the world doesn't just need more products.
+          </p>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto px-6 mt-2">
+            It needs more people who know who they are and what they're here to do.
           </p>
         </div>
 
-        {/* Values Grid */}
+        {/* Main Content */}
         <div className="px-6 pb-16">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              {cultureValues.map((value, index) => (
-                <div
-                  key={value.id}
-                  className={`
-                    ${getColorClasses(value.color, 'bg')} 
-                    ${getColorClasses(value.color, 'border')}
-                    border rounded-lg p-8
-                    hover:scale-105 transition-all duration-300
-                    transform ${animatedIn ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}
-                  `}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <div className="text-center">
-                    <h3 className="text-2xl font-light text-white mb-2">
-                      {value.title}
-                    </h3>
-                    <p className={`text-sm ${getColorClasses(value.color, 'text')} mb-4`}>
-                      {value.subtitle}
-                    </p>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          <div className="max-w-4xl mx-auto">
+            {/* Introduction */}
+            <div className="mb-16 text-center">
+              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto">
+                ZiNRAi<span className="text-xs align-super">™</span> isn't just a platform—it's a purpose-driven movement. We exist to awaken leadership, inspire integrity, and build legacy through education, community, and character-based growth.
+              </p>
             </div>
 
-            {/* Mission Statement */}
-            <div className="max-w-4xl mx-auto bg-white/5 border border-white/10 rounded-lg p-8">
-              <h2 className="text-3xl font-light text-white text-center mb-6">
+            {/* Vision Section */}
+            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
+              <h2 className="text-3xl font-light text-white mb-6 text-center flex items-center justify-center">
+                <span className="mr-3">🔭</span>
+                Our Vision
+              </h2>
+              <p className="text-white/80 text-lg leading-relaxed text-center">
+                To help ordinary people become extraordinary leaders—by unlocking purpose, building character, and creating meaningful impact.
+              </p>
+            </div>
+
+            {/* Mission Section */}
+            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
+              <h2 className="text-3xl font-light text-white mb-6 text-center flex items-center justify-center">
+                <span className="mr-3">🎯</span>
                 Our Mission
               </h2>
               <p className="text-white/80 text-lg leading-relaxed text-center">
-                To democratize financial education and empower individuals worldwide through innovative technology, 
-                transparent practices, and community-driven learning experiences that create lasting positive impact.
+                ZiNRAi<span className="text-xs align-super">™</span> exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment.
               </p>
+            </div>
+
+            {/* Our Pillars Section */}
+            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
+              <h2 className="text-3xl font-light text-white mb-6 text-center flex items-center justify-center">
+                <span className="mr-3">🏛️</span>
+                Our Pillars
+              </h2>
+              <p className="text-white/80 text-lg mb-8 text-center">These aren't just values—they're the foundation of how we move:</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                      <span className="text-blue-400 mr-3 mt-1">•</span>
+                      <div>
+                        <span className="font-semibold">Zeal:</span>
+                        <span className="text-white/70 ml-2">We show up with passion, energy, and urgency.</span>
+                      </div>
+                    </h3>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                      <span className="text-blue-400 mr-3 mt-1">•</span>
+                      <div>
+                        <span className="font-semibold">Integrity:</span>
+                        <span className="text-white/70 ml-2">We do what's right, not what's easy.</span>
+                      </div>
+                    </h3>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                      <span className="text-blue-400 mr-3 mt-1">•</span>
+                      <div>
+                        <span className="font-semibold">Nobility:</span>
+                        <span className="text-white/70 ml-2">We lead with honor, humility, and courage.</span>
+                      </div>
+                    </h3>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                      <span className="text-blue-400 mr-3 mt-1">•</span>
+                      <div>
+                        <span className="font-semibold">Resilience:</span>
+                        <span className="text-white/70 ml-2">We bounce back stronger and press forward no matter what.</span>
+                      </div>
+                    </h3>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                      <span className="text-blue-400 mr-3 mt-1">•</span>
+                      <div>
+                        <span className="font-semibold">Abundance:</span>
+                        <span className="text-white/70 ml-2">We believe there's more than enough—for you, for others, for the world.</span>
+                      </div>
+                    </h3>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                      <span className="text-blue-400 mr-3 mt-1">•</span>
+                      <div>
+                        <span className="font-semibold">Innovation:</span>
+                        <span className="text-white/70 ml-2">We don't copy culture—we help create it.</span>
+                      </div>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* What Makes Us Different Section */}
+            <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+              <h2 className="text-3xl font-light text-white mb-6 text-center flex items-center justify-center">
+                <span className="mr-3">💡</span>
+                What Makes Us Different
+              </h2>
+              <p className="text-white/80 text-lg mb-8 text-center">
+                We're not your typical company—and that's intentional. ZiNRAi<span className="text-xs align-super">™</span> was built to disrupt the norm and raise the standard.
+              </p>
+              
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <div>
+                      <span className="font-semibold">We don't sell hype—we build depth.</span>
+                    </div>
+                  </h3>
+                  <p className="text-white/70 ml-6">We prioritize education, transformation, and long-term value over quick wins.</p>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <div>
+                      <span className="font-semibold">We don't create followers—we empower leaders.</span>
+                    </div>
+                  </h3>
+                  <p className="text-white/70 ml-6">Our focus is helping people discover who they are and lead with clarity and character.</p>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <div>
+                      <span className="font-semibold">We don't chase trends—we move with purpose.</span>
+                    </div>
+                  </h3>
+                  <p className="text-white/70 ml-6">Everything we do is rooted in values, not vanity.</p>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <div>
+                      <span className="font-semibold">We don't just offer opportunity—we develop identity.</span>
+                    </div>
+                  </h3>
+                  <p className="text-white/70 ml-6">You're not here to fit a mold. You're here to rise in your own unique lane.</p>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-medium text-white mb-2 flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <div>
+                      <span className="font-semibold">We don't just grow businesses—we grow people.</span>
+                    </div>
+                  </h3>
+                  <p className="text-white/70 ml-6">Because when people grow, everything around them changes—homes, communities, and legacies.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
