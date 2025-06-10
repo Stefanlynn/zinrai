@@ -137,24 +137,17 @@ export default function Cares() {
           {/* Video Section */}
           <div className="bg-white/5 border border-white/10 rounded-lg p-8">
             <h2 className="text-2xl font-light mb-6 text-center">Our Impact in Action</h2>
-            <div className="w-full max-w-4xl mx-auto">
-              <div style={{ position: 'relative', width: '100%', height: 0, paddingBottom: '56.25%' }}>
-                <iframe
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '8px'
-                  }}
-                  src="https://www.youtube.com/embed/grmGGZjYIN0?rel=0&modestbranding=1"
-                  title="ZiNRAi Cares Impact Video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
+            <div className="w-full">
+              <iframe
+                width="100%"
+                height="400"
+                src="https://www.youtube.com/embed/grmGGZjYIN0"
+                title="ZiNRAi Cares Impact Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{ minHeight: '400px', borderRadius: '8px' }}
+              ></iframe>
             </div>
           </div>
         </div>
