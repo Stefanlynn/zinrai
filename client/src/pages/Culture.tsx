@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export default function Culture() {
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeFoundation, setActiveFoundation] = useState(0);
-  const [activePillar, setActivePillar] = useState(0);
+  const [activePillar, setActivePillar] = useState(-1);
 
   useEffect(() => {
     setTimeout(() => {
@@ -196,17 +196,19 @@ export default function Culture() {
               ))}
             </div>
 
-            {/* Pillar Detail Panel */}
-            <div className="bg-gradient-to-br from-black/80 to-black/95 border border-white/20 rounded-lg p-8">
-              <div className="flex items-center mb-6">
-                <div className={`w-4 h-4 rounded-full ${getDotColor(pillarSections[activePillar].color)} mr-3`}></div>
-                <h3 className="text-white text-2xl font-medium">{pillarSections[activePillar].title}</h3>
+            {/* Pillar Detail Panel - Only show when a pillar is selected */}
+            {activePillar >= 0 && (
+              <div className="bg-gradient-to-br from-black/80 to-black/95 border border-white/20 rounded-lg p-8">
+                <div className="flex items-center mb-6">
+                  <div className={`w-4 h-4 rounded-full ${getDotColor(pillarSections[activePillar].color)} mr-3`}></div>
+                  <h3 className="text-white text-2xl font-medium">{pillarSections[activePillar].title}</h3>
+                </div>
+                <h4 className="text-white/80 text-lg font-medium mb-4">{pillarSections[activePillar].subtitle}</h4>
+                <p className="text-white/70 text-base leading-relaxed">
+                  {pillarSections[activePillar].details}
+                </p>
               </div>
-              <h4 className="text-white/80 text-lg font-medium mb-4">{pillarSections[activePillar].subtitle}</h4>
-              <p className="text-white/70 text-base leading-relaxed">
-                {pillarSections[activePillar].details}
-              </p>
-            </div>
+            )}
           </div>
         </div>
       </div>
