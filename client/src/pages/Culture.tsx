@@ -11,36 +11,20 @@ export default function Culture() {
     }, 100);
   }, []);
 
-  const foundationSections = [
-    {
-      title: "Our Story",
-      subtitle: "Where It All Began",
-      description: "Born from the belief that everyone deserves access to financial education and opportunity. ZiNRAi™ was created to bridge the gap between traditional education and real-world wealth building.",
-      details: "In a world full of noise, we're building something that actually matters. ZiNRAi™ was created by entrepreneurs who understood that the biggest barrier to financial success isn't ability—it's access to the right education and community support.",
-      color: "blue"
-    },
-    {
-      title: "Our Purpose",
-      subtitle: "Why We Exist",
-      description: "To democratize wealth creation through education, technology, and community. We exist to transform how people learn, earn, and build lasting financial success.",
-      details: "We believe financial literacy should be accessible to everyone, regardless of background or starting point. Our purpose is to create pathways to prosperity that were previously available only to a select few.",
-      color: "purple"
-    },
-    {
+  const visionMission = {
+    vision: {
       title: "Our Vision",
       subtitle: "The Future We're Creating",
       description: "A world where financial literacy is universal, where every person has the tools and knowledge to build generational wealth and create lasting impact.",
-      details: "We envision communities where financial success is not limited by background, education, or circumstances. Our vision is a future where innovative technology and proven strategies converge to make wealth creation accessible to all.",
-      color: "cyan"
+      details: "We envision communities where financial success is not limited by background, education, or circumstances. Our vision is a future where innovative technology and proven strategies converge to make wealth creation accessible to all."
     },
-    {
-      title: "Our Mission",
+    mission: {
+      title: "Our Mission", 
       subtitle: "How We Make It Happen",
       description: "To deliver world-class financial education through innovative digital platforms, building communities that support and accelerate individual success.",
-      details: "Our mission is executed through comprehensive courses, cutting-edge technology, and authentic community building. We provide not just education, but transformation through practical application and ongoing support.",
-      color: "green"
+      details: "Our mission is executed through comprehensive courses, cutting-edge technology, and authentic community building. We provide not just education, but transformation through practical application and ongoing support."
     }
-  ];
+  };
 
   const pillarSections = [
     {
@@ -87,9 +71,7 @@ export default function Culture() {
     }
   ];
 
-  const handleFoundationClick = (index: number) => {
-    setActiveFoundation(index);
-  };
+
 
   const handlePillarClick = (index: number) => {
     setActivePillar(index);
@@ -133,54 +115,49 @@ export default function Culture() {
 
       {/* Content area */}
       <div className="relative z-10 page-content">
-        {/* Foundation Section */}
         <div className={`p-8 pt-[10vh] md:p-16 md:pt-[15vh] transition-all duration-700 ${animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
           <div className="max-w-6xl mx-auto">
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-4 tracking-wide text-center bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
               Why ZiNRAi<span className="text-xs align-super">™</span>
             </h1>
             <p className="text-white/70 text-lg mb-16 text-center max-w-2xl mx-auto">
-              Our foundation is built on four cornerstones that define who we are and why we exist.
+              Our foundation is built on a clear vision and focused mission.
             </p>
             
-            {/* Foundation Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-              {foundationSections.map((section, index) => (
-                <div 
-                  key={index}
-                  onClick={() => handleFoundationClick(index)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      handleFoundationClick(index);
-                    }
-                  }}
-                  role="button"
-                  tabIndex={0}
-                  className={`cursor-pointer p-6 rounded-lg border transition-all duration-300 hover:scale-[1.02] min-h-[200px] ${
-                    activeFoundation === index 
-                      ? `bg-gradient-to-br ${getSectionColor(section.color)} shadow-lg`
-                      : 'bg-gradient-to-br from-black/40 to-black/60 border-white/10 hover:border-white/20'
-                  }`}
-                >
-                  <div className={`w-4 h-4 rounded-full ${getDotColor(section.color)} mb-4`}></div>
-                  <h3 className="text-white text-xl font-medium mb-2">{section.title}</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">
-                    {section.description}
-                  </p>
-                </div>
-              ))}
+            {/* Vision Section */}
+            <div className="mb-16">
+              <div className="text-center mb-8">
+                <h2 className="text-white text-2xl md:text-3xl font-light mb-4 tracking-wide">
+                  {visionMission.vision.title}
+                </h2>
+                <p className="text-white/60 text-lg italic mb-4">
+                  {visionMission.vision.subtitle}
+                </p>
+                <p className="text-white/80 text-lg leading-relaxed max-w-4xl mx-auto mb-6">
+                  {visionMission.vision.description}
+                </p>
+                <p className="text-white/70 text-base leading-relaxed max-w-3xl mx-auto">
+                  {visionMission.vision.details}
+                </p>
+              </div>
             </div>
 
-            {/* Foundation Detail Panel */}
-            <div className="bg-gradient-to-br from-black/80 to-black/95 border border-white/20 rounded-lg p-8 mb-20">
-              <div className="flex items-center mb-6">
-                <div className={`w-4 h-4 rounded-full ${getDotColor(foundationSections[activeFoundation].color)} mr-3`}></div>
-                <h3 className="text-white text-2xl font-medium">{foundationSections[activeFoundation].title}</h3>
+            {/* Mission Section */}
+            <div className="mb-20">
+              <div className="text-center mb-8">
+                <h2 className="text-white text-2xl md:text-3xl font-light mb-4 tracking-wide">
+                  {visionMission.mission.title}
+                </h2>
+                <p className="text-white/60 text-lg italic mb-4">
+                  {visionMission.mission.subtitle}
+                </p>
+                <p className="text-white/80 text-lg leading-relaxed max-w-4xl mx-auto mb-6">
+                  {visionMission.mission.description}
+                </p>
+                <p className="text-white/70 text-base leading-relaxed max-w-3xl mx-auto">
+                  {visionMission.mission.details}
+                </p>
               </div>
-              <h4 className="text-white/80 text-lg font-medium mb-4">{foundationSections[activeFoundation].subtitle}</h4>
-              <p className="text-white/70 text-base leading-relaxed">
-                {foundationSections[activeFoundation].details}
-              </p>
             </div>
 
             {/* Pillars Section */}
