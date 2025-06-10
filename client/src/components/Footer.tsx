@@ -126,7 +126,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/ibo-terms")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  IBO Terms
+                  BP Terms
                 </button>
               </li>
             </ul>
