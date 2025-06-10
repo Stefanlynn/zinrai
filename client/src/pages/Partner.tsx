@@ -81,125 +81,137 @@ export default function Partner() {
       
       {/* Main content */}
       <div className="relative z-10">
-        {/* Header Section */}
-        <div className="text-center py-16">
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-6">
+        {/* Hero Section */}
+        <div className="text-center py-20 md:py-32">
+          <h1 className="text-6xl md:text-8xl font-thin text-white mb-8 tracking-tight">
             Brand Promoter
           </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto px-6">
+          <p className="text-2xl md:text-3xl font-light text-white/80 max-w-4xl mx-auto px-6 leading-relaxed">
             Turn your passion for purpose into powerful impact.
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="px-6 pb-16">
-          <div className="max-w-4xl mx-auto">
-            {/* Introduction */}
-            <div className="mb-16 text-center">
-              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto">
-                At ZiNRAi<span className="text-xs align-super">™</span>, Brand Promoters are more than marketers—they're movement leaders. 
-                As a promoter, you'll help share educational tools that equip people to grow personally, lead confidently, and live with purpose.
-              </p>
-              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto mt-4">
-                Whether you're building a side passion or pursuing long-term leadership, we offer a flexible path for growth.
-              </p>
-            </div>
+        {/* Introduction Section */}
+        <div className="px-6 pb-20">
+          <div className="max-w-5xl mx-auto text-center">
+            <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed mb-12">
+              At ZiNRAi<span className="text-xs align-super">™</span>, Brand Promoters are more than marketers—they're movement leaders.
+            </p>
+            <p className="text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-4xl mx-auto">
+              As a promoter, you'll help share educational tools that equip people to grow personally, lead confidently, and live with purpose. Whether you're building a side passion or pursuing long-term leadership, we offer a flexible path for growth.
+            </p>
+          </div>
+        </div>
 
-            {/* What You'll Gain Section */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
-              <h2 className="text-3xl font-light text-white mb-8 text-center">What You'll Gain</h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-3 flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Training & Mentorship
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">
-                      You'll get access to exclusive training, content resources, and leadership calls designed to help you grow—personally and professionally.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-3 flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Community Support
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">
-                      You'll join a powerful network of like-minded individuals committed to personal growth, financial literacy, and generational impact.
-                    </p>
-                  </div>
+        {/* What You'll Gain Section */}
+        <div className="px-6 pb-20">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-thin text-white text-center mb-20 tracking-tight">
+              What You'll Gain
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+              <div className="space-y-12">
+                <div className="text-center md:text-left">
+                  <h3 className="text-2xl md:text-3xl font-light text-white mb-4">
+                    Training & Mentorship
+                  </h3>
+                  <p className="text-lg text-white/70 leading-relaxed">
+                    Access exclusive training, content resources, and leadership calls designed to help you grow—personally and professionally.
+                  </p>
                 </div>
                 
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-3 flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Flexible Path
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">
-                      Work on your schedule. Whether you engage part-time or full-time, your voice makes a difference.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-3 flex items-center">
-                      <span className="text-green-400 mr-3">✅</span>
-                      Tools to Lead
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">
-                      We equip you with creative content, branding assets, and a marketing toolkit to amplify your message and help you reach your goals.
-                    </p>
-                  </div>
+                <div className="text-center md:text-left">
+                  <h3 className="text-2xl md:text-3xl font-light text-white mb-4">
+                    Community Support
+                  </h3>
+                  <p className="text-lg text-white/70 leading-relaxed">
+                    Join a powerful network of like-minded individuals committed to personal growth, financial literacy, and generational impact.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="space-y-12">
+                <div className="text-center md:text-left">
+                  <h3 className="text-2xl md:text-3xl font-light text-white mb-4">
+                    Flexible Path
+                  </h3>
+                  <p className="text-lg text-white/70 leading-relaxed">
+                    Work on your schedule. Whether you engage part-time or full-time, your voice makes a difference.
+                  </p>
+                </div>
+                
+                <div className="text-center md:text-left">
+                  <h3 className="text-2xl md:text-3xl font-light text-white mb-4">
+                    Tools to Lead
+                  </h3>
+                  <p className="text-lg text-white/70 leading-relaxed">
+                    We equip you with creative content, branding assets, and a marketing toolkit to amplify your message and help you reach your goals.
+                  </p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* What You're Not Promising Section */}
-            <div className="bg-amber-900/20 border border-amber-500/30 rounded-lg p-8 mb-16">
-              <h2 className="text-3xl font-light text-white mb-6 text-center">What You're Not Promising</h2>
-              <p className="text-white/80 text-lg leading-relaxed text-center">
+        {/* Reality Check Section */}
+        <div className="px-6 pb-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-thin text-white mb-16 tracking-tight">
+              Reality Check
+            </h2>
+            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-12 md:p-16 border border-white/10">
+              <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed">
                 We're not here to sell hype. ZiNRAi<span className="text-xs align-super">™</span> does not guarantee income or results—your success is based on your own effort, consistency, and leadership.
               </p>
             </div>
+          </div>
+        </div>
 
-            {/* Who Should Join Section */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
-              <h2 className="text-3xl font-light text-white mb-8 text-center">Who Should Join?</h2>
-              <p className="text-white/80 text-lg mb-6 text-center">You might be a great fit if you:</p>
-              
-              <div className="max-w-2xl mx-auto">
-                <ul className="space-y-4 text-white/70">
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3 mt-1">•</span>
-                    <span>Love empowering others with knowledge</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3 mt-1">•</span>
-                    <span>Believe in the value of financial education</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3 mt-1">•</span>
-                    <span>Want to build something meaningful alongside your current commitments</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3 mt-1">•</span>
-                    <span>Are hungry to grow as a leader</span>
-                  </li>
-                </ul>
+        {/* Who Should Join Section */}
+        <div className="px-6 pb-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-thin text-white mb-16 tracking-tight">
+              Who Should Join?
+            </h2>
+            <p className="text-xl md:text-2xl font-light text-white/80 mb-16">
+              You might be a great fit if you:
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto">
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="w-2 h-2 bg-white rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                  <p className="text-lg text-white/80">Love empowering others with knowledge</p>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-2 h-2 bg-white rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                  <p className="text-lg text-white/80">Believe in the value of financial education</p>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="w-2 h-2 bg-white rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                  <p className="text-lg text-white/80">Want to build something meaningful alongside your current commitments</p>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-2 h-2 bg-white rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                  <p className="text-lg text-white/80">Are hungry to grow as a leader</p>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Call to Action */}
-            <div className="text-center">
-              <button
-                onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
-                className="px-8 py-4 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium"
-              >
-                Join Our Movement
-              </button>
-            </div>
+        {/* Call to Action */}
+        <div className="px-6 pb-32">
+          <div className="max-w-4xl mx-auto text-center">
+            <button
+              onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
+              className="bg-white text-black px-12 py-4 rounded-full text-lg font-medium hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            >
+              Join Our Movement
+            </button>
           </div>
         </div>
       </div>
