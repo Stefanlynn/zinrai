@@ -627,7 +627,7 @@ export default function Home() {
                   Unlock Your <span className="text-transparent bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text font-semibold">Influence</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Become a Brand Promoter and share our financial education, leadership development, and personal growth tools. As a promoter, you'll share the ZiNRAi<span className="text-xs align-super">™</span> vision, connect others to our platform, and grow alongside a values-driven community.
+                  Become a Brand Promoter and share our online education, leadership development, and personal growth tools. As a promoter, you'll share the ZiNRAi<span className="text-xs align-super">™</span> vision, connect others to our platform, and grow alongside a values-driven community.
                 </p>
               </div>
               
