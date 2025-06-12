@@ -27,7 +27,9 @@ export default function Footer() {
               <p>3333 Renaissance Blvd</p>
               <p>Suite #209</p>
               <p>Bonita Springs, FL 34134</p>
-              <p className="font-bold text-white mt-2 text-base bg-gray-800 p-2 rounded">Email: support@zinrai.com</p>
+            </div>
+            <div className="mt-4 p-3 bg-white text-black rounded font-bold text-center">
+              Email: support@zinrai.com
             </div>
           </div>
 
