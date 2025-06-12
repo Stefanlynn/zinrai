@@ -747,7 +747,7 @@ export default function Home() {
           </div>
 
           {/* Contact Email */}
-          <div className="border-t border-white/20 pt-6 pb-2">
+          <div className="pt-6 pb-2">
             <div className="text-center">
               <div className="inline-block p-3 bg-gray-800 text-white rounded font-bold">
                 Email: support@zinrai.com
