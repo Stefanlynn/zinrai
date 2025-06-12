@@ -27,11 +27,13 @@ export default function Footer() {
               <p>3333 Renaissance Blvd</p>
               <p>Suite #209</p>
               <p>Bonita Springs, FL 34134</p>
-              <p className="font-bold mt-2 text-white">
-                <a href="mailto:support@zinrai.com" className="text-white hover:text-blue-400 transition-colors">
-                  support@zinrai.com
-                </a>
-              </p>
+              <div className="mt-3 pt-2 border-t border-white/20">
+                <p className="font-bold text-white text-base">
+                  <a href="mailto:support@zinrai.com" className="text-white hover:text-blue-400 transition-colors">
+                    support@zinrai.com
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
 
