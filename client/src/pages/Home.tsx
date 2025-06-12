@@ -566,7 +566,7 @@ export default function Home() {
                   Unlock Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Growth</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Explore financial education across forex, crypto, digital marketing, and e-commerce.
+                  Explore online education across forex, crypto, digital marketing, and e-commerce.
                   Our courses are led by educators and designed to equip you with foundational knowledge, real-world insights, and the confidence to make informed decisions.
                 </p>
               </div>
