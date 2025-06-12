@@ -173,6 +173,15 @@ export default function Footer() {
               </a>
             </div>
             <div className="text-sm">
+              <div className="mb-3">
+                <p className="text-white/70 mb-1">Contact Support:</p>
+                <a 
+                  href="mailto:support@zinrai.com"
+                  className="text-white hover:text-blue-400 transition-colors font-bold"
+                >
+                  support@zinrai.com
+                </a>
+              </div>
               <button 
                 onClick={() => handleNavigation("/contact")}
                 className="text-white/70 hover:text-white transition-colors block mb-2"
