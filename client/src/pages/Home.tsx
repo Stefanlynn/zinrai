@@ -756,7 +756,7 @@ export default function Home() {
           </div>
 
           {/* Disclaimer */}
-          <div className="border-t border-white/20 pt-8 mb-6">
+          <div className="pt-8 mb-6">
             <h4 className="text-base font-bold mb-4">Important Disclaimer</h4>
             <p className="text-sm font-bold leading-relaxed">
               ZiNRAi™ products include digital and online interactive training content for analyzing, learning, and discussing general and generic information related to investments and strategies. ZiNRAi™ does not facilitate or offer access to online platforms for investment or online trading in securities, currency (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide any regulated financial services.
