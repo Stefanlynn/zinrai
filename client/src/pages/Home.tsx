@@ -566,13 +566,14 @@ export default function Home() {
                   Unlock Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Growth</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Explore financial education across forex, crypto, digital marketing, and e-commerce. Our courses are led by experienced educators and designed to equip you with foundational knowledge, real-world insights, and the confidence to make informed decisions.
+                  Explore financial education across forex, crypto, digital marketing, and e-commerce.
+                  Our courses are led by educators and designed to equip you with foundational knowledge, real-world insights, and the confidence to make informed decisions.
                 </p>
               </div>
               
               {/* Features list */}
               <div className="space-y-4">
-                {['Expert-Led Lessons', 'Risk Awareness & Strategy', 'Market Insight & Analysis', 'Entrepreneurial Education Tracks'].map((feature, index) => (
+                {['Live Interactive Sessions', 'Risk Awareness & Strategy', 'Market Insight & Analysis', 'Variety of entrepreneurial classes'].map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                     <span className="text-white/80">{feature}</span>
@@ -626,13 +627,13 @@ export default function Home() {
                   Unlock Your <span className="text-transparent bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text font-semibold">Influence</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Become a Brand Promoter and help expand access to financial education, leadership development, and personal growth tools. As a promoter, you'll share the ZiNRAi<span className="text-xs align-super">™</span> vision, connect others to our platform, and grow alongside a values-driven community.
+                  Become a Brand Promoter and share our financial education, leadership development, and personal growth tools. As a promoter, you'll share the ZiNRAi<span className="text-xs align-super">™</span> vision, connect others to our platform, and grow alongside a values-driven community.
                 </p>
               </div>
               
               {/* Benefits list */}
               <div className="space-y-4">
-                {['Flexible Involvement', 'Personal Growth Opportunities', 'Training & Tools Provided', 'Make an Impact Through Education'].map((benefit, index) => (
+                {['Choose your own schedule', 'Personal Growth Opportunities', 'Training & Tools Provided', 'Share products you love'].map((benefit, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                     <span className="text-white/80">{benefit}</span>
