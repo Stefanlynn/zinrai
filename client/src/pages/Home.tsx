@@ -683,9 +683,6 @@ export default function Home() {
                 <p>Suite #209</p>
                 <p>Bonita Springs, FL 34134</p>
               </div>
-              <div className="mt-4 p-3 bg-gray-800 text-white rounded font-bold text-center">
-                Email: support@zinrai.com
-              </div>
             </div>
 
             {/* Legal Links */}
@@ -745,6 +742,15 @@ export default function Home() {
                 >
                   <FaYoutube className="w-5 h-5" />
                 </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Email */}
+          <div className="border-t border-white/20 pt-6 pb-2">
+            <div className="text-center">
+              <div className="inline-block p-3 bg-gray-800 text-white rounded font-bold">
+                Email: support@zinrai.com
               </div>
             </div>
           </div>
