@@ -28,7 +28,7 @@ export default function Footer() {
               <p>Suite #209</p>
               <p>Bonita Springs, FL 34134</p>
             </div>
-            <div className="mt-4 p-3 bg-white text-black rounded font-bold text-center">
+            <div className="mt-4 p-3 bg-gray-800 text-white rounded font-bold text-center">
               Email: support@zinrai.com
             </div>
           </div>
