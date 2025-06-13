@@ -25,7 +25,7 @@ export default function TermsOfUse() {
           <div className="bg-black/30 border border-white/10 rounded-lg p-8">
             <div className="prose prose-invert max-w-none text-white/80 leading-relaxed space-y-6">
               <div className="text-center mb-8">
-                <p className="text-lg font-medium text-white">Effective Date: [DATE]</p>
+                <p className="text-lg font-medium text-white">Effective Date: June 10, 2025</p>
               </div>
 
               <div className="bg-red-900/20 border border-red-500/30 rounded p-4 mb-6">
