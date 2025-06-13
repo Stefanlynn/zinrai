@@ -10,6 +10,7 @@ export default function StartNow() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [hasReferral, setHasReferral] = useState(true);
+  const [ageVerified, setAgeVerified] = useState(false);
 
   // Extract referral ID from URL on component mount
   useEffect(() => {
@@ -155,9 +156,23 @@ export default function StartNow() {
               />
             </div>
 
+            {/* Age Verification Checkbox */}
+            <div className="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="ageVerification"
+                checked={ageVerified}
+                onChange={(e) => setAgeVerified(e.target.checked)}
+                className="mt-1 w-4 h-4 text-[var(--zinrai-blue-glow)] bg-black/50 border border-white/20 rounded focus:ring-[var(--zinrai-blue-glow)] focus:ring-2"
+              />
+              <label htmlFor="ageVerification" className="text-white/70 text-sm leading-relaxed">
+                By checking this box, you certify that you are at least 18 years old. Individuals under 18 are not permitted to enroll, access, or use this service. Providing false information may result in the termination of your account and other legal consequences.
+              </label>
+            </div>
+
             <button
               type="submit"
-              disabled={isSubmitting || !hasReferral}
+              disabled={isSubmitting || !hasReferral || !ageVerified}
               className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(104,172,255,0.3)] focus:outline-none focus:ring-2 focus:ring-[var(--zinrai-blue-glow)]/50"
             >
               {isSubmitting ? 'Joining...' : 'Join ZiNRAi'}
