@@ -15,9 +15,14 @@ export default function BrandPromoterAgreement() {
               <div className="text-5xl font-bold text-white mb-2">$24.95</div>
               <p className="text-green-300 font-medium">Join the ZiNRAi™ Brand Promoter Program</p>
             </div>
-            <p className="text-white/80 leading-relaxed">
+            <p className="text-white/80 leading-relaxed mb-4">
               Become a Brand Promoter and start earning while sharing ZiNRAi™ products and educational content with others.
             </p>
+            <div className="bg-black/20 rounded-lg p-4 border border-white/10">
+              <p className="text-white/70 text-sm leading-relaxed">
+                This is a one-time enrollment fee to join the Brand Promoter program. After enrollment, you may select your preferred monthly membership plan. Your recurring monthly billing will commence 28 days following your initial enrollment date.
+              </p>
+            </div>
           </div>
         </div>
 
