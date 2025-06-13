@@ -458,49 +458,22 @@ export default function Product() {
                 Select the membership plan that fits your learning goals and unlock your growth potential.
               </p>
               
-              {/* Detailed Description */}
-              <div className="max-w-4xl mx-auto bg-black/20 rounded-lg p-8 border border-white/10 mb-12">
-                <div className="text-left space-y-4">
-                  <h3 className="text-xl font-semibold text-white mb-4">What's Included in Your Membership:</h3>
-                  
-                  <div className="grid md:grid-cols-2 gap-6 text-white/80">
-                    <div>
-                      <h4 className="font-medium text-white mb-2">Learn Now Live Sessions</h4>
-                      <p className="text-sm leading-relaxed">
-                        Interactive educational sessions covering forex, cryptocurrency, digital marketing, and e-commerce. 
-                        Led by experienced educators with real-world insights and practical strategies.
-                      </p>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-medium text-white mb-2">Private Learning Community</h4>
-                      <p className="text-sm leading-relaxed">
-                        Connect with like-minded learners, share experiences, ask questions, and network with peers 
-                        on your educational journey. Available with VIP Access.
-                      </p>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-medium text-white mb-2">Early Product Access</h4>
-                      <p className="text-sm leading-relaxed">
-                        Be the first to access new courses, tools, and educational content as they're released. 
-                        Stay ahead with cutting-edge learning materials. VIP Access exclusive.
-                      </p>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-medium text-white mb-2">28-Day Membership Cycles</h4>
-                      <p className="text-sm leading-relaxed">
-                        Flexible membership structure with 28-day billing cycles, giving you consistent access 
-                        to all educational content and community features.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="border-t border-white/10 pt-4 mt-6">
-                    <p className="text-white/60 text-sm text-center">
-                      All memberships provide access to our comprehensive educational platform designed to help you 
-                      build practical skills in today's most valuable digital markets.
+              {/* Pricing Breakdown */}
+              <div className="max-w-3xl mx-auto bg-black/20 rounded-lg p-6 border border-white/10 mb-12">
+                <h3 className="text-xl font-semibold text-white text-center mb-4">Membership Pricing Breakdown</h3>
+                <div className="text-white/80 text-center space-y-3">
+                  <p className="text-sm leading-relaxed">
+                    <span className="text-blue-300 font-medium">ALL ACCESS Starter:</span> One-time payment of $199.95 until July 1st for full access to all educational content.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    <span className="text-green-300 font-medium">ALL ACCESS Monthly:</span> $184.95 per month for ongoing access to live sessions and educational materials.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    <span className="text-purple-300 font-medium">VIP ACCESS Monthly:</span> $249.95 per month includes everything plus private community access and early product launches.
+                  </p>
+                  <div className="border-t border-white/10 pt-3 mt-4">
+                    <p className="text-white/60 text-xs">
+                      All memberships operate on 28-day billing cycles and provide immediate access to ZiNRAi™ educational platform.
                     </p>
                   </div>
                 </div>
