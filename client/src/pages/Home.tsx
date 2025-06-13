@@ -560,13 +560,13 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20 mb-6">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-blue-300 text-sm font-medium">Financial Education</span>
+                  <span className="text-blue-300 text-sm font-medium">Online Education</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
                   Unlock Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Growth</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Explore online education across forex, crypto, digital marketing, and e-commerce.
+                  Explore hands on education across forex, crypto, digital marketing, and e-commerce.
                   Our courses are led by educators and designed to equip you with foundational knowledge, real-world insights, and the confidence to make informed decisions.
                 </p>
               </div>
