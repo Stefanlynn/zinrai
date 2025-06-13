@@ -476,7 +476,7 @@ export default function Product() {
                   
                   <div className="mb-8">
                     <div className="text-4xl font-bold text-white mb-2">$199.95</div>
-                    <p className="text-white/60 text-sm">(till July first)</p>
+                    <p className="text-white/60 text-sm">(till July 1st)</p>
                   </div>
                 </div>
               </div>
@@ -516,7 +516,7 @@ export default function Product() {
                   
                   <div className="mb-8">
                     <div className="text-4xl font-bold text-white mb-2">$249.95</div>
-                    <p className="text-white/60 text-sm">(80 cv)</p>
+                    <p className="text-white/60 text-sm">per month</p>
                   </div>
                   
                   <div className="text-left space-y-3 mb-8">

@@ -7,6 +7,20 @@ export default function BrandPromoterAgreement() {
           <p className="text-white/70 text-lg">Effective Date: June 10, 2025</p>
         </div>
 
+        {/* Brand Promoter Pricing */}
+        <div className="bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-xl p-8 mb-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold text-white mb-4">Brand Promoter Membership</h2>
+            <div className="mb-6">
+              <div className="text-5xl font-bold text-white mb-2">$24.95</div>
+              <p className="text-green-300 font-medium">Join the ZiNRAi™ Brand Promoter Program</p>
+            </div>
+            <p className="text-white/80 leading-relaxed">
+              Become a Brand Promoter and start earning while sharing ZiNRAi™ products and educational content with others.
+            </p>
+          </div>
+        </div>
+
         <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6 mb-8">
           <p className="text-red-200 font-medium text-sm leading-relaxed">
             <strong>PLEASE READ THIS BRAND PROMOTER AGREEMENT CAREFULLY.</strong> THIS BRAND PROMOTER AGREEMENT REQUIRES 
