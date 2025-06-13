@@ -7,20 +7,27 @@ export default function BrandPromoterAgreement() {
           <p className="text-white/70 text-lg">Effective Date: June 10, 2025</p>
         </div>
 
-        {/* Brand Promoter Pricing */}
-        <div className="bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-xl p-8 mb-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-semibold text-white mb-4">Brand Promoter Membership</h2>
-            <div className="mb-6">
-              <div className="text-5xl font-bold text-white mb-2">$24.95</div>
-              <p className="text-green-300 font-medium">Join the ZiNRAi™ Brand Promoter Program</p>
+        {/* Brand Promoter How It Works */}
+        <div className="max-w-4xl mx-auto bg-black/30 rounded-lg p-4 md:p-6 border border-white/20 mb-8 shadow-lg">
+          <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">How ZiNRAi™ Brand Promoter Works</h3>
+          <div className="text-white/90 space-y-4">
+            <div className="bg-green-900/30 rounded-lg p-3 md:p-4 border border-green-400/30">
+              <p className="text-sm md:text-base leading-relaxed font-medium text-green-300 mb-2">Step 1: Brand Promoter Enrollment</p>
+              <p className="text-xs md:text-sm leading-relaxed text-white/80">
+                Pay a one-time enrollment fee of $24.95 to join the ZiNRAi™ Brand Promoter program and start earning commissions by sharing our educational products.
+              </p>
             </div>
-            <p className="text-white/80 leading-relaxed mb-4">
-              Become a Brand Promoter and start earning while sharing ZiNRAi™ products and educational content with others.
-            </p>
-            <div className="bg-black/20 rounded-lg p-4 border border-white/10">
-              <p className="text-white/70 text-sm leading-relaxed">
-                This is a one-time enrollment fee to join the Brand Promoter program. After enrollment, you may select your preferred monthly membership plan. Your recurring monthly billing will commence 28 days following your initial enrollment date.
+            
+            <div className="bg-blue-900/30 rounded-lg p-3 md:p-4 border border-blue-400/30">
+              <p className="text-sm md:text-base leading-relaxed font-medium text-blue-300 mb-2">Step 2: Choose Your Monthly Access Plan</p>
+              <p className="text-xs md:text-sm leading-relaxed text-white/80">
+                After enrollment, select either ALL ACCESS Monthly ($184.95) or VIP ACCESS Monthly ($249.95) to access educational content. Your first monthly billing begins 28 days after enrollment.
+              </p>
+            </div>
+            
+            <div className="border-t border-white/20 pt-3 mt-4">
+              <p className="text-white/60 text-xs md:text-sm text-center">
+                Brand Promoters earn commissions while accessing the same high-quality educational content with 28-day billing cycles.
               </p>
             </div>
           </div>
