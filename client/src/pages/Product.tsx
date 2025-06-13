@@ -538,20 +538,7 @@ export default function Product() {
               </div>
             </div>
 
-            <div className="text-center mt-12">
-              <button
-                onClick={() => setShowOnboardingModal(true)}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-                <div className="relative flex items-center justify-center">
-                  <span className="font-medium">Get Started Today</span>
-                  <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </button>
-            </div>
+
           </div>
         </div>
       </div>
