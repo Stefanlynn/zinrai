@@ -459,25 +459,25 @@ export default function Product() {
               </p>
               
               {/* Pricing Breakdown */}
-              <div className="max-w-3xl mx-auto bg-black/20 rounded-lg p-6 border border-white/10 mb-8">
-                <h3 className="text-xl font-semibold text-white text-center mb-4">How ZiNRAi™ Membership Works</h3>
-                <div className="text-white/80 text-center space-y-4">
-                  <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-400/20">
-                    <p className="text-sm leading-relaxed font-medium text-blue-300 mb-2">Step 1: Start with ALL ACCESS Starter</p>
-                    <p className="text-sm leading-relaxed">
+              <div className="max-w-4xl mx-auto bg-black/30 rounded-lg p-4 md:p-6 border border-white/20 mb-8 shadow-lg">
+                <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">How ZiNRAi™ Membership Works</h3>
+                <div className="text-white/90 space-y-4">
+                  <div className="bg-blue-900/30 rounded-lg p-3 md:p-4 border border-blue-400/30">
+                    <p className="text-sm md:text-base leading-relaxed font-medium text-blue-300 mb-2">Step 1: Start with ALL ACCESS Starter</p>
+                    <p className="text-xs md:text-sm leading-relaxed text-white/80">
                       Everyone begins with a one-time payment of $199.95 (available until July 1st) for immediate access to all educational content and live sessions.
                     </p>
                   </div>
                   
-                  <div className="bg-green-900/20 rounded-lg p-4 border border-green-400/20">
-                    <p className="text-sm leading-relaxed font-medium text-green-300 mb-2">Step 2: Choose Your Monthly Plan</p>
-                    <p className="text-sm leading-relaxed">
+                  <div className="bg-green-900/30 rounded-lg p-3 md:p-4 border border-green-400/30">
+                    <p className="text-sm md:text-base leading-relaxed font-medium text-green-300 mb-2">Step 2: Choose Your Monthly Plan</p>
+                    <p className="text-xs md:text-sm leading-relaxed text-white/80">
                       After your starter access, select either ALL ACCESS Monthly ($184.95) or VIP ACCESS Monthly ($249.95). Your first monthly billing begins 28 days after your starter payment.
                     </p>
                   </div>
                   
-                  <div className="border-t border-white/10 pt-3 mt-4">
-                    <p className="text-white/60 text-xs">
+                  <div className="border-t border-white/20 pt-3 mt-4">
+                    <p className="text-white/60 text-xs md:text-sm text-center">
                       All monthly plans operate on 28-day billing cycles with continuous access to the ZiNRAi™ educational platform.
                     </p>
                   </div>
