@@ -166,7 +166,11 @@ export default function StartNow() {
                 className="mt-1 w-4 h-4 text-[var(--zinrai-blue-glow)] bg-black/50 border border-white/20 rounded focus:ring-[var(--zinrai-blue-glow)] focus:ring-2"
               />
               <label htmlFor="ageVerification" className="text-white/70 text-sm leading-relaxed">
-                By checking this box, you certify that you are at least 18 years old. Individuals under 18 are not permitted to enroll, access, or use this service. Providing false information may result in the termination of your account and other legal consequences.
+                Membership with ZiNRAi is strictly limited to individuals who are 18 years of age or older. By purchasing a membership and selecting this checkbox, you confirm that you meet this minimum age requirement.
+                <br /><br />
+                Providing false information regarding your age is a violation of our terms and will result in the immediate termination of your account. If it is discovered that an account is being used by someone under the age of 18, the account will be terminated without notice and all access permanently denied.
+                <br /><br />
+                ZiNRAi reserves the right to take further action if deemed necessary to enforce this policy.
               </label>
             </div>
 
