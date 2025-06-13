@@ -695,6 +695,7 @@ export default function Home() {
                 <li><a href="/refund-policy" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
                 <li><a href="/cookie-policy" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
                 <li><a href="/ibo-terms" className="text-white/70 hover:text-white transition-colors">BP Terms & Conditions</a></li>
+                <li><a href="/japan-statutory-matters" className="text-white/70 hover:text-white transition-colors">Japan Statutory Advertisement Matters</a></li>
               </ul>
             </div>
 

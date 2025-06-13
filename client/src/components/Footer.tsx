@@ -140,6 +140,14 @@ export default function Footer() {
                   BP Agreement
                 </button>
               </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation("/japan-statutory-matters")}
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  Japan Statutory Advertisement Matters
+                </button>
+              </li>
             </ul>
           </div>
 
