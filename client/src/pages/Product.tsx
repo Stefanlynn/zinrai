@@ -447,7 +447,7 @@ export default function Product() {
       )}
       
       {/* Pricing Section */}
-      <div className="w-full bg-black/60 border-t border-white/10 mt-16">
+      <div className="relative z-10 w-full bg-black/60 border-t border-white/10 mt-16">
         <div className="px-8 md:px-16 py-20">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
@@ -459,7 +459,7 @@ export default function Product() {
               </p>
               
               {/* Pricing Breakdown */}
-              <div className="max-w-4xl mx-auto bg-red-900/50 rounded-lg p-4 md:p-6 border-2 border-red-500 mb-8 shadow-lg">
+              <div className="max-w-4xl mx-auto bg-black/30 rounded-lg p-4 md:p-6 border border-white/20 mb-8 shadow-lg">
                 <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">How ZiNRAi™ Membership Works</h3>
                 <div className="text-white/90 space-y-4">
                   <div className="bg-blue-900/30 rounded-lg p-3 md:p-4 border border-blue-400/30">
