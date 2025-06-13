@@ -454,9 +454,57 @@ export default function Product() {
               <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
                 Choose Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Access</span>
               </h2>
-              <p className="text-white/70 text-lg max-w-2xl mx-auto">
+              <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
                 Select the membership plan that fits your learning goals and unlock your growth potential.
               </p>
+              
+              {/* Detailed Description */}
+              <div className="max-w-4xl mx-auto bg-black/20 rounded-lg p-8 border border-white/10 mb-12">
+                <div className="text-left space-y-4">
+                  <h3 className="text-xl font-semibold text-white mb-4">What's Included in Your Membership:</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 text-white/80">
+                    <div>
+                      <h4 className="font-medium text-white mb-2">Learn Now Live Sessions</h4>
+                      <p className="text-sm leading-relaxed">
+                        Interactive educational sessions covering forex, cryptocurrency, digital marketing, and e-commerce. 
+                        Led by experienced educators with real-world insights and practical strategies.
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-medium text-white mb-2">Private Learning Community</h4>
+                      <p className="text-sm leading-relaxed">
+                        Connect with like-minded learners, share experiences, ask questions, and network with peers 
+                        on your educational journey. Available with VIP Access.
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-medium text-white mb-2">Early Product Access</h4>
+                      <p className="text-sm leading-relaxed">
+                        Be the first to access new courses, tools, and educational content as they're released. 
+                        Stay ahead with cutting-edge learning materials. VIP Access exclusive.
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-medium text-white mb-2">28-Day Membership Cycles</h4>
+                      <p className="text-sm leading-relaxed">
+                        Flexible membership structure with 28-day billing cycles, giving you consistent access 
+                        to all educational content and community features.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="border-t border-white/10 pt-4 mt-6">
+                    <p className="text-white/60 text-sm text-center">
+                      All memberships provide access to our comprehensive educational platform designed to help you 
+                      build practical skills in today's most valuable digital markets.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Pricing Cards */}
