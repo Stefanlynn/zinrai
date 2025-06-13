@@ -478,6 +478,14 @@ export default function Product() {
                     <div className="text-4xl font-bold text-white mb-2">$199.95</div>
                     <p className="text-white/60 text-sm">(till July 1st)</p>
                   </div>
+                  
+                  <div className="text-left space-y-3 mb-8">
+                    <p className="text-white font-medium text-sm mb-3">ALL ACCESS MEMBERSHIP</p>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-white/80 text-sm">ACCESS TO ALL LEARN NOW LIVE SESSIONS</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
