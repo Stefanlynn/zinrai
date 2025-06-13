@@ -446,8 +446,118 @@ export default function Product() {
         </div>
       )}
       
+      {/* Pricing Section */}
+      <div className="w-full bg-black/60 border-t border-white/10 mt-16">
+        <div className="px-8 md:px-16 py-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
+                Choose Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Access</span>
+              </h2>
+              <p className="text-white/70 text-lg max-w-2xl mx-auto">
+                Select the membership plan that fits your learning goals and unlock your growth potential.
+              </p>
+            </div>
+
+            {/* Pricing Cards */}
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              
+              {/* ALL ACCESS Starter */}
+              <div className="relative bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-xl p-8 hover:border-blue-500/50 transition-all duration-300">
+                <div className="absolute top-4 right-4">
+                  <div className="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium">
+                    LIMITED TIME
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <h3 className="text-2xl font-semibold text-white mb-2">ALL ACCESS</h3>
+                  <p className="text-blue-300 font-medium mb-6">Starter</p>
+                  
+                  <div className="mb-8">
+                    <div className="text-4xl font-bold text-white mb-2">$199.95</div>
+                    <p className="text-white/60 text-sm">(till July first)</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* ALL ACCESS Monthly */}
+              <div className="relative bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-xl p-8 hover:border-green-500/50 transition-all duration-300">
+                <div className="text-center">
+                  <h3 className="text-2xl font-semibold text-white mb-2">ALL ACCESS</h3>
+                  <p className="text-green-300 font-medium mb-6">Monthly</p>
+                  
+                  <div className="mb-8">
+                    <div className="text-4xl font-bold text-white mb-2">$184.95</div>
+                    <p className="text-white/60 text-sm">per month</p>
+                  </div>
+                  
+                  <div className="text-left space-y-3 mb-8">
+                    <p className="text-white font-medium text-sm mb-3">ALL ACCESS MEMBERSHIP (28 DAYS)</p>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-white/80 text-sm">ACCESS TO ALL LEARN NOW LIVE SESSIONS</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* VIP ACCESS Monthly */}
+              <div className="relative bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-8 hover:border-purple-500/50 transition-all duration-300">
+                <div className="absolute top-4 right-4">
+                  <div className="bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-medium">
+                    MOST POPULAR
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <h3 className="text-2xl font-semibold text-white mb-2">VIP ACCESS</h3>
+                  <p className="text-purple-300 font-medium mb-6">Monthly</p>
+                  
+                  <div className="mb-8">
+                    <div className="text-4xl font-bold text-white mb-2">$249.95</div>
+                    <p className="text-white/60 text-sm">(80 cv)</p>
+                  </div>
+                  
+                  <div className="text-left space-y-3 mb-8">
+                    <p className="text-white font-medium text-sm mb-3">VIP ACCESS MEMBERSHIP (28 DAYS)</p>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-white/80 text-sm">ACCESS TO ALL LEARN NOW LIVE SESSIONS</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-white/80 text-sm">ACCESS TO PRIVATE LEARNING COMMUNITY</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-white/80 text-sm">EARLY ACCESS TO NEW PRODUCT LAUNCHES</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <button
+                onClick={() => setShowOnboardingModal(true)}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-white/20 text-white hover:border-white/40 transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                <div className="relative flex items-center justify-center">
+                  <span className="font-medium">Get Started Today</span>
+                  <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Contact Information Section */}
-      <div className="w-full bg-black/40 border-t border-white/10 mt-16">
+      <div className="w-full bg-black/40 border-t border-white/10">
         <div className="px-8 md:px-16 py-16">
           <div className="text-center max-w-2xl mx-auto">
             <h3 className="text-white text-2xl font-medium mb-6">Ready to get started?</h3>
