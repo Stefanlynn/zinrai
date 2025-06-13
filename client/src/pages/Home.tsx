@@ -404,12 +404,6 @@ export default function Home() {
                   CULTURE
                 </button>
                 <button
-                  onClick={() => navigateToPage("/insights")}
-                  className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
-                >
-                  INSIGHTS
-                </button>
-                <button
                   onClick={() => navigateToPage("/leadership")}
                   className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
                 >
@@ -706,7 +700,6 @@ export default function Home() {
                 <li><a href="/product" className="text-white/70 hover:text-white transition-colors">Courses</a></li>
                 <li><a href="/partner" className="text-white/70 hover:text-white transition-colors">Brand Promoter</a></li>
                 <li><a href="/culture" className="text-white/70 hover:text-white transition-colors">Culture</a></li>
-                <li><a href="/insights" className="text-white/70 hover:text-white transition-colors">Insights</a></li>
                 <li><a href="/leadership" className="text-white/70 hover:text-white transition-colors">Leadership</a></li>
                 <li><a href="/contact" className="text-white/70 hover:text-white transition-colors">Contact</a></li>
               </ul>

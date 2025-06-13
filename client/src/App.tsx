@@ -207,9 +207,7 @@ function Router() {
       <Route path="/culture">
         {() => <PageWithHeader><Culture /></PageWithHeader>}
       </Route>
-      <Route path="/insights">
-        {() => <PageWithHeader><Insights /></PageWithHeader>}
-      </Route>
+
       <Route path="/leadership">
         {() => <PageWithHeader><Leadership /></PageWithHeader>}
       </Route>
@@ -452,16 +450,6 @@ function App() {
             </a>
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
-              href="/insights"
-              onClick={(e) => {
-                e.preventDefault();
-                setLocation('/insights');
-              }}
-            >
-              Insights
-            </a>
-            <a 
-              className="text-white/70 text-sm font-light hover:text-white transition-colors"
               href="/contact"
               onClick={(e) => {
                 e.preventDefault();
@@ -625,21 +613,6 @@ function App() {
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
-                          <button 
-                            onClick={() => {
-                              setLocation('/insights');
-                              toggleMenu();
-                            }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                          >
-                            Insights
-                          </button>
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <div className="flex items-start">
-                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">07</div>
                           <button 
                             onClick={() => {
                               setLocation('/contact');
