@@ -16,7 +16,7 @@ export default function JapanStatutoryMatters() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <p><span className="font-semibold">Company Name:</span> Zinrai LLC</p>
-                  <p><span className="font-semibold">Executor:</span> Jason Brown</p>
+                  <p><span className="font-semibold">Executor:</span> Kenneth Doherty</p>
                 </div>
                 <div>
                   <p><span className="font-semibold">Location:</span> 3333 Renaissance Blvd, Suite #209<br />
