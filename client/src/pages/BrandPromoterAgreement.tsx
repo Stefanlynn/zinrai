@@ -8,7 +8,7 @@ export default function BrandPromoterAgreement() {
         </div>
 
         {/* Brand Promoter How It Works */}
-        <div className="max-w-4xl mx-auto bg-black/30 rounded-lg p-4 md:p-6 border border-white/20 mb-8 shadow-lg">
+        <div className="relative z-10 max-w-4xl mx-auto bg-black/30 rounded-lg p-4 md:p-6 border border-white/20 mb-8 shadow-lg">
           <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">How ZiNRAi™ Brand Promoter Works</h3>
           <div className="text-white/90 space-y-4">
             <div className="bg-green-900/30 rounded-lg p-3 md:p-4 border border-green-400/30">
