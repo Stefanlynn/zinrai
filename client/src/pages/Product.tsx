@@ -450,7 +450,7 @@ export default function Product() {
       <div className="w-full bg-black/60 border-t border-white/10 mt-16">
         <div className="px-8 md:px-16 py-20">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
                 Choose Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Access</span>
               </h2>
@@ -459,7 +459,7 @@ export default function Product() {
               </p>
               
               {/* Pricing Breakdown */}
-              <div className="max-w-3xl mx-auto bg-black/20 rounded-lg p-6 border border-white/10 mb-12">
+              <div className="max-w-3xl mx-auto bg-black/20 rounded-lg p-6 border border-white/10 mb-8">
                 <h3 className="text-xl font-semibold text-white text-center mb-4">Membership Pricing Breakdown</h3>
                 <div className="text-white/80 text-center space-y-3">
                   <p className="text-sm leading-relaxed">
