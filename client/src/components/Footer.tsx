@@ -126,14 +126,6 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => handleNavigation("/ibo-terms")}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  BP Terms
-                </button>
-              </li>
-              <li>
-                <button 
                   onClick={() => handleNavigation("/brand-promoter-agreement")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
