@@ -461,12 +461,6 @@ export default function Home() {
                     onClick={() => navigateToPage("/brand-promoter-agreement")}
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
-                    BP Terms & Conditions
-                  </button>
-                  <button
-                    onClick={() => navigateToPage("/brand-promoter-agreement")}
-                    className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
-                  >
                     BP Agreement
                   </button>
                 </div>
