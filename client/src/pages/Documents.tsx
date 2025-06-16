@@ -43,7 +43,7 @@ export default function Documents() {
 
         <div 
           className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
-          onClick={() => handleDocumentClick('/ibo-terms', 'BP Terms & Conditions')}>
+          onClick={() => handleDocumentClick('/brand-promoter-agreement', 'BP Terms & Conditions')}>
           <h3 className="text-xl font-medium mb-3 text-white">BP Terms & Conditions</h3>
           <p className="text-white/60 text-sm mb-4">
             Business Promoter terms and conditions for partnership with ZiNRAi.

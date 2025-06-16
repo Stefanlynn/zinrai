@@ -691,7 +691,7 @@ function App() {
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 text-xs">
                         <button 
                           onClick={() => {
-                            setLocation('/ibo-terms');
+                            setLocation('/brand-promoter-agreement');
                             toggleMenu();
                           }}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"

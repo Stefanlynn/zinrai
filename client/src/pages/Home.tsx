@@ -458,7 +458,7 @@ export default function Home() {
                     Cookie Policy
                   </button>
                   <button
-                    onClick={() => navigateToPage("/ibo-terms")}
+                    onClick={() => navigateToPage("/brand-promoter-agreement")}
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
                     BP Terms & Conditions
