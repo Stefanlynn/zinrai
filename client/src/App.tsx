@@ -696,7 +696,7 @@ function App() {
                           }}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
-                          BP Terms & Conditions
+                          BP Agreement
                         </button>
                         <button 
                           onClick={() => {
