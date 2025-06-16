@@ -23,7 +23,7 @@ import Checkout from "@/pages/Checkout";
 import NotFound from "@/pages/not-found";
 import ConfirmationPage from "@/pages/ConfirmationPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import IboTerms from "@/pages/IboTerms";
+
 import CookiePolicy from "@/pages/CookiePolicy";
 import RefundPolicy from "@/pages/RefundPolicy";
 import TermsConditions from "@/pages/TermsConditions";
@@ -235,12 +235,7 @@ function Router() {
       <Route path="/privacy-policy">
         {() => <PageWithHeader><PrivacyPolicy /></PageWithHeader>}
       </Route>
-      <Route path="/ibo-terms">
-        {() => <PageWithHeader><IboTerms /></PageWithHeader>}
-      </Route>
-      <Route path="/bp-terms">
-        {() => <PageWithHeader><IboTerms /></PageWithHeader>}
-      </Route>
+
       <Route path="/brand-promoter-agreement">
         {() => <PageWithHeader><BrandPromoterAgreement /></PageWithHeader>}
       </Route>
