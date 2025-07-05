@@ -22,7 +22,7 @@ import Subscribe from "@/pages/Subscribe";
 import Checkout from "@/pages/Checkout";
 import NotFound from "@/pages/not-found";
 import ConfirmationPage from "@/pages/ConfirmationPage";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
+
 
 import CookiePolicy from "@/pages/CookiePolicy";
 import RefundPolicy from "@/pages/RefundPolicy";
@@ -232,9 +232,7 @@ function Router() {
       <Route path="/test">
         {() => <PageWithHeader><TestPage /></PageWithHeader>}
       </Route>
-      <Route path="/privacy-policy">
-        {() => <PageWithHeader><PrivacyPolicy /></PageWithHeader>}
-      </Route>
+
 
 
       <Route path="/cookie-policy">
@@ -701,15 +699,15 @@ function App() {
                         >
                           Cookie Policy
                         </button>
-                        <button 
-                          onClick={() => {
-                            setLocation('/privacy-policy');
-                            toggleMenu();
-                          }}
+                        <a 
+                          href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={toggleMenu}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
                           Privacy Policy
-                        </button>
+                        </a>
                         <button 
                           onClick={() => {
                             setLocation('/refund-policy');

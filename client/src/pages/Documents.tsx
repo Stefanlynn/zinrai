@@ -65,15 +65,17 @@ export default function Documents() {
           <span className="text-white/50 text-sm">View Document →</span>
         </div>
 
-        <div 
-          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
-          onClick={() => handleDocumentClick('/privacy-policy', 'Privacy Policy')}>
+        <a 
+          href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors block">
           <h3 className="text-xl font-medium mb-3 text-white">Privacy Policy</h3>
           <p className="text-white/60 text-sm mb-4">
             How we collect, use, and protect your personal information.
           </p>
           <span className="text-white/50 text-sm">View Document →</span>
-        </div>
+        </a>
 
         <div 
           className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"

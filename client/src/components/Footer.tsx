@@ -77,12 +77,14 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <button 
-                  onClick={() => handleNavigation("/privacy-policy")}
+                <a 
+                  href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
                   Privacy Policy
-                </button>
+                </a>
               </li>
               <li>
                 <a 
