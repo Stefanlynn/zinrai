@@ -697,7 +697,7 @@ export default function Home() {
                 <li><a href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
                 <li><a href="/assets/Cookie Policy 5-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Brand Promoter Agreement</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters_1751742760015.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Japan Statutory Advertisement Matters</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Japan Statutory Advertisement Matters</a></li>
               </ul>
             </div>
 

@@ -146,7 +146,7 @@ export default function Footer() {
               </li>
               <li>
                 <a 
-                  href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters_1751742760015.docx"
+                  href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
