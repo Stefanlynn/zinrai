@@ -25,7 +25,7 @@ import ConfirmationPage from "@/pages/ConfirmationPage";
 
 
 import CookiePolicy from "@/pages/CookiePolicy";
-import RefundPolicy from "@/pages/RefundPolicy";
+
 
 
 import TestPage from "@/pages/TestPage";
@@ -238,9 +238,7 @@ function Router() {
       <Route path="/cookie-policy">
         {() => <PageWithHeader><CookiePolicy /></PageWithHeader>}
       </Route>
-      <Route path="/refund-policy">
-        {() => <PageWithHeader><RefundPolicy /></PageWithHeader>}
-      </Route>
+
 
 
       <Route path="/documents">
@@ -708,15 +706,15 @@ function App() {
                         >
                           Privacy Policy
                         </a>
-                        <button 
-                          onClick={() => {
-                            setLocation('/refund-policy');
-                            toggleMenu();
-                          }}
+                        <a 
+                          href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={toggleMenu}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
                           Refund Policy
-                        </button>
+                        </a>
                         <a 
                           href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf"
                           target="_blank"

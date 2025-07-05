@@ -449,12 +449,14 @@ export default function Home() {
                   >
                     Terms of Use
                   </button>
-                  <button
-                    onClick={() => navigateToPage("/refund-policy")}
+                  <a
+                    href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
                     Refund Policy
-                  </button>
+                  </a>
                   <button
                     onClick={() => navigateToPage("/cookie-policy")}
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
@@ -690,7 +692,7 @@ export default function Home() {
                 <li><a href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Privacy Policy</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Member Agreement</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
-                <li><a href="/refund-policy" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
+                <li><a href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
                 <li><a href="/cookie-policy" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Brand Promoter Agreement</a></li>
                 <li><a href="/japan-statutory-matters" className="text-white/70 hover:text-white transition-colors">Japan Statutory Advertisement Matters</a></li>

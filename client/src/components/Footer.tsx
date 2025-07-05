@@ -107,12 +107,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation("/refund-policy")}
+                <a 
+                  href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
                   Refund Policy
-                </button>
+                </a>
               </li>
               <li>
                 <button 
