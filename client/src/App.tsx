@@ -26,7 +26,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 
 import CookiePolicy from "@/pages/CookiePolicy";
 import RefundPolicy from "@/pages/RefundPolicy";
-import TermsConditions from "@/pages/TermsConditions";
+
 import TermsOfUse from "@/pages/TermsOfUse";
 import TestPage from "@/pages/TestPage";
 import StartNow from "@/pages/StartNow";
@@ -245,9 +245,7 @@ function Router() {
       <Route path="/refund-policy">
         {() => <PageWithHeader><RefundPolicy /></PageWithHeader>}
       </Route>
-      <Route path="/terms-conditions">
-        {() => <PageWithHeader><TermsConditions /></PageWithHeader>}
-      </Route>
+
       <Route path="/terms-of-use">
         {() => <PageWithHeader><TermsOfUse /></PageWithHeader>}
       </Route>
@@ -725,15 +723,15 @@ function App() {
                         >
                           Refund Policy
                         </button>
-                        <button 
-                          onClick={() => {
-                            setLocation('/terms-conditions');
-                            toggleMenu();
-                          }}
+                        <a 
+                          href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={toggleMenu}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
                           Member Agreement
-                        </button>
+                        </a>
                         <button 
                           onClick={() => {
                             setLocation('/terms-of-use');

@@ -246,7 +246,7 @@ export default function Checkout() {
                 </div>
                 <div className="ml-3 text-sm">
                   <label htmlFor="terms" className="text-white/80">
-                    I agree to the <a href="#" className="text-white underline hover:text-white/80">Member Agreement</a> and understand this includes recurring billing.
+                    I agree to the <a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-white/80">Member Agreement</a> and understand this includes recurring billing.
                   </label>
                 </div>
               </div>

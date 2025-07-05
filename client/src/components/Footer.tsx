@@ -85,12 +85,14 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation("/terms-conditions")}
+                <a 
+                  href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
                   Member Agreement
-                </button>
+                </a>
               </li>
               <li>
                 <button 

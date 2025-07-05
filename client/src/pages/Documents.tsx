@@ -91,15 +91,17 @@ export default function Documents() {
           <span className="text-white/50 text-sm">View Document →</span>
         </div>
 
-        <div 
-          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
-          onClick={() => handleDocumentClick('/terms-conditions', 'Member Agreement')}>
+        <a 
+          href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors block">
           <h3 className="text-xl font-medium mb-3 text-white">Member Agreement</h3>
           <p className="text-white/60 text-sm mb-4">
             Member agreement for using ZiNRAi services and platform.
           </p>
           <span className="text-white/50 text-sm">View Document →</span>
-        </div>
+        </a>
 
         <div 
           className="bg-black/40 border border-white/20 rounded-lg p-6 mb-8 cursor-pointer hover:bg-black/50 transition-colors"

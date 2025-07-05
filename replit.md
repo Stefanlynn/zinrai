@@ -127,4 +127,5 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- January 5, 2025. Updated all "Terms & Conditions" references to "Member Agreement" and linked directly to PDF file instead of web page
 - June 16, 2025. Initial setup
