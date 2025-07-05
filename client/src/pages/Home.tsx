@@ -690,7 +690,7 @@ export default function Home() {
                 <li><a href="/terms-of-use" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
                 <li><a href="/refund-policy" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
                 <li><a href="/cookie-policy" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
-                <li><a href="/brand-promoter-agreement" className="text-white/70 hover:text-white transition-colors">Brand Promoter Agreement</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Brand Promoter Agreement</a></li>
                 <li><a href="/japan-statutory-matters" className="text-white/70 hover:text-white transition-colors">Japan Statutory Advertisement Matters</a></li>
               </ul>
             </div>

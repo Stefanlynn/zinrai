@@ -31,7 +31,7 @@ import TermsOfUse from "@/pages/TermsOfUse";
 import TestPage from "@/pages/TestPage";
 import StartNow from "@/pages/StartNow";
 import Documents from "@/pages/Documents";
-import BrandPromoterAgreement from "@/pages/BrandPromoterAgreement";
+
 import JapanStatutoryMatters from "@/pages/JapanStatutoryMatters";
 
 // Onboarding Form Component
@@ -236,9 +236,7 @@ function Router() {
         {() => <PageWithHeader><PrivacyPolicy /></PageWithHeader>}
       </Route>
 
-      <Route path="/brand-promoter-agreement">
-        {() => <PageWithHeader><BrandPromoterAgreement /></PageWithHeader>}
-      </Route>
+
       <Route path="/cookie-policy">
         {() => <PageWithHeader><CookiePolicy /></PageWithHeader>}
       </Route>
@@ -687,15 +685,15 @@ function App() {
                   <div className="px-6 md:px-16 pb-4">
                     <div className="border-t border-white/10 pt-4">
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 text-xs">
-                        <button 
-                          onClick={() => {
-                            setLocation('/brand-promoter-agreement');
-                            toggleMenu();
-                          }}
+                        <a 
+                          href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={toggleMenu}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
                           Brand Promoter Agreement
-                        </button>
+                        </a>
                         <button 
                           onClick={() => {
                             setLocation('/cookie-policy');

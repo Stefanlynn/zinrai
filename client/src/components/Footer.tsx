@@ -127,12 +127,14 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation("/brand-promoter-agreement")}
+                <a 
+                  href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
                   Brand Promoter Agreement
-                </button>
+                </a>
               </li>
               <li>
                 <button 

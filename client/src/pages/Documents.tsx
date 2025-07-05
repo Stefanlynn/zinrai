@@ -41,25 +41,19 @@ export default function Documents() {
           Access all ZiNRAi legal documents and policies in one place.
         </p>
 
-        <div 
-          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
-          onClick={() => handleDocumentClick('/brand-promoter-agreement', 'BP Terms & Conditions')}>
-          <h3 className="text-xl font-medium mb-3 text-white">BP Terms & Conditions</h3>
-          <p className="text-white/60 text-sm mb-4">
-            Business Promoter terms and conditions for partnership with ZiNRAi.
-          </p>
-          <span className="text-white/50 text-sm">View Document →</span>
-        </div>
 
-        <div 
-          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
-          onClick={() => handleDocumentClick('/brand-promoter-agreement', 'Brand Promoter Agreement')}>
+
+        <a 
+          href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors block">
           <h3 className="text-xl font-medium mb-3 text-white">Brand Promoter Agreement</h3>
           <p className="text-white/60 text-sm mb-4">
             Complete legal agreement for ZiNRAi Brand Promoters including arbitration terms and restrictive covenants.
           </p>
           <span className="text-white/50 text-sm">View Document →</span>
-        </div>
+        </a>
 
         <div 
           className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
