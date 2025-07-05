@@ -686,15 +686,15 @@ function App() {
                         >
                           Brand Promoter Agreement
                         </a>
-                        <button 
-                          onClick={() => {
-                            setLocation('/cookie-policy');
-                            toggleMenu();
-                          }}
+                        <a 
+                          href="/assets/Cookie Policy 5-2025.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={toggleMenu}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
                           Cookie Policy
-                        </button>
+                        </a>
                         <a 
                           href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf"
                           target="_blank"

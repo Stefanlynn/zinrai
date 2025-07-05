@@ -145,7 +145,7 @@ export default function CookieConsent() {
 
                 {/* Cookie Policy Link */}
                 <a
-                  href="/cookie-policy"
+                  href="/assets/Cookie Policy 5-2025.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 text-sm underline transition-colors"

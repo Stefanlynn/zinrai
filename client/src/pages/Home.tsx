@@ -443,12 +443,14 @@ export default function Home() {
                   >
                     Member Agreement
                   </a>
-                  <button
-                    onClick={() => navigateToPage("/terms-of-use")}
+                  <a
+                    href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
                     Terms of Use
-                  </button>
+                  </a>
                   <a
                     href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf"
                     target="_blank"
@@ -693,7 +695,7 @@ export default function Home() {
                 <li><a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Member Agreement</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
                 <li><a href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
-                <li><a href="/cookie-policy" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
+                <li><a href="/assets/Cookie Policy 5-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Brand Promoter Agreement</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters_1751742760015.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Japan Statutory Advertisement Matters</a></li>
               </ul>

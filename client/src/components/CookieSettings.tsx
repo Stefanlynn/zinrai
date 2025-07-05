@@ -195,11 +195,21 @@ export default function CookieSettings({ isOpen, onClose }: CookieSettingsProps)
                 </p>
                 <p>
                   For more information about our cookie usage, please read our{' '}
-                  <a href="/cookie-policy" className="text-blue-400 hover:text-blue-300 underline">
+                  <a 
+                    href="/assets/Cookie Policy 5-2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 underline"
+                  >
                     Cookie Policy
                   </a>{' '}
                   and{' '}
-                  <a href="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline">
+                  <a 
+                    href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 underline"
+                  >
                     Privacy Policy
                   </a>.
                 </p>

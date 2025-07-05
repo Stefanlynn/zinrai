@@ -127,6 +127,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- January 5, 2025. Completed final verification and updates for all legal document links across entire site (mobile and web). All Cookie Policy links now point to PDF instead of web page. Updated all components including CookieConsent.tsx, CookieSettings.tsx, Footer.tsx, and mobile navigation.
 - January 5, 2025. Updated all "Japan Statutory Advertisement Matters" links to point directly to DOCX file instead of web page, removed JapanStatutoryMatters.tsx page
 - January 5, 2025. Updated all "Refund Policy" links to point directly to PDF file instead of web page, removed RefundPolicy.tsx page
 - January 5, 2025. Updated all "Privacy Policy" links to point directly to PDF file instead of web page, removed PrivacyPolicy.tsx page

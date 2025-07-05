@@ -117,12 +117,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation("/cookie-policy")}
+                <a 
+                  href="/assets/Cookie Policy 5-2025.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
                   Cookie Policy
-                </button>
+                </a>
               </li>
               <li>
                 <button 
