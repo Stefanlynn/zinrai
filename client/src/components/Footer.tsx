@@ -129,7 +129,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/brand-promoter-agreement")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  BP Agreement
+                  Brand Promoter Agreement
                 </button>
               </li>
               <li>
