@@ -32,7 +32,7 @@ import TestPage from "@/pages/TestPage";
 import StartNow from "@/pages/StartNow";
 import Documents from "@/pages/Documents";
 
-import JapanStatutoryMatters from "@/pages/JapanStatutoryMatters";
+
 
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
@@ -244,9 +244,7 @@ function Router() {
       <Route path="/documents">
         {() => <PageWithHeader><Documents /></PageWithHeader>}
       </Route>
-      <Route path="/japan-statutory-matters">
-        {() => <PageWithHeader><JapanStatutoryMatters /></PageWithHeader>}
-      </Route>
+
       <Route path="/startnow">
         {() => <PageWithHeader><StartNow /></PageWithHeader>}
       </Route>

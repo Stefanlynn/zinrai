@@ -127,6 +127,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- January 5, 2025. Updated all "Japan Statutory Advertisement Matters" links to point directly to DOCX file instead of web page, removed JapanStatutoryMatters.tsx page
 - January 5, 2025. Updated all "Refund Policy" links to point directly to PDF file instead of web page, removed RefundPolicy.tsx page
 - January 5, 2025. Updated all "Privacy Policy" links to point directly to PDF file instead of web page, removed PrivacyPolicy.tsx page
 - January 5, 2025. Updated all "Terms of Use" links to point directly to PDF file instead of web page, removed TermsOfUse.tsx page

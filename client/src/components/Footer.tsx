@@ -143,12 +143,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation("/japan-statutory-matters")}
+                <a 
+                  href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters_1751742760015.docx"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
                   Japan Statutory Advertisement Matters
-                </button>
+                </a>
               </li>
             </ul>
           </div>
