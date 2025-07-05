@@ -732,7 +732,7 @@ function App() {
                           }}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
-                          Terms & Conditions
+                          Member Agreement
                         </button>
                         <button 
                           onClick={() => {

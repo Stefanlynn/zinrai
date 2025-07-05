@@ -437,7 +437,7 @@ export default function Home() {
                     onClick={() => navigateToPage("/terms-conditions")}
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
-                    Terms & Conditions
+                    Member Agreement
                   </button>
                   <button
                     onClick={() => navigateToPage("/terms-of-use")}
@@ -684,7 +684,7 @@ export default function Home() {
               <h3 className="text-lg font-semibold mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li><a href="/privacy-policy" className="text-white/70 hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="/terms-conditions" className="text-white/70 hover:text-white transition-colors">Terms & Conditions</a></li>
+                <li><a href="/terms-conditions" className="text-white/70 hover:text-white transition-colors">Member Agreement</a></li>
                 <li><a href="/terms-of-use" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
                 <li><a href="/refund-policy" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
                 <li><a href="/cookie-policy" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>

@@ -246,7 +246,7 @@ export default function Checkout() {
                 </div>
                 <div className="ml-3 text-sm">
                   <label htmlFor="terms" className="text-white/80">
-                    I agree to the <a href="#" className="text-white underline hover:text-white/80">Terms & Conditions</a> and understand this includes recurring billing.
+                    I agree to the <a href="#" className="text-white underline hover:text-white/80">Member Agreement</a> and understand this includes recurring billing.
                   </label>
                 </div>
               </div>

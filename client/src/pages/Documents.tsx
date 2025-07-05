@@ -93,10 +93,10 @@ export default function Documents() {
 
         <div 
           className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors"
-          onClick={() => handleDocumentClick('/terms-conditions', 'Terms and Conditions')}>
-          <h3 className="text-xl font-medium mb-3 text-white">Terms and Conditions</h3>
+          onClick={() => handleDocumentClick('/terms-conditions', 'Member Agreement')}>
+          <h3 className="text-xl font-medium mb-3 text-white">Member Agreement</h3>
           <p className="text-white/60 text-sm mb-4">
-            General terms and conditions for using ZiNRAi services.
+            Member agreement for using ZiNRAi services and platform.
           </p>
           <span className="text-white/50 text-sm">View Document →</span>
         </div>

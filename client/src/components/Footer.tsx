@@ -89,7 +89,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/terms-conditions")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  Terms & Conditions
+                  Member Agreement
                 </button>
               </li>
               <li>
