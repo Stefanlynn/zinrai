@@ -97,15 +97,17 @@ export default function Documents() {
           <span className="text-white/50 text-sm">View Document →</span>
         </a>
 
-        <div 
-          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-8 cursor-pointer hover:bg-black/50 transition-colors"
-          onClick={() => handleDocumentClick('/terms-of-use', 'Terms of Use')}>
+        <a 
+          href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black/40 border border-white/20 rounded-lg p-6 mb-8 cursor-pointer hover:bg-black/50 transition-colors block">
           <h3 className="text-xl font-medium mb-3 text-white">Terms of Use</h3>
           <p className="text-white/60 text-sm mb-4">
             Specific terms governing the use of our platform and services.
           </p>
           <span className="text-white/50 text-sm">View Document →</span>
-        </div>
+        </a>
 
         <div style={{ padding: '24px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', marginBottom: '64px' }}>
           <h3 style={{ fontSize: '18px', fontWeight: '500', marginBottom: '12px' }}>Need Help?</h3>

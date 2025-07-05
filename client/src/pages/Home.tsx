@@ -687,7 +687,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm">
                 <li><a href="/privacy-policy" className="text-white/70 hover:text-white transition-colors">Privacy Policy</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Member Agreement</a></li>
-                <li><a href="/terms-of-use" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
                 <li><a href="/refund-policy" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
                 <li><a href="/cookie-policy" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Brand Promoter Agreement</a></li>

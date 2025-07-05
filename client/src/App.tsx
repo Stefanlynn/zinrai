@@ -27,7 +27,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import CookiePolicy from "@/pages/CookiePolicy";
 import RefundPolicy from "@/pages/RefundPolicy";
 
-import TermsOfUse from "@/pages/TermsOfUse";
+
 import TestPage from "@/pages/TestPage";
 import StartNow from "@/pages/StartNow";
 import Documents from "@/pages/Documents";
@@ -244,9 +244,7 @@ function Router() {
         {() => <PageWithHeader><RefundPolicy /></PageWithHeader>}
       </Route>
 
-      <Route path="/terms-of-use">
-        {() => <PageWithHeader><TermsOfUse /></PageWithHeader>}
-      </Route>
+
       <Route path="/documents">
         {() => <PageWithHeader><Documents /></PageWithHeader>}
       </Route>
@@ -730,15 +728,15 @@ function App() {
                         >
                           Member Agreement
                         </a>
-                        <button 
-                          onClick={() => {
-                            setLocation('/terms-of-use');
-                            toggleMenu();
-                          }}
+                        <a 
+                          href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={toggleMenu}
                           className="text-white/60 hover:text-white/90 transition-colors text-left"
                         >
                           Terms of Use
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>

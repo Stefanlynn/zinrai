@@ -127,6 +127,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- January 5, 2025. Updated all "Terms of Use" links to point directly to PDF file instead of web page, removed TermsOfUse.tsx page
 - January 5, 2025. Updated all "Brand Promoter Agreement" links to point directly to PDF file instead of web page, removed BrandPromoterAgreement.tsx page
 - January 5, 2025. Updated all "Terms & Conditions" references to "Member Agreement" and linked directly to PDF file instead of web page
 - June 16, 2025. Initial setup
