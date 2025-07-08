@@ -474,7 +474,7 @@ export default function Home() {
                 <h3 className="text-lg font-semibold mb-4 text-white/80">Company Information</h3>
                 <div className="text-sm text-white/60 space-y-1">
                   <p>ZiNRAi™ LLC</p>
-                  <p>3333 Renaissance Blvd, Suite #209</p>
+                  <p>3333 Renaissance Blvd, Suite #213</p>
                   <p>Bonita Springs, FL 34134</p>
                 </div>
               </div>
@@ -672,12 +672,12 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
               <p className="text-white/70 text-sm mb-4">
-                Innovative digital learning platform for investment education and strategy analysis.
+                Innovative digital learning platform for financial education and strategy analysis.
               </p>
               <div className="text-white/60 text-sm">
                 <p>ZiNRAi™ LLC</p>
                 <p>3333 Renaissance Blvd</p>
-                <p>Suite #209</p>
+                <p>Suite #213</p>
                 <p>Bonita Springs, FL 34134</p>
               </div>
             </div>
