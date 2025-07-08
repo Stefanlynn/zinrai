@@ -20,12 +20,12 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
             <p className="text-white/70 text-sm mb-4">
-              Innovative digital learning platform for investment education and strategy analysis.
+              Innovative digital learning platform for financial education and strategy analysis.
             </p>
             <div className="text-white/60 text-sm">
               <p>ZiNRAi<span className="text-xs align-super">™</span> LLC</p>
               <p>3333 Renaissance Blvd</p>
-              <p>Suite #209</p>
+              <p>Suite #213</p>
               <p>Bonita Springs, FL 34134</p>
             </div>
             <div className="mt-4 p-3 bg-gray-800 text-white rounded font-bold text-center">
