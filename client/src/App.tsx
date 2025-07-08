@@ -15,7 +15,7 @@ import Partner from "@/pages/Partner";
 import Culture from "@/pages/Culture";
 import Insights from "@/pages/Insights";
 import Leadership from "@/pages/Leadership";
-import ZiNRAiCares from "@/pages/ZiNRAiCares";
+
 import Profile from "@/pages/Profile";
 import Contact from "@/pages/Contact";
 import Subscribe from "@/pages/Subscribe";
@@ -211,9 +211,7 @@ function Router() {
       <Route path="/leadership">
         {() => <PageWithHeader><Leadership /></PageWithHeader>}
       </Route>
-      <Route path="/zinrai-cares">
-        {() => <PageWithHeader><ZiNRAiCares /></PageWithHeader>}
-      </Route>
+
       <Route path="/profile">
         {() => <PageWithHeader><Profile /></PageWithHeader>}
       </Route>
@@ -257,7 +255,7 @@ function Router() {
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showCaresModal, setShowCaresModal] = useState(false);
+
   const [videoPopupOpen, setVideoPopupOpen] = useState(false);
 
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
@@ -421,16 +419,7 @@ function App() {
             >
               Leadership
             </a>
-            <a 
-              className="text-white/70 text-sm font-light hover:text-white transition-colors"
-              href="/zinrai-cares"
-              onClick={(e) => {
-                e.preventDefault();
-                setLocation('/zinrai-cares');
-              }}
-            >
-              ZiNRAi Cares
-            </a>
+
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
               href="/contact"
@@ -578,24 +567,11 @@ function App() {
                         </div>
                       </div>
                       
-                      <div>
-                        <div className="flex items-start">
-                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
-                          <button 
-                            onClick={() => {
-                              setLocation('/zinrai-cares');
-                              toggleMenu();
-                            }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
-                          >
-                            ZiNRAi Cares
-                          </button>
-                        </div>
-                      </div>
+
                       
                       <div>
                         <div className="flex items-start">
-                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">06</div>
+                          <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
                           <button 
                             onClick={() => {
                               setLocation('/contact');
@@ -780,18 +756,7 @@ function App() {
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                       </svg>
                     )}
-                    {header.showLink && (
-                      <a 
-                        href="#" 
-                        className="font-bold text-white hover:text-[var(--zinrai-red)] transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setShowCaresModal(true);
-                        }}
-                      >
-                        ZiNRAi Cares
-                      </a>
-                    )}
+
                   </div>
                 </div>
               ))}
@@ -802,27 +767,7 @@ function App() {
         {/* Router Content */}
         <Router />
         
-        {/* ZiNRAi Cares Modal */}
-        {showCaresModal && (
-          <div className="fixed inset-0 bg-black/90 z-[1100] overflow-y-auto flex items-start justify-center p-4 sm:p-8">
-            <div className="bg-black border border-white/20 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
-              <button 
-                className="absolute top-4 right-4 text-white/80 hover:text-white p-2 z-10"
-                onClick={() => setShowCaresModal(false)}
-                aria-label="Close modal"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              
-              {/* Use the same component for both modal and route */}
-              <div className="pt-8">
-                <ZiNRAiCares />
-              </div>
-            </div>
-          </div>
-        )}
+
         
         {/* Onboarding Modal */}
         {showOnboardingModal && (

@@ -409,12 +409,7 @@ export default function Home() {
                 >
                   LEADERSHIP
                 </button>
-                <button
-                  onClick={() => navigateToPage("/zinrai-cares")}
-                  className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
-                >
-                  ZiNRAi CARES
-                </button>
+
                 <button
                   onClick={() => navigateToPage("/contact")}
                   className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
