@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { useLocation } from "wouter";
 import { useState } from "react";
 import CookieSettings from "./CookieSettings";
@@ -170,15 +170,7 @@ export default function Footer() {
               >
                 <FaInstagram size={20} />
               </a>
-              <a 
-                href="https://www.facebook.com/share/15mCyH4b5F/?mibextid=LQQJ4d" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="Follow ZiNRAi™ on Facebook"
-              >
-                <FaFacebook size={20} />
-              </a>
+
               <a 
                 href="https://www.youtube.com/@zinrai" 
                 target="_blank" 

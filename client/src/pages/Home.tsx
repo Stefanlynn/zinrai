@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "wouter";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 
 // Import videos
@@ -339,15 +339,7 @@ export default function Home() {
               >
                 <FaInstagram size={20} />
               </a>
-              <a 
-                href="https://facebook.com/zinrai" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-300"
-                aria-label="Follow ZiNRAi on Facebook"
-              >
-                <FaFacebook size={20} />
-              </a>
+
               <a 
                 href="https://www.youtube.com/@ZiNRAi.official" 
                 target="_blank" 
@@ -492,15 +484,7 @@ export default function Home() {
                   >
                     <FaInstagram className="w-6 h-6" />
                   </a>
-                  <a 
-                    href="https://facebook.com/zinrai" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors duration-300"
-                    aria-label="Follow ZiNRAi on Facebook"
-                  >
-                    <FaFacebook className="w-6 h-6" />
-                  </a>
+
                   <a 
                     href="https://www.youtube.com/@ZiNRAi.official" 
                     target="_blank" 
@@ -721,15 +705,7 @@ export default function Home() {
                 >
                   <FaInstagram className="w-5 h-5" />
                 </a>
-                <a 
-                  href="https://facebook.com/zinrai" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white/70 hover:text-white transition-colors"
-                  aria-label="Follow ZiNRAi on Facebook"
-                >
-                  <FaFacebook className="w-5 h-5" />
-                </a>
+
                 <a 
                   href="https://www.youtube.com/@ZiNRAi.official" 
                   target="_blank" 

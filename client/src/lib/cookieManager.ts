@@ -43,7 +43,7 @@ export class CookieManager {
     
     // CookieYes-specific test cookies for scanning
     this.setCookie('_ga', 'GA1.1.123456789.1234567890', 365); // Google Analytics
-    this.setCookie('_fbp', 'fb.1.1234567890123.1234567890', 90); // Facebook Pixel
+
     this.setCookie('_gid', 'GA1.1.1234567890.1234567890', 1); // Google Analytics ID
     this.setCookie('sessionid', this.generateToken(), 1); // Session cookie
     this.setCookie('csrftoken', this.generateToken(), 365); // CSRF token
@@ -274,17 +274,13 @@ export class CookieManager {
 
   private enableMarketingPixels(): void {
     if (this.preferences.marketing) {
-      // Set Facebook Pixel cookies for scanner detection
-      this.setCookie('_fbp', 'fb.1.' + Date.now() + '.' + this.generateToken(), 90);
-      this.setCookie('_fbc', 'fb.1.' + Date.now() + '.' + this.generateToken(), 90);
+
       this.setCookie('zinrai_marketing', 'enabled', 365);
       this.setCookie('zinrai_advertising_id', this.generateToken(), 365);
     }
   }
 
   private disableMarketingPixels(): void {
-    this.deleteCookie('_fbp');
-    this.deleteCookie('_fbc');
     this.deleteCookie('zinrai_marketing');
     this.deleteCookie('zinrai_advertising_id');
   }
@@ -308,7 +304,7 @@ export class CookieManager {
   private clearTrackingCookies(): void {
     // Clear all non-essential cookies
     const cookiesToClear = [
-      '_ga', '_gid', '_gat', '_fbp', '_fbc', 'zinrai_analytics', 
+      '_ga', '_gid', '_gat', 'zinrai_analytics', 
       'zinrai_marketing', 'zinrai_functional', 'zinrai_advertising_id'
     ];
     
@@ -357,23 +353,7 @@ export class CookieManager {
   }
 
   private loadMarketingScripts(): void {
-    if (this.preferences.marketing && typeof window !== 'undefined') {
-      // Load Facebook Pixel
-      const fbScript = document.createElement('script');
-      fbScript.innerHTML = `
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'XXXXXXXXXXXXXXXXX');
-        fbq('track', 'PageView');
-      `;
-      document.head.appendChild(fbScript);
-    }
+
   }
 }
 

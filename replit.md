@@ -92,7 +92,7 @@ This is a full-stack React application for the ZiNRAi official website. The appl
 - **Environment Management**: dotenv for configuration
 
 ### Third-Party Integrations
-- **Social Media**: Facebook, Instagram, YouTube links
+- **Social Media**: Instagram, YouTube links
 - **Video Content**: Local MP4 files and YouTube embeds
 - **Forms**: Custom form handling with validation
 - **Icons**: React Icons and Lucide React
@@ -127,6 +127,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- January 16, 2025. Removed Facebook from all social media components across the website. Updated Home.tsx, Footer.tsx, App.tsx to remove Facebook links and icons. Removed Facebook Pixel tracking from cookie management system. Social media now shows only Instagram and YouTube links.
 - January 8, 2025. Added country selection dropdown to Start Now page with OFAC compliance. Users must select country before proceeding. Excluded sanctioned countries: Afghanistan, Belarus, Burma (Myanmar), Chad, China, Cote D'Ivoire (Ivory Coast), Cuba, Democratic Republic of the Congo, Equatorial Guinea, Iran, Iraq, Lebanon, Liberia, North Korea, Russia, Rwanda, Sudan, Syria, Zimbabwe, and Crimea region of Ukraine. Added helper text "To better serve you, let us know what country you are in."
 - January 8, 2025. Updated Home page footer text: changed "investment education" to "financial education" and updated address from "Suite #209" to "Suite #213" in both Home.tsx inline footer sections.
 - January 8, 2025. Removed ZiNRAi Cares page from all navigation menus and disabled routing to hide the page from users. Updated Home.tsx, App.tsx, and mobile navigation to completely remove all references to ZiNRAi Cares.
