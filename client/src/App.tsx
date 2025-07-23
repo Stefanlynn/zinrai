@@ -39,7 +39,6 @@ import Menu from "@/pages/Menu";
 
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
-  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -80,17 +79,17 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
       });
 
       if (response.ok) {
-        setSubmitMessage(t('form.success'));
+        setSubmitMessage("Successfully submitted!");
         setFormData({ firstname: '', lastname: '', email: '', phone: '', refid: '' });
         setTimeout(() => {
           onClose();
         }, 2000);
       } else {
-        setSubmitMessage(t('form.error'));
+        setSubmitMessage("Submission failed. Please try again.");
       }
     } catch (err) {
       console.error("Error:", err);
-      setSubmitMessage(t('form.error_generic'));
+      setSubmitMessage("Something went wrong. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -111,7 +110,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.firstname}
           onChange={(e) => setFormData(prev => ({ ...prev, firstname: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder={t('form.firstName_placeholder')}
+          placeholder="Enter your first name"
         />
       </div>
 
@@ -126,7 +125,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.lastname}
           onChange={(e) => setFormData(prev => ({ ...prev, lastname: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder={t('form.lastName_placeholder')}
+          placeholder="Enter your last name"
         />
       </div>
 
@@ -141,7 +140,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.email}
           onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder={t('form.email_placeholder')}
+          placeholder="Enter your email address"
         />
       </div>
 
@@ -155,7 +154,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.phone}
           onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder={t('form.phone_placeholder')}
+          placeholder="Enter your phone number"
         />
       </div>
 
@@ -287,12 +286,12 @@ function App() {
   const [headerTextIndex, setHeaderTextIndex] = useState(0);
   const headerTexts = [
     { 
-      text: t('header.supportMessage'),
+      text: "$1 per subscription supports",
       showHeart: true,
       showLink: true
     },
     { 
-      text: t('header.missionMessage'),
+      text: "Live With Passion. Lead With Purpose.",
       showHeart: false,
       showLink: false
     }

@@ -20,14 +20,7 @@ import cryptoInvestorVideo from "../assets/investor-checking-bitcoin-ethereum-an
 import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
 
 export default function Home() {
-  const { t, i18n } = useTranslation();
-  
-  // Wait for i18n to be ready
-  if (!i18n.isInitialized) {
-    return <div className="min-h-screen bg-black flex items-center justify-center text-white">Loading...</div>;
-  }
-  
-
+  const { t } = useTranslation();
   // State to track whether menu is open
   const [menuOpen, setMenuOpen] = useState(false);
   // State to track which icon to display
@@ -81,12 +74,12 @@ export default function Home() {
   
   // Video trigger icons to choose from
   const videoIcons = [
-    { icon: () => <SpinningPlus />, name: t('home.icons.plus') },
-    { icon: RiVideoLine, name: t('home.icons.video') },
-    { icon: RiFilmLine, name: t('home.icons.film') },
-    { icon: FiEye, name: t('home.icons.eye') },
-    { icon: FiPower, name: t('home.icons.power') },
-    { icon: FiCircle, name: t('home.icons.circle') }
+    { icon: () => <SpinningPlus />, name: "Plus" },
+    { icon: RiVideoLine, name: "Video" },
+    { icon: RiFilmLine, name: "Film" },
+    { icon: FiEye, name: "Eye" },
+    { icon: FiPower, name: "Power" },
+    { icon: FiCircle, name: "Circle" }
   ];
   
   // Function to handle video icon click in grid
@@ -323,7 +316,7 @@ export default function Home() {
               <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-[60%] w-[200px] md:w-[250px] lg:w-[300px]">
                 <img 
                   src={ziNRaiLogoImage} 
-                  alt={t('home.logo_alt')} 
+                  alt="ZiNRAi Logo" 
                   className="w-full h-auto opacity-90"
                 />
               </div>
@@ -344,7 +337,7 @@ export default function Home() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-colors duration-300"
-                aria-label={t('home.social.instagram_aria')}
+                aria-label="Follow ZiNRAi on Instagram"
               >
                 <FaInstagram size={20} />
               </a>
@@ -354,7 +347,7 @@ export default function Home() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-colors duration-300"
-                aria-label={t('home.social.youtube_aria')}
+                aria-label="Subscribe to ZiNRAi on YouTube"
               >
                 <FaYoutube size={20} />
               </a>
@@ -474,9 +467,9 @@ export default function Home() {
               <div className="border-t border-white/20 pt-8 mt-8">
                 <h3 className="text-lg font-semibold mb-4 text-white/80">{t('home.footer.company_section')}</h3>
                 <div className="text-sm text-white/60 space-y-1">
-                  <p>{t('home.company.name')}</p>
-                  <p>{t('home.company.address_line1')}</p>
-                  <p>{t('home.company.address_line2')}</p>
+                  <p>ZiNRAi™ LLC</p>
+                  <p>3333 Renaissance Blvd, Suite #213</p>
+                  <p>Bonita Springs, FL 34134</p>
                 </div>
               </div>
 
@@ -489,7 +482,7 @@ export default function Home() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-white/70 hover:text-white transition-colors duration-300"
-                    aria-label={t('home.social.instagram_aria')}
+                    aria-label="Follow ZiNRAi on Instagram"
                   >
                     <FaInstagram className="w-6 h-6" />
                   </a>
@@ -499,7 +492,7 @@ export default function Home() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-white/70 hover:text-white transition-colors duration-colors duration-300"
-                    aria-label={t('home.social.youtube_aria')}
+                    aria-label="Subscribe to ZiNRAi on YouTube"
                   >
                     <FaYoutube className="w-6 h-6" />
                   </a>
@@ -526,7 +519,7 @@ export default function Home() {
             <iframe
               className="absolute top-0 left-0 w-full h-full rounded-lg"
               src="https://www.youtube.com/embed/aB19kSzMGxo"
-              title="ZiNRAi Intro Video"
+              title="ZiNRAi Introduction Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -615,7 +608,7 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center px-4 py-2 bg-green-500/10 rounded-full border border-green-500/20 mb-6">
                   <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-green-300 text-sm font-medium">Partnership Program</span>
+                  <span className="text-green-300 text-sm font-medium">{t('home.promoter.category')}</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
                   {t('home.promoter.title')}
@@ -674,52 +667,52 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
               <p className="text-white/70 text-sm mb-4">
-                {t('home.footer.company_description')}
+                Innovative digital learning platform for financial education and strategy analysis.
               </p>
               <div className="text-white/60 text-sm">
-                <p>{t('home.company.name')}</p>
-                <p>{t('home.company.street')}</p>
-                <p>{t('home.company.suite')}</p>
-                <p>{t('home.company.city_state_zip')}</p>
+                <p>ZiNRAi™ LLC</p>
+                <p>3333 Renaissance Blvd</p>
+                <p>Suite #213</p>
+                <p>Bonita Springs, FL 34134</p>
               </div>
             </div>
 
             {/* Legal Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">{t('home.footer.legal')}</h3>
+              <h3 className="text-lg font-semibold mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.privacy_policy')}</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.member_agreement')}</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.terms_of_use')}</a></li>
-                <li><a href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.refund_policy')}</a></li>
-                <li><a href="/assets/Cookie Policy 5-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.cookie_policy')}</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.brand_promoter_agreement')}</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.japan_statutory')}</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Member Agreement</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
+                <li><a href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
+                <li><a href="/assets/Cookie Policy 5-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Brand Promoter Agreement</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Japan Statutory Advertisement Matters</a></li>
               </ul>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">{t('home.footer.quick_links')}</h3>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="/product" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.courses')}</a></li>
-                <li><a href="/partner" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.brand_promoter')}</a></li>
-                <li><a href="/culture" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.culture')}</a></li>
-                <li><a href="/leadership" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.leadership')}</a></li>
-                <li><a href="/contact" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.contact')}</a></li>
+                <li><a href="/product" className="text-white/70 hover:text-white transition-colors">Courses</a></li>
+                <li><a href="/partner" className="text-white/70 hover:text-white transition-colors">Brand Promoter</a></li>
+                <li><a href="/culture" className="text-white/70 hover:text-white transition-colors">Culture</a></li>
+                <li><a href="/leadership" className="text-white/70 hover:text-white transition-colors">Leadership</a></li>
+                <li><a href="/contact" className="text-white/70 hover:text-white transition-colors">Contact</a></li>
               </ul>
             </div>
 
             {/* Social Media */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">{t('home.footer.follow_us')}</h3>
+              <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
               <div className="flex space-x-4">
                 <a 
                   href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
-                  aria-label={t('home.social.instagram_aria')}
+                  aria-label="Follow ZiNRAi on Instagram"
                 >
                   <FaInstagram className="w-5 h-5" />
                 </a>
@@ -729,7 +722,7 @@ export default function Home() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
-                  aria-label={t('home.social.youtube_aria')}
+                  aria-label="Subscribe to ZiNRAi on YouTube"
                 >
                   <FaYoutube className="w-5 h-5" />
                 </a>
@@ -741,31 +734,31 @@ export default function Home() {
           <div className="pt-6 pb-2">
             <div className="text-center">
               <div className="inline-block p-3 bg-gray-800 text-white rounded font-bold">
-{t('home.footer.email')}: support@zinrai.com
+                Email: support@zinrai.com
               </div>
             </div>
           </div>
 
           {/* Disclaimer */}
           <div className="pt-8 mb-6">
-            <h4 className="text-base font-bold mb-4">{t('home.footer.disclaimer_title')}</h4>
+            <h4 className="text-base font-bold mb-4">Important Disclaimer</h4>
             <p className="text-sm font-bold leading-relaxed">
-              {t('home.footer.disclaimer_text')}
+              ZiNRAi™ products include digital and online interactive training content for analyzing, learning, and discussing general and generic information related to investments and strategies. ZiNRAi™ does not facilitate or offer access to online platforms for investment or online trading in securities, currency (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide any regulated financial services.
             </p>
             <p className="text-sm font-bold leading-relaxed mt-4">
-              {t('home.footer.disclaimer_text2')}
+              ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities, or agencies, or financial regulatory body.
             </p>
             <p className="text-sm font-bold leading-relaxed mt-4">
-              {t('home.footer.disclaimer_text3')}
+              ZiNRAi™ provides absolutely no guarantee that you will earn any money or achieve a financial goal using the methods, information, and suggestions in the content provided. Any examples or demonstrations provided are in no way a guarantee or promise that an individual will make financial gains of any kind.
             </p>
           </div>
 
           {/* Copyright */}
           <div className="border-t border-white/20 pt-6 text-center">
             <p className="text-white/60 text-sm">
-&copy; 2025 ZiNRAi™ LLC. {t('home.footer.all_rights_reserved')}
+              &copy; 2025 ZiNRAi™ LLC. All rights reserved.
             </p>
-            <p className="mt-2 text-xs">{t('home.footer.education_focus')}</p>
+            <p className="mt-2 text-xs">Our focus is financial education, not investment advice.</p>
           </div>
         </div>
       </footer>

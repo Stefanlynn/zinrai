@@ -51,14 +51,14 @@ export default function Culture() {
     },
     {
       letter: "A",
-      title: t('culture.pillars.authenticity.title'),
-      description: t('culture.pillars.authenticity.description'),
+      title: t('culture.pillars.abundance.title'),
+      description: t('culture.pillars.abundance.description'),
       color: "blue"
     },
     {
       letter: "I",
-      title: t('culture.pillars.impact.title'),
-      description: t('culture.pillars.impact.description'),
+      title: t('culture.pillars.innovation.title'),
+      description: t('culture.pillars.innovation.description'),
       color: "purple"
     }
   ];

@@ -107,9 +107,111 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
   );
 }
 
+// Define services with fallback content 
+const services = [
+  "FOREIGN EXCHANGE COURSE + LEARN NOW LIVE CLASSROOM",
+  "CRYPTOCURRENCY COURSE + LEARN NOW LIVE CLASSROOM", 
+  "DIGITAL MARKETING COURSE + LEARN NOW LIVE CLASSROOM",
+  "E-COMMERCE COURSE + LEARN NOW LIVE CLASSES"
+];
+
 const serviceKeys = ["forex", "crypto", "digital_marketing", "ecommerce"];
 
+// Define detailed product information with fallback content
+const productDetails = [
+  {
+    title: "Foreign Exchange Course + Learn Now Live Classroom",
+    description: `Understand the global financial markets and learn how to analyze currencies with confidence. 
 
+This Forex course is designed to give you a solid foundation in the world's largest and most liquid financial market—whether you're a complete beginner or looking to refine your strategy.
+
+Through practical lessons, live chart analysis, and proven techniques, you'll gain the skills needed to understand market movements, manage risk, and develop a trading plan that suits your goals and lifestyle.
+
+✦ What You'll Learn:
+• Introduction to the Forex market and how it works
+• Understanding currency pairs, pips, and leverage
+• Fundamental and technical analysis
+• Chart patterns, indicators, and trading tools
+• Risk management and trading psychology
+• Creating a personal trading strategy
+
+✦ Who This Course Is For:
+• Aspiring traders looking to enter the Forex market
+• Beginners seeking a clear, structured learning path
+• Anyone looking to understand how global currencies are traded
+
+No prior experience required—just a willingness to learn and a passion for the markets.`
+  },
+  {
+    title: "Cryptocurrency Course + Learn Now Live Classroom",
+    description: `Dive into the dynamic world of cryptocurrency with this comprehensive course designed to equip you with the knowledge, tools, and strategies needed to navigate confidently in the digital asset markets.
+
+Whether you're a complete beginner or looking to sharpen your skills, this course offers a structured learning path from foundational concepts to advanced technical analysis and risk management.
+
+Through real-world examples, hands-on live insights, you'll learn how to analyze market trends, interpret charts, identify profitable trade setups, and execute trades across major exchanges. You'll also explore the psychological aspects of trading, portfolio management techniques, and how to navigate market volatility.
+
+✦ What You'll Learn:
+• Fundamentals of blockchain
+• Variety of strategies: scalping, swing trading, arbitrage, and DeFi yield strategies
+• How to use trading platforms and decentralized exchanges
+• Psychology of trading: building discipline and avoiding emotional decisions
+
+✦ Who This Course Is For:
+• Anyone interested in understanding the mechanics behind cryptocurrency trading
+• Aspiring traders looking to enter the cryptocurrency market
+
+No prior experience required—just a willingness to learn and a passion for learning!`
+  },
+  {
+    title: "Digital Marketing Course + Learn Now Live Classroom",
+    description: `In today's digital world, marketing is no longer optional—it's essential. 
+
+This all-in-one Digital Marketing course is designed to equip you with the skills, tools, and strategies to grow your brand, attract the right audience, and drive consistent sales across major online channels.
+
+Whether you're building a personal brand, launching a startup, or scaling an existing business, this course covers everything you need to become a confident and capable digital marketer.
+
+✦ What You'll Learn:
+• Digital marketing strategy and campaign planning
+• Social media marketing (Instagram, Facebook, TikTok, LinkedIn)
+• Paid advertising (Google Ads, Meta Ads)
+• How to monetize social media with UGC (user generated content)
+• SEO fundamentals & content marketing
+• Analytics, tracking, and performance optimization
+• Tools like Canva, ChatGPT, Meta Business Suite, Google Analytics, and more
+
+✦ Who This Course Is For:
+• Entrepreneurs, business owners, and freelancers
+• Marketing beginners looking to break into the field
+• Content creators, influencers, and personal brands
+• Anyone who wants to master digital marketing and drive measurable results
+
+No experience required. Just bring your ambition—this course will help you turn it into impact.`
+  },
+  {
+    title: "E-Commerce Course + Learn Now Live Classes",
+    description: `Ready to turn your product idea into a thriving online business? 
+
+This comprehensive eCommerce course takes you from zero to sales—guiding you through every step of launching and scaling a successful online store.
+
+Whether you're starting from scratch or looking to optimize an existing store, you'll learn the tools, strategies, and insider tactics used by top-performing eCommerce brands.
+
+✦ What You'll Learn:
+• Choosing the right product and niche
+• Setting up your store
+• Crafting high-converting product pages
+• Payment gateways, shipping, and logistics
+• Email marketing, SEO, and paid advertising
+• Social media and influencer marketing
+• Conversion optimization and customer retention
+
+✦ Who It's For:
+• Aspiring entrepreneurs
+• Small business owners
+• Anyone ready to build a scalable online business with real-world results
+
+No tech skills or prior experience required—just your determination to succeed.`
+  }
+];
 
 export default function Product() {
   const { t, i18n } = useTranslation();
@@ -271,7 +373,7 @@ export default function Product() {
             </p>
             
             <div className="space-y-8 max-w-md mb-4">
-              {serviceKeys.map((serviceKey, index) => (
+              {services.map((service, index) => (
                 <div 
                   key={index}
                   onClick={() => handleProductClick(index)}
