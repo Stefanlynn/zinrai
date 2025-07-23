@@ -274,6 +274,19 @@ function Router() {
 function App() {
   const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [languageKey, setLanguageKey] = useState(0);
+  
+  // Force re-render when language changes
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguageKey(prev => prev + 1);
+    };
+    
+    i18n.on('languageChanged', handleLanguageChange);
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
   const [videoPopupOpen, setVideoPopupOpen] = useState(false);
 
@@ -460,10 +473,13 @@ function App() {
                   <svg className="w-4 h-4 text-white/90 mr-2 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                  <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">
-                    {i18n.language === 'es' ? 'Ver Ahora' : 
-                     i18n.language === 'ja' ? '今すぐ見る' : 
-                     'Watch Now'}
+                  <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300" key={`watch-${i18n.language}-${languageKey}`}>
+                    {(() => {
+                      console.log('Watch Now button - Current language:', i18n.language);
+                      return i18n.language === 'es' ? 'Ver Ahora' : 
+                             i18n.language === 'ja' ? '今すぐ見る' : 
+                             'Watch Now';
+                    })()}
                   </span>
                 </button>
               )}
@@ -474,10 +490,13 @@ function App() {
                 className="h-[44px] px-6 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group backdrop-blur-sm"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">
-                  {i18n.language === 'es' ? 'Iniciar Sesión' : 
-                   i18n.language === 'ja' ? 'ログイン' : 
-                   'Login'}
+                <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300" key={`login-${i18n.language}-${languageKey}`}>
+                  {(() => {
+                    console.log('Login button - Current language:', i18n.language);
+                    return i18n.language === 'es' ? 'Iniciar Sesión' : 
+                           i18n.language === 'ja' ? 'ログイン' : 
+                           'Login';
+                  })()}
                 </span>
               </a>
             </div>
@@ -494,7 +513,7 @@ function App() {
                 className="h-[36px] px-3 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white/90 text-xs font-light tracking-wide">
+                <span className="text-white/90 text-xs font-light tracking-wide" key={i18n.language}>
                   {i18n.language === 'es' ? 'Iniciar Sesión' : 
                    i18n.language === 'ja' ? 'ログイン' : 
                    'Login'}
