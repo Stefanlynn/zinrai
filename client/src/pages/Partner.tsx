@@ -178,7 +178,7 @@ export default function Partner() {
                     onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
                     className="px-6 py-3 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
-                    Join Our Movement
+                    {t('partner.join_movement')}
                   </button>
                 </div>
               </div>
