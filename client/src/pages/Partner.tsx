@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 
 export default function Partner() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -175,6 +175,7 @@ export default function Partner() {
 
                 <div className="mt-8">
                   <button
+                    key={i18n.language}
                     onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
                     className="px-6 py-3 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
