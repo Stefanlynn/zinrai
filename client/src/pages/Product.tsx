@@ -214,7 +214,12 @@ No tech skills or prior experience required—just your determination to succeed
 ];
 
 export default function Product() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  
+  // Debug: Check if translations are loading
+  console.log('Product page - Current language:', i18n.language);
+  console.log('Product page - Test translation:', t('product.title'));
+  console.log('Product page - Services translation test:', t('product.services.forex'));
   const [_, navigate] = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [showProductDetail, setShowProductDetail] = useState(false);
