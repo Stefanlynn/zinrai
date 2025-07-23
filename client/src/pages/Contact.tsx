@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next';
+
 export default function Contact() {
+  const { t } = useTranslation();
   const handleEmailClick = () => {
     window.location.href = 'mailto:support@zinrai.com';
   };
@@ -23,10 +26,10 @@ export default function Contact() {
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="text-center space-y-6">
             <h1 className="text-4xl md:text-6xl font-light text-white">
-              Get In Touch
+              {t('navigation.contact.hero_title')}
             </h1>
             <p className="text-xl text-white/70 max-w-md mx-auto">
-              Ready to start your journey? Reach out to our team.
+              {t('navigation.contact.hero_subtitle')}
             </p>
             
             <div className="space-y-4">

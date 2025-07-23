@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "wouter";
+import { useTranslation } from 'react-i18next';
 
 // Onboarding Form Component for Product page
 function OnboardingForm({ onClose }: { onClose: () => void }) {
@@ -210,6 +211,7 @@ No tech skills or prior experience required—just your determination to succeed
 ];
 
 export default function Product() {
+  const { t } = useTranslation();
   const [_, navigate] = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [showProductDetail, setShowProductDetail] = useState(false);

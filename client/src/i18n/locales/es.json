@@ -13,7 +13,12 @@
     "hero": {
       "title": "ZiNRAi™",
       "subtitle": "Plataforma de Aprendizaje Digital",
-      "description": "Plataforma de aprendizaje digital innovadora para educación financiera y análisis estratégico."
+      "description": "Plataforma de aprendizaje digital innovadora para educación financiera y análisis estratégico.",
+      "movement_title": "Somos Quienes Respondieron al Llamado",
+      "movement_description": "Refinados por el fuego. Unidos en propósito. Esto es más que una marca: es un movimiento de integridad, resistencia e impacto global.",
+      "growth_category": "Educación en Línea",
+      "growth_title": "Desbloquea Tu Crecimiento",
+      "unlock_potential": "Desbloquea Tu Potencial con Educación Financiera Dirigida por Expertos"
     },
     "sections": {
       "courses": "Cursos",
@@ -29,9 +34,12 @@
       "company_info": "Información de la Empresa",
       "follow_us": "Síguenos",
       "email": "Correo: support@zinrai.com",
+      "address": "ZiNRAi, LLC\n1309 Coffeen Avenue, Suite #213\nSheridan, WY 82801",
       "disclaimer_title": "Descargo de Responsabilidad Importante",
       "disclaimer_text": "Los productos ZiNRAi™ incluyen contenido de entrenamiento digital e interactivo en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversión o comercio en línea de valores, monedas (incluidas criptomonedas), u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o asesoramiento sobre estrategia de inversión, ni proporcionan servicios financieros regulados.",
-      "disclaimer_text2": "ZiNRAi™ no está respaldado por ni afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales o agencias, o cuerpo regulatorio financiero."
+      "disclaimer_text2": "ZiNRAi™ no está respaldado por ni afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales o agencias, o cuerpo regulatorio financiero.",
+      "education_focus": "Nuestro enfoque es la educación financiera, no el asesoramiento de inversión.",
+      "legal_links": "Documentos Legales"
     }
   },
   "common": {
@@ -60,27 +68,52 @@
     "product": {
       "title": "Nuestros Cursos",
       "subtitle": "Programas integrales de educación financiera",
-      "description": "Domina los fundamentos de la educación financiera con nuestros cursos diseñados por expertos."
+      "description": "Domina los fundamentos de la educación financiera con nuestros cursos diseñados por expertos.",
+      "hero_title": "Transforma Tu Futuro Financiero",
+      "hero_subtitle": "Cursos Dirigidos por Expertos para Cada Estilo de Aprendizaje",
+      "coming_soon": "Próximamente"
     },
     "partner": {
       "title": "Programa de Promotor de Marca",
       "subtitle": "Únete a nuestra comunidad de educadores financieros",
-      "description": "Conviértete en un Promotor de Marca ZiNRAi y ayuda a otros a lograr el éxito financiero."
+      "description": "Conviértete en un Promotor de Marca ZiNRAi y ayuda a otros a lograr el éxito financiero mientras construyes tus propios ingresos.",
+      "hero_title": "Conviértete en Promotor de Marca",
+      "hero_subtitle": "Comparte Educación Financiera, Gana Mientras Aprendes",
+      "coming_soon": "Próximamente"
     },
     "culture": {
       "title": "Por qué ZiNRAi",
       "subtitle": "Nuestra misión y valores",
-      "description": "Descubre lo que nos impulsa a crear experiencias transformadoras de educación financiera."
+      "description": "Descubre lo que nos impulsa a crear experiencias transformadoras de educación financiera.",
+      "hero_title": "Nuestra Cultura y Valores",
+      "hero_subtitle": "Construyendo un Movimiento de Empoderamiento Financiero",
+      "coming_soon": "Próximamente"
     },
     "leadership": {
       "title": "Equipo de Liderazgo",
       "subtitle": "Conoce a nuestro equipo experimentado",
-      "description": "Conoce a los líderes que impulsan la misión de ZiNRAi hacia adelante."
+      "description": "Conoce a los líderes que impulsan la misión de ZiNRAi hacia adelante.",
+      "hero_title": "Nuestro Liderazgo",
+      "hero_subtitle": "Profesionales Experimentados Impulsando la Innovación",
+      "coming_soon": "Próximamente"
     },
     "contact": {
       "title": "Contáctanos",
       "subtitle": "Ponte en contacto con nuestro equipo",
-      "description": "¿Tienes preguntas? Estamos aquí para ayudarte en tu jornada de educación financiera."
+      "description": "¿Tienes preguntas? Estamos aquí para ayudarte en tu jornada de educación financiera.",
+      "hero_title": "Ponte en Contacto",
+      "hero_subtitle": "Estamos Aquí para Apoyar Tu Jornada",
+      "support_email": "Soporte: support@zinrai.com",
+      "business_email": "Negocios: business@zinrai.com"
     }
+  },
+  "legal": {
+    "terms_of_use": "Términos de Uso",
+    "member_agreement": "Acuerdo de Miembro",
+    "privacy_policy": "Política de Privacidad",
+    "brand_promoter_agreement": "Acuerdo de Promotor de Marca",
+    "refund_policy": "Política de Reembolso",
+    "cookie_policy": "Política de Cookies",
+    "japan_statutory": "Asuntos Publicitarios Reglamentarios de Japón"
   }
 }

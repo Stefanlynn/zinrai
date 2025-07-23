@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 
 export default function Culture() {
+  const { t } = useTranslation();
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeFoundation, setActiveFoundation] = useState(0);
   const [activePillar, setActivePillar] = useState(-1);

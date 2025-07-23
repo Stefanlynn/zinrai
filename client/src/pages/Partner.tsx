@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 
 export default function Partner() {
+  const { t } = useTranslation();
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);

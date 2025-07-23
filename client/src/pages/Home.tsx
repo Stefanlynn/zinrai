@@ -508,7 +508,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
-              We Are the Ones Who Answered the Call
+              {t('home.hero.movement_title')}
             </h2>
             <p className="text-white/70 text-lg">
               Refined by fire. United in purpose. This is more than a brand—it's a movement of integrity, resilience, and global impact.
@@ -543,10 +543,10 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20 mb-6">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-blue-300 text-sm font-medium">Online Education</span>
+                  <span className="text-blue-300 text-sm font-medium">{t('home.hero.growth_category')}</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
-                  Unlock Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Growth</span>
+                  {t('home.hero.growth_title')}
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
                   Explore hands on education across forex, crypto, digital marketing, and e-commerce.

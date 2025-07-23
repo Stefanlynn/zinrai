@@ -13,11 +13,16 @@
     "hero": {
       "title": "ZiNRAi™",
       "subtitle": "Digital Learning Platform",
-      "description": "Innovative digital learning platform for financial education and strategy analysis."
+      "description": "Innovative digital learning platform for financial education and strategic analysis.",
+      "movement_title": "We Are the Ones Who Answered the Call",
+      "movement_description": "Refined by fire. United in purpose. This is more than a brand—it's a movement of integrity, resilience, and global impact.",
+      "growth_category": "Online Education",
+      "growth_title": "Unlock Your Growth",
+      "unlock_potential": "Unlock Your Potential with Expert-Led Financial Education"
     },
     "sections": {
       "courses": "Courses",
-      "partner_program": "Partner Program",
+      "partner_program": "Partner Program", 
       "culture": "Culture",
       "insights": "Insights",
       "leadership": "Leadership",
@@ -29,14 +34,17 @@
       "company_info": "Company Information",
       "follow_us": "Follow Us",
       "email": "Email: support@zinrai.com",
+      "address": "ZiNRAi, LLC\n1309 Coffeen Avenue, Suite #213\nSheridan, WY 82801",
       "disclaimer_title": "Important Disclaimer",
-      "disclaimer_text": "ZiNRAi™ products include digital and online interactive training content for analyzing, learning, and discussing general and generic information related to investments and strategies. ZiNRAi™ does not facilitate or offer access to online platforms for investment or online trading in securities, currency (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide any regulated financial services.",
-      "disclaimer_text2": "ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities, or agencies, or financial regulatory body."
+      "disclaimer_text": "ZiNRAi™ products include digital and online interactive training content to analyze, learn, and discuss general and generic information relating to investments and strategy. ZiNRAi™ does not facilitate or provide access to online platforms for investment or online trading of securities, currencies (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide regulated financial services.",
+      "disclaimer_text2": "ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities or agencies, or financial regulatory body.",
+      "education_focus": "Our focus is financial education, not investment advice.",
+      "legal_links": "Legal Documents"
     }
   },
   "common": {
     "loading": "Loading...",
-    "error": "Error",
+    "error": "Error", 
     "back": "Back",
     "next": "Next",
     "submit": "Submit",
@@ -51,7 +59,7 @@
   },
   "buttons": {
     "watchNow": "Watch Now",
-    "login": "Login",
+    "login": "Login", 
     "getStarted": "Get Started",
     "startNow": "Start Now",
     "learnMore": "Learn More"
@@ -60,27 +68,52 @@
     "product": {
       "title": "Our Courses",
       "subtitle": "Comprehensive financial education programs",
-      "description": "Master the fundamentals of financial literacy with our expertly designed courses."
+      "description": "Master the fundamentals of financial literacy with our expertly designed courses.",
+      "hero_title": "Transform Your Financial Future",
+      "hero_subtitle": "Expert-Led Courses for Every Learning Style",
+      "coming_soon": "Coming Soon"
     },
     "partner": {
-      "title": "Brand Promoter Program",
+      "title": "Brand Promoter Program", 
       "subtitle": "Join our community of financial educators",
-      "description": "Become a ZiNRAi Brand Promoter and help others achieve financial success."
+      "description": "Become a ZiNRAi Brand Promoter and help others achieve financial success while building your own income.",
+      "hero_title": "Become a Brand Promoter",
+      "hero_subtitle": "Share Financial Education, Earn While You Learn",
+      "coming_soon": "Coming Soon"
     },
     "culture": {
       "title": "Why ZiNRAi",
-      "subtitle": "Our mission and values",
-      "description": "Discover what drives us to create transformative financial education experiences."
+      "subtitle": "Our mission and values", 
+      "description": "Discover what drives us to create transformative financial education experiences.",
+      "hero_title": "Our Culture & Values",
+      "hero_subtitle": "Building a Movement of Financial Empowerment",
+      "coming_soon": "Coming Soon"
     },
     "leadership": {
       "title": "Leadership Team",
       "subtitle": "Meet our experienced team",
-      "description": "Get to know the leaders driving ZiNRAi's mission forward."
+      "description": "Get to know the leaders driving ZiNRAi's mission forward.",
+      "hero_title": "Our Leadership",
+      "hero_subtitle": "Experienced Professionals Driving Innovation",
+      "coming_soon": "Coming Soon"
     },
     "contact": {
       "title": "Contact Us",
-      "subtitle": "Get in touch with our team",
-      "description": "Have questions? We're here to help you on your financial education journey."
+      "subtitle": "Get in touch with our team", 
+      "description": "Have questions? We're here to help you on your financial education journey.",
+      "hero_title": "Get in Touch",
+      "hero_subtitle": "We're Here to Support Your Journey",
+      "support_email": "Support: support@zinrai.com",
+      "business_email": "Business: business@zinrai.com"
     }
+  },
+  "legal": {
+    "terms_of_use": "Terms of Use",
+    "member_agreement": "Member Agreement", 
+    "privacy_policy": "Privacy Policy",
+    "brand_promoter_agreement": "Brand Promoter Agreement",
+    "refund_policy": "Refund Policy",
+    "cookie_policy": "Cookie Policy",
+    "japan_statutory": "Japan Statutory Advertisement Matters"
   }
 }
