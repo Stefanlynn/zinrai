@@ -336,12 +336,12 @@ export default function Product() {
               {/* Product title with icon */}
               <div className="flex items-center mb-6">
                 <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`} aria-hidden="true"></div>
-                <h2 id="product-detail-title" className="text-white text-xl font-medium">{t(`product.details.${serviceKeys[activeIndex]}.title`, productDetails[activeIndex].title)}</h2>
+                <h2 id="product-detail-title" className="text-white text-xl font-medium">{t(`product.details.${serviceKeys[activeIndex]}.title`)}</h2>
               </div>
               
               {/* Product description */}
               <div className="text-white/80 text-sm leading-relaxed mb-8 whitespace-pre-line">
-                {t(`product.details.${serviceKeys[activeIndex]}.description`, productDetails[activeIndex].description)}
+                {t(`product.details.${serviceKeys[activeIndex]}.description`)}
               </div>
               
 
@@ -356,10 +356,10 @@ export default function Product() {
           {/* Left Side - Products List */}
           <div className={`w-full md:w-1/2 p-8 pt-[10vh] pb-2 md:p-16 md:pl-20 md:pb-0 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-              {t('product.title', 'Our Courses')}
+              {t('product.title')}
             </h1>
             <p className="text-white/70 text-lg mb-12 max-w-md">
-              {t('product.description', 'Master the fundamentals of financial literacy with our expertly designed courses.')}
+              {t('product.description')}
             </p>
             
             <div className="space-y-8 max-w-md mb-4">
@@ -374,7 +374,7 @@ export default function Product() {
                   }}
                   role="button"
                   tabIndex={0}
-                  aria-label={`Learn more about ${t(`product.details.${serviceKeys[index]}.title`, productDetails[index].title)}`}
+                  aria-label={`Learn more about ${t(`product.details.${serviceKeys[index]}.title`)}`}
                   className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 ${
                     activeIndex === index ? 
                     'bg-gradient-to-r shadow-lg' : 
@@ -390,10 +390,10 @@ export default function Product() {
                     ></div>
                     <div>
                       <h2 className={`text-white text-lg font-medium mb-1`}>
-                        {t(`product.services.${serviceKeys[index]}`, services[index])}
+                        {t(`product.services.${serviceKeys[index]}`)}
                       </h2>
                       <p className="text-white/60 text-sm line-clamp-2">
-                        {t(`product.details.${serviceKeys[index]}.description`, productDetails[index].description).split('\n')[0]}
+                        {t(`product.details.${serviceKeys[index]}.description`).split('\n')[0]}
                       </p>
                     </div>
                   </div>
@@ -409,12 +409,12 @@ export default function Product() {
                 {/* Product header with animated dot */}
                 <div className="flex items-center mb-8">
                   <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
-                  <h3 className="text-white text-xl font-medium tracking-wide">{t(`product.details.${serviceKeys[activeIndex]}.title`, productDetails[activeIndex].title)}</h3>
+                  <h3 className="text-white text-xl font-medium tracking-wide">{t(`product.details.${serviceKeys[activeIndex]}.title`)}</h3>
                 </div>
                 
                 {/* Product description with formatted content */}
                 <div className="text-white/80 text-base leading-relaxed mb-0 whitespace-pre-line">
-                  {t(`product.details.${serviceKeys[activeIndex]}.description`, productDetails[activeIndex].description)}
+                  {t(`product.details.${serviceKeys[activeIndex]}.description`)}
                 </div>
               </div>
             </div>
@@ -438,10 +438,10 @@ export default function Product() {
             <div className="p-8">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-light text-white mb-2 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                  {t('product.modal.title', 'Join ZiNRAi')}
+                  {t('product.modal.title')}
                 </h2>
                 <p className="text-white/60 text-sm">
-                  {t('product.modal.subtitle', 'Start with our products today')}
+                  {t('product.modal.subtitle')}
                 </p>
               </div>
               
@@ -457,33 +457,33 @@ export default function Product() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-                {t('product.pricing.title', 'Choose Your')} <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">{t('product.pricing.access', 'Access')}</span>
+                {t('product.pricing.title')} <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">{t('product.pricing.access')}</span>
               </h2>
               <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
-                {t('product.pricing.subtitle', 'Select the membership plan that fits your learning goals and unlock your growth potential.')}
+                {t('product.pricing.subtitle')}
               </p>
               
               {/* Pricing Breakdown */}
               <div className="max-w-4xl mx-auto bg-black/30 rounded-lg p-4 md:p-6 border border-white/20 mb-8 shadow-lg">
-                <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">{t('product.pricing.how_it_works', 'How ZiNRAi™ Membership Works')}</h3>
+                <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">{t('product.pricing.how_it_works')}</h3>
                 <div className="text-white/90 space-y-4">
                   <div className="bg-blue-900/30 rounded-lg p-3 md:p-4 border border-blue-400/30">
-                    <p className="text-sm md:text-base leading-relaxed font-medium text-blue-300 mb-2">{t('product.pricing.step1_title', 'Step 1: Start with ALL ACCESS Starter')}</p>
+                    <p className="text-sm md:text-base leading-relaxed font-medium text-blue-300 mb-2">{t('product.pricing.step1_title')}</p>
                     <p className="text-xs md:text-sm leading-relaxed text-white/80">
-                      {t('product.pricing.step1_desc', 'Everyone begins with a one-time payment of $199.95 (available until July 1st) for immediate access to all educational content and live sessions.')}
+                      {t('product.pricing.step1_desc')}
                     </p>
                   </div>
                   
                   <div className="bg-green-900/30 rounded-lg p-3 md:p-4 border border-green-400/30">
-                    <p className="text-sm md:text-base leading-relaxed font-medium text-green-300 mb-2">{t('product.pricing.step2_title', 'Step 2: Choose Your Monthly Plan')}</p>
+                    <p className="text-sm md:text-base leading-relaxed font-medium text-green-300 mb-2">{t('product.pricing.step2_title')}</p>
                     <p className="text-xs md:text-sm leading-relaxed text-white/80">
-                      {t('product.pricing.step2_desc', 'After your starter access, select either ALL ACCESS Monthly ($184.95) or VIP ACCESS Monthly ($249.95). Your first monthly billing begins 28 days after your starter payment.')}
+                      {t('product.pricing.step2_desc')}
                     </p>
                   </div>
                   
                   <div className="border-t border-white/20 pt-3 mt-4">
                     <p className="text-white/60 text-xs md:text-sm text-center">
-                      {t('product.pricing.billing_note', 'All monthly plans operate on 28-day billing cycles with continuous access to the ZiNRAi™ educational platform.')}
+                      {t('product.pricing.billing_note')}
                     </p>
                   </div>
                 </div>
@@ -501,9 +501,9 @@ export default function Product() {
       <div className="w-full bg-black/40 border-t border-white/10">
         <div className="px-8 md:px-16 py-16">
           <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-white text-2xl font-medium mb-6">{t('product.contact.title', 'Ready to get started?')}</h3>
+            <h3 className="text-white text-2xl font-medium mb-6">{t('product.contact.title')}</h3>
             <p className="text-white/90 text-lg leading-relaxed mb-4">
-              {t('product.contact.description', 'Connect with the Brand Promoter who introduced you to ZiNRAi to enroll today.')}
+              {t('product.contact.description')}
             </p>
 
           </div>
