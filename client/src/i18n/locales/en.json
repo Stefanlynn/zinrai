@@ -417,44 +417,6 @@
     "cookie_policy": "Cookie Policy",
     "japan_statutory": "Japan Statutory Advertisement Matters"
   },
-  "home": {
-    "hero": {
-      "growth_category": "Growth & Learning",
-      "growth_title": "Unlock Your Growth",
-      "cta_button": "Start Now",
-      "movement_title": "We Are the Ones Who Answered the Call",
-      "tagline": "LIVE WITH PASSION. LEAD WITH PURPOSE",
-      "movement_description": "Refined by fire. United in purpose. This is more than a brand—it's a movement of integrity, resilience, and global impact."
-    },
-    "courses": {
-      "description": "Explore hands on education across forex, crypto, digital marketing, and e-commerce. Our courses are led by educators and designed to equip you with foundational knowledge, real-world insights, and the confidence to make informed decisions.",
-      "features": {
-        "live_sessions": "Live Interactive Sessions",
-        "risk_strategy": "Risk Awareness & Strategy",
-        "market_insight": "Market Insight & Analysis",
-        "entrepreneurial_classes": "Variety of entrepreneurial classes"
-      },
-      "disclaimer": "These courses are for educational purposes only. ZiNRAi™ does not provide financial advice or guarantee specific outcomes."
-    },
-    "promoter": {
-      "category": "Brand Promoter Program",
-      "title": "Unlock Your Influence",
-      "description": "Become a Brand Promoter and share our online education, leadership development, and personal growth tools. As a promoter, you'll share the ZiNRAi™ vision, connect others to our platform, and grow alongside a values-driven community.",
-      "benefits": {
-        "schedule": "Choose your own schedule",
-        "growth": "Personal Growth Opportunities",
-        "training": "Training & Tools Provided",
-        "share": "Share products you love"
-      },
-      "disclaimer": "Note: ZiNRAi™ Brand Promoters are independent representatives. Results and experiences may vary."
-    },
-    "footer": {
-      "legal_section": "Legal Information",
-      "company_section": "Company Information",
-      "follow_us": "Follow Us",
-      "company_description": "Innovative digital learning platform for financial education and strategy analysis."
-    }
-  },
 
   "contact": {
     "hero_title": "Connect",
