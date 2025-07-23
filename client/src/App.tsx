@@ -544,13 +544,14 @@ function App() {
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
                           <button 
-                            onClick={() => {
-                              console.log('Navigating to /product, current location:', window.location.pathname);
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              console.log('PRODUCT BUTTON CLICKED! Navigating to /product, current location:', window.location.pathname);
                               setLocation('/product');
                               console.log('After setLocation, new location should be /product');
                               toggleMenu();
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
                           >
                             {t('nav.product')}
                           </button>
@@ -561,11 +562,13 @@ function App() {
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">02</div>
                           <button 
-                            onClick={() => {
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              console.log('PARTNER BUTTON CLICKED! Navigating to /partner');
                               setLocation('/partner');
                               toggleMenu();
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
                           >
                             {t('nav.partner')}
                           </button>
