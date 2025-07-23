@@ -36,8 +36,8 @@ i18n
       caches: [],
     },
     
-    // Force default language to English
-    lng: 'en'
+    // Don't force default language, let detector work
+    // lng: 'en'
   });
 
 export default i18n;
