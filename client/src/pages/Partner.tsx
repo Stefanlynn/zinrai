@@ -4,14 +4,13 @@ import { useTranslation } from 'react-i18next';
 export default function Partner() {
   const { t, i18n } = useTranslation();
   
-  // Debug the translation
-  console.log('Partner page - current language:', i18n.language);
-  console.log('Partner page - join_movement translation:', t('partner.join_movement'));
-  console.log('Partner page - translation ready:', i18n.isInitialized);
-  console.log('Partner page - all partner translations:', t('partner', { returnObjects: true }));
-  console.log('Partner page - direct join_movement check:', t('partner', { returnObjects: true })?.join_movement);
-  console.log('Partner page - current resource check:', i18n.store.data[i18n.language]?.translation?.partner?.join_movement);
-  console.log('Partner page - resource store:', i18n.store.data);
+  // Force translation reload when language changes
+  useEffect(() => {
+    const reloadTranslations = async () => {
+      await i18n.reloadResources();
+    };
+    reloadTranslations();
+  }, [i18n.language, i18n]);
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -188,7 +187,7 @@ export default function Partner() {
                     onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
                     className="px-6 py-3 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
-                    {t('join_movement', { ns: 'partner' }) || t('partner.join_movement') || 'Join Our Movement'}
+                    {t('partner.join_movement')}
                   </button>
                 </div>
               </div>
