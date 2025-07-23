@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { useTranslation } from 'react-i18next';
 
 export default function Menu() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [_, setLocation] = useLocation();
 
   const menuItems = [
@@ -16,13 +16,69 @@ export default function Menu() {
   ];
 
   const legalLinks = [
-    { titleKey: "home.footer.links.brand_promoter_agreement", href: "/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" },
-    { titleKey: "home.footer.links.cookie_policy", href: "/assets/Cookie Policy 5-2025.pdf" },
-    { titleKey: "home.footer.links.privacy_policy", href: "/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf" },
-    { titleKey: "home.footer.links.refund_policy", href: "/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" },
-    { titleKey: "home.footer.links.member_agreement", href: "/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" },
-    { titleKey: "home.footer.links.terms_of_use", href: "/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" },
-    { titleKey: "home.footer.links.japan_statutory", href: "/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" }
+    { 
+      titleKey: "brand_promoter_agreement", 
+      href: "/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf",
+      text: {
+        en: "Brand Promoter Agreement",
+        es: "Acuerdo de Promotor de Marca", 
+        ja: "ブランドプロモーター契約"
+      }
+    },
+    { 
+      titleKey: "cookie_policy", 
+      href: "/assets/Cookie Policy 5-2025.pdf",
+      text: {
+        en: "Cookie Policy",
+        es: "Política de Cookies",
+        ja: "クッキーポリシー"
+      }
+    },
+    { 
+      titleKey: "privacy_policy", 
+      href: "/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf",
+      text: {
+        en: "Privacy Policy",
+        es: "Política de Privacidad",
+        ja: "プライバシーポリシー"
+      }
+    },
+    { 
+      titleKey: "refund_policy", 
+      href: "/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf",
+      text: {
+        en: "Refund Policy",
+        es: "Política de Reembolso",
+        ja: "返金ポリシー"
+      }
+    },
+    { 
+      titleKey: "member_agreement", 
+      href: "/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf",
+      text: {
+        en: "Member Agreement",
+        es: "Acuerdo de Miembros",
+        ja: "メンバー契約"
+      }
+    },
+    { 
+      titleKey: "terms_of_use", 
+      href: "/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf",
+      text: {
+        en: "Terms of Use",
+        es: "Términos de Uso",
+        ja: "利用規約"
+      }
+    },
+    { 
+      titleKey: "japan_statutory", 
+      href: "/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx",
+      text: {
+        en: "Japan Statutory Advertisement Matters",
+        es: "Asuntos Publicitarios Estatutarios de Japón",
+        ja: "日本法定広告事項"
+      }
+    }
   ];
 
   return (
@@ -56,7 +112,11 @@ export default function Menu() {
             rel="noopener noreferrer"
             className="h-[36px] px-6 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
           >
-            <span className="text-white/90 text-sm font-light tracking-wide">{t('common.login')}</span>
+            <span className="text-white/90 text-sm font-light tracking-wide" key={`menu-login-${i18n.language}`}>
+              {i18n.language === 'es' ? 'Iniciar Sesión' : 
+               i18n.language === 'ja' ? 'ログイン' : 
+               'Login'}
+            </span>
           </a>
         </div>
 
@@ -81,17 +141,21 @@ export default function Menu() {
 
           {/* Right side: Legal Links */}
           <div className="md:ml-16 mt-12 md:mt-0">
-            <h3 className="text-white/70 text-sm font-light mb-6">{t('home.footer.legal_links')}</h3>
+            <h3 className="text-white/70 text-sm font-light mb-6" key={`legal-heading-${i18n.language}`}>
+              {i18n.language === 'es' ? 'Documentos Legales' : 
+               i18n.language === 'ja' ? '法的文書' : 
+               'Legal Documents'}
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-md">
               {legalLinks.map((link, index) => (
                 <a 
-                  key={index}
+                  key={`${link.titleKey}-${i18n.language}`}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-white/90 transition-colors text-sm text-left"
                 >
-                  {t(link.titleKey)}
+                  {link.text[i18n.language] || link.text.en}
                 </a>
               ))}
             </div>
