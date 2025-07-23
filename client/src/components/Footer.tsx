@@ -6,9 +6,85 @@ import { useTranslation } from 'react-i18next';
 import CookieSettings from "./CookieSettings";
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [, setLocation] = useLocation();
   const [showCookieSettings, setShowCookieSettings] = useState(false);
+
+  // Footer translations based on current language
+  const footerTexts = {
+    en: {
+      legal: "Legal",
+      quickLinks: "Quick Links",
+      connect: "Connect",
+      home: "Home",
+      courses: "Courses",
+      brandPromoter: "Brand Promoter",
+      culture: "Culture",
+      leadership: "Leadership",
+      privacyPolicy: "Privacy Policy",
+      memberAgreement: "Member Agreement",
+      termsOfUse: "Terms of Use",
+      refundPolicy: "Refund Policy",
+      cookiePolicy: "Cookie Policy",
+      brandPromoterAgreement: "Brand Promoter Agreement",
+      japanStatutory: "Japan Statutory Advertisement Matters",
+      contactSupport: "Contact Support",
+      contact: "Contact",
+      documents: "Documents",
+      allRightsReserved: "All rights reserved.",
+      educationFocus: "Our focus is financial education, not investment advice.",
+      email: "Email"
+    },
+    ja: {
+      legal: "法的事項",
+      quickLinks: "クイックリンク",
+      connect: "接続",
+      home: "ホーム",
+      courses: "コース",
+      brandPromoter: "ブランドプロモーター",
+      culture: "文化",
+      leadership: "リーダーシップ",
+      privacyPolicy: "プライバシーポリシー",
+      memberAgreement: "メンバー契約",
+      termsOfUse: "利用規約",
+      refundPolicy: "返金ポリシー",
+      cookiePolicy: "クッキーポリシー",
+      brandPromoterAgreement: "ブランドプロモーター契約",
+      japanStatutory: "日本法定広告事項",
+      contactSupport: "サポートにお問い合わせ",
+      contact: "お問い合わせ",
+      documents: "ドキュメント",
+      allRightsReserved: "すべての権利予約済み。",
+      educationFocus: "私たちの焦点は金融教育であり、投資アドバイスではありません。",
+      email: "メール"
+    },
+    es: {
+      legal: "Legal",
+      quickLinks: "Enlaces Rápidos",
+      connect: "Conectar",
+      home: "Inicio",
+      courses: "Cursos",
+      brandPromoter: "Promotor de Marca",
+      culture: "Cultura",
+      leadership: "Liderazgo",
+      privacyPolicy: "Política de Privacidad",
+      memberAgreement: "Acuerdo de Miembro",
+      termsOfUse: "Términos de Uso",
+      refundPolicy: "Política de Reembolso",
+      cookiePolicy: "Política de Cookies",
+      brandPromoterAgreement: "Acuerdo de Promotor de Marca",
+      japanStatutory: "Asuntos Publicitarios Estatutarios de Japón",
+      contactSupport: "Contactar Soporte",
+      contact: "Contacto",
+      documents: "Documentos",
+      allRightsReserved: "Todos los derechos reservados.",
+      educationFocus: "Nuestro enfoque es la educación financiera, no el asesoramiento de inversión.",
+      email: "Correo"
+    }
+  };
+
+  const currentLang = i18n.language || 'en';
+  const texts = footerTexts[currentLang as keyof typeof footerTexts] || footerTexts.en;
 
 
   const handleNavigation = (path: string) => {
@@ -24,7 +100,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
             <p className="text-white/70 text-sm mb-4">
-              {t('home.footer.company_description')}
+              Innovative digital learning platform for financial education and strategy analysis.
             </p>
             <div className="text-white/60 text-sm">
               <p>ZiNRAi<span className="text-xs align-super">™</span> LLC</p>
@@ -33,20 +109,20 @@ export default function Footer() {
               <p>Bonita Springs, FL 34134</p>
             </div>
             <div className="mt-4 p-3 bg-gray-800 text-white rounded font-bold text-center">
-              {t('home.footer.email')}: support@zinrai.com
+              {texts.email}: support@zinrai.com
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('home.footer.quick_links')}</h3>
+            <h3 className="text-lg font-semibold mb-4">{texts.quickLinks}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <button 
                   onClick={() => handleNavigation("/")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.home')}
+                  {texts.home}
                 </button>
               </li>
               <li>
@@ -54,7 +130,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/product")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.courses')}
+                  {texts.courses}
                 </button>
               </li>
               <li>
@@ -62,7 +138,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/partner")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.brand_promoter')}
+                  {texts.brandPromoter}
                 </button>
               </li>
               <li>
@@ -70,7 +146,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/culture")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.culture')}
+                  {texts.culture}
                 </button>
               </li>
             </ul>
@@ -78,7 +154,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('home.footer.legal')}</h3>
+            <h3 className="text-lg font-semibold mb-4">{texts.legal}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a 
@@ -87,7 +163,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.privacy_policy')}
+                  {texts.privacyPolicy}
                 </a>
               </li>
               <li>
@@ -97,7 +173,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.member_agreement')}
+                  {texts.memberAgreement}
                 </a>
               </li>
               <li>
@@ -107,7 +183,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.terms_of_use')}
+                  {texts.termsOfUse}
                 </a>
               </li>
               <li>
@@ -117,7 +193,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.refund_policy')}
+                  {texts.refundPolicy}
                 </a>
               </li>
               <li>
@@ -127,7 +203,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.cookie_policy')}
+                  {texts.cookiePolicy}
                 </a>
               </li>
               <li>
@@ -145,7 +221,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.brand_promoter_agreement')}
+                  {texts.brandPromoterAgreement}
                 </a>
               </li>
               <li>
@@ -155,7 +231,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.japan_statutory')}
+                  {texts.japanStatutory}
                 </a>
               </li>
             </ul>
@@ -163,7 +239,7 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('home.footer.connect')}</h3>
+            <h3 className="text-lg font-semibold mb-4">{texts.connect}</h3>
             <div className="flex space-x-4 mb-4">
               <a 
                 href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
@@ -187,7 +263,7 @@ export default function Footer() {
             </div>
             <div className="text-sm">
               <div className="mb-3">
-                <p className="text-white/70 mb-1">{t('home.footer.contact_support')}:</p>
+                <p className="text-white/70 mb-1">{texts.contactSupport}:</p>
                 <a 
                   href="mailto:support@zinrai.com"
                   className="text-white hover:text-blue-400 transition-colors font-bold"
@@ -199,13 +275,13 @@ export default function Footer() {
                 onClick={() => handleNavigation("/contact")}
                 className="text-white/70 hover:text-white transition-colors block mb-2"
               >
-                {t('home.footer.links.contact')}
+                {texts.contact}
               </button>
               <button 
                 onClick={() => handleNavigation("/documents")}
                 className="text-white/70 hover:text-white transition-colors block"
               >
-                {t('home.footer.links.documents')}
+                {texts.documents}
               </button>
             </div>
           </div>
@@ -214,10 +290,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
-            <p>&copy; 2025 ZiNRAi<span className="text-xs align-super">™</span> LLC. {t('home.footer.all_rights_reserved')}</p>
+            <p>&copy; 2025 ZiNRAi<span className="text-xs align-super">™</span> LLC. {texts.allRightsReserved}</p>
             <div className="mt-4 md:mt-0">
               <p className="text-xs">
-                {t('home.footer.education_focus')}
+                {texts.educationFocus}
               </p>
             </div>
           </div>
