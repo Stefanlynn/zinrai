@@ -352,9 +352,10 @@ function App() {
               </button>
             )}
             
-            {/* Login and Watch Now buttons on left side for mobile home page */}
+            {/* Login, Watch Now, and Language buttons on left side for mobile home page */}
             {isHomePage && !menuOpen && (
               <div className="md:hidden ml-6 flex items-center space-x-2">
+                <LanguageSelector />
                 <a 
                   href="http://app.zinrai.com"
                   target="_blank"
