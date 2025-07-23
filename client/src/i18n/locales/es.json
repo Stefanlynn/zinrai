@@ -353,7 +353,25 @@
       "legal_section": "Información Legal",
       "company_section": "Información de la Empresa",
       "follow_us": "Síguenos",
-      "company_description": "Plataforma innovadora de aprendizaje digital para educación financiera y análisis estratégico."
+      "company_description": "Plataforma innovadora de aprendizaje digital para educación financiera y análisis estratégico.",
+      "legal": "Legal",
+      "quick_links": "Enlaces Rápidos",
+      "email": "Correo",
+      "disclaimer_title": "Descargo de Responsabilidad Importante",
+      "disclaimer_text": "Los productos ZiNRAi™ incluyen contenido de entrenamiento digital e interactivo en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversión o comercio en línea de valores, monedas (incluidas criptomonedas), u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o asesoramiento sobre estrategia de inversión, ni proporcionan servicios financieros regulados.",
+      "disclaimer_text2": "ZiNRAi™ no está respaldado por ni afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales o agencias, o cuerpo regulatorio financiero.",
+      "disclaimer_text3": "ZiNRAi™ no proporciona absolutamente ninguna garantía de que ganará dinero o alcanzará una meta financiera utilizando los métodos, información y sugerencias en el contenido proporcionado. Cualquier ejemplo o demostración proporcionada no es de ninguna manera una garantía o promesa de que un individuo obtendrá ganancias financieras de cualquier tipo.",
+      "copyright": "© 2025 ZiNRAi™ LLC. Todos los derechos reservados.",
+      "education_focus": "Nuestro enfoque es la educación financiera, no el asesoramiento de inversión.",
+      "links": {
+        "privacy_policy": "Política de Privacidad",
+        "member_agreement": "Acuerdo de Miembros",
+        "terms_of_use": "Términos de Uso",
+        "refund_policy": "Política de Reembolso",
+        "cookie_policy": "Política de Cookies",
+        "brand_promoter_agreement": "Acuerdo de Promotor de Marca",
+        "japan_statutory": "Asuntos Publicitarios Estatutarios de Japón"
+      }
     }
   },
   "partner": {
