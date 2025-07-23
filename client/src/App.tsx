@@ -502,18 +502,17 @@ function App() {
           
 
             
-            {/* Mobile menu */}
-            {menuOpen && (
-              <div 
-                id="mobile-menu" 
-                className="fixed inset-0 bg-black text-white z-[1001] overflow-auto pointer-events-auto" 
-                role="dialog" 
-                aria-modal="true" 
-                aria-label="Main Menu"
-                style={{ pointerEvents: 'auto' }}
-              >
+        {/* Mobile menu - positioned outside header to avoid conflicts */}
+        {menuOpen && (
+          <div 
+            id="mobile-menu" 
+            className="fixed top-0 left-0 right-0 bottom-0 bg-black text-white z-[9999] overflow-auto lg:hidden" 
+            role="dialog" 
+            aria-modal="true" 
+            aria-label="Main Menu"
+          >
                 <div className="w-full h-full flex flex-col">
-                  {/* Header with ZiNRAi text, Language Selector, and Login button */}
+                  {/* Header with ZiNRAi text, Close button */}
                   <div className="flex justify-between items-center p-6">
                     <div 
                       className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
@@ -534,18 +533,17 @@ function App() {
                       ZiNRAi
                     </div>
                     
-                    {/* Login button - Language selector now in header */}
-                    <div className="flex items-center">
-                      <a 
-                        href="http://app.zinrai.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
-                        aria-label="Login to ZiNRAi app"
-                      >
-                        <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
-                      </a>
-                    </div>
+                    {/* Close button */}
+                    <button 
+                      className="h-[36px] w-[36px] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 rounded-lg"
+                      onClick={() => setMenuOpen(false)}
+                      aria-label="Close menu"
+                    >
+                      <div className="relative w-5 h-5 flex items-center justify-center">
+                        <div className="w-5 h-[2px] bg-white absolute rotate-45"></div>
+                        <div className="w-5 h-[2px] bg-white absolute -rotate-45"></div>
+                      </div>
+                    </button>
                   </div>
                   
                   {/* Main menu content with numbered items on left, video space on right */}
@@ -784,8 +782,8 @@ function App() {
                   </div>
 
                 </div>
-              </div>
-            )}
+            </div>
+          )}
         </header>
         
         {/* Centered header text content */}
