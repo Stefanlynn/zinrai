@@ -3,6 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 export default function Partner() {
   const { t, i18n } = useTranslation();
+  
+  // Debug the translation
+  console.log('Partner page - current language:', i18n.language);
+  console.log('Partner page - join_movement translation:', t('partner.join_movement'));
+  console.log('Partner page - translation ready:', i18n.isInitialized);
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -179,7 +184,7 @@ export default function Partner() {
                     onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
                     className="px-6 py-3 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
-                    {t('partner.join_movement')}
+                    {t('partner.join_movement') || 'Join Our Movement'}
                   </button>
                 </div>
               </div>
