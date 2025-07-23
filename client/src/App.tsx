@@ -79,17 +79,17 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
       });
 
       if (response.ok) {
-        setSubmitMessage("Successfully submitted!");
+        setSubmitMessage(t('form.success'));
         setFormData({ firstname: '', lastname: '', email: '', phone: '', refid: '' });
         setTimeout(() => {
           onClose();
         }, 2000);
       } else {
-        setSubmitMessage("Submission failed. Please try again.");
+        setSubmitMessage(t('form.error'));
       }
     } catch (err) {
       console.error("Error:", err);
-      setSubmitMessage("Something went wrong. Please try again later.");
+      setSubmitMessage(t('form.error_generic'));
     } finally {
       setIsSubmitting(false);
     }
@@ -110,7 +110,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.firstname}
           onChange={(e) => setFormData(prev => ({ ...prev, firstname: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder="Enter your first name"
+          placeholder={t('form.firstName_placeholder')}
         />
       </div>
 
@@ -125,7 +125,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.lastname}
           onChange={(e) => setFormData(prev => ({ ...prev, lastname: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder="Enter your last name"
+          placeholder={t('form.lastName_placeholder')}
         />
       </div>
 
@@ -140,7 +140,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.email}
           onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder="Enter your email address"
+          placeholder={t('form.email_placeholder')}
         />
       </div>
 
@@ -154,7 +154,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.phone}
           onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder="Enter your phone number"
+          placeholder={t('form.phone_placeholder')}
         />
       </div>
 
@@ -286,12 +286,12 @@ function App() {
   const [headerTextIndex, setHeaderTextIndex] = useState(0);
   const headerTexts = [
     { 
-      text: "$1 per subscription supports",
+      text: t('header.supportMessage'),
       showHeart: true,
       showLink: true
     },
     { 
-      text: "Live With Passion. Lead With Purpose.",
+      text: t('header.missionMessage'),
       showHeart: false,
       showLink: false
     }

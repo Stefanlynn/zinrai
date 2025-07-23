@@ -159,5 +159,47 @@
     "watchNow": "Ver Ahora",
     "getStarted": "Comenzar",
     "joinZinrai": "Unirse a ZiNRAi"
+  },
+  "header": {
+    "supportMessage": "$1 por suscripción apoya",
+    "missionMessage": "Vive con Pasión. Lidera con Propósito."
+  },
+  "form": {
+    "success": "¡Enviado exitosamente!",
+    "error": "El envío falló. Por favor, inténtalo de nuevo.",
+    "error_generic": "Algo salió mal. Por favor, inténtalo más tarde.",
+    "firstName_placeholder": "Ingresa tu primer nombre",
+    "lastName_placeholder": "Ingresa tu apellido",
+    "email_placeholder": "Ingresa tu dirección de correo electrónico",
+    "phone_placeholder": "Ingresa tu número de teléfono"
+  },
+  "home": {
+    "footer": {
+      "company_description": "Plataforma de aprendizaje digital innovadora para educación financiera y análisis estratégico.",
+      "legal": "Legal",
+      "quick_links": "Enlaces Rápidos",
+      "follow_us": "Síguenos",
+      "email": "Correo Electrónico",
+      "disclaimer_title": "Descargo de Responsabilidad Importante",
+      "disclaimer_text": "Los productos ZiNRAi™ incluyen contenido de entrenamiento interactivo digital y en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversión o comercio en línea de valores, moneda (incluidas las criptomonedas), u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o consejos sobre estrategia de inversión, ni proporcionan servicios financieros regulados.",
+      "disclaimer_text2": "ZiNRAi™ no está respaldado por ni afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales, agencias o cuerpo regulador financiero.",
+      "disclaimer_text3": "ZiNRAi™ no proporciona absolutamente ninguna garantía de que ganarás dinero o lograrás una meta financiera usando los métodos, información y sugerencias en el contenido proporcionado. Cualquier ejemplo o demostración proporcionada no es de ninguna manera una garantía o promesa de que un individuo obtenga ganancias financieras de cualquier tipo.",
+      "all_rights_reserved": "Todos los derechos reservados.",
+      "education_focus": "Nuestro enfoque es la educación financiera, no el consejo de inversión.",
+      "links": {
+        "privacy_policy": "Política de Privacidad",
+        "member_agreement": "Acuerdo de Miembro",
+        "terms_of_use": "Términos de Uso",
+        "refund_policy": "Política de Reembolso",
+        "cookie_policy": "Política de Cookies",
+        "brand_promoter_agreement": "Acuerdo de Promotor de Marca",
+        "japan_statutory": "Asuntos de Publicidad Estatutaria de Japón",
+        "courses": "Cursos",
+        "brand_promoter": "Promotor de Marca",
+        "culture": "Cultura",
+        "leadership": "Liderazgo",
+        "contact": "Contacto"
+      }
+    }
   }
 }

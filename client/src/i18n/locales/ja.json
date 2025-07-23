@@ -159,5 +159,47 @@
     "watchNow": "今すぐ見る",
     "getStarted": "始める",
     "joinZinrai": "ZiNRAiに参加"
+  },
+  "header": {
+    "supportMessage": "サブスクリプション1ドルがサポート",
+    "missionMessage": "情熱を持って生き、目的を持ってリードする。"
+  },
+  "form": {
+    "success": "正常に送信されました！",
+    "error": "送信に失敗しました。もう一度お試しください。",
+    "error_generic": "問題が発生しました。後でもう一度お試しください。",
+    "firstName_placeholder": "名前を入力してください",
+    "lastName_placeholder": "姓を入力してください",
+    "email_placeholder": "メールアドレスを入力してください",
+    "phone_placeholder": "電話番号を入力してください"
+  },
+  "home": {
+    "footer": {
+      "company_description": "金融教育と戦略分析のための革新的なデジタル学習プラットフォーム。",
+      "legal": "法的事項",
+      "quick_links": "クイックリンク",
+      "follow_us": "フォローする",
+      "email": "メール",
+      "disclaimer_title": "重要な免責事項",
+      "disclaimer_text": "ZiNRAi™製品には、投資と戦略に関する一般的かつ汎用的な情報を分析、学習、議論するためのデジタルおよびオンラインの対話型トレーニングコンテンツが含まれています。ZiNRAi™は、証券、通貨（暗号通貨を含む）、またはその他の金融もしくは投資商品やサービスの投資やオンライン取引のためのオンラインプラットフォームへのアクセスを促進したり、提供したりすることはありません。ZiNRAi™、そのブランドパートナー、および教育者は、投資戦略に関する個人的な推奨事項やアドバイスを提供することはなく、規制された金融サービスも提供しません。",
+      "disclaimer_text2": "ZiNRAi™は、国、州、県、地域の組織や協会、税務当局、機関、または金融規制機関によって承認されておらず、また関連もありません。",
+      "disclaimer_text3": "ZiNRAi™は、提供されたコンテンツの方法、情報、提案を使用してお金を稼いだり、財務目標を達成したりすることを絶対に保証しません。提供される例やデモンストレーションは、個人が何らかの金銭的利益を得ることの保証や約束ではありません。",
+      "all_rights_reserved": "すべての権利予約済み。",
+      "education_focus": "私たちの焦点は金融教育であり、投資アドバイスではありません。",
+      "links": {
+        "privacy_policy": "プライバシーポリシー",
+        "member_agreement": "メンバー契約",
+        "terms_of_use": "利用規約",
+        "refund_policy": "返金ポリシー",
+        "cookie_policy": "クッキーポリシー",
+        "brand_promoter_agreement": "ブランドプロモーター契約",
+        "japan_statutory": "日本法定広告事項",
+        "courses": "コース",
+        "brand_promoter": "ブランドプロモーター",
+        "culture": "文化",
+        "leadership": "リーダーシップ",
+        "contact": "お問い合わせ"
+      }
+    }
   }
 }

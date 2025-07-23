@@ -11,6 +11,19 @@
     "getStarted": "Get Started",
     "joinZinrai": "Join ZiNRAi"
   },
+  "header": {
+    "supportMessage": "$1 per subscription supports",
+    "missionMessage": "Live With Passion. Lead With Purpose."
+  },
+  "form": {
+    "success": "Successfully submitted!",
+    "error": "Submission failed. Please try again.",
+    "error_generic": "Something went wrong. Please try again later.",
+    "firstName_placeholder": "Enter your first name",
+    "lastName_placeholder": "Enter your last name",
+    "email_placeholder": "Enter your email address",
+    "phone_placeholder": "Enter your phone number"
+  },
   "nav": {
     "home": "Home",
     "product": "Courses",
@@ -61,21 +74,18 @@
       "copyright": "© Copyright 2025, ZiNRAi™ LLC. All Rights Reserved. All trademarks displayed on this website, unless otherwise indicated, are the property of ZiNRAi™ LLC.",
       "company_description": "Innovative digital learning platform for financial education and strategy analysis.",
       "links": {
-        "home": "Home",
-        "privacy_policy": "Privacy Policy",
-        "member_agreement": "Member Agreement", 
-        "terms_of_use": "Terms of Use",
-        "refund_policy": "Refund Policy",
-        "cookie_policy": "Cookie Policy",
-        "cookie_settings": "Cookie Settings",
-        "brand_promoter_agreement": "Brand Promoter Agreement",
-        "japan_statutory": "Japan Statutory Advertisement Matters",
         "courses": "Courses",
         "brand_promoter": "Brand Promoter",
         "culture": "Culture",
         "leadership": "Leadership",
         "contact": "Contact",
-        "documents": "Documents"
+        "privacy_policy": "Privacy Policy",
+        "member_agreement": "Member Agreement",
+        "terms_of_use": "Terms of Use",
+        "refund_policy": "Refund Policy",
+        "cookie_policy": "Cookie Policy",
+        "brand_promoter_agreement": "Brand Promoter Agreement",
+        "japan_statutory": "Japan Statutory Advertisement Matters"
       }
     },
     "courses": {
