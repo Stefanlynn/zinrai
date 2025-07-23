@@ -180,7 +180,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
 function PageWithHeader({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-black min-h-screen flex flex-col">
-      <div className="pt-[48px] flex-1">
+      <div className="pt-[60px] flex-1">
         {children}
       </div>
       <Footer />
@@ -189,16 +189,25 @@ function PageWithHeader({ children }: { children: React.ReactNode }) {
 }
 
 function Router() {
+  const [location] = useLocation();
+  console.log('Router: Current location is:', location);
+  
   return (
     <Switch>
       <Route path="/">
-        {() => <Home />}
+        {() => {
+          console.log('Router: Rendering Home component');
+          return <Home />;
+        }}
       </Route>
       <Route path="/logo">
         {() => <PageWithHeader><Logo /></PageWithHeader>}
       </Route>
       <Route path="/product">
-        {() => <PageWithHeader><Product /></PageWithHeader>}
+        {() => {
+          console.log('Router: Rendering Product component');
+          return <PageWithHeader><Product /></PageWithHeader>;
+        }}
       </Route>
       <Route path="/partner">
         {() => <PageWithHeader><Partner /></PageWithHeader>}
@@ -536,8 +545,9 @@ function App() {
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
                           <button 
                             onClick={() => {
-                              console.log('Navigating to /product');
+                              console.log('Navigating to /product, current location:', window.location.pathname);
                               setLocation('/product');
+                              console.log('After setLocation, new location should be /product');
                               toggleMenu();
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
