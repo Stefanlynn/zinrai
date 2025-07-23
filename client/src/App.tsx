@@ -463,8 +463,19 @@ function App() {
 
 
 
-            {/* Mobile Translation and Menu Toggle */}
-            <div className="lg:hidden flex items-center space-x-2" ref={menuRef}>
+            {/* Mobile Header Actions */}
+            <div className="lg:hidden flex items-center space-x-3" ref={menuRef}>
+              {/* Mobile Login Button */}
+              <a 
+                href="http://app.zinrai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-[36px] px-3 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
+                aria-label="Login to ZiNRAi app"
+              >
+                <span className="text-white/90 text-xs font-light tracking-wide">Login</span>
+              </a>
+              
               {/* Translation Icon for Mobile */}
               <div className="relative">
                 <LanguageSelector />
@@ -472,16 +483,16 @@ function App() {
               
               {/* Mobile Menu Toggle */}
               <button 
-                className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/5 rounded-lg"
+                className="h-[36px] w-[36px] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 rounded-lg"
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
                 aria-expanded={menuOpen ? "true" : "false"}
                 aria-controls="mobile-menu"
               >
-                <div className="relative w-6 h-6 flex items-center justify-center">
-                  <div className={`w-6 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'}`}></div>
-                  <div className={`w-6 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
-                  <div className={`w-6 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'}`}></div>
+                <div className="relative w-5 h-5 flex items-center justify-center">
+                  <div className={`w-5 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'}`}></div>
+                  <div className={`w-5 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+                  <div className={`w-5 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'}`}></div>
                 </div>
               </button>
             </div>
