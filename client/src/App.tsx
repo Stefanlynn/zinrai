@@ -39,6 +39,7 @@ import Menu from "@/pages/Menu";
 
 // Onboarding Form Component
 function OnboardingForm({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
