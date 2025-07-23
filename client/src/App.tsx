@@ -33,6 +33,7 @@ import CookiePolicy from "@/pages/CookiePolicy";
 import TestPage from "@/pages/TestPage";
 import StartNow from "@/pages/StartNow";
 import Documents from "@/pages/Documents";
+import Menu from "@/pages/Menu";
 
 
 
@@ -260,6 +261,9 @@ function Router() {
       <Route path="/startnow">
         {() => <PageWithHeader><StartNow /></PageWithHeader>}
       </Route>
+      <Route path="/menu">
+        {() => <Menu />}
+      </Route>
       <Route>
         {() => <PageWithHeader><NotFound /></PageWithHeader>}
       </Route>
@@ -486,15 +490,13 @@ function App() {
               {/* Mobile Menu Toggle */}
               <button 
                 className="h-[36px] w-[36px] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 rounded-lg"
-                onClick={toggleMenu}
-                aria-label="Toggle menu"
-                aria-expanded={menuOpen ? "true" : "false"}
-                aria-controls="mobile-menu"
+                onClick={() => setLocation('/menu')}
+                aria-label="Open menu"
               >
                 <div className="relative w-5 h-5 flex items-center justify-center">
-                  <div className={`w-5 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'}`}></div>
-                  <div className={`w-5 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
-                  <div className={`w-5 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'}`}></div>
+                  <div className="w-5 h-[2px] bg-white absolute -translate-y-1.5"></div>
+                  <div className="w-5 h-[2px] bg-white absolute"></div>
+                  <div className="w-5 h-[2px] bg-white absolute translate-y-1.5"></div>
                 </div>
               </button>
             </div>
