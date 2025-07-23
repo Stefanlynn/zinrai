@@ -61,6 +61,134 @@
       }
     }
   },
+  "product": {
+    "title": "Nuestros Cursos",
+    "subtitle": "Programas de Educación Financiera Integral",
+    "description": "Domina los fundamentos de la alfabetización financiera con nuestros cursos diseñados por expertos.",
+    "hero_title": "Transforma Tu Futuro Financiero",
+    "hero_subtitle": "Cursos dirigidos por expertos para cada estilo de aprendizaje",
+    "coming_soon": "Próximamente",
+    "form": {
+      "title": "Obtener Acceso Temprano",
+      "name_label": "Nombre *",
+      "name_placeholder": "Ingresa tu nombre completo",
+      "email_label": "Correo Electrónico *",
+      "email_placeholder": "Ingresa tu dirección de correo electrónico",
+      "phone_label": "Teléfono",
+      "phone_placeholder": "Ingresa tu número de teléfono",
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "success": "¡Enviado exitosamente!",
+      "error": "Error en el envío. Inténtalo de nuevo.",
+      "error_generic": "Algo salió mal. Inténtalo más tarde."
+    }
+  },
+  "partner": {
+    "hero_title": "Únete al Movimiento de Promotores de Marca ZiNRAi™",
+    "hero_subtitle": "Lidera con Propósito. Crece con Comunidad. Impacta con Integridad.",
+    "why_title": "¿Por Qué Unirse a Nuestro Movimiento?",
+    "benefits": {
+      "training": {
+        "title": "Entrenamiento y Mentoría",
+        "short_desc": "Accede a entrenamiento exclusivo, recursos de contenido y llamadas de liderazgo diseñadas para ayudarte a crecer.",
+        "description": "En ZiNRAi™, los Promotores de Marca son más que mercadólogos—son líderes del movimiento. Como promotor, ayudarás a compartir herramientas educativas que equipan a las personas para crecer personalmente, liderar con confianza y vivir con propósito.\n\nTendrás acceso a entrenamiento exclusivo, recursos de contenido y llamadas de liderazgo diseñadas para ayudarte a crecer—personal y profesionalmente. Nuestro programa de entrenamiento integral incluye:\n\n• Llamadas semanales de desarrollo de liderazgo\n• Acceso a nuestra biblioteca completa de contenido\n• Oportunidades de mentoría personal\n• Entrenamiento en marketing y comunicación\n• Talleres de desarrollo de marca"
+      },
+      "community": {
+        "title": "Apoyo Comunitario",
+        "short_desc": "Únete a una red poderosa comprometida con el crecimiento personal e impacto generacional.",
+        "description": "Únete a una red poderosa de individuos con mentalidad similar comprometidos con el crecimiento personal, alfabetización financiera e impacto generacional.\n\nNuestra comunidad proporciona:\n\n• Sesiones mensuales de mastermind\n• Grupos de apoyo peer-to-peer\n• Compartir historias de éxito\n• Resolución colaborativa de problemas\n• Oportunidades de networking con otros promotores\n• Acceso a eventos comunitarios exclusivos\n\nYa sea que estés construyendo una pasión secundaria o persiguiendo liderazgo a largo plazo, ofrecemos un camino flexible para el crecimiento."
+      },
+      "flexible": {
+        "title": "Camino Flexible",
+        "short_desc": "Trabaja en tu horario. Ya sea tiempo parcial o completo, tu voz marca la diferencia.",
+        "description": "Trabaja en tu horario. Ya sea que te involucres tiempo parcial o completo, tu voz marca la diferencia.\n\nNuestro enfoque flexible incluye:\n\n• Sin compromisos mínimos de tiempo\n• Trabaja desde cualquier lugar\n• Elige tus propias horas\n• Escala hacia arriba o abajo según sea necesario\n• Múltiples flujos de ingresos disponibles\n• Apoyo para todos los niveles de experiencia\n\nVerificación de Realidad: No estamos aquí para vender expectativas exageradas. ZiNRAi™ no garantiza ingresos o resultados—tu éxito se basa en tu propio esfuerzo, consistencia y liderazgo."
+      },
+      "tools": {
+        "title": "Herramientas para Liderar",
+        "short_desc": "Contenido creativo, activos de marca y kit de herramientas de marketing para amplificar tu mensaje.",
+        "description": "Te equipamos con contenido creativo, activos de marca y un kit de herramientas de marketing para amplificar tu mensaje y ayudarte a alcanzar tus metas.\n\nTu kit de herramientas incluye:\n\n• Materiales de marca profesionales\n• Plantillas de contenido para redes sociales\n• Recursos de marketing por correo electrónico\n• Contenido de video y audio\n• Materiales de presentación de ventas\n• Herramientas de análisis y seguimiento\n• Sistema de gestión de relaciones con clientes\n\n¿Quién Debería Unirse? Podrías ser un gran candidato si:\n• Amas empoderar a otros con conocimiento\n• Crees en el valor de la educación financiera\n• Quieres construir algo significativo junto a tus compromisos actuales\n• Tienes hambre de crecer como líder"
+      }
+    },
+    "cta": "¿Listo para Comenzar?",
+    "cta_subtitle": "Únete a miles construyendo su legado con ZiNRAi™",
+    "apply_button": "Aplicar Ahora"
+  },
+  "contact": {
+    "hero_title": "Ponte en Contacto",
+    "hero_subtitle": "Estamos aquí para ayudar con cualquier pregunta",
+    "company_info": "ZiNRAi™ LLC\n3333 Renaissance Blvd, Suite #209\nBonita Springs, FL 34134"
+  },
+  "culture": {
+    "hero_title": "La Cultura ZiNRAi™",
+    "hero_subtitle": "Construida sobre Carácter. Impulsada por Propósito. Definida por Impacto.",
+    "vision": {
+      "title": "Visión",
+      "description": "Ayudar a las personas ordinarias a convertirse en líderes extraordinarios—desbloqueando propósito, construyendo carácter y creando impacto significativo."
+    },
+    "mission": {
+      "title": "Misión",
+      "description": "ZiNRAi existe para enseñar a las personas cómo vivir mejor, liderar más fuerte y servir más profundo—a través de carácter, claridad y compromiso."
+    },
+    "pillars": {
+      "title": "Los Pilares Z.I.N.R.A.I",
+      "subtitle": "Seis principios fundamentales que guían todo lo que hacemos",
+      "zeal": {
+        "title": "Celo",
+        "description": "Perseguimos el propósito con energía y urgencia. La pasión alimenta nuestro progreso."
+      },
+      "integrity": {
+        "title": "Integridad",
+        "description": "Hacemos lo correcto—especialmente cuando es difícil. La confianza es nuestra moneda."
+      },
+      "nobility": {
+        "title": "Nobleza",
+        "description": "Elevamos a otros con honor. El liderazgo está arraigado en dignidad y servicio."
+      },
+      "resilience": {
+        "title": "Resistencia",
+        "description": "Nos levantamos a través del desafío. Los reveses moldean la fuerza y el éxito a largo plazo."
+      },
+      "abundance": {
+        "title": "Abundancia",
+        "description": "Operamos desde el desbordamiento, no la escasez. Siempre hay más para dar, crecer y convertirse."
+      },
+      "innovation": {
+        "title": "Innovación",
+        "description": "Nos adaptamos, evolucionamos y somos pioneros. La creatividad desbloquea nuevas oportunidades."
+      }
+    }
+  },
+  "cares": {
+    "hero_title": "ZiNRAi™ Cares",
+    "hero_subtitle": "Haciendo un impacto significativo a través de la educación y asistencia directa",
+    "impact_areas_title": "Áreas de Impacto",
+    "impact_action_title": "Nuestro Impacto en Acción",
+    "mission_text": "ZiNRAi™ Cares representa nuestro compromiso con el impacto global a través de la educación y asistencia directa. Cada suscripción contribuye a iniciativas benéficas verificadas, con total transparencia impulsada por tecnología blockchain.",
+    "areas": {
+      "food_security": {
+        "title": "Seguridad Alimentaria",
+        "description": "Apoyando programas de comidas en comunidades desatendidas en EE.UU., Pakistán y África."
+      },
+      "clean_water": {
+        "title": "Agua Limpia",
+        "description": "Financiando proyectos de agua sostenibles en comunidades de África Occidental que carecen de acceso a agua limpia."
+      },
+      "education": {
+        "title": "Acceso a la Educación",
+        "description": "Proporcionando recursos educativos y acceso a tecnología a poblaciones desatendidas."
+      },
+      "transparency": {
+        "title": "Transparencia",
+        "description": "Usando tecnología blockchain para asegurar 100% transparencia en la asignación de fondos y seguimiento de impacto."
+      }
+    },
+    "stats": {
+      "meals_provided": "Comidas Proporcionadas",
+      "water_access": "Personas que Obtuvieron Acceso al Agua",
+      "students_educated": "Estudiantes Educados",
+      "transparency_score": "Puntuación de Transparencia"
+    }
+  },
   "common": {
     "loading": "Cargando...",
     "error": "Error",
@@ -171,6 +299,94 @@
       "company_section": "Información de la Empresa",
       "follow_us": "Síguenos",
       "company_description": "Plataforma innovadora de aprendizaje digital para educación financiera y análisis estratégico."
+    }
+  },
+  "product": {
+    "title": "Nuestros Cursos",
+    "description": "Descubre nuestro conjunto integral de cursos diseñados para elevar tu crecimiento personal y financiero.",
+    "form": {
+      "name_label": "Nombre *",
+      "name_placeholder": "Ingresa tu nombre completo",
+      "email_label": "Correo Electrónico *",
+      "email_placeholder": "Ingresa tu dirección de correo electrónico",
+      "phone_label": "Teléfono",
+      "phone_placeholder": "Ingresa tu número de teléfono",
+      "submit": "Únete a ZiNRAi™",
+      "submitting": "Enviando...",
+      "success": "¡Enviado exitosamente!",
+      "error": "El envío falló. Por favor intenta de nuevo.",
+      "error_generic": "Algo salió mal. Por favor intenta más tarde."
+    }
+  },
+  "partner": {
+    "benefits": {
+      "training": {
+        "title": "Entrenamiento y Mentoría",
+        "description": "En ZiNRAi™, los Promotores de Marca son más que vendedores—son líderes del movimiento. Como promotor, ayudarás a compartir herramientas educativas que equipan a las personas para crecer personalmente, liderar con confianza y vivir con propósito.\n\nTendrás acceso a entrenamiento exclusivo, recursos de contenido y llamadas de liderazgo diseñadas para ayudarte a crecer—personal y profesionalmente. Nuestro programa integral de entrenamiento incluye:\n\n• Llamadas semanales de desarrollo de liderazgo\n• Acceso a nuestra biblioteca completa de contenido\n• Oportunidades de mentoría personal\n• Entrenamiento en marketing y comunicación\n• Talleres de desarrollo de marca",
+        "short_desc": "Accede a entrenamiento exclusivo, recursos de contenido y llamadas de liderazgo diseñadas para ayudarte a crecer."
+      },
+      "community": {
+        "title": "Apoyo Comunitario",
+        "description": "Únete a una poderosa red de individuos con mentalidad similar comprometidos con el crecimiento personal, la alfabetización financiera y el impacto generacional.\n\nNuestra comunidad proporciona:\n\n• Sesiones mensuales de mastermind\n• Grupos de apoyo entre pares\n• Compartir historias de éxito\n• Resolución colaborativa de problemas\n• Oportunidades de networking con otros promotores\n• Acceso a eventos exclusivos de la comunidad\n\nYa sea que estés construyendo una pasión secundaria o persiguiendo liderazgo a largo plazo, ofrecemos un camino flexible para el crecimiento.",
+        "short_desc": "Únete a una poderosa red comprometida con el crecimiento personal y el impacto generacional."
+      },
+      "flexible": {
+        "title": "Camino Flexible",
+        "description": "Trabaja según tu horario. Ya sea que participes de tiempo parcial o completo, tu voz marca la diferencia.\n\nNuestro enfoque flexible incluye:\n\n• Sin compromisos mínimos de tiempo\n• Trabaja desde cualquier lugar\n• Elige tus propias horas\n• Escala hacia arriba o abajo según sea necesario\n• Múltiples fuentes de ingresos disponibles\n• Apoyo para todos los niveles de experiencia\n\nVerificación de la realidad: No estamos aquí para vender exageraciones. ZiNRAi™ no garantiza ingresos o resultados—tu éxito se basa en tu propio esfuerzo, consistencia y liderazgo.",
+        "short_desc": "Trabaja según tu horario. Ya sea de tiempo parcial o completo, tu voz marca la diferencia."
+      },
+      "tools": {
+        "title": "Herramientas para Liderar",
+        "description": "Te equipamos con contenido creativo, activos de marca y un kit de herramientas de marketing para amplificar tu mensaje y ayudarte a alcanzar tus objetivos.\n\nTu kit de herramientas incluye:\n\n• Materiales de marca profesionales\n• Plantillas de contenido para redes sociales\n• Recursos de marketing por correo electrónico\n• Contenido de video y audio\n• Materiales de presentación de ventas\n• Herramientas de análisis y seguimiento\n• Sistema de gestión de relaciones con clientes\n\n¿Quién debería unirse? Podrías ser una buena opción si:\n• Amas empoderar a otros con conocimiento\n• Crees en el valor de la educación financiera\n• Quieres construir algo significativo junto a tus compromisos actuales\n• Tienes hambre de crecer como líder",
+        "short_desc": "Contenido creativo, activos de marca y kit de herramientas de marketing para amplificar tu mensaje."
+      }
+    }
+  },
+  "contact": {
+    "hero_title": "Conectar",
+    "hero_subtitle": "Estamos aquí para apoyar tu viaje.",
+    "company_info": "ZiNRAi™ LLC\n3333 Renaissance Blvd, Suite #213\nBonita Springs, FL 34134"
+  },
+  "culture": {
+    "hero_title": "POR QUÉ ZiNRAi",
+    "introduction": "En un mundo lleno de ruido, exageración y ajetreo, ZiNRAi™ existe para traer algo diferente—algo más profundo.\n\nNo estamos simplemente construyendo otra plataforma. Estamos creando un espacio donde las personas impulsadas por un propósito puedan venir a crecer, liderar y vivir con claridad.\n\nLa mayoría de las empresas venden productos. Nosotros construimos personas.\n\nZiNRAi es para los constructores. Los soñadores. Los líderes que se preocupan más por el impacto a largo plazo que por las ganancias a corto plazo. Existimos para ayudar a las personas a dominar su mentalidad, crecer en su oficio y alinearse con una comunidad que realmente se preocupa.\n\nYa sea que estés aquí para comenzar algo nuevo, escalar algo significativo o convertirte en alguien que valga la pena seguir—ZiNRAi es tu punto de lanzamiento.\n\nPorque creemos que cuando las personas viven con intención y lideran con integridad, no solo cambian sus vidas—cambian el mundo que los rodea.\n\nEsto es más que una suscripción. Es una señal. Un estándar. Un cambio.\n\nEsto es ZiNRAi.",
+    "vision": {
+      "title": "Visión",
+      "description": "Ayudar a las personas ordinarias a convertirse en líderes extraordinarios—desbloqueando el propósito, construyendo carácter y creando un impacto significativo."
+    },
+    "mission": {
+      "title": "Misión",
+      "description": "ZiNRAi existe para enseñar a las personas cómo vivir mejor, liderar más fuerte y servir más profundo—a través del carácter, la claridad y el compromiso."
+    },
+    "core_values": {
+      "title": "Valores Fundamentales",
+      "description": "Cada letra de ZiNRAi representa un valor fundamental que da forma a nuestra cultura y ADN de liderazgo."
+    },
+    "pillars": {
+      "zeal": {
+        "title": "Celo",
+        "description": "Perseguimos el propósito con energía y urgencia. La pasión alimenta nuestro progreso."
+      },
+      "integrity": {
+        "title": "Integridad",
+        "description": "Hacemos lo correcto—especialmente cuando es difícil. La confianza es nuestra moneda."
+      },
+      "nobility": {
+        "title": "Nobleza",
+        "description": "Elevamos a otros con honor. El liderazgo está arraigado en la dignidad y el servicio."
+      },
+      "resilience": {
+        "title": "Resistencia",
+        "description": "Nos levantamos a través del desafío. Los reveses dan forma a la fuerza y el éxito a largo plazo."
+      },
+      "abundance": {
+        "title": "Abundancia",
+        "description": "Operamos desde el desbordamiento, no desde la escasez. Siempre hay más para dar, crecer y llegar a ser."
+      },
+      "innovation": {
+        "title": "Innovación",
+        "description": "Nos adaptamos, evolucionamos y somos pioneros. La creatividad desbloquea nuevas oportunidades."
+      }
     }
   }
 }

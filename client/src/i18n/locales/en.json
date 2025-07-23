@@ -61,6 +61,134 @@
       }
     }
   },
+  "product": {
+    "title": "Our Courses",
+    "subtitle": "Comprehensive Financial Education Programs",
+    "description": "Master the fundamentals of financial literacy with our expertly designed courses.",
+    "hero_title": "Transform Your Financial Future",
+    "hero_subtitle": "Expert-led courses for every learning style",
+    "coming_soon": "Coming Soon",
+    "form": {
+      "title": "Get Early Access",
+      "name_label": "Name *",
+      "name_placeholder": "Enter your full name",
+      "email_label": "Email *", 
+      "email_placeholder": "Enter your email address",
+      "phone_label": "Phone",
+      "phone_placeholder": "Enter your phone number",
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "success": "Successfully submitted!",
+      "error": "Submission failed. Please try again.",
+      "error_generic": "Something went wrong. Please try again later."
+    }
+  },
+  "partner": {
+    "hero_title": "Join the ZiNRAi™ Brand Promoter Movement",
+    "hero_subtitle": "Lead with Purpose. Grow with Community. Impact with Integrity.",
+    "why_title": "Why Join Our Movement?",
+    "benefits": {
+      "training": {
+        "title": "Training & Mentorship",
+        "short_desc": "Access exclusive training, content resources, and leadership calls designed to help you grow.",
+        "description": "At ZiNRAi™, Brand Promoters are more than marketers—they're movement leaders. As a promoter, you'll help share educational tools that equip people to grow personally, lead confidently, and live with purpose.\n\nYou'll get access to exclusive training, content resources, and leadership calls designed to help you grow—personally and professionally. Our comprehensive training program includes:\n\n• Weekly leadership development calls\n• Access to our complete content library\n• Personal mentorship opportunities\n• Marketing and communication training\n• Brand development workshops"
+      },
+      "community": {
+        "title": "Community Support",
+        "short_desc": "Join a powerful network committed to personal growth and generational impact.",
+        "description": "Join a powerful network of like-minded individuals committed to personal growth, financial literacy, and generational impact.\n\nOur community provides:\n\n• Monthly mastermind sessions\n• Peer-to-peer support groups\n• Success story sharing\n• Collaborative problem-solving\n• Networking opportunities with other promoters\n• Access to exclusive community events\n\nWhether you're building a side passion or pursuing long-term leadership, we offer a flexible path for growth."
+      },
+      "flexible": {
+        "title": "Flexible Path",
+        "short_desc": "Work on your schedule. Whether part-time or full-time, your voice makes a difference.",
+        "description": "Work on your schedule. Whether you engage part-time or full-time, your voice makes a difference.\n\nOur flexible approach includes:\n\n• No minimum time commitments\n• Work from anywhere\n• Choose your own hours\n• Scale up or down as needed\n• Multiple income streams available\n• Support for all experience levels\n\nReality Check: We're not here to sell hype. ZiNRAi™ does not guarantee income or results—your success is based on your own effort, consistency, and leadership."
+      },
+      "tools": {
+        "title": "Tools to Lead",
+        "short_desc": "Creative content, branding assets, and marketing toolkit to amplify your message.",
+        "description": "We equip you with creative content, branding assets, and a marketing toolkit to amplify your message and help you reach your goals.\n\nYour toolkit includes:\n\n• Professional branding materials\n• Social media content templates\n• Email marketing resources\n• Video and audio content\n• Sales presentation materials\n• Analytics and tracking tools\n• Customer relationship management system\n\nWho Should Join? You might be a great fit if you:\n• Love empowering others with knowledge\n• Believe in the value of financial education\n• Want to build something meaningful alongside your current commitments\n• Are hungry to grow as a leader"
+      }
+    },
+    "cta": "Ready to Get Started?",
+    "cta_subtitle": "Join thousands building their legacy with ZiNRAi™",
+    "apply_button": "Apply Now"
+  },
+  "contact": {
+    "hero_title": "Get in Touch",
+    "hero_subtitle": "We're here to help with any questions",
+    "company_info": "ZiNRAi™ LLC\n3333 Renaissance Blvd, Suite #209\nBonita Springs, FL 34134"
+  },
+  "culture": {
+    "hero_title": "The ZiNRAi™ Culture",
+    "hero_subtitle": "Built on Character. Driven by Purpose. Defined by Impact.",
+    "vision": {
+      "title": "Vision",
+      "description": "To help ordinary people become extraordinary leaders—by unlocking purpose, building character, and creating meaningful impact."
+    },
+    "mission": {
+      "title": "Mission",
+      "description": "ZiNRAi exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment."
+    },
+    "pillars": {
+      "title": "The Z.I.N.R.A.I Pillars",
+      "subtitle": "Six foundational principles that guide everything we do",
+      "zeal": {
+        "title": "Zeal",
+        "description": "We pursue purpose with energy and urgency. Passion fuels our progress."
+      },
+      "integrity": {
+        "title": "Integrity", 
+        "description": "We do what's right—especially when it's hard. Trust is our currency."
+      },
+      "nobility": {
+        "title": "Nobility",
+        "description": "We elevate others with honor. Leadership is rooted in dignity and service."
+      },
+      "resilience": {
+        "title": "Resilience",
+        "description": "We rise through challenge. Setbacks shape strength and long-term success."
+      },
+      "abundance": {
+        "title": "Abundance",
+        "description": "We operate from overflow, not scarcity. There's always more to give, grow, and become."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We adapt, evolve, and pioneer. Creativity unlocks new opportunity."
+      }
+    }
+  },
+  "cares": {
+    "hero_title": "ZiNRAi™ Cares",
+    "hero_subtitle": "Making a meaningful impact through education and direct assistance",
+    "impact_areas_title": "Impact Areas",
+    "impact_action_title": "Our Impact in Action",
+    "mission_text": "ZiNRAi™ Cares represents our commitment to global impact through education and direct assistance. Every subscription contributes to verified charitable initiatives, with full transparency powered by blockchain technology.",
+    "areas": {
+      "food_security": {
+        "title": "Food Security",
+        "description": "Supporting meal programs across underserved communities in the U.S., Pakistan, and Africa."
+      },
+      "clean_water": {
+        "title": "Clean Water", 
+        "description": "Funding sustainable water projects in West African communities lacking access to clean water."
+      },
+      "education": {
+        "title": "Education Access",
+        "description": "Providing educational resources and technology access to underserved populations."
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "Using blockchain technology to ensure 100% transparency in fund allocation and impact tracking."
+      }
+    },
+    "stats": {
+      "meals_provided": "Meals Provided",
+      "water_access": "People Gained Water Access", 
+      "students_educated": "Students Educated",
+      "transparency_score": "Transparency Score"
+    }
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error", 
@@ -171,6 +299,94 @@
       "company_section": "Company Information",
       "follow_us": "Follow Us",
       "company_description": "Innovative digital learning platform for financial education and strategy analysis."
+    }
+  },
+  "product": {
+    "title": "Our Courses",
+    "description": "Discover our comprehensive suite of courses designed to elevate your personal and financial growth.",
+    "form": {
+      "name_label": "Name *",
+      "name_placeholder": "Enter your full name",
+      "email_label": "Email *", 
+      "email_placeholder": "Enter your email address",
+      "phone_label": "Phone",
+      "phone_placeholder": "Enter your phone number",
+      "submit": "Join ZiNRAi™",
+      "submitting": "Submitting...",
+      "success": "Successfully submitted!",
+      "error": "Submission failed. Please try again.",
+      "error_generic": "Something went wrong. Please try again later."
+    }
+  },
+  "partner": {
+    "benefits": {
+      "training": {
+        "title": "Training & Mentorship",
+        "description": "At ZiNRAi™, Brand Promoters are more than marketers—they're movement leaders. As a promoter, you'll help share educational tools that equip people to grow personally, lead confidently, and live with purpose.\n\nYou'll get access to exclusive training, content resources, and leadership calls designed to help you grow—personally and professionally. Our comprehensive training program includes:\n\n• Weekly leadership development calls\n• Access to our complete content library\n• Personal mentorship opportunities\n• Marketing and communication training\n• Brand development workshops",
+        "short_desc": "Access exclusive training, content resources, and leadership calls designed to help you grow."
+      },
+      "community": {
+        "title": "Community Support",
+        "description": "Join a powerful network of like-minded individuals committed to personal growth, financial literacy, and generational impact.\n\nOur community provides:\n\n• Monthly mastermind sessions\n• Peer-to-peer support groups\n• Success story sharing\n• Collaborative problem-solving\n• Networking opportunities with other promoters\n• Access to exclusive community events\n\nWhether you're building a side passion or pursuing long-term leadership, we offer a flexible path for growth.",
+        "short_desc": "Join a powerful network committed to personal growth and generational impact."
+      },
+      "flexible": {
+        "title": "Flexible Path", 
+        "description": "Work on your schedule. Whether you engage part-time or full-time, your voice makes a difference.\n\nOur flexible approach includes:\n\n• No minimum time commitments\n• Work from anywhere\n• Choose your own hours\n• Scale up or down as needed\n• Multiple income streams available\n• Support for all experience levels\n\nReality Check: We're not here to sell hype. ZiNRAi™ does not guarantee income or results—your success is based on your own effort, consistency, and leadership.",
+        "short_desc": "Work on your schedule. Whether part-time or full-time, your voice makes a difference."
+      },
+      "tools": {
+        "title": "Tools to Lead",
+        "description": "We equip you with creative content, branding assets, and a marketing toolkit to amplify your message and help you reach your goals.\n\nYour toolkit includes:\n\n• Professional branding materials\n• Social media content templates\n• Email marketing resources\n• Video and audio content\n• Sales presentation materials\n• Analytics and tracking tools\n• Customer relationship management system\n\nWho Should Join? You might be a great fit if you:\n• Love empowering others with knowledge\n• Believe in the value of financial education\n• Want to build something meaningful alongside your current commitments\n• Are hungry to grow as a leader",
+        "short_desc": "Creative content, branding assets, and marketing toolkit to amplify your message."
+      }
+    }
+  },
+  "contact": {
+    "hero_title": "Connect",
+    "hero_subtitle": "We're here to support your journey.",
+    "company_info": "ZiNRAi™ LLC\n3333 Renaissance Blvd, Suite #213\nBonita Springs, FL 34134"
+  },
+  "culture": {
+    "hero_title": "WHY ZiNRAi",
+    "introduction": "In a world full of noise, hype, and hustle, ZiNRAi™ exists to bring something different—something deeper.\n\nWe're not just building another platform. We're creating a space where purpose-driven people can come to grow, lead, and live with clarity.\n\nMost companies sell products. We build people.\n\nZiNRAi is for the builders. The dreamers. The leaders who care more about long-term impact than short-term gain. We exist to help people master their mindset, grow in their craft, and align with a community that actually cares.\n\nWhether you're here to start something new, scale something meaningful, or become someone worth following—ZiNRAi is your launch point.\n\nBecause we believe that when people live with intention and lead with integrity, they don't just change their lives—they change the world around them.\n\nThis is more than a subscription. It's a signal. A standard. A shift.\n\nThis is ZiNRAi.",
+    "vision": {
+      "title": "Vision",
+      "description": "To help ordinary people become extraordinary leaders—by unlocking purpose, building character, and creating meaningful impact."
+    },
+    "mission": {
+      "title": "Mission", 
+      "description": "ZiNRAi exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment."
+    },
+    "core_values": {
+      "title": "Core Values",
+      "description": "Each letter of ZiNRAi represents a foundational value that shapes our culture and leadership DNA."
+    },
+    "pillars": {
+      "zeal": {
+        "title": "Zeal",
+        "description": "We pursue purpose with energy and urgency. Passion fuels our progress."
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "We do what's right—especially when it's hard. Trust is our currency."
+      },
+      "nobility": {
+        "title": "Nobility",
+        "description": "We elevate others with honor. Leadership is rooted in dignity and service."
+      },
+      "resilience": {
+        "title": "Resilience",
+        "description": "We rise through challenge. Setbacks shape strength and long-term success."
+      },
+      "abundance": {
+        "title": "Abundance",
+        "description": "We operate from overflow, not scarcity. There's always more to give, grow, and become."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We adapt, evolve, and pioneer. Creativity unlocks new opportunity."
+      }
     }
   }
 }

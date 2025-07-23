@@ -16,28 +16,28 @@ export default function Partner() {
 
   const benefits = [
     {
-      title: "Training & Mentorship",
+      title: t('partner.benefits.training.title'),
       color: "blue",
-      description: "At ZiNRAi™, Brand Promoters are more than marketers—they're movement leaders. As a promoter, you'll help share educational tools that equip people to grow personally, lead confidently, and live with purpose.\n\nYou'll get access to exclusive training, content resources, and leadership calls designed to help you grow—personally and professionally. Our comprehensive training program includes:\n\n• Weekly leadership development calls\n• Access to our complete content library\n• Personal mentorship opportunities\n• Marketing and communication training\n• Brand development workshops",
-      shortDesc: "Access exclusive training, content resources, and leadership calls designed to help you grow."
+      description: t('partner.benefits.training.description'),
+      shortDesc: t('partner.benefits.training.short_desc')
     },
     {
-      title: "Community Support", 
+      title: t('partner.benefits.community.title'), 
       color: "green",
-      description: "Join a powerful network of like-minded individuals committed to personal growth, financial literacy, and generational impact.\n\nOur community provides:\n\n• Monthly mastermind sessions\n• Peer-to-peer support groups\n• Success story sharing\n• Collaborative problem-solving\n• Networking opportunities with other promoters\n• Access to exclusive community events\n\nWhether you're building a side passion or pursuing long-term leadership, we offer a flexible path for growth.",
-      shortDesc: "Join a powerful network committed to personal growth and generational impact."
+      description: t('partner.benefits.community.description'),
+      shortDesc: t('partner.benefits.community.short_desc')
     },
     {
-      title: "Flexible Path",
+      title: t('partner.benefits.flexible.title'),
       color: "purple", 
-      description: "Work on your schedule. Whether you engage part-time or full-time, your voice makes a difference.\n\nOur flexible approach includes:\n\n• No minimum time commitments\n• Work from anywhere\n• Choose your own hours\n• Scale up or down as needed\n• Multiple income streams available\n• Support for all experience levels\n\nReality Check: We're not here to sell hype. ZiNRAi™ does not guarantee income or results—your success is based on your own effort, consistency, and leadership.",
-      shortDesc: "Work on your schedule. Whether part-time or full-time, your voice makes a difference."
+      description: t('partner.benefits.flexible.description'),
+      shortDesc: t('partner.benefits.flexible.short_desc')
     },
     {
-      title: "Tools to Lead",
+      title: t('partner.benefits.tools.title'),
       color: "orange",
-      description: "We equip you with creative content, branding assets, and a marketing toolkit to amplify your message and help you reach your goals.\n\nYour toolkit includes:\n\n• Professional branding materials\n• Social media content templates\n• Email marketing resources\n• Video and audio content\n• Sales presentation materials\n• Analytics and tracking tools\n• Customer relationship management system\n\nWho Should Join? You might be a great fit if you:\n• Love empowering others with knowledge\n• Believe in the value of financial education\n• Want to build something meaningful alongside your current commitments\n• Are hungry to grow as a leader",
-      shortDesc: "Creative content, branding assets, and marketing toolkit to amplify your message."
+      description: t('partner.benefits.tools.description'),
+      shortDesc: t('partner.benefits.tools.short_desc')
     }
   ];
 
@@ -221,7 +221,7 @@ export default function Partner() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span className="text-sm">Back</span>
+              <span className="text-sm">{t('common.back')}</span>
             </button>
             
             <div className="p-8">

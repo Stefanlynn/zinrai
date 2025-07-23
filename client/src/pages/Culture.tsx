@@ -15,50 +15,50 @@ export default function Culture() {
 
   const visionMission = {
     vision: {
-      title: "Vision",
-      description: "To help ordinary people become extraordinary leaders—by unlocking purpose, building character, and creating meaningful impact."
+      title: t('culture.vision.title'),
+      description: t('culture.vision.description')
     },
     mission: {
-      title: "Mission", 
-      description: "ZiNRAi exists to teach people how to live better, lead stronger, and serve deeper—through character, clarity, and commitment."
+      title: t('culture.mission.title'), 
+      description: t('culture.mission.description')
     }
   };
 
   const pillarSections = [
     {
       letter: "Z",
-      title: "Zeal",
-      description: "We pursue purpose with energy and urgency. Passion fuels our progress.",
+      title: t('culture.pillars.zeal.title'),
+      description: t('culture.pillars.zeal.description'),
       color: "orange"
     },
     {
       letter: "I",
-      title: "Integrity",
-      description: "We do what's right—especially when it's hard. Trust is our currency.",
+      title: t('culture.pillars.integrity.title'),
+      description: t('culture.pillars.integrity.description'),
       color: "red"
     },
     {
       letter: "N",
-      title: "Nobility",
-      description: "We elevate others with honor. Leadership is rooted in dignity and service.",
+      title: t('culture.pillars.nobility.title'),
+      description: t('culture.pillars.nobility.description'),
       color: "yellow"
     },
     {
       letter: "R",
-      title: "Resilience",
-      description: "We rise through challenge. Setbacks shape strength and long-term success.",
+      title: t('culture.pillars.resilience.title'),
+      description: t('culture.pillars.resilience.description'),
       color: "indigo"
     },
     {
       letter: "A",
-      title: "Abundance",
-      description: "We operate from overflow, not scarcity. There's always more to give, grow, and become.",
+      title: t('culture.pillars.abundance.title'),
+      description: t('culture.pillars.abundance.description'),
       color: "blue"
     },
     {
       letter: "I",
-      title: "Innovation",
-      description: "We adapt, evolve, and pioneer. Creativity unlocks new opportunity.",
+      title: t('culture.pillars.innovation.title'),
+      description: t('culture.pillars.innovation.description'),
       color: "purple"
     }
   ];
@@ -111,26 +111,12 @@ export default function Culture() {
           <div className="max-w-4xl mx-auto">
             {/* Main Header */}
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-8 tracking-wide text-center">
-              WHY ZiNRAi
+              {t('culture.hero_title')}
             </h1>
             
             {/* Main Introduction */}
-            <div className="text-white/80 text-lg leading-relaxed mb-16 space-y-4">
-              <p>In a world full of noise, hype, and hustle, ZiNRAi<span className="text-xs align-super">™</span> exists to bring something different—something deeper.</p>
-              
-              <p>We're not just building another platform. We're creating a space where purpose-driven people can come to grow, lead, and live with clarity.</p>
-              
-              <p>Most companies sell products. We build people.</p>
-              
-              <p>ZiNRAi is for the builders. The dreamers. The leaders who care more about long-term impact than short-term gain. We exist to help people master their mindset, grow in their craft, and align with a community that actually cares.</p>
-              
-              <p>Whether you're here to start something new, scale something meaningful, or become someone worth following—ZiNRAi is your launch point.</p>
-              
-              <p>Because we believe that when people live with intention and lead with integrity, they don't just change their lives—they change the world around them.</p>
-              
-              <p>This is more than a subscription. It's a signal. A standard. A shift.</p>
-              
-              <p className="font-medium">This is ZiNRAi.</p>
+            <div className="text-white/80 text-lg leading-relaxed mb-16 space-y-4 whitespace-pre-line">
+              {t('culture.introduction')}
             </div>
 
             {/* Vision Section */}
@@ -156,10 +142,10 @@ export default function Culture() {
             {/* Core Values Section */}
             <div className="mb-8">
               <h2 className="text-white text-2xl md:text-3xl font-light mb-4">
-                Core Values
+                {t('culture.core_values.title')}
               </h2>
               <p className="text-white/70 text-lg mb-12">
-                Each letter of ZiNRAi represents a foundational value that shapes our culture and leadership DNA.
+                {t('culture.core_values.description')}
               </p>
 
               {/* Values Cards Grid */}

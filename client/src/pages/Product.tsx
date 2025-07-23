@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 // Onboarding Form Component for Product page
 function OnboardingForm({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,17 +26,17 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
       });
 
       if (response.ok) {
-        setSubmitMessage("Successfully submitted!");
+        setSubmitMessage(t('product.form.success'));
         setFormData({ name: '', email: '', phone: '' });
         setTimeout(() => {
           onClose();
         }, 2000);
       } else {
-        setSubmitMessage("Submission failed. Please try again.");
+        setSubmitMessage(t('product.form.error'));
       }
     } catch (err) {
       console.error("Error:", err);
-      setSubmitMessage("Something went wrong. Please try again later.");
+      setSubmitMessage(t('product.form.error_generic'));
     } finally {
       setIsSubmitting(false);
     }
@@ -45,7 +46,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label htmlFor="product-name" className="block text-white/80 text-sm font-medium mb-2">
-          Name *
+          {t('product.form.name_label')}
         </label>
         <input
           type="text"
@@ -54,13 +55,13 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.name}
           onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder="Enter your full name"
+          placeholder={t('product.form.name_placeholder')}
         />
       </div>
 
       <div>
         <label htmlFor="product-email" className="block text-white/80 text-sm font-medium mb-2">
-          Email *
+          {t('product.form.email_label')}
         </label>
         <input
           type="email"
@@ -69,13 +70,13 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.email}
           onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder="Enter your email address"
+          placeholder={t('product.form.email_placeholder')}
         />
       </div>
 
       <div>
         <label htmlFor="product-phone" className="block text-white/80 text-sm font-medium mb-2">
-          Phone
+          {t('product.form.phone_label')}
         </label>
         <input
           type="tel"
@@ -83,7 +84,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
           value={formData.phone}
           onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
           className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-          placeholder="Enter your phone number"
+          placeholder={t('product.form.phone_placeholder')}
         />
       </div>
 
@@ -92,7 +93,7 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
         disabled={isSubmitting}
         className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(104,172,255,0.3)] focus:outline-none focus:ring-2 focus:ring-[var(--zinrai-blue-glow)]/50"
       >
-        {isSubmitting ? 'Submitting...' : 'Join ZiNRAi™'}
+        {isSubmitting ? t('product.form.submitting') : t('product.form.submit')}
       </button>
 
       {submitMessage && (
@@ -325,7 +326,7 @@ export default function Product() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                <span className="text-sm font-medium">BACK</span>
+                <span className="text-sm font-medium">{t('common.back')}</span>
               </button>
             </div>
             
@@ -353,10 +354,10 @@ export default function Product() {
           {/* Left Side - Products List */}
           <div className={`w-full md:w-1/2 p-8 pt-[10vh] pb-2 md:p-16 md:pl-20 md:pb-0 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-              Our Courses
+              {t('product.title')}
             </h1>
             <p className="text-white/70 text-lg mb-12 max-w-md">
-              Discover our comprehensive suite of courses designed to elevate your personal and financial growth.
+              {t('product.description')}
             </p>
             
             <div className="space-y-8 max-w-md mb-4">

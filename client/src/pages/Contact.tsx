@@ -26,10 +26,10 @@ export default function Contact() {
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="text-center space-y-6">
             <h1 className="text-4xl md:text-6xl font-light text-white">
-              {t('navigation.contact.hero_title')}
+              {t('contact.hero_title')}
             </h1>
             <p className="text-xl text-white/70 max-w-md mx-auto">
-              {t('navigation.contact.hero_subtitle')}
+              {t('contact.hero_subtitle')}
             </p>
             
             <div className="space-y-4">
@@ -40,10 +40,8 @@ export default function Contact() {
                 support@zinrai.com
               </button>
               
-              <div className="text-white/60 text-sm">
-                <p>ZiNRAi<span className="text-xs align-super">™</span> LLC</p>
-                <p>3333 Renaissance Blvd, Suite #209</p>
-                <p>Bonita Springs, FL 34134</p>
+              <div className="text-white/60 text-sm whitespace-pre-line">
+                {t('contact.company_info')}
               </div>
             </div>
           </div>
