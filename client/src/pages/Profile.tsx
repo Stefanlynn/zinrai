@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useLocation } from "wouter";
+import { useTranslation } from 'react-i18next';
 
 export default function Profile() {
   // Import navigate for seamless navigation
   const [_, navigate] = useLocation();
+  const { t } = useTranslation();
 
   // Immediately show all elements when component mounts
   useEffect(() => {
@@ -43,15 +45,15 @@ export default function Profile() {
       <div className="w-full min-h-screen flex flex-col items-center justify-center relative z-10">
         <div className="text-center max-w-md px-4">
           <h1 className="text-white text-3xl sm:text-4xl font-light mb-6 animate-content-glitch" style={{ animationDelay: '0.3s' }}>
-            PROFILE
+            {t('pages.profile.title')}
           </h1>
           
           <div className="mb-8 border-b border-white/10 pb-6">
             <p className="text-white/80 text-xl mb-6 animate-content-glitch" style={{ animationDelay: '0.5s' }}>
-              Coming Soon
+              {t('common.comingSoon')}
             </p>
             <p className="text-white/60 text-base animate-content-glitch" style={{ animationDelay: '0.7s' }}>
-              User profile login and dashboard features will be available soon. Check back for updates.
+              {t('pages.profile.description')}
             </p>
           </div>
           
@@ -60,7 +62,7 @@ export default function Profile() {
               className="border border-white/40 hover:border-white/70 px-8 py-3 text-white text-sm transition-all duration-300 bg-white/5 hover:bg-white/10"
               onClick={handleReturnToHome}
             >
-              RETURN TO HOME
+              {t('common.back').toUpperCase()}
             </button>
           </div>
         </div>

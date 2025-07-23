@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "wouter";
+import { useTranslation } from 'react-i18next';
 
 export default function Insights() {
   const [_, navigate] = useLocation();
   const [animatedIn, setAnimatedIn] = useState(false);
+  const { t } = useTranslation();
   
   // Animate component on mount
   useEffect(() => {
@@ -49,21 +51,20 @@ export default function Insights() {
             
             {/* Coming Soon Header */}
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-8 tracking-wide">
-              INSIGHTS
+              {t('pages.insights.title').toUpperCase()}
             </h1>
             
             {/* Coming Soon Message */}
             <div className="relative mb-10">
               <div className="text-[var(--zinrai-blue-glow)] text-lg md:text-xl font-medium mb-2 tracking-wide">
-                COMING SOON
+                {t('common.comingSoon').toUpperCase()}
               </div>
               <div className="h-[1px] w-16 bg-[var(--zinrai-blue-glow)]/50 mx-auto"></div>
             </div>
             
             {/* Description */}
             <p className="text-white/70 text-base md:text-lg mb-10 leading-relaxed">
-              Our Insights section is currently in development. Soon, you'll be able to access exclusive video content, testimonials, 
-              training materials, and promotional resources right here.
+              {t('pages.insights.description')}
             </p>
             
             {/* Visual element */}
@@ -79,7 +80,7 @@ export default function Insights() {
             
             {/* Check back note */}
             <p className="text-white/50 text-sm italic">
-              Please check back soon for updates. We're working to bring you valuable content.
+              {t('pages.insights.check_back_note')}
             </p>
           </div>
         </div>

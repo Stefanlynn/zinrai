@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 
 // Complete list of all world countries excluding OFAC-sanctioned countries
 // Excluded: Afghanistan, Belarus, Burma (Myanmar), Chad, China, Cote D'Ivoire (Ivory Coast), Cuba, Democratic Republic of the Congo, Equatorial Guinea, Iran, Iraq, Lebanon, Liberia, North Korea, Russia, Rwanda, Sudan, Syria, Zimbabwe, and Crimea region of Ukraine
@@ -7,6 +8,7 @@ const AVAILABLE_COUNTRIES = [
 ].sort();
 
 export default function StartNow() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -36,7 +38,7 @@ export default function StartNow() {
       setHasReferral(true);
     } else {
       setHasReferral(false);
-      setSubmitMessage("OOPS! You don't appear to have a sponsor, please return to the person you received this link from and get a proper signup link");
+      setSubmitMessage(t('pages.startNow.form.noSponsor'));
     }
   }, []);
 
@@ -45,7 +47,7 @@ export default function StartNow() {
     
     // Check if referral ID is missing
     if (!hasReferral || !formData.refid) {
-      setSubmitMessage("OOPS! You don't appear to have a sponsor, please return to the person you received this link from and get a proper signup link");
+      setSubmitMessage(t('pages.startNow.form.noSponsor'));
       return;
     }
     
@@ -75,23 +77,23 @@ export default function StartNow() {
         try {
           const errorData = await response.json();
           if (errorData.errors && errorData.errors.email && errorData.errors.email.includes("The email has already been taken.")) {
-            setSubmitMessage("Your email is already registered with us, please click here to go to the login page. If you cannot remember your password you can follow the \"Forgot Password\" process there");
+            setSubmitMessage(t('pages.startNow.form.alreadyRegistered') + ' ' + t('pages.startNow.form.clickHereLogin') + t('pages.startNow.form.forgotPassword'));
           } else {
-            setSubmitMessage("Submission failed. Please try again.");
+            setSubmitMessage(t('pages.startNow.form.submissionFailed'));
           }
         } catch {
           // Fallback to text parsing if JSON parsing fails
           const errorText = await response.text();
           if (errorText.includes("The email has already been taken") || errorText.includes("email has already been taken")) {
-            setSubmitMessage("Your email is already registered with us, please click here to go to the login page. If you cannot remember your password you can follow the \"Forgot Password\" process there");
+            setSubmitMessage(t('pages.startNow.form.alreadyRegistered') + ' ' + t('pages.startNow.form.clickHereLogin') + t('pages.startNow.form.forgotPassword'));
           } else {
-            setSubmitMessage("Submission failed. Please try again.");
+            setSubmitMessage(t('pages.startNow.form.submissionFailed'));
           }
         }
       }
     } catch (err) {
       console.error("Error:", err);
-      setSubmitMessage("Something went wrong. Please try again later.");
+      setSubmitMessage(t('pages.startNow.form.somethingWrong'));
     } finally {
       setIsSubmitting(false);
     }
@@ -108,19 +110,19 @@ export default function StartNow() {
           }}>
             ZiNRAi
           </h1>
-          <p className="text-white/70 text-lg">Join the Future</p>
+          <p className="text-white/70 text-lg">{t('pages.startNow.joinFuture')}</p>
         </div>
 
         {/* Form */}
         <div className="bg-black/50 border border-white/20 rounded-lg p-8">
-          <h2 className="text-2xl font-light text-center mb-6">Get Started Today</h2>
+          <h2 className="text-2xl font-light text-center mb-6">{t('pages.startNow.getStartedToday')}</h2>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <input type="hidden" id="refid" name="refid" value={formData.refid} />
             
             <div>
               <label htmlFor="firstname" className="block text-white/80 text-sm font-medium mb-2">
-                First Name *
+                {t('pages.startNow.form.firstName')}
               </label>
               <input
                 type="text"
@@ -129,13 +131,13 @@ export default function StartNow() {
                 value={formData.firstname}
                 onChange={(e) => setFormData(prev => ({ ...prev, firstname: e.target.value }))}
                 className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-                placeholder="Enter your first name"
+                placeholder={t('pages.startNow.form.firstNamePlaceholder')}
               />
             </div>
 
             <div>
               <label htmlFor="lastname" className="block text-white/80 text-sm font-medium mb-2">
-                Last Name *
+                {t('pages.startNow.form.lastName')}
               </label>
               <input
                 type="text"
@@ -144,16 +146,16 @@ export default function StartNow() {
                 value={formData.lastname}
                 onChange={(e) => setFormData(prev => ({ ...prev, lastname: e.target.value }))}
                 className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-                placeholder="Enter your last name"
+                placeholder={t('pages.startNow.form.lastNamePlaceholder')}
               />
             </div>
 
             <div>
               <label htmlFor="country" className="block text-white/80 text-sm font-medium mb-2">
-                Country *
+                {t('pages.startNow.form.country')}
               </label>
               <p className="text-white/60 text-sm mb-2">
-                To better serve you, let us know what country you are in.
+                {t('pages.startNow.form.countryHelper')}
               </p>
               <select
                 id="country"
@@ -162,7 +164,7 @@ export default function StartNow() {
                 onChange={(e) => setFormData(prev => ({ ...prev, country: e.target.value }))}
                 className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
               >
-                <option value="" className="bg-black text-white">Select your country</option>
+                <option value="" className="bg-black text-white">{t('pages.startNow.form.countryPlaceholder')}</option>
                 {AVAILABLE_COUNTRIES.map((country) => (
                   <option key={country} value={country} className="bg-black text-white">
                     {country}
@@ -173,7 +175,7 @@ export default function StartNow() {
 
             <div>
               <label htmlFor="email" className="block text-white/80 text-sm font-medium mb-2">
-                Email *
+                {t('pages.startNow.form.email')}
               </label>
               <input
                 type="email"
@@ -182,7 +184,7 @@ export default function StartNow() {
                 value={formData.email}
                 onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                 className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[var(--zinrai-blue-glow)] focus:ring-1 focus:ring-[var(--zinrai-blue-glow)] transition-colors"
-                placeholder="Enter your email address"
+                placeholder={t('pages.startNow.form.emailPlaceholder')}
               />
             </div>
 
@@ -196,11 +198,11 @@ export default function StartNow() {
                 className="mt-1 w-4 h-4 text-[var(--zinrai-blue-glow)] bg-black/50 border border-white/20 rounded focus:ring-[var(--zinrai-blue-glow)] focus:ring-2"
               />
               <label htmlFor="ageVerification" className="text-white/70 text-sm leading-relaxed">
-                Membership with ZiNRAi is strictly limited to individuals who are 18 years of age or older. By purchasing a membership and selecting this checkbox, you confirm that you meet this minimum age requirement.
+                {t('pages.startNow.form.ageVerification')}
                 <br /><br />
-                Providing false information regarding your age is a violation of our terms and will result in the immediate termination of your account. If it is discovered that an account is being used by someone under the age of 18, the account will be terminated without notice and all access permanently denied.
+                {t('pages.startNow.form.ageVerificationDetails')}
                 <br /><br />
-                ZiNRAi reserves the right to take further action if deemed necessary to enforce this policy.
+                {t('pages.startNow.form.ageVerificationPolicy')}
               </label>
             </div>
 
@@ -209,7 +211,7 @@ export default function StartNow() {
               disabled={isSubmitting || !hasReferral || !ageVerified}
               className="w-full py-3 bg-[var(--zinrai-blue-glow)] text-white font-medium rounded-sm hover:bg-[var(--zinrai-blue-glow)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(104,172,255,0.3)] focus:outline-none focus:ring-2 focus:ring-[var(--zinrai-blue-glow)]/50"
             >
-              {isSubmitting ? 'Joining...' : 'Join ZiNRAi'}
+              {isSubmitting ? t('pages.startNow.form.joining') : t('pages.startNow.form.joinZinrai')}
             </button>
 
             {submitMessage && (
@@ -218,16 +220,16 @@ export default function StartNow() {
               }`}>
                 {submitMessage.includes('already registered') ? (
                   <p>
-                    Your email is already registered with us, please{' '}
+                    {t('pages.startNow.form.alreadyRegistered')}{' '}
                     <a 
                       href="http://app.zinrai.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-[var(--zinrai-blue-glow)] underline hover:text-white transition-colors"
                     >
-                      click here to go to the login page
+                      {t('pages.startNow.form.clickHereLogin')}
                     </a>
-                    . If you cannot remember your password you can follow the "Forgot Password" process there.
+                    {t('pages.startNow.form.forgotPassword')}
                   </p>
                 ) : (
                   <p>{submitMessage}</p>
@@ -240,7 +242,7 @@ export default function StartNow() {
         {/* Footer */}
         <div className="text-center mt-8">
           <p className="text-white/50 text-sm">
-            Live With Passion. Lead With Purpose.
+            {t('pages.startNow.footer')}
           </p>
         </div>
       </div>

@@ -388,5 +388,53 @@
         "description": "We adapt, evolve, and pioneer. Creativity unlocks new opportunity."
       }
     }
+  },
+  "pages": {
+    "profile": {
+      "title": "PROFILE",
+      "description": "User profile login and dashboard features will be available soon. Check back for updates."
+    },
+    "leadership": {
+      "title": "Leadership",
+      "coming_soon_description": "Our leadership team information is coming soon.",
+      "detailed_description": "We're carefully crafting profiles for each of our visionary leaders who are guiding ZiNRAi™'s transformative journey.",
+      "timeline": "Coming Q3 2025"
+    },
+    "insights": {
+      "title": "Insights",
+      "description": "Our Insights section is currently in development. Soon, you'll be able to access exclusive video content, testimonials, training materials, and promotional resources right here.",
+      "check_back_note": "Please check back soon for updates. We're working to bring you valuable content."
+    },
+    "startNow": {
+      "joinFuture": "Join the Future",
+      "getStartedToday": "Get Started Today",
+      "form": {
+        "firstName": "First Name *",
+        "firstNamePlaceholder": "Enter your first name",
+        "lastName": "Last Name *",
+        "lastNamePlaceholder": "Enter your last name",
+        "country": "Country *",
+        "countryHelper": "To better serve you, let us know what country you are in.",
+        "countryPlaceholder": "Select your country",
+        "email": "Email *",
+        "emailPlaceholder": "Enter your email address",
+        "ageVerification": "Membership with ZiNRAi is strictly limited to individuals who are 18 years of age or older. By purchasing a membership and selecting this checkbox, you confirm that you meet this minimum age requirement.",
+        "ageVerificationDetails": "Providing false information regarding your age is a violation of our terms and will result in the immediate termination of your account. If it is discovered that an account is being used by someone under the age of 18, the account will be terminated without notice and all access permanently denied.",
+        "ageVerificationPolicy": "ZiNRAi reserves the right to take further action if deemed necessary to enforce this policy.",
+        "joining": "Joining...",
+        "joinZinrai": "Join ZiNRAi",
+        "alreadyRegistered": "Your email is already registered with us, please",
+        "clickHereLogin": "click here to go to the login page",
+        "forgotPassword": ". If you cannot remember your password you can follow the \"Forgot Password\" process there.",
+        "submissionFailed": "Submission failed. Please try again.",
+        "somethingWrong": "Something went wrong. Please try again later.",
+        "noSponsor": "OOPS! You don't appear to have a sponsor, please return to the person you received this link from and get a proper signup link"
+      },
+      "footer": "Live With Passion. Lead With Purpose."
+    }
+  },
+  "common": {
+    "comingSoon": "Coming Soon",
+    "back": "Return to Home"
   }
 }

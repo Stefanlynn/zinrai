@@ -388,5 +388,53 @@
         "description": "Nos adaptamos, evolucionamos y somos pioneros. La creatividad desbloquea nuevas oportunidades."
       }
     }
+  },
+  "pages": {
+    "profile": {
+      "title": "PERFIL",
+      "description": "Las funciones de perfil de usuario, inicio de sesión y tablero estarán disponibles pronto. Vuelve a verificar para obtener actualizaciones."
+    },
+    "leadership": {
+      "title": "Liderazgo",
+      "coming_soon_description": "La información de nuestro equipo de liderazgo estará disponible pronto.",
+      "detailed_description": "Estamos creando cuidadosamente perfiles para cada uno de nuestros líderes visionarios que están guiando el viaje transformador de ZiNRAi™.",
+      "timeline": "Próximamente Q3 2025"
+    },
+    "insights": {
+      "title": "Perspectivas",
+      "description": "Nuestra sección de Perspectivas está actualmente en desarrollo. Pronto podrás acceder a contenido de video exclusivo, testimonios, materiales de entrenamiento y recursos promocionales aquí mismo.",
+      "check_back_note": "Por favor vuelve pronto para obtener actualizaciones. Estamos trabajando para traerte contenido valioso."
+    },
+    "startNow": {
+      "joinFuture": "Únete al Futuro",
+      "getStartedToday": "Comienza Hoy",
+      "form": {
+        "firstName": "Nombre *",
+        "firstNamePlaceholder": "Ingresa tu nombre",
+        "lastName": "Apellido *",
+        "lastNamePlaceholder": "Ingresa tu apellido",
+        "country": "País *",
+        "countryHelper": "Para servirte mejor, déjanos saber en qué país te encuentras.",
+        "countryPlaceholder": "Selecciona tu país",
+        "email": "Correo Electrónico *",
+        "emailPlaceholder": "Ingresa tu dirección de correo electrónico",
+        "ageVerification": "La membresía con ZiNRAi está estrictamente limitada a individuos de 18 años de edad o mayores. Al comprar una membresía y seleccionar esta casilla, confirmas que cumples con este requisito mínimo de edad.",
+        "ageVerificationDetails": "Proporcionar información falsa sobre tu edad es una violación de nuestros términos y resultará en la terminación inmediata de tu cuenta. Si se descubre que una cuenta está siendo utilizada por alguien menor de 18 años, la cuenta será terminada sin previo aviso y todo acceso será permanentemente denegado.",
+        "ageVerificationPolicy": "ZiNRAi se reserva el derecho de tomar medidas adicionales si se considera necesario para hacer cumplir esta política.",
+        "joining": "Uniéndose...",
+        "joinZinrai": "Únete a ZiNRAi",
+        "alreadyRegistered": "Tu correo electrónico ya está registrado con nosotros, por favor",
+        "clickHereLogin": "haz clic aquí para ir a la página de inicio de sesión",
+        "forgotPassword": ". Si no puedes recordar tu contraseña, puedes seguir el proceso de \"Olvidé mi Contraseña\" allí.",
+        "submissionFailed": "El envío falló. Por favor intenta de nuevo.",
+        "somethingWrong": "Algo salió mal. Por favor intenta más tarde.",
+        "noSponsor": "¡UPS! No pareces tener un patrocinador, por favor regresa a la persona de quien recibiste este enlace y obtén un enlace de registro adecuado."
+      },
+      "footer": "Vive con Pasión. Lidera con Propósito."
+    }
+  },
+  "common": {
+    "comingSoon": "Próximamente",
+    "back": "Volver al Inicio"
   }
 }
