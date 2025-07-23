@@ -61,7 +61,9 @@
   },
   "common": {
     "comingSoon": "Próximamente",
-    "back": "Volver al Inicio"
+    "back": "Volver al Inicio",
+    "watchNow": "Ver Ahora",
+    "login": "Iniciar Sesión"
   },
   "footer": {
     "company_description": "Plataforma de aprendizaje digital innovadora para educación financiera y análisis estratégico.",

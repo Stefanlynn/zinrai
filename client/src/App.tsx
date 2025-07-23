@@ -453,7 +453,7 @@ function App() {
                   <svg className="w-4 h-4 text-white/90 mr-2 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                  <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">Watch Now</span>
+                  <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">{t('common.watchNow')}</span>
                 </button>
               )}
               <a 
@@ -463,7 +463,7 @@ function App() {
                 className="h-[44px] px-6 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group backdrop-blur-sm"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">Login</span>
+                <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">{t('common.login')}</span>
               </a>
             </div>
 
@@ -479,7 +479,7 @@ function App() {
                 className="h-[36px] px-3 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white/90 text-xs font-light tracking-wide">Login</span>
+                <span className="text-white/90 text-xs font-light tracking-wide">{t('common.login')}</span>
               </a>
               
               {/* Translation Icon for Mobile */}

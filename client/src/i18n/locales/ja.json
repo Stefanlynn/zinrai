@@ -61,7 +61,9 @@
   },
   "common": {
     "comingSoon": "近日公開",
-    "back": "ホームに戻る"
+    "back": "ホームに戻る",
+    "watchNow": "今すぐ見る",
+    "login": "ログイン"
   },
   "footer": {
     "company_description": "金融教育と戦略分析のための革新的なデジタル学習プラットフォーム。",
