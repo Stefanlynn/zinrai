@@ -26,6 +26,7 @@ export default function Footer() {
       termsOfUse: "Terms of Use",
       refundPolicy: "Refund Policy",
       cookiePolicy: "Cookie Policy",
+      cookieSettings: "Cookie Settings",
       brandPromoterAgreement: "Brand Promoter Agreement",
       japanStatutory: "Japan Statutory Advertisement Matters",
       contact: "Contact",
@@ -52,6 +53,7 @@ export default function Footer() {
       termsOfUse: "利用規約",
       refundPolicy: "返金ポリシー",
       cookiePolicy: "クッキーポリシー",
+      cookieSettings: "クッキー設定",
       brandPromoterAgreement: "ブランドプロモーター契約",
       japanStatutory: "日本法定広告事項",
       contact: "お問い合わせ",
@@ -78,6 +80,7 @@ export default function Footer() {
       termsOfUse: "Términos de Uso",
       refundPolicy: "Política de Reembolso",
       cookiePolicy: "Política de Cookies",
+      cookieSettings: "Configuración de Cookies",
       brandPromoterAgreement: "Acuerdo de Promotor de Marca",
       japanStatutory: "Asuntos Publicitarios Estatutarios de Japón",
       contact: "Contacto",
@@ -126,14 +129,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <button 
-                  onClick={() => handleNavigation("/")}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  {texts.home}
-                </button>
-              </li>
-              <li>
-                <button 
                   onClick={() => handleNavigation("/product")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
@@ -161,7 +156,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/leadership")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  Leadership
+                  {texts.leadership}
                 </button>
               </li>
               <li>
@@ -234,7 +229,7 @@ export default function Footer() {
                   onClick={() => setShowCookieSettings(true)}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.cookie_settings')}
+                  {texts.cookieSettings}
                 </button>
               </li>
               <li>
