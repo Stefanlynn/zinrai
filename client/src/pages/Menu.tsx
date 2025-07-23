@@ -16,13 +16,13 @@ export default function Menu() {
   ];
 
   const legalLinks = [
-    { title: "Brand Promoter Agreement", href: "/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" },
-    { title: "Cookie Policy", href: "/assets/Cookie Policy 5-2025.pdf" },
-    { title: "Privacy Policy", href: "/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf" },
-    { title: "Refund Policy", href: "/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" },
-    { title: "Member Agreement", href: "/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" },
-    { title: "Terms of Use", href: "/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" },
-    { title: "Japan Statutory Advertisement Matters", href: "/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" }
+    { titleKey: "home.footer.links.brand_promoter_agreement", href: "/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" },
+    { titleKey: "home.footer.links.cookie_policy", href: "/assets/Cookie Policy 5-2025.pdf" },
+    { titleKey: "home.footer.links.privacy_policy", href: "/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf" },
+    { titleKey: "home.footer.links.refund_policy", href: "/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" },
+    { titleKey: "home.footer.links.member_agreement", href: "/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" },
+    { titleKey: "home.footer.links.terms_of_use", href: "/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" },
+    { titleKey: "home.footer.links.japan_statutory", href: "/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" }
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function Menu() {
             rel="noopener noreferrer"
             className="h-[36px] px-6 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
           >
-            <span className="text-white/90 text-sm font-light tracking-wide">Login</span>
+            <span className="text-white/90 text-sm font-light tracking-wide">{t('common.login')}</span>
           </a>
         </div>
 
@@ -81,7 +81,7 @@ export default function Menu() {
 
           {/* Right side: Legal Links */}
           <div className="md:ml-16 mt-12 md:mt-0">
-            <h3 className="text-white/70 text-sm font-light mb-6">Legal & Policies</h3>
+            <h3 className="text-white/70 text-sm font-light mb-6">{t('home.footer.legal_links')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-md">
               {legalLinks.map((link, index) => (
                 <a 
@@ -91,7 +91,7 @@ export default function Menu() {
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-white/90 transition-colors text-sm text-left"
                 >
-                  {link.title}
+                  {t(link.titleKey)}
                 </a>
               ))}
             </div>
