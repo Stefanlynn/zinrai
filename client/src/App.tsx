@@ -213,6 +213,9 @@ function Router() {
       <Route path="/leadership">
         {() => <PageWithHeader><Leadership /></PageWithHeader>}
       </Route>
+      <Route path="/insights">
+        {() => <PageWithHeader><Insights /></PageWithHeader>}
+      </Route>
 
       <Route path="/profile">
         {() => <PageWithHeader><Profile /></PageWithHeader>}
@@ -533,6 +536,7 @@ function App() {
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
                           <button 
                             onClick={() => {
+                              console.log('Navigating to /product');
                               setLocation('/product');
                               toggleMenu();
                             }}
