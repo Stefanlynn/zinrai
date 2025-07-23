@@ -330,13 +330,13 @@ function App() {
 
         
         {/* Header - Redesigned with better layout and spacing */}
-        <header className="fixed top-0 left-0 right-0 h-[60px] bg-[#1a1a1a] z-[1000] flex items-center justify-between border-b border-white/10 shadow-lg" role="banner">
+        <header className="fixed top-0 left-0 right-0 h-[80px] bg-black/95 backdrop-blur-sm z-[1000] flex items-center justify-between border-b border-white/5" role="banner">
           {/* Left Section: Logo and Action Buttons */}
-          <div className="flex items-center space-x-6 px-6">
+          <div className="flex items-center px-8">
             {/* Brand Logo - Always visible except when mobile menu is open */}
             {!menuOpen && (
               <a 
-                className="cursor-pointer flex items-center space-x-3 group"
+                className="cursor-pointer flex items-center space-x-4 group"
                 onClick={(e) => {
                   e.preventDefault();
                   setLocation('/');
@@ -347,27 +347,15 @@ function App() {
                 <img 
                   src={zinraiLogo} 
                   alt="ZiNRAi™ Logo" 
-                  className="w-8 h-8 object-contain group-hover:scale-105 transition-transform duration-200"
+                  className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 ease-out"
                 />
-                <span className="text-white font-bold tracking-wide text-xl group-hover:text-white/90 transition-colors">
-                  ZiNRAi<span className="text-sm align-super">™</span>
+                <span className="text-white font-light tracking-[0.02em] text-2xl group-hover:text-white/90 transition-colors duration-300">
+                  ZiNRAi<span className="text-xs align-super opacity-70 ml-0.5">™</span>
                 </span>
               </a>
             )}
             
-            {/* Watch Now button for desktop - only on home page */}
-            {!menuOpen && isHomePage && (
-              <button
-                onClick={() => setVideoPopupOpen(true)}
-                className="hidden lg:flex h-[40px] px-6 bg-gradient-to-r from-blue-600/80 to-purple-600/80 hover:from-blue-600 hover:to-purple-600 border border-white/20 rounded-lg items-center justify-center cursor-pointer transition-all duration-300 group shadow-md"
-                aria-label="Watch ZiNRAi introduction video"
-              >
-                <svg className="w-4 h-4 mr-2 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-                <span className="text-white text-sm font-medium tracking-wide">Watch Now</span>
-              </button>
-            )}
+
             
 
             
@@ -376,9 +364,9 @@ function App() {
           </div>
           
           {/* Center Section: Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Main Navigation">
             <a 
-              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
+              className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
               href="/product"
               onClick={(e) => {
                 e.preventDefault();
@@ -386,9 +374,10 @@ function App() {
               }}
             >
               {t('nav.product')}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </a>
             <a 
-              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
+              className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
               href="/partner"
               onClick={(e) => {
                 e.preventDefault();
@@ -396,9 +385,10 @@ function App() {
               }}
             >
               {t('nav.partner')}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </a>
             <a 
-              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
+              className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
               href="/culture"
               onClick={(e) => {
                 e.preventDefault();
@@ -406,9 +396,10 @@ function App() {
               }}
             >
               {t('nav.culture')}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </a>
             <a 
-              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
+              className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
               href="/insights"
               onClick={(e) => {
                 e.preventDefault();
@@ -416,9 +407,10 @@ function App() {
               }}
             >
               {t('nav.insights')}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </a>
             <a 
-              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
+              className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
               href="/leadership"
               onClick={(e) => {
                 e.preventDefault();
@@ -426,10 +418,10 @@ function App() {
               }}
             >
               {t('nav.leadership')}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </a>
-
             <a 
-              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
+              className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
               href="/contact"
               onClick={(e) => {
                 e.preventDefault();
@@ -437,35 +429,35 @@ function App() {
               }}
             >
               {t('nav.contact')}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </a>
-
           </nav>
           
           {/* Right Section: Language Selector and Actions */}
-          <div className="flex items-center space-x-4 px-6">
+          <div className="flex items-center space-x-6 px-8">
             {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-5">
               <LanguageSelector />
               {isHomePage && (
                 <button
                   onClick={() => setVideoPopupOpen(true)}
-                  className="h-[40px] px-4 bg-gradient-to-r from-blue-600/80 to-blue-500/80 hover:from-blue-600 hover:to-blue-500 border border-white/20 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group shadow-md"
+                  className="h-[44px] px-5 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 border border-white/20 hover:border-white/30 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group backdrop-blur-sm"
                   aria-label="Watch ZiNRAi introduction video"
                 >
-                  <svg className="w-4 h-4 text-white mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-white/90 mr-2 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                  <span className="text-white text-sm font-medium tracking-wide">Watch Now</span>
+                  <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">Watch Now</span>
                 </button>
               )}
               <a 
                 href="http://app.zinrai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-[40px] px-6 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group shadow-md"
+                className="h-[44px] px-6 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group backdrop-blur-sm"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white text-sm font-medium tracking-wide group-hover:scale-105 transition-transform">Login</span>
+                <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">Login</span>
               </a>
             </div>
 
