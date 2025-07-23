@@ -31,7 +31,7 @@ export default function Footer() {
               <p>Bonita Springs, FL 34134</p>
             </div>
             <div className="mt-4 p-3 bg-gray-800 text-white rounded font-bold text-center">
-              Email: support@zinrai.com
+              {t('home.footer.email')}: support@zinrai.com
             </div>
           </div>
 
