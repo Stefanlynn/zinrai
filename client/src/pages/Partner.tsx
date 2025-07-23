@@ -97,10 +97,10 @@ export default function Partner() {
           {/* Left Side - Brand Promoter Content */}
           <div className={`w-full md:w-1/2 p-8 pt-[5vh] md:p-16 md:pl-20 md:pb-0 transition-all duration-700 ${animatedIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-light mb-2 tracking-wide bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-              Brand Promoter
+              {t('partner.title')}
             </h1>
             <p className="text-white/70 text-lg mb-12 max-w-md">
-              Turn your passion for purpose into powerful impact.
+              {t('partner.subtitle')}
             </p>
             
             <div className="space-y-8 max-w-md mb-8">
