@@ -14,6 +14,38 @@
     "getStarted": "Comenzar",
     "learnMore": "Saber Más"
   },
+  "product": {
+    "title": "Nuestros Cursos",
+    "subtitle": "Programas Integrales de Educación Financiera",
+    "description": "Domina los fundamentos de la alfabetización financiera con nuestros cursos diseñados por expertos.",
+    "hero_title": "Transforma Tu Futuro Financiero",
+    "hero_subtitle": "Cursos dirigidos por expertos para cada estilo de aprendizaje",
+    "coming_soon": "Próximamente",
+    "services": {
+      "forex": "CURSO DE DIVISAS + AULA EN VIVO APRENDE AHORA",
+      "crypto": "CURSO DE CRIPTOMONEDAS + AULA EN VIVO APRENDE AHORA",
+      "digital_marketing": "CURSO DE MARKETING DIGITAL + AULA EN VIVO APRENDE AHORA",
+      "ecommerce": "CURSO DE COMERCIO ELECTRÓNICO + CLASES EN VIVO APRENDE AHORA"
+    },
+    "modal": {
+      "title": "Únete a ZiNRAi",
+      "subtitle": "Comienza con nuestros productos hoy"
+    },
+    "form": {
+      "title": "Obtener Acceso Temprano",
+      "name_label": "Nombre *",
+      "name_placeholder": "Ingresa tu nombre completo",
+      "email_label": "Correo *",
+      "email_placeholder": "Ingresa tu dirección de correo",
+      "phone_label": "Teléfono",
+      "phone_placeholder": "Ingresa tu número de teléfono",
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "success": "¡Enviado exitosamente!",
+      "error": "El envío falló. Por favor intenta de nuevo.",
+      "error_generic": "Algo salió mal. Por favor intenta más tarde."
+    }
+  },
   "partner": {
     "title": "Promotor de Marca",
     "subtitle": "Convierte tu pasión por el propósito en un impacto poderoso.",
@@ -28,7 +60,7 @@
       },
       "step2": {
         "title": "Paso 2: Elige Tu Plan de Acceso Mensual",
-        "description": "After enrollment, select either ALL ACCESS Monthly ($184.95) or VIP ACCESS Monthly ($249.95) to access educational content. Your first monthly billing begins 28 days after enrollment."
+        "description": "Después de la inscripción, selecciona entre ALL ACCESS Monthly ($184.95) o VIP ACCESS Monthly ($249.95) para acceder al contenido educativo. Tu primera facturación mensual comienza 28 días después de la inscripción."
       },
       "footer_note": "Los Promotores de Marca ganan comisiones mientras acceden al mismo contenido educativo de alta calidad con ciclos de facturación de 28 días."
     },
@@ -58,6 +90,51 @@
     "cta_subtitle": "Únete a miles construyendo su legado con ZiNRAi™",
     "apply_button": "Aplicar Ahora",
     "join_movement": "Únete a Nuestro Movimiento"
+  },
+  "contact": {
+    "hero_title": "Ponte en Contacto",
+    "hero_subtitle": "Estamos aquí para ayudar con cualquier pregunta",
+    "company_info": "ZiNRAi™ LLC\n3333 Renaissance Blvd, Suite #213\nBonita Springs, FL 34134"
+  },
+  "culture": {
+    "hero_title": "La Cultura de ZiNRAi™",
+    "hero_subtitle": "Construida sobre el Carácter. Impulsada por el Propósito. Definida por el Impacto.",
+    "vision": {
+      "title": "Visión",
+      "description": "Ayudar a personas ordinarias a convertirse en líderes extraordinarios—desbloqueando propósito, construyendo carácter y creando impacto significativo."
+    },
+    "mission": {
+      "title": "Misión",
+      "description": "ZiNRAi existe para enseñar a las personas cómo vivir mejor, liderar más fuerte y servir más profundo—a través del carácter, claridad y compromiso."
+    },
+    "pillars": {
+      "title": "Los Pilares de Z.I.N.R.A.I",
+      "subtitle": "Seis principios fundamentales que guían todo lo que hacemos",
+      "zeal": {
+        "title": "Celo",
+        "description": "Perseguimos el propósito con energía y urgencia. La pasión impulsa nuestro progreso."
+      },
+      "integrity": {
+        "title": "Integridad",
+        "description": "Hacemos lo correcto—especialmente cuando es difícil. La confianza es nuestra moneda."
+      },
+      "nobility": {
+        "title": "Nobleza",
+        "description": "Elevamos a otros con honor. El liderazgo está arraigado en la dignidad y el servicio."
+      },
+      "resilience": {
+        "title": "Resistencia",
+        "description": "Abrazamos los desafíos como oportunidades de crecimiento. Los contratiempos nos hacen más fuertes."
+      },
+      "authenticity": {
+        "title": "Autenticidad",
+        "description": "Somos nosotros mismos. La autenticidad construye relaciones confiables."
+      },
+      "impact": {
+        "title": "Impacto",
+        "description": "Aspiramos a crear cambios significativos. Cada acción tiene propósito."
+      }
+    }
   },
   "common": {
     "comingSoon": "Próximamente",

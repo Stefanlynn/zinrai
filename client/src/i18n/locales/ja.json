@@ -14,6 +14,38 @@
     "getStarted": "始める",
     "learnMore": "詳細を見る"
   },
+  "product": {
+    "title": "私たちのコース",
+    "subtitle": "包括的な金融教育プログラム",
+    "description": "専門的に設計されたコースで金融リテラシーの基礎をマスターしましょう。",
+    "hero_title": "あなたの金融の未来を変革する",
+    "hero_subtitle": "あらゆる学習スタイルのための専門家主導コース",
+    "coming_soon": "近日公開",
+    "services": {
+      "forex": "外国為替コース + 今すぐ学ぶライブクラスルーム",
+      "crypto": "暗号通貨コース + 今すぐ学ぶライブクラスルーム",
+      "digital_marketing": "デジタルマーケティングコース + 今すぐ学ぶライブクラスルーム",
+      "ecommerce": "Eコマースコース + 今すぐ学ぶライブクラス"
+    },
+    "modal": {
+      "title": "ZiNRAiに参加",
+      "subtitle": "今日から私たちの製品をスタート"
+    },
+    "form": {
+      "title": "早期アクセスを取得",
+      "name_label": "名前 *",
+      "name_placeholder": "フルネームを入力してください",
+      "email_label": "メール *",
+      "email_placeholder": "メールアドレスを入力してください",
+      "phone_label": "電話",
+      "phone_placeholder": "電話番号を入力してください",
+      "submit": "送信",
+      "submitting": "送信中...",
+      "success": "正常に送信されました！",
+      "error": "送信に失敗しました。もう一度お試しください。",
+      "error_generic": "問題が発生しました。後でもう一度お試しください。"
+    }
+  },
   "partner": {
     "title": "ブランドプロモーター",
     "subtitle": "目的への情熱を強力な影響力に変えましょう。",
@@ -58,6 +90,51 @@
     "cta_subtitle": "ZiNRAi™で遺産を築く数千人に参加する",
     "apply_button": "今すぐ申し込む",
     "join_movement": "私たちの運動に参加"
+  },
+  "contact": {
+    "hero_title": "お問い合わせ",
+    "hero_subtitle": "ご質問がございましたらお気軽にどうぞ",
+    "company_info": "ZiNRAi™ LLC\n3333 Renaissance Blvd, Suite #213\nBonita Springs, FL 34134"
+  },
+  "culture": {
+    "hero_title": "ZiNRAi™の文化",
+    "hero_subtitle": "人格に基づいて構築され、目的によって駆動され、影響によって定義される。",
+    "vision": {
+      "title": "ビジョン",
+      "description": "平凡な人々が並外れたリーダーになるのを支援する—目的を解き放ち、人格を築き、意味のある影響を創造することによって。"
+    },
+    "mission": {
+      "title": "ミッション",
+      "description": "ZiNRAiは、人格、明確性、コミットメントを通じて、人々により良く生き、より強くリードし、より深く奉仕する方法を教えるために存在します。"
+    },
+    "pillars": {
+      "title": "Z.I.N.R.A.I の柱",
+      "subtitle": "私たちが行うすべてを導く6つの基本原則",
+      "zeal": {
+        "title": "熱意",
+        "description": "私たちはエネルギーと緊急性をもって目的を追求します。情熱が私たちの進歩を促進します。"
+      },
+      "integrity": {
+        "title": "誠実性",
+        "description": "私たちは正しいことを行います—特にそれが困難な時に。信頼は私たちの通貨です。"
+      },
+      "nobility": {
+        "title": "高貴さ",
+        "description": "私たちは名誉をもって他者を高めます。リーダーシップは尊厳と奉仕に根ざしています。"
+      },
+      "resilience": {
+        "title": "回復力",
+        "description": "私たちは挑戦を成長の機会として受け入れます。挫折は私たちを強くします。"
+      },
+      "authenticity": {
+        "title": "真正性",
+        "description": "私たちは本当の自分でいます。真正性が信頼できる関係を築きます。"
+      },
+      "impact": {
+        "title": "影響",
+        "description": "私たちは意味のある変化を創造することを目指します。すべての行動には目的があります。"
+      }
+    }
   },
   "common": {
     "comingSoon": "近日公開",
