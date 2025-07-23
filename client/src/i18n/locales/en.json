@@ -355,23 +355,6 @@
       "company_description": "Innovative digital learning platform for financial education and strategy analysis."
     }
   },
-  "product": {
-    "title": "Our Courses",
-    "description": "Discover our comprehensive suite of courses designed to elevate your personal and financial growth.",
-    "form": {
-      "name_label": "Name *",
-      "name_placeholder": "Enter your full name",
-      "email_label": "Email *", 
-      "email_placeholder": "Enter your email address",
-      "phone_label": "Phone",
-      "phone_placeholder": "Enter your phone number",
-      "submit": "Join ZiNRAi™",
-      "submitting": "Submitting...",
-      "success": "Successfully submitted!",
-      "error": "Submission failed. Please try again.",
-      "error_generic": "Something went wrong. Please try again later."
-    }
-  },
   "partner": {
     "benefits": {
       "training": {

@@ -216,10 +216,7 @@ No tech skills or prior experience required—just your determination to succeed
 export default function Product() {
   const { t, i18n } = useTranslation();
   
-  // Debug: Check if translations are loading
-  console.log('Product page - Current language:', i18n.language);
-  console.log('Product page - Test translation:', t('product.title'));
-  console.log('Product page - Services translation test:', t('product.services.forex'));
+
   const [_, navigate] = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [showProductDetail, setShowProductDetail] = useState(false);
@@ -341,12 +338,20 @@ export default function Product() {
               {/* Product title with icon */}
               <div className="flex items-center mb-6">
                 <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`} aria-hidden="true"></div>
-                <h2 id="product-detail-title" className="text-white text-xl font-medium">{t(`product.details.${serviceKeys[activeIndex]}.title`)}</h2>
+                <h2 id="product-detail-title" className="text-white text-xl font-medium">
+                  {activeIndex === 0 && t('product.details.forex.title')}
+                  {activeIndex === 1 && t('product.details.crypto.title')}
+                  {activeIndex === 2 && t('product.details.digital_marketing.title')}
+                  {activeIndex === 3 && t('product.details.ecommerce.title')}
+                </h2>
               </div>
               
               {/* Product description */}
               <div className="text-white/80 text-sm leading-relaxed mb-8 whitespace-pre-line">
-                {t(`product.details.${serviceKeys[activeIndex]}.description`)}
+                {activeIndex === 0 && t('product.details.forex.description')}
+                {activeIndex === 1 && t('product.details.crypto.description')}
+                {activeIndex === 2 && t('product.details.digital_marketing.description')}
+                {activeIndex === 3 && t('product.details.ecommerce.description')}
               </div>
               
 
@@ -395,10 +400,16 @@ export default function Product() {
                     ></div>
                     <div>
                       <h2 className={`text-white text-lg font-medium mb-1`}>
-                        {t(`product.services.${serviceKeys[index]}`)}
+                        {index === 0 && t('product.services.forex')}
+                        {index === 1 && t('product.services.crypto')}
+                        {index === 2 && t('product.services.digital_marketing')}
+                        {index === 3 && t('product.services.ecommerce')}
                       </h2>
                       <p className="text-white/60 text-sm line-clamp-2">
-                        {t(`product.details.${serviceKeys[index]}.description`).split('\n')[0]}
+                        {index === 0 && t('product.details.forex.description').split('\n')[0]}
+                        {index === 1 && t('product.details.crypto.description').split('\n')[0]}
+                        {index === 2 && t('product.details.digital_marketing.description').split('\n')[0]}
+                        {index === 3 && t('product.details.ecommerce.description').split('\n')[0]}
                       </p>
                     </div>
                   </div>
@@ -414,12 +425,20 @@ export default function Product() {
                 {/* Product header with animated dot */}
                 <div className="flex items-center mb-8">
                   <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
-                  <h3 className="text-white text-xl font-medium tracking-wide">{t(`product.details.${serviceKeys[activeIndex]}.title`)}</h3>
+                  <h3 className="text-white text-xl font-medium tracking-wide">
+                    {activeIndex === 0 && t('product.details.forex.title')}
+                    {activeIndex === 1 && t('product.details.crypto.title')}
+                    {activeIndex === 2 && t('product.details.digital_marketing.title')}
+                    {activeIndex === 3 && t('product.details.ecommerce.title')}
+                  </h3>
                 </div>
                 
                 {/* Product description with formatted content */}
                 <div className="text-white/80 text-base leading-relaxed mb-0 whitespace-pre-line">
-                  {t(`product.details.${serviceKeys[activeIndex]}.description`)}
+                  {activeIndex === 0 && t('product.details.forex.description')}
+                  {activeIndex === 1 && t('product.details.crypto.description')}
+                  {activeIndex === 2 && t('product.details.digital_marketing.description')}
+                  {activeIndex === 3 && t('product.details.ecommerce.description')}
                 </div>
               </div>
             </div>
