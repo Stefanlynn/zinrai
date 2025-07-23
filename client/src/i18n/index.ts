@@ -34,7 +34,10 @@ i18n
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
-    }
+    },
+    
+    // Force default language to English
+    lng: 'en'
   });
 
 export default i18n;
