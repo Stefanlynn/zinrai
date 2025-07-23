@@ -356,9 +356,9 @@ function App() {
 
         
         {/* Header - Redesigned with better layout and spacing */}
-        <header className="fixed top-0 left-0 right-0 h-[80px] bg-black/95 backdrop-blur-sm z-[1000] flex items-center justify-between border-b border-white/5" role="banner">
+        <header className="fixed top-0 left-0 right-0 h-[60px] lg:h-[80px] bg-black/95 backdrop-blur-sm z-[1000] flex items-center justify-between border-b border-white/5" role="banner">
           {/* Left Section: Logo and Action Buttons */}
-          <div className="flex items-center px-8">
+          <div className="flex items-center px-4 lg:px-8">
             {/* Brand Logo - Always visible except when mobile menu is open */}
             {!menuOpen && (
               <a 
@@ -373,9 +373,9 @@ function App() {
                 <img 
                   src={zinraiLogo} 
                   alt="ZiNRAi™ Logo" 
-                  className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 ease-out"
+                  className="w-8 h-8 lg:w-10 lg:h-10 object-contain group-hover:scale-110 transition-transform duration-300 ease-out"
                 />
-                <span className="text-white font-light tracking-[0.02em] text-2xl group-hover:text-white/90 transition-colors duration-300">
+                <span className="text-white font-light tracking-[0.02em] text-xl lg:text-2xl group-hover:text-white/90 transition-colors duration-300">
                   ZiNRAi<span className="text-xs align-super opacity-70 ml-0.5">™</span>
                 </span>
               </a>
@@ -460,7 +460,7 @@ function App() {
           </nav>
           
           {/* Right Section: Language Selector and Actions */}
-          <div className="flex items-center space-x-6 px-8">
+          <div className="flex items-center space-x-3 lg:space-x-6 px-4 lg:px-8">
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center space-x-5">
               <LanguageSelector />
@@ -498,17 +498,17 @@ function App() {
 
 
             {/* Mobile Header Actions */}
-            <div className="lg:hidden flex items-center space-x-3" ref={menuRef}>
+            <div className="lg:hidden flex items-center space-x-2" ref={menuRef}>
               {/* Mobile Login Button */}
               <a 
                 href="http://app.zinrai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-[36px] px-2 min-w-[80px] bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
+                className="h-[32px] px-2 min-w-[60px] bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-md flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
                 aria-label="Login to ZiNRAi app"
               >
                 <span className="text-white/90 text-xs font-light tracking-wide text-center" key={`mobile-login-${i18n.language}-${languageKey}`}>
-                  {i18n.language === 'es' ? 'Iniciar Sesión' : 
+                  {i18n.language === 'es' ? 'Iniciar' : 
                    i18n.language === 'ja' ? 'ログイン' : 
                    'Login'}
                 </span>
@@ -521,14 +521,14 @@ function App() {
               
               {/* Mobile Menu Toggle */}
               <button 
-                className="h-[36px] w-[36px] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 rounded-lg"
+                className="h-[32px] w-[32px] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 rounded-md"
                 onClick={() => handleNavigation('/menu')}
                 aria-label="Open menu"
               >
-                <div className="relative w-5 h-5 flex items-center justify-center">
-                  <div className="w-5 h-[2px] bg-white absolute -translate-y-1.5"></div>
-                  <div className="w-5 h-[2px] bg-white absolute"></div>
-                  <div className="w-5 h-[2px] bg-white absolute translate-y-1.5"></div>
+                <div className="relative w-4 h-4 flex items-center justify-center">
+                  <div className="w-4 h-[1.5px] bg-white absolute -translate-y-1"></div>
+                  <div className="w-4 h-[1.5px] bg-white absolute"></div>
+                  <div className="w-4 h-[1.5px] bg-white absolute translate-y-1"></div>
                 </div>
               </button>
             </div>

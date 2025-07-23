@@ -23,13 +23,13 @@ const LanguageSelector: React.FC = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200 text-white"
+        className="flex items-center space-x-1 lg:space-x-2 px-2 lg:px-3 py-1.5 lg:py-2 bg-white/10 hover:bg-white/20 rounded-md lg:rounded-lg transition-colors duration-200 text-white"
         aria-label="Select Language"
       >
-        <Globe size={16} />
-        <span className="text-sm font-medium">{currentLanguage.flag}</span>
+        <Globe size={14} className="lg:w-4 lg:h-4" />
+        <span className="text-xs lg:text-sm font-medium">{currentLanguage.flag}</span>
         <svg 
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} 
+          className={`w-3 h-3 lg:w-4 lg:h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
