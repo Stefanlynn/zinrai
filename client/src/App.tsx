@@ -474,7 +474,7 @@ function App() {
             {menuOpen && (
               <div id="mobile-menu" className="fixed inset-0 bg-black text-white z-[1001] overflow-auto" role="dialog" aria-modal="true" aria-label="Main Menu">
                 <div className="w-full h-full flex flex-col">
-                  {/* Header with ZiNRAi text and Login button */}
+                  {/* Header with ZiNRAi text, Language Selector, and Login button */}
                   <div className="flex justify-between items-center p-6">
                     <div 
                       className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
@@ -495,23 +495,18 @@ function App() {
                       ZiNRAi
                     </div>
                     
-                    {/* Login button */}
-                    <a 
-                      href="http://app.zinrai.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
-                      aria-label="Login to ZiNRAi app"
-                    >
-                      <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">{t('common.login')}</span>
-                    </a>
-                  </div>
-                  
-                  {/* Language selector for mobile */}
-                  <div className="px-6 pb-4 border-b border-white/10">
-                    <div className="flex items-center justify-between">
-                      <span className="text-white/70 text-sm">{t('common.language')}</span>
+                    {/* Language selector and Login button */}
+                    <div className="flex items-center space-x-4">
                       <LanguageSelector />
+                      <a 
+                        href="http://app.zinrai.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                        aria-label="Login to ZiNRAi app"
+                      >
+                        <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">{t('common.login')}</span>
+                      </a>
                     </div>
                   </div>
                   
