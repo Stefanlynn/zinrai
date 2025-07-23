@@ -4,13 +4,11 @@ import { useTranslation } from 'react-i18next';
 export default function Partner() {
   const { t, i18n } = useTranslation();
   
-  // Force translation reload when language changes
-  useEffect(() => {
-    const reloadTranslations = async () => {
-      await i18n.reloadResources();
-    };
-    reloadTranslations();
-  }, [i18n.language, i18n]);
+  // Debug current language and translation state
+  console.log('Current language:', i18n.language);
+  console.log('Button translation:', t('partner.join_movement'));
+  console.log('Available languages:', i18n.languages);
+  console.log('Translation exists:', i18n.exists('partner.join_movement'));
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -183,11 +181,12 @@ export default function Partner() {
 
                 <div className="mt-8">
                   <button
-                    key={i18n.language}
                     onClick={() => window.location.href = 'mailto:brandpromoter@zinrai.com'}
                     className="px-6 py-3 bg-blue-600 border border-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
-                    {t('partner.join_movement')}
+                    {i18n.language === 'es' ? 'Únete a Nuestro Movimiento' : 
+                     i18n.language === 'ja' ? '私たちの運動に参加' : 
+                     'Join Our Movement'}
                   </button>
                 </div>
               </div>
