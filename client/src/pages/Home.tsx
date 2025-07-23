@@ -549,14 +549,18 @@ export default function Home() {
                   {t('home.hero.growth_title')}
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Explore hands on education across forex, crypto, digital marketing, and e-commerce.
-                  Our courses are led by educators and designed to equip you with foundational knowledge, real-world insights, and the confidence to make informed decisions.
+                  {t('home.courses.description')}
                 </p>
               </div>
               
               {/* Features list */}
               <div className="space-y-4">
-                {['Live Interactive Sessions', 'Risk Awareness & Strategy', 'Market Insight & Analysis', 'Variety of entrepreneurial classes'].map((feature, index) => (
+                {[
+                  t('home.courses.features.live_sessions'),
+                  t('home.courses.features.risk_strategy'),
+                  t('home.courses.features.market_insight'),
+                  t('home.courses.features.entrepreneurial_classes')
+                ].map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                     <span className="text-white/80">{feature}</span>
@@ -566,7 +570,7 @@ export default function Home() {
               
               {/* Disclaimer */}
               <div className="text-white/50 text-sm italic">
-                These courses are for educational purposes only. ZiNRAi<span className="text-xs align-super">™</span> does not provide financial advice or guarantee specific outcomes.
+                {t('home.courses.disclaimer')}
               </div>
               
               <button
@@ -578,7 +582,7 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
                 <div className="relative flex items-center justify-center">
-                  <span className="font-medium">Learn More</span>
+                  <span className="font-medium">{t('common.learn_more')}</span>
                   <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -604,19 +608,24 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center px-4 py-2 bg-green-500/10 rounded-full border border-green-500/20 mb-6">
                   <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-green-300 text-sm font-medium">Brand Promoter Program</span>
+                  <span className="text-green-300 text-sm font-medium">{t('home.promoter.category')}</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
-                  Unlock Your <span className="text-transparent bg-gradient-to-r from-green-400 to-orange-500 bg-clip-text font-semibold">Influence</span>
+                  {t('home.promoter.title')}
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed">
-                  Become a Brand Promoter and share our online education, leadership development, and personal growth tools. As a promoter, you'll share the ZiNRAi<span className="text-xs align-super">™</span> vision, connect others to our platform, and grow alongside a values-driven community.
+                  {t('home.promoter.description')}
                 </p>
               </div>
               
               {/* Benefits list */}
               <div className="space-y-4">
-                {['Choose your own schedule', 'Personal Growth Opportunities', 'Training & Tools Provided', 'Share products you love'].map((benefit, index) => (
+                {[
+                  t('home.promoter.benefits.schedule'),
+                  t('home.promoter.benefits.growth'),
+                  t('home.promoter.benefits.training'),
+                  t('home.promoter.benefits.share')
+                ].map((benefit, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                     <span className="text-white/80">{benefit}</span>
@@ -626,7 +635,7 @@ export default function Home() {
               
               {/* Disclaimer */}
               <div className="text-white/50 text-sm italic">
-                Note: ZiNRAi<span className="text-xs align-super">™</span> Brand Promoters are independent representatives. Results and experiences may vary.
+                {t('home.promoter.disclaimer')}
               </div>
               
               <button
@@ -638,7 +647,7 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-orange-500/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
                 <div className="relative flex items-center justify-center">
-                  <span className="font-medium">Learn More</span>
+                  <span className="font-medium">{t('common.learn_more')}</span>
                   <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>

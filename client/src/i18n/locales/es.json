@@ -115,5 +115,38 @@
     "refund_policy": "Política de Reembolso",
     "cookie_policy": "Política de Cookies",
     "japan_statutory": "Asuntos Publicitarios Reglamentarios de Japón"
+  },
+  "home": {
+    "hero": {
+      "growth_category": "Crecimiento y Aprendizaje",
+      "growth_title": "Desbloquea Tu Crecimiento",
+      "cta_button": "Comenzar Ahora"
+    },
+    "courses": {
+      "description": "Explora educación práctica en forex, cripto, marketing digital y comercio electrónico. Nuestros cursos están dirigidos por educadores y diseñados para equiparte con conocimientos fundamentales, perspectivas del mundo real y la confianza para tomar decisiones informadas.",
+      "features": {
+        "live_sessions": "Sesiones Interactivas en Vivo",
+        "risk_strategy": "Conciencia de Riesgos y Estrategia",
+        "market_insight": "Perspectiva y Análisis del Mercado",
+        "entrepreneurial_classes": "Variedad de clases empresariales"
+      },
+      "disclaimer": "Estos cursos son solo para fines educativos. ZiNRAi™ no proporciona asesoramiento financiero ni garantiza resultados específicos."
+    },
+    "promoter": {
+      "category": "Programa de Promotor de Marca",
+      "title": "Desbloquea Tu Influencia",
+      "description": "Conviértete en un Promotor de Marca y comparte nuestra educación en línea, desarrollo de liderazgo y herramientas de crecimiento personal. Como promotor, compartirás la visión ZiNRAi™, conectarás a otros con nuestra plataforma y crecerás junto a una comunidad basada en valores.",
+      "benefits": {
+        "schedule": "Elige tu propio horario",
+        "growth": "Oportunidades de Crecimiento Personal",
+        "training": "Entrenamiento y Herramientas Proporcionadas",
+        "share": "Comparte productos que amas"
+      },
+      "disclaimer": "Nota: Los Promotores de Marca ZiNRAi™ son representantes independientes. Los resultados y experiencias pueden variar."
+    },
+    "footer": {
+      "legal_section": "Información Legal",
+      "company_section": "Información de la Empresa"
+    }
   }
 }

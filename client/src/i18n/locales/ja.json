@@ -115,5 +115,38 @@
     "refund_policy": "返金ポリシー",
     "cookie_policy": "クッキーポリシー",
     "japan_statutory": "日本法定広告事項"
+  },
+  "home": {
+    "hero": {
+      "growth_category": "成長と学習",
+      "growth_title": "あなたの成長を解き放つ",
+      "cta_button": "今すぐ始める"
+    },
+    "courses": {
+      "description": "外国為替、暗号通貨、デジタルマーケティング、Eコマースの実践的な教育を探索しましょう。当社のコースは教育者によって指導され、基礎知識、実世界の洞察、そして情報に基づいた決定を下す自信を身につけるように設計されています。",
+      "features": {
+        "live_sessions": "ライブインタラクティブセッション",
+        "risk_strategy": "リスク認識と戦略",
+        "market_insight": "市場洞察と分析",
+        "entrepreneurial_classes": "様々な起業家向けクラス"
+      },
+      "disclaimer": "これらのコースは教育目的のみです。ZiNRAi™は金融アドバイスを提供せず、特定の成果を保証しません。"
+    },
+    "promoter": {
+      "category": "ブランドプロモータープログラム",
+      "title": "あなたの影響力を解き放つ",
+      "description": "ブランドプロモーターになって、オンライン教育、リーダーシップ開発、個人成長ツールを共有しましょう。プロモーターとして、ZiNRAi™のビジョンを共有し、他の人々をプラットフォームに接続し、価値観駆動のコミュニティと共に成長します。",
+      "benefits": {
+        "schedule": "自分のスケジュールを選択",
+        "growth": "個人成長の機会",
+        "training": "トレーニングとツールの提供",
+        "share": "愛用する製品を共有"
+      },
+      "disclaimer": "注：ZiNRAi™ブランドプロモーターは独立した代表者です。結果と経験は異なる場合があります。"
+    },
+    "footer": {
+      "legal_section": "法的情報",
+      "company_section": "会社情報"
+    }
   }
 }
