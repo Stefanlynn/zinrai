@@ -153,5 +153,11 @@
   "common": {
     "comingSoon": "近日公開",
     "back": "ホームに戻る"
+  },
+  "buttons": {
+    "learnMore": "詳細を見る",
+    "watchNow": "今すぐ見る",
+    "getStarted": "始める",
+    "joinZinrai": "ZiNRAiに参加"
   }
 }

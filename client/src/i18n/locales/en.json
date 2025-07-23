@@ -2,7 +2,14 @@
   "common": {
     "login": "Login",
     "watchNow": "Watch Now",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "back": "Back"
+  },
+  "buttons": {
+    "learnMore": "Learn More",
+    "watchNow": "Watch Now",
+    "getStarted": "Get Started",
+    "joinZinrai": "Join ZiNRAi"
   },
   "nav": {
     "home": "Home",
@@ -70,6 +77,28 @@
         "contact": "Contact",
         "documents": "Documents"
       }
+    },
+    "courses": {
+      "description": "Comprehensive financial education designed to empower your trading and investment journey.",
+      "features": {
+        "live_sessions": "Interactive live classroom sessions with expert instructors",
+        "risk_strategy": "Learn risk management and strategic analysis techniques",
+        "market_insight": "Gain deep insights into market dynamics and trends",
+        "entrepreneurial_classes": "Entrepreneurial mindset and business development classes"
+      },
+      "disclaimer": "Educational content only. Not financial advice. Trading involves risk."
+    },
+    "promoter": {
+      "category": "Partnership Program",
+      "title": "Unlock Your Impact",
+      "description": "Join our Brand Promoter program and help others discover the power of financial education while building your own successful business.",
+      "benefits": {
+        "schedule": "Work on your own schedule with flexible opportunities",
+        "growth": "Access to personal and professional development resources",
+        "training": "Comprehensive training and ongoing mentorship support",
+        "share": "Share life-changing educational content with your network"
+      },
+      "disclaimer": "Independent contractor opportunity. Results may vary based on individual effort and market conditions."
     }
   },
   "product": {

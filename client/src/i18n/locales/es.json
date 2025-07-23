@@ -153,5 +153,11 @@
   "common": {
     "comingSoon": "Próximamente",
     "back": "Volver al Inicio"
+  },
+  "buttons": {
+    "learnMore": "Aprender Más",
+    "watchNow": "Ver Ahora",
+    "getStarted": "Comenzar",
+    "joinZinrai": "Unirse a ZiNRAi"
   }
 }
