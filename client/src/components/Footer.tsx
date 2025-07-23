@@ -15,7 +15,7 @@ export default function Footer() {
     en: {
       legal: "Legal",
       quickLinks: "Quick Links",
-      connect: "Connect",
+      followUs: "Follow Us",
       home: "Home",
       courses: "Courses",
       brandPromoter: "Brand Promoter",
@@ -28,12 +28,11 @@ export default function Footer() {
       cookiePolicy: "Cookie Policy",
       brandPromoterAgreement: "Brand Promoter Agreement",
       japanStatutory: "Japan Statutory Advertisement Matters",
-      contactSupport: "Contact Support",
       contact: "Contact",
-      documents: "Documents",
       allRightsReserved: "All rights reserved.",
       educationFocus: "Our focus is financial education, not investment advice.",
       email: "Email",
+      companyDescription: "Innovative digital learning platform for financial education and strategy analysis.",
       disclaimerTitle: "Important Disclaimer",
       disclaimer1: "ZiNRAi™ products include digital and online interactive training content for analyzing, learning, and discussing general and generic information related to investments and strategies. ZiNRAi™ does not facilitate or offer access to online platforms for investment or online trading in securities, currency (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide any regulated financial services.",
       disclaimer2: "ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities, or agencies, or financial regulatory body.",
@@ -42,7 +41,7 @@ export default function Footer() {
     ja: {
       legal: "法的事項",
       quickLinks: "クイックリンク",
-      connect: "接続",
+      followUs: "フォローする",
       home: "ホーム",
       courses: "コース",
       brandPromoter: "ブランドプロモーター",
@@ -55,12 +54,11 @@ export default function Footer() {
       cookiePolicy: "クッキーポリシー",
       brandPromoterAgreement: "ブランドプロモーター契約",
       japanStatutory: "日本法定広告事項",
-      contactSupport: "サポートにお問い合わせ",
       contact: "お問い合わせ",
-      documents: "ドキュメント",
       allRightsReserved: "すべての権利予約済み。",
       educationFocus: "私たちの焦点は金融教育であり、投資アドバイスではありません。",
       email: "メール",
+      companyDescription: "金融教育と戦略分析のための革新的なデジタル学習プラットフォーム。",
       disclaimerTitle: "重要な免責事項",
       disclaimer1: "ZiNRAi™製品には、投資と戦略に関する一般的かつ汎用的な情報を分析、学習、議論するためのデジタルおよびオンラインの対話型トレーニングコンテンツが含まれています。ZiNRAi™は、証券、通貨（暗号通貨を含む）、またはその他の金融もしくは投資商品やサービスの投資やオンライン取引のためのオンラインプラットフォームへのアクセスを促進したり、提供したりすることはありません。ZiNRAi™、そのブランドパートナー、および教育者は、投資戦略に関する個人的な推奨事項やアドバイスを提供することはなく、規制された金融サービスも提供しません。",
       disclaimer2: "ZiNRAi™は、国、州、県、地域の組織や協会、税務当局、機関、または金融規制機関によって承認されておらず、また関連もありません。",
@@ -69,7 +67,7 @@ export default function Footer() {
     es: {
       legal: "Legal",
       quickLinks: "Enlaces Rápidos",
-      connect: "Conectar",
+      followUs: "Síguenos",
       home: "Inicio",
       courses: "Cursos",
       brandPromoter: "Promotor de Marca",
@@ -82,12 +80,11 @@ export default function Footer() {
       cookiePolicy: "Política de Cookies",
       brandPromoterAgreement: "Acuerdo de Promotor de Marca",
       japanStatutory: "Asuntos Publicitarios Estatutarios de Japón",
-      contactSupport: "Contactar Soporte",
       contact: "Contacto",
-      documents: "Documentos",
       allRightsReserved: "Todos los derechos reservados.",
       educationFocus: "Nuestro enfoque es la educación financiera, no el asesoramiento de inversión.",
       email: "Correo",
+      companyDescription: "Plataforma de aprendizaje digital innovadora para educación financiera y análisis de estrategias.",
       disclaimerTitle: "Aviso Legal Importante",
       disclaimer1: "Los productos ZiNRAi™ incluyen contenido de capacitación digital e interactivo en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversiones o comercio en línea de valores, monedas (incluidas las criptomonedas) u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o asesoramiento sobre estrategias de inversión, ni proporcionan servicios financieros regulados.",
       disclaimer2: "ZiNRAi™ no está respaldado por ni afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales o agencias, o entidad reguladora financiera.",
@@ -112,7 +109,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
             <p className="text-white/70 text-sm mb-4">
-              Innovative digital learning platform for financial education and strategy analysis.
+              {texts.companyDescription}
             </p>
             <div className="text-white/60 text-sm">
               <p>ZiNRAi<span className="text-xs align-super">™</span> LLC</p>
@@ -120,9 +117,7 @@ export default function Footer() {
               <p>Suite #213</p>
               <p>Bonita Springs, FL 34134</p>
             </div>
-            <div className="mt-4 p-3 bg-gray-800 text-white rounded font-bold text-center">
-              {texts.email}: support@zinrai.com
-            </div>
+
           </div>
 
           {/* Quick Links */}
@@ -159,6 +154,22 @@ export default function Footer() {
                   className="text-white/70 hover:text-white transition-colors"
                 >
                   {texts.culture}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation("/leadership")}
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  Leadership
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation("/contact")}
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  {texts.contact}
                 </button>
               </li>
             </ul>
@@ -249,9 +260,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Connect */}
+          {/* Follow Us */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{texts.connect}</h3>
+            <h3 className="text-lg font-semibold mb-4">{texts.followUs}</h3>
             <div className="flex space-x-4 mb-4">
               <a 
                 href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
@@ -274,27 +285,7 @@ export default function Footer() {
               </a>
             </div>
             <div className="text-sm">
-              <div className="mb-3">
-                <p className="text-white/70 mb-1">{texts.contactSupport}:</p>
-                <a 
-                  href="mailto:support@zinrai.com"
-                  className="text-white hover:text-blue-400 transition-colors font-bold"
-                >
-                  support@zinrai.com
-                </a>
-              </div>
-              <button 
-                onClick={() => handleNavigation("/contact")}
-                className="text-white/70 hover:text-white transition-colors block mb-2"
-              >
-                {texts.contact}
-              </button>
-              <button 
-                onClick={() => handleNavigation("/documents")}
-                className="text-white/70 hover:text-white transition-colors block"
-              >
-                {texts.documents}
-              </button>
+              <p className="text-white/70 mb-1">{texts.email}: support@zinrai.com</p>
             </div>
           </div>
         </div>
