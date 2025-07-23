@@ -431,9 +431,21 @@ function App() {
           
           {/* Right Section: Language Selector and Actions */}
           <div className="flex items-center space-x-4 px-6">
-            {/* Desktop Language Selector and Login */}
+            {/* Desktop Actions */}
             <div className="hidden lg:flex items-center space-x-4">
               <LanguageSelector />
+              {isHomePage && (
+                <button
+                  onClick={() => setVideoPopupOpen(true)}
+                  className="h-[40px] px-4 bg-gradient-to-r from-blue-600/80 to-blue-500/80 hover:from-blue-600 hover:to-blue-500 border border-white/20 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group shadow-md"
+                  aria-label="Watch ZiNRAi introduction video"
+                >
+                  <svg className="w-4 h-4 text-white mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <span className="text-white text-sm font-medium tracking-wide">Watch Now</span>
+                </button>
+              )}
               <a 
                 href="http://app.zinrai.com"
                 target="_blank"
@@ -445,29 +457,7 @@ function App() {
               </a>
             </div>
 
-            {/* Mobile Actions - Home Page Only */}
-            {isHomePage && !menuOpen && (
-              <div className="lg:hidden flex items-center space-x-3 mr-2">
-                <a 
-                  href="http://app.zinrai.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-[36px] px-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-md flex items-center justify-center cursor-pointer transition-all duration-300"
-                  aria-label="Login to ZiNRAi app"
-                >
-                  <span className="text-white text-xs font-medium">Login</span>
-                </a>
-                <button
-                  onClick={() => setVideoPopupOpen(true)}
-                  className="h-[36px] px-3 bg-blue-600/80 hover:bg-blue-600 border border-white/20 rounded-md flex items-center justify-center cursor-pointer transition-all duration-300"
-                  aria-label="Watch ZiNRAi introduction video"
-                >
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </button>
-              </div>
-            )}
+
 
             {/* Mobile Translation and Menu Toggle */}
             <div className="lg:hidden flex items-center space-x-2" ref={menuRef}>
