@@ -10,6 +10,80 @@
     "contact": "お問い合わせ"
   },
   "home": {
+    "hero": {
+      "title": "ZiNRAi™",
+      "subtitle": "デジタル学習プラットフォーム",
+      "description": "金融教育と戦略分析のための革新的なデジタル学習プラットフォーム。",
+      "tagline": "情熱を持って生きる。目的を持ってリードする。",
+      "movement_title": "私たちは呼びかけに応えた者たち",
+      "movement_description": "火によって洗練され、目的において結束した。これはブランド以上のもの—誠実性、回復力、グローバルな影響の運動です。",
+      "growth_category": "オンライン教育",
+      "growth_title": "成長を解き放つ",
+      "unlock_potential": "専門家主導の金融教育で潜在能力を解き放つ"
+    },
+    "promoter": {
+      "category": "パートナープログラム",
+      "title": "影響力を解き放つ",
+      "description": "ブランドプロモータープログラムに参加し、他の人が金融教育の力を発見するお手伝いをしながら、あなた自身の成功したビジネスを構築しましょう。",
+      "benefits": {
+        "schedule": "柔軟な機会で自分のスケジュールで働く",
+        "growth": "個人的および職業的開発リソースへのアクセス",
+        "training": "包括的なトレーニングと継続的なメンターシップサポート",
+        "share": "あなたのネットワークと人生を変える教育コンテンツを共有"
+      },
+      "disclaimer": "独立請負業者の機会。結果は個人の努力と市場状況によって異なる場合があります。"
+    },
+    "courses": {
+      "description": "あなたの取引と投資の旅を力づける包括的な金融教育。",
+      "features": {
+        "live_sessions": "専門インストラクターとのインタラクティブなライブクラスルームセッション",
+        "risk_strategy": "リスク管理と戦略分析技術を学ぶ",
+        "market_insight": "市場のダイナミクスとトレンドへの深い洞察を得る",
+        "entrepreneurial_classes": "起業家精神とビジネス開発クラス"
+      },
+      "disclaimer": "教育コンテンツのみ。金融アドバイスではありません。取引にはリスクが伴います。"
+    },
+    "icons": {
+      "plus": "プラス",
+      "video": "ビデオ",
+      "film": "フィルム",
+      "eye": "目",
+      "power": "パワー",
+      "circle": "円"
+    },
+    "logo_alt": "ZiNRAiロゴ",
+    "social": {
+      "instagram_aria": "InstagramでZiNRAiをフォロー",
+      "youtube_aria": "YouTubeでZiNRAiを購読"
+    },
+    "video": {
+      "title": "ZiNRAi紹介ビデオ"
+    },
+    "company": {
+      "name": "ZiNRAi™ LLC",
+      "address_line1": "3333 Renaissance Blvd, Suite #213",
+      "address_line2": "Bonita Springs, FL 34134",
+      "street": "3333 Renaissance Blvd",
+      "suite": "Suite #213",
+      "city_state_zip": "Bonita Springs, FL 34134"
+    },
+    "footer": {
+      "company_info": "会社情報",
+      "follow_us": "フォローしてください",
+      "education_focus": "私たちの焦点は金融教育であり、投資アドバイスではありません。",
+      "legal_links": "法的文書",
+      "legal": "法的",
+      "quick_links": "クイックリンク",
+      "connect": "つながる",
+      "contact_support": "サポートに連絡",
+      "email": "メール",
+      "all_rights_reserved": "全著作権所有。",
+      "disclaimer": "免責事項：投資教育と分析。金融アドバイスではありません。",
+      "disclaimer_title": "重要な免責事項",
+      "company_description": "金融教育と戦略分析のための革新的なデジタル学習プラットフォーム。",
+      "legal_section": "法的情報",
+      "company_section": "会社情報"
+    },
     "watchNow": "今すぐ視聴",
     "getStarted": "始める",
     "learnMore": "詳細を見る"

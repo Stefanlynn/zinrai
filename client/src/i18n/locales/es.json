@@ -10,6 +10,80 @@
     "contact": "Contacto"
   },
   "home": {
+    "hero": {
+      "title": "ZiNRAi™",
+      "subtitle": "Plataforma de Aprendizaje Digital",
+      "description": "Plataforma de aprendizaje digital innovadora para educación financiera y análisis estratégico.",
+      "tagline": "VIVE CON PASIÓN. LIDERA CON PROPÓSITO.",
+      "movement_title": "Somos Quienes Respondimos al Llamado",
+      "movement_description": "Refinados por el fuego. Unidos en propósito. Esto es más que una marca—es un movimiento de integridad, resistencia e impacto global.",
+      "growth_category": "Educación en Línea",
+      "growth_title": "Desbloquea Tu Crecimiento",
+      "unlock_potential": "Desbloquea Tu Potencial con Educación Financiera Dirigida por Expertos"
+    },
+    "promoter": {
+      "category": "Programa de Asociación",
+      "title": "Desbloquea Tu Impacto",
+      "description": "Únete a nuestro programa de Promotor de Marca y ayuda a otros a descubrir el poder de la educación financiera mientras construyes tu propio negocio exitoso.",
+      "benefits": {
+        "schedule": "Trabaja en tu horario con oportunidades flexibles",
+        "growth": "Acceso a recursos de desarrollo personal y profesional",
+        "training": "Entrenamiento integral y apoyo de mentoría continua",
+        "share": "Comparte contenido educativo que cambia vidas con tu red"
+      },
+      "disclaimer": "Oportunidad de contratista independiente. Los resultados pueden variar según el esfuerzo individual y las condiciones del mercado."
+    },
+    "courses": {
+      "description": "Educación financiera integral diseñada para potenciar tu viaje de trading e inversión.",
+      "features": {
+        "live_sessions": "Sesiones interactivas en vivo con instructores expertos",
+        "risk_strategy": "Aprende técnicas de gestión de riesgos y análisis estratégico",
+        "market_insight": "Obtén conocimientos profundos sobre dinámicas y tendencias del mercado",
+        "entrepreneurial_classes": "Clases de mentalidad emprendedora y desarrollo empresarial"
+      },
+      "disclaimer": "Solo contenido educativo. No es asesoramiento financiero. El trading involucra riesgo."
+    },
+    "icons": {
+      "plus": "Más",
+      "video": "Video",
+      "film": "Película",
+      "eye": "Ojo",
+      "power": "Poder",
+      "circle": "Círculo"
+    },
+    "logo_alt": "Logo ZiNRAi",
+    "social": {
+      "instagram_aria": "Sigue a ZiNRAi en Instagram",
+      "youtube_aria": "Suscríbete a ZiNRAi en YouTube"
+    },
+    "video": {
+      "title": "Video de Introducción ZiNRAi"
+    },
+    "company": {
+      "name": "ZiNRAi™ LLC",
+      "address_line1": "3333 Renaissance Blvd, Suite #213",
+      "address_line2": "Bonita Springs, FL 34134",
+      "street": "3333 Renaissance Blvd",
+      "suite": "Suite #213",
+      "city_state_zip": "Bonita Springs, FL 34134"
+    },
+    "footer": {
+      "company_info": "Información de la Empresa",
+      "follow_us": "Síguenos",
+      "education_focus": "Nuestro enfoque es la educación financiera, no el asesoramiento de inversión.",
+      "legal_links": "Documentos Legales",
+      "legal": "Legal",
+      "quick_links": "Enlaces Rápidos",
+      "connect": "Conectar",
+      "contact_support": "Contactar Soporte",
+      "email": "Correo",
+      "all_rights_reserved": "Todos los derechos reservados.",
+      "disclaimer": "Descargo de responsabilidad: Educación e análisis de inversiones. No asesoramiento financiero.",
+      "disclaimer_title": "Descargo de Responsabilidad Importante",
+      "company_description": "Plataforma de aprendizaje digital innovadora para educación financiera y análisis de estrategias.",
+      "legal_section": "Información Legal",
+      "company_section": "Información de la Empresa"
+    },
     "watchNow": "Ver Ahora",
     "getStarted": "Comenzar",
     "learnMore": "Saber Más"
