@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import CookieSettings from "./CookieSettings";
 
 export default function Footer() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [, setLocation] = useLocation();
   const [showCookieSettings, setShowCookieSettings] = useState(false);
 
@@ -95,9 +95,9 @@ export default function Footer() {
     }
   };
 
-  const currentLang = i18n.language || 'en';
+  // Get current language or default to 'en'
+  const currentLang = i18n.language?.split('-')[0] || 'en';
   const texts = footerTexts[currentLang as keyof typeof footerTexts] || footerTexts.en;
-
 
   const handleNavigation = (path: string) => {
     setLocation(path);
@@ -120,7 +120,6 @@ export default function Footer() {
               <p>Suite #213</p>
               <p>Bonita Springs, FL 34134</p>
             </div>
-
           </div>
 
           {/* Quick Links */}
@@ -268,9 +267,8 @@ export default function Footer() {
               >
                 <FaInstagram size={20} />
               </a>
-
               <a 
-                href="https://www.youtube.com/@zinrai" 
+                href="https://youtube.com/@zinrai?si=2xbcK-u8e_5HuRG2" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-white transition-colors"
@@ -309,12 +307,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       {/* Cookie Settings Modal */}
-      <CookieSettings 
-        isOpen={showCookieSettings} 
-        onClose={() => setShowCookieSettings(false)} 
-      />
+      {showCookieSettings && (
+        <CookieSettings onClose={() => setShowCookieSettings(false)} />
+      )}
     </footer>
   );
 }
