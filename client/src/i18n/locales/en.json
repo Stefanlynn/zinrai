@@ -36,10 +36,29 @@
       "email": "Email: support@zinrai.com",
       "address": "ZiNRAi, LLC\n1309 Coffeen Avenue, Suite #213\nSheridan, WY 82801",
       "disclaimer_title": "Important Disclaimer",
-      "disclaimer_text": "ZiNRAi™ products include digital and online interactive training content to analyze, learn, and discuss general and generic information relating to investments and strategy. ZiNRAi™ does not facilitate or provide access to online platforms for investment or online trading of securities, currencies (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide regulated financial services.",
-      "disclaimer_text2": "ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities or agencies, or financial regulatory body.",
+      "disclaimer_text": "ZiNRAi™ products include digital and online interactive training content for analyzing, learning, and discussing general and generic information related to investments and strategies. ZiNRAi™ does not facilitate or offer access to online platforms for investment or online trading in securities, currency (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide any regulated financial services.",
+      "disclaimer_text2": "ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities, or agencies, or financial regulatory body.",
+      "disclaimer_text3": "ZiNRAi™ provides absolutely no guarantee that you will earn any money or achieve a financial goal using the methods, information, and suggestions in the content provided. Any examples or demonstrations provided are in no way a guarantee or promise that an individual will make financial gains of any kind.",
       "education_focus": "Our focus is financial education, not investment advice.",
-      "legal_links": "Legal Documents"
+      "legal_links": "Legal Documents",
+      "legal": "Legal",
+      "quick_links": "Quick Links",
+      "copyright": "© Copyright 2025, ZiNRAi™ LLC. All Rights Reserved. All trademarks displayed on this website, unless otherwise indicated, are the property of ZiNRAi™ LLC.",
+      "company_description": "Empowering individuals through comprehensive financial education and strategic learning opportunities.",
+      "links": {
+        "privacy_policy": "Privacy Policy",
+        "member_agreement": "Member Agreement", 
+        "terms_of_use": "Terms of Use",
+        "refund_policy": "Refund Policy",
+        "cookie_policy": "Cookie Policy",
+        "brand_promoter_agreement": "Brand Promoter Agreement",
+        "japan_statutory": "Japan Statutory Advertisement Matters",
+        "courses": "Courses",
+        "brand_promoter": "Brand Promoter",
+        "culture": "Culture",
+        "leadership": "Leadership",
+        "contact": "Contact"
+      }
     }
   },
   "common": {
