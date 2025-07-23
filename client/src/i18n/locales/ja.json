@@ -136,6 +136,20 @@
       }
     }
   },
+  "pages": {
+    "leadership": {
+      "title": "リーダーシップ",
+      "coming_soon_description": "金融教育の未来を形作るビジョナリーたちをご紹介します。",
+      "detailed_description": "私たちのリーダーシッププロフィール、チームの洞察、企業の物語は間もなく公開予定です。更新情報をお待ちください。",
+      "timeline": "近日公開"
+    },
+    "insights": {
+      "title": "インサイト",
+      "coming_soon_description": "コミュニティからの独占コンテンツ、証言、舞台裏の洞察。",
+      "detailed_description": "メンバーの物語、教育コンテンツ、独占インタビューをご覧ください。このセクションは間もなく開始されます。",
+      "timeline": "近日公開"
+    }
+  },
   "common": {
     "comingSoon": "近日公開",
     "back": "ホームに戻る"

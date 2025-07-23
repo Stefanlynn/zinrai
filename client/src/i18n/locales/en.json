@@ -137,6 +137,20 @@
       "error_generic": "Something went wrong. Please try again later."
     }
   },
+  "pages": {
+    "leadership": {
+      "title": "Leadership",
+      "coming_soon_description": "Meet the visionaries shaping the future of financial education.",
+      "detailed_description": "Our leadership profiles, team insights, and company story will be available soon. Stay tuned for updates.",
+      "timeline": "Coming Soon"
+    },
+    "insights": {
+      "title": "Insights",
+      "coming_soon_description": "Exclusive content, testimonials, and behind-the-scenes insights from our community.",
+      "detailed_description": "Discover stories from our members, educational content, and exclusive interviews. This section will be launching soon.",
+      "timeline": "Coming Soon"
+    }
+  },
   "partner": {
     "title": "Brand Promoter",
     "subtitle": "Turn your passion for purpose into powerful impact.",

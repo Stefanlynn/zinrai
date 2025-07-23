@@ -136,6 +136,20 @@
       }
     }
   },
+  "pages": {
+    "leadership": {
+      "title": "Liderazgo",
+      "coming_soon_description": "Conoce a los visionarios que están dando forma al futuro de la educación financiera.",
+      "detailed_description": "Nuestros perfiles de liderazgo, perspectivas del equipo e historia de la empresa estarán disponibles pronto. Mantente atento a las actualizaciones.",
+      "timeline": "Próximamente"
+    },
+    "insights": {
+      "title": "Ideas",
+      "coming_soon_description": "Contenido exclusivo, testimonios y perspectivas detrás de escena de nuestra comunidad.",
+      "detailed_description": "Descubre historias de nuestros miembros, contenido educativo y entrevistas exclusivas. Esta sección se lanzará pronto.",
+      "timeline": "Próximamente"
+    }
+  },
   "common": {
     "comingSoon": "Próximamente",
     "back": "Volver al Inicio"
