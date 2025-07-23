@@ -543,65 +543,74 @@ function App() {
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
-                          <button 
+                          <a 
+                            href="/product"
                             onClick={(e) => {
+                              e.preventDefault();
                               e.stopPropagation();
-                              console.log('PRODUCT BUTTON CLICKED! Navigating to /product, current location:', window.location.pathname);
+                              console.log('PRODUCT LINK CLICKED! Navigating to /product');
                               setLocation('/product');
-                              console.log('After setLocation, new location should be /product');
-                              toggleMenu();
+                              setMenuOpen(false);
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
                           >
                             {t('nav.product')}
-                          </button>
+                          </a>
                         </div>
                       </div>
                       
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">02</div>
-                          <button 
+                          <a 
+                            href="/partner"
                             onClick={(e) => {
+                              e.preventDefault();
                               e.stopPropagation();
-                              console.log('PARTNER BUTTON CLICKED! Navigating to /partner');
+                              console.log('PARTNER LINK CLICKED! Navigating to /partner');
                               setLocation('/partner');
-                              toggleMenu();
+                              setMenuOpen(false);
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
                           >
                             {t('nav.partner')}
-                          </button>
+                          </a>
                         </div>
                       </div>
                       
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">03</div>
-                          <button 
-                            onClick={() => {
+                          <a 
+                            href="/culture"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              console.log('CULTURE LINK CLICKED! Navigating to /culture');
                               setLocation('/culture');
-                              toggleMenu();
+                              setMenuOpen(false);
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
                           >
                             {t('nav.culture')}
-                          </button>
+                          </a>
                         </div>
                       </div>
                       
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">04</div>
-                          <button 
-                            onClick={() => {
+                          <a 
+                            href="/leadership"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              console.log('LEADERSHIP LINK CLICKED! Navigating to /leadership');
                               setLocation('/leadership');
-                              toggleMenu();
+                              setMenuOpen(false);
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
                           >
                             {t('nav.leadership')}
-                          </button>
+                          </a>
                         </div>
                       </div>
                       
@@ -610,15 +619,18 @@ function App() {
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
-                          <button 
-                            onClick={() => {
+                          <a 
+                            href="/contact"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              console.log('CONTACT LINK CLICKED! Navigating to /contact');
                               setLocation('/contact');
-                              toggleMenu();
+                              setMenuOpen(false);
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
                           >
                             {t('nav.contact')}
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </nav>
