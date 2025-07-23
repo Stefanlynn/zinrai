@@ -436,8 +436,9 @@ function App() {
 
           </nav>
           
-          {/* Login button for desktop */}
-          <div className="hidden md:flex items-center mr-6">
+          {/* Language Selector and Login button for desktop */}
+          <div className="hidden md:flex items-center space-x-3 mr-6">
+            <LanguageSelector />
             {!menuOpen && (
               <a 
                 href="http://app.zinrai.com"
@@ -494,18 +495,23 @@ function App() {
                       ZiNRAi
                     </div>
                     
-                    {/* Language selector and Login button */}
-                    <div className="flex items-center space-x-3">
+                    {/* Login button */}
+                    <a 
+                      href="http://app.zinrai.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                      aria-label="Login to ZiNRAi app"
+                    >
+                      <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
+                    </a>
+                  </div>
+                  
+                  {/* Language selector for mobile */}
+                  <div className="px-6 pb-4 border-b border-white/10">
+                    <div className="flex items-center justify-between">
+                      <span className="text-white/70 text-sm">Language</span>
                       <LanguageSelector />
-                      <a 
-                        href="http://app.zinrai.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
-                        aria-label="Login to ZiNRAi app"
-                      >
-                        <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
-                      </a>
                     </div>
                   </div>
                   
