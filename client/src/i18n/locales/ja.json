@@ -43,21 +43,28 @@
       "disclaimer_text3": "ZiNRAi™は、提供されたコンテンツの方法、情報、提案を使用して金銭を稼いだり、財政目標を達成することを絶対に保証しません。提供された例やデモンストレーションは、個人が何らかの金銭的利益を得ることの保証や約束では決してありません。",
       "legal": "法的事項",
       "quick_links": "クイックリンク",
+      "connect": "接続",
+      "contact_support": "サポートにお問い合わせ",
+      "all_rights_reserved": "すべての権利予約済み。",
+      "disclaimer": "免責事項：投資教育と分析。金融アドバイスではありません。",
       "copyright": "© Copyright 2025, ZiNRAi™ LLC. All Rights Reserved. このウェブサイトに表示されているすべての商標は、特に明記されている場合を除き、ZiNRAi™ LLCの財産です。",
-      "company_description": "包括的な金融教育と戦略的学習機会を通じて個人を支援します。",
+      "company_description": "金融教育と戦略分析のための革新的なデジタル学習プラットフォーム。",
       "links": {
+        "home": "ホーム",
         "privacy_policy": "プライバシーポリシー",
         "member_agreement": "メンバー契約",
         "terms_of_use": "利用規約",
         "refund_policy": "返金ポリシー",
         "cookie_policy": "クッキーポリシー",
+        "cookie_settings": "クッキー設定",
         "brand_promoter_agreement": "ブランドプロモーター契約",
         "japan_statutory": "日本法定広告事項",
         "courses": "コース",
         "brand_promoter": "ブランドプロモーター",
         "culture": "文化",
         "leadership": "リーダーシップ",
-        "contact": "お問い合わせ"
+        "contact": "お問い合わせ",
+        "documents": "ドキュメント"
       }
     }
   },
