@@ -447,8 +447,7 @@ function App() {
 
             {/* Mobile Actions - Home Page Only */}
             {isHomePage && !menuOpen && (
-              <div className="lg:hidden flex items-center space-x-3">
-                <LanguageSelector />
+              <div className="lg:hidden flex items-center space-x-3 mr-2">
                 <a 
                   href="http://app.zinrai.com"
                   target="_blank"
@@ -470,8 +469,14 @@ function App() {
               </div>
             )}
 
-            {/* Mobile menu toggle */}
-            <div className="lg:hidden" ref={menuRef}>
+            {/* Mobile Translation and Menu Toggle */}
+            <div className="lg:hidden flex items-center space-x-2" ref={menuRef}>
+              {/* Translation Icon for Mobile */}
+              <div className="relative">
+                <LanguageSelector />
+              </div>
+              
+              {/* Mobile Menu Toggle */}
               <button 
                 className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/5 rounded-lg"
                 onClick={toggleMenu}
@@ -515,9 +520,8 @@ function App() {
                       ZiNRAi
                     </div>
                     
-                    {/* Language selector and Login button */}
-                    <div className="flex items-center space-x-4">
-                      <LanguageSelector />
+                    {/* Login button - Language selector now in header */}
+                    <div className="flex items-center">
                       <a 
                         href="http://app.zinrai.com"
                         target="_blank"
