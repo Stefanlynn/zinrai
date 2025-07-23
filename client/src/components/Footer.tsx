@@ -101,6 +101,7 @@ export default function Footer() {
 
   const handleNavigation = (path: string) => {
     setLocation(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

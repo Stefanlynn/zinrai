@@ -328,6 +328,13 @@ function App() {
     console.log('Setting menu to:', !menuOpen);
   };
 
+  // Helper function to navigate and scroll to top
+  const handleNavigation = (path: string) => {
+    setLocation(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMenuOpen(false); // Close mobile menu if open
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -345,7 +352,7 @@ function App() {
                 className="cursor-pointer flex items-center space-x-4 group"
                 onClick={(e) => {
                   e.preventDefault();
-                  setLocation('/');
+                  handleNavigation('/');
                 }}
                 href="/"
                 aria-label="ZiNRAi™ Home"
@@ -376,7 +383,7 @@ function App() {
               href="/product"
               onClick={(e) => {
                 e.preventDefault();
-                setLocation('/product');
+                handleNavigation('/product');
               }}
             >
               {t('nav.product')}
@@ -387,7 +394,7 @@ function App() {
               href="/partner"
               onClick={(e) => {
                 e.preventDefault();
-                setLocation('/partner');
+                handleNavigation('/partner');
               }}
             >
               {t('nav.partner')}
@@ -398,7 +405,7 @@ function App() {
               href="/culture"
               onClick={(e) => {
                 e.preventDefault();
-                setLocation('/culture');
+                handleNavigation('/culture');
               }}
             >
               {t('nav.culture')}
@@ -409,7 +416,7 @@ function App() {
               href="/insights"
               onClick={(e) => {
                 e.preventDefault();
-                setLocation('/insights');
+                handleNavigation('/insights');
               }}
             >
               {t('nav.insights')}
@@ -420,7 +427,7 @@ function App() {
               href="/leadership"
               onClick={(e) => {
                 e.preventDefault();
-                setLocation('/leadership');
+                handleNavigation('/leadership');
               }}
             >
               {t('nav.leadership')}
@@ -431,7 +438,7 @@ function App() {
               href="/contact"
               onClick={(e) => {
                 e.preventDefault();
-                setLocation('/contact');
+                handleNavigation('/contact');
               }}
             >
               {t('nav.contact')}
@@ -490,7 +497,7 @@ function App() {
               {/* Mobile Menu Toggle */}
               <button 
                 className="h-[36px] w-[36px] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 rounded-lg"
-                onClick={() => setLocation('/menu')}
+                onClick={() => handleNavigation('/menu')}
                 aria-label="Open menu"
               >
                 <div className="relative w-5 h-5 flex items-center justify-center">
@@ -518,17 +525,13 @@ function App() {
                   <div className="flex justify-between items-center p-6">
                     <div 
                       className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:text-white/80 transition-colors"
-                      onClick={() => {
-                        setMenuOpen(false);
-                        setLocation('/');
-                      }}
+                      onClick={() => handleNavigation('/')}
                       role="button"
                       tabIndex={0}
                       aria-label="Go to ZiNRAi home page"
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
-                          setMenuOpen(false);
-                          setLocation('/');
+                          handleNavigation('/');
                         }
                       }}
                     >
@@ -560,8 +563,7 @@ function App() {
                               e.preventDefault();
                               e.stopPropagation();
                               console.log('PRODUCT DIV CLICKED! Navigating to /product');
-                              setLocation('/product');
-                              setMenuOpen(false);
+                              handleNavigation('/product');
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
                             style={{ pointerEvents: 'auto', userSelect: 'none' }}
@@ -579,8 +581,7 @@ function App() {
                               e.preventDefault();
                               e.stopPropagation();
                               console.log('PARTNER DIV CLICKED! Navigating to /partner');
-                              setLocation('/partner');
-                              setMenuOpen(false);
+                              handleNavigation('/partner');
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
                             style={{ pointerEvents: 'auto', userSelect: 'none' }}
@@ -598,8 +599,7 @@ function App() {
                               e.preventDefault();
                               e.stopPropagation();
                               console.log('CULTURE DIV CLICKED! Navigating to /culture');
-                              setLocation('/culture');
-                              setMenuOpen(false);
+                              handleNavigation('/culture');
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
                             style={{ pointerEvents: 'auto', userSelect: 'none' }}
@@ -617,8 +617,7 @@ function App() {
                               e.preventDefault();
                               e.stopPropagation();
                               console.log('LEADERSHIP DIV CLICKED! Navigating to /leadership');
-                              setLocation('/leadership');
-                              setMenuOpen(false);
+                              handleNavigation('/leadership');
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
                             style={{ pointerEvents: 'auto', userSelect: 'none' }}
@@ -638,8 +637,7 @@ function App() {
                               e.preventDefault();
                               e.stopPropagation();
                               console.log('CONTACT DIV CLICKED! Navigating to /contact');
-                              setLocation('/contact');
-                              setMenuOpen(false);
+                              handleNavigation('/contact');
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
                             style={{ pointerEvents: 'auto', userSelect: 'none' }}
