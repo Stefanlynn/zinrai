@@ -120,7 +120,10 @@
     "hero": {
       "growth_category": "Crecimiento y Aprendizaje",
       "growth_title": "Desbloquea Tu Crecimiento",
-      "cta_button": "Comenzar Ahora"
+      "cta_button": "Comenzar Ahora",
+      "movement_title": "Somos Quienes Respondimos al Llamado",
+      "tagline": "VIVE CON PASIÓN. LIDERA CON PROPÓSITO",
+      "movement_description": "Refinados por el fuego. Unidos en propósito. Esto es más que una marca: es un movimiento de integridad, resistencia e impacto global."
     },
     "courses": {
       "description": "Explora educación práctica en forex, cripto, marketing digital y comercio electrónico. Nuestros cursos están dirigidos por educadores y diseñados para equiparte con conocimientos fundamentales, perspectivas del mundo real y la confianza para tomar decisiones informadas.",
@@ -146,7 +149,9 @@
     },
     "footer": {
       "legal_section": "Información Legal",
-      "company_section": "Información de la Empresa"
+      "company_section": "Información de la Empresa",
+      "follow_us": "Síguenos",
+      "company_description": "Plataforma innovadora de aprendizaje digital para educación financiera y análisis estratégico."
     }
   }
 }

@@ -324,7 +324,7 @@ export default function Home() {
                 ZiNRAi<span className="text-[0.4em] align-super">™</span>
               </h1>
               <div className="tagline-text text-white text-[2vw] md:text-[1.8vw] lg:text-[1.4vw] xl:text-[18px] tracking-wider whitespace-nowrap relative z-10 text-center mt-[-3vw] md:mt-[-2.5vh] neon-text-glow-subtle" style={{ textShadow: "0 0 8px #68ACFF, 0 0 15px #68ACFF" }}>
-                LIVE WITH PASSION. LEAD WITH PURPOSE
+                {t('home.hero.tagline')}
               </div>
             </div>
           </div>
@@ -414,7 +414,7 @@ export default function Home() {
 
               {/* Legal Documentation Section */}
               <div className="border-t border-white/20 pt-8 mt-8">
-                <h3 className="text-lg font-semibold mb-4 text-white/80">Legal Information</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white/80">{t('home.footer.legal_section')}</h3>
                 <div className="space-y-3 text-sm">
                   <a
                     href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf"
@@ -422,7 +422,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
-                    Privacy Policy
+{t('legal.privacy_policy')}
                   </a>
                   <a
                     href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf"
@@ -430,7 +430,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
-                    Member Agreement
+{t('legal.member_agreement')}
                   </a>
                   <a
                     href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf"
@@ -438,7 +438,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
-                    Terms of Use
+{t('legal.terms_of_use')}
                   </a>
                   <a
                     href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf"
@@ -446,26 +446,26 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
-                    Refund Policy
+{t('legal.refund_policy')}
                   </a>
                   <button
                     onClick={() => navigateToPage("/cookie-policy")}
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
-                    Cookie Policy
+{t('legal.cookie_policy')}
                   </button>
                   <button
                     onClick={() => navigateToPage("/brand-promoter-agreement")}
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
                   >
-                    Brand Promoter Agreement
+{t('legal.brand_promoter_agreement')}
                   </button>
                 </div>
               </div>
 
               {/* Company Information Section */}
               <div className="border-t border-white/20 pt-8 mt-8">
-                <h3 className="text-lg font-semibold mb-4 text-white/80">Company Information</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white/80">{t('home.footer.company_section')}</h3>
                 <div className="text-sm text-white/60 space-y-1">
                   <p>ZiNRAi™ LLC</p>
                   <p>3333 Renaissance Blvd, Suite #213</p>
@@ -475,7 +475,7 @@ export default function Home() {
 
               {/* Social Media */}
               <div className="border-t border-white/20 pt-8 mt-8">
-                <h3 className="text-lg font-semibold mb-4 text-white/80">Follow Us</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white/80">{t('home.footer.follow_us')}</h3>
                 <div className="flex justify-center space-x-6">
                   <a 
                     href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
@@ -511,7 +511,7 @@ export default function Home() {
               {t('home.hero.movement_title')}
             </h2>
             <p className="text-white/70 text-lg">
-              Refined by fire. United in purpose. This is more than a brand—it's a movement of integrity, resilience, and global impact.
+              {t('home.hero.movement_description')}
             </p>
           </div>
           
@@ -667,7 +667,7 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
               <p className="text-white/70 text-sm mb-4">
-                Innovative digital learning platform for financial education and strategy analysis.
+                {t('home.footer.company_description')}
               </p>
               <div className="text-white/60 text-sm">
                 <p>ZiNRAi™ LLC</p>
