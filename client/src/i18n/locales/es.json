@@ -1,4 +1,9 @@
 {
+  "common": {
+    "login": "Iniciar Sesión",
+    "watchNow": "Ver Ahora", 
+    "learnMore": "Saber Más"
+  },
   "nav": {
     "home": "Inicio",
     "product": "Cursos",

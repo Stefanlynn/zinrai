@@ -1,4 +1,9 @@
 {
+  "common": {
+    "login": "Login",
+    "watchNow": "Watch Now",
+    "learnMore": "Learn More"
+  },
   "nav": {
     "home": "Home",
     "product": "Courses",

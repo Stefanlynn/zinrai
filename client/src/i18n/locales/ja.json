@@ -1,4 +1,9 @@
 {
+  "common": {
+    "login": "ログイン",
+    "watchNow": "今すぐ見る",
+    "learnMore": "詳細を見る"
+  },
   "nav": {
     "home": "ホーム",
     "product": "コース",
