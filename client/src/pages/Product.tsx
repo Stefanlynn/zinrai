@@ -107,108 +107,20 @@ function OnboardingForm({ onClose }: { onClose: () => void }) {
   );
 }
 
-// Define services
+// Define services - now using translation keys
 const services = [
-  "FOREIGN EXCHANGE COURSE + LEARN NOW LIVE CLASSROOM",
-  "CRYPTOCURRENCY COURSE + LEARN NOW LIVE CLASSROOM",
-  "DIGITAL MARKETING COURSE + LEARN NOW LIVE CLASSROOM",
-  "E-COMMERCE COURSE + LEARN NOW LIVE CLASSES"
+  "forex",
+  "crypto", 
+  "digital_marketing",
+  "ecommerce"
 ];
 
-// Define detailed product information for Learn More modal
-const productDetails = [
-  {
-    title: "Foreign Exchange Course + Learn Now Live Classroom",
-    description: `Understand the global financial markets and learn how to analyze currencies with confidence. 
-
-This Forex course is designed to give you a solid foundation in the world's largest and most liquid financial market—whether you're a complete beginner or looking to refine your strategy.
-
-Through practical lessons, live chart analysis, and proven techniques, you'll gain the skills needed to understand market movements, manage risk, and develop a trading plan that suits your goals and lifestyle.
-
-✦ What You'll Learn:
-• Introduction to the Forex market and how it works
-• Understanding currency pairs, pips, and leverage
-• Fundamental and technical analysis
-• Chart patterns, indicators, and trading tools
-• Risk management and trading psychology
-• Creating a personal trading strategy
-
-✦ Who This Course Is For:
-• Aspiring traders looking to enter the Forex market
-• Beginners seeking a clear, structured learning path
-• Anyone looking to understand how global currencies are traded
-
-No prior experience required—just a willingness to learn and a passion for the markets.`
-  },
-  {
-    title: "Cryptocurrency Course + Learn Now Live Classroom",
-    description: `Dive into the dynamic world of cryptocurrency with this comprehensive course designed to equip you with the knowledge, tools, and strategies needed to navigate confidently in the digital asset markets.
-
-Whether you're a complete beginner or looking to sharpen your skills, this course offers a structured learning path from foundational concepts to advanced technical analysis and risk management.
-
-Through real-world examples, hands-on live insights, you'll learn how to analyze market trends, interpret charts, identify profitable trade setups, and execute trades across major exchanges. You'll also explore the psychological aspects of trading, portfolio management techniques, and how to navigate market volatility.
-
-✦ What You'll Learn:
-• Fundamentals of blockchain
-• Variety of strategies: scalping, swing trading, arbitrage, and DeFi yield strategies
-• How to use trading platforms and decentralized exchanges
-• Psychology of trading: building discipline and avoiding emotional decisions
-
-✦ Who This Course Is For:
-• Anyone interested in understanding the mechanics behind cryptocurrency trading
-• Aspiring traders looking to enter the cryptocurrency market
-
-No prior experience required—just a willingness to learn and a passion for learning!`
-  },
-  {
-    title: "Digital Marketing Course + Learn Now Live Classroom",
-    description: `In today's digital world, marketing is no longer optional—it's essential. 
-
-This all-in-one Digital Marketing course is designed to equip you with the skills, tools, and strategies to grow your brand, attract the right audience, and drive consistent sales across major online channels.
-
-Whether you're building a personal brand, launching a startup, or scaling an existing business, this course covers everything you need to become a confident and capable digital marketer.
-
-✦ What You'll Learn:
-• Digital marketing strategy and campaign planning
-• Social media marketing (Instagram, Facebook, TikTok, LinkedIn)
-• Paid advertising (Google Ads, Meta Ads)
-• How to monetize social media with UGC (user generated content)
-• SEO fundamentals & content marketing
-• Analytics, tracking, and performance optimization
-• Tools like Canva, ChatGPT, Meta Business Suite, Google Analytics, and more
-
-✦ Who This Course Is For:
-• Entrepreneurs, business owners, and freelancers
-• Marketing beginners looking to break into the field
-• Content creators, influencers, and personal brands
-• Anyone who wants to master digital marketing and drive measurable results
-
-No experience required. Just bring your ambition—this course will help you turn it into impact.`
-  },
-  {
-    title: "E-Commerce Course + Learn Now Live Classes",
-    description: `Ready to turn your product idea into a thriving online business? 
-
-This comprehensive eCommerce course takes you from zero to sales—guiding you through every step of launching and scaling a successful online store.
-
-Whether you're starting from scratch or looking to optimize an existing store, you'll learn the tools, strategies, and insider tactics used by top-performing eCommerce brands.
-
-✦ What You'll Learn:
-• Choosing the right product and niche
-• Setting up your store
-• Crafting high-converting product pages
-• Payment gateways, shipping, and logistics
-• Email marketing, SEO, and paid advertising
-• Social media and influencer marketing
-• Conversion optimization and customer retention
-
-✦ Who It's For:
-• Aspiring entrepreneurs
-• Small business owners
-• Anyone ready to build a scalable online business with real-world results
-
-No tech skills or prior experience required—just your determination to succeed.`
-  }
+// Define detailed product information keys - now using translation keys
+const productDetailsKeys = [
+  "forex",
+  "crypto", 
+  "digital_marketing",
+  "ecommerce"
 ];
 
 export default function Product() {
@@ -334,12 +246,12 @@ export default function Product() {
               {/* Product title with icon */}
               <div className="flex items-center mb-6">
                 <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`} aria-hidden="true"></div>
-                <h2 id="product-detail-title" className="text-white text-xl font-medium">{productDetails[activeIndex].title}</h2>
+                <h2 id="product-detail-title" className="text-white text-xl font-medium">{t(`product.details.${productDetailsKeys[activeIndex]}.title`)}</h2>
               </div>
               
               {/* Product description */}
               <div className="text-white/80 text-sm leading-relaxed mb-8 whitespace-pre-line">
-                {productDetails[activeIndex].description}
+                {t(`product.details.${productDetailsKeys[activeIndex]}.description`)}
               </div>
               
 
@@ -372,7 +284,7 @@ export default function Product() {
                   }}
                   role="button"
                   tabIndex={0}
-                  aria-label={`Learn more about ${productDetails[index].title}`}
+                  aria-label={`Learn more about ${t(`product.details.${productDetailsKeys[index]}.title`)}`}
                   className={`cursor-pointer p-4 transition-all duration-300 rounded border border-white/5 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 ${
                     activeIndex === index ? 
                     'bg-gradient-to-r shadow-lg' : 
@@ -388,10 +300,10 @@ export default function Product() {
                     ></div>
                     <div>
                       <h2 className={`text-white text-lg font-medium mb-1`}>
-                        {service}
+                        {t(`product.services.${service}`)}
                       </h2>
                       <p className="text-white/60 text-sm line-clamp-2">
-                        {productDetails[index].description.split('\n')[0]}
+                        {t(`product.details.${productDetailsKeys[index]}.description`).split('\n')[0]}
                       </p>
                     </div>
                   </div>
@@ -407,12 +319,12 @@ export default function Product() {
                 {/* Product header with animated dot */}
                 <div className="flex items-center mb-8">
                   <div className={`w-3 h-3 rounded-full ${getProductIconColor(activeIndex)} mr-3`}></div>
-                  <h3 className="text-white text-xl font-medium tracking-wide">{productDetails[activeIndex].title}</h3>
+                  <h3 className="text-white text-xl font-medium tracking-wide">{t(`product.details.${productDetailsKeys[activeIndex]}.title`)}</h3>
                 </div>
                 
                 {/* Product description with formatted content */}
                 <div className="text-white/80 text-base leading-relaxed mb-0 whitespace-pre-line">
-                  {productDetails[activeIndex].description}
+                  {t(`product.details.${productDetailsKeys[activeIndex]}.description`)}
                 </div>
               </div>
             </div>
@@ -436,10 +348,10 @@ export default function Product() {
             <div className="p-8">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-light text-white mb-2 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                  Join ZiNRAi
+                  {t('product.modal.title')}
                 </h2>
                 <p className="text-white/60 text-sm">
-                  Start with our products today
+                  {t('product.modal.subtitle')}
                 </p>
               </div>
               
@@ -455,33 +367,33 @@ export default function Product() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-                Choose Your <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">Access</span>
+                {t('product.pricing.title')} <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text font-semibold">{t('product.pricing.access')}</span>
               </h2>
               <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
-                Select the membership plan that fits your learning goals and unlock your growth potential.
+                {t('product.pricing.subtitle')}
               </p>
               
               {/* Pricing Breakdown */}
               <div className="max-w-4xl mx-auto bg-black/30 rounded-lg p-4 md:p-6 border border-white/20 mb-8 shadow-lg">
-                <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">How ZiNRAi™ Membership Works</h3>
+                <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">{t('product.pricing.how_it_works')}</h3>
                 <div className="text-white/90 space-y-4">
                   <div className="bg-blue-900/30 rounded-lg p-3 md:p-4 border border-blue-400/30">
-                    <p className="text-sm md:text-base leading-relaxed font-medium text-blue-300 mb-2">Step 1: Start with ALL ACCESS Starter</p>
+                    <p className="text-sm md:text-base leading-relaxed font-medium text-blue-300 mb-2">{t('product.pricing.step1_title')}</p>
                     <p className="text-xs md:text-sm leading-relaxed text-white/80">
-                      Everyone begins with a one-time payment of $199.95 (available until July 1st) for immediate access to all educational content and live sessions.
+                      {t('product.pricing.step1_desc')}
                     </p>
                   </div>
                   
                   <div className="bg-green-900/30 rounded-lg p-3 md:p-4 border border-green-400/30">
-                    <p className="text-sm md:text-base leading-relaxed font-medium text-green-300 mb-2">Step 2: Choose Your Monthly Plan</p>
+                    <p className="text-sm md:text-base leading-relaxed font-medium text-green-300 mb-2">{t('product.pricing.step2_title')}</p>
                     <p className="text-xs md:text-sm leading-relaxed text-white/80">
-                      After your starter access, select either ALL ACCESS Monthly ($184.95) or VIP ACCESS Monthly ($249.95). Your first monthly billing begins 28 days after your starter payment.
+                      {t('product.pricing.step2_desc')}
                     </p>
                   </div>
                   
                   <div className="border-t border-white/20 pt-3 mt-4">
                     <p className="text-white/60 text-xs md:text-sm text-center">
-                      All monthly plans operate on 28-day billing cycles with continuous access to the ZiNRAi™ educational platform.
+                      {t('product.pricing.billing_note')}
                     </p>
                   </div>
                 </div>
@@ -499,9 +411,9 @@ export default function Product() {
       <div className="w-full bg-black/40 border-t border-white/10">
         <div className="px-8 md:px-16 py-16">
           <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-white text-2xl font-medium mb-6">Ready to get started?</h3>
+            <h3 className="text-white text-2xl font-medium mb-6">{t('product.contact.title')}</h3>
             <p className="text-white/90 text-lg leading-relaxed mb-4">
-              Connect with the Brand Promoter who introduced you to ZiNRAi to enroll today.
+              {t('product.contact.description')}
             </p>
 
           </div>

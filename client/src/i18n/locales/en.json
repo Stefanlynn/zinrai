@@ -79,6 +79,49 @@
     "hero_title": "Transform Your Financial Future",
     "hero_subtitle": "Expert-led courses for every learning style",
     "coming_soon": "Coming Soon",
+    "services": {
+      "forex": "FOREIGN EXCHANGE COURSE + LEARN NOW LIVE CLASSROOM",
+      "crypto": "CRYPTOCURRENCY COURSE + LEARN NOW LIVE CLASSROOM",
+      "digital_marketing": "DIGITAL MARKETING COURSE + LEARN NOW LIVE CLASSROOM",
+      "ecommerce": "E-COMMERCE COURSE + LEARN NOW LIVE CLASSES"
+    },
+    "details": {
+      "forex": {
+        "title": "Foreign Exchange Course + Learn Now Live Classroom",
+        "description": "Understand the global financial markets and learn how to analyze currencies with confidence. \n\nThis Forex course is designed to give you a solid foundation in the world's largest and most liquid financial market—whether you're a complete beginner or looking to refine your strategy.\n\nThrough practical lessons, live chart analysis, and proven techniques, you'll gain the skills needed to understand market movements, manage risk, and develop a trading plan that suits your goals and lifestyle.\n\n✦ What You'll Learn:\n• Introduction to the Forex market and how it works\n• Understanding currency pairs, pips, and leverage\n• Fundamental and technical analysis\n• Chart patterns, indicators, and trading tools\n• Risk management and trading psychology\n• Creating a personal trading strategy\n\n✦ Who This Course Is For:\n• Aspiring traders looking to enter the Forex market\n• Beginners seeking a clear, structured learning path\n• Anyone looking to understand how global currencies are traded\n\nNo prior experience required—just a willingness to learn and a passion for the markets."
+      },
+      "crypto": {
+        "title": "Cryptocurrency Course + Learn Now Live Classroom",
+        "description": "Dive into the dynamic world of cryptocurrency with this comprehensive course designed to equip you with the knowledge, tools, and strategies needed to navigate confidently in the digital asset markets.\n\nWhether you're a complete beginner or looking to sharpen your skills, this course offers a structured learning path from foundational concepts to advanced technical analysis and risk management.\n\nThrough real-world examples, hands-on live insights, you'll learn how to analyze market trends, interpret charts, identify profitable trade setups, and execute trades across major exchanges. You'll also explore the psychological aspects of trading, portfolio management techniques, and how to navigate market volatility.\n\n✦ What You'll Learn:\n• Fundamentals of blockchain\n• Variety of strategies: scalping, swing trading, arbitrage, and DeFi yield strategies\n• How to use trading platforms and decentralized exchanges\n• Psychology of trading: building discipline and avoiding emotional decisions\n\n✦ Who This Course Is For:\n• Anyone interested in understanding the mechanics behind cryptocurrency trading\n• Aspiring traders looking to enter the cryptocurrency market\n\nNo prior experience required—just a willingness to learn and a passion for learning!"
+      },
+      "digital_marketing": {
+        "title": "Digital Marketing Course + Learn Now Live Classroom",
+        "description": "In today's digital world, marketing is no longer optional—it's essential. \n\nThis all-in-one Digital Marketing course is designed to equip you with the skills, tools, and strategies to grow your brand, attract the right audience, and drive consistent sales across major online channels.\n\nWhether you're building a personal brand, launching a startup, or scaling an existing business, this course covers everything you need to become a confident and capable digital marketer.\n\n✦ What You'll Learn:\n• Digital marketing strategy and campaign planning\n• Social media marketing (Instagram, Facebook, TikTok, LinkedIn)\n• Paid advertising (Google Ads, Meta Ads)\n• How to monetize social media with UGC (user generated content)\n• SEO fundamentals & content marketing\n• Analytics, tracking, and performance optimization\n• Tools like Canva, ChatGPT, Meta Business Suite, Google Analytics, and more\n\n✦ Who This Course Is For:\n• Entrepreneurs, business owners, and freelancers\n• Marketing beginners looking to break into the field\n• Content creators, influencers, and personal brands\n• Anyone who wants to master digital marketing and drive measurable results\n\nNo experience required. Just bring your ambition—this course will help you turn it into impact."
+      },
+      "ecommerce": {
+        "title": "E-Commerce Course + Learn Now Live Classes",
+        "description": "Ready to turn your product idea into a thriving online business? \n\nThis comprehensive eCommerce course takes you from zero to sales—guiding you through every step of launching and scaling a successful online store.\n\nWhether you're starting from scratch or looking to optimize an existing store, you'll learn the tools, strategies, and insider tactics used by top-performing eCommerce brands.\n\n✦ What You'll Learn:\n• Choosing the right product and niche\n• Setting up your store\n• Crafting high-converting product pages\n• Payment gateways, shipping, and logistics\n• Email marketing, SEO, and paid advertising\n• Social media and influencer marketing\n• Conversion optimization and customer retention\n\n✦ Who It's For:\n• Aspiring entrepreneurs\n• Small business owners\n• Anyone ready to build a scalable online business with real-world results\n\nNo tech skills or prior experience required—just your determination to succeed."
+      }
+    },
+    "modal": {
+      "title": "Join ZiNRAi",
+      "subtitle": "Start with our products today"
+    },
+    "pricing": {
+      "title": "Choose Your",
+      "access": "Access",
+      "subtitle": "Select the membership plan that fits your learning goals and unlock your growth potential.",
+      "how_it_works": "How ZiNRAi™ Membership Works",
+      "step1_title": "Step 1: Start with ALL ACCESS Starter",
+      "step1_desc": "Everyone begins with a one-time payment of $199.95 (available until July 1st) for immediate access to all educational content and live sessions.",
+      "step2_title": "Step 2: Choose Your Monthly Plan",
+      "step2_desc": "After your starter access, select either ALL ACCESS Monthly ($184.95) or VIP ACCESS Monthly ($249.95). Your first monthly billing begins 28 days after your starter payment.",
+      "billing_note": "All monthly plans operate on 28-day billing cycles with continuous access to the ZiNRAi™ educational platform."
+    },
+    "contact": {
+      "title": "Ready to get started?",
+      "description": "Connect with the Brand Promoter who introduced you to ZiNRAi to enroll today."
+    },
     "form": {
       "title": "Get Early Access",
       "name_label": "Name *",

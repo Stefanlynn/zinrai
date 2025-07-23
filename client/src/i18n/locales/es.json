@@ -79,6 +79,49 @@
     "hero_title": "Transforma Tu Futuro Financiero",
     "hero_subtitle": "Cursos dirigidos por expertos para cada estilo de aprendizaje",
     "coming_soon": "Próximamente",
+    "services": {
+      "forex": "CURSO DE DIVISAS + AULA EN VIVO APRENDE AHORA",
+      "crypto": "CURSO DE CRIPTOMONEDAS + AULA EN VIVO APRENDE AHORA",
+      "digital_marketing": "CURSO DE MARKETING DIGITAL + AULA EN VIVO APRENDE AHORA",
+      "ecommerce": "CURSO DE COMERCIO ELECTRÓNICO + CLASES EN VIVO APRENDE AHORA"
+    },
+    "details": {
+      "forex": {
+        "title": "Curso de Divisas + Aula en Vivo Aprende Ahora",
+        "description": "Comprende los mercados financieros globales y aprende a analizar divisas con confianza.\n\nEste curso de Forex está diseñado para darte una base sólida en el mercado financiero más grande y líquido del mundo—ya seas un principiante completo o busques refinar tu estrategia.\n\nA través de lecciones prácticas, análisis de gráficos en vivo y técnicas probadas, obtendrás las habilidades necesarias para entender los movimientos del mercado, gestionar el riesgo y desarrollar un plan de trading que se adapte a tus objetivos y estilo de vida.\n\n✦ Lo que Aprenderás:\n• Introducción al mercado Forex y cómo funciona\n• Comprensión de pares de divisas, pips y apalancamiento\n• Análisis fundamental y técnico\n• Patrones de gráficos, indicadores y herramientas de trading\n• Gestión de riesgo y psicología del trading\n• Creación de una estrategia de trading personal\n\n✦ Para Quién es Este Curso:\n• Traders aspirantes que buscan ingresar al mercado Forex\n• Principiantes que buscan un camino de aprendizaje claro y estructurado\n• Cualquiera que busque entender cómo se comercian las divisas globales\n\nNo se requiere experiencia previa—solo disposición para aprender y pasión por los mercados."
+      },
+      "crypto": {
+        "title": "Curso de Criptomonedas + Aula en Vivo Aprende Ahora",
+        "description": "Sumérgete en el mundo dinámico de las criptomonedas con este curso integral diseñado para equiparte con el conocimiento, herramientas y estrategias necesarias para navegar con confianza en los mercados de activos digitales.\n\nYa seas un principiante completo o busques perfeccionar tus habilidades, este curso ofrece un camino de aprendizaje estructurado desde conceptos fundamentales hasta análisis técnico avanzado y gestión de riesgo.\n\nA través de ejemplos del mundo real, insights prácticos en vivo, aprenderás cómo analizar tendencias del mercado, interpretar gráficos, identificar configuraciones de trades rentables y ejecutar operaciones en intercambios principales. También explorarás los aspectos psicológicos del trading, técnicas de gestión de portafolio y cómo navegar la volatilidad del mercado.\n\n✦ Lo que Aprenderás:\n• Fundamentos de blockchain\n• Variedad de estrategias: scalping, swing trading, arbitraje y estrategias de rendimiento DeFi\n• Cómo usar plataformas de trading e intercambios descentralizados\n• Psicología del trading: construir disciplina y evitar decisiones emocionales\n\n✦ Para Quién es Este Curso:\n• Cualquiera interesado en entender la mecánica detrás del trading de criptomonedas\n• Traders aspirantes que buscan ingresar al mercado de criptomonedas\n\nNo se requiere experiencia previa—¡solo disposición para aprender y pasión por el aprendizaje!"
+      },
+      "digital_marketing": {
+        "title": "Curso de Marketing Digital + Aula en Vivo Aprende Ahora",
+        "description": "En el mundo digital de hoy, el marketing ya no es opcional—es esencial.\n\nEste curso integral de Marketing Digital está diseñado para equiparte con las habilidades, herramientas y estrategias para hacer crecer tu marca, atraer la audiencia correcta e impulsar ventas consistentes a través de los principales canales en línea.\n\nYa estés construyendo una marca personal, lanzando una startup o escalando un negocio existente, este curso cubre todo lo que necesitas para convertirte en un mercadólogo digital confiado y capaz.\n\n✦ Lo que Aprenderás:\n• Estrategia de marketing digital y planificación de campañas\n• Marketing en redes sociales (Instagram, Facebook, TikTok, LinkedIn)\n• Publicidad pagada (Google Ads, Meta Ads)\n• Cómo monetizar redes sociales con UGC (contenido generado por usuarios)\n• Fundamentos de SEO y marketing de contenidos\n• Analíticas, seguimiento y optimización de rendimiento\n• Herramientas como Canva, ChatGPT, Meta Business Suite, Google Analytics y más\n\n✦ Para Quién es Este Curso:\n• Emprendedores, dueños de negocios y freelancers\n• Principiantes en marketing que buscan ingresar al campo\n• Creadores de contenido, influencers y marcas personales\n• Cualquiera que quiera dominar el marketing digital e impulsar resultados medibles\n\nNo se requiere experiencia. Solo trae tu ambición—este curso te ayudará a convertirla en impacto."
+      },
+      "ecommerce": {
+        "title": "Curso de Comercio Electrónico + Clases en Vivo Aprende Ahora",
+        "description": "¿Listo para convertir tu idea de producto en un negocio en línea próspero?\n\nEste curso integral de eCommerce te lleva de cero a ventas—guiándote a través de cada paso para lanzar y escalar una tienda en línea exitosa.\n\nYa estés empezando desde cero o buscando optimizar una tienda existente, aprenderás las herramientas, estrategias y tácticas internas utilizadas por las marcas de eCommerce de mejor rendimiento.\n\n✦ Lo que Aprenderás:\n• Elegir el producto y nicho correcto\n• Configurar tu tienda\n• Crear páginas de producto de alta conversión\n• Pasarelas de pago, envío y logística\n• Marketing por correo electrónico, SEO y publicidad pagada\n• Marketing en redes sociales e influencer marketing\n• Optimización de conversiones y retención de clientes\n\n✦ Para Quién Es:\n• Emprendedores aspirantes\n• Propietarios de pequeñas empresas\n• Cualquiera listo para construir un negocio en línea escalable con resultados del mundo real\n\nNo se requieren habilidades técnicas o experiencia previa—solo tu determinación para tener éxito."
+      }
+    },
+    "modal": {
+      "title": "Únete a ZiNRAi",
+      "subtitle": "Comienza con nuestros productos hoy"
+    },
+    "pricing": {
+      "title": "Elige Tu",
+      "access": "Acceso",
+      "subtitle": "Selecciona el plan de membresía que se ajuste a tus objetivos de aprendizaje y desbloquea tu potencial de crecimiento.",
+      "how_it_works": "Cómo Funciona la Membresía ZiNRAi™",
+      "step1_title": "Paso 1: Comienza con ALL ACCESS Starter",
+      "step1_desc": "Todos comienzan con un pago único de $199.95 (disponible hasta el 1 de julio) para acceso inmediato a todo el contenido educativo y sesiones en vivo.",
+      "step2_title": "Paso 2: Elige Tu Plan Mensual",
+      "step2_desc": "Después de tu acceso starter, selecciona ALL ACCESS Monthly ($184.95) o VIP ACCESS Monthly ($249.95). Tu primera facturación mensual comienza 28 días después de tu pago starter.",
+      "billing_note": "Todos los planes mensuales operan en ciclos de facturación de 28 días con acceso continuo a la plataforma educativa ZiNRAi™."
+    },
+    "contact": {
+      "title": "¿Listo para comenzar?",
+      "description": "Conéctate con el Promotor de Marca que te introdujo a ZiNRAi para inscribirte hoy."
+    },
     "form": {
       "title": "Obtener Acceso Temprano",
       "name_label": "Nombre *",
