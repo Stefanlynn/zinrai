@@ -319,7 +319,9 @@ function App() {
   }, [isHomePage]);
 
   const toggleMenu = () => {
+    console.log('Toggle menu clicked, current state:', menuOpen);
     setMenuOpen(!menuOpen);
+    console.log('Setting menu to:', !menuOpen);
   };
 
   return (
