@@ -62,5 +62,30 @@
   "common": {
     "comingSoon": "近日公開",
     "back": "ホームに戻る"
+  },
+  "footer": {
+    "company_description": "金融教育と戦略分析のための革新的なデジタル学習プラットフォーム。",
+    "company_info": "ZiNRAi™ LLC\n3333 Renaissance Blvd\nSuite #213\nBonita Springs, FL 34134",
+    "legal_section": "法的情報",
+    "quick_links": "クイックリンク",
+    "contact": "お問い合わせ",
+    "email_support": "メール: support@zinrai.com",
+    "links": {
+      "privacy_policy": "プライバシーポリシー",
+      "member_agreement": "メンバー規約",
+      "terms_of_use": "利用規約",
+      "refund_policy": "返金ポリシー",
+      "cookie_policy": "クッキーポリシー",
+      "brand_promoter_agreement": "ブランドプロモーター規約",
+      "japan_statutory": "日本の法定広告事項",
+      "courses": "コース",
+      "brand_promoter": "ブランドプロモーター",
+      "culture": "文化",
+      "leadership": "リーダーシップ"
+    },
+    "disclaimer_title": "重要な免責事項",
+    "disclaimer_text1": "ZiNRAi™製品には、投資や戦略に関する一般的で汎用的な情報を分析、学習、議論するためのデジタルおよびオンライン対話型トレーニングコンテンツが含まれています。ZiNRAi™は、証券、通貨（暗号通貨を含む）、またはその他の金融・投資商品やサービスへの投資やオンライン取引のためのオンラインプラットフォームへのアクセスを促進または提供しません。ZiNRAi™、そのブランドパートナー、および教育者は、投資戦略に関する個人的な推奨やアドバイスを提供せず、規制された金融サービスも提供しません。",
+    "disclaimer_text2": "ZiNRAi™は、いかなる国、州、省、または準州の組織や協会、税務当局、もしくは機関、または金融規制機関からも承認されておらず、関連もありません。",
+    "disclaimer_text3": "ZiNRAi™は、提供されるコンテンツの方法、情報、提案を使用してお金を稼いだり金融目標を達成することを絶対に保証しません。提供される例や実演は、個人が何らかの金銭的利益を得ることを保証または約束するものではありません。"
   }
 }

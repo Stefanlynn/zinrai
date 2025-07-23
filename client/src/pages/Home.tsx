@@ -667,39 +667,36 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">ZiNRAi<span className="text-xs align-super">™</span></h3>
               <p className="text-white/70 text-sm mb-4">
-                Innovative digital learning platform for financial education and strategy analysis.
+                {t('footer.company_description')}
               </p>
-              <div className="text-white/60 text-sm">
-                <p>ZiNRAi™ LLC</p>
-                <p>3333 Renaissance Blvd</p>
-                <p>Suite #213</p>
-                <p>Bonita Springs, FL 34134</p>
+              <div className="text-white/60 text-sm whitespace-pre-line">
+                {t('footer.company_info')}
               </div>
             </div>
 
             {/* Legal Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Legal</h3>
+              <h3 className="text-lg font-semibold mb-4">{t('footer.legal_section')}</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Member Agreement</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Terms of Use</a></li>
-                <li><a href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Refund Policy</a></li>
-                <li><a href="/assets/Cookie Policy 5-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Cookie Policy</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Brand Promoter Agreement</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Japan Statutory Advertisement Matters</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('footer.links.privacy_policy')}</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('footer.links.member_agreement')}</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('footer.links.terms_of_use')}</a></li>
+                <li><a href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('footer.links.refund_policy')}</a></li>
+                <li><a href="/assets/Cookie Policy 5-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('footer.links.cookie_policy')}</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('footer.links.brand_promoter_agreement')}</a></li>
+                <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('footer.links.japan_statutory')}</a></li>
               </ul>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <h3 className="text-lg font-semibold mb-4">{t('footer.quick_links')}</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="/product" className="text-white/70 hover:text-white transition-colors">Courses</a></li>
-                <li><a href="/partner" className="text-white/70 hover:text-white transition-colors">Brand Promoter</a></li>
-                <li><a href="/culture" className="text-white/70 hover:text-white transition-colors">Culture</a></li>
-                <li><a href="/leadership" className="text-white/70 hover:text-white transition-colors">Leadership</a></li>
-                <li><a href="/contact" className="text-white/70 hover:text-white transition-colors">Contact</a></li>
+                <li><a href="/product" className="text-white/70 hover:text-white transition-colors">{t('footer.links.courses')}</a></li>
+                <li><a href="/partner" className="text-white/70 hover:text-white transition-colors">{t('footer.links.brand_promoter')}</a></li>
+                <li><a href="/culture" className="text-white/70 hover:text-white transition-colors">{t('footer.links.culture')}</a></li>
+                <li><a href="/leadership" className="text-white/70 hover:text-white transition-colors">{t('footer.links.leadership')}</a></li>
+                <li><a href="/contact" className="text-white/70 hover:text-white transition-colors">{t('footer.links.contact')}</a></li>
               </ul>
             </div>
 
@@ -734,22 +731,22 @@ export default function Home() {
           <div className="pt-6 pb-2">
             <div className="text-center">
               <div className="inline-block p-3 bg-gray-800 text-white rounded font-bold">
-                Email: support@zinrai.com
+                {t('footer.email_support')}
               </div>
             </div>
           </div>
 
           {/* Disclaimer */}
           <div className="pt-8 mb-6">
-            <h4 className="text-base font-bold mb-4">Important Disclaimer</h4>
+            <h4 className="text-base font-bold mb-4">{t('footer.disclaimer_title')}</h4>
             <p className="text-sm font-bold leading-relaxed">
-              ZiNRAi™ products include digital and online interactive training content for analyzing, learning, and discussing general and generic information related to investments and strategies. ZiNRAi™ does not facilitate or offer access to online platforms for investment or online trading in securities, currency (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide any regulated financial services.
+              {t('footer.disclaimer_text1')}
             </p>
             <p className="text-sm font-bold leading-relaxed mt-4">
-              ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities, or agencies, or financial regulatory body.
+              {t('footer.disclaimer_text2')}
             </p>
             <p className="text-sm font-bold leading-relaxed mt-4">
-              ZiNRAi™ provides absolutely no guarantee that you will earn any money or achieve a financial goal using the methods, information, and suggestions in the content provided. Any examples or demonstrations provided are in no way a guarantee or promise that an individual will make financial gains of any kind.
+              {t('footer.disclaimer_text3')}
             </p>
           </div>
 

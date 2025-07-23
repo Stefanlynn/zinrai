@@ -62,5 +62,30 @@
   "common": {
     "comingSoon": "Próximamente",
     "back": "Volver al Inicio"
+  },
+  "footer": {
+    "company_description": "Plataforma de aprendizaje digital innovadora para educación financiera y análisis estratégico.",
+    "company_info": "ZiNRAi™ LLC\n3333 Renaissance Blvd\nSuite #213\nBonita Springs, FL 34134",
+    "legal_section": "Legal",
+    "quick_links": "Enlaces Rápidos",
+    "contact": "Contacto",
+    "email_support": "Email: support@zinrai.com",
+    "links": {
+      "privacy_policy": "Política de Privacidad",
+      "member_agreement": "Acuerdo de Miembro",
+      "terms_of_use": "Términos de Uso",
+      "refund_policy": "Política de Reembolso",
+      "cookie_policy": "Política de Cookies",
+      "brand_promoter_agreement": "Acuerdo de Promotor de Marca",
+      "japan_statutory": "Asuntos de Publicidad Estatutaria de Japón",
+      "courses": "Cursos",
+      "brand_promoter": "Promotor de Marca",
+      "culture": "Cultura",
+      "leadership": "Liderazgo"
+    },
+    "disclaimer_title": "Descargo de Responsabilidad Importante",
+    "disclaimer_text1": "Los productos ZiNRAi™ incluyen contenido de entrenamiento digital e interactivo en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversión o comercio en línea en valores, moneda (incluyendo criptomonedas), u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o consejos sobre estrategia de inversión, ni proporcionan servicios financieros regulados.",
+    "disclaimer_text2": "ZiNRAi™ no está respaldado ni afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales, agencias, o entidad reguladora financiera.",
+    "disclaimer_text3": "ZiNRAi™ no proporciona absolutamente ninguna garantía de que ganará dinero o logrará un objetivo financiero utilizando los métodos, información y sugerencias en el contenido proporcionado. Cualquier ejemplo o demostración proporcionada no es de ninguna manera una garantía o promesa de que un individuo obtendrá ganancias financieras de cualquier tipo."
   }
 }
