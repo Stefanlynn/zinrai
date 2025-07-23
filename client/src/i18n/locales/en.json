@@ -457,9 +457,7 @@
   },
   "common": {
     "comingSoon": "Coming Soon",
-    "back": "Return to Home",
-    "watchNow": "Watch Now",
-    "login": "Login"
+    "back": "Return to Home"
   },
   "footer": {
     "company_description": "Innovative digital learning platform for financial education and strategy analysis.",

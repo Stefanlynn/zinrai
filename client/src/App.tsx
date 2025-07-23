@@ -447,23 +447,23 @@ function App() {
               {isHomePage && (
                 <button
                   onClick={() => setVideoPopupOpen(true)}
-                  className="h-[44px] min-w-[120px] px-5 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 border border-white/20 hover:border-white/30 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group backdrop-blur-sm"
+                  className="h-[44px] px-5 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 border border-white/20 hover:border-white/30 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group backdrop-blur-sm"
                   aria-label="Watch ZiNRAi introduction video"
                 >
                   <svg className="w-4 h-4 text-white/90 mr-2 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                  <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300 whitespace-nowrap">{t('common.watchNow')}</span>
+                  <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">Watch Now</span>
                 </button>
               )}
               <a 
                 href="http://app.zinrai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-[44px] min-w-[100px] px-6 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group backdrop-blur-sm"
+                className="h-[44px] px-6 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group backdrop-blur-sm"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300 whitespace-nowrap">{t('common.login')}</span>
+                <span className="text-white/90 text-sm font-light tracking-wide group-hover:text-white transition-colors duration-300">Login</span>
               </a>
             </div>
 
@@ -476,10 +476,10 @@ function App() {
                 href="http://app.zinrai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-[36px] min-w-[80px] px-3 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
+                className="h-[36px] px-3 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white/90 text-xs font-light tracking-wide whitespace-nowrap">{t('common.login')}</span>
+                <span className="text-white/90 text-xs font-light tracking-wide">Login</span>
               </a>
               
               {/* Translation Icon for Mobile */}
