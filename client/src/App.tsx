@@ -499,7 +499,14 @@ function App() {
             
             {/* Mobile menu */}
             {menuOpen && (
-              <div id="mobile-menu" className="fixed inset-0 bg-black text-white z-[1001] overflow-auto" role="dialog" aria-modal="true" aria-label="Main Menu">
+              <div 
+                id="mobile-menu" 
+                className="fixed inset-0 bg-black text-white z-[1001] overflow-auto pointer-events-auto" 
+                role="dialog" 
+                aria-modal="true" 
+                aria-label="Main Menu"
+                style={{ pointerEvents: 'auto' }}
+              >
                 <div className="w-full h-full flex flex-col">
                   {/* Header with ZiNRAi text, Language Selector, and Login button */}
                   <div className="flex justify-between items-center p-6">
@@ -543,74 +550,76 @@ function App() {
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">01</div>
-                          <a 
-                            href="/product"
+                          <div 
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
-                              console.log('PRODUCT LINK CLICKED! Navigating to /product');
+                              console.log('PRODUCT DIV CLICKED! Navigating to /product');
                               setLocation('/product');
                               setMenuOpen(false);
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
+                            style={{ pointerEvents: 'auto', userSelect: 'none' }}
                           >
                             {t('nav.product')}
-                          </a>
+                          </div>
                         </div>
                       </div>
                       
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">02</div>
-                          <a 
-                            href="/partner"
+                          <div 
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
-                              console.log('PARTNER LINK CLICKED! Navigating to /partner');
+                              console.log('PARTNER DIV CLICKED! Navigating to /partner');
                               setLocation('/partner');
                               setMenuOpen(false);
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
+                            style={{ pointerEvents: 'auto', userSelect: 'none' }}
                           >
                             {t('nav.partner')}
-                          </a>
+                          </div>
                         </div>
                       </div>
                       
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">03</div>
-                          <a 
-                            href="/culture"
+                          <div 
                             onClick={(e) => {
                               e.preventDefault();
-                              console.log('CULTURE LINK CLICKED! Navigating to /culture');
+                              e.stopPropagation();
+                              console.log('CULTURE DIV CLICKED! Navigating to /culture');
                               setLocation('/culture');
                               setMenuOpen(false);
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
+                            style={{ pointerEvents: 'auto', userSelect: 'none' }}
                           >
                             {t('nav.culture')}
-                          </a>
+                          </div>
                         </div>
                       </div>
                       
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">04</div>
-                          <a 
-                            href="/leadership"
+                          <div 
                             onClick={(e) => {
                               e.preventDefault();
-                              console.log('LEADERSHIP LINK CLICKED! Navigating to /leadership');
+                              e.stopPropagation();
+                              console.log('LEADERSHIP DIV CLICKED! Navigating to /leadership');
                               setLocation('/leadership');
                               setMenuOpen(false);
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
+                            style={{ pointerEvents: 'auto', userSelect: 'none' }}
                           >
                             {t('nav.leadership')}
-                          </a>
+                          </div>
                         </div>
                       </div>
                       
@@ -619,18 +628,19 @@ function App() {
                       <div>
                         <div className="flex items-start">
                           <div className="text-white/50 text-xs font-light mr-3 mt-1 w-5 text-right">05</div>
-                          <a 
-                            href="/contact"
+                          <div 
                             onClick={(e) => {
                               e.preventDefault();
-                              console.log('CONTACT LINK CLICKED! Navigating to /contact');
+                              e.stopPropagation();
+                              console.log('CONTACT DIV CLICKED! Navigating to /contact');
                               setLocation('/contact');
                               setMenuOpen(false);
                             }}
-                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer"
+                            className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors cursor-pointer select-none"
+                            style={{ pointerEvents: 'auto', userSelect: 'none' }}
                           >
                             {t('nav.contact')}
-                          </a>
+                          </div>
                         </div>
                       </div>
                     </nav>
