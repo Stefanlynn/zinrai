@@ -4,11 +4,7 @@ import { useTranslation } from 'react-i18next';
 export default function Partner() {
   const { t, i18n } = useTranslation();
   
-  // Debug current language and translation state
-  console.log('Current language:', i18n.language);
-  console.log('Button translation:', t('partner.join_movement'));
-  console.log('Available languages:', i18n.languages);
-  console.log('Translation exists:', i18n.exists('partner.join_movement'));
+
   const [animatedIn, setAnimatedIn] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
