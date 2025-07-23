@@ -74,12 +74,12 @@ export default function Home() {
   
   // Video trigger icons to choose from
   const videoIcons = [
-    { icon: () => <SpinningPlus />, name: "Plus" },
-    { icon: RiVideoLine, name: "Video" },
-    { icon: RiFilmLine, name: "Film" },
-    { icon: FiEye, name: "Eye" },
-    { icon: FiPower, name: "Power" },
-    { icon: FiCircle, name: "Circle" }
+    { icon: () => <SpinningPlus />, name: t('home.icons.plus') },
+    { icon: RiVideoLine, name: t('home.icons.video') },
+    { icon: RiFilmLine, name: t('home.icons.film') },
+    { icon: FiEye, name: t('home.icons.eye') },
+    { icon: FiPower, name: t('home.icons.power') },
+    { icon: FiCircle, name: t('home.icons.circle') }
   ];
   
   // Function to handle video icon click in grid
@@ -316,7 +316,7 @@ export default function Home() {
               <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-[60%] w-[200px] md:w-[250px] lg:w-[300px]">
                 <img 
                   src={ziNRaiLogoImage} 
-                  alt="ZiNRAi Logo" 
+                  alt={t('home.logo_alt')} 
                   className="w-full h-auto opacity-90"
                 />
               </div>
@@ -337,7 +337,7 @@ export default function Home() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-colors duration-300"
-                aria-label="Follow ZiNRAi on Instagram"
+                aria-label={t('home.social.instagram_aria')}
               >
                 <FaInstagram size={20} />
               </a>
@@ -347,7 +347,7 @@ export default function Home() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-colors duration-300"
-                aria-label="Subscribe to ZiNRAi on YouTube"
+                aria-label={t('home.social.youtube_aria')}
               >
                 <FaYoutube size={20} />
               </a>
@@ -467,9 +467,9 @@ export default function Home() {
               <div className="border-t border-white/20 pt-8 mt-8">
                 <h3 className="text-lg font-semibold mb-4 text-white/80">{t('home.footer.company_section')}</h3>
                 <div className="text-sm text-white/60 space-y-1">
-                  <p>ZiNRAi™ LLC</p>
-                  <p>3333 Renaissance Blvd, Suite #213</p>
-                  <p>Bonita Springs, FL 34134</p>
+                  <p>{t('home.company.name')}</p>
+                  <p>{t('home.company.address_line1')}</p>
+                  <p>{t('home.company.address_line2')}</p>
                 </div>
               </div>
 
@@ -482,7 +482,7 @@ export default function Home() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-white/70 hover:text-white transition-colors duration-300"
-                    aria-label="Follow ZiNRAi on Instagram"
+                    aria-label={t('home.social.instagram_aria')}
                   >
                     <FaInstagram className="w-6 h-6" />
                   </a>
@@ -492,7 +492,7 @@ export default function Home() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-white/70 hover:text-white transition-colors duration-colors duration-300"
-                    aria-label="Subscribe to ZiNRAi on YouTube"
+                    aria-label={t('home.social.youtube_aria')}
                   >
                     <FaYoutube className="w-6 h-6" />
                   </a>
@@ -519,7 +519,7 @@ export default function Home() {
             <iframe
               className="absolute top-0 left-0 w-full h-full rounded-lg"
               src="https://www.youtube.com/embed/aB19kSzMGxo"
-              title="ZiNRAi Introduction Video"
+              title={t('home.video.title')}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -670,10 +670,10 @@ export default function Home() {
                 {t('home.footer.company_description')}
               </p>
               <div className="text-white/60 text-sm">
-                <p>ZiNRAi™ LLC</p>
-                <p>3333 Renaissance Blvd</p>
-                <p>Suite #213</p>
-                <p>Bonita Springs, FL 34134</p>
+                <p>{t('home.company.name')}</p>
+                <p>{t('home.company.street')}</p>
+                <p>{t('home.company.suite')}</p>
+                <p>{t('home.company.city_state_zip')}</p>
               </div>
             </div>
 
@@ -712,7 +712,7 @@ export default function Home() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
-                  aria-label="Follow ZiNRAi on Instagram"
+                  aria-label={t('home.social.instagram_aria')}
                 >
                   <FaInstagram className="w-5 h-5" />
                 </a>
@@ -722,7 +722,7 @@ export default function Home() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
-                  aria-label="Subscribe to ZiNRAi on YouTube"
+                  aria-label={t('home.social.youtube_aria')}
                 >
                   <FaYoutube className="w-5 h-5" />
                 </a>

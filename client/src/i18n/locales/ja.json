@@ -200,6 +200,30 @@
         "leadership": "リーダーシップ",
         "contact": "お問い合わせ"
       }
+    },
+    "icons": {
+      "plus": "プラス",
+      "video": "ビデオ",
+      "film": "フィルム",
+      "eye": "アイ",
+      "power": "パワー",
+      "circle": "サークル"
+    },
+    "logo_alt": "ZiNRAiロゴ",
+    "social": {
+      "instagram_aria": "InstagramでZiNRAiをフォロー",
+      "youtube_aria": "YouTubeでZiNRAiをチャンネル登録"
+    },
+    "video": {
+      "title": "ZiNRAi紹介ビデオ"
+    },
+    "company": {
+      "name": "ZiNRAi™ LLC",
+      "address_line1": "3333 Renaissance Blvd, Suite #213",
+      "address_line2": "Bonita Springs, FL 34134",
+      "street": "3333 Renaissance Blvd",
+      "suite": "Suite #213",
+      "city_state_zip": "Bonita Springs, FL 34134"
     }
   }
 }

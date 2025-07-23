@@ -39,11 +39,24 @@
       "title": "ZiNRAi™",
       "subtitle": "Digital Learning Platform",
       "description": "Innovative digital learning platform for financial education and strategic analysis.",
+      "tagline": "Digital Learning Platform",
       "movement_title": "We Are the Ones Who Answered the Call",
       "movement_description": "Refined by fire. United in purpose. This is more than a brand—it's a movement of integrity, resilience, and global impact.",
       "growth_category": "Online Education",
       "growth_title": "Unlock Your Growth",
       "unlock_potential": "Unlock Your Potential with Expert-Led Financial Education"
+    },
+    "promoter": {
+      "category": "Partnership Program",
+      "title": "Unlock Your Impact",
+      "description": "Join our Brand Promoter program and help others discover the power of financial education while building your own successful business.",
+      "benefits": {
+        "schedule": "Work on your own schedule with flexible opportunities",
+        "growth": "Access to personal and professional development resources",
+        "training": "Comprehensive training and ongoing mentorship support",
+        "share": "Share life-changing educational content with your network"
+      },
+      "disclaimer": "Independent contractor opportunity. Results may vary based on individual effort and market conditions."
     },
     "sections": {
       "courses": "Courses",
@@ -86,7 +99,9 @@
         "cookie_policy": "Cookie Policy",
         "brand_promoter_agreement": "Brand Promoter Agreement",
         "japan_statutory": "Japan Statutory Advertisement Matters"
-      }
+      },
+      "legal_section": "Legal Information",
+      "company_section": "Company Information"
     },
     "courses": {
       "description": "Comprehensive financial education designed to empower your trading and investment journey.",
@@ -109,6 +124,30 @@
         "share": "Share life-changing educational content with your network"
       },
       "disclaimer": "Independent contractor opportunity. Results may vary based on individual effort and market conditions."
+    },
+    "icons": {
+      "plus": "Plus",
+      "video": "Video",
+      "film": "Film",
+      "eye": "Eye",
+      "power": "Power",
+      "circle": "Circle"
+    },
+    "logo_alt": "ZiNRAi Logo",
+    "social": {
+      "instagram_aria": "Follow ZiNRAi on Instagram",
+      "youtube_aria": "Subscribe to ZiNRAi on YouTube"
+    },
+    "video": {
+      "title": "ZiNRAi Introduction Video"
+    },
+    "company": {
+      "name": "ZiNRAi™ LLC",
+      "address_line1": "3333 Renaissance Blvd, Suite #213",
+      "address_line2": "Bonita Springs, FL 34134",
+      "street": "3333 Renaissance Blvd",
+      "suite": "Suite #213",
+      "city_state_zip": "Bonita Springs, FL 34134"
     }
   },
   "product": {
