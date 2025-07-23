@@ -1,13 +1,13 @@
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { useLocation } from "wouter";
 import { useState } from "react";
-import { useTranslation } from 'react-i18next';
+
 import CookieSettings from "./CookieSettings";
 
 export default function Footer() {
   const [, setLocation] = useLocation();
   const [showCookieSettings, setShowCookieSettings] = useState(false);
-  const { t } = useTranslation();
+
 
   const handleNavigation = (path: string) => {
     setLocation(path);
@@ -31,20 +31,20 @@ export default function Footer() {
               <p>Bonita Springs, FL 34134</p>
             </div>
             <div className="mt-4 p-3 bg-gray-800 text-white rounded font-bold text-center">
-              {t('home.footer.email')}: support@zinrai.com
+              Email: support@zinrai.com
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('home.footer.quick_links')}</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <button 
                   onClick={() => handleNavigation("/")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.home')}
+                  Home
                 </button>
               </li>
               <li>
@@ -52,7 +52,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/product")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.courses')}
+                  Courses
                 </button>
               </li>
               <li>
@@ -60,7 +60,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/partner")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.brand_promoter')}
+                  Brand Promoter
                 </button>
               </li>
               <li>
@@ -68,7 +68,7 @@ export default function Footer() {
                   onClick={() => handleNavigation("/culture")}
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.culture')}
+                  Culture
                 </button>
               </li>
             </ul>
@@ -76,7 +76,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('home.footer.legal')}</h3>
+            <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a 
@@ -85,7 +85,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.privacy_policy')}
+                  Privacy Policy
                 </a>
               </li>
               <li>
@@ -95,7 +95,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.member_agreement')}
+                  Member Agreement
                 </a>
               </li>
               <li>
@@ -105,7 +105,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.terms_of_use')}
+                  Terms of Use
                 </a>
               </li>
               <li>
@@ -115,7 +115,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.refund_policy')}
+                  Refund Policy
                 </a>
               </li>
               <li>
@@ -125,7 +125,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.cookie_policy')}
+                  Cookie Policy
                 </a>
               </li>
               <li>
@@ -143,7 +143,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.brand_promoter_agreement')}
+                  Brand Promoter Agreement
                 </a>
               </li>
               <li>
@@ -153,7 +153,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  {t('home.footer.links.japan_statutory')}
+                  Japan Statutory Advertisement Matters
                 </a>
               </li>
             </ul>
@@ -161,7 +161,7 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('home.footer.connect')}</h3>
+            <h3 className="text-lg font-semibold mb-4">Connect</h3>
             <div className="flex space-x-4 mb-4">
               <a 
                 href="https://www.instagram.com/zinrai?igsh=eDFmdGpzMWJ5MmY2&utm_source=qr" 
@@ -185,7 +185,7 @@ export default function Footer() {
             </div>
             <div className="text-sm">
               <div className="mb-3">
-                <p className="text-white/70 mb-1">{t('home.footer.contact_support')}:</p>
+                <p className="text-white/70 mb-1">Contact Support:</p>
                 <a 
                   href="mailto:support@zinrai.com"
                   className="text-white hover:text-blue-400 transition-colors font-bold"
@@ -197,13 +197,13 @@ export default function Footer() {
                 onClick={() => handleNavigation("/contact")}
                 className="text-white/70 hover:text-white transition-colors block mb-2"
               >
-                {t('home.footer.links.contact')}
+                Contact
               </button>
               <button 
                 onClick={() => handleNavigation("/documents")}
                 className="text-white/70 hover:text-white transition-colors block"
               >
-                {t('home.footer.links.documents')}
+                Documents
               </button>
             </div>
           </div>
@@ -212,10 +212,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
-            <p>&copy; 2025 ZiNRAi<span className="text-xs align-super">™</span> LLC. {t('home.footer.all_rights_reserved')}</p>
+            <p>&copy; 2025 ZiNRAi<span className="text-xs align-super">™</span> LLC. All rights reserved.</p>
             <div className="mt-4 md:mt-0">
               <p className="text-xs">
-                {t('home.footer.disclaimer')}
+                Our focus is financial education, not investment advice.
               </p>
             </div>
           </div>
