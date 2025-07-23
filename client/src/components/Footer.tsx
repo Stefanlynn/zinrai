@@ -33,7 +33,11 @@ export default function Footer() {
       documents: "Documents",
       allRightsReserved: "All rights reserved.",
       educationFocus: "Our focus is financial education, not investment advice.",
-      email: "Email"
+      email: "Email",
+      disclaimerTitle: "Important Disclaimer",
+      disclaimer1: "ZiNRAi™ products include digital and online interactive training content for analyzing, learning, and discussing general and generic information related to investments and strategies. ZiNRAi™ does not facilitate or offer access to online platforms for investment or online trading in securities, currency (including cryptocurrencies), or other financial or investment products or services. ZiNRAi™, its brand partners, and educators do not provide personalized recommendations or advice on investment strategy, nor do they provide any regulated financial services.",
+      disclaimer2: "ZiNRAi™ is not endorsed by or affiliated with any national, state, provincial, or territorial organization or association, tax authorities, or agencies, or financial regulatory body.",
+      disclaimer3: "ZiNRAi™ provides absolutely no guarantee that you will earn any money or achieve a financial goal using the methods, information, and suggestions in the content provided. Any examples or demonstrations provided are in no way a guarantee or promise that an individual will make financial gains of any kind."
     },
     ja: {
       legal: "法的事項",
@@ -56,7 +60,11 @@ export default function Footer() {
       documents: "ドキュメント",
       allRightsReserved: "すべての権利予約済み。",
       educationFocus: "私たちの焦点は金融教育であり、投資アドバイスではありません。",
-      email: "メール"
+      email: "メール",
+      disclaimerTitle: "重要な免責事項",
+      disclaimer1: "ZiNRAi™製品には、投資と戦略に関する一般的かつ汎用的な情報を分析、学習、議論するためのデジタルおよびオンラインの対話型トレーニングコンテンツが含まれています。ZiNRAi™は、証券、通貨（暗号通貨を含む）、またはその他の金融もしくは投資商品やサービスの投資やオンライン取引のためのオンラインプラットフォームへのアクセスを促進したり、提供したりすることはありません。ZiNRAi™、そのブランドパートナー、および教育者は、投資戦略に関する個人的な推奨事項やアドバイスを提供することはなく、規制された金融サービスも提供しません。",
+      disclaimer2: "ZiNRAi™は、国、州、県、地域の組織や協会、税務当局、機関、または金融規制機関によって承認されておらず、また関連もありません。",
+      disclaimer3: "ZiNRAi™は、提供されたコンテンツの方法、情報、提案を使用してお金を稼いだり、財務目標を達成したりすることを絶対に保証しません。提供される例やデモンストレーションは、個人が何らかの金銭的利益を得ることの保証や約束ではありません。"
     },
     es: {
       legal: "Legal",
@@ -79,7 +87,11 @@ export default function Footer() {
       documents: "Documentos",
       allRightsReserved: "Todos los derechos reservados.",
       educationFocus: "Nuestro enfoque es la educación financiera, no el asesoramiento de inversión.",
-      email: "Correo"
+      email: "Correo",
+      disclaimerTitle: "Aviso Legal Importante",
+      disclaimer1: "Los productos ZiNRAi™ incluyen contenido de capacitación digital e interactivo en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversiones o comercio en línea de valores, monedas (incluidas las criptomonedas) u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o asesoramiento sobre estrategias de inversión, ni proporcionan servicios financieros regulados.",
+      disclaimer2: "ZiNRAi™ no está respaldado por ni afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales o agencias, o entidad reguladora financiera.",
+      disclaimer3: "ZiNRAi™ no proporciona absolutamente ninguna garantía de que ganará dinero o logrará un objetivo financiero utilizando los métodos, información y sugerencias en el contenido proporcionado. Cualquier ejemplo o demostración proporcionada no es de ninguna manera una garantía o promesa de que un individuo obtendrá ganancias financieras de cualquier tipo."
     }
   };
 
@@ -283,6 +295,18 @@ export default function Footer() {
               >
                 {texts.documents}
               </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Disclaimer Section */}
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-lg font-semibold mb-4 text-center">{texts.disclaimerTitle}</h3>
+            <div className="text-sm text-white/70 space-y-3">
+              <p>{texts.disclaimer1}</p>
+              <p>{texts.disclaimer2}</p>
+              <p>{texts.disclaimer3}</p>
             </div>
           </div>
         </div>
