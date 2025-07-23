@@ -25,7 +25,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     
     interpolation: {
       escapeValue: false, // React already escapes by default
@@ -33,7 +33,7 @@ i18n
     
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
-      caches: ['localStorage'],
+      caches: [],
     },
     
     // Force default language to English

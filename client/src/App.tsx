@@ -362,7 +362,7 @@ function App() {
                   className="h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
                   aria-label="Login to ZiNRAi app"
                 >
-                  <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">{t('common.login')}</span>
+                  <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
                 </a>
                 <button
                   onClick={() => {
@@ -371,7 +371,7 @@ function App() {
                   className="h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
                   aria-label="Watch ZiNRAi introduction video"
                 >
-                  <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">{t('common.watchNow')}</span>
+                  <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Watch Now</span>
                 </button>
               </div>
             )}
@@ -505,7 +505,7 @@ function App() {
                         className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
                         aria-label="Login to ZiNRAi app"
                       >
-                        <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">{t('common.login')}</span>
+                        <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
                       </a>
                     </div>
                   </div>
