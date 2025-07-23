@@ -20,7 +20,14 @@ import cryptoInvestorVideo from "../assets/investor-checking-bitcoin-ethereum-an
 import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  
+  // Wait for i18n to be ready
+  if (!i18n.isInitialized) {
+    return <div className="min-h-screen bg-black flex items-center justify-center text-white">Loading...</div>;
+  }
+  
+
   // State to track whether menu is open
   const [menuOpen, setMenuOpen] = useState(false);
   // State to track which icon to display
