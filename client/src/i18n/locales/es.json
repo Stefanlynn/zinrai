@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "product": "Producto",
+    "partner": "Socio",
+    "culture": "Cultura",
+    "insights": "Perspectivas",
+    "leadership": "Liderazgo",
+    "profile": "Perfil",
+    "contact": "Contacto"
+  },
+  "home": {
+    "hero": {
+      "title": "ZiNRAi™",
+      "subtitle": "Plataforma de Aprendizaje Digital",
+      "description": "Plataforma innovadora de aprendizaje digital para educación financiera y análisis de estrategias."
+    },
+    "sections": {
+      "courses": "Cursos",
+      "partner_program": "Programa de Socios",
+      "culture": "Cultura",
+      "insights": "Perspectivas",
+      "leadership": "Liderazgo",
+      "contact": "Contacto",
+      "profile": "Perfil",
+      "coming_soon": "Próximamente"
+    },
+    "footer": {
+      "company_info": "Información de la Empresa",
+      "follow_us": "Síguenos",
+      "email": "Correo: support@zinrai.com",
+      "disclaimer_title": "Aviso Importante",
+      "disclaimer_text": "Los productos ZiNRAi™ incluyen contenido de capacitación digital e interactivo en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversión o comercio en línea de valores, moneda (incluidas criptomonedas) u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o consejos sobre estrategia de inversión, ni proporcionan ningún servicio financiero regulado.",
+      "disclaimer_text2": "ZiNRAi™ no está respaldado o afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales o agencias, u organismo regulador financiero."
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  }
+}

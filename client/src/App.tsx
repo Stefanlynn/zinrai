@@ -4,7 +4,9 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from 'react-i18next';
 import { FiUser } from "react-icons/fi";
+import LanguageSelector from "@/components/LanguageSelector";
 import zinraiLogo from "./assets/zinrai-circle-logo.png";
 
 import Footer from "./components/Footer";
@@ -254,6 +256,7 @@ function Router() {
 }
 
 function App() {
+  const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const [videoPopupOpen, setVideoPopupOpen] = useState(false);
@@ -491,16 +494,19 @@ function App() {
                       ZiNRAi
                     </div>
                     
-                    {/* Login button on right side of menu */}
-                    <a 
-                      href="http://app.zinrai.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
-                      aria-label="Login to ZiNRAi app"
-                    >
-                      <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
-                    </a>
+                    {/* Language selector and Login button */}
+                    <div className="flex items-center space-x-3">
+                      <LanguageSelector />
+                      <a 
+                        href="http://app.zinrai.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                        aria-label="Login to ZiNRAi app"
+                      >
+                        <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
+                      </a>
+                    </div>
                   </div>
                   
                   {/* Main menu content with numbered items on left, video space on right */}
@@ -517,7 +523,7 @@ function App() {
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            Courses
+                            {t('nav.product')}
                           </button>
                         </div>
                       </div>
@@ -532,7 +538,7 @@ function App() {
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            Brand Promoter
+                            {t('nav.partner')}
                           </button>
                         </div>
                       </div>
@@ -547,7 +553,7 @@ function App() {
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            Why ZiNRAi
+                            {t('nav.culture')}
                           </button>
                         </div>
                       </div>
@@ -562,7 +568,7 @@ function App() {
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            Leadership
+                            {t('nav.leadership')}
                           </button>
                         </div>
                       </div>
@@ -579,7 +585,7 @@ function App() {
                             }}
                             className="text-white text-lg md:text-xl font-light hover:text-white/80 transition-colors"
                           >
-                            Contact
+                            {t('nav.contact')}
                           </button>
                         </div>
                       </div>

@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "product": "プロダクト",
+    "partner": "パートナー",
+    "culture": "カルチャー",
+    "insights": "インサイト",
+    "leadership": "リーダーシップ",
+    "profile": "プロフィール",
+    "contact": "コンタクト"
+  },
+  "home": {
+    "hero": {
+      "title": "ZiNRAi™",
+      "subtitle": "デジタル学習プラットフォーム",
+      "description": "金融教育と戦略分析のための革新的なデジタル学習プラットフォーム。"
+    },
+    "sections": {
+      "courses": "コース",
+      "partner_program": "パートナープログラム",
+      "culture": "カルチャー",
+      "insights": "インサイト",
+      "leadership": "リーダーシップ",
+      "contact": "コンタクト",
+      "profile": "プロフィール",
+      "coming_soon": "近日公開"
+    },
+    "footer": {
+      "company_info": "会社情報",
+      "follow_us": "フォローしてください",
+      "email": "メール: support@zinrai.com",
+      "disclaimer_title": "重要な免責事項",
+      "disclaimer_text": "ZiNRAi™製品には、投資や戦略に関する一般的で汎用的な情報を分析、学習、議論するためのデジタルおよびオンラインのインタラクティブトレーニングコンテンツが含まれています。ZiNRAi™は、証券、通貨（暗号通貨を含む）、またはその他の金融または投資商品やサービスの投資またはオンライン取引のためのオンラインプラットフォームへのアクセスを促進または提供しません。ZiNRAi™、そのブランドパートナー、および教育者は、投資戦略に関する個人的な推奨事項やアドバイスを提供せず、規制された金融サービスも提供しません。",
+      "disclaimer_text2": "ZiNRAi™は、国、州、省、または準州の組織や協会、税務当局、または機関、または金融規制機関によって承認または提携されていません。"
+    }
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "back": "戻る",
+    "next": "次へ",
+    "submit": "送信",
+    "cancel": "キャンセル",
+    "save": "保存"
+  }
+}
