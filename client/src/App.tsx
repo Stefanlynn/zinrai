@@ -317,13 +317,14 @@ function App() {
         
 
         
-        {/* Header - Clean minimal design with dark gray background */}
-        <header className="fixed top-0 left-0 right-0 h-[48px] bg-[#222222] z-[1000] flex items-center justify-between border-b border-white/10" role="banner">
-          {/* Brand logo and Watch Now button - shown on all pages except home page and when menu is open */}
-          <div className="flex items-center space-x-4">
-            {!menuOpen && !isHomePage && (
+        {/* Header - Redesigned with better layout and spacing */}
+        <header className="fixed top-0 left-0 right-0 h-[60px] bg-[#1a1a1a] z-[1000] flex items-center justify-between border-b border-white/10 shadow-lg" role="banner">
+          {/* Left Section: Logo and Action Buttons */}
+          <div className="flex items-center space-x-6 px-6">
+            {/* Brand Logo - Always visible except when mobile menu is open */}
+            {!menuOpen && (
               <a 
-                className="ml-6 cursor-pointer flex items-center space-x-2"
+                className="cursor-pointer flex items-center space-x-3 group"
                 onClick={(e) => {
                   e.preventDefault();
                   setLocation('/');
@@ -334,57 +335,38 @@ function App() {
                 <img 
                   src={zinraiLogo} 
                   alt="ZiNRAi™ Logo" 
-                  className="w-6 h-6 object-contain"
+                  className="w-8 h-8 object-contain group-hover:scale-105 transition-transform duration-200"
                 />
-                <span className="text-white font-semibold tracking-wide text-lg">ZiNRAi<span className="text-xs align-super">™</span></span>
+                <span className="text-white font-bold tracking-wide text-xl group-hover:text-white/90 transition-colors">
+                  ZiNRAi<span className="text-sm align-super">™</span>
+                </span>
               </a>
             )}
-            {menuOpen && <div className="ml-6 w-8"></div>}
             
             {/* Watch Now button for desktop - only on home page */}
             {!menuOpen && isHomePage && (
               <button
                 onClick={() => setVideoPopupOpen(true)}
-                className="hidden md:flex ml-6 h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                className="hidden lg:flex h-[40px] px-6 bg-gradient-to-r from-blue-600/80 to-purple-600/80 hover:from-blue-600 hover:to-purple-600 border border-white/20 rounded-lg items-center justify-center cursor-pointer transition-all duration-300 group shadow-md"
                 aria-label="Watch ZiNRAi introduction video"
               >
-                <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Watch Now</span>
+                <svg className="w-4 h-4 mr-2 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <span className="text-white text-sm font-medium tracking-wide">Watch Now</span>
               </button>
             )}
             
-            {/* Login, Watch Now, and Language buttons on left side for mobile home page */}
-            {isHomePage && !menuOpen && (
-              <div className="md:hidden ml-6 flex items-center space-x-2">
-                <LanguageSelector />
-                <a 
-                  href="http://app.zinrai.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
-                  aria-label="Login to ZiNRAi app"
-                >
-                  <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
-                </a>
-                <button
-                  onClick={() => {
-                    setVideoPopupOpen(true);
-                  }}
-                  className="h-[32px] px-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
-                  aria-label="Watch ZiNRAi introduction video"
-                >
-                  <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Watch Now</span>
-                </button>
-              </div>
-            )}
+
             
 
 
           </div>
           
-          {/* Desktop navigation */}
-          <nav className="hidden md:flex items-center space-x-8 mx-auto" role="navigation" aria-label="Main Navigation">
+          {/* Center Section: Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main Navigation">
             <a 
-              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
               href="/product"
               onClick={(e) => {
                 e.preventDefault();
@@ -394,7 +376,7 @@ function App() {
               {t('nav.product')}
             </a>
             <a 
-              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
               href="/partner"
               onClick={(e) => {
                 e.preventDefault();
@@ -404,7 +386,7 @@ function App() {
               {t('nav.partner')}
             </a>
             <a 
-              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
               href="/culture"
               onClick={(e) => {
                 e.preventDefault();
@@ -414,7 +396,17 @@ function App() {
               {t('nav.culture')}
             </a>
             <a 
-              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
+              href="/insights"
+              onClick={(e) => {
+                e.preventDefault();
+                setLocation('/insights');
+              }}
+            >
+              {t('nav.insights')}
+            </a>
+            <a 
+              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
               href="/leadership"
               onClick={(e) => {
                 e.preventDefault();
@@ -425,7 +417,7 @@ function App() {
             </a>
 
             <a 
-              className="text-white/70 text-sm font-light hover:text-white transition-colors"
+              className="text-white/80 text-sm font-medium hover:text-white hover:scale-105 transition-all duration-200 py-2 px-3 rounded-md hover:bg-white/5"
               href="/contact"
               onClick={(e) => {
                 e.preventDefault();
@@ -437,39 +429,66 @@ function App() {
 
           </nav>
           
-          {/* Language Selector and Login button for desktop */}
-          <div className="hidden md:flex items-center space-x-3 mr-6">
-            <LanguageSelector />
-            {!menuOpen && (
+          {/* Right Section: Language Selector and Actions */}
+          <div className="flex items-center space-x-4 px-6">
+            {/* Desktop Language Selector and Login */}
+            <div className="hidden lg:flex items-center space-x-4">
+              <LanguageSelector />
               <a 
                 href="http://app.zinrai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-[32px] px-5 bg-black/40 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
+                className="h-[40px] px-6 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 group shadow-md"
                 aria-label="Login to ZiNRAi app"
               >
-                <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
+                <span className="text-white text-sm font-medium tracking-wide group-hover:scale-105 transition-transform">Login</span>
               </a>
+            </div>
+
+            {/* Mobile Actions - Home Page Only */}
+            {isHomePage && !menuOpen && (
+              <div className="lg:hidden flex items-center space-x-3">
+                <LanguageSelector />
+                <a 
+                  href="http://app.zinrai.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-[36px] px-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-md flex items-center justify-center cursor-pointer transition-all duration-300"
+                  aria-label="Login to ZiNRAi app"
+                >
+                  <span className="text-white text-xs font-medium">Login</span>
+                </a>
+                <button
+                  onClick={() => setVideoPopupOpen(true)}
+                  className="h-[36px] px-3 bg-blue-600/80 hover:bg-blue-600 border border-white/20 rounded-md flex items-center justify-center cursor-pointer transition-all duration-300"
+                  aria-label="Watch ZiNRAi introduction video"
+                >
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
             )}
+
+            {/* Mobile menu toggle */}
+            <div className="lg:hidden" ref={menuRef}>
+              <button 
+                className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/5 rounded-lg"
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+                aria-expanded={menuOpen ? "true" : "false"}
+                aria-controls="mobile-menu"
+              >
+                <div className="relative w-6 h-6 flex items-center justify-center">
+                  <div className={`w-6 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'}`}></div>
+                  <div className={`w-6 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+                  <div className={`w-6 h-[2px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'}`}></div>
+                </div>
+              </button>
+            </div>
           </div>
           
 
-            
-          {/* Mobile menu toggle - left side */}
-          <div className="md:hidden" ref={menuRef}>
-            <button 
-              className="h-[48px] w-[48px] flex items-center justify-center cursor-pointer ml-8 z-10"
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen ? "true" : "false"}
-              aria-controls="mobile-menu"
-            >
-              <div className="relative w-5 h-5 flex items-center justify-center">
-                <div className={`w-5 h-[1px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 w-5 translate-y-0' : '-translate-y-[4px]'}`}></div>
-                <div className={`w-4 h-[1px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
-                <div className={`w-5 h-[1px] bg-white absolute transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 w-5 translate-y-0' : 'translate-y-[4px]'}`}></div>
-              </div>
-            </button>
             
             {/* Mobile menu */}
             {menuOpen && (
@@ -729,7 +748,6 @@ function App() {
                 </div>
               </div>
             )}
-          </div>
         </header>
         
         {/* Centered header text content */}
