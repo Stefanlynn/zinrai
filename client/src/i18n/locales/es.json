@@ -358,6 +358,18 @@
   "partner": {
     "title": "Promotor de Marca",
     "subtitle": "Convierte tu pasión por el propósito en un impacto poderoso.",
+    "how_it_works": {
+      "title": "Cómo Funciona el Promotor de Marca ZiNRAi™",
+      "step1": {
+        "title": "Paso 1: Inscripción de Promotor de Marca",
+        "description": "Paga una tarifa de inscripción única de $24.95 para unirte al programa de Promotor de Marca ZiNRAi™ y comenzar a ganar comisiones compartiendo nuestros productos educativos."
+      },
+      "step2": {
+        "title": "Paso 2: Elige Tu Plan de Acceso Mensual",
+        "description": "Después de la inscripción, selecciona ALL ACCESS Mensual ($184.95) o VIP ACCESS Mensual ($249.95) para acceder al contenido educativo. Tu primera facturación mensual comienza 28 días después de la inscripción."
+      },
+      "footer_note": "Los Promotores de Marca ganan comisiones mientras acceden al mismo contenido educativo de alta calidad con ciclos de facturación de 28 días."
+    },
     "benefits": {
       "training": {
         "title": "Entrenamiento y Mentoría",

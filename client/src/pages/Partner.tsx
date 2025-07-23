@@ -133,25 +133,25 @@ export default function Partner() {
 
             {/* Brand Promoter How It Works */}
             <div className="relative z-10 max-w-md mx-auto bg-black/30 rounded-lg p-4 md:p-6 border border-white/20 mb-8 shadow-lg">
-              <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">How ZiNRAi™ Brand Promoter Works</h3>
+              <h3 className="text-lg md:text-xl font-semibold text-white text-center mb-4 md:mb-6">{t('partner.how_it_works.title')}</h3>
               <div className="text-white/90 space-y-4">
                 <div className="bg-green-900/30 rounded-lg p-3 md:p-4 border border-green-400/30">
-                  <p className="text-sm md:text-base leading-relaxed font-medium text-green-300 mb-2">Step 1: Brand Promoter Enrollment</p>
+                  <p className="text-sm md:text-base leading-relaxed font-medium text-green-300 mb-2">{t('partner.how_it_works.step1.title')}</p>
                   <p className="text-xs md:text-sm leading-relaxed text-white/80">
-                    Pay a one-time enrollment fee of $24.95 to join the ZiNRAi™ Brand Promoter program and start earning commissions by sharing our educational products.
+                    {t('partner.how_it_works.step1.description')}
                   </p>
                 </div>
                 
                 <div className="bg-blue-900/30 rounded-lg p-3 md:p-4 border border-blue-400/30">
-                  <p className="text-sm md:text-base leading-relaxed font-medium text-blue-300 mb-2">Step 2: Choose Your Monthly Access Plan</p>
+                  <p className="text-sm md:text-base leading-relaxed font-medium text-blue-300 mb-2">{t('partner.how_it_works.step2.title')}</p>
                   <p className="text-xs md:text-sm leading-relaxed text-white/80">
-                    After enrollment, select either ALL ACCESS Monthly ($184.95) or VIP ACCESS Monthly ($249.95) to access educational content. Your first monthly billing begins 28 days after enrollment.
+                    {t('partner.how_it_works.step2.description')}
                   </p>
                 </div>
                 
                 <div className="border-t border-white/20 pt-3 mt-4">
                   <p className="text-white/60 text-xs md:text-sm text-center">
-                    Brand Promoters earn commissions while accessing the same high-quality educational content with 28-day billing cycles.
+                    {t('partner.how_it_works.footer_note')}
                   </p>
                 </div>
               </div>

@@ -143,6 +143,18 @@
     "hero_title": "Join the ZiNRAi™ Brand Promoter Movement",
     "hero_subtitle": "Lead with Purpose. Grow with Community. Impact with Integrity.",
     "why_title": "Why Join Our Movement?",
+    "how_it_works": {
+      "title": "How ZiNRAi™ Brand Promoter Works",
+      "step1": {
+        "title": "Step 1: Brand Promoter Enrollment",
+        "description": "Pay a one-time enrollment fee of $24.95 to join the ZiNRAi™ Brand Promoter program and start earning commissions by sharing our educational products."
+      },
+      "step2": {
+        "title": "Step 2: Choose Your Monthly Access Plan",
+        "description": "After enrollment, select either ALL ACCESS Monthly ($184.95) or VIP ACCESS Monthly ($249.95) to access educational content. Your first monthly billing begins 28 days after enrollment."
+      },
+      "footer_note": "Brand Promoters earn commissions while accessing the same high-quality educational content with 28-day billing cycles."
+    },
     "benefits": {
       "training": {
         "title": "Training & Mentorship",
