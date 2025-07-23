@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "wouter";
+import { useTranslation } from 'react-i18next';
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 
@@ -19,6 +20,7 @@ import cryptoInvestorVideo from "../assets/investor-checking-bitcoin-ethereum-an
 import ziNRaiLogoImage from "../assets/zinrai-circle-logo.png";
 
 export default function Home() {
+  const { t } = useTranslation();
   // State to track whether menu is open
   const [menuOpen, setMenuOpen] = useState(false);
   // State to track which icon to display
@@ -375,38 +377,38 @@ export default function Home() {
                   onClick={() => navigateToPage("/")}
                   className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
                 >
-                  HOME
+                  {t('nav.home')}
                 </button>
                 <button
                   onClick={() => navigateToPage("/product")}
                   className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
                 >
-                  COURSES
+                  {t('nav.product')}
                 </button>
                 <button
                   onClick={() => navigateToPage("/partner")}
                   className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
                 >
-                  BRAND PROMOTER
+                  {t('nav.partner')}
                 </button>
                 <button
                   onClick={() => navigateToPage("/culture")}
                   className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
                 >
-                  CULTURE
+                  {t('nav.culture')}
                 </button>
                 <button
                   onClick={() => navigateToPage("/leadership")}
                   className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
                 >
-                  LEADERSHIP
+                  {t('nav.leadership')}
                 </button>
 
                 <button
                   onClick={() => navigateToPage("/contact")}
                   className="menu-icon block text-2xl md:text-3xl font-light tracking-wider hover:text-blue-400 transition-colors duration-300"
                 >
-                  CONTACT
+                  {t('nav.contact')}
                 </button>
               </div>
 

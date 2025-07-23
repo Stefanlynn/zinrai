@@ -390,7 +390,7 @@ function App() {
                 setLocation('/product');
               }}
             >
-              Courses
+              {t('nav.product')}
             </a>
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
@@ -400,7 +400,7 @@ function App() {
                 setLocation('/partner');
               }}
             >
-              Brand Promoter
+              {t('nav.partner')}
             </a>
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
@@ -410,7 +410,7 @@ function App() {
                 setLocation('/culture');
               }}
             >
-              Why ZiNRAi
+              {t('nav.culture')}
             </a>
             <a 
               className="text-white/70 text-sm font-light hover:text-white transition-colors"
@@ -420,7 +420,7 @@ function App() {
                 setLocation('/leadership');
               }}
             >
-              Leadership
+              {t('nav.leadership')}
             </a>
 
             <a 
@@ -431,7 +431,7 @@ function App() {
                 setLocation('/contact');
               }}
             >
-              Contact
+              {t('nav.contact')}
             </a>
 
           </nav>
@@ -503,14 +503,14 @@ function App() {
                       className="h-[36px] px-6 bg-black/20 backdrop-blur-sm border border-white/20 rounded-sm flex items-center justify-center cursor-pointer hover:border-white/40 hover:bg-white/5 transition-all duration-300 group"
                       aria-label="Login to ZiNRAi app"
                     >
-                      <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">Login</span>
+                      <span className="text-white/80 text-sm font-light tracking-wide group-hover:text-white transition-colors">{t('common.login')}</span>
                     </a>
                   </div>
                   
                   {/* Language selector for mobile */}
                   <div className="px-6 pb-4 border-b border-white/10">
                     <div className="flex items-center justify-between">
-                      <span className="text-white/70 text-sm">Language</span>
+                      <span className="text-white/70 text-sm">{t('common.language')}</span>
                       <LanguageSelector />
                     </div>
                   </div>

@@ -1,9 +1,9 @@
 {
   "nav": {
     "home": "Home",
-    "product": "Product",
-    "partner": "Partner",
-    "culture": "Culture",
+    "product": "Courses",
+    "partner": "Brand Promoter",
+    "culture": "Why ZiNRAi",
     "insights": "Insights",
     "leadership": "Leadership",
     "profile": "Profile",
@@ -41,6 +41,46 @@
     "next": "Next",
     "submit": "Submit",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "login": "Login",
+    "watchNow": "Watch Now",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "comingSoon": "Coming Soon",
+    "language": "Language"
+  },
+  "buttons": {
+    "watchNow": "Watch Now",
+    "login": "Login",
+    "getStarted": "Get Started",
+    "startNow": "Start Now",
+    "learnMore": "Learn More"
+  },
+  "pages": {
+    "product": {
+      "title": "Our Courses",
+      "subtitle": "Comprehensive financial education programs",
+      "description": "Master the fundamentals of financial literacy with our expertly designed courses."
+    },
+    "partner": {
+      "title": "Brand Promoter Program",
+      "subtitle": "Join our community of financial educators",
+      "description": "Become a ZiNRAi Brand Promoter and help others achieve financial success."
+    },
+    "culture": {
+      "title": "Why ZiNRAi",
+      "subtitle": "Our mission and values",
+      "description": "Discover what drives us to create transformative financial education experiences."
+    },
+    "leadership": {
+      "title": "Leadership Team",
+      "subtitle": "Meet our experienced team",
+      "description": "Get to know the leaders driving ZiNRAi's mission forward."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "Get in touch with our team",
+      "description": "Have questions? We're here to help you on your financial education journey."
+    }
   }
 }

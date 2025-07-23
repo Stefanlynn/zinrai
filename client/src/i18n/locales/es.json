@@ -1,9 +1,9 @@
 {
   "nav": {
     "home": "Inicio",
-    "product": "Producto",
-    "partner": "Socio",
-    "culture": "Cultura",
+    "product": "Cursos",
+    "partner": "Promotor de Marca",
+    "culture": "Por qué ZiNRAi",
     "insights": "Perspectivas",
     "leadership": "Liderazgo",
     "profile": "Perfil",
@@ -13,7 +13,7 @@
     "hero": {
       "title": "ZiNRAi™",
       "subtitle": "Plataforma de Aprendizaje Digital",
-      "description": "Plataforma innovadora de aprendizaje digital para educación financiera y análisis de estrategias."
+      "description": "Plataforma de aprendizaje digital innovadora para educación financiera y análisis estratégico."
     },
     "sections": {
       "courses": "Cursos",
@@ -29,9 +29,9 @@
       "company_info": "Información de la Empresa",
       "follow_us": "Síguenos",
       "email": "Correo: support@zinrai.com",
-      "disclaimer_title": "Aviso Importante",
-      "disclaimer_text": "Los productos ZiNRAi™ incluyen contenido de capacitación digital e interactivo en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversión o comercio en línea de valores, moneda (incluidas criptomonedas) u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o consejos sobre estrategia de inversión, ni proporcionan ningún servicio financiero regulado.",
-      "disclaimer_text2": "ZiNRAi™ no está respaldado o afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales o agencias, u organismo regulador financiero."
+      "disclaimer_title": "Descargo de Responsabilidad Importante",
+      "disclaimer_text": "Los productos ZiNRAi™ incluyen contenido de entrenamiento digital e interactivo en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. ZiNRAi™ no facilita ni ofrece acceso a plataformas en línea para inversión o comercio en línea de valores, monedas (incluidas criptomonedas), u otros productos o servicios financieros o de inversión. ZiNRAi™, sus socios de marca y educadores no proporcionan recomendaciones personalizadas o asesoramiento sobre estrategia de inversión, ni proporcionan servicios financieros regulados.",
+      "disclaimer_text2": "ZiNRAi™ no está respaldado por ni afiliado con ninguna organización o asociación nacional, estatal, provincial o territorial, autoridades fiscales o agencias, o cuerpo regulatorio financiero."
     }
   },
   "common": {
@@ -41,6 +41,46 @@
     "next": "Siguiente",
     "submit": "Enviar",
     "cancel": "Cancelar",
-    "save": "Guardar"
+    "save": "Guardar",
+    "login": "Iniciar Sesión",
+    "watchNow": "Ver Ahora",
+    "getStarted": "Comenzar",
+    "learnMore": "Saber Más",
+    "comingSoon": "Próximamente",
+    "language": "Idioma"
+  },
+  "buttons": {
+    "watchNow": "Ver Ahora",
+    "login": "Iniciar Sesión",
+    "getStarted": "Comenzar",
+    "startNow": "Comenzar Ahora",
+    "learnMore": "Saber Más"
+  },
+  "pages": {
+    "product": {
+      "title": "Nuestros Cursos",
+      "subtitle": "Programas integrales de educación financiera",
+      "description": "Domina los fundamentos de la educación financiera con nuestros cursos diseñados por expertos."
+    },
+    "partner": {
+      "title": "Programa de Promotor de Marca",
+      "subtitle": "Únete a nuestra comunidad de educadores financieros",
+      "description": "Conviértete en un Promotor de Marca ZiNRAi y ayuda a otros a lograr el éxito financiero."
+    },
+    "culture": {
+      "title": "Por qué ZiNRAi",
+      "subtitle": "Nuestra misión y valores",
+      "description": "Descubre lo que nos impulsa a crear experiencias transformadoras de educación financiera."
+    },
+    "leadership": {
+      "title": "Equipo de Liderazgo",
+      "subtitle": "Conoce a nuestro equipo experimentado",
+      "description": "Conoce a los líderes que impulsan la misión de ZiNRAi hacia adelante."
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "subtitle": "Ponte en contacto con nuestro equipo",
+      "description": "¿Tienes preguntas? Estamos aquí para ayudarte en tu jornada de educación financiera."
+    }
   }
 }
