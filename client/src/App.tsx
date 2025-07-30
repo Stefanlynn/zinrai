@@ -15,9 +15,6 @@ import Logo from "@/pages/Logo";
 import Product from "@/pages/Product";
 import Partner from "@/pages/Partner";
 import Culture from "@/pages/Culture";
-import Insights from "@/pages/Insights";
-import Leadership from "@/pages/Leadership";
-
 import Profile from "@/pages/Profile";
 import Contact from "@/pages/Contact";
 import Subscribe from "@/pages/Subscribe";
@@ -220,12 +217,7 @@ function Router() {
         {() => <PageWithHeader><Culture /></PageWithHeader>}
       </Route>
 
-      <Route path="/leadership">
-        {() => <PageWithHeader><Leadership /></PageWithHeader>}
-      </Route>
-      <Route path="/insights">
-        {() => <PageWithHeader><Insights /></PageWithHeader>}
-      </Route>
+
 
       <Route path="/profile">
         {() => <PageWithHeader><Profile /></PageWithHeader>}
@@ -424,28 +416,7 @@ function App() {
               {t('nav.culture')}
               <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </a>
-            <a 
-              className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
-              href="/insights"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavigation('/insights');
-              }}
-            >
-              {t('nav.insights')}
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-            </a>
-            <a 
-              className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
-              href="/leadership"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavigation('/leadership');
-              }}
-            >
-              {t('nav.leadership')}
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-            </a>
+
             <a 
               className="text-white/70 text-sm font-light hover:text-white/95 transition-all duration-300 py-3 px-4 relative group"
               href="/contact"

@@ -10,9 +10,7 @@ export default function Menu() {
     { number: "01", key: "nav.product", path: "/product" },
     { number: "02", key: "nav.partner", path: "/partner" },
     { number: "03", key: "nav.culture", path: "/culture" },
-    { number: "04", key: "nav.insights", path: "/insights" },
-    { number: "05", key: "nav.leadership", path: "/leadership" },
-    { number: "06", key: "nav.contact", path: "/contact" }
+    { number: "04", key: "nav.contact", path: "/contact" }
   ];
 
   const legalLinks = [
@@ -155,7 +153,7 @@ export default function Menu() {
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-white/90 transition-colors text-sm text-left"
                 >
-                  {link.text[i18n.language] || link.text.en}
+                  {link.text[i18n.language as keyof typeof link.text] || link.text.en}
                 </a>
               ))}
             </div>
