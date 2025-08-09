@@ -269,7 +269,7 @@ export default function Footer() {
                 <FaInstagram size={20} />
               </a>
               <a 
-                href="https://youtube.com/@zinrai?si=2xbcK-u8e_5HuRG2" 
+                href="https://www.youtube.com/@ZiNRAi.official" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-white transition-colors"
@@ -311,7 +311,7 @@ export default function Footer() {
 
       {/* Cookie Settings Modal */}
       {showCookieSettings && (
-        <CookieSettings onClose={() => setShowCookieSettings(false)} />
+        <CookieSettings isOpen={showCookieSettings} onClose={() => setShowCookieSettings(false)} />
       )}
     </footer>
   );
