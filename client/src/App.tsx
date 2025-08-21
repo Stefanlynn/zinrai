@@ -721,7 +721,7 @@ function App() {
                           Cookie Policy
                         </a>
                         <a 
-                          href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf"
+                          href="/assets/2025.08.19 Zinrai Website Privacy Policy 2_1755781937112.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={toggleMenu}

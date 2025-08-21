@@ -176,7 +176,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a 
-                  href="/assets/2025.06.10 Zinrai Website Privacy Policy_1751742430894.pdf"
+                  href="/assets/2025.08.19 Zinrai Website Privacy Policy 2_1755781937112.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
