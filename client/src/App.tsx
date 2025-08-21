@@ -748,7 +748,7 @@ function App() {
                           Member Agreement
                         </a>
                         <a 
-                          href="/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf"
+                          href="/assets/2025.08.19 Zinrai Website Terms of Use 2_1755781857275.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={toggleMenu}

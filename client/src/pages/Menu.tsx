@@ -61,7 +61,7 @@ export default function Menu() {
     },
     { 
       titleKey: "terms_of_use", 
-      href: "/assets/2025.06.10 Zinrai Website Terms of Use_1751742103884.pdf",
+      href: "/assets/2025.08.19 Zinrai Website Terms of Use 2_1755781857275.pdf",
       text: {
         en: "Terms of Use",
         es: "Términos de Uso",
