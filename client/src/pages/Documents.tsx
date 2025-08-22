@@ -80,7 +80,7 @@ export default function Documents() {
         </a>
 
         <a 
-          href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf"
+          href="/assets/2025.08.22 Zinrai Refund Policy 1_1755871091881.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-black/40 border border-white/20 rounded-lg p-6 mb-4 cursor-pointer hover:bg-black/50 transition-colors block">

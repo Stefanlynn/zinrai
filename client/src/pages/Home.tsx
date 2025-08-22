@@ -441,7 +441,7 @@ export default function Home() {
 {t('legal.terms_of_use')}
                   </a>
                   <a
-                    href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf"
+                    href="/assets/2025.08.22 Zinrai Refund Policy 1_1755871091881.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="menu-icon block text-white/70 hover:text-white transition-colors duration-300"
@@ -684,7 +684,7 @@ export default function Home() {
                 <li><a href="/assets/2025.08.19 Zinrai Website Privacy Policy 2_1755781937112.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.privacy_policy')}</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Member Terms_1751741707468.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.member_agreement')}</a></li>
                 <li><a href="/assets/2025.08.19 Zinrai Website Terms of Use 2_1755781857275.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.terms_of_use')}</a></li>
-                <li><a href="/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.refund_policy')}</a></li>
+                <li><a href="/assets/2025.08.22 Zinrai Refund Policy 1_1755871091881.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.refund_policy')}</a></li>
                 <li><a href="/assets/Cookie Policy 5-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.cookie_policy')}</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.brand_promoter_agreement')}</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.japan_statutory')}</a></li>

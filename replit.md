@@ -127,6 +127,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- January 23, 2025. **REFUND POLICY PDF UPDATED**: Updated all Refund Policy links across the entire website to point to the new 2025.08.22 version (2025.08.22 Zinrai Refund Policy 1_1755871091881.pdf). Updated Footer, Home, Menu, App, and Documents components to use the latest refund policy document.
 - January 23, 2025. **PRIVACY POLICY PDF UPDATED**: Updated all Privacy Policy links across the entire website to point to the new 2025.08.19 version (2025.08.19 Zinrai Website Privacy Policy 2_1755781937112.pdf). Updated Footer, Home, Menu, App, Documents, and CookieSettings components to use the latest privacy policy document.
 - January 23, 2025. **TERMS OF USE PDF UPDATED**: Updated all Terms of Use links across the entire website to point to the new 2025.08.19 version (2025.08.19 Zinrai Website Terms of Use 2_1755781857275.pdf). Updated Footer, Home, Menu, App, and Documents components to use the latest terms document.
 - January 23, 2025. **YOUTUBE LINKS UPDATED TO OFFICIAL CHANNEL**: Updated all YouTube links throughout the site to point to the correct ZiNRAi official channel (https://www.youtube.com/@ZiNRAi.official). Fixed Footer component YouTube link which appears on StartNow page and all other pages using the Footer. All social media YouTube links now direct users to the proper official channel.

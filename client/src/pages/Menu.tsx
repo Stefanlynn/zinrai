@@ -43,7 +43,7 @@ export default function Menu() {
     },
     { 
       titleKey: "refund_policy", 
-      href: "/assets/2025.06.09 Zinrai Refund Policy_1751742533480.pdf",
+      href: "/assets/2025.08.22 Zinrai Refund Policy 1_1755871091881.pdf",
       text: {
         en: "Refund Policy",
         es: "Política de Reembolso",
