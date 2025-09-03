@@ -70,7 +70,7 @@ export default function Menu() {
     },
     { 
       titleKey: "japan_statutory", 
-      href: "/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx",
+      href: "/assets/2025.09.03 Zinrai Japan Statutory Advertisement Matters_1756912064941.pdf",
       text: {
         en: "Japan Statutory Advertisement Matters",
         es: "Asuntos Publicitarios Estatutarios de Japón",

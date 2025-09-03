@@ -48,3 +48,9 @@ Preferred communication style: Simple, everyday language.
 - **Analytics**: Google Analytics 4.
 - **Libraries/Tools**: TypeScript, ESLint, Prettier, dotenv, React Icons, Lucide React.
 - **Integrations**: Instagram, YouTube (for links and video embeds).
+
+## Changelog
+- September 3, 2025. **JAPAN STATUTORY ADVERTISEMENT MATTERS PDF UPDATED**: Updated all Japan Statutory Advertisement Matters links across the entire website to point to the new 2025.09.03 version (2025.09.03 Zinrai Japan Statutory Advertisement Matters_1756912064941.pdf). Updated Footer, Home, and Menu components to use the latest Japan statutory document. Fixed 404 error that was occurring when users clicked on this link.
+- January 23, 2025. **REFUND POLICY PDF UPDATED**: Updated all Refund Policy links across the entire website to point to the new 2025.08.22 version (2025.08.22 Zinrai Refund Policy 1_1755871091881.pdf). Updated Footer, Home, Menu, App, and Documents components to use the latest refund policy document.
+- January 23, 2025. **PRIVACY POLICY PDF UPDATED**: Updated all Privacy Policy links across the entire website to point to the new 2025.08.19 version (2025.08.19 Zinrai Website Privacy Policy 2_1755781937112.pdf). Updated Footer, Home, Menu, App, Documents, and CookieSettings components to use the latest privacy policy document.
+- January 23, 2025. **TERMS OF USE PDF UPDATED**: Updated all Terms of Use links across the entire website to point to the new 2025.08.19 version (2025.08.19 Zinrai Website Terms of Use 2_1755781857275.pdf). Updated Footer, Home, Menu, App, and Documents components to use the latest terms document.

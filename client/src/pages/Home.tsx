@@ -687,7 +687,7 @@ export default function Home() {
                 <li><a href="/assets/2025.08.22 Zinrai Refund Policy 1_1755871091881.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.refund_policy')}</a></li>
                 <li><a href="/assets/Cookie Policy 5-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.cookie_policy')}</a></li>
                 <li><a href="/assets/2025.06.10 Zinrai Brand Promoter Terms_1751741845402.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.brand_promoter_agreement')}</a></li>
-                <li><a href="/assets/2025.06.10 Zinrai Japan Statutory Advertisement Matters 2_1751744521199.docx" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.japan_statutory')}</a></li>
+                <li><a href="/assets/2025.09.03 Zinrai Japan Statutory Advertisement Matters_1756912064941.pdf" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">{t('home.footer.links.japan_statutory')}</a></li>
               </ul>
             </div>
 
